@@ -25,6 +25,6 @@
 ## 참여자
 
 - **이수현**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
-- **김승민**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론)
+- **김승민**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론), burger는 아직 시도 전
 
 이 저장소는 비공개(Private)이며, 특허 출원 전까지 공개 전환하지 않습니다.
