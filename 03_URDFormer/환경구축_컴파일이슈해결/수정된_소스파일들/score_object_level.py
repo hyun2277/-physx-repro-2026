@@ -109,7 +109,12 @@ def score_one_image(data_path, image_path, urdformer_part, device, num_roots=1):
             mesh_correct += 1
 
         # --- parent accuracy ---
-        gt_rel = np.array(part_relations_gt[i]) if not isinstance(part_relations_gt, np.ndarray) else part_relations_gt[i]
+        # 버그 수정(2026-09-16): row 0(=num_roots 범위)은 루트 자신의 행이라 전부 0(의미 없음).
+        # 파트 i의 실제 관계는 row[num_roots+i]에 있음 — 직접 데이터 찍어서 확인(row0 max=0.0,
+        # row1/row2에 실제 관계 있음). 예측값 쪽(parent_pred)은 이미 num_roots+i로 맞게 인덱싱했었는데
+        # 정답값 쪽만 이 오프셋을 빠뜨렸던 게 버그였음.
+        all_rel = np.array(part_relations_gt) if not isinstance(part_relations_gt, np.ndarray) else part_relations_gt
+        gt_rel = all_rel[num_roots + i]
         gt_parent_id = np.unravel_index(np.argmax(gt_rel), gt_rel.shape)[0]
 
         pred_rel = parent_pred[num_roots + i]
@@ -127,8 +132,18 @@ def score_one_image(data_path, image_path, urdformer_part, device, num_roots=1):
         gt_end = pos_end_gt[i]
         pred_start = position_pred[i][1:]
         pred_end = position_pred_end[i][1:]
-        err = np.mean(np.abs(np.concatenate([pred_start, pred_end]).astype(float) -
-                              np.concatenate([gt_start, gt_end]).astype(float)))
+
+        # 버그 수정(2026-09-16): 논문 §Evaluation Metrics 원문 — "For small objects such as handles
+        # and knobs, we predict only the object center x1,y1 ... spatial error only considers these
+        # two values." part_names(utils.py/demo.py 원문)에서 handle=4, knob=5. 이 두 카테고리는 start
+        # 좌표(중심점)만 비교하고, end 좌표는 애초에 논문 정의상 비교 대상이 아님 — 지금까지는 전부
+        # start+end 4개 값으로 계산해서 handle/knob에 대해 불필요한 오차가 더해지고 있었음.
+        HANDLE_MESH_ID, KNOB_MESH_ID = 4, 5
+        if int(mesh_gt[i]) in (HANDLE_MESH_ID, KNOB_MESH_ID):
+            err = np.mean(np.abs(pred_start.astype(float) - gt_start.astype(float)))
+        else:
+            err = np.mean(np.abs(np.concatenate([pred_start, pred_end]).astype(float) -
+                                  np.concatenate([gt_start, gt_end]).astype(float)))
         spatial_errors.append(err)
 
     return mesh_correct, parent_correct, n_parts, spatial_errors
