@@ -113,15 +113,40 @@ def score_one_image_autodetect(pred_label_path, gt_label_path, image_path, urdfo
 
     HANDLE_MESH_ID, KNOB_MESH_ID = 4, 5
 
+    # 버그 수정(2026-09-16, 사용자 지시로 발견): 자동탐지 조건에서는 예측 박스 순서가 정답 박스
+    # 순서와 다름(GroundingDINO 탐지 순서는 정답 라벨링 순서와 무관) — 직접 샘플(test0)로 확인:
+    # pred박스0(손잡이)가 pred박스2(문)를 parent로 가리키는데, pred박스2는 GT박스0(문)에 매칭되고
+    # GT박스1(손잡이)의 실제 parent도 GT박스0 — 매핑하면 정확한 예측인데, "예측 인덱스"와 "정답
+    # 인덱스"를 그대로 비교했더니(3 vs 1) 틀렸다고 오채점되고 있었음. 예측 parent가 가리키는 대상이
+    # "예측 집합의 몇 번째 박스"인지 먼저 알아낸 뒤, 그 예측 박스가 매칭된 정답 박스 번호로 변환해서
+    # 비교해야 함. parent=root(인덱스 < num_roots)는 두 집합에서 공유되는 값이라 그대로 비교해도 됨.
+    pred_to_gt = {p: g for p, g in matches}
+
     for pred_idx, gt_idx in matches:
         if int(mesh_pred[pred_idx]) == int(mesh_gt[gt_idx]):
             result['mesh_correct'] += 1
 
         gt_rel = part_relations_gt[num_roots + gt_idx]
-        gt_parent_id = np.unravel_index(np.argmax(gt_rel), gt_rel.shape)[0]
+        gt_parent_raw = np.unravel_index(np.argmax(gt_rel), gt_rel.shape)[0]  # GT 공간의 인덱스
+
         pred_rel = parent_pred[num_roots + pred_idx]
-        pred_parent_id = np.unravel_index(np.argmax(pred_rel), pred_rel.shape)[0]
-        if gt_parent_id == pred_parent_id:
+        pred_parent_raw = np.unravel_index(np.argmax(pred_rel), pred_rel.shape)[0]  # 예측 공간의 인덱스
+
+        if pred_parent_raw < num_roots and gt_parent_raw < num_roots:
+            # 둘 다 "루트(물체 본체)"를 가리킴 -- 루트 인덱스는 두 공간에서 동일한 의미이므로 그대로 비교
+            parent_ok = (pred_parent_raw == gt_parent_raw)
+        elif pred_parent_raw < num_roots or gt_parent_raw < num_roots:
+            # 한쪽만 루트를 가리키면 무조건 불일치
+            parent_ok = False
+        else:
+            # 둘 다 "다른 파트"를 가리킴 -- 예측이 가리키는 예측-파트 인덱스를,
+            # 그 예측-파트가 매칭된 정답-파트 인덱스로 변환한 뒤 비교
+            pred_parent_part_idx = pred_parent_raw - num_roots  # 예측 집합 내 인덱스
+            gt_parent_part_idx = gt_parent_raw - num_roots      # 정답 집합 내 인덱스
+            mapped_gt_idx = pred_to_gt.get(pred_parent_part_idx, None)
+            parent_ok = (mapped_gt_idx is not None and mapped_gt_idx == gt_parent_part_idx)
+
+        if parent_ok:
             result['parent_correct'] += 1
 
         gt_start = pos_start_gt[gt_idx]
