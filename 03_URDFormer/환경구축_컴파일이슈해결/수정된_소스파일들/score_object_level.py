@@ -165,46 +165,73 @@ def main():
     urdformer_part.eval()
 
     import glob, os
-    label_files = sorted(glob.glob(f"{args.asset_path}/{args.category}/labels/label*.npy"))
-    if args.limit:
-        label_files = label_files[:args.limit]
+    categories = ['cabinets', 'ovens', 'dishwashers', 'fridges', 'washers'] if args.category == 'all' else [args.category]
 
-    total_mesh_correct = 0
-    total_parent_correct = 0
-    total_parts = 0
-    all_spatial_errors = []
-    n_images_scored = 0
-    n_images_skipped = 0
+    grand_mesh_correct = 0
+    grand_parent_correct = 0
+    grand_parts = 0
+    grand_spatial_errors = []
+    grand_images_scored = 0
+    grand_images_total = 0
 
     with torch.no_grad():
-        for label_path in label_files:
-            test_id = os.path.basename(label_path)[5:-4]  # "label0.npy" -> "0"
-            image_path = f"{args.asset_path}/{args.category}/images/test{test_id}.jpg"
-            if not os.path.exists(image_path):
-                n_images_skipped += 1
-                print(f"[skip] no image for {label_path}")
-                continue
-            try:
-                mesh_c, parent_c, n_parts, sp_errs = score_one_image(label_path, image_path, urdformer_part, device)
-            except Exception as e:
-                n_images_skipped += 1
-                print(f"[skip] {label_path}: {type(e).__name__}: {e}")
-                continue
-            total_mesh_correct += mesh_c
-            total_parent_correct += parent_c
-            total_parts += n_parts
-            all_spatial_errors.extend(sp_errs)
-            n_images_scored += 1
+        for cat in categories:
+            label_files = sorted(glob.glob(f"{args.asset_path}/{cat}/labels/label*.npy"))
+            if args.limit:
+                label_files = label_files[:args.limit]
 
-    print("=" * 60)
-    print(f"category: {args.category}")
-    print(f"images scored: {n_images_scored} / {len(label_files)} (skipped: {n_images_skipped})")
-    print(f"total parts: {total_parts}")
-    if total_parts > 0:
-        print(f"Mesh(category) Accuracy: {total_mesh_correct/total_parts:.4f}")
-        print(f"Parent Accuracy: {total_parent_correct/total_parts:.4f}")
-        print(f"Spatial Error (mean abs, discretized bins): {np.mean(all_spatial_errors):.4f}")
-    print("=" * 60)
+            total_mesh_correct = 0
+            total_parent_correct = 0
+            total_parts = 0
+            all_spatial_errors = []
+            n_images_scored = 0
+            n_images_skipped = 0
+
+            for label_path in label_files:
+                test_id = os.path.basename(label_path)[5:-4]  # "label0.npy" -> "0"
+                image_path = f"{args.asset_path}/{cat}/images/test{test_id}.jpg"
+                if not os.path.exists(image_path):
+                    n_images_skipped += 1
+                    print(f"[skip] no image for {label_path}")
+                    continue
+                try:
+                    mesh_c, parent_c, n_parts, sp_errs = score_one_image(label_path, image_path, urdformer_part, device)
+                except Exception as e:
+                    n_images_skipped += 1
+                    print(f"[skip] {label_path}: {type(e).__name__}: {e}")
+                    continue
+                total_mesh_correct += mesh_c
+                total_parent_correct += parent_c
+                total_parts += n_parts
+                all_spatial_errors.extend(sp_errs)
+                n_images_scored += 1
+
+            print("=" * 60)
+            print(f"category: {cat}")
+            print(f"images scored: {n_images_scored} / {len(label_files)} (skipped: {n_images_skipped})")
+            print(f"total parts: {total_parts}")
+            if total_parts > 0:
+                print(f"Mesh(category) Accuracy: {total_mesh_correct/total_parts:.4f}")
+                print(f"Parent Accuracy: {total_parent_correct/total_parts:.4f}")
+                print(f"Spatial Error (mean abs, discretized bins): {np.mean(all_spatial_errors):.4f}")
+            print("=" * 60)
+
+            grand_mesh_correct += total_mesh_correct
+            grand_parent_correct += total_parent_correct
+            grand_parts += total_parts
+            grand_spatial_errors.extend(all_spatial_errors)
+            grand_images_scored += n_images_scored
+            grand_images_total += len(label_files)
+
+    if args.category == 'all':
+        print("#" * 60)
+        print(f"GRAND TOTAL across {categories}")
+        print(f"images scored: {grand_images_scored} / {grand_images_total}")
+        print(f"total parts: {grand_parts}")
+        print(f"Mesh(category) Accuracy: {grand_mesh_correct/grand_parts:.4f}")
+        print(f"Parent Accuracy: {grand_parent_correct/grand_parts:.4f}")
+        print(f"Spatial Error (mean abs, discretized bins): {np.mean(grand_spatial_errors):.4f}")
+        print("#" * 60)
 
 
 if __name__ == "__main__":
