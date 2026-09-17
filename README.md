@@ -43,6 +43,8 @@
 
 ### 3. URDFormer
 - **Title**: *URDFormer: A Pipeline for Constructing Articulated Simulation Environments from Real-World Images*
+- **Authors**: Zoey Chen, Aaron Walsman, Marius Memmel, Kaichun Mo, Alex Fang, Karthikeya Vemuri, Alan Wu,
+  Dieter Fox, Abhishek Gupta
 - **Venue**: RSS(Robotics: Science and Systems) 2024 — arXiv 페이지 Comments 필드 "Accepted at RSS2024"로
   직접 재확인
 - **Paper**: [arXiv:2405.11656](https://arxiv.org/abs/2405.11656) · [프로젝트 페이지](https://urdformer.github.io/)
