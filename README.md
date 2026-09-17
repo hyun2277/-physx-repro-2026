@@ -13,31 +13,50 @@
 ### 1. PhysGaussian
 - **Title**: *PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics*
 - **Authors**: Tianyi Xie, Zeshun Zong, Yuxing Qiu, Xuan Li, Yutao Feng, Yin Yang, Chenfanfu Jiang
-- **Venue**: CVPR 2024 (Highlight)
+- **Venue**: CVPR 2024 (arXiv 페이지의 "Comments" 필드: "Accepted by CVPR 2024" 직접 확인. **"Highlight"
+  등급 여부는 공식 GitHub README와 arXiv 양쪽 다 확인되지 않아 표기하지 않음** — 이전 버전에 있던
+  "(Highlight)" 표기는 근거를 찾지 못해 삭제함)
 - **Paper**: [arXiv:2311.12198](https://arxiv.org/abs/2311.12198)
-- **Official Code**: [github.com/XPandora/PhysGaussian](https://github.com/XPandora/PhysGaussian) — 사용 commit `8339ed6aa2cd5d50e1001a254a3d95aea678a956`
-  (내부 submodule: `gaussian-splatting` `d9fad7b3450bf4bd29316315032d57157e23a515`, 그 하위 `SIBR_viewers`/`diff-gaussian-rasterization`/`simple-knn`도 각각 고정 commit 사용 — 상세는 `01_PhysGaussian/김승민_코드버전_교차검증.md`)
+- **Official Code**: [github.com/XPandora/PhysGaussian](https://github.com/XPandora/PhysGaussian) — 사용 commit
+  `8339ed6aa2cd5d50e1001a254a3d95aea678a956`(로컬 clone `git remote -v`/`git rev-parse HEAD`로 직접
+  재확인)
+  (내부 submodule: `gaussian-splatting` `d9fad7b3450bf4bd29316315032d57157e23a515`, 그 하위
+  `SIBR_viewers` `4ae964a267cd7a844d9766563cf9d0b500131a22`,
+  `diff-gaussian-rasterization` `59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d`,
+  `simple-knn` `44f764299fa305faf6ec5ebd99939e0508331503` — 전부 `git submodule status --recursive`로
+  직접 재확인)
 - **문제/해결 과정(연구노트)**: `01_PhysGaussian/환경구축_컴파일이슈해결/`, `01_PhysGaussian/이수현_결과.md`
 
 ### 2. Spring-Gaus
 - **Title**: *Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians*
 - **Authors**: Licheng Zhong, Hong-Xing Yu, Jiajun Wu, Yunzhu Li
-- **Venue**: ECCV 2024로 저장소 문서(`02_SpringGaus/이수현_결과.md`)에 기재되어 있으나, **arXiv 페이지 자체에는 venue 표기가 확인되지 않아 이 항목만 재검증 필요**(출판본 공식 페이지 대조 권장)
+- **Venue**: ECCV 2024 — 공식 GitHub 저장소 README 제목 아래 "ECCV 2024" 표기 및 BibTeX 인용 블록의
+  `journal = {European Conference on Computer Vision (ECCV)}` 문구로 직접 재확인(이전 버전에서 "arXiv
+  페이지에 venue 표기 없음"이라 재검증 필요라고 남겼던 부분 — 공식 GitHub README를 추가로 확인해 해소함)
 - **Paper**: [arXiv:2403.09434](https://arxiv.org/abs/2403.09434)
-- **Official Code**: [github.com/Colmar-zlicheng/Spring-Gaus](https://github.com/Colmar-zlicheng/Spring-Gaus) — 사용 commit `62a1bb5dbe83fe4396efa7048d3226754ac8fe1d`
-  (내부 submodule `diff-gaussian-rasterization`/`simple-knn`도 고정 commit 사용 — 상세는 `01_PhysGaussian/김승민_코드버전_교차검증.md`)
+- **Official Code**: [github.com/Colmar-zlicheng/Spring-Gaus](https://github.com/Colmar-zlicheng/Spring-Gaus) — 사용 commit
+  `62a1bb5dbe83fe4396efa7048d3226754ac8fe1d`(로컬 clone `git remote -v`/`git rev-parse HEAD`로 직접
+  재확인)
+  (내부 submodule `diff-gaussian-rasterization` `59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d`,
+  `simple-knn` `44f764299fa305faf6ec5ebd99939e0508331503` — `git submodule status`로 직접 재확인)
 - **문제/해결 과정(연구노트)**: `02_SpringGaus/환경구축_컴파일이슈해결/`, `02_SpringGaus/이수현_결과.md`
 
 ### 3. URDFormer
 - **Title**: *URDFormer: A Pipeline for Constructing Articulated Simulation Environments from Real-World Images*
-- **Venue**: RSS(Robotics: Science and Systems) 2024
+- **Venue**: RSS(Robotics: Science and Systems) 2024 — arXiv 페이지 Comments 필드 "Accepted at RSS2024"로
+  직접 재확인
 - **Paper**: [arXiv:2405.11656](https://arxiv.org/abs/2405.11656) · [프로젝트 페이지](https://urdformer.github.io/)
-- **Official Code**: [github.com/WEIRDLabUW/urdformer](https://github.com/WEIRDLabUW/urdformer) — 사용 commit `ee0e77ca0e08483fd63890673c47e4a3bd68fa91`
+- **Official Code**: [github.com/WEIRDLabUW/urdformer](https://github.com/WEIRDLabUW/urdformer) — 사용 commit
+  `ee0e77ca0e08483fd63890673c47e4a3bd68fa91`(로컬 clone `git remote -v`/`git rev-parse HEAD`로 직접
+  재확인)
 - **문제/해결 과정(연구노트) 및 최종 재현 판정(Partial Reproduction)**:
   `03_URDFormer/환경구축_컴파일이슈해결/실행결과_보고.md`
 
 ### 4. PhysX-3D (착수 예정, 아직 미시작)
 - **Title**: *PhysX-3D: Physical-Grounded 3D Asset Generation*
+- **Authors**: Ziang Cao, Zhaoxi Chen, Liang Pan, Ziwei Liu
+- **Venue**: NeurIPS 2025 (Spotlight) — arXiv 페이지 Comments 필드 "Accepted by NeurIPS 2025, Spotlight"로
+  직접 확인
 - **Paper**: [arXiv:2507.12465](https://arxiv.org/abs/2507.12465) · [프로젝트 페이지](https://physx-3d.github.io/)
 - **Official Code**: 미확인(재현 작업 자체를 아직 착수하지 않아 사용할 commit도 미정) — 재현 작업 미착수, 착수 계획만 존재(`0915/PhysX-3D_착수_계획.md`)
 
