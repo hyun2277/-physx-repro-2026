@@ -24,7 +24,7 @@
 | [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료 — 연구원A·연구원B 교차검증 |
 | [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료 — torus·burger, 결과비교·원인분석 |
 | [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Partial Reproduction) — Object-Level 300장 + Kitchen 54씬 정량 검증 |
-| [4. PhysX-3D](#4-physx-3d-착수-예정-아직-미시작) (NeurIPS 2025) | 착수 예정 |
+| [4. PhysX-3D](#4-physx-3d-착수-예정) (NeurIPS 2025) | 착수 예정 |
 
 **바로가기**: [논문·코드 출처](#재현-논문-출처-paper--code-references) ·
 [폴더 구조](#폴더-구조-논문별) · [커밋 기록](#커밋-기록이-실제-진행-순서와-일치합니다) ·
@@ -82,15 +82,15 @@
 - **문제/해결 과정(연구노트) 및 최종 재현 판정(Partial Reproduction)**:
   `03_URDFormer/환경구축_컴파일이슈해결/실행결과_보고.md`
 
-### 4. PhysX-3D (착수 예정, 아직 미시작)
+### 4. PhysX-3D (착수 예정)
 - **Title**: *PhysX-3D: Physical-Grounded 3D Asset Generation*
 - **Authors**: Ziang Cao, Zhaoxi Chen, Liang Pan, Ziwei Liu
 - **Venue**: NeurIPS 2025 (Spotlight) — arXiv 페이지 Comments 필드 "Accepted by NeurIPS 2025, Spotlight"로
   직접 확인
 - **Paper**: [arXiv:2507.12465](https://arxiv.org/abs/2507.12465) · [프로젝트 페이지](https://physx-3d.github.io/)
-- **Official Code**: 미확인(재현 작업 자체를 아직 착수하지 않아 사용할 commit도 미정) — 재현 작업
-  미착수, 착수 계획 메모만 로컬에 존재(**이 저장소 밖의 별도 폴더에 있어 이 GitHub 저장소에는 포함되어
-  있지 않음** — 착수 시점에 이 저장소 안으로 옮겨 커밋할 예정)
+- **Official Code**: 미확인 — 재현 작업 자체가 아직 시작 전이라 사용할 commit도 미정. 계획 메모만
+  로컬에 존재(**이 저장소 밖의 별도 폴더에 있어 이 GitHub 저장소에는 포함되어 있지 않음** — 착수 시점에
+  이 저장소 안으로 옮겨 커밋할 예정)
 
 ## 폴더 구조 (논문별)
 
