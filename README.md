@@ -21,9 +21,9 @@
 
 | 논문 | 상태 |
 |---|---|
-| [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료 — 연구원A·연구원B 교차검증까지 완료 |
-| [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료 — torus·burger, 결과비교·원인분석 |
-| [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Partial Reproduction) — Object-Level 300장 + Kitchen 54씬 정량 검증 |
+| [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료(연구원A·연구원B 교차검증 포함) |
+| [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료(torus·burger, 결과비교 및 원인분석 포함) |
+| [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Object-Level 300장, Kitchen 54씬 정량 검증 완료) |
 | [4. PhysX-3D](#4-physx-3d-착수-예정) (NeurIPS 2025) | 착수 예정 |
 
 **바로가기**: [논문·코드 출처](#재현-논문-출처-paper--code-references) ·
