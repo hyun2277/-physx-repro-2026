@@ -10,12 +10,6 @@
   <sub>URDFormer(RSS 2024) 재현 결과 — 사진 한 장에서 예측한 서랍·문 관절 구조를 PyBullet으로 렌더링</sub>
 </p>
 
-<p align="center">
-  <img alt="status" src="https://img.shields.io/badge/공개상태-Public-brightgreen">
-  <img alt="papers" src="https://img.shields.io/badge/재현 완료-3%2F4 논문-blue">
-  <img alt="urdformer" src="https://img.shields.io/badge/URDFormer 판정-Partial Reproduction-yellow">
-</p>
-
 "VLM & Physics-aware 생성형 시뮬레이션 환경 구축을 통한 제조 현장 이상탐지·대응 기술 개발" 과제의 일환으로,
 아래 4개 논문을 순서대로 재현하고 있습니다.
 
