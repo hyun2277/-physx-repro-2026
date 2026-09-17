@@ -4,6 +4,43 @@
 제1세부 과제의 논문 재현 기록입니다. 새로운 방법을 개발하는 것이 아니라, 공개된 PhysX 계열 논문들의
 코드를 그대로 재현해 "논문이 주장한 것이 실제로 되는가"를 검증하는 것이 목표입니다.
 
+## 재현 논문 출처 (Paper & Code References)
+
+> 각 항목의 arXiv 제목/저자는 arXiv 원문 페이지를 직접 확인(fetch)해 검증했습니다. GitHub commit hash는
+> 실제 재현 작업 시점에 `git rev-parse HEAD`로 기록된 값입니다. "겪은 문제와 해결 과정"(연구노트)은
+> 각 논문 폴더의 `환경구축_컴파일이슈해결/` 문서에 상세히 있고, 아래는 정확한 출처 인용만 정리합니다.
+
+### 1. PhysGaussian
+- **Title**: *PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics*
+- **Authors**: Tianyi Xie, Zeshun Zong, Yuxing Qiu, Xuan Li, Yutao Feng, Yin Yang, Chenfanfu Jiang
+- **Venue**: CVPR 2024 (Highlight)
+- **Paper**: [arXiv:2311.12198](https://arxiv.org/abs/2311.12198)
+- **Official Code**: [github.com/XPandora/PhysGaussian](https://github.com/XPandora/PhysGaussian) — 사용 commit `8339ed6aa2cd5d50e1001a254a3d95aea678a956`
+  (내부 submodule: `gaussian-splatting` `d9fad7b3450bf4bd29316315032d57157e23a515`, 그 하위 `SIBR_viewers`/`diff-gaussian-rasterization`/`simple-knn`도 각각 고정 commit 사용 — 상세는 `01_PhysGaussian/김승민_코드버전_교차검증.md`)
+- **문제/해결 과정(연구노트)**: `01_PhysGaussian/환경구축_컴파일이슈해결/`, `01_PhysGaussian/이수현_결과.md`
+
+### 2. Spring-Gaus
+- **Title**: *Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians*
+- **Authors**: Licheng Zhong, Hong-Xing Yu, Jiajun Wu, Yunzhu Li
+- **Venue**: ECCV 2024로 저장소 문서(`02_SpringGaus/이수현_결과.md`)에 기재되어 있으나, **arXiv 페이지 자체에는 venue 표기가 확인되지 않아 이 항목만 재검증 필요**(출판본 공식 페이지 대조 권장)
+- **Paper**: [arXiv:2403.09434](https://arxiv.org/abs/2403.09434)
+- **Official Code**: [github.com/Colmar-zlicheng/Spring-Gaus](https://github.com/Colmar-zlicheng/Spring-Gaus) — 사용 commit `62a1bb5dbe83fe4396efa7048d3226754ac8fe1d`
+  (내부 submodule `diff-gaussian-rasterization`/`simple-knn`도 고정 commit 사용 — 상세는 `01_PhysGaussian/김승민_코드버전_교차검증.md`)
+- **문제/해결 과정(연구노트)**: `02_SpringGaus/환경구축_컴파일이슈해결/`, `02_SpringGaus/이수현_결과.md`
+
+### 3. URDFormer
+- **Title**: *URDFormer: A Pipeline for Constructing Articulated Simulation Environments from Real-World Images*
+- **Venue**: RSS(Robotics: Science and Systems) 2024
+- **Paper**: [arXiv:2405.11656](https://arxiv.org/abs/2405.11656) · [프로젝트 페이지](https://urdformer.github.io/)
+- **Official Code**: [github.com/WEIRDLabUW/urdformer](https://github.com/WEIRDLabUW/urdformer) — 사용 commit `ee0e77ca0e08483fd63890673c47e4a3bd68fa91`
+- **문제/해결 과정(연구노트) 및 최종 재현 판정(Partial Reproduction)**:
+  `03_URDFormer/환경구축_컴파일이슈해결/실행결과_보고.md`
+
+### 4. PhysX-3D (착수 예정, 아직 미시작)
+- **Title**: *PhysX-3D: Physical-Grounded 3D Asset Generation*
+- **Paper**: [arXiv:2507.12465](https://arxiv.org/abs/2507.12465) · [프로젝트 페이지](https://physx-3d.github.io/)
+- **Official Code**: 미확인(재현 작업 자체를 아직 착수하지 않아 사용할 commit도 미정) — 재현 작업 미착수, 착수 계획만 존재(`0915/PhysX-3D_착수_계획.md`)
+
 ## 폴더 구조 (논문별)
 
 - **`00_연구준비/`** — 10편 논문 전체 공통 조사자료(특정 논문 한정 아님)
@@ -31,4 +68,5 @@
 - **이수현**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
 - **김승민**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론), burger는 아직 시도 전
 
-이 저장소는 비공개(Private)이며, 특허 출원 전까지 공개 전환하지 않습니다.
+(2026-09-17) 교수님 확인·지시에 따라 비공개(Private)에서 공개(Public)로 전환 예정입니다. 실제 GitHub
+저장소 공개 설정 변경은 GitHub 웹 UI(Settings → Danger Zone → Change visibility)에서 진행해야 합니다.
