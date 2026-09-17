@@ -111,7 +111,7 @@
 ## 참여자
 
 - **연구원A**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
-- **연구원B**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론), burger는 아직 시도 전
+- **연구원B**: PhysGaussian 재현 완료(교차검증), Spring-Gaus(torus·burger) 2차 시도에서 재현 성공
 
 ---
 
