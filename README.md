@@ -25,7 +25,7 @@
   `diff-gaussian-rasterization` `59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d`,
   `simple-knn` `44f764299fa305faf6ec5ebd99939e0508331503` — 전부 `git submodule status --recursive`로
   직접 재확인)
-- **문제/해결 과정(연구노트)**: `01_PhysGaussian/환경구축_컴파일이슈해결/`, `01_PhysGaussian/이수현_결과.md`
+- **문제/해결 과정(연구노트)**: `01_PhysGaussian/환경구축_컴파일이슈해결/`, `01_PhysGaussian/연구원A_결과.md`
 
 ### 2. Spring-Gaus
 - **Title**: *Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians*
@@ -39,7 +39,7 @@
   재확인)
   (내부 submodule `diff-gaussian-rasterization` `59f5f77e3ddbac3ed9db93ec2cfe99ed6c5d121d`,
   `simple-knn` `44f764299fa305faf6ec5ebd99939e0508331503` — `git submodule status`로 직접 재확인)
-- **문제/해결 과정(연구노트)**: `02_SpringGaus/환경구축_컴파일이슈해결/`, `02_SpringGaus/이수현_결과.md`
+- **문제/해결 과정(연구노트)**: `02_SpringGaus/환경구축_컴파일이슈해결/`, `02_SpringGaus/연구원A_결과.md`
 
 ### 3. URDFormer
 - **Title**: *URDFormer: A Pipeline for Constructing Articulated Simulation Environments from Real-World Images*
@@ -67,8 +67,8 @@
 ## 폴더 구조 (논문별)
 
 - **`00_연구준비/`** — 10편 논문 전체 공통 조사자료(특정 논문 한정 아님)
-- **`01_PhysGaussian/`** — 1순위 논문. 환경구축·컴파일 이슈 해결 → 이수현/김승민 각자 결과 → 교차검증
-- **`02_SpringGaus/`** — 2순위 논문. 환경구축·컴파일 이슈 해결 → 이수현/김승민 각자 결과 → 결과비교 및 원인분석
+- **`01_PhysGaussian/`** — 1순위 논문. 환경구축·컴파일 이슈 해결 → 연구원A/연구원B 각자 결과 → 교차검증
+- **`02_SpringGaus/`** — 2순위 논문. 환경구축·컴파일 이슈 해결 → 연구원A/연구원B 각자 결과 → 결과비교 및 원인분석
 - **`03_URDFormer/`** — 3순위 논문(교수님 지시로 착수). 환경구축·재현 완료 — 패키지 버전 이슈 6건
   + 소스 코드 최소 패치 3건 해결, README 기본 예제(캐비닛류)로 전체 파이프라인 성공 확인. 다음은
   논문 범주 밖인 노트북 힌지·로봇팔로 시도 예정.
@@ -78,7 +78,7 @@
 각 논문 폴더 안 구성:
 - `환경구축_컴파일이슈해결/` — 겪은 문제와 해결 과정(실제 코드 패치 포함)
 - `결과영상/`, `샘플이미지/` — 재현 결과물
-- `이수현_결과.md`, `김승민_결과.md` — 담당자별 결과 보고
+- `연구원A_결과.md`, `연구원B_결과.md` — 담당자별 결과 보고
 - `결과비교.md` / `결과비교_및_원인분석.md` — 두 사람 결과 종합 비교
 
 ## 커밋 기록이 실제 진행 순서와 일치합니다
@@ -88,8 +88,8 @@
 
 ## 참여자
 
-- **이수현**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
-- **김승민**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론), burger는 아직 시도 전
+- **연구원A**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
+- **연구원B**: PhysGaussian 재현 완료(교차검증), Spring-Gaus torus 재현 성공(7회 중 3회, 원인은 비결정성으로 잠정 결론), burger는 아직 시도 전
 
 (2026-09-17) 교수님 확인·지시에 따라 비공개(Private)에서 공개(Public)로 전환 예정입니다. 실제 GitHub
 저장소 공개 설정 변경은 GitHub 웹 UI(Settings → Danger Zone → Change visibility)에서 진행해야 합니다.

@@ -1,4 +1,4 @@
-# Spring-Gaus 재현 결과 (이수현)
+# Spring-Gaus 재현 결과 (연구원A)
 
 **작성일**: 2026-09-14
 **실행 환경**: NVIDIA RTX 2080 Ti(11GB), Intel i7-9700K, RAM 64GB, Windows
