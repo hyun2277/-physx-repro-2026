@@ -1,9 +1,13 @@
 # PhysX 논문 재현 프로젝트 (2026)
 
+*새로운 방법을 개발하는 것이 아니라, 공개된 PhysX 계열 논문들의 코드를 그대로 재현해*
+*"논문이 주장한 결과가 실제로 나오는가"를 검증하는 국가 R&D 과제(제1세부 과제) 기록입니다.*
+
 <p align="center">
   <img src="03_URDFormer/정량평가_렌더링결과/영상/test20.gif" width="360" alt="URDFormer가 예측한 캐비닛 URDF — 서랍과 문이 열리는 애니메이션">
-  <br>
-  <sub><b>URDFormer</b>(RSS 2024) 재현 결과 — 사진 한 장에서 예측한 서랍/문 관절 구조를 PyBullet으로 렌더링</sub>
+</p>
+<p align="center">
+  <sub>URDFormer(RSS 2024) 재현 결과 — 사진 한 장에서 예측한 서랍·문 관절 구조를 PyBullet으로 렌더링</sub>
 </p>
 
 <p align="center">
@@ -12,25 +16,19 @@
   <img alt="urdformer" src="https://img.shields.io/badge/URDFormer 판정-Partial Reproduction-yellow">
 </p>
 
-"VLM & Physics-aware 생성형 시뮬레이션 환경 구축을 통한 제조 현장 이상탐지·대응 기술 개발" 국가 R&D 과제
-제1세부 과제의 논문 재현 기록입니다. 새로운 방법을 개발하는 것이 아니라, 공개된 PhysX 계열 논문들의
-코드를 그대로 재현해 "논문이 주장한 것이 실제로 되는가"를 검증하는 것이 목표입니다.
+"VLM & Physics-aware 생성형 시뮬레이션 환경 구축을 통한 제조 현장 이상탐지·대응 기술 개발" 과제의 일환으로,
+아래 4개 논문을 순서대로 재현하고 있습니다.
 
-## 한눈에 보는 진행 상황
+| 논문 | 상태 |
+|---|---|
+| [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료 — 연구원A·연구원B 교차검증 |
+| [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료 — torus·burger, 결과비교·원인분석 |
+| [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Partial Reproduction) — Object-Level 300장 + Kitchen 54씬 정량 검증 |
+| [4. PhysX-3D](#4-physx-3d-착수-예정-아직-미시작) (NeurIPS 2025) | 착수 예정 |
 
-| # | 논문 | 상태 | 비고 |
-|---|---|---|---|
-| 1 | [PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료 | 연구원A·연구원B 교차검증 완료 |
-| 2 | [Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료 | torus·burger, 결과비교·원인분석 완료 |
-| 3 | [URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Partial Reproduction) | Object-Level 300장 + Kitchen 54씬 정량 검증 완료, 잔여 미확인 항목 있음 |
-| 4 | [PhysX-3D](#4-physx-3d-착수-예정-아직-미시작) (NeurIPS 2025) | 착수 예정 | RTX 5090/Linux 환경에서 진행 예정 |
-
-## 목차
-
-- [재현 논문 출처 (Paper & Code References)](#재현-논문-출처-paper--code-references)
-- [폴더 구조 (논문별)](#폴더-구조-논문별)
-- [커밋 기록](#커밋-기록이-실제-진행-순서와-일치합니다)
-- [참여자](#참여자)
+**바로가기**: [논문·코드 출처](#재현-논문-출처-paper--code-references) ·
+[폴더 구조](#폴더-구조-논문별) · [커밋 기록](#커밋-기록이-실제-진행-순서와-일치합니다) ·
+[참여자](#참여자)
 
 ---
 
