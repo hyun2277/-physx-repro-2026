@@ -1,0 +1,128 @@
+[
+  {
+    "file": "status.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/status.json",
+    "source_sha256": "dab6a93f3a8ac8d5b10d9cc26366f81b8bdcefedd273201125c79653ddae20fe",
+    "published_sha256": "dab6a93f3a8ac8d5b10d9cc26366f81b8bdcefedd273201125c79653ddae20fe"
+  },
+  {
+    "file": "result.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/result.json",
+    "source_sha256": "becf409af71c3c3dccd8af4a3853fa61522ccbf2de6df63f027707ad70f907f0",
+    "published_sha256": "becf409af71c3c3dccd8af4a3853fa61522ccbf2de6df63f027707ad70f907f0"
+  },
+  {
+    "file": "summary.md",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/summary.md",
+    "source_sha256": "138121144f0390286ae34f2045acc07e207b5bebfc2847edec15967afeae025e",
+    "published_sha256": "138121144f0390286ae34f2045acc07e207b5bebfc2847edec15967afeae025e"
+  },
+  {
+    "file": "baseline-dependencies.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/baseline-dependencies.json",
+    "source_sha256": "df3f24190af522d051da7261516953f718814b15ff29fe6fa01559c5a86e5125",
+    "published_sha256": "df3f24190af522d051da7261516953f718814b15ff29fe6fa01559c5a86e5125"
+  },
+  {
+    "file": "downloaded-dependencies.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/downloaded-dependencies.json",
+    "source_sha256": "df3f24190af522d051da7261516953f718814b15ff29fe6fa01559c5a86e5125",
+    "published_sha256": "df3f24190af522d051da7261516953f718814b15ff29fe6fa01559c5a86e5125"
+  },
+  {
+    "file": "offline-preview-comparison.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/offline-preview-comparison.json",
+    "source_sha256": "3acec00dbef4b5a784573e9df34447af862551b97516945532980bf4b4c84e20",
+    "published_sha256": "3acec00dbef4b5a784573e9df34447af862551b97516945532980bf4b4c84e20"
+  },
+  {
+    "file": "installed-versions.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/installed-versions.json",
+    "source_sha256": "2154bdc0004763b3050552d416af93c63fa622c307a9682ad6bfdf1c60a5cc27",
+    "published_sha256": "2154bdc0004763b3050552d416af93c63fa622c307a9682ad6bfdf1c60a5cc27"
+  },
+  {
+    "file": "preservation.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/preservation.json",
+    "source_sha256": "862af81362a746e3c6ad71ccc01d9ddb6dedd2aaf926396eaf65c4c7ef705232",
+    "published_sha256": "862af81362a746e3c6ad71ccc01d9ddb6dedd2aaf926396eaf65c4c7ef705232"
+  },
+  {
+    "file": "pip-check.stdout.log",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.stdout.log",
+    "source_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+    "published_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  {
+    "file": "pip-check.stderr.log",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.stderr.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "pip-check.command.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.command.json",
+    "source_sha256": "a56c00337b4aa42cb30387d8f824abae21da28767d6e69c62d23693ee472fef8",
+    "published_sha256": "a56c00337b4aa42cb30387d8f824abae21da28767d6e69c62d23693ee472fef8"
+  },
+  {
+    "file": "install-foundation.command.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/install-foundation.command.json",
+    "source_sha256": "aff6c825ab0b9f4370586de9687d4f8cdeed029e0c4835db75b155bdbf27bd9e",
+    "published_sha256": "aff6c825ab0b9f4370586de9687d4f8cdeed029e0c4835db75b155bdbf27bd9e"
+  },
+  {
+    "file": "install-foundation.stdout.log",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/install-foundation.stdout.log",
+    "source_sha256": "2602a759f3ff467c7bebf3d0842ddaad9ad9fae4a5579639f5ba1c5f83f71777",
+    "published_sha256": "2602a759f3ff467c7bebf3d0842ddaad9ad9fae4a5579639f5ba1c5f83f71777"
+  },
+  {
+    "file": "install-foundation.stderr.log",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/install-foundation.stderr.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "download-wheels.command.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/download-wheels.command.json",
+    "source_sha256": "182f74659bf25ff43b7820abe1a78a364882daa13c6e283c5b521540b541d3ea",
+    "published_sha256": "182f74659bf25ff43b7820abe1a78a364882daa13c6e283c5b521540b541d3ea"
+  },
+  {
+    "file": "approved-wheels.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/approved-wheels.json",
+    "source_sha256": "aa75b40680f9d0e4f4f1ddfff2f056971c363182c9ed3f940d197189a0049a4d",
+    "published_sha256": "aa75b40680f9d0e4f4f1ddfff2f056971c363182c9ed3f940d197189a0049a4d"
+  },
+  {
+    "file": "wheel-startup-files-not-executed.json",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/wheel-startup-files-not-executed.json",
+    "source_sha256": "bd0ad205a90f7ddf06a7197d54888acff2ab2dee5aa937ab73e6915fa6023851",
+    "published_sha256": "bd0ad205a90f7ddf06a7197d54888acff2ab2dee5aa937ab73e6915fa6023851"
+  },
+  {
+    "file": "install_foundation.py",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/install_foundation.py",
+    "source_sha256": "a5fd19e0c7465c035d869747a7256bc5ba043e67675de2e108100c28a40428e9",
+    "published_sha256": "a5fd19e0c7465c035d869747a7256bc5ba043e67675de2e108100c28a40428e9"
+  },
+  {
+    "file": "pip_without_site.py",
+    "source_path_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip_without_site.py",
+    "source_sha256": "f15a06f3de03f5f5c2236b8619a2d65c7392af5b3f4bd793c6d460cbadf1a992",
+    "published_sha256": "f15a06f3de03f5f5c2236b8619a2d65c7392af5b3f4bd793c6d460cbadf1a992"
+  },
+  {
+    "file": "python-foundation.lock.txt",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/python-foundation.lock.txt",
+    "source_sha256": "a6d310a0572049eb5b63a7624e55571af2427c579192c2687651f57b6204e31d",
+    "published_sha256": "a6d310a0572049eb5b63a7624e55571af2427c579192c2687651f57b6204e31d"
+  },
+  {
+    "file": "python-resolved.constraints.txt",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/python-resolved.constraints.txt",
+    "source_sha256": "9e616b5935f48414a847bd8cede49f7743e6b8153a242ffbfe9bd6ee98022979",
+    "published_sha256": "9e616b5935f48414a847bd8cede49f7743e6b8153a242ffbfe9bd6ee98022979"
+  }
+]

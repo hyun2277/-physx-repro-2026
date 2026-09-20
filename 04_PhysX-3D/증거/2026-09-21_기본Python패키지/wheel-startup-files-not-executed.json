@@ -1,0 +1,8 @@
+{
+  "coloredlogs": [
+    "coloredlogs.pth"
+  ],
+  "setuptools": [
+    "distutils-precedence.pth"
+  ]
+}

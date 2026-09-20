@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/pip_without_site.py",
+    "--isolated",
+    "--disable-pip-version-check",
+    "--no-input",
+    "--keyring-provider",
+    "disabled",
+    "--no-color",
+    "--cache-dir",
+    "/home/minsujo/Desktop/SH/PHYSx/cache/pip",
+    "install",
+    "--no-compile",
+    "--no-index",
+    "--only-binary=:all:",
+    "--require-hashes",
+    "--progress-bar",
+    "off",
+    "--report",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/install-report.json",
+    "-r",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/foundation.local.lock.txt"
+  ],
+  "started": "2026-09-21T05:09:13.886544+09:00",
+  "finished": "2026-09-21T05:10:03.621130+09:00",
+  "exit_code": 0
+}

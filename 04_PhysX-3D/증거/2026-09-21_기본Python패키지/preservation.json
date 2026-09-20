@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-09-21T05:12:46.797693+09:00",
+  "all_checks_passed": true,
+  "checks": {
+    "foundation_install_completed": true,
+    "installed_versions_match": true,
+    "pip_check_passed": true,
+    "base_conda_meta_unchanged": true,
+    "physxgen_conda_history_unchanged": true,
+    "cuda_toolkit_meta_unchanged": true,
+    "cuda_toolkit_checked_files_unchanged": true,
+    "system_cuda_link_unchanged": true,
+    "system_nvcc_unchanged": true,
+    "dpkg_status_unchanged": true,
+    "nvidia_driver_version_unchanged": true,
+    "reviewed_inputs_unchanged": true
+  },
+  "intentional_target_changes": {
+    "packaging": {
+      "before": "26.3",
+      "after": "24.2"
+    },
+    "setuptools": {
+      "before": "83.0.0",
+      "after": "75.8.0"
+    },
+    "wheel": {
+      "before": "0.47.0",
+      "after": "0.45.1"
+    }
+  },
+  "note": "Actual Python distribution versions are from dist-info. Unchanged conda-meta is historical and does not describe pip replacements. Toolkit preservation covers recorded metadata and checked real files, not a whole-tree hash."
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-09-21T05:14:52.982424+09:00",
+  "result": "169 hash-locked foundation wheels installed; expected170 distributions including preservedpip; pipcheckpassed",
+  "target": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen",
+  "torch": "2.7.1+cu128",
+  "torchvision": "0.22.1+cu128",
+  "foundation_count": 169,
+  "installed_distribution_count": 170,
+  "active_dependencies_checked": 267,
+  "dependency_issues": [],
+  "version_or_package_differences_from_lock": [],
+  "intentional_existing_package_changes": {
+    "packaging": {
+      "before": "26.3",
+      "after": "24.2"
+    },
+    "setuptools": {
+      "before": "83.0.0",
+      "after": "75.8.0"
+    },
+    "wheel": {
+      "before": "0.47.0",
+      "after": "0.45.1"
+    }
+  },
+  "pip_preserved": "26.2.1",
+  "excluded_source_and_sparse_packages": [
+    "flash-attn",
+    "xformers",
+    "clip",
+    "utils3d",
+    "nvdiffrast",
+    "diffoctreerast",
+    "diff-gaussian-rasterization",
+    "vox2seq",
+    "spconv-cu126",
+    "cumm-cu126"
+  ],
+  "preservation_checks_passed": true,
+  "verification_limit": "Wheel download/hash/metadata resolution, installation/distribution metadata and pip check only. No model package import test, CUDA build, GPU operation, inference, training, or model download.",
+  "remaining": [
+    "CUDA/source extensions and optional CLIP/utils3d source packages remain uninstalled.",
+    "RTX5090 binary/runtime/ABI and GPU operation compatibility remain untested.",
+    "CLIP download-root patch remains unapplied before model load."
+  ]
+}

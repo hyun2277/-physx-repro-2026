@@ -1,0 +1,11 @@
+{
+  "phase": "completed",
+  "installation_started": true,
+  "timestamp": "2026-09-21T05:10:04.271028+09:00",
+  "exit_code": 0,
+  "foundation_package_count": 169,
+  "total_distribution_count": 170,
+  "torch": "2.7.1+cu128",
+  "torchvision": "0.22.1+cu128",
+  "pip_check": "passed"
+}
