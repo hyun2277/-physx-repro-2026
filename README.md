@@ -75,6 +75,12 @@
   재확인)
 - **문제/해결 과정(연구노트) 및 최종 재현 판정(Partial Reproduction)**:
   `03_URDFormer/환경구축_컴파일이슈해결/실행결과_보고.md`
+- **연구원A·연구원B 교차검증 결과(신규, 2026-09-20)**: `03_URDFormer/결과비교_및_원인분석.md`
+  (연구원A 관점의 비교 일지) · `03_URDFormer/연구원B_교차검증_회신_0917.md` /
+  `연구원B_교차검증_회신_0920.md`(연구원B가 보내온 원본 회신, 무수정 보존) ·
+  `연구원B_검증자료/`(교차검증 근거 patch·원본 데이터, SHA256 무결성 확인 완료). Object-Level
+  GT bbox 3개 + Kitchen 6개, 총 9개 지표를 코드·데이터 레벨까지 독립 교차검증 완료(Object-Level
+  자동탐지 조건은 파일 도착 대기 중, 별도)
 
 ### 4. PhysX-3D (착수 예정)
 - **Title**: *PhysX-3D: Physical-Grounded 3D Asset Generation*
