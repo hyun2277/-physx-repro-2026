@@ -1,0 +1,175 @@
+diff --git a/evaluate_object_metrics.py b/evaluate_object_metrics.py
+new file mode 100644
+index 0000000..4882998
+--- /dev/null
++++ b/evaluate_object_metrics.py
+@@ -0,0 +1,169 @@
++# PERF-EXPERIMENT (URDFormer 재현, 2026-09-17, 팀원 교차검증 2순위):
++# 팀원이 "Object-Level 300장 GT bbox + 자동탐지까지 정량 평가함"이라고 해서 확인해보니, 우리가
++# README의 kitchen 평가 링크에서 받은 kitchen_assets.zip 안에 이미
++# assets/{cabinets,ovens,dishwashers,fridges,washers}/ 폴더가 통째로 들어있었다(각각
++# images/labels/textures/urdfs) - 논문 부록이 말하는 "100 cabinets, 50 ovens, 50 dishwashers,
++# 50 fridges, 50 laundry machines" = 300장과 정확히 일치하는 개수(직접 세어 확인:
++# 100/50/50/50/50). 우리가 다운로드는 해뒀지만 kitchen 폴더만 쓰고 이 폴더들은 한 번도 안
++# 써봤다. 이 스크립트는 그 GT bbox 데이터를 실제로 돌려서 팀원의 300장 평가와 비교 가능한
++# 수치를 만든다.
++#
++# demo.py(evaluate.py 아님)의 evaluate_parts_with_masks()/evaluate_real_image()를 그대로
++# 재사용한다 - 이 폴더들의 라벨 구조(part_normalized_bbox가 평탄한 리스트, object_id 인덱싱
++# 없음)가 kitchen의 다중 오브젝트 구조가 아니라 demo.py의 object_prediction()이 기대하는
++# "이미지 하나에 물체 하나" 구조와 정확히 일치하기 때문이다(직접 label 구조 대조로 확인).
++#
++# 이 데이터셋은 kitchen과 달리 position_start/end가 이미 2열(패딩 열 없음, 직접 확인)이라
++# 예측값(3열)에서 어느 열을 버릴지 애매하지 않게 정해야 한다 - demo.py의 object_prediction()
++# 자신이 이미 position_pred_part[:, 1:]로 0번째 열을 버리고 쓰는 코드가 있어(시각화용이지만),
++# 그 관례를 그대로 따른다.
++
++import glob
++import json
++import numpy as np
++import torch
++import PIL.Image
++from urdformer import URDFormer
++import demo as dm
++
++
++def get_parent_id(relation_tensor, num_roots, obj_idx):
++    row = relation_tensor[num_roots + obj_idx]
++    parent_id, _ = np.unravel_index(np.argmax(row), row.shape)
++    return int(parent_id)
++
++
++def main():
++    device = "cuda"
++    asset_path = "C:/dev/urdformer/assets"
++    categories = ["cabinets", "ovens", "dishwashers", "fridges", "washers"]
++
++    urdformer_part = URDFormer(num_relations=6, num_roots=1).to(device)
++    ck = torch.load("checkpoints/part.pth")
++    urdformer_part.load_state_dict(ck["model_state_dict"])
++    urdformer_part.eval()
++
++    mesh_correct = mesh_total = 0
++    parent_correct = parent_total = 0
++    spatial_err_sum = 0.0
++    spatial_err_n = 0
++    spatial_err_sum_sizeaware = 0.0
++    spatial_err_n_sizeaware = 0
++    base_correct = base_total = 0
++
++    per_cat_results = {}
++
++    for cat in categories:
++        label_files = sorted(
++            glob.glob(f"{asset_path}/{cat}/labels/label*.npy"),
++            key=lambda p: int(p.split("label")[-1].split(".")[0]),
++        )
++        cat_results = {}
++        for lf in label_files:
++            test_id = int(lf.split("label")[-1].split(".")[0])
++            img_path = f"{asset_path}/{cat}/images/test{test_id}.jpg"
++            try:
++                with torch.no_grad():
++                    image = np.array(PIL.Image.open(img_path).convert("RGB"))
++                    image_tensor, bbox, masks, tgt_padding_mask, tgt_padding_relation_mask = dm.evaluate_parts_with_masks(lf, image)
++
++                    (position_pred_part, position_pred_end_part, mesh_pred_part,
++                     parent_pred_part, base_pred) = dm.evaluate_real_image(
++                        image_tensor, bbox, masks, tgt_padding_mask, tgt_padding_relation_mask,
++                        urdformer_part, device)
++
++                    raw = np.load(lf, allow_pickle=True).item()
++                    gt_mesh = np.array(raw["part_meshes"])
++                    n_parts = len(gt_mesh)
++
++                    if len(mesh_pred_part) != n_parts:
++                        cat_results[test_id] = {"status": f"FAILED: pred {len(mesh_pred_part)} parts != gt {n_parts} parts"}
++                        continue
++
++                    # mesh (category-of-part) accuracy
++                    this_mesh_correct = int((np.array(mesh_pred_part) == gt_mesh).sum())
++                    mesh_correct += this_mesh_correct
++                    mesh_total += n_parts
++
++                    # parent accuracy
++                    gt_relation = np.array(raw["part_relations"])
++                    this_parent_correct = 0
++                    for j in range(n_parts):
++                        pred_p = get_parent_id(parent_pred_part, 1, j)
++                        gt_p = get_parent_id(gt_relation, 1, j)
++                        if pred_p == gt_p:
++                            this_parent_correct += 1
++                    parent_correct += this_parent_correct
++                    parent_total += n_parts
++
++                    # spatial error - GT already 2 columns (padding-free, directly confirmed),
++                    # drop predicted column 0 to match (same slicing demo.py itself uses)
++                    gt_start = np.array(raw["part_positions_start"])
++                    gt_end = np.array(raw["part_positions_end"])
++                    pred_start = np.array(position_pred_part)[:, 1:]
++                    pred_end = np.array(position_pred_end_part)[:, 1:]
++                    if pred_start.shape == gt_start.shape and pred_end.shape == gt_end.shape:
++                        # 4-value(start+end) baseline, no size exception - kept for comparison
++                        spatial_err_sum += np.abs(pred_start - gt_start).sum() + np.abs(pred_end - gt_end).sum()
++                        spatial_err_n += gt_start.size + gt_end.size
++                        # PERF-EXPERIMENT (URDFormer 재현, 2026-09-20, 팀원 재분석 반영): 논문
++                        # Section 4는 "handle/knob(mesh id 4,5)은 중심점(position_start)만 2값
++                        # 비교, 그 외 파트는 4값(시작+끝)"이라고 명시한다 - 팀원이 자신의 채점
++                        # 코드에서 이 예외를 뺐을 때 Spatial Err가 약 0.92, 추가한 뒤 0.44로
++                        # 떨어졌다고 알려와 우리 코드에도 동일하게 적용해 가설을 검증한다.
++                        for _pi in range(len(gt_mesh)):
++                            _mesh_id = int(gt_mesh[_pi])
++                            if _mesh_id in (4, 5):  # handle, knob: 중심점 2값만
++                                spatial_err_sum_sizeaware += np.abs(pred_start[_pi] - gt_start[_pi]).sum()
++                                spatial_err_n_sizeaware += gt_start[_pi].size
++                            else:  # 그 외: 4값(시작+끝)
++                                spatial_err_sum_sizeaware += (np.abs(pred_start[_pi] - gt_start[_pi]).sum()
++                                                               + np.abs(pred_end[_pi] - gt_end[_pi]).sum())
++                                spatial_err_n_sizeaware += gt_start[_pi].size + gt_end[_pi].size
++
++                    # base (object category) accuracy - meaningful here since 1 object per image
++                    gt_base = int(raw["part_bases"])
++                    if int(base_pred[0]) == gt_base:
++                        base_correct += 1
++                    base_total += 1
++
++                    cat_results[test_id] = {
++                        "status": "success",
++                        "n_parts": n_parts,
++                        "mesh_acc": this_mesh_correct / n_parts,
++                        "parent_acc": this_parent_correct / n_parts,
++                        "base_pred": int(base_pred[0]),
++                        "base_gt": gt_base,
++                    }
++            except Exception as e:
++                cat_results[test_id] = {"status": f"FAILED: {type(e).__name__}: {e}"}
++                print(f"[{cat}] test_id={test_id} 실패: {type(e).__name__}: {e}")
++
++        n_success = sum(1 for v in cat_results.values() if v["status"] == "success")
++        print(f"[{cat}] {n_success}/{len(label_files)} 성공")
++        per_cat_results[cat] = cat_results
++
++    print("\n=== Object-Level (300장) 종합 결과 ===")
++    print(f"Mesh(Part) Acc: {mesh_correct}/{mesh_total} = {mesh_correct/mesh_total:.4f}" if mesh_total else "no data")
++    print(f"Parent Acc: {parent_correct}/{parent_total} = {parent_correct/parent_total:.4f}" if parent_total else "no data")
++    print(f"Spatial Err (4값 균일 적용, 0번째 열 제외): {spatial_err_sum/spatial_err_n:.4f}" if spatial_err_n else "no data")
++    print(f"Spatial Err (handle/knob 중심점 2값 예외 적용): {spatial_err_sum_sizeaware/spatial_err_n_sizeaware:.4f}  *** 논문 0.478, 팀원 0.4759와 대조 ***" if spatial_err_n_sizeaware else "no data")
++    print(f"Base(Category) Acc: {base_correct}/{base_total} = {base_correct/base_total:.4f}" if base_total else "no data")
++
++    with open("object_metrics_result.json", "w") as f:
++        json.dump({
++            "summary": {
++                "mesh_acc": mesh_correct/mesh_total if mesh_total else None,
++                "parent_acc": parent_correct/parent_total if parent_total else None,
++                "spatial_err_4val_uniform": spatial_err_sum/spatial_err_n if spatial_err_n else None,
++                "spatial_err_handle_knob_exception": spatial_err_sum_sizeaware/spatial_err_n_sizeaware if spatial_err_n_sizeaware else None,
++                "spatial_err_note": "2026-09-20 팀원 재분석 반영: mesh id 4(handle)/5(knob)는 논문 규정대로 중심점(position_start) 2값만, 그 외는 4값(시작+끝) 비교 - 팀원 코드(score_object_level.py 141-147행)와 동일한 예외 처리",
++                "base_acc": base_correct/base_total if base_total else None,
++                "n_images_total": sum(len(v) for v in per_cat_results.values()),
++            },
++            "per_category": per_cat_results,
++        }, f, indent=2, default=str)
++
++
++if __name__ == "__main__":
++    main()

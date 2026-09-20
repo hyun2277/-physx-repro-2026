@@ -1,0 +1,20 @@
+pybullet build time: Sep 16 2026 02:39:55
+C:\dev\urdformer\demo.py:28: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  tgt_padding_mask = torch.tensor(tgt_padding_mask).to(device).unsqueeze(0)
+C:\dev\urdformer\demo.py:32: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  tgt_padding_relation_mask = torch.tensor(tgt_padding_relation_mask).to(device).unsqueeze(0)
+C:\dev\urdformer\urdformer.py:227: UserWarning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
+To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (Triggered internally at  C:\actions-runner\_work\pytorch\pytorch\builder\windows\pytorch\aten\src\ATen\native\BinaryOps.cpp:600.)
+  bbox1 = torch.floor_divide(bbox1, img.shape[-1] / 14)
+[cabinets] 100/100 성공
+[ovens] 50/50 성공
+[dishwashers] 50/50 성공
+[fridges] 50/50 성공
+[washers] 50/50 성공
+
+=== Object-Level (300장) 종합 결과 ===
+Mesh(Part) Acc: 1242/1377 = 0.9020
+Parent Acc: 1354/1377 = 0.9833
+Spatial Err (4값 균일 적용, 0번째 열 제외): 0.7771
+Spatial Err (handle/knob 중심점 2값 예외 적용): 0.4447  *** 논문 0.478, 팀원 0.4759와 대조 ***
+Base(Category) Acc: 222/300 = 0.7400

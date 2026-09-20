@@ -1,0 +1,2423 @@
+{
+  "summary": {
+    "mesh_acc": 0.9019607843137255,
+    "parent_acc": 0.9832970225127088,
+    "spatial_err_4val_uniform": 0.7770515613652869,
+    "spatial_err_handle_knob_exception": 0.44473684210526315,
+    "spatial_err_note": "2026-09-20 \ud300\uc6d0 \uc7ac\ubd84\uc11d \ubc18\uc601: mesh id 4(handle)/5(knob)\ub294 \ub17c\ubb38 \uaddc\uc815\ub300\ub85c \uc911\uc2ec\uc810(position_start) 2\uac12\ub9cc, \uadf8 \uc678\ub294 4\uac12(\uc2dc\uc791+\ub05d) \ube44\uad50 - \ud300\uc6d0 \ucf54\ub4dc(score_object_level.py 141-147\ud589)\uc640 \ub3d9\uc77c\ud55c \uc608\uc678 \ucc98\ub9ac",
+    "base_acc": 0.74,
+    "n_images_total": 300
+  },
+  "per_category": {
+    "cabinets": {
+      "0": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "1": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "2": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "3": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "4": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "5": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "6": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "7": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "8": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "9": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 0.8333333333333334,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "10": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "11": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "12": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "13": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "14": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "15": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 1
+      },
+      "16": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "17": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "18": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "19": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.625,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "20": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "21": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.75,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "22": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "23": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "24": {
+        "status": "success",
+        "n_parts": 11,
+        "mesh_acc": 0.9090909090909091,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "25": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "26": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "27": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.75,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "28": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "29": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "30": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "31": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "32": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "33": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.8333333333333334,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "34": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "35": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "36": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "37": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "38": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "39": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.75,
+        "parent_acc": 0.75,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "40": {
+        "status": "success",
+        "n_parts": 16,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "41": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "42": {
+        "status": "success",
+        "n_parts": 22,
+        "mesh_acc": 0.7272727272727273,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "43": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "44": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 0.6666666666666666,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "45": {
+        "status": "success",
+        "n_parts": 14,
+        "mesh_acc": 0.7857142857142857,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "46": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "47": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "48": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 0.9166666666666666,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "49": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "50": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 0.8,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "51": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "52": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "53": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "54": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "55": {
+        "status": "success",
+        "n_parts": 14,
+        "mesh_acc": 0.9285714285714286,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "56": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.375,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "57": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "58": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.75,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "59": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.375,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "60": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "61": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "62": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "63": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "64": {
+        "status": "success",
+        "n_parts": 14,
+        "mesh_acc": 0.8571428571428571,
+        "parent_acc": 0.9285714285714286,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "65": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "66": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 0.2,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "67": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.3333333333333333,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "68": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "69": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "70": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "71": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "72": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "73": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "74": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "75": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.5833333333333334,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "76": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "77": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "78": {
+        "status": "success",
+        "n_parts": 14,
+        "mesh_acc": 0.7857142857142857,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "79": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "80": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "81": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.875,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "82": {
+        "status": "success",
+        "n_parts": 30,
+        "mesh_acc": 0.8,
+        "parent_acc": 0.9333333333333333,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "83": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 1
+      },
+      "84": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "85": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "86": {
+        "status": "success",
+        "n_parts": 18,
+        "mesh_acc": 0.7222222222222222,
+        "parent_acc": 0.9444444444444444,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "87": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.9166666666666666,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "88": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 0.9,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "89": {
+        "status": "success",
+        "n_parts": 10,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 1
+      },
+      "90": {
+        "status": "success",
+        "n_parts": 16,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "91": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "92": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "93": {
+        "status": "success",
+        "n_parts": 18,
+        "mesh_acc": 0.6666666666666666,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "94": {
+        "status": "success",
+        "n_parts": 12,
+        "mesh_acc": 0.9166666666666666,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "95": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "96": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "97": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "98": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      },
+      "99": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 1
+      }
+    },
+    "ovens": {
+      "0": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 0.75,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "1": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "2": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "3": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.0,
+        "parent_acc": 0.5,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "4": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "5": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 6,
+        "base_gt": 2
+      },
+      "6": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 6,
+        "base_gt": 2
+      },
+      "7": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "8": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "9": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "10": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "11": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "12": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 0.5,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "13": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.0,
+        "parent_acc": 0.5,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "14": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "15": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 0.5,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "16": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "17": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "18": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "19": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "20": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.25,
+        "parent_acc": 0.5,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "21": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "22": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "23": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "24": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "25": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "26": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "27": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "28": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "29": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 0.75,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "30": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "31": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "32": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "33": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "34": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "35": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 0.75,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "36": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "37": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "38": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "39": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 0.75,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "40": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "41": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 2
+      },
+      "42": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "43": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.0,
+        "parent_acc": 0.5,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "44": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "45": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.75,
+        "parent_acc": 0.75,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "46": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "47": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      },
+      "48": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 2
+      },
+      "49": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 2
+      }
+    },
+    "dishwashers": {
+      "0": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "1": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "2": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "3": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "4": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "5": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "6": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "7": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "8": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "9": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "10": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "11": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "12": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "13": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "14": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 3
+      },
+      "15": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "16": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "17": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "18": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "19": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "20": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "21": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "22": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "23": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "24": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "25": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "26": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "27": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "28": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "29": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "30": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 0.5,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "31": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "32": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "33": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "34": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "35": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "36": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "37": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "38": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "39": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "40": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "41": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "42": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 3
+      },
+      "43": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "44": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "45": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 3,
+        "base_gt": 3
+      },
+      "46": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 3
+      },
+      "47": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "48": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      },
+      "49": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 3
+      }
+    },
+    "fridges": {
+      "0": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "1": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 1.0,
+        "parent_acc": 0.875,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "2": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "3": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "4": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "5": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "6": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "7": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "8": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "9": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "10": {
+        "status": "success",
+        "n_parts": 8,
+        "mesh_acc": 0.875,
+        "parent_acc": 0.875,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "11": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "12": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "13": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "14": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "15": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "16": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "17": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 0.8333333333333334,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 5
+      },
+      "18": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 5
+      },
+      "19": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "20": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "21": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "22": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "23": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 5
+      },
+      "24": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "25": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "26": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "27": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "28": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "29": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "30": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "31": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "32": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "33": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 0.75,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "34": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "35": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "36": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 5
+      },
+      "37": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "38": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "39": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "40": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "41": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "42": {
+        "status": "success",
+        "n_parts": 6,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "43": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "44": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "45": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 0.5,
+        "parent_acc": 0.75,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "46": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "47": {
+        "status": "success",
+        "n_parts": 2,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "48": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      },
+      "49": {
+        "status": "success",
+        "n_parts": 4,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 5,
+        "base_gt": 5
+      }
+    },
+    "washers": {
+      "0": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "1": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "2": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "3": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "4": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "5": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "6": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "7": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "8": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "9": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "10": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "11": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "12": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "13": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "14": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "15": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "16": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "17": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "18": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "19": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "20": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "21": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "22": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "23": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "24": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 4
+      },
+      "25": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "26": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "27": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "28": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "29": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "30": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "31": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "32": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "33": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "34": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "35": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "36": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "37": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 2,
+        "base_gt": 4
+      },
+      "38": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "39": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "40": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "41": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "42": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "43": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "44": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "45": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 0.0,
+        "parent_acc": 1.0,
+        "base_pred": 7,
+        "base_gt": 4
+      },
+      "46": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 1,
+        "base_gt": 4
+      },
+      "47": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "48": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      },
+      "49": {
+        "status": "success",
+        "n_parts": 1,
+        "mesh_acc": 1.0,
+        "parent_acc": 1.0,
+        "base_pred": 4,
+        "base_gt": 4
+      }
+    }
+  }
+}
