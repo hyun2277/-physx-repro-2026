@@ -1,0 +1,213 @@
+[
+  {
+    "file": "20260921_024750_physx3d_preparation_review.md",
+    "source_path_relative_to_PHYSx": "logs/20260921_024750_physx3d_preparation_review.md",
+    "source_sha256": "f199607eb9e1bd92727adc7bd3f31be1dba25ccc48a7b92f00bf1bf78cb0a575",
+    "published_sha256": "61b8adb804c390be43ba0f26d9ae4cda96c599d1ef8ca0a7a9789022f71b3c43",
+    "transformations": [
+      "Markdown local links normalized; omitted local-only artifacts shown as paths"
+    ]
+  },
+  {
+    "file": "20260921_030158_physx3d_environment_check.md",
+    "source_path_relative_to_PHYSx": "logs/20260921_030158_physx3d_environment_check.md",
+    "source_sha256": "a5d45f83d329447867b90b24d0e8ff82620043f102b629ccb3aa7e5937d42ca6",
+    "published_sha256": "a5d45f83d329447867b90b24d0e8ff82620043f102b629ccb3aa7e5937d42ca6",
+    "transformations": []
+  },
+  {
+    "file": "20260921_030158_physxgen_package_inventory.json",
+    "source_path_relative_to_PHYSx": "logs/20260921_030158_physxgen_package_inventory.json",
+    "source_sha256": "37ccfd256fb6f61b1c45d5cdf0841b828838a75965c65e2547ef06b669fd746d",
+    "published_sha256": "37ccfd256fb6f61b1c45d5cdf0841b828838a75965c65e2547ef06b669fd746d",
+    "transformations": []
+  },
+  {
+    "file": "work-log.md",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/work-log.md",
+    "source_sha256": "0ea233e52e5310467c2c2d605b140eadc680eb05f947721a0eca170b3fa12a85",
+    "published_sha256": "3316e01c3c5a4119f49945cbbf202976ffe90f89b35c8a1184ee6aea46ec7ac3",
+    "transformations": [
+      "Markdown local links normalized; omitted local-only artifacts shown as paths"
+    ]
+  },
+  {
+    "file": "isolation-review-log.md",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/isolation-review-log.md",
+    "source_sha256": "d78b53cab444744b93beb2049860242fe21c21746ccfba9877d0a20881022378",
+    "published_sha256": "d78b53cab444744b93beb2049860242fe21c21746ccfba9877d0a20881022378",
+    "transformations": []
+  },
+  {
+    "file": "isolation-probe-result.json",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/isolation-probe-result.json",
+    "source_sha256": "eaeebe39bff3cd9976c0fede69bcae3c379810b8678d95064e3ae7de2259aa0e",
+    "published_sha256": "eaeebe39bff3cd9976c0fede69bcae3c379810b8678d95064e3ae7de2259aa0e",
+    "transformations": []
+  },
+  {
+    "file": "conda-final-isolated-preview.summary.md",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.summary.md",
+    "source_sha256": "1d0ddc2eea95277382495f1d47ce247983e99c56a0e84f42fd76e09903503051",
+    "published_sha256": "814545341f007b393c945580783a0375eafa9032bfdde079cc86c25886c0df8e",
+    "transformations": [
+      "Markdown local links normalized; omitted local-only artifacts shown as paths"
+    ]
+  },
+  {
+    "file": "conda-final-isolated-preview.comparison.json",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.comparison.json",
+    "source_sha256": "da0ef1db5f50f2264b451dbcacd9a33e22a45c81957e702851c6fa7d94467b21",
+    "published_sha256": "da0ef1db5f50f2264b451dbcacd9a33e22a45c81957e702851c6fa7d94467b21",
+    "transformations": []
+  },
+  {
+    "file": "cuda-toolkit.conda-specs.txt",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/cuda-toolkit.conda-specs.txt",
+    "source_sha256": "5ccf713420ef0e482fc1c8f7b05ed56acc1044ba677f97adff2c3a3ce6886159",
+    "published_sha256": "5ccf713420ef0e482fc1c8f7b05ed56acc1044ba677f97adff2c3a3ce6886159",
+    "transformations": []
+  },
+  {
+    "file": "preview.condarc",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/preview.condarc",
+    "source_sha256": "f3827527f27453532446b40583ba19e8aff5190e2e1594106af22f259783bc34",
+    "published_sha256": "f3827527f27453532446b40583ba19e8aff5190e2e1594106af22f259783bc34",
+    "transformations": []
+  },
+  {
+    "file": "workspace_isolation.py",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/workspace_isolation.py",
+    "source_sha256": "8e9038d7af1d7f23d0da87448a9218d03240a5b0ece05b65965340ad497929c1",
+    "published_sha256": "8e9038d7af1d7f23d0da87448a9218d03240a5b0ece05b65965340ad497929c1",
+    "transformations": []
+  },
+  {
+    "file": "isolation_probe.py",
+    "source_path_relative_to_PHYSx": "logs/install-plan-20260921/isolation_probe.py",
+    "source_sha256": "3074f700cb3a2e3dffc0b797b119900d9cad89e75d7ee78803156f41f92b628d",
+    "published_sha256": "3074f700cb3a2e3dffc0b797b119900d9cad89e75d7ee78803156f41f92b628d",
+    "transformations": []
+  },
+  {
+    "file": "cuda-install.command.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/cuda-install.command.json",
+    "source_sha256": "8942474f2a8bb34f6a739ed37274c87fccbd24f4675802e75e96626e5ddb9d80",
+    "published_sha256": "8942474f2a8bb34f6a739ed37274c87fccbd24f4675802e75e96626e5ddb9d80",
+    "transformations": []
+  },
+  {
+    "file": "cuda-install.stdout.log",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/cuda-install.stdout.log",
+    "source_sha256": "20efb7ed0b756764e2ee8bf4df5b4df11655bf6c577df2f10569049b139adae0",
+    "published_sha256": "bf5281822b946bcaa0ef7f31c7951166509d7b81f34a3a325f1f1184eb7ac143",
+    "transformations": [
+      "Terminal progress control sequences/blank lines removed; original full log remains local",
+      "Trailing progress whitespace removed after pre-commit diff check"
+    ]
+  },
+  {
+    "file": "cuda-install.stderr.log",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/cuda-install.stderr.log",
+    "source_sha256": "9ded6043f6fc05905dccfd6c70425e7bb47ff36442a232174c6e64c3973fb1b7",
+    "published_sha256": "9ded6043f6fc05905dccfd6c70425e7bb47ff36442a232174c6e64c3973fb1b7",
+    "transformations": []
+  },
+  {
+    "file": "nvcc-version.stdout.log",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/nvcc-version.stdout.log",
+    "source_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+    "published_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+    "transformations": []
+  },
+  {
+    "file": "result.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/result.json",
+    "source_sha256": "3eba22233a9b0c8c74ede6a42dec59ec9f2354f2955534dae9a896e7d4c38adb",
+    "published_sha256": "3eba22233a9b0c8c74ede6a42dec59ec9f2354f2955534dae9a896e7d4c38adb",
+    "transformations": []
+  },
+  {
+    "file": "actual-files.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/actual-files.json",
+    "source_sha256": "7cf58e4ab8769ea75bcf28b532431f44acfc1577b85d4c189d96109b06800bed",
+    "published_sha256": "7cf58e4ab8769ea75bcf28b532431f44acfc1577b85d4c189d96109b06800bed",
+    "transformations": []
+  },
+  {
+    "file": "installed-package-comparison.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/installed-package-comparison.json",
+    "source_sha256": "e60172064693d5b00d22e521787de0e5b501c92d88bf65e044ec79eea048ce64",
+    "published_sha256": "e60172064693d5b00d22e521787de0e5b501c92d88bf65e044ec79eea048ce64",
+    "transformations": []
+  },
+  {
+    "file": "preservation.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/preservation.json",
+    "source_sha256": "aba59b226b1806fc27315d0e92699b1da683c715d9c2ede61abf3c95e06789b2",
+    "published_sha256": "aba59b226b1806fc27315d0e92699b1da683c715d9c2ede61abf3c95e06789b2",
+    "transformations": []
+  },
+  {
+    "file": "fresh-preview-comparison.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/fresh-preview-comparison.json",
+    "source_sha256": "9dbce14b15ce61573ebea2198ed663593036028f41edcbf2fe51f4cb334c546b",
+    "published_sha256": "9dbce14b15ce61573ebea2198ed663593036028f41edcbf2fe51f4cb334c546b",
+    "transformations": []
+  },
+  {
+    "file": "artifact-comparison.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/artifact-comparison.json",
+    "source_sha256": "e33e752baaff3a330038c5dd0e168adf8d474031c781655247b019c113100e93",
+    "published_sha256": "e33e752baaff3a330038c5dd0e168adf8d474031c781655247b019c113100e93",
+    "transformations": []
+  },
+  {
+    "file": "install-artifacts-sha256.json",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/install-artifacts-sha256.json",
+    "source_sha256": "f1970f159c2f03b6aa24475471c69c619c615dbd833a0ffc946a83d6b84393ee",
+    "published_sha256": "f1970f159c2f03b6aa24475471c69c619c615dbd833a0ffc946a83d6b84393ee",
+    "transformations": []
+  },
+  {
+    "file": "cuda-toolkit.explicit.txt",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/cuda-toolkit.explicit.txt",
+    "source_sha256": "98be7b819e067fdcd22ac9e1af4e6ffa206775cd28a3204289f1e0ef7b253db8",
+    "published_sha256": "98be7b819e067fdcd22ac9e1af4e6ffa206775cd28a3204289f1e0ef7b253db8",
+    "transformations": []
+  },
+  {
+    "file": "install_cuda_only.py",
+    "source_path_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/install_cuda_only.py",
+    "source_sha256": "fb03d254091fdbd0772665afd2cc1c01d405b28532a52842916c656cdff55bf2",
+    "published_sha256": "fb03d254091fdbd0772665afd2cc1c01d405b28532a52842916c656cdff55bf2",
+    "transformations": []
+  },
+  {
+    "file": "environment-create-history-excerpt.txt",
+    "source_path_relative_to_PHYSx": "envs/physxgen/conda-meta/history",
+    "source_sha256": "11c0d79f5befd1e6bf5b77af3466bd9c08952b4c6bed58fe3eb0564edf1daf28",
+    "published_sha256": "03c953115c0fa021790612b376efd656e91939d7b9e24f839509e6a09f0657a7",
+    "transformations": [
+      "Only transaction header, create command, requested specs, and attribution limitation retained"
+    ]
+  },
+  {
+    "file": "codex-initial-execution-excerpt.json",
+    "source_path_relative_to_PHYSx": "logs/terminal_20260921_021316.log",
+    "source_line_numbers": [
+      119,
+      121,
+      125,
+      792,
+      793,
+      795,
+      796,
+      798
+    ],
+    "published_sha256": "2d0bde902f7aa4bba88de5501f591a3d8acfdeca59035680a015f4d60f263431",
+    "transformations": [
+      "Only8 reviewed literal snippets copied after ANSI removal; raw terminal lines can contain large UI redraws and were not copied"
+    ]
+  }
+]

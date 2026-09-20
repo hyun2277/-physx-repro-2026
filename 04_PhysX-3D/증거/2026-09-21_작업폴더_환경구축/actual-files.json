@@ -1,0 +1,291 @@
+{
+  "nvcc": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvcc",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvcc",
+      "bytes": 24832552,
+      "is_symlink": false,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/bin/nvcc",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvcc",
+      "bytes": 24832552,
+      "is_symlink": true,
+      "executable": true
+    }
+  ],
+  "ptxas": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/ptxas",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/ptxas",
+      "bytes": 31916288,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "nvlink": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvlink",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvlink",
+      "bytes": 32381048,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "cudafe": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/cudafe++",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/cudafe++",
+      "bytes": 8722776,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "cuda_driver_header": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda.h",
+      "bytes": 1156988,
+      "is_symlink": false,
+      "executable": false
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/x86_64-conda-linux-gnu/sysroot/usr/include/linux/cuda.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/x86_64-conda-linux-gnu/sysroot/usr/include/linux/cuda.h",
+      "bytes": 905,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "cuda_runtime_header": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda_runtime.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda_runtime.h",
+      "bytes": 98570,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "cuda_runtime_api_header": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda_runtime_api.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda_runtime_api.h",
+      "bytes": 655943,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "host_config_header": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/crt/host_config.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/crt/host_config.h",
+      "bytes": 12169,
+      "is_symlink": false,
+      "executable": false
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/host_config.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/host_config.h",
+      "bytes": 3380,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "nvvm_compiler": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/bin/cicc",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/bin/cicc",
+      "bytes": 77649512,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "libdevice": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/libdevice/libdevice.10.bc",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/libdevice/libdevice.10.bc",
+      "bytes": 484900,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "nvvm_library": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so.4.0.0",
+      "bytes": 64270496,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so.4",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so.4.0.0",
+      "bytes": 64270496,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so.4.0.0",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/nvvm/lib64/libnvvm.so.4.0.0",
+      "bytes": 64270496,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "cudart_library": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcudart.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcudart.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcudart.so.12.8.90",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcudart.so.12.8.90",
+      "bytes": 746033,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "cublas_header": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cublas_v2.h",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cublas_v2.h",
+      "bytes": 15460,
+      "is_symlink": false,
+      "executable": false
+    }
+  ],
+  "cublas_library": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublas.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublas.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublas.so.12.8.4.1",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublas.so.12.8.4.1",
+      "bytes": 116388640,
+      "is_symlink": false,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/stubs/libcublas.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/stubs/libcublas.so",
+      "bytes": 95777,
+      "is_symlink": false,
+      "executable": true
+    }
+  ],
+  "cublas_lt_library": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublasLt.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublasLt.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/lib/libcublasLt.so.12.8.4.1",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": true,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/libcublasLt.so.12.8.4.1",
+      "bytes": 751771728,
+      "is_symlink": false,
+      "executable": true
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/stubs/libcublasLt.so",
+      "resolved_path": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib/stubs/libcublasLt.so",
+      "bytes": 35209,
+      "is_symlink": false,
+      "executable": true
+    }
+  ]
+}

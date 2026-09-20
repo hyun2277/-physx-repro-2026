@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/home/minsujo/anaconda3/condabin/conda",
+    "create",
+    "--prefix",
+    "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1",
+    "--override-channels",
+    "--strict-channel-priority",
+    "--repodata-fn",
+    "repodata.json",
+    "--no-default-packages",
+    "--copy",
+    "--yes",
+    "-c",
+    "https://conda.anaconda.org/nvidia/label/cuda-12.8.1",
+    "-c",
+    "https://repo.anaconda.com/pkgs/main",
+    "--file",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/cuda-toolkit-install-20260921/cuda-toolkit.explicit.txt"
+  ],
+  "started": "2026-09-21T04:46:38.165266+09:00",
+  "finished": "2026-09-21T04:49:54.771374+09:00",
+  "exit_code": 0
+}

@@ -1,0 +1,72 @@
+Downloading and Extracting Packages
+binutils_impl_linux- |            |   0%
+binutils_linux-64-2. |            |   0%
+cuda-cccl_linux-64-1 |            |   0%
+cuda-command-line-to |            |   0%
+cuda-compiler-12.8.1 |            |   0%
+cuda-crt-dev_linux-6 |            |   0%
+cuda-crt-tools-12.8. |            |   0%
+cuda-cudart-12.8.90  |            |   0%
+cuda-cudart-dev-12.8 |            |   0%
+cuda-cudart-dev_linu |            |   0%
+cuda-cudart-static-1 |            |   0%
+cuda-cudart-static_l |            |   0%
+cuda-cudart_linux-64 |            |   0%
+cuda-cuobjdump-12.8. |            |   0%
+cuda-cupti-12.8.90   |            |   0%
+cuda-cupti-dev-12.8. |            |   0%
+cuda-cuxxfilt-12.8.9 |            |   0%
+cuda-driver-dev-12.8 |            |   0%
+cuda-driver-dev_linu |            |   0%
+ ... (more hidden) ...
+binutils_impl_linux- | 1          |   1%
+binutils_linux-64-2. | ########## | 100%
+binutils_linux-64-2. | ########## | 100%
+binutils_impl_linux- | #4         |  14%
+binutils_impl_linux- | ##7        |  27%
+binutils_impl_linux- | ####       |  40%
+binutils_impl_linux- | #####2     |  53%
+binutils_impl_linux- | ######5    |  66%
+binutils_impl_linux- | #######8   |  79%
+binutils_impl_linux- | #########1 |  92%
+binutils_impl_linux- | ########## | 100%
+cuda-compiler-12.8.1 | ########## | 100%
+cuda-compiler-12.8.1 | ########## | 100%
+cuda-command-line-to | ########## | 100%
+cuda-command-line-to | ########## | 100%
+cuda-crt-tools-12.8. | ########## | 100%
+cuda-crt-tools-12.8. | ########## | 100%
+cuda-cudart-dev-12.8 | ########## | 100%
+cuda-cudart-dev-12.8 | ########## | 100%
+cuda-cudart-12.8.90  | ########## | 100%
+cuda-cudart-12.8.90  | ########## | 100%
+cuda-cccl_linux-64-1 | ########## | 100%
+cuda-cccl_linux-64-1 | ########## | 100%
+cuda-cudart-static-1 | ########## | 100%
+cuda-cudart-static-1 | ########## | 100%
+cuda-crt-dev_linux-6 | ########## | 100%
+cuda-crt-dev_linux-6 | ########## | 100%
+cuda-cudart-dev_linu | ########## | 100%
+cuda-cudart-dev_linu | ########## | 100%
+cuda-cuobjdump-12.8. | ########## | 100%
+cuda-cuobjdump-12.8. | ########## | 100%
+cuda-cudart-static_l | ########## | 100%
+cuda-cudart-static_l | ########## | 100%
+cuda-cudart_linux-64 | ########## | 100%
+cuda-cudart_linux-64 | ########## | 100%
+cuda-driver-dev-12.8 | ########## | 100%
+cuda-driver-dev-12.8 | ########## | 100%
+cuda-driver-dev_linu | ########## | 100%
+cuda-driver-dev_linu | ########## | 100%
+cuda-cuxxfilt-12.8.9 | ########## | 100%
+cuda-cuxxfilt-12.8.9 | ########## | 100%
+cuda-cupti-12.8.90   | ########## | 100%
+cuda-cupti-12.8.90   | ########## | 100%
+cuda-cupti-dev-12.8. | ########## | 100%
+cuda-cupti-dev-12.8. | ########## | 100%
+ ... (more hidden) ...
+ ... (more hidden) ...
+Downloading and Extracting Packages
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done

@@ -1,0 +1,6 @@
+WARNING conda.core.path_actions:verify(1093): Unable to create environments file. Path not writable.
+  environment location: /home/minsujo/.conda/environments.txt
+
+WARNING conda.core.envs_manager:register_env(49): Unable to register environment. Path not writable or missing.
+  environment location: /home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1
+  registry file: /home/minsujo/.conda/environments.txt

@@ -1,0 +1,42 @@
+{
+  "source": "logs/terminal_20260921_021316.log",
+  "selection": "Only whitelisted literal snippets after stripping terminal control sequences; whole lines/raw terminal never copied.",
+  "lines": [
+    {
+      "source_line": 119,
+      "reviewed_literal_excerpt": "두 명령 모두 실행에 실패했습니다."
+    },
+    {
+      "source_line": 121,
+      "reviewed_literal_excerpt": "bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted"
+    },
+    {
+      "source_line": 125,
+      "reviewed_literal_excerpt": "설정 변경은 하지 않았습니다."
+    },
+    {
+      "source_line": 792,
+      "reviewed_literal_excerpt": "pwd"
+    },
+    {
+      "source_line": 793,
+      "reviewed_literal_excerpt": "/home/minsujo/Desktop/SH/PHYSx"
+    },
+    {
+      "source_line": 795,
+      "reviewed_literal_excerpt": "--version"
+    },
+    {
+      "source_line": 796,
+      "reviewed_literal_excerpt": "Python 3.10.21"
+    },
+    {
+      "source_line": 798,
+      "reviewed_literal_excerpt": "두 명령 모두 성공"
+    }
+  ],
+  "confirmed_error": "bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted",
+  "later_result": "pwd and specified Python --version succeeded; Python3.10.21",
+  "resolution_mechanism": "Unknown from this evidence; do not infer system protection changes.",
+  "omitted": "Clipboard UI error, authentication/configuration/environment content, all other terminal history."
+}

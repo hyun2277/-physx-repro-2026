@@ -1,0 +1,4 @@
+==> 2026-09-21 02:12:48 <==
+# cmd: /home/minsujo/anaconda3/bin/conda create -p /home/minsujo/Desktop/SH/PHYSx/envs/physxgen python=3.10 pip -y
+# update specs: ['pip', 'python=3.10']
+Attribution: this history establishes an existing create transaction, not which person or agent created it. History header has no timezone suffix.
