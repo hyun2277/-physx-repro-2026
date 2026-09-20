@@ -17,7 +17,7 @@
 |---|---|
 | [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료(연구원A·연구원B 교차검증 포함) |
 | [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료(torus·burger, 결과비교 및 원인분석 포함) |
-| [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Object-Level 300장, Kitchen 54씬 정량 검증 완료) |
+| [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Object-Level 300장·Kitchen 54씬 정량 검증, 연구원A·연구원B 교차검증 포함) |
 | [4. PhysX-3D](#4-physx-3d-착수-예정) (NeurIPS 2025) | 착수 예정 |
 
 **바로가기**: [논문·코드 출처](#재현-논문-출처-paper--code-references) ·
@@ -91,9 +91,12 @@
 - **`00_연구준비/`** — 10편 논문 전체 공통 조사자료(특정 논문 한정 아님)
 - **`01_PhysGaussian/`** — 1순위 논문. 환경구축·컴파일 이슈 해결 → 연구원A/연구원B 각자 결과 → 교차검증
 - **`02_SpringGaus/`** — 2순위 논문. 환경구축·컴파일 이슈 해결 → 연구원A/연구원B 각자 결과 → 결과비교 및 원인분석
-- **`03_URDFormer/`** — 3순위 논문(교수님 지시로 착수). 환경구축·재현 완료 — 패키지 버전 이슈 6건
-  + 소스 코드 최소 패치 3건 해결, README 기본 예제(캐비닛류)로 전체 파이프라인 성공 확인. 다음은
-  논문 범주 밖인 노트북 힌지·로봇팔로 시도 예정.
+- **`03_URDFormer/`** — 3순위 논문(교수님 지시로 착수). 환경구축(이슈 6건)·재현 완료 →
+  Object-Level 300장(5개 카테고리) + Kitchen 54씬 정량 평가(논문 공식 코드에 채점 로직이 없어
+  직접 구현) → 연구원A/연구원B 각자 결과 → 교차검증(연구원B가 Kitchen 렌더링 버그 발견·수정,
+  연구원A가 평가 코드 버그 발견·수정, 지표 대부분 상호 일치 확인) → 최종 판정 **부분 재현(Partial
+  Reproduction)**. 논문 범주 밖인 노트북 힌지·로봇팔로도 시도해봤으나, 예상대로 학습 카테고리
+  밖이라 의미 있는 결과가 나오지 않음을 확인(정직하게 실패로 보고).
 - 다음은 PhysX-3D(2025, 교수님 지시로 재현 범위에 신규 편입 — 당초 2024년 말까지로 범위를 잡으며 빠졌던
   논문). RTX 5090(32GB)/Linux 환경에서 진행 예정.
 
@@ -110,8 +113,12 @@
 
 ## 참여자
 
-- **연구원A**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료
-- **연구원B**: PhysGaussian 재현 완료(교차검증), Spring-Gaus(torus·burger) 2차 시도에서 재현 성공
+- **연구원A**: PhysGaussian·Spring-Gaus(torus·burger) 전체 재현 완료. URDFormer는 환경구축부터
+  Object-Level 300장(GT bbox+자동탐지)·Kitchen 54씬 정량 평가까지 진행, 평가 코드 버그(자동탐지
+  Parent Accuracy 인덱스 매핑) 발견·수정
+- **연구원B**: PhysGaussian 재현 완료(교차검증), Spring-Gaus(torus·burger) 2차 시도에서 재현 성공.
+  URDFormer는 별도 환경에서 독립 재현 후 연구원A와 교차검증 — Kitchen 렌더링 버그 발견·수정(51/54→
+  54/54), Object-Level 300장 GT bbox 평가를 독립적으로 재현해 대부분의 지표가 일치함을 상호 확인
 
 ---
 
