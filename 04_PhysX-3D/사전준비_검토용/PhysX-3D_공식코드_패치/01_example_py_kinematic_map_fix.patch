@@ -1,0 +1,14 @@
+diff --git a/example.py b/example.py
+index 2833c8a..6041daa 100644
+--- a/example.py
++++ b/example.py
+@@ -210,4 +210,7 @@ else:
+ 
+-        kinematic_parameters.append(phy[...,5:-1][kinematic_map[(group_ind-1)*2]].mean(0))
+-        kinematic_type.append(phy[...,-1][kinematic_map[(group_ind-1)*2]].mean(0))
++        # Select group members, not repeated point indices 0 and 1.
++        # Parent-group inference and empty groups still need validation.
++        _group_mask = kinematic_map[:, (group_ind-1)*2].bool()
++        kinematic_parameters.append(phy[...,5:-1][_group_mask].mean(0))
++        kinematic_type.append(phy[...,-1][_group_mask].mean(0))
+ 

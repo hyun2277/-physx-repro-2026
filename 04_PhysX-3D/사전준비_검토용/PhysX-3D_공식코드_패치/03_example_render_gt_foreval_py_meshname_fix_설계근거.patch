@@ -1,0 +1,17 @@
+diff --git a/example_render_gt_foreval.py b/example_render_gt_foreval.py
+index 5dae6fd..0363c9f 100644
+--- a/example_render_gt_foreval.py
++++ b/example_render_gt_foreval.py
+@@ -146,2 +146,7 @@ for name in namelist:
+ 
++    # PROVISIONAL: confirm numeric file order matches JSON part order.
++    objlist = sorted(os.listdir(os.path.join(meshpath,name,'objs')), key=lambda x: int(x.split('.')[0]))
++    assert len(objlist) == len(jsondata['parts']), (
++        f"{name}: mesh/part count mismatch; validate dataset mapping")
++
+     allrenobj=trimesh.Trimesh([])
+@@ -153,3 +158,3 @@ for name in namelist:
+ 
+-        eachpart1=trimesh.load(os.path.join(meshpath,name,'objs',str(meshname)+'.obj'))
++        eachpart1=trimesh.load(os.path.join(meshpath,name,'objs',objlist[part]))
+         allrenobj = trimesh.util.concatenate([eachpart1,allrenobj])

@@ -1,0 +1,18 @@
+diff --git a/example_render_gt_foreval.py b/example_render_gt_foreval.py
+index 5dae6fd..a73d24c 100644
+--- a/example_render_gt_foreval.py
++++ b/example_render_gt_foreval.py
+@@ -151,2 +151,7 @@ for name in namelist:
+     
++    # Choose and save one description target per object.
++    # Seed and prediction/GT question alignment are separate requirements.
++    description_ind=np.random.randint(len(jsondata['parts']))
++    np.save(os.path.join(savepath,'des_index.npy'),jsondata['parts'][description_ind]['Basic_description'])
++
+     for part in range(len(jsondata['parts'])):
+@@ -160,5 +165,2 @@ for name in namelist:
+ 
+-        description_ind=np.random.randint(len(jsondata['parts']))
+-        
+-        np.save(os.path.join(savepath,'des_index.npy'),jsondata['parts'][part]['Basic_description'])
+ 

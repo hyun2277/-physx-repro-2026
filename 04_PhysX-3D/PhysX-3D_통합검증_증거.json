@@ -1,0 +1,72 @@
+{
+  "scope": "CPU configuration check and input identity only; no GPU validation",
+  "zip": {
+    "sha256": "0952dcbbea7059947072dda8ad9266ae43234afb2eff647f2b503a6af3fedb60",
+    "members": [
+      {
+        "name": "04_PhysX-3D/02_코드버전_비교_팀원전달용.md",
+        "bytes": 4207,
+        "sha256": "1830fafd80c2951052a806edee7fe22d391cad4d82b126a0c13668ade8ff4325"
+      },
+      {
+        "name": "04_PhysX-3D/03_PC환경_재현가능성_검토.md",
+        "bytes": 11225,
+        "sha256": "6839ef3742830ee717eb31162ab31c09b9c4bb8b36cc4c9bf8509ae565cab418"
+      },
+      {
+        "name": "04_PhysX-3D/01_논문_확인.md",
+        "bytes": 22830,
+        "sha256": "fbc8b326f7738b2a2403cc18928cac195a8f49c894184db1039fce4717aa47c0"
+      },
+      {
+        "name": "04_PhysX-3D/04_재현_계획.md",
+        "bytes": 7468,
+        "sha256": "82a0f268a5f87286b377a6e0c7a86fa62d22ebc7e43adb213264b8dba06f9ec6"
+      },
+      {
+        "name": "04_PhysX-3D/05_랩실_RTX5090_환경_재검토.md",
+        "bytes": 21931,
+        "sha256": "133094579b4cca0aaee7f6abd4b60122c5278db72a31bd373f6ac603ec33b76e"
+      },
+      {
+        "name": "04_PhysX-3D/README.md",
+        "bytes": 4699,
+        "sha256": "1e1d8fc4ec3088ccc912d671da93b9a418f9f29cf5696860197e972a4626c37b"
+      },
+      {
+        "name": "04_PhysX-3D/00_배경_교수님피드백.md",
+        "bytes": 5455,
+        "sha256": "eaa6c396674102475c28fc3639c54265b51a12c1d708d21ade4b1a57fc4468c1"
+      },
+      {
+        "name": "04_PhysX-3D/06_재현_계획_RTX5090.md",
+        "bytes": 15883,
+        "sha256": "ef3c765838c1fbe05c41c9717284b7afb0f4046a31a41c46e89a433a98f39462"
+      }
+    ]
+  },
+  "scripts": {
+    "00_snapshot.sh": "f460f23454a1e2a6aa8abc844d26be36f5f3c7bb99f7ebffe787007b722a1f4d",
+    "01_clone_and_env.sh": "f5d5ca7dcf08a3ea318102f2301c6173f51f38c8a6019beebee11491a5fa8735",
+    "02_install_deps.sh": "e6dab31f8223a2d80b3cada842f993adfd5ad168b1f723dc292f29e51ee2ee5e",
+    "03_download_checkpoints.sh": "b50325d23a591761d5eca17bac89c8ea014965b9b5c4c5724a7d258cd838e6f9",
+    "04_run_example.sh": "44fd26b53be8f07644be0cd6ac1e81671881f5cb3187ef5b74ce492019e97a41",
+    "05_run_custom_image.sh": "51b29c3f27b6df6f46c3b3038568c55703ab2957b1a1413978c306b0de34e43a"
+  },
+  "official_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "official_status": "",
+  "sdpa_config_check": {
+    "attention": "sdpa",
+    "sparse": "flash_attn"
+  },
+  "val_test_list": {
+    "shape": [
+      2000
+    ],
+    "dtype": "<U5",
+    "unique": 1878,
+    "validation_unique": 973,
+    "test_unique": 972,
+    "shared_ids": 67
+  }
+}

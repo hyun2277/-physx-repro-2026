@@ -18,7 +18,7 @@
 | [1. PhysGaussian](#1-physgaussian) (CVPR 2024) | 재현 완료(연구원A·연구원B 교차검증 포함) |
 | [2. Spring-Gaus](#2-spring-gaus) (ECCV 2024) | 재현 완료(torus·burger, 결과비교 및 원인분석 포함) |
 | [3. URDFormer](#3-urdformer) (RSS 2024) | 부분 재현(Object-Level 300장·Kitchen 54씬 정량 검증, 연구원A·연구원B 교차검증 포함) |
-| [4. PhysX-3D](#4-physx-3d-착수-예정) (NeurIPS 2025) | 착수 예정 |
+| [4. PhysX-3D](04_PhysX-3D/README.md) (NeurIPS 2025) | 공동 재현 사전 준비·검토 중 (GPU 실험 미실행) |
 
 **바로가기**: [논문·코드 출처](#재현-논문-출처-paper--code-references) ·
 [폴더 구조](#폴더-구조-논문별) · [커밋 기록](#커밋-기록이-실제-진행-순서와-일치합니다) ·
@@ -82,9 +82,10 @@
 - **Venue**: NeurIPS 2025 (Spotlight) — arXiv 페이지 Comments 필드 "Accepted by NeurIPS 2025, Spotlight"로
   직접 확인
 - **Paper**: [arXiv:2507.12465](https://arxiv.org/abs/2507.12465) · [프로젝트 페이지](https://physx-3d.github.io/)
-- **Official Code**: 미확인 — 재현 작업 자체가 아직 시작 전이라 사용할 commit도 미정. 계획 메모만
-  로컬에 존재(**이 저장소 밖의 별도 폴더에 있어 이 GitHub 저장소에는 포함되어 있지 않음** — 착수 시점에
-  이 저장소 안으로 옮겨 커밋할 예정)
+- **Official Code**: [ziangcao0312/PhysX-3D](https://github.com/ziangcao0312/PhysX-3D)
+- **검토 기준 commit**: `4f54e750a309fe9cd9f20816916ecc0e8a9ae594`
+- **현재 상태**: 공동 재현 사전 준비 및 코드 검토. GPU 실행·정량 평가 미실행.
+- **기록**: [사전 준비·실험일지](04_PhysX-3D/README.md). 검토용 스크립트는 실행 준비 미완료.
 
 ## 폴더 구조 (논문별)
 

@@ -1,0 +1,52 @@
+{
+  "base_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "syntax": [
+    "01_example_py_kinematic_map_fix.patch",
+    "02_example_render_gt_foreval_py_des_index_fix.patch",
+    "03_example_render_gt_foreval_py_meshname_fix_설계근거.patch"
+  ],
+  "individual_apply": [
+    "01_example_py_kinematic_map_fix.patch",
+    "02_example_render_gt_foreval_py_des_index_fix.patch",
+    "03_example_render_gt_foreval_py_meshname_fix_설계근거.patch"
+  ],
+  "orders": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      3,
+      2
+    ],
+    [
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      3,
+      1
+    ],
+    [
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      1
+    ]
+  ],
+  "source_checkout_unchanged": true,
+  "patch_sha256": {
+    "01_example_py_kinematic_map_fix.patch": "dbc2f3bbec3df0d1c118ff6a76bbfbc4a1533a344d46fc4445ebf992a5b406e8",
+    "02_example_render_gt_foreval_py_des_index_fix.patch": "511fc63b338af16a8ab6bb411120ba7128873ed7f8b33ae5411dc4186e51e736",
+    "03_example_render_gt_foreval_py_meshname_fix_설계근거.patch": "d0e73d4beb46091557dcb46831a6e9a4758d83e659b9b8f64eadc2910c200009"
+  },
+  "limits": "Patch application and Python syntax only; no GPU/model/data validation. Patch 03 remains provisional; parent-group and empty-group issues remain."
+}
