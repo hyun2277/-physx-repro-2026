@@ -2,17 +2,12 @@
 import math
 
 from .common import checked_ref, read_json, require, resolved
-
-PSNR = {"appearance_psnr", "density_psnr", "affordance_psnr", "description_psnr"}
-SUPPORTED = PSNR | {"scale_l2", "cd", "fscore"}
+from .contracts import PSNR, SUPPORTED, validate_metric_contract
 
 
 def validate_settings(metric, settings):
-    require(metric in SUPPORTED, "metric unimplemented: ID/kinematics aggregation unresolved")
-    require(isinstance(settings, dict), "missing metric settings")
-    require(settings.get("authority") in {"proposal", "code_verified"},
-            "settings authority must be explicit; paper equivalence is unavailable")
-    common = ["unit", "normalization", "alignment", "context"]
+    validate_metric_contract(metric, settings)
+    common = ["alignment", "context"]
     for key in common:
         require(resolved(settings.get(key)), "missing/unresolved setting: " + key)
     require(settings["alignment"] == "already_aligned", "implicit alignment is forbidden")

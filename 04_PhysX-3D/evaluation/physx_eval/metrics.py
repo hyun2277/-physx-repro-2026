@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import math
 
+from .contracts import validate_metric_contract
+
 
 class MetricError(ValueError):
     """A payload, required setting, or numerical operation is not valid."""
@@ -293,8 +295,10 @@ def evaluate(metric: str, prediction: dict, ground_truth: dict, settings: dict) 
         raise MetricError("metric must be a string")
     if metric in {"cov", "mmd"}:
         raise MetricError("not implemented: ID/aggregation unresolved")
-    if metric not in _PSNR_METRICS | {"scale_l2", "cd", "fscore"}:
-        raise MetricError(f"unsupported metric: {metric}")
+    try:
+        validate_metric_contract(metric, settings)
+    except (AssertionError, ValueError, TypeError) as exc:
+        raise MetricError(str(exc)) from exc
     transform, result = _base(prediction, ground_truth, settings)
     result["metric"] = metric
     if metric in _PSNR_METRICS:

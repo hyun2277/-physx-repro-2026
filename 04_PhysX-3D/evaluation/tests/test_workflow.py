@@ -13,7 +13,7 @@ from unittest.mock import patch
 
 from physx_eval.common import ContractError, checked_ref, file_hash, read_json, write_new_json
 from physx_eval.manifest import build_manifest, make_rows, validate_manifest
-from physx_eval.mapping import validate_binding
+from physx_eval.mapping import validate_binding, validate_settings
 from physx_eval.runner import run_session
 
 PROJECT = Path(os.environ.get("PHYSX_ROOT", "/home/minsujo/Desktop/SH/PHYSx"))
@@ -233,6 +233,12 @@ class ResumeTests(FixtureCase):
         result = self.run_fixture()
         self.assertEqual(result["counts"]["blocked"], 1)
         self.assertEqual(result["counts"]["not_attempted"], 2)
+
+    def test_scale_representation_is_required_by_preflight(self):
+        settings = copy.deepcopy(self.cfg["metrics"]["scale_l2"])
+        del settings["representation"]
+        with self.assertRaisesRegex(ContractError, "representation"):
+            validate_settings("scale_l2", settings)
 
     def test_changed_config_manifest_code_block_reuse(self):
         self.run_fixture()

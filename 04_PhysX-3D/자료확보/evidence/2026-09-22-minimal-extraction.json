@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "a4970a3936e8a1fc823d17b64d23b167d73997a13686011bc46f7b98774a7e75",
+  "archive_bytes": 16306354206,
+  "full_archive_extracted": false,
+  "output_path": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-minimal/2026-09-22",
+  "source_order_preserved": true,
+  "classification_basis": "observed group_info candidate; not official paper classification",
+  "candidates": [
+    {"test_index": 0, "source_index": 1000, "object_id": "7271", "candidate_role": "articulated_candidate", "non_root_group_count": 3, "files": 13, "bytes": 1643252},
+    {"test_index": 1, "source_index": 1001, "object_id": "29354", "candidate_role": "fixed_candidate", "non_root_group_count": 0, "files": 13, "bytes": 744852}
+  ],
+  "connections": {
+    "json_obj_png": "confirmed by version_1/finaljson and version_1/partseg/<id>/{objs,imgs} archive paths",
+    "input_image": "PNG part images confirmed present; conditioning-image role not confirmed",
+    "camera": "not confirmed from selected files",
+    "texture": "not confirmed; not extracted",
+    "evaluation_gt": "annotation/parts and OBJ assets present; metric-ready GT correspondence not confirmed"
+  },
+  "extraction_log": "/home/minsujo/Desktop/SH/PHYSx/logs/physxnet-download-20260921/20260921T160634Z-minimal-extract"
+}
