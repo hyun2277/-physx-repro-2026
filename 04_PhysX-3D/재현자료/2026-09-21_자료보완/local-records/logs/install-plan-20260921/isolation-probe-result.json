@@ -1,0 +1,100 @@
+{
+  "external_mounts_readonly": {
+    "/usr/local": true,
+    "/usr/local/cuda-12.2": true,
+    "/home/minsujo": true,
+    "/home/minsujo/anaconda3": true,
+    "/etc": true,
+    "/proc/sys": true
+  },
+  "workspace_write_and_temporary_aliases": [
+    {
+      "visible_directory": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+      "workspace_storage": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+      "verified": true
+    },
+    {
+      "visible_directory": "/tmp",
+      "workspace_storage": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+      "verified": true
+    },
+    {
+      "visible_directory": "/var/tmp",
+      "workspace_storage": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+      "verified": true
+    },
+    {
+      "visible_directory": "/dev/shm",
+      "workspace_storage": "/home/minsujo/Desktop/SH/PHYSx/tmp/shm",
+      "verified": true
+    }
+  ],
+  "external_write_handle_denied": {
+    "errno": 13,
+    "errno_name": "EACCES",
+    "write_handle_denied": true,
+    "mount_readonly_independently_checked": true
+  },
+  "inherited_override_variables_absent": [
+    "LD_LIBRARY_PATH",
+    "LD_PRELOAD",
+    "LD_AUDIT",
+    "PYTHONPATH",
+    "PYTHONHOME",
+    "BASH_ENV",
+    "NVCC_PREPEND_FLAGS",
+    "NVCC_APPEND_FLAGS",
+    "CPATH",
+    "LIBRARY_PATH",
+    "CMAKE_PREFIX_PATH",
+    "TRANSFORMERS_CACHE",
+    "PYTORCH_TRANSFORMERS_CACHE",
+    "PYTORCH_PRETRAINED_BERT_CACHE",
+    "TRITON_CACHE_MANAGER",
+    "GIT_DIR",
+    "PIP_TARGET"
+  ],
+  "gpu_device_paths": [],
+  "git_hooks_path": "/dev/null",
+  "home_preserved": "/home/minsujo",
+  "cache_and_temporary_paths": {
+    "CONDA_PKGS_DIRS": "/home/minsujo/Desktop/SH/PHYSx/cache/conda",
+    "CONDA_ENVS_PATH": "/home/minsujo/Desktop/SH/PHYSx/envs",
+    "PIP_CACHE_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/pip",
+    "TMPDIR": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+    "TMP": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+    "TEMP": "/home/minsujo/Desktop/SH/PHYSx/tmp",
+    "XDG_CACHE_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/xdg",
+    "XDG_CONFIG_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/xdg-config",
+    "XDG_DATA_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/xdg-data",
+    "XDG_STATE_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/xdg-state",
+    "XDG_RUNTIME_DIR": "/home/minsujo/Desktop/SH/PHYSx/tmp/runtime",
+    "TORCH_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/torch",
+    "TORCH_EXTENSIONS_DIR": "/home/minsujo/Desktop/SH/PHYSx/build/torch-extensions",
+    "HF_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface",
+    "HF_HUB_CACHE": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/hub",
+    "HF_ASSETS_CACHE": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/assets",
+    "HF_XET_CACHE": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/xet",
+    "HF_MODULES_CACHE": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/modules",
+    "HF_DATASETS_CACHE": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/datasets",
+    "HF_TOKEN_PATH": "/home/minsujo/Desktop/SH/PHYSx/cache/huggingface/token",
+    "U2NET_HOME": "/home/minsujo/Desktop/SH/PHYSx/cache/u2net",
+    "PHYSX_CLIP_DOWNLOAD_ROOT": "/home/minsujo/Desktop/SH/PHYSx/cache/clip",
+    "CUDA_CACHE_PATH": "/home/minsujo/Desktop/SH/PHYSx/cache/cuda",
+    "TRITON_CACHE_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/triton",
+    "TRITON_DUMP_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/triton-dump",
+    "TRITON_OVERRIDE_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/triton-override",
+    "NUMBA_CACHE_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/numba",
+    "MPLCONFIGDIR": "/home/minsujo/Desktop/SH/PHYSx/cache/matplotlib",
+    "IMAGEIO_USERDIR": "/home/minsujo/Desktop/SH/PHYSx/cache/imageio",
+    "PYTHONPYCACHEPREFIX": "/home/minsujo/Desktop/SH/PHYSx/cache/pycache",
+    "GIT_TEMPLATE_DIR": "/home/minsujo/Desktop/SH/PHYSx/cache/git-template-empty"
+  },
+  "limit": "Mount/path/environment probe only; no install, build, model initialization, network, or GPU operation.",
+  "exit_code": 0,
+  "recorded_at_utc": "2026-09-20T19:23:52.719Z",
+  "inspected_file_sha256": {
+    "workspace_isolation.py": "8e9038d7af1d7f23d0da87448a9218d03240a5b0ece05b65965340ad497929c1",
+    "isolation_probe.py": "3074f700cb3a2e3dffc0b797b119900d9cad89e75d7ee78803156f41f92b628d"
+  }
+}

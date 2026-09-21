@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-09-21T04:33:38.458300+09:00",
+  "python_distributions": [
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0"
+    },
+    {
+      "name": "wheel",
+      "version": "0.47.0"
+    }
+  ],
+  "conda_meta_file_sha256": {
+    "_libgcc_mutex-0.1-main.json": "48c526fe6ae7dcda6fdf2e3ea085cc96705f5c32fb04d84c6757577cabfbb744",
+    "_openmp_mutex-5.1-52_gnu.json": "97b76b86a2820155f756f5a22bfeb7c712acb8f6530ee1f9c06f31ca18904fb7",
+    "bzip2-1.0.8-h5eee18b_6.json": "cabfff58f480d341f71df1a2eb5f7dc90a9253448fb75047e45c8ea059f503c7",
+    "ca-certificates-2026.8.13-h06a4308_0.json": "c88ec9da9c279f298ff1984c12488b231cee902b457d56b301eb2f78c8f9b21f",
+    "history": "11c0d79f5befd1e6bf5b77af3466bd9c08952b4c6bed58fe3eb0564edf1daf28",
+    "ld_impl_linux-64-2.44-h9e0c5a2_3.json": "b45e6a6bd9f701a83a7fb7f0b5a95dc71610504d932253061280eb1dd3e1a57e",
+    "libexpat-2.8.4-h7354ed3_0.json": "366a6f9e501d9f941d73647d859b759199ac1d12cc7ed5689a045a942eeabe35",
+    "libffi-3.4.8-h06d3fd0_3.json": "b4f1d7b4870cc19561f1ecec89ba1c1fb71e133eb80f0a02a935ce0bf92f75b1",
+    "libgcc-15.2.0-h69a1729_8.json": "42f67de36f9fa9efd8b420860a2c78538934e06949c381ae6086138aae54c1ac",
+    "libgcc-ng-15.2.0-h166f726_8.json": "608344551609b800e1725cd6d1685ad747ebfacdd1ed53fa197d1f5377ca8e56",
+    "libnsl-2.0.0-h5eee18b_0.json": "f56025cfea775a174bfedd63480d3f24cb2512df3d6f373f3b114bdb02bb2c9f",
+    "libstdcxx-15.2.0-h39759b7_8.json": "2dcb909641ecffdef9f1be46260c7dde8b23135d9a8dd939fe0e59e7fe475c5f",
+    "libuuid-1.41.5-h5eee18b_0.json": "eaad3fd3dc7d31d3b8de4081e939656f00dccc833c3d36110406e0c077be79b4",
+    "libxcb-1.17.0-h9b100fa_0.json": "a9e7d86bb781fda07c8f2aaad2c6f178ff6506c472348cc73dbd79b79f11f9d0",
+    "libzlib-1.3.2-h47b2149_0.json": "5cb902bc71a7f0501ef43cd9f50bc74eeda72a32124bd38795698098adf02133",
+    "ncurses-6.6-hfaaeb4e_0.json": "629d04f602a79d21b8786a5ca9b75c32fde1a11fa9f758c300edcf429049ccc5",
+    "openssl-3.5.8-h1b28b03_0.json": "791495c83603e9c0eb1693ea66bf9e4be64b4b132d7b87f69b76e31d2fd7bc8f",
+    "packaging-26.3-py310h06a4308_0.json": "733510b850dc45fe0e20b949ea23d009aea55a87ca2adbf80a5ed53c52a648bc",
+    "pip-26.2.1-pyhc872135_0.json": "620cb8bc00a58a5cfe07553c2db9abb77ec996647f849f2ded2a665fe9ab08c8",
+    "pthread-stubs-0.3-h47b2149_2.json": "3572e08aa9a1e96273d533e62b12a30a7fef5298b93aaaeb2b16c41ca3458053",
+    "python-3.10.21-h17756b0_0.json": "a9ecb7e8f409d14ee81a6e9696f4472954fe1637c8a39144e6c651316dd9ac12",
+    "readline-8.3-hc2a1206_0.json": "c080b8441828af56c5fef346967cd8600e332ad55f43bf2bba6525eece05d3fb",
+    "setuptools-83.0.0-py310h06a4308_0.json": "2ec825f959f9b38038baabf48a7c687d45bc4c90fab53496919011005719a623",
+    "sqlite-3.53.4-h795bf6d_0.json": "7ba804cfcb545037e2ec3bd02c91133e095e8d32d3f2003b88d91e2bd8c0f8a0",
+    "tk-8.6.15-h54e0aa7_0.json": "1cddb9e2f34d3121c4a9436ceba9ee035ada8425d020956b62e3215eca36eecb",
+    "tzdata-2026c-he532380_0.json": "64a3af22405afaf8e89fd7c14e6dac052705d5855fdfb1b589832f6b237552d8",
+    "wheel-0.47.0-py310h06a4308_0.json": "510ee01c18815e367a6240f15e3616b128a64309e348ecbfa9122e612fc9bdeb",
+    "xorg-libx11-1.8.13-h65de747_0.json": "a3a04b748af665e6d43a8a9a67cd25f6bcca1a062f0de4535aaa3099f1a6ea4e",
+    "xorg-libxau-1.0.12-h9b100fa_0.json": "bf931ff98fc75d2922a2eaf62bd30e32870a9f5842a99b69f983547e6c7792c9",
+    "xorg-libxdmcp-1.1.5-h9b100fa_0.json": "a9b777b1487298da6cb53442133e89044b830c8a560aab3df51c4440afa24b12",
+    "xorg-xorgproto-2025.1-h47b2149_0.json": "a4414a864316023147e716aa22ccc42b71b42ee164ae17bebf08b631f2bf5862",
+    "xz-5.8.2-h448239c_0.json": "f6993bc524558b16f0bd75e90fadcd37dfb463e609156a4fe1c281030c9c74fd",
+    "zlib-1.3.2-h47b2149_0.json": "2930d6246c26358c439270ea4b79f949a6b9ffc369edd58ffe6b317a2a5e12c5"
+  },
+  "system_cuda_link_raw": "/usr/local/cuda-12.2/",
+  "system_cuda_resolved": "/usr/local/cuda-12.2",
+  "toolkit_prefix_exists": false,
+  "input_file_sha256": {
+    "workspace_isolation.py": "8e9038d7af1d7f23d0da87448a9218d03240a5b0ece05b65965340ad497929c1",
+    "preview.condarc": "f3827527f27453532446b40583ba19e8aff5190e2e1594106af22f259783bc34",
+    "cuda-toolkit.conda-specs.txt": "5ccf713420ef0e482fc1c8f7b05ed56acc1044ba677f97adff2c3a3ce6886159",
+    "conda-cuda128-dry-run.json": "4b91c6cc65f9625275ac97b4835424c10a81108a05e81748d5c5c93e986c4f81",
+    "python-foundation.lock.txt": "a6d310a0572049eb5b63a7624e55571af2427c579192c2687651f57b6204e31d",
+    "python-sparse-candidate.lock.txt": "2c46f0ace1356e068f8615a5551984be37bb0aee1b3e52f77f49b48f0f57fbb3",
+    "python-resolved.constraints.txt": "9e616b5935f48414a847bd8cede49f7743e6b8153a242ffbfe9bd6ee98022979"
+  },
+  "scope": "Before authorized Conda dry-run only. Metadata read, no package/GPU imports."
+}

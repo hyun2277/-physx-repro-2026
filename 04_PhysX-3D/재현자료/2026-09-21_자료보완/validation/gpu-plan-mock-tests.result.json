@@ -1,0 +1,10 @@
+{
+  "name": "gpu-plan-mock-tests",
+  "started_at": "2026-09-21T16:06:05.599529+09:00",
+  "ended_at": "2026-09-21T16:06:05.677801+09:00",
+  "elapsed_seconds": 0.078272,
+  "exit_code": 0,
+  "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/repro-materials-20260921/gpu-plan-mock-tests-20260921T160605599529-a73692",
+  "gpu_execution": false,
+  "installation": false
+}

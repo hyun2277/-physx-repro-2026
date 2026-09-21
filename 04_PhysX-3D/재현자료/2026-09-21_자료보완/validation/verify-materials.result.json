@@ -1,0 +1,10 @@
+{
+  "name": "verify-materials",
+  "started_at": "2026-09-21T16:06:05.567554+09:00",
+  "ended_at": "2026-09-21T16:06:05.616169+09:00",
+  "elapsed_seconds": 0.048615,
+  "exit_code": 0,
+  "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/repro-materials-20260921/verify-materials-20260921T160605567554-163466",
+  "gpu_execution": false,
+  "installation": false
+}

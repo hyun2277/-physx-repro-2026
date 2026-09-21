@@ -1,0 +1,71 @@
+{
+  "mode": "plan",
+  "executed": false,
+  "future_authorization_required": true,
+  "gpu_uuid": null,
+  "device_minor": null,
+  "future_command": [
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/\uc7ac\ud604\uc790\ub8cc/2026-09-21_\uc790\ub8cc\ubcf4\uc644/gpu/gpu_check_launcher.py",
+    "--execute",
+    "--gpu-uuid",
+    "<FULL_GPU_UUID>",
+    "--device-minor",
+    "<DEVICE_MINOR>"
+  ],
+  "python": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+  "expected_torch": "2.7.1+cu128",
+  "expected_torchvision": "0.22.1+cu128",
+  "expected_compute_capability": [
+    12,
+    0
+  ],
+  "numeric_check": "one 256x256 float32 matrix multiplication; result entries must equal 256",
+  "smoke_timeout_seconds": 90,
+  "sampler_sleep_seconds": 1,
+  "sampler_interval": "query duration plus nominal 1-second sleep; exact start/finish times in each command JSON",
+  "driver_query_fields": [
+    "uuid",
+    "name",
+    "driver_version",
+    "memory.total",
+    "memory.used",
+    "utilization.gpu",
+    "temperature.gpu",
+    "power.draw"
+  ],
+  "usage_query_fields": [
+    "timestamp",
+    "uuid",
+    "memory.total",
+    "memory.used",
+    "utilization.gpu",
+    "temperature.gpu",
+    "power.draw"
+  ],
+  "usage_samples": "before smoke, during smoke, and after successful smoke",
+  "logs_parent": "/home/minsujo/Desktop/SH/PHYSx/logs/gpu-checks",
+  "identity_guard": "execute-only /proc/driver/nvidia/gpus/*/information UUID and Device Minor mapping",
+  "required_device_nodes": [
+    "/dev/nvidia<DEVICE_MINOR>",
+    "/dev/nvidiactl",
+    "/dev/nvidia-uvm"
+  ],
+  "network": "separate network namespace; no downloads",
+  "prohibited": [
+    "installation",
+    "extension compilation",
+    "model download",
+    "model inference",
+    "training",
+    "modprobe",
+    "sudo",
+    "driver reset",
+    "automatic escalation"
+  ],
+  "limit": "Device-node filtering and CUDA visibility are not a hard multi-tenant GPU isolation boundary; control/UVM nodes are shared.",
+  "hardware_execution_validated": false
+}

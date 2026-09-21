@@ -1,0 +1,15 @@
+test_complete_uuid_required (__main__.PreparationTests.test_complete_uuid_required) ... ok
+test_dangerous_inherited_environment_omitted (__main__.PreparationTests.test_dangerous_inherited_environment_omitted) ... ok
+test_default_is_plan_and_cannot_dispatch_execute (__main__.PreparationTests.test_default_is_plan_and_cannot_dispatch_execute) ... ok
+test_invalid_device_minor_rejected (__main__.PreparationTests.test_invalid_device_minor_rejected) ... ok
+test_launch_failure_and_actual_termination_are_distinct (__main__.PreparationTests.test_launch_failure_and_actual_termination_are_distinct) ... ok
+test_runtime_paths_reject_system_cudart_and_driver_stubs (__main__.PreparationTests.test_runtime_paths_reject_system_cudart_and_driver_stubs) ... ok
+test_selected_node_only_and_network_isolation (__main__.PreparationTests.test_selected_node_only_and_network_isolation) ... ok
+test_smoke_default_cannot_dispatch_execute (__main__.PreparationTests.test_smoke_default_cannot_dispatch_execute) ... ok
+test_usage_fields_include_recording_requirements (__main__.PreparationTests.test_usage_fields_include_recording_requirements) ... ok
+test_usage_final_failure_preserves_successful_smoke (__main__.PreparationTests.test_usage_final_failure_preserves_successful_smoke) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+OK

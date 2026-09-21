@@ -1,0 +1,5 @@
+# Exact utils3d dependencies and FlashAttention setup requirements.
+moderngl==5.12.0
+plyfile==1.1.2
+glcontext==3.0.0
+psutil==7.0.0

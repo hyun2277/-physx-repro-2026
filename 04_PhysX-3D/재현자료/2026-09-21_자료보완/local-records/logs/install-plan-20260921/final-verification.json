@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-09-21T04:03:16.614308+09:00",
+  "python_packages_unchanged": true,
+  "conda_package_records_unchanged": true,
+  "python_distribution_count": 4,
+  "conda_package_count": 32,
+  "cuda_toolchain_prefix_exists": false,
+  "system_cuda_link": "/usr/local/cuda-12.2",
+  "repro_records_clean": true,
+  "bash_syntax_checks": [
+    {
+      "block": 1,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 2,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 3,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 4,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 5,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 6,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 7,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 8,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 9,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "resolved_metadata_summary": {
+    "base_report_packages": 167,
+    "extra_report_packages": 5,
+    "combined_unique_packages": 171,
+    "foundation_packages": 169,
+    "sparse_candidate_packages": 2,
+    "active_dependency_metadata_issues": [],
+    "validation_limit": "Static dependency metadata with no optional extras. No installation, model imports, source builds, or GPU operations."
+  },
+  "note": "Syntax parsing and read-only state checks only. No installation, source compilation, sandbox launch, or GPU experiment."
+}

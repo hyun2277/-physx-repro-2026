@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-21T16:07:36.354018+09:00",
+  "files": [
+    {
+      "path": "verify-materials.command.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/verify-materials-20260921T160605567554-163466/command.json",
+      "size_bytes": 391,
+      "sha256": "21ea6c6076ad08b689c74bbf57b1297022f05f11c0dd05508623079e191374b9"
+    },
+    {
+      "path": "verify-materials.stdout.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/verify-materials-20260921T160605567554-163466/stdout.log",
+      "size_bytes": 225,
+      "sha256": "b28c49f6ee5f9b0e1f7032a759e78b38319da6286be7b2ea8c7fdeac58d17a7f"
+    },
+    {
+      "path": "verify-materials.stderr.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/verify-materials-20260921T160605567554-163466/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "verify-materials.result.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/verify-materials-20260921T160605567554-163466/result.json",
+      "size_bytes": 364,
+      "sha256": "a48e1fd2a2783e7038830a6e82c7e7a2f45528e5cf4d9c64cf08665ec950cea9"
+    },
+    {
+      "path": "static-audit.command.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/static-audit-20260921T160605580347-dcd38a/command.json",
+      "size_bytes": 364,
+      "sha256": "7da42d9979603307151accce518a9a6fe39418c596594275d38b0c80d92004a8"
+    },
+    {
+      "path": "static-audit.stdout.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/static-audit-20260921T160605580347-dcd38a/stdout.log",
+      "size_bytes": 362,
+      "sha256": "68f4ba6753c646d1f8da967ae522b6ebe34723199c7df91c452d648cbfdd7108"
+    },
+    {
+      "path": "static-audit.stderr.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/static-audit-20260921T160605580347-dcd38a/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "static-audit.result.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/static-audit-20260921T160605580347-dcd38a/result.json",
+      "size_bytes": 356,
+      "sha256": "b6c4e47edff5bcae4def57be72b64549dd0455d4ba783e3772fe8131f37ee2ea"
+    },
+    {
+      "path": "gpu-plan.command.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-20260921T160605591310-acf22a/command.json",
+      "size_bytes": 450,
+      "sha256": "4e25ea493d26fcc6036419e64e3dc565ac7b23783700e93faa4f45183296254f"
+    },
+    {
+      "path": "gpu-plan.stdout.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-20260921T160605591310-acf22a/stdout.log",
+      "size_bytes": 2118,
+      "sha256": "e744ab7e335381e838cb355b0b74d7c349ad402d92d0218cd099ad77f4d9ba72"
+    },
+    {
+      "path": "gpu-plan.stderr.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-20260921T160605591310-acf22a/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-plan.result.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-20260921T160605591310-acf22a/result.json",
+      "size_bytes": 348,
+      "sha256": "2a94885bada9400116ebecf41e0308e4dbb1f3753a99e9d0ff647c8d2dd5f828"
+    },
+    {
+      "path": "gpu-plan-mock-tests.command.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-mock-tests-20260921T160605599529-a73692/command.json",
+      "size_bytes": 405,
+      "sha256": "8ad678ac82344912e29c1a797b34296f7788f4f3dd36d81ad1e4bd2700d7a3c5"
+    },
+    {
+      "path": "gpu-plan-mock-tests.stdout.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-mock-tests-20260921T160605599529-a73692/stdout.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-plan-mock-tests.stderr.log",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-mock-tests-20260921T160605599529-a73692/stderr.log",
+      "size_bytes": 1369,
+      "sha256": "88f5481727502450dca705ba8e6e89b85fbe32bcab10f9b0aca88107ae169140"
+    },
+    {
+      "path": "gpu-plan-mock-tests.result.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/gpu-plan-mock-tests-20260921T160605599529-a73692/result.json",
+      "size_bytes": 370,
+      "sha256": "70c287479649027ae60b263ffb012dd917dc5016c24601f321f3c4b8b15c1519"
+    },
+    {
+      "path": "check_materials_static.py",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/check_materials_static.py",
+      "size_bytes": 3468,
+      "sha256": "83c98ba13cd811578c9bf815fff5d929aafd704ada21be402b7ac9a5e1274fb2",
+      "purpose": "historical local validation command source; fixed Linux workspace paths"
+    },
+    {
+      "path": "run_validation.py",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/run_validation.py",
+      "size_bytes": 2256,
+      "sha256": "157cd9ea0b503abf4c245d8745e150407d0991297f2f97ea5eaed7f7dbb26813",
+      "purpose": "historical local validation command source; fixed Linux workspace paths"
+    }
+  ],
+  "excluded": [
+    "README.md (explanation)",
+    "evidence-manifest.json (self-reference)"
+  ],
+  "gpu_execution": false,
+  "installation": false
+}

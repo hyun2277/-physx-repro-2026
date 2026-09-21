@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/repro-materials-20260921/check_materials_static.py"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T16:06:05.580347+09:00",
+  "scope": "read-only validation, static inspection, nonexecuting GPU plan, or pure mock tests only"
+}

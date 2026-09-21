@@ -1,0 +1,11 @@
+channels:
+  - https://conda.anaconda.org/nvidia/label/cuda-12.8.1
+  - https://repo.anaconda.com/pkgs/main
+pkgs_dirs:
+  - /home/minsujo/Desktop/SH/PHYSx/cache/conda
+envs_dirs:
+  - /home/minsujo/Desktop/SH/PHYSx/envs
+auto_update_conda: false
+notify_outdated_conda: false
+report_errors: false
+channel_priority: strict

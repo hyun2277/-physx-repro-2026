@@ -1,0 +1,152 @@
+{
+  "recorded_at": "2026-09-21T16:02:04.848831+09:00",
+  "purpose": "Historical CUDA runner baseline cache metadata dependencies; paths/hashes only, no cache body in Git",
+  "baseline_link_count": 118,
+  "baseline_fetch_count": 97,
+  "files": [
+    {
+      "path_relative_to_PHYSx": "cache/conda/_libgcc_mutex-0.1-main/info/repodata_record.json",
+      "size_bytes": 649,
+      "sha256": "8fd9017c390854c37a944d892fab746a29824bb90c9045d978123346474e690a",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/_openmp_mutex-5.1-52_gnu/info/repodata_record.json",
+      "size_bytes": 712,
+      "sha256": "d4b1e9d6f2034f5d76c96831b23f4e8023023ab234b92cfa55a198013e1954b5",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/tzdata-2026c-he532380_0/info/repodata_record.json",
+      "size_bytes": 731,
+      "sha256": "666b521e1e382e2c1ddcc72e6ac9b312cc14aa8a0c1d67d9067199cafc2c76e8",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libgcc-15.2.0-h69a1729_8/info/repodata_record.json",
+      "size_bytes": 835,
+      "sha256": "86f463be061780575cd61d861faebeb4b147e85d8316e73821cda9f7ffda8aec",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libgcc-ng-15.2.0-h166f726_8/info/repodata_record.json",
+      "size_bytes": 779,
+      "sha256": "29c7f99c5d7eec1b7b4eed40e1ea5144d413a6338063b606482f0534c914e9af",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libstdcxx-15.2.0-h39759b7_8/info/repodata_record.json",
+      "size_bytes": 818,
+      "sha256": "478bc8e2c5d647c7a0bdc6f388c5362348229508cdddd31820f442f5e059c855",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libzlib-1.3.2-h47b2149_0/info/repodata_record.json",
+      "size_bytes": 777,
+      "sha256": "d2a123d41afd4af936d449041f0c3515a19fcc8fd29929739e2e799d394dbb6a",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/pthread-stubs-0.3-h47b2149_2/info/repodata_record.json",
+      "size_bytes": 765,
+      "sha256": "3adeef3b6aad4c75a00f52c1efad63649d9d8ce61ff1be2cb9b0eb583a52055a",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/xorg-xorgproto-2025.1-h47b2149_0/info/repodata_record.json",
+      "size_bytes": 1707,
+      "sha256": "22a1be9006ed501d3a3cc36ba927ff85c854d57b587f9fa6064aabe09f80034c",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/bzip2-1.0.8-h5eee18b_6/info/repodata_record.json",
+      "size_bytes": 734,
+      "sha256": "c67a0a6a00a66defc28abfe9b8e01bd69a0568af93550d17c163b246f1c990a2",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libexpat-2.8.4-h7354ed3_0/info/repodata_record.json",
+      "size_bytes": 803,
+      "sha256": "11ae4837e391a96759868a0db45a4de666507ab8751ddcb403fad86acd192f31",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libffi-3.4.8-h06d3fd0_3/info/repodata_record.json",
+      "size_bytes": 774,
+      "sha256": "6dffa59ecf40ecfa884672abecbe8b8fe0cd315aa40c097622885e483a70d10f",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libuuid-1.41.5-h5eee18b_0/info/repodata_record.json",
+      "size_bytes": 743,
+      "sha256": "5c6d267980077a1a9ec7735d7bea351f5db16f5ad57b76a9c2d30cd27d3a6018",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/ncurses-6.6-hfaaeb4e_0/info/repodata_record.json",
+      "size_bytes": 779,
+      "sha256": "a6ff038eea7cb41d7e9a7eeb02abc2555fa94749cb876515017f1cfd6bdd56ad",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/xorg-libxau-1.0.12-h9b100fa_0/info/repodata_record.json",
+      "size_bytes": 746,
+      "sha256": "0f754db3e648478092b2ed2574a985efd7eb1bda99aa3a916670fa705dd4272c",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/xorg-libxdmcp-1.1.5-h9b100fa_0/info/repodata_record.json",
+      "size_bytes": 749,
+      "sha256": "8968754f3cf25174c7191ba6894d3f44e4d2f7e14d9ab302ce8110ba6ce5d6e6",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/zlib-1.3.2-h47b2149_0/info/repodata_record.json",
+      "size_bytes": 780,
+      "sha256": "b04890ef8cf5d79a95cd076a6ee3fd59e6c77f8150515894738f3b91d90022e8",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/libxcb-1.17.0-h9b100fa_0/info/repodata_record.json",
+      "size_bytes": 824,
+      "sha256": "3a939c5915fc9e4ae04b965a58495c380cb01d2f6b62c92953e9fbd378713f38",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/readline-8.3-hc2a1206_0/info/repodata_record.json",
+      "size_bytes": 796,
+      "sha256": "6de05dc9acb187c8924cae74a6f1d762c190583fbd35968d23b51d69e118ba62",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/sqlite-3.53.4-h795bf6d_0/info/repodata_record.json",
+      "size_bytes": 877,
+      "sha256": "701759a3aba5a5b4cd2f947860e936f658eeb3d40c0b66f08225ebc23f99c096",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "cache/conda/xorg-libx11-1.8.13-h65de747_0/info/repodata_record.json",
+      "size_bytes": 872,
+      "sha256": "e8e36a38695a1d06f0177bee9455fa952a5b3ad92fe2e756647a17a166485bc6",
+      "content_published": false
+    }
+  ],
+  "limits": [
+    "These metadata records are not the full CUDA package payloads.",
+    "Fresh solver FETCH actions can change the additional cache metadata needed.",
+    "Historical runner is not a portable or safe rerun installer on the current installed environment."
+  ],
+  "other_external_artifacts": [
+    {
+      "path_relative_to_PHYSx": "cache/python-foundation-wheels-20260921",
+      "manifest_in_repository": "../../증거/2026-09-21_기본Python패키지/approved-wheels.json",
+      "content_published": false
+    },
+    {
+      "path_relative_to_PHYSx": "toolchains/cuda-12.8.1",
+      "manifest_in_bundle": "local-records/logs/cuda-toolkit-install-20260921/actual-files.json",
+      "content_published": false,
+      "limit": "Selected verified files only, not a complete prefix hash inventory."
+    }
+  ]
+}

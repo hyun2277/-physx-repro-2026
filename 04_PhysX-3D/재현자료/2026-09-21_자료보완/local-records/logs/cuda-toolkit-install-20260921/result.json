@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-09-21T04:51:29.821617+09:00",
+  "result": "CUDA Toolkit installed and requested file/version checks passed",
+  "prefix": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1",
+  "install_started": "2026-09-21T04:46:38.165266+09:00",
+  "install_finished": "2026-09-21T04:49:54.771374+09:00",
+  "install_exit_code": 0,
+  "installed_package_count": 118,
+  "package_composition_matches_preview": true,
+  "fresh_preview_changes": [],
+  "artifact_url_md5_sha256_metadata_changes": [],
+  "nvcc_version": "12.8.93",
+  "verified_file_groups": 15,
+  "preservation_checks_passed": true,
+  "all_118_conda_records_use_copy_link_type": true,
+  "warnings": [
+    "External HOME is read-only: Conda could not create/write ~/.conda/environments.txt or register the environment there. Installation completed successfully; prefix paths are used explicitly."
+  ],
+  "limitations": [
+    "No CUDA compilation or GPU runtime validation performed.",
+    "No PyTorch/Python dependency installation, source extension build, or model download performed."
+  ],
+  "next_single_step": "When separately instructed, install the pinned foundation Python packages into envs/physxgen; keep source builds and GPU experiments separate."
+}

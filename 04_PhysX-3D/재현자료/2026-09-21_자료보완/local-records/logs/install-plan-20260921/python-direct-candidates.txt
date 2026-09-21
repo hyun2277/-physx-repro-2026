@@ -1,0 +1,38 @@
+# Exact candidate versions for a resolver preview; no GPU validation claimed.
+# Source packages (FlashAttention, CLIP, utils3d, renderers, vox2seq) are separate.
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+numpy==1.26.4
+scipy==1.15.3
+pillow==11.2.1
+imageio==2.37.0
+imageio-ffmpeg==0.6.0
+tqdm==4.67.1
+easydict==1.13
+opencv-python-headless==4.11.0.86
+ninja==1.11.1.4
+rembg==2.0.65
+onnxruntime==1.22.0
+trimesh==4.6.8
+open3d==0.19.0
+xatlas==0.0.10
+pyvista==0.45.2
+pymeshfix==0.17.0
+igraph==0.11.8
+transformers==4.51.3
+huggingface-hub==0.34.4
+tokenizers==0.21.1
+safetensors==0.5.3
+einops==0.8.1
+ftfy==6.3.1
+regex==2024.11.6
+ipdb==0.13.13
+setuptools==75.8.0
+wheel==0.45.1
+packaging==24.2
+cmake==3.31.6
+build==1.2.2.post1
+kaolin==0.18.0
+spconv-cu126==2.3.8
+cumm-cu126==0.7.11
+-r utils3d-extra-candidates.txt

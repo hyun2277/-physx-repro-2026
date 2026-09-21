@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-09-21T04:50:06.596820+09:00",
+  "all_preservation_checks_passed": true,
+  "checks": {
+    "python_distributions_unchanged": true,
+    "physxgen_conda_meta_unchanged": true,
+    "anaconda_base_conda_meta_unchanged": true,
+    "system_cuda_link_unchanged": true,
+    "system_nvcc_unchanged": true,
+    "dpkg_status_unchanged": true,
+    "nvidia_driver_version_unchanged": true,
+    "reviewed_inputs_unchanged": true,
+    "repro_records_clean": true,
+    "toolkit_link_sources_inside_workspace_cache": true
+  },
+  "python_distributions": [
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0"
+    },
+    {
+      "name": "wheel",
+      "version": "0.47.0"
+    }
+  ],
+  "installed_toolkit_package_count": 118,
+  "toolkit_link_types": {
+    "3": 118
+  },
+  "toolkit_cache_source_directories": [
+    "/home/minsujo/Desktop/SH/PHYSx/cache/conda"
+  ],
+  "scope": "Metadata, hashes, paths, and driver version text only; no GPU API, compilation, Python package installation, or cleanup."
+}

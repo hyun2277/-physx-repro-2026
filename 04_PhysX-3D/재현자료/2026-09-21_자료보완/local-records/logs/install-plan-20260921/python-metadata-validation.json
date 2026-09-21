@@ -1,0 +1,9 @@
+{
+  "base_report_packages": 167,
+  "extra_report_packages": 5,
+  "combined_unique_packages": 171,
+  "foundation_packages": 169,
+  "sparse_candidate_packages": 2,
+  "active_dependency_metadata_issues": [],
+  "validation_limit": "Static dependency metadata with no optional extras. No installation, model imports, source builds, or GPU operations."
+}

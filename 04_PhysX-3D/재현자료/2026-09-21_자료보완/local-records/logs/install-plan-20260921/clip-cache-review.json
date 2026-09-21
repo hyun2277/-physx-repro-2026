@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "review_only_not_applied",
+  "created_at_utc": "2026-09-20T19:20:42.455187+00:00",
+  "scope": {
+    "actual_source_modified": false,
+    "installation_performed": false,
+    "build_performed": false,
+    "gpu_execution_performed": false,
+    "model_body_downloaded": false,
+    "upstream_source_imported_or_executed": false,
+    "source_text_parsed_with_ast_only": true
+  },
+  "openai_clip": {
+    "source_commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+    "source_url": "https://raw.githubusercontent.com/openai/CLIP/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/clip/clip.py",
+    "snapshot_path": "logs/install-plan-20260921/upstream-openai-clip-cache.review.txt",
+    "snapshot_sha256": "9540f200fbf8145479fa655382a56dab048d238cc698b9cbd8df3b6d86d3f1b6",
+    "model_name": "ViT-L/14",
+    "model_url": "https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt",
+    "expected_sha256_from_url_parent": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+    "model_sha256_measured": null,
+    "default_path_expression": "download_root or os.path.expanduser(\"~/.cache/clip\")",
+    "default_path_expression_line": 120,
+    "default_ignores_xdg_cache_home": true,
+    "download_root_parameter_exists": true
+  },
+  "runtime_requirement": {
+    "environment_variable": "PHYSX_CLIP_DOWNLOAD_ROOT",
+    "required_value": "/home/minsujo/Desktop/SH/PHYSx/cache/clip",
+    "must_be_set_and_validated_before_example_or_merge_property_execution": true,
+    "missing_variable_behavior": "KeyError before clip.load; no fallback to home directory",
+    "requires_nonempty_workspace_path_from_validated_launcher": true,
+    "note": "This patch routes the two calls through an explicit argument. A caller supplying an empty or external value is outside the reviewed execution contract; the fixed clean-environment launcher and filesystem isolation remain required."
+  },
+  "changes": [
+    {
+      "source_path": "example.py",
+      "source_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+      "source_url": "https://raw.githubusercontent.com/ziangcao0312/PhysX-3D/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/example.py",
+      "snapshot_path": "logs/install-plan-20260921/upstream-physx-example-clip.review.txt",
+      "snapshot_sha256": "b971d477d48f33eaf981af4c2bc1df1bb5b44e59c11116ac68b4e7f03c8670d5",
+      "original_call_line": 153,
+      "original_call": "clip.load(\"ViT-L/14\", jit=False)",
+      "proposed_call": "clip.load(\"ViT-L/14\", jit=False, download_root=os.environ[\"PHYSX_CLIP_DOWNLOAD_ROOT\"])",
+      "os_import_line": 1,
+      "proposed_source_sha256": "f5428a2d1113b766be5b2373119decea8bc997aa19e63a4b9cf379ea880cbe60",
+      "validation": {
+        "original_ast_parse": true,
+        "proposed_ast_parse": true,
+        "only_ast_change_is_download_root_keyword": true,
+        "unified_diff_in_memory_reconstruction_matches": true
+      }
+    },
+    {
+      "source_path": "dataset_toolkits/merge_property.py",
+      "source_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+      "source_url": "https://raw.githubusercontent.com/ziangcao0312/PhysX-3D/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/dataset_toolkits/merge_property.py",
+      "snapshot_path": "logs/install-plan-20260921/upstream-physx-merge-property-clip.review.txt",
+      "snapshot_sha256": "dbeffc0fd711e994edcf5e10686c53182f6bee80f0153a14d6aafc09e691dc20",
+      "original_call_line": 51,
+      "original_call": "clip.load(\"ViT-L/14\", jit=False, device=device)",
+      "proposed_call": "clip.load(\"ViT-L/14\", jit=False, device=device, download_root=os.environ[\"PHYSX_CLIP_DOWNLOAD_ROOT\"])",
+      "os_import_line": 2,
+      "proposed_source_sha256": "6cf0794de48e9ac035fb5382174941cf0221fe5cf45cd41a2d3889180deeb28c",
+      "validation": {
+        "original_ast_parse": true,
+        "proposed_ast_parse": true,
+        "only_ast_change_is_download_root_keyword": true,
+        "unified_diff_in_memory_reconstruction_matches": true
+      }
+    }
+  ],
+  "patch": {
+    "path": "logs/install-plan-20260921/clip-cache-path.review.patch",
+    "sha256": "8fcc8f32d510b201e3985276aa59da359bb43e76d5dd59db1f9fc0b4a9af224b",
+    "format": "unified_diff",
+    "apply_root": "PhysX-3D checkout at pinned source commit",
+    "file_count": 2,
+    "actual_git_apply_performed": false,
+    "git_apply_check_performed": false,
+    "validation": "AST and independent unified-diff reconstruction in memory only"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "copied_files_equal_originals": 57,
+  "parsed_python_files": 11,
+  "isolation_review_hashes": 34,
+  "foundation_input_hashes": 7,
+  "cuda_input_hashes": 9,
+  "changed_files_in_04": 68,
+  "issues": [],
+  "limit": "Static files, source hashes and Git path inspection only; no installer, package import, bwrap, NVIDIA tool, or GPU execution."
+}

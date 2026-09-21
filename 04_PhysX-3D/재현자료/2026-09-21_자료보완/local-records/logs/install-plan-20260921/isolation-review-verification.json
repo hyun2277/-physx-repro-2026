@@ -1,0 +1,153 @@
+{
+  "timestamp": "2026-09-21T04:27:51.505089+09:00",
+  "python_packages_unchanged": true,
+  "python_distributions": [
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0"
+    },
+    {
+      "name": "wheel",
+      "version": "0.47.0"
+    }
+  ],
+  "conda_records_unchanged": true,
+  "conda_package_count": 32,
+  "cuda_toolchain_prefix_exists_or_symlink": false,
+  "system_cuda_link_raw": "/usr/local/cuda-12.2/",
+  "system_cuda_link_resolved": "/usr/local/cuda-12.2",
+  "system_cuda_128_directory_exists": false,
+  "repro_records_clean": true,
+  "original_plan_archive_matches_previous_manifest": true,
+  "prior_lock_reports_and_other_artifacts_preserved": {
+    "conda-cuda128-dry-run.json": true,
+    "cuda-toolkit.conda-specs.txt": true,
+    "derive_resolved_plan.py": true,
+    "final-verification.json": true,
+    "flash-attention-setup.review.txt": true,
+    "inspect_public_metadata.py": true,
+    "pip-dry-run-initial-report.json": true,
+    "pip-dry-run-report.json": true,
+    "pip-utils3d-dry-run-report.json": true,
+    "preview.condarc": true,
+    "pypi-candidate-metadata.json": true,
+    "python-direct-candidates.txt": true,
+    "python-foundation.lock.txt": true,
+    "python-metadata-validation.json": true,
+    "python-resolved.constraints.txt": true,
+    "python-sparse-candidate.lock.txt": true,
+    "source-pins.json": true,
+    "supplemental-wheel-hashes.json": true,
+    "upstream-setup.review.txt": true,
+    "utils3d-extra-candidates.txt": true
+  },
+  "bash_syntax_checks": [
+    {
+      "block": 1,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 1,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 2,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 2,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 3,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 3,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 4,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 4,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 5,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 5,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 6,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 6,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 7,
+      "part": "outer",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "block": 7,
+      "part": "inner_heredoc",
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "python_ast_checks": [
+    {
+      "file": "workspace_isolation.py",
+      "ast_parse": "passed; parser did not execute the file"
+    },
+    {
+      "file": "isolation_probe.py",
+      "ast_parse": "passed; parser did not execute the file"
+    }
+  ],
+  "all_future_bash_blocks_enter_isolation_launcher": true,
+  "current_disk_free_bytes": 530410827776,
+  "probe_result": "isolation-probe-result.json",
+  "probe_exit_code": 0,
+  "limit": "Static syntax/path/metadata checks and a stdlib-only mount probe; no installation, build, source/model import, model download, or GPU execution. New isolated Conda dry-run not executed."
+}

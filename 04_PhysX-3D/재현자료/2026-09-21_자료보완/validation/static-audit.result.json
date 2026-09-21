@@ -1,0 +1,10 @@
+{
+  "name": "static-audit",
+  "started_at": "2026-09-21T16:06:05.580347+09:00",
+  "ended_at": "2026-09-21T16:06:05.682194+09:00",
+  "elapsed_seconds": 0.101847,
+  "exit_code": 0,
+  "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/repro-materials-20260921/static-audit-20260921T160605580347-dcd38a",
+  "gpu_execution": false,
+  "installation": false
+}

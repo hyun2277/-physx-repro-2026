@@ -1,0 +1,22 @@
+--- a/example.py
++++ b/example.py
+@@ -150,7 +150,7 @@
+ savepath=os.path.join(args.savepath,modelpath)
+ 
+ 
+-clipmodel, preprocess = clip.load("ViT-L/14", jit=False)
++clipmodel, preprocess = clip.load("ViT-L/14", jit=False, download_root=os.environ["PHYSX_CLIP_DOWNLOAD_ROOT"])
+ clipmodel=clipmodel.eval().cuda()
+ os.makedirs(savepath, exist_ok=True)
+ image = Image.open(os.path.join(args.condpath))
+--- a/dataset_toolkits/merge_property.py
++++ b/dataset_toolkits/merge_property.py
+@@ -48,7 +48,7 @@
+     args = parser.parse_args()
+ 
+     device = "cuda" if torch.cuda.is_available() else "cpu"
+-    model, preprocess = clip.load("ViT-L/14", jit=False, device=device)
++    model, preprocess = clip.load("ViT-L/14", jit=False, device=device, download_root=os.environ["PHYSX_CLIP_DOWNLOAD_ROOT"])
+     model=model.eval()
+ 
+ 

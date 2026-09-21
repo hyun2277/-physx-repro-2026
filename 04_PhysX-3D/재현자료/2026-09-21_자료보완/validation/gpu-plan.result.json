@@ -1,0 +1,10 @@
+{
+  "name": "gpu-plan",
+  "started_at": "2026-09-21T16:06:05.591310+09:00",
+  "ended_at": "2026-09-21T16:06:05.621082+09:00",
+  "elapsed_seconds": 0.029772,
+  "exit_code": 0,
+  "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/repro-materials-20260921/gpu-plan-20260921T160605591310-acf22a",
+  "gpu_execution": false,
+  "installation": false
+}

@@ -1,0 +1,9 @@
+{
+  "count": 65,
+  "foundation_expected_count": 7,
+  "foundation_verified_count": 7,
+  "issues": [],
+  "pass": true,
+  "scope": "materials-manifest.json and foundation before.json input_sha256 only",
+  "verified_count": 65
+}

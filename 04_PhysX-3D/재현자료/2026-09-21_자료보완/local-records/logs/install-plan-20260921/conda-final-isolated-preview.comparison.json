@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-09-21T04:36:10.943440+09:00",
+  "overall_pass": true,
+  "checks": {
+    "exit_code_zero": true,
+    "success_true": true,
+    "dry_run_true": true,
+    "top_level_prefix_matches": true,
+    "action_prefix_matches": true,
+    "exact_118_specs_match": true,
+    "no_unlink": true,
+    "channels_unchanged": true,
+    "toolkit_prefix_still_absent": true,
+    "python_distributions_unchanged": true,
+    "conda_meta_all_files_and_history_unchanged": true,
+    "system_cuda_link_unchanged": true,
+    "all_input_files_unchanged": true,
+    "repro_records_clean": true
+  },
+  "exit_code": 0,
+  "link_count": 118,
+  "unlink_count": 0,
+  "package_changes": {
+    "added": [],
+    "removed": [],
+    "version_or_build_changed": [],
+    "channel_changed": []
+  },
+  "baseline_fetch": {
+    "count": 97,
+    "estimated_bytes": 2100106977
+  },
+  "new_fetch": {
+    "count": 97,
+    "estimated_bytes": 2100106977
+  },
+  "fetch_note": "Planned fetch only, not actual downloaded bytes or installed size; may vary with cache.",
+  "python_distributions": [
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "83.0.0"
+    },
+    {
+      "name": "wheel",
+      "version": "0.47.0"
+    }
+  ],
+  "conda_json_record_count": 32,
+  "input_hash_checks": {
+    "workspace_isolation.py": true,
+    "preview.condarc": true,
+    "cuda-toolkit.conda-specs.txt": true,
+    "conda-cuda128-dry-run.json": true,
+    "python-foundation.lock.txt": true,
+    "python-sparse-candidate.lock.txt": true,
+    "python-resolved.constraints.txt": true
+  },
+  "stderr_bytes": 0,
+  "command_inside_workspace_isolation": [
+    "/home/minsujo/anaconda3/condabin/conda",
+    "create",
+    "--dry-run",
+    "--json",
+    "--prefix",
+    "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1",
+    "--override-channels",
+    "--strict-channel-priority",
+    "--repodata-fn",
+    "repodata.json",
+    "--no-default-packages",
+    "--copy",
+    "--yes",
+    "-c",
+    "https://conda.anaconda.org/nvidia/label/cuda-12.8.1",
+    "-c",
+    "https://repo.anaconda.com/pkgs/main",
+    "--file",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/install-plan-20260921/cuda-toolkit.conda-specs.txt"
+  ],
+  "bootstrap_attempts": [
+    {
+      "context": "tool sandbox",
+      "exit_code": 1,
+      "error": "bwrap: No permissions to create new namespace",
+      "conda_started": false
+    },
+    {
+      "context": "command-specific approved execution; same bwrap isolation retained",
+      "exit_code": 0,
+      "system_protection_settings_changed": false
+    }
+  ],
+  "not_performed": [
+    "actual package installation",
+    "source build",
+    "GPU experiment",
+    "model download",
+    "pip resolver rerun",
+    "system CUDA or driver modification"
+  ],
+  "remaining_issues": [
+    "Conda actual create with readonly external HOME and environment registry warning remains untested.",
+    "Actual nvcc/header/library files and compiler behavior remain untested.",
+    "Python/source package builds and GPU compatibility, including sparse candidate, remain untested.",
+    "CLIP review patch must be applied before first CLIP weight download or load."
+  ],
+  "next_single_step": "After explicit user instruction for installation, install only CUDA Toolkit into the dedicated workspace prefix using the reviewed command; do not combine Python/source/GPU steps."
+}

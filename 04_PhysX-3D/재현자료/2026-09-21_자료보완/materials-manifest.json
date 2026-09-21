@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-21T16:06:05.468272+09:00",
+  "base_repository_commit": "b9fb49be22e1d12ed31e09341b47daff58ca7fa7",
+  "original_root": "/home/minsujo/Desktop/SH/PHYSx",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 85,
+      "sha256": "4df4b38559568f24b9181fd1613cfae290d11ce74d291d09b84f51bd33d71d39",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 10986,
+      "sha256": "60d01718ff84685dc1c77414ff27dc46621324d5c050f8a2f70c09bf02fe8d83",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "external-inputs.json",
+      "size_bytes": 6411,
+      "sha256": "4a03ff9fc665951f53e28036c1c1f315e73040bc0bb749bf11e123c526b1510d",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "gpu/README.md",
+      "size_bytes": 8071,
+      "sha256": "c11c034102d2fa80ce0ca5128af6bcd3141a0a63b9112f96f39b65f2ed63e5ec",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "gpu/gpu_check_launcher.py",
+      "size_bytes": 17764,
+      "sha256": "34c7b1f04bacfd11bdf4383bf8a869db2d36bbbbe2b38d13103d5c10a1b35032",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "gpu/pytorch_smoke_check.py",
+      "size_bytes": 8348,
+      "sha256": "9e6ec63f4284ff860d76635ff1e16bb6eff585d80040e0831f45611e0048131e",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "gpu/test_preparation.py",
+      "size_bytes": 5297,
+      "sha256": "17c320bf97484194f07c561cfd137a46b8caf3629914a50056bc968651134f77",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/actual-files.json",
+      "size_bytes": 11863,
+      "sha256": "7cf58e4ab8769ea75bcf28b532431f44acfc1577b85d4c189d96109b06800bed",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/actual-files.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/approved-artifacts.json",
+      "size_bytes": 41280,
+      "sha256": "f1970f159c2f03b6aa24475471c69c619c615dbd833a0ffc946a83d6b84393ee",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/approved-artifacts.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/before.json",
+      "size_bytes": 52640,
+      "sha256": "4691205db8c1b7316c9efb19789ae558f0ac53e682b9722c36949b517f9dadda",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/before.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/cuda-toolkit.explicit.txt",
+      "size_bytes": 14105,
+      "sha256": "98be7b819e067fdcd22ac9e1af4e6ffa206775cd28a3204289f1e0ef7b253db8",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/cuda-toolkit.explicit.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/install_cuda_only.py",
+      "size_bytes": 10667,
+      "sha256": "fb03d254091fdbd0772665afd2cc1c01d405b28532a52842916c656cdff55bf2",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/install_cuda_only.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/preservation.json",
+      "size_bytes": 1133,
+      "sha256": "aba59b226b1806fc27315d0e92699b1da683c715d9c2ede61abf3c95e06789b2",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/preservation.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/cuda-toolkit-install-20260921/result.json",
+      "size_bytes": 1230,
+      "sha256": "3eba22233a9b0c8c74ede6a42dec59ec9f2354f2955534dae9a896e7d4c38adb",
+      "source_relative_to_PHYSx": "logs/cuda-toolkit-install-20260921/result.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/artifact-sha256.json",
+      "size_bytes": 2195,
+      "sha256": "127fc477d52cf0e79ffd0f6fee461825ca0bc533eebbb740384fed2b1adbdf15",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/artifact-sha256.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/clip-cache-path.review.patch",
+      "size_bytes": 821,
+      "sha256": "8fcc8f32d510b201e3985276aa59da359bb43e76d5dd59db1f9fc0b4a9af224b",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/clip-cache-path.review.patch",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/clip-cache-review.json",
+      "size_bytes": 4515,
+      "sha256": "8605c033ccd6c761c81979d21bd11046b54a0381f60d13e2bb919de6d1132399",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/clip-cache-review.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-cuda128-dry-run.json",
+      "size_bytes": 132605,
+      "sha256": "4b91c6cc65f9625275ac97b4835424c10a81108a05e81748d5c5c93e986c4f81",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-cuda128-dry-run.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.before.json",
+      "size_bytes": 4836,
+      "sha256": "f4d5dce63fd7ecf7a01fa1a0b333752592dd4fa8f0cccd1d9461a54e3fe7b42f",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.before.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.comparison.json",
+      "size_bytes": 3445,
+      "sha256": "da0ef1db5f50f2264b451dbcacd9a33e22a45c81957e702851c6fa7d94467b21",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.comparison.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.execution.log",
+      "size_bytes": 64,
+      "sha256": "1ddf4579f836dbd8c3e9e0e13b2bf1cc25881fa5adaf15bb35dc0cfb2a2fd2ae",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.execution.log",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.json",
+      "size_bytes": 132605,
+      "sha256": "38b028ab4d716b43f3acab350a7ff65196821936c36d5cfbc782b3bc284400bb",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.sha256.json",
+      "size_bytes": 684,
+      "sha256": "5d87b752c063d56ecaa9cd232ca931a2c930a84ec93bf6f5b393bb6b27d6fdcb",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.sha256.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.stderr.log",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/conda-final-isolated-preview.summary.md",
+      "size_bytes": 3495,
+      "sha256": "1d0ddc2eea95277382495f1d47ce247983e99c56a0e84f42fd76e09903503051",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/conda-final-isolated-preview.summary.md",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/cuda-toolkit.conda-specs.txt",
+      "size_bytes": 3369,
+      "sha256": "5ccf713420ef0e482fc1c8f7b05ed56acc1044ba677f97adff2c3a3ce6886159",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/cuda-toolkit.conda-specs.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/derive_resolved_plan.py",
+      "size_bytes": 3724,
+      "sha256": "12bac99dc972cf23376bd507f802ec5a05d2a1d25a730a088b40be2fa1bff7f3",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/derive_resolved_plan.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/final-verification.json",
+      "size_bytes": 1523,
+      "sha256": "b0a577b457ef6e8c423daa5640579e91d3c902bdd2c066c31d6b40375df7729b",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/final-verification.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/flash-attention-setup.review.txt",
+      "size_bytes": 25281,
+      "sha256": "d089d876c34366979708a87abe051bf3e30f81ee4ee685e4bb446c11f0940a73",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/flash-attention-setup.review.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/inspect_public_metadata.py",
+      "size_bytes": 2778,
+      "sha256": "a49f01a901253ae3bd0b953382e4b7247edf7247b80cb9132258afbcca4401bb",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/inspect_public_metadata.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/installation-plan.before-isolation-review.md",
+      "size_bytes": 25376,
+      "sha256": "a769fbb1d3db93ad18a37fa3fc2efb48aa5ebd8c7a7e3d14bd717b45c7f815ca",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/installation-plan.before-isolation-review.md",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/installation-plan.md",
+      "size_bytes": 36661,
+      "sha256": "206484ebfe56b1396833ba0c8ff7f53ed672a3003e07f5d823cdc2258fafbb96",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/installation-plan.md",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/isolation-probe-result.json",
+      "size_bytes": 4174,
+      "sha256": "eaeebe39bff3cd9976c0fede69bcae3c379810b8678d95064e3ae7de2259aa0e",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/isolation-probe-result.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/isolation-review-log.md",
+      "size_bytes": 6971,
+      "sha256": "d78b53cab444744b93beb2049860242fe21c21746ccfba9877d0a20881022378",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/isolation-review-log.md",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/isolation-review-sha256.json",
+      "size_bytes": 3441,
+      "sha256": "7714a7ed9aa44b08d856080a699504f4108402f69535d0bf1e450992733097c5",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/isolation-review-sha256.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/isolation-review-verification.json",
+      "size_bytes": 3650,
+      "sha256": "30173ac84d2e0595f1c7a4cfde0fc1e944c121b33abad816c5132146ad36c3a4",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/isolation-review-verification.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/isolation_probe.py",
+      "size_bytes": 3837,
+      "sha256": "3074f700cb3a2e3dffc0b797b119900d9cad89e75d7ee78803156f41f92b628d",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/isolation_probe.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/pip-dry-run-initial-report.json",
+      "size_bytes": 1995925,
+      "sha256": "d30a94a61e894846f2d9c47ad6d4f0706f2f11a84af925488befde46da53db63",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/pip-dry-run-initial-report.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/pip-dry-run-report.json",
+      "size_bytes": 1995925,
+      "sha256": "d30a94a61e894846f2d9c47ad6d4f0706f2f11a84af925488befde46da53db63",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/pip-dry-run-report.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/pip-utils3d-dry-run-report.json",
+      "size_bytes": 148917,
+      "sha256": "ca618a458e27990e20c28218f6b60f8ddf629879cc8368229325e72bc9c9b05e",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/pip-utils3d-dry-run-report.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/preview.condarc",
+      "size_bytes": 315,
+      "sha256": "f3827527f27453532446b40583ba19e8aff5190e2e1594106af22f259783bc34",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/preview.condarc",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/pypi-candidate-metadata.json",
+      "size_bytes": 362916,
+      "sha256": "a90ee04514969bfecd257c2c6e9a658ea54acc310f097d9da5fd58734c6db63c",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/pypi-candidate-metadata.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/python-direct-candidates.txt",
+      "size_bytes": 802,
+      "sha256": "71f0c3251992985e1b50a419ece4209235f7b5f91b632cdb235f92a9bdca250f",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/python-direct-candidates.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/python-foundation.lock.txt",
+      "size_bytes": 40504,
+      "sha256": "a6d310a0572049eb5b63a7624e55571af2427c579192c2687651f57b6204e31d",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/python-foundation.lock.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/python-metadata-validation.json",
+      "size_bytes": 349,
+      "sha256": "a996fb0b6221f84ab8bb1a7f20205d44c4f30d68b5782c2d5ad4d9b22eeca91c",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/python-metadata-validation.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/python-resolved.constraints.txt",
+      "size_bytes": 3254,
+      "sha256": "9e616b5935f48414a847bd8cede49f7743e6b8153a242ffbfe9bd6ee98022979",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/python-resolved.constraints.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/python-sparse-candidate.lock.txt",
+      "size_bytes": 581,
+      "sha256": "2c46f0ace1356e068f8615a5551984be37bb0aee1b3e52f77f49b48f0f57fbb3",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/python-sparse-candidate.lock.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/source-pins.json",
+      "size_bytes": 1777,
+      "sha256": "e86de6a7a242a90af756a32d2f8745b88acd8276715d028ad17632373ba2eb92",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/source-pins.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/supplemental-wheel-hashes.json",
+      "size_bytes": 705,
+      "sha256": "e84bd5db881bd0d925dc91430572a3bba162faa2aee1fd14d05777016b24876e",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/supplemental-wheel-hashes.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/upstream-openai-clip-cache.review.txt",
+      "size_bytes": 9644,
+      "sha256": "9540f200fbf8145479fa655382a56dab048d238cc698b9cbd8df3b6d86d3f1b6",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/upstream-openai-clip-cache.review.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/upstream-physx-example-clip.review.txt",
+      "size_bytes": 9870,
+      "sha256": "b971d477d48f33eaf981af4c2bc1df1bb5b44e59c11116ac68b4e7f03c8670d5",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/upstream-physx-example-clip.review.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/upstream-physx-merge-property-clip.review.txt",
+      "size_bytes": 7293,
+      "sha256": "dbeffc0fd711e994edcf5e10686c53182f6bee80f0153a14d6aafc09e691dc20",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/upstream-physx-merge-property-clip.review.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/upstream-setup.review.txt",
+      "size_bytes": 11581,
+      "sha256": "5f4dec73de2c673342ddbde3f0fd6529d979408f71e08cd25fa7931afe69698c",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/upstream-setup.review.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/utils3d-extra-candidates.txt",
+      "size_bytes": 131,
+      "sha256": "b7655b7eb0be6b3721dff54fc65dc17adafa46550eccadb6d31e6a80fa4924e4",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/utils3d-extra-candidates.txt",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/work-log.md",
+      "size_bytes": 7976,
+      "sha256": "0ea233e52e5310467c2c2d605b140eadc680eb05f947721a0eca170b3fa12a85",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/work-log.md",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/install-plan-20260921/workspace_isolation.py",
+      "size_bytes": 5539,
+      "sha256": "8e9038d7af1d7f23d0da87448a9218d03240a5b0ece05b65965340ad497929c1",
+      "source_relative_to_PHYSx": "logs/install-plan-20260921/workspace_isolation.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/before.json",
+      "size_bytes": 68201,
+      "sha256": "8d529e18c0762207fbf40527e7aaeb438da3d31c0481a7972dda064f7d613b9c",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/before.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/install_foundation.py",
+      "size_bytes": 12742,
+      "sha256": "a5fd19e0c7465c035d869747a7256bc5ba043e67675de2e108100c28a40428e9",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/install_foundation.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/installed-versions.json",
+      "size_bytes": 5026,
+      "sha256": "2154bdc0004763b3050552d416af93c63fa622c307a9682ad6bfdf1c60a5cc27",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/installed-versions.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/pip-check.command.json",
+      "size_bytes": 538,
+      "sha256": "a56c00337b4aa42cb30387d8f824abae21da28767d6e69c62d23693ee472fef8",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.command.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/pip-check.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.stderr.log",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/pip-check.stdout.log",
+      "size_bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip-check.stdout.log",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/pip_without_site.py",
+      "size_bytes": 249,
+      "sha256": "f15a06f3de03f5f5c2236b8619a2d65c7392af5b3f4bd793c6d460cbadf1a992",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/pip_without_site.py",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "local-records/logs/python-foundation-install-20260921/result.json",
+      "size_bytes": 1536,
+      "sha256": "becf409af71c3c3dccd8af4a3853fa61522ccbf2de6df63f027707ad70f907f0",
+      "source_relative_to_PHYSx": "logs/python-foundation-install-20260921/result.json",
+      "copy_policy": "byte_identical_local_record; historical state may differ from installed state"
+    },
+    {
+      "path": "verify_materials.py",
+      "size_bytes": 9766,
+      "sha256": "03021ff4bf2dd5d054c5cdd8a6f5c4f01c2333c2469f26ff113528d00c99c738",
+      "copy_policy": "new preparation material; hardware execution unverified"
+    }
+  ],
+  "excluded": [
+    "materials-manifest.json (self-reference)",
+    "validation/ (separate evidence-manifest.json)"
+  ],
+  "scope": "Archive bytes and recorded inputs only; not proof of installation or GPU execution"
+}
