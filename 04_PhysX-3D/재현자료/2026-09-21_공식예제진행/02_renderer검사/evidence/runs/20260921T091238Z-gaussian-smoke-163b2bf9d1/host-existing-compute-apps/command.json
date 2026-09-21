@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/nvidia-smi",
+    "--id=GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "--query-compute-apps=pid,gpu_uuid,used_gpu_memory",
+    "--format=csv,noheader,nounits"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T09:12:40.191811+00:00",
+  "timeout_seconds": 15,
+  "process_started": false,
+  "exit_code": null,
+  "automatic_retry": false
+}

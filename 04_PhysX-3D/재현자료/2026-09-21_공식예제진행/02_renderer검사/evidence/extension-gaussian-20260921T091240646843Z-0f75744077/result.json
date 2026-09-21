@@ -1,0 +1,263 @@
+{
+  "case": "gaussian",
+  "status": "passed",
+  "phase": "completed",
+  "started": "2026-09-21T09:12:40.647042+00:00",
+  "selected_gpu_uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+  "script": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_extensions.py",
+  "limit": "One selected bounded extension case, offline; no model, downloads or installation.",
+  "packages": {
+    "torch": {
+      "version": "2.7.1+cu128",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=d6c3cba198dc93f93422a8545f48a6697890366e4b9701f54351fc27e2304bd3",
+          "hashes": {
+            "sha256": "d6c3cba198dc93f93422a8545f48a6697890366e4b9701f54351fc27e2304bd3"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/python-foundation-wheels-20260921/torch-2.7.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl"
+      }
+    },
+    "torchvision": {
+      "version": "0.22.1+cu128",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=538f4db667286d939b4eee0a66d31ed21b51186668006b0e0ffe20338ecc7e00",
+          "hashes": {
+            "sha256": "538f4db667286d939b4eee0a66d31ed21b51186668006b0e0ffe20338ecc7e00"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/python-foundation-wheels-20260921/torchvision-0.22.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl"
+      }
+    },
+    "diff-gaussian-rasterization": {
+      "version": "0.0.0",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=1062b26488be106a39df3e5e6cf2ce94d20845284c16251ebe92cf62a853eec5",
+          "hashes": {
+            "sha256": "1062b26488be106a39df3e5e6cf2ce94d20845284c16251ebe92cf62a853eec5"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl"
+      }
+    }
+  },
+  "device": {
+    "uuid": "843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "name": "NVIDIA GeForce RTX 5090",
+    "capability": [
+      12,
+      0
+    ],
+    "logical_index": 0
+  },
+  "libraries_before": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "checks": {
+    "gaussians": 1,
+    "resolution": [
+      16,
+      16
+    ],
+    "near_far": [
+      0.1,
+      10.0
+    ],
+    "camera_forward_positive_z": true,
+    "radius_pixels": 3,
+    "covered_pixels": 16,
+    "channel_alpha_agreement": {
+      "shape": [
+        2,
+        16,
+        16
+      ],
+      "maximum_absolute_error": 0.0,
+      "atol": 2e-05,
+      "rtol": 2e-05,
+      "finite": true
+    },
+    "gradients": {
+      "means3D": {
+        "finite": true,
+        "maximum_absolute_value": 0.008024316281080246
+      },
+      "means2D": {
+        "finite": true,
+        "maximum_absolute_value": 0.16971762478351593
+      },
+      "colors": {
+        "finite": true,
+        "maximum_absolute_value": 0.007046697195619345
+      },
+      "opacity": {
+        "finite": true,
+        "maximum_absolute_value": 0.010129627771675587
+      },
+      "scales": {
+        "finite": true,
+        "maximum_absolute_value": 0.053495440632104874
+      },
+      "rotations": {
+        "finite": true,
+        "maximum_absolute_value": 0.0
+      }
+    },
+    "scope": "Finite coverage, single-color alpha agreement and backward; no full CPU rasterizer equivalence claim."
+  },
+  "libraries_after": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+        "kind": "extension",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "exit_code": 0,
+  "finished": "2026-09-21T09:12:42.849315+00:00",
+  "elapsed_seconds": 2.202213149983436,
+  "libraries_finally": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/diff_gaussian_rasterization/_C.cpython-310-x86_64-linux-gnu.so",
+        "kind": "extension",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "peak_torch_allocation_bytes": 27648,
+  "peak_torch_reserved_bytes": 2097152
+}

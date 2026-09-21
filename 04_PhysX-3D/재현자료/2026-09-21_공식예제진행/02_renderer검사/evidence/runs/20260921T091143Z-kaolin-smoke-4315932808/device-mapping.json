@@ -1,0 +1,11 @@
+{
+  "gpu_uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+  "device_minor": 1,
+  "driver_metadata_path": "/proc/driver/nvidia/gpus/0000:02:00.0/information",
+  "bus_location": "0000:02:00.0",
+  "nodes": [
+    "/dev/nvidia1",
+    "/dev/nvidiactl",
+    "/dev/nvidia-uvm"
+  ]
+}

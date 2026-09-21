@@ -1,0 +1,167 @@
+[
+  {
+    "case": "kaolin",
+    "status": "passed",
+    "started": "2026-09-21T09:11:44.815935+00:00",
+    "finished": "2026-09-21T09:11:51.868926+00:00",
+    "elapsed_seconds": 7.0529295350424945,
+    "checks": {
+      "sided_distance": {
+        "shape": [
+          1,
+          3
+        ],
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-05,
+        "rtol": 0.0001,
+        "finite": true
+      },
+      "nearest_indices_match": true,
+      "chamfer": {
+        "shape": [
+          1
+        ],
+        "maximum_absolute_error": 0.0,
+        "atol": 1e-05,
+        "rtol": 0.0001,
+        "finite": true
+      },
+      "point_counts": [
+        3,
+        4
+      ],
+      "gradients": {
+        "points_a": {
+          "finite": true,
+          "maximum_absolute_value": 1.0
+        },
+        "points_b": {
+          "finite": true,
+          "maximum_absolute_value": 1.0
+        }
+      },
+      "gradient_reference": {
+        "points_a": {
+          "shape": [
+            1,
+            3,
+            3
+          ],
+          "maximum_absolute_error": 3.9736429924275285e-08,
+          "atol": 1e-05,
+          "rtol": 0.0001,
+          "finite": true
+        },
+        "points_b": {
+          "shape": [
+            1,
+            4,
+            3
+          ],
+          "maximum_absolute_error": 3.9736429924275285e-08,
+          "atol": 1e-05,
+          "rtol": 0.0001,
+          "finite": true
+        }
+      }
+    },
+    "peak_torch_allocation_bytes": 7168
+  },
+  {
+    "case": "gaussian",
+    "status": "passed",
+    "started": "2026-09-21T09:12:40.647042+00:00",
+    "finished": "2026-09-21T09:12:42.849315+00:00",
+    "elapsed_seconds": 2.202213149983436,
+    "checks": {
+      "gaussians": 1,
+      "resolution": [
+        16,
+        16
+      ],
+      "near_far": [
+        0.1,
+        10.0
+      ],
+      "camera_forward_positive_z": true,
+      "radius_pixels": 3,
+      "covered_pixels": 16,
+      "channel_alpha_agreement": {
+        "shape": [
+          2,
+          16,
+          16
+        ],
+        "maximum_absolute_error": 0.0,
+        "atol": 2e-05,
+        "rtol": 2e-05,
+        "finite": true
+      },
+      "gradients": {
+        "means3D": {
+          "finite": true,
+          "maximum_absolute_value": 0.008024316281080246
+        },
+        "means2D": {
+          "finite": true,
+          "maximum_absolute_value": 0.16971762478351593
+        },
+        "colors": {
+          "finite": true,
+          "maximum_absolute_value": 0.007046697195619345
+        },
+        "opacity": {
+          "finite": true,
+          "maximum_absolute_value": 0.010129627771675587
+        },
+        "scales": {
+          "finite": true,
+          "maximum_absolute_value": 0.053495440632104874
+        },
+        "rotations": {
+          "finite": true,
+          "maximum_absolute_value": 0.0
+        }
+      },
+      "scope": "Finite coverage, single-color alpha agreement and backward; no full CPU rasterizer equivalence claim."
+    },
+    "peak_torch_allocation_bytes": 27648
+  },
+  {
+    "case": "nvdiffrast",
+    "status": "passed",
+    "started": "2026-09-21T09:13:32.288869+00:00",
+    "finished": "2026-09-21T09:14:26.678602+00:00",
+    "elapsed_seconds": 54.389672132907435,
+    "checks": {
+      "resolution": [
+        16,
+        16
+      ],
+      "triangles": 1,
+      "covered_pixels": 72,
+      "cpu_barycentric_reference": {
+        "shape": [
+          72,
+          3
+        ],
+        "maximum_absolute_error": 3.9736429868764134e-08,
+        "atol": 2e-05,
+        "rtol": 2e-05,
+        "finite": true
+      },
+      "gradients": {
+        "clip_vertices": {
+          "finite": true,
+          "maximum_absolute_value": 0.010190606117248535
+        },
+        "vertex_attributes": {
+          "finite": true,
+          "maximum_absolute_value": 0.0921224057674408
+        }
+      },
+      "cuda_context": true
+    },
+    "peak_torch_allocation_bytes": 37888
+  }
+]

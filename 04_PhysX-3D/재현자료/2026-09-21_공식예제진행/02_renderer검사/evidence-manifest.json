@@ -1,0 +1,656 @@
+[
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_extensions.py",
+    "copy": "evidence/check_extensions.py",
+    "bytes": 22430,
+    "sha256": "1d7492f61482e8eda08c45a99529c72b55e77bc45013048f03892c6f5a1a8b2b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-gaussian-20260921T091240646843Z-0f75744077/result.json",
+    "copy": "evidence/extension-gaussian-20260921T091240646843Z-0f75744077/result.json",
+    "bytes": 8574,
+    "sha256": "71ba084ab4c4c692fa2f49977941cfdc24596479446ee2bef6242690854d557d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-kaolin-20260921T091144815712Z-21466a1bb2/result.json",
+    "copy": "evidence/extension-kaolin-20260921T091144815712Z-21466a1bb2/result.json",
+    "bytes": 9325,
+    "sha256": "0f95ab0cb3aef48997ba3122d947e82e2b8471edfd8259ee5a1cc623d495dc7f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-nvdiffrast-20260921T091332288648Z-c75a685174/result.json",
+    "copy": "evidence/extension-nvdiffrast-20260921T091332288648Z-c75a685174/result.json",
+    "bytes": 7854,
+    "sha256": "0e7904e1e21141e49c8ad18fcf0d123ed671ced60fe2a32aa823c15bf571d1b9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/command/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/command/command.json",
+    "bytes": 8536,
+    "sha256": "ffb95561b501ea46902cf4f0c3f30128d8fa7ccadbe867970f0c7c934f378fce"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/command/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/command/result.json",
+    "bytes": 8664,
+    "sha256": "a8fe5b99b6183eda0219881046f4f42b07f40cfff8fe1837258b581f63bdff41"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/command/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/command/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/command/stdout.log",
+    "bytes": 193,
+    "sha256": "cd5422fe9025b92cd6c2687c7d1b9c1f242ae8f3914efa9754e1d5159c3d55d8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/device-mapping.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/command.json",
+    "bytes": 8289,
+    "sha256": "6b145cf285867099df03642b8cef1d2ab55206a7df2eaa8f0187003263d2881e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/result.json",
+    "bytes": 8417,
+    "sha256": "86a2d8736b0a37dee2909b29353c6b7db1b07308ec95fddf61b65e8dddedbeb0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/command.json",
+    "bytes": 8498,
+    "sha256": "6b4fe604f349cd1c0b49cae0fd15d40cbbd0b6a2db7511e27dddfbf3829d3341"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/result.json",
+    "bytes": 8626,
+    "sha256": "f0d4864e5183a68629a0879363f19b766a1bbd451892bc807adc10e33174b47e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-driver-info/stdout.log",
+    "bytes": 146,
+    "sha256": "37569a239583f23b058fcf92934de9294821c5282e64ed73f62d748345a41aef"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/command.json",
+    "bytes": 8416,
+    "sha256": "205ee74765a4f3f901717d5154b53f268378ebe4cf39fc3042e1758b42ea2b31"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/result.json",
+    "bytes": 8544,
+    "sha256": "12851283b8ab174731a955c08bf2d42a22484f04f4dcafabe8f2dfaea9cde55e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/command.json",
+    "bytes": 8289,
+    "sha256": "3edb4c04524347d4c6e0cfe704faa97341626907c669a637fff3338be6ff4468"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/result.json",
+    "bytes": 8417,
+    "sha256": "b8c0ce5157f13489e835d109ab5f3e9e0703d4435749b6794dcfb82babfd463d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "645768d7973f050f5e3087dc7a0588fa118629dc470796c785d30f66d540c6d8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "5373931804e6d98761a858fa33e8fc6a9f5e76dad91bc5e46d4cf244d17fe359"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "4f9268a76f35ad0603d27a9a8cd0b6606d73a0e7ef0a97fd2cf7e9823d14f590"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "b3c56ff76ed0f418ca67670cbdd09d94758302f1b584f35da72cd52aeb966708"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/host-selected-gpu/stdout.log",
+    "bytes": 146,
+    "sha256": "f4843837e43adca8afea1b38a11dfc20220cd01b0748bf730ba27d2ec58e8b12"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/command.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/command.json",
+    "bytes": 8329,
+    "sha256": "8dc58aad42a086c850545fa6695fa8774bfed889fe83fe2d43039c65d3ec3090"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/result.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/result.json",
+    "bytes": 8457,
+    "sha256": "fd87d59dc396dc6b3c4f3e1e5598003eb94ea3086d5c45361878a19a39fed202"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/plan.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/plan.json",
+    "bytes": 9446,
+    "sha256": "866892ca86355e00141f95bbcf1f3e2aeee4878a0e90aecdd0a52930e0bafc56"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091143Z-kaolin-smoke-4315932808/status.json",
+    "copy": "evidence/runs/20260921T091143Z-kaolin-smoke-4315932808/status.json",
+    "bytes": 672,
+    "sha256": "a2b1f867f6d52beec02aa53b434dc1ecff953041184d1a851ad5d5518b5dbdeb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/command.json",
+    "bytes": 8552,
+    "sha256": "98b3c727fe2d1d45f98f0d67d89acafcf25141a126fa18e59361075163fe5aef"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/result.json",
+    "bytes": 8680,
+    "sha256": "aea1722f4ff6e4a66f7e461394f5fd28692a311ef70f4f608799bcffd6ed922d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/command/stdout.log",
+    "bytes": 197,
+    "sha256": "b2cf0582154395fbf3b49ba541bc982180656d047c7c70db4ac8f8388d1928d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/device-mapping.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/command.json",
+    "bytes": 8303,
+    "sha256": "ae8c8ef2026cc27cbc8a0ebfcabc96d6071e735133b5371129fcfc971a041930"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/result.json",
+    "bytes": 8431,
+    "sha256": "4719cc6edc4b75cc6a73f2675a4415979b9c2d3a0e565602c22068e247ae666f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/command.json",
+    "bytes": 8512,
+    "sha256": "f46c72b5bc088e28c67d4bb7a2e3dd247c1b3a7126ad67fece64d9cd2ecf6602"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/result.json",
+    "bytes": 8640,
+    "sha256": "e3d06386f67cf55d48504cf824c26ff6b5a32d4f11a29546255071883973bd61"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-driver-info/stdout.log",
+    "bytes": 145,
+    "sha256": "877a7099392a952a930d5ad82dc5b968f7ea211fc1c47ec17015b78eb17ecca5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/command.json",
+    "bytes": 8430,
+    "sha256": "74d374c2900274c47640aa4f5c065a418f12e8687966d913ced7f3cb79b40ed0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/result.json",
+    "bytes": 8558,
+    "sha256": "dd530f0b5a9f3af8425d2abdfa4eb0263e3406696f0f1313c4c6a556744d659a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/command.json",
+    "bytes": 8303,
+    "sha256": "ef3e37fe6502afafdebdcf9b596dbba49dd9170be291d84fea2ca515259dff93"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/result.json",
+    "bytes": 8431,
+    "sha256": "491ccd977c10e25bf1f99683895dfa5d8cf84454b5de3687cf703d12fd4630af"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "f49a37bcfca7b88b5258ea41b3eaeafdbe68389e83eb4adc3905c4fb92184c15"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "d841a15a34811e9e0ea5263562c93b3fec7d8ee8e68d2ff9a1eb38804b23ad4d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "09aeeab6d42e16dbb78da1270314a214605aa00c186d23611a7db4676f269b5a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "71a70bb94ec401725380b3a5e77bfc97a415a4d6bd6acfc06a0f4471451145bc"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/host-selected-gpu/stdout.log",
+    "bytes": 145,
+    "sha256": "140ae1920b5cddf1df9c3cdf8b47c6d1945dd60921f2d50382c0165bf718e964"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/command.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/command.json",
+    "bytes": 8343,
+    "sha256": "9fe59a0ce4b4616d8b5c3526681d67304683f5348ef959f53667e76c52bc6406"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/result.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/result.json",
+    "bytes": 8471,
+    "sha256": "049768f54d5d9f72b63ab497c7d6abdca8e819745bf7c61b23e8848ebd26d226"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/plan.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/plan.json",
+    "bytes": 9452,
+    "sha256": "1ff6fbeb3515248c06d04721c989006d656e68b74ae48e8b97c8d9f59bd31993"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/status.json",
+    "copy": "evidence/runs/20260921T091238Z-gaussian-smoke-163b2bf9d1/status.json",
+    "bytes": 676,
+    "sha256": "5d14117224cf8a4684487f7e1c99f96af583d6fee4f889a63aafc07a02b3bbe6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/command.json",
+    "bytes": 8569,
+    "sha256": "2ce71253216b2140d39ab11362b8e0881b57e51fb990c662a6a9f66661b97825"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/result.json",
+    "bytes": 8698,
+    "sha256": "bb0ee4d6fbe3a1cd6b60da24bbeb610daa85373b4698bef190f1621ba0848a2c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/stderr.log",
+    "bytes": 302,
+    "sha256": "340a57696c48efd989730299f439a72ee2a6d1f4af8f8b329264dce37640e33b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/command/stdout.log",
+    "bytes": 201,
+    "sha256": "967a601ff3f5bc0c7623b9ad4b657783b1624ef50edc6fcfa3075d06f6f46a2a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/device-mapping.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/command.json",
+    "bytes": 8317,
+    "sha256": "54c1a7e895303760171a106dc3b9a7a516641834a008e83da3038e32829f45fe"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/result.json",
+    "bytes": 8445,
+    "sha256": "01c590c9058b04dc4a414600b73ab910a6015e3aed9389833f715602478fca66"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/command.json",
+    "bytes": 8526,
+    "sha256": "c5185d42596b913c7f58c51ec725506f6092592c565383991e8fdbd252c00f88"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/result.json",
+    "bytes": 8654,
+    "sha256": "8cf732c9905ec199fd210f1e35c7ba2b508d640f0959f9cd766b4b524f943cba"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-driver-info/stdout.log",
+    "bytes": 146,
+    "sha256": "0e823c392f21c1689bebfbbd92df368917f33539bde250bb3d0b62acae9df21b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/command.json",
+    "bytes": 8444,
+    "sha256": "8f3f497822a9ea103fa93ca792c285af87895a64a3665245a69b50c6132dda49"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/result.json",
+    "bytes": 8572,
+    "sha256": "8aeed6fddd3b485cfb6e07b3039896d272adadea329535f668ea36f42421e7a6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/command.json",
+    "bytes": 8317,
+    "sha256": "e4c3f2f932de40ddd365ae3dfd2c9fc2790f9f08509d9ba960a7316956b569b6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/result.json",
+    "bytes": 8445,
+    "sha256": "f4d47df2e08278a0ba450870fc4328152b8ecad19992e57b94e394d9c60331b2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "469237ebd9a1d4b6696903a31919dce8ab36db2072aea893a716a4f970354000"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "25c553bebee16b25182a244f0918d6a35ecfa3a823b753e547649fe23f661e36"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "d716c81cf9228c87371ed3dca63a4937ecff5e5e415f7e2bad8a4fd8d777b1fa"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "9826c731bfbebe82c533792189c1e340fead66c67c5dee70b1e9ea6441d48355"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/host-selected-gpu/stdout.log",
+    "bytes": 146,
+    "sha256": "697aea411d016497034e762968fa6f8730dedea383755a6e2714ccd85fb1b8fa"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/command.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/command.json",
+    "bytes": 8357,
+    "sha256": "cee665cfb95df0ba75263849462a6e36b0869bce5d1952c89caec19867674cf8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/result.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/result.json",
+    "bytes": 8485,
+    "sha256": "20f9e0eb7c2e21d5844f4d5a56f18e9153d14236e1f02be172a3faccb085c47e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/stderr.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/stdout.log",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/plan.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/plan.json",
+    "bytes": 9459,
+    "sha256": "191697338dc2bfcad3dc2b637995f3b4a0a63c722ab61a23fc45e50e6b54c92a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/status.json",
+    "copy": "evidence/runs/20260921T091330Z-nvdiffrast-smoke-ca716903ca/status.json",
+    "bytes": 680,
+    "sha256": "16b558ee141d25ce2b9e5e418c1e39cf5c530c718e22790a467f86668851165a"
+  }
+]
