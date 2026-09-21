@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-09-21T16:45:15.579671+09:00",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size_bytes": 74,
+      "sha256": "75ae8611b0c5975e18fe3c66dd54ccb063892784c959e27e3e32df42accc0504"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 22904,
+      "sha256": "285a5435249e3605aa645dcec4f2e38a31d5a7d7f73a912bf1b7d8b7bcfea571"
+    },
+    {
+      "path": "installed-metadata.json",
+      "size_bytes": 5805,
+      "sha256": "d0445ac945f94670765402916e658d32aa591e94e1492ee1c8fa44aa00b9c64b"
+    },
+    {
+      "path": "review-evidence.json",
+      "size_bytes": 9987,
+      "sha256": "301f47d8824f9953f7d449f1ecc24346310cfd2cacfd0d39024ac0d7abc81ded"
+    },
+    {
+      "path": "review-findings.md",
+      "size_bytes": 11993,
+      "sha256": "9df49a5e83ba64266972a8c42ed0670a779974153a670a97b35f857e293ac735"
+    },
+    {
+      "path": "validation-result.json",
+      "size_bytes": 1182,
+      "sha256": "44ede4075f362c0a31636ba6f51598d7242fd654ee57a13d977d1fec8e8baa21"
+    }
+  ],
+  "scope": "new plan documents, metadata/evidence and static validation summary only",
+  "excluded": [
+    "evidence-manifest.json (self-reference)"
+  ]
+}

@@ -1,0 +1,2 @@
+# Keep manifest hashes stable across Linux and Windows checkouts.
+* -text

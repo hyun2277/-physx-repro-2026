@@ -1,0 +1,167 @@
+{
+  "recorded_at": "2026-09-21T16:42:50.591898+09:00",
+  "baseline_commit": "a244a00fd5c69b869d9d88b82e5c8b09e50bdfc1",
+  "local_inputs": [
+    {
+      "path_relative_to_PHYSx": "logs/install-plan-20260921/installation-plan.md",
+      "size_bytes": 36661,
+      "sha256": "206484ebfe56b1396833ba0c8ff7f53ed672a3003e07f5d823cdc2258fafbb96",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/install-plan-20260921/source-pins.json",
+      "size_bytes": 1777,
+      "sha256": "e86de6a7a242a90af756a32d2f8745b88acd8276715d028ad17632373ba2eb92",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/install-plan-20260921/python-sparse-candidate.lock.txt",
+      "size_bytes": 581,
+      "sha256": "2c46f0ace1356e068f8615a5551984be37bb0aee1b3e52f77f49b48f0f57fbb3",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/install-plan-20260921/python-resolved.constraints.txt",
+      "size_bytes": 3254,
+      "sha256": "9e616b5935f48414a847bd8cede49f7743e6b8153a242ffbfe9bd6ee98022979",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/install-plan-20260921/flash-attention-setup.review.txt",
+      "size_bytes": 25281,
+      "sha256": "d089d876c34366979708a87abe051bf3e30f81ee4ee685e4bb446c11f0940a73",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/python-foundation-install-20260921/installed-versions.json",
+      "size_bytes": 5026,
+      "sha256": "2154bdc0004763b3050552d416af93c63fa622c307a9682ad6bfdf1c60a5cc27",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "logs/gpu-basic-check-20260921/summary.json",
+      "size_bytes": 7780,
+      "sha256": "b942233332fa4cb37b7e45fbcb9f5786935fd5dd272508346086396a5436f7f1",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "repro-records/04_PhysX-3D/PhysX-3D_팀원비교_통합실행계획.md",
+      "size_bytes": 24718,
+      "sha256": "4b0890ad05b5720a63605875249a8f62dd5934a6c30d5978b90e915cb191fa6f",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "envs/physxgen/lib/python3.10/site-packages/torch/share/cmake/Torch/TorchConfig.cmake",
+      "size_bytes": 5350,
+      "sha256": "8de7fba5467603ac55e7be5f34553c087a7e4d36da59e7cd6ff2092e3ef31d6c",
+      "action": "read_only; existing environment/source not imported or executed"
+    },
+    {
+      "path_relative_to_PHYSx": "envs/physxgen/lib/python3.10/site-packages/kaolin/metrics/pointcloud.py",
+      "size_bytes": 7524,
+      "sha256": "596ac45681d19b83b623f03598a57b04ce2fa901f0a29e2e0194e4b61d155ac4",
+      "action": "read_only; existing environment/source not imported or executed"
+    }
+  ],
+  "official_source_urls_for_unresolved_questions": [
+    "https://docs.nvidia.com/cuda/archive/12.6.3/nvrtc/index.html#supported-compile-options",
+    "https://docs.nvidia.com/cuda/archive/12.8.1/blackwell-compatibility-guide/index.html",
+    "https://github.com/Dao-AILab/flash-attention/blob/060c9188beec3a8b62b33a3bfa6d5d2d44975fab/csrc/flash_attn/flash_api.cpp",
+    "https://github.com/Dao-AILab/flash-attention/blob/060c9188beec3a8b62b33a3bfa6d5d2d44975fab/flash_attn/flash_attn_interface.py",
+    "https://github.com/FindDefinition/cumm/blob/v0.7.11/cumm/__init__.py",
+    "https://github.com/FindDefinition/cumm/blob/v0.7.11/cumm/common.py",
+    "https://github.com/FindDefinition/cumm/blob/v0.7.11/cumm/nvrtc/__init__.py",
+    "https://github.com/JeffreyXiang/diffoctreerast/blob/b09c20b84ec3aace4729e6e18a613112320eca3a/diffoctreerast/octree_voxel_rasterizer.py",
+    "https://github.com/NVlabs/nvdiffrast/blob/729261dc64c4241ea36efda84fbf532cc8b425b8/nvdiffrast/torch/ops.py",
+    "https://github.com/NVlabs/nvdiffrast/blob/729261dc64c4241ea36efda84fbf532cc8b425b8/setup.py",
+    "https://github.com/autonomousvision/mip-splatting/blob/dda02ab5ecf45d6edb8c540d9bb65c7e451345a9/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py",
+    "https://github.com/pytorch/pytorch/blob/v2.7.1/torch/utils/cpp_extension.py",
+    "https://github.com/traveller59/spconv/blob/v2.3.8/spconv/constants.py",
+    "https://github.com/traveller59/spconv/blob/v2.3.8/spconv/csrc/sparse/convops.py",
+    "https://github.com/traveller59/spconv/blob/v2.3.8/spconv/pytorch/conv.py",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/example.py#L254",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/models/structured_latent_vae/base.py#L10",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/attention/full_attn.py#L114",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/sparse/attention/full_attn.py#L199",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/sparse/attention/serialized_attn.py#L62",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/sparse/attention/windowed_attn.py#L111",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/sparse/basic.py#L38",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/modules/sparse/conv/conv_spconv.py#L7",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/renderers/gaussian_render.py#L50",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/renderers/mesh_renderer.py#L1",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/renderers/octree_renderer.py#L173",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/renderers/octree_renderer.py#L53",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/representations/__init__.py",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/representations/mesh/flexicubes/flexicubes.py#L9",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/representations/radiance_field/strivec.py#L25",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/utils/postprocessing_utils.py#L399",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/trellis/utils/render_utils.py#L42",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/vox2seq/setup.py#L12",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/vox2seq/vox2seq/__init__.py#L4",
+    "https://github.com/ziangcao0312/PhysX-3D/blob/4f54e750a309fe9cd9f20816916ecc0e8a9ae594/vox2seq/vox2seq/pytorch/__init__.py#L15"
+  ],
+  "preserved_pins": {
+    "physx": {
+      "url": "https://github.com/ziangcao0312/PhysX-3D.git",
+      "commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594"
+    },
+    "flash-attention": {
+      "url": "https://github.com/Dao-AILab/flash-attention.git",
+      "version": "2.8.3",
+      "commit": "060c9188beec3a8b62b33a3bfa6d5d2d44975fab",
+      "build_environment": {
+        "FLASH_ATTENTION_FORCE_BUILD": "TRUE",
+        "FLASH_ATTN_CUDA_ARCHS": "120"
+      },
+      "validation": "source/API/architecture flags inspected; no build or GPU validation"
+    },
+    "CLIP": {
+      "url": "https://github.com/openai/CLIP.git",
+      "commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6"
+    },
+    "utils3d": {
+      "url": "https://github.com/EasternJournalist/utils3d.git",
+      "commit": "9a4eb15e4021b67b12c460c7057d642626897ec8"
+    },
+    "nvdiffrast": {
+      "url": "https://github.com/NVlabs/nvdiffrast.git",
+      "version": "0.3.3",
+      "commit": "729261dc64c4241ea36efda84fbf532cc8b425b8",
+      "validation": "JIT build and runtime architecture selection untested"
+    },
+    "diffoctreerast": {
+      "url": "https://github.com/JeffreyXiang/diffoctreerast.git",
+      "commit": "b09c20b84ec3aace4729e6e18a613112320eca3a",
+      "submodules": {
+        "glm": "33b4a621a697a305bc3a7610d290677b96beb181"
+      }
+    },
+    "mip-splatting": {
+      "url": "https://github.com/autonomousvision/mip-splatting.git",
+      "commit": "dda02ab5ecf45d6edb8c540d9bb65c7e451345a9",
+      "install_subdirectory": "submodules/diff-gaussian-rasterization"
+    },
+    "vox2seq": {
+      "source": "physx",
+      "commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+      "install_subdirectory": "vox2seq"
+    },
+    "model_revisions": {
+      "Caoza/PhysXGen": "52598097b7092df495ac149e137050ce2d2784fe",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+    }
+  },
+  "source_checkout_present": false,
+  "new_package_or_model_downloads": false,
+  "installation": false,
+  "build": false,
+  "gpu_execution": false,
+  "package_import": false,
+  "method": "Read historical records and installed METADATA/source text; inspect fixed official source text only for necessity, runtime JIT, and API gaps; no new dependency resolver run",
+  "metadata_copy": {
+    "path": "installed-metadata.json",
+    "source_relative_to_PHYSx": "logs/cuda-extension-plan-20260921/installed-metadata.json",
+    "size_bytes": 5805,
+    "sha256": "d0445ac945f94670765402916e658d32aa591e94e1492ee1c8fa44aa00b9c64b"
+  }
+}

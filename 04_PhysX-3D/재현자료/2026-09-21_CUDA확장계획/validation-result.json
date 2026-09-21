@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "issues": [],
+  "documents_checked": 3,
+  "markdown_links_checked": 49,
+  "unchanged_local_input_hashes": 10,
+  "installed_distribution_count": 170,
+  "new_pins": 0,
+  "changed_files_at_check": [
+    "04_PhysX-3D/실험일지/2026-09-21_CUDA확장_검토계획.md",
+    "04_PhysX-3D/재현자료/2026-09-21_CUDA확장계획/README.md",
+    "04_PhysX-3D/재현자료/2026-09-21_CUDA확장계획/installed-metadata.json",
+    "04_PhysX-3D/재현자료/2026-09-21_CUDA확장계획/review-evidence.json",
+    "04_PhysX-3D/재현자료/2026-09-21_CUDA확장계획/review-findings.md"
+  ],
+  "scope": "Static documents, JSON, source provenance and Git path checks only; no package import, install, build, GPU or model download",
+  "execution": {
+    "started_at": "2026-09-21T16:45:15.545545+09:00",
+    "ended_at": "2026-09-21T16:45:15.578766+09:00",
+    "exit_code": 0,
+    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/cuda-extension-plan-20260921/static-validation-20260921T164515545545"
+  },
+  "command": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/cuda-extension-plan-20260921/validate_plan.py"
+  ]
+}
