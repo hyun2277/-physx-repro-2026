@@ -36,12 +36,14 @@ def classify_json(value):
     if groups in (None, {}, [], ''):
         return 'FIXED_CANDIDATE', 'no_group_info_field_or_empty'
     if isinstance(groups, dict):
-        count = len(groups)
+        keys = set(groups)
+        moving = [key for key in keys if key != '0' and groups[key] not in ([], None, '')]
+        count = len(moving)
     elif isinstance(groups, list):
         count = len(groups)
     else:
         return 'UNRESOLVED', 'group_info_unexpected_type'
-    return ('ARTICULATED_CANDIDATE' if count else 'FIXED_CANDIDATE'), f'group_count={count}'
+    return ('ARTICULATED_CANDIDATE' if count else 'FIXED_CANDIDATE'), f'non_root_group_count={count}'
 
 
 def main():
@@ -57,12 +59,22 @@ def main():
         with zipfile.ZipFile(ZIP) as archive:
             infos = archive.infolist()
             names = {info.filename for info in infos}
+            prefixes = {}
+            for name in names:
+                parts = name.split('/')
+                if len(parts) >= 3 and parts[0] == 'version_1' and parts[1] == 'partseg':
+                    prefixes.setdefault(parts[2], set()).add('/'.join(parts[3:]))
             by_id = []
             for row in rows:
                 object_id = row['object_id']
-                json_name = next((x for x in (f'finaljson/{object_id}.json', f'PhysXNet/finaljson/{object_id}.json') if x in names), None)
-                obj_prefix = next((x for x in (f'partseg/{object_id}/objs/', f'PhysXNet/partseg/{object_id}/objs/') if any(n.startswith(x) for n in names)), None)
-                img_prefix = next((x for x in (f'partseg/{object_id}/img/', f'PhysXNet/partseg/{object_id}/img/') if any(n.startswith(x) for n in names)), None)
+                json_name = next((x for x in (f'version_1/finaljson/{object_id}.json', f'finaljson/{object_id}.json', f'PhysXNet/finaljson/{object_id}.json') if x in names), None)
+                members = prefixes.get(object_id, set())
+                obj_prefix = f'version_1/partseg/{object_id}/objs/' if any(x.startswith('objs/') for x in members) else None
+                img_prefix = f'version_1/partseg/{object_id}/imgs/' if any(x.startswith('imgs/') for x in members) else None
+                if obj_prefix is None and any(n.startswith(f'partseg/{object_id}/objs/') for n in names):
+                    obj_prefix = f'partseg/{object_id}/objs/'
+                if img_prefix is None and any(n.startswith(f'partseg/{object_id}/imgs/') for n in names):
+                    img_prefix = f'partseg/{object_id}/imgs/'
                 entry = {'test_index': row['test_index_0based'], 'source_index': row['source_index_0based'],
                          'object_id': object_id, 'json_member': json_name, 'obj_prefix': obj_prefix,
                          'img_prefix': img_prefix, 'classification': 'UNRESOLVED', 'classification_reason': 'annotation_not_read'}

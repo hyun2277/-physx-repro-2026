@@ -25,3 +25,5 @@
 이 점검기는 `zipfile`의 중앙 목록만 읽고 파일을 추출하지 않는다. 기존 공식 test 목록의 뒤 1,000행과 대응하는 `finaljson/<id>.json`, `partseg/<id>/img/`, `partseg/<id>/objs/` 후보를 보고한다. JSON의 `group_info`/joint 관련 필드를 정적으로 읽어 고정·관절 **후보**를 표시하지만, 공식 분류로 승격하지 않는다. JSON이 없거나 구조가 다르면 상태를 `UNRESOLVED`로 남긴다. 40개 texture 경로 누락 ID도 제외하지 않고 별도 목록으로 기록한다.
 
 검사 결과는 archive 목록 hash, test ID별 member 존재, JSON 구조 요약, 고정/관절 후보, 누락 ID와 실행별 stdout/stderr/종료 코드를 로그에 남긴다. 표본 확정·압축 해제·모델 추론·전체 평가는 이후 단계다.
+
+실제 archive는 `version_1/finaljson/<id>.json`, `version_1/partseg/<id>/imgs/`, `version_1/partseg/<id>/objs/` 구조였다. 첫 실행의 1,000건 미확정 결과는 이 접두사와 `imgs`/`img` 차이 때문이며, 점검기를 보완한 재실행에서 750개 고정 후보, 249개 관절 후보, 1개 미확정으로 확인했다. 이는 JSON `group_info`의 root 이외 비어 있지 않은 group 수에 따른 **정적 후보 분류**다. 고정·관절 공식 표본 확정이나 논문 평가 조건 확정으로 표현하지 않는다.
