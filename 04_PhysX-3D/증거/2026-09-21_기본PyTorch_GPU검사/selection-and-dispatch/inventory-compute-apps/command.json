@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/usr/bin/nvidia-smi",
+    "--query-compute-apps=gpu_uuid,pid,used_gpu_memory",
+    "--format=csv,noheader,nounits"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T16:19:06.871201+09:00",
+  "attempt": 1,
+  "automatic_retry": false
+}

@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-21T16:21:29.996915+09:00",
+  "files": [
+    {
+      "path": "selection-and-dispatch/execution-attempt.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/execution-attempt.json",
+      "size_bytes": 994,
+      "sha256": "e708dca5ddf1fe3f44b69215da7c84e513c7b09686e1ea52ef6398a3dbf12831"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-attempt.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-attempt.json",
+      "size_bytes": 71,
+      "sha256": "39a4173c1c85e079b39754db4702d75aff4326495939eb013e2044c54911f8dc"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-compute-apps/command.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-compute-apps/command.json",
+      "size_bytes": 279,
+      "sha256": "16653eb3ad14e89981522385172319de2ba3a0581f607b11df4dd7d07f517d25"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-compute-apps/result.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-compute-apps/result.json",
+      "size_bytes": 365,
+      "sha256": "a8b939e1dbea0d8faa832709282df377b835daf0738a8fcb834be2398c005682"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-compute-apps/stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-compute-apps/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-compute-apps/stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-compute-apps/stdout.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-gpus/command.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-gpus/command.json",
+      "size_bytes": 351,
+      "sha256": "4ce71872c28b4a281f488bd4088eb4526547eb625e7fc0e9c18b152c62204917"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-gpus/result.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-gpus/result.json",
+      "size_bytes": 437,
+      "sha256": "fbadfb01654b917ee506253e579b5c11e749b032025ceb4e2e58d9d2178a396a"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-gpus/stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-gpus/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "selection-and-dispatch/inventory-gpus/stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/inventory-gpus/stdout.log",
+      "size_bytes": 241,
+      "sha256": "619c48ec7bf23e50867e756caec751d5e2f745e0ba45dd421cbff333b0271b41"
+    },
+    {
+      "path": "selection-and-dispatch/launcher-once/command.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/launcher-once/command.json",
+      "size_bytes": 492,
+      "sha256": "8ab14d7eb0a8a2812243be09ae45ad994440a6099508f7924b20efa0baa71e65"
+    },
+    {
+      "path": "selection-and-dispatch/launcher-once/result.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/launcher-once/result.json",
+      "size_bytes": 578,
+      "sha256": "c15c9f5975d72495080630652f0988f083fd6616447b7d5487ef6d0415734d08"
+    },
+    {
+      "path": "selection-and-dispatch/launcher-once/stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/launcher-once/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "selection-and-dispatch/launcher-once/stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/launcher-once/stdout.log",
+      "size_bytes": 194,
+      "sha256": "ecbea3ea292ba119bfdcf8d3c732f77820f26f8e7dbdee4c44acee2a9f4485bd"
+    },
+    {
+      "path": "selection-and-dispatch/launcher-run-directories.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/launcher-run-directories.json",
+      "size_bytes": 163,
+      "sha256": "a1a936db499970556fe2c86717d38ee6af0f035aeba6491481e77f55c5db8be8"
+    },
+    {
+      "path": "selection-and-dispatch/run_once.py",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/run_once.py",
+      "size_bytes": 8756,
+      "sha256": "2ebedbbaf09af0f6b5b3af186dbd70b902887730c6512c2fc35cfa25a059b0f8"
+    },
+    {
+      "path": "selection-and-dispatch/selection.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/selection.json",
+      "size_bytes": 2481,
+      "sha256": "5acf6749daac75ddbc887576c999c755888a726a0a3b4f0ee9dd762250d30700"
+    },
+    {
+      "path": "selection-and-dispatch/summary.json",
+      "source_relative_to_PHYSx": "logs/gpu-basic-check-20260921/summary.json",
+      "size_bytes": 7780,
+      "sha256": "b942233332fa4cb37b7e45fbcb9f5786935fd5dd272508346086396a5436f7f1"
+    },
+    {
+      "path": "gpu-run/device-mapping.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/device-mapping.json",
+      "size_bytes": 250,
+      "sha256": "b6d4d27706f2005ebf41e7d553fea1cdf07d00fcab25157689628a7e1844e0e9"
+    },
+    {
+      "path": "gpu-run/driver-info.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/driver-info.command.json",
+      "size_bytes": 4392,
+      "sha256": "201fbffad9f26c7a8b91e59837c2759d6d6aa51908332b66a476f7ba960ca9af"
+    },
+    {
+      "path": "gpu-run/driver-info.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/driver-info.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/driver-info.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/driver-info.stdout.log",
+      "size_bytes": 99,
+      "sha256": "8fc17525c6d353ecacd23166954e1bfd8e1055728147132b91f6021583a3779a"
+    },
+    {
+      "path": "gpu-run/existing-compute-apps.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/existing-compute-apps.command.json",
+      "size_bytes": 4321,
+      "sha256": "49f100fbedb40d1a3889cc3c70c64d779afb3600134ad9e333cebd6efbe0fc49"
+    },
+    {
+      "path": "gpu-run/existing-compute-apps.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/existing-compute-apps.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/existing-compute-apps.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/existing-compute-apps.stdout.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/smoke.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/smoke.command.json",
+      "size_bytes": 4609,
+      "sha256": "748c7e5665f1906e403e906ae7f590f79701161ca1b19a0950aa58b98ce9891d"
+    },
+    {
+      "path": "gpu-run/smoke.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/smoke.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/smoke.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/smoke.stdout.log",
+      "size_bytes": 1474,
+      "sha256": "519e4718c607eb56e8b144f33ed67287bed6ff68cc3e0b30f31ae01b1f6719b8"
+    },
+    {
+      "path": "gpu-run/status.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/status.json",
+      "size_bytes": 424,
+      "sha256": "25f99ea794baa10f95fbfae69d8ec6f14c2227ec21d551ffeee98a8c29f24092"
+    },
+    {
+      "path": "gpu-run/usage-0000.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0000.command.json",
+      "size_bytes": 4382,
+      "sha256": "1f77c88330cb28fe66c6ef1ffd67397ec0181a829d09b1377d664000dccc1290"
+    },
+    {
+      "path": "gpu-run/usage-0000.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0000.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-0000.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0000.stdout.log",
+      "size_bytes": 92,
+      "sha256": "c3f85a8961b0e0c494d96c28e7b20bd53a47169116dd51a5efe21fbe85b14b49"
+    },
+    {
+      "path": "gpu-run/usage-0001.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0001.command.json",
+      "size_bytes": 4382,
+      "sha256": "a97e9c0836e8aab503a185065fe752e897a3a1289c45782e3fce679e4d473d1b"
+    },
+    {
+      "path": "gpu-run/usage-0001.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0001.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-0001.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0001.stdout.log",
+      "size_bytes": 92,
+      "sha256": "869647a6998363b2c47e0b9a80e7ff04212fcae8c1bc85860fa9635b8fae9603"
+    },
+    {
+      "path": "gpu-run/usage-0002.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0002.command.json",
+      "size_bytes": 4382,
+      "sha256": "e9c3cb710f9361679fb1aa5fbaedea77c3ef0caf074baae66ab7ac8efff5f4ce"
+    },
+    {
+      "path": "gpu-run/usage-0002.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0002.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-0002.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0002.stdout.log",
+      "size_bytes": 91,
+      "sha256": "1cc74a889c73b6ca0222079e4490533e5cdb7e8545ba0289dfcbb71d98634189"
+    },
+    {
+      "path": "gpu-run/usage-0003.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0003.command.json",
+      "size_bytes": 4382,
+      "sha256": "4c7a6fd0d8e1fc4b77dc5590684ab0d874917810be47f71b8949fe49e8cccb9e"
+    },
+    {
+      "path": "gpu-run/usage-0003.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0003.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-0003.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0003.stdout.log",
+      "size_bytes": 91,
+      "sha256": "095e4f3e130dbb7147a9d069c894321b6e7e960aea0da2b04484e4b9d1359906"
+    },
+    {
+      "path": "gpu-run/usage-0004.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0004.command.json",
+      "size_bytes": 4382,
+      "sha256": "80948caecf4f34c1bb7f502add0017839d848e6d3fef28067de1d2576c4eb27e"
+    },
+    {
+      "path": "gpu-run/usage-0004.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0004.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-0004.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-0004.stdout.log",
+      "size_bytes": 92,
+      "sha256": "a5e79e96d5f53a58993edd13d3f1e83dff3d52a50940a82db9ea6d056e56b231"
+    },
+    {
+      "path": "gpu-run/usage-before.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-before.command.json",
+      "size_bytes": 4382,
+      "sha256": "69c8f1696a449721bff3ac99d3aba82d6588e2c7ff8a0f769dc30a8f33cb0929"
+    },
+    {
+      "path": "gpu-run/usage-before.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-before.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-before.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-before.stdout.log",
+      "size_bytes": 92,
+      "sha256": "963ebe3b1e0357635e8d6e3bf2c04ccc158ace8aed11227fe1dace0bb735f851"
+    },
+    {
+      "path": "gpu-run/usage-final.command.json",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-final.command.json",
+      "size_bytes": 4382,
+      "sha256": "e8492009a5407d365e015d461f0b455f98809ea8e1297a56527e33ec25f6998e"
+    },
+    {
+      "path": "gpu-run/usage-final.stderr.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-final.stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-run/usage-final.stdout.log",
+      "source_relative_to_PHYSx": "logs/gpu-checks/20260921T072002Z-dfb832771cf4/usage-final.stdout.log",
+      "size_bytes": 91,
+      "sha256": "0258f44bcb3d93d5a766ac8fae20cf696b250c30f20deaee48e1f8daf77ae873"
+    }
+  ],
+  "copied_logs_and_orchestration_only": true,
+  "cache_environment_model_data_payloads": false,
+  "excluded": [
+    "README.md (explanation)",
+    "evidence-manifest.json (self-reference)"
+  ]
+}

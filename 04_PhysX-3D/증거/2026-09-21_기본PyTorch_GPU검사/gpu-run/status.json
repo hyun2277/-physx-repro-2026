@@ -1,0 +1,13 @@
+{
+  "run_id": "20260921T072002Z-dfb832771cf4",
+  "gpu_uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+  "device_minor": 1,
+  "started": "2026-09-21T07:20:02.864618+00:00",
+  "phase": "completed",
+  "smoke_process_started": true,
+  "smoke_exit_code": 0,
+  "smoke_passed": true,
+  "finished": "2026-09-21T07:20:08.428658+00:00",
+  "exit_code": 0,
+  "claim": "Only the bounded PyTorch/torchvision GPU smoke check passed."
+}

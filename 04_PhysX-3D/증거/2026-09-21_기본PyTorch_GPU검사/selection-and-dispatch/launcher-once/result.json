@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/재현자료/2026-09-21_자료보완/gpu/gpu_check_launcher.py",
+    "--execute",
+    "--gpu-uuid",
+    "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "--device-minor",
+    "1"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T16:20:02.839497+09:00",
+  "attempt": 1,
+  "automatic_retry": false,
+  "ended_at": "2026-09-21T16:20:08.435547+09:00",
+  "exit_code": 0,
+  "signal": null
+}

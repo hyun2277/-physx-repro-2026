@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-09-21T16:20:02.839279+09:00",
+  "attempt": 1,
+  "prepared_source_sha256": {
+    "gpu/gpu_check_launcher.py": "34c7b1f04bacfd11bdf4383bf8a869db2d36bbbbe2b38d13103d5c10a1b35032",
+    "gpu/pytorch_smoke_check.py": "9e6ec63f4284ff860d76635ff1e16bb6eff585d80040e0831f45611e0048131e"
+  },
+  "selected": {
+    "index": 1,
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "pci_bus_id": "00000000:02:00.0",
+    "name": "NVIDIA GeForce RTX 5090",
+    "driver_version": "595.84",
+    "memory_total_mib": 32607,
+    "memory_used_mib": 64,
+    "utilization_gpu_percent": 0,
+    "temperature_c": "37",
+    "power_w": "25.51",
+    "device_minor": 1,
+    "device_node": "/dev/nvidia1",
+    "driver_metadata_path": "/proc/driver/nvidia/gpus/0000:02:00.0/information",
+    "driver_bus_location": "0000:02:00.0",
+    "character_device_major": 195
+  },
+  "authorization": "User authorized one basic PyTorch GPU check; no installation/build/download/paper experiment or retry."
+}
