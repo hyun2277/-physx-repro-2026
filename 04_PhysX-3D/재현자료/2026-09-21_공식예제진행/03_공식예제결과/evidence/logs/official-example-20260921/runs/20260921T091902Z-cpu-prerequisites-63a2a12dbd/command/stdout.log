@@ -1,0 +1,27 @@
+{"module": "clip", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/clip/__init__.py"}
+{"module": "utils3d.torch", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/utils3d/torch/__init__.py"}
+{"module": "imageio", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio/__init__.py"}
+{"module": "matplotlib.pyplot", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/matplotlib/pyplot.py"}
+{"module": "cv2", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/cv2/__init__.py"}
+{"module": "scipy.ndimage", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/scipy/ndimage/__init__.py"}
+{"module": "trimesh", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/trimesh/__init__.py"}
+{"module": "xatlas", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/xatlas.cpython-310-x86_64-linux-gnu.so"}
+{"module": "pyvista", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/pyvista/__init__.py"}
+{"module": "pymeshfix", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/pymeshfix/__init__.py"}
+{"module": "igraph", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/igraph/__init__.py"}
+{"module": "rembg", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/rembg/__init__.py"}
+{"module": "safetensors", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/safetensors/__init__.py"}
+{"module": "imageio_ffmpeg", "imported": true, "file": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/__init__.py"}
+{"decoder_command": ["/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2", "-version"]}
+ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers
+built with gcc 8 (Debian 8.3.0-6)
+configuration: --enable-gpl --enable-version3 --enable-static --disable-debug --disable-ffplay --disable-indev=sndio --disable-outdev=sndio --cc=gcc --enable-fontconfig --enable-frei0r --enable-gnutls --enable-gmp --enable-libgme --enable-gray --enable-libaom --enable-libfribidi --enable-libass --enable-libvmaf --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librubberband --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libvorbis --enable-libopus --enable-libtheora --enable-libvidstab --enable-libvo-amrwbenc --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libdav1d --enable-libxvid --enable-libzvbi --enable-libzimg
+libavutil      59.  8.100 / 59.  8.100
+libavcodec     61.  3.100 / 61.  3.100
+libavformat    61.  1.100 / 61.  1.100
+libavdevice    61.  1.100 / 61.  1.100
+libavfilter    10.  1.100 / 10.  1.100
+libswscale      8.  1.100 /  8.  1.100
+libswresample   5.  1.100 /  5.  1.100
+libpostproc    58.  1.100 / 58.  1.100
+{"decoder_exit_code": 0}

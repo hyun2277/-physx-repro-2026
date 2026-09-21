@@ -1,0 +1,8 @@
+Processing ./.
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: flash_attn
+  Building wheel for flash_attn (pyproject.toml): started
+  Building wheel for flash_attn (pyproject.toml): still running...
+  Building wheel for flash_attn (pyproject.toml): finished with status 'error'
+Failed to build flash_attn

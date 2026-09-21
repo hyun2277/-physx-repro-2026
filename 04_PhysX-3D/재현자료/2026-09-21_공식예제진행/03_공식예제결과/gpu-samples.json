@@ -1,0 +1,1482 @@
+[
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-000000",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:26.684010+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:26.684939+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:26.885121+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 28.68, 2026/09/21 21:20:26.763\n",
+    "stderr": "",
+    "source_sha256": "abe54f5f7bceb6da12b9b6aa1c9374321c72d1a3554cecfbc1b818b10a51fde5",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000000/result.json",
+    "full_result_sha256": "fc06859935302dc7492d7631af178614e8677eb6dd6a5bf78157270ef7a861f7"
+  },
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-000001",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:27.886272+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:27.887235+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:28.087412+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 16, 44, 31.02, 2026/09/21 21:20:27.925\n",
+    "stderr": "",
+    "source_sha256": "a64ff9f861cb32335c79ac8dbac2a78635274b87326dc1d33a4dd2a2d46c3977",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000001/result.json",
+    "full_result_sha256": "48e50b5253abeaaa91955e098079a17dd0b73216e26a73f9b0930852d9c98b47"
+  },
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-000002",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:29.088535+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:29.089666+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:29.289850+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 574, 3, 45, 50.96, 2026/09/21 21:20:29.123\n",
+    "stderr": "",
+    "source_sha256": "eec65d432d71d746fbe548de347e88c3f2c1d9c5d7c1ab26686b5acced8c9cb5",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000002/result.json",
+    "full_result_sha256": "fd59ca6722df2709d4ebc794c4e1b00af306e9232b206ba803bc6ff1b998c2f7"
+  },
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-000003",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:30.290981+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:30.292116+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:30.492285+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 574, 2, 45, 73.80, 2026/09/21 21:20:30.325\n",
+    "stderr": "",
+    "source_sha256": "008966b1e4c933bc263d9ef3f4b8037e14779463b8c50cd668ae2ac0e7ecb258",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000003/result.json",
+    "full_result_sha256": "ee5ceb167a0a859c96c4730de6742c92ff627b3a4a4a2660b8928436432844c3"
+  },
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-after",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:31.494551+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:31.496126+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:31.696324+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 45, 73.88, 2026/09/21 21:20:31.530\n",
+    "stderr": "",
+    "source_sha256": "db145f1c077bf87ea54d9ee98447bce545346aa21848e67627fcc4e654a9f82f",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/result.json",
+    "full_result_sha256": "72c3fcf611d62c693e4cff1c3752d3e271d88705674e8df6584c42013bfcf8af"
+  },
+  {
+    "run": "20260921T122025Z-terminal-flash-smoke-b0755f7e8b",
+    "sample": "gpu-usage-before",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:26.478837+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:26.480317+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:26.680541+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 28.97, 2026/09/21 21:20:26.518\n",
+    "stderr": "",
+    "source_sha256": "176c17952d7c4e199496974e53fa59556f7b6bbceb873e6163f0f45e7df0e3fe",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/result.json",
+    "full_result_sha256": "29673459a4fe1b4ab3f94b6f16d5da24d79f4145e654309ffceac5fbc92a7909"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000000",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:33.872947+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:33.874259+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:34.074438+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 33.32, 2026/09/21 21:20:33.912\n",
+    "stderr": "",
+    "source_sha256": "05a65e4a5030a585f8d9744cddf43af14bac390445ff7141aeda2f047ab0863a",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000000/result.json",
+    "full_result_sha256": "60d7f12e97025d3d1f64c2d824aebdcf3827b85bc6445c2850d54f5618ffe579"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000001",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:35.075541+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:35.076502+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:35.276666+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 29.63, 2026/09/21 21:20:35.113\n",
+    "stderr": "",
+    "source_sha256": "53dfe559df4a31cc4345a6287b2bc9fa0ab2d45a7e90fda354805636b16aefc0",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000001/result.json",
+    "full_result_sha256": "d3a3f73f4d79042e0e87ec2cc7dc53fe811167b81e9a2134b1677eb952295498"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000002",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:36.277761+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:36.278715+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:36.478873+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 6, 44, 27.81, 2026/09/21 21:20:36.316\n",
+    "stderr": "",
+    "source_sha256": "73aa91d3824fa95c9457a9411106e12f119255b763910c10869887b904b51162",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000002/result.json",
+    "full_result_sha256": "2bc885c984c4f50975083c5cde84fa95a3d513a7b44288b84e87c21402e80a88"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000003",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:37.479979+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:37.481131+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:37.681293+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 3, 44, 26.85, 2026/09/21 21:20:37.520\n",
+    "stderr": "",
+    "source_sha256": "00d95fb3bbb6df4476cf17a90e2194fb3e91d79571d54e7ae11e98c3ef497e38",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000003/result.json",
+    "full_result_sha256": "dd82affbc024337985468ec3b1bcd896293fe6f4558be34c0e49d71d3e9d26df"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000004",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:38.682380+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:38.683619+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:38.883767+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 3, 44, 26.97, 2026/09/21 21:20:38.721\n",
+    "stderr": "",
+    "source_sha256": "8f72d832db75989b5c4155271e0b4c893b451397b22d099a024ce060e70a03f9",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000004/result.json",
+    "full_result_sha256": "6a623254d07c52139e5f7f5bd355aaa7a0ab5d02563b99b26c26ab2d333679d9"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000005",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:39.884881+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:39.886019+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:40.086182+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 27.58, 2026/09/21 21:20:39.923\n",
+    "stderr": "",
+    "source_sha256": "fe43a67e95ab62d68e0d2826c14b043bec200626d631ffba01221bdd3b616c6b",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000005/result.json",
+    "full_result_sha256": "4be86f44d2c6131ecd1b362c2c2786398e7526dcc89c7d4cd84345fca2fc50fb"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000006",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:41.087275+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:41.088417+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:41.288583+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 3, 44, 27.71, 2026/09/21 21:20:41.125\n",
+    "stderr": "",
+    "source_sha256": "ef16dea584990a843cd9fe8d4b2fbc84d6f18e2200f5ca6054b6de2435fd4655",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000006/result.json",
+    "full_result_sha256": "a8b4ca05fe91aae58f98f3601999148e1006ecb93767e6856c530f29c2b1c559"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000007",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:42.289687+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:42.290760+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:42.490932+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 28.57, 2026/09/21 21:20:42.328\n",
+    "stderr": "",
+    "source_sha256": "2096528cacc5f56e213cf68bbd1696c8fae78e42dfbde05e8326a1de84af919e",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000007/result.json",
+    "full_result_sha256": "f25bcb84401473f32cff41412893b4a041a3ba00bd29fa6768e4cfe4406bca0c"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000008",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:43.492011+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:43.493092+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:43.693256+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 0, 44, 27.75, 2026/09/21 21:20:43.530\n",
+    "stderr": "",
+    "source_sha256": "d422852fae99155858e9a6cdf3d238fdebc830128fff36b5f5cf341f2077b667",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000008/result.json",
+    "full_result_sha256": "392848ea2e64ee4f282f81411dd0742b4981ddd636ef68e7eec5975173c2ffa4"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000009",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:44.694379+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:44.695548+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:44.895704+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 0, 44, 27.16, 2026/09/21 21:20:44.751\n",
+    "stderr": "",
+    "source_sha256": "7ad27f4d9390c351f7cf0e81a593fab95495ccd91fdde8d8bce716c02a0e7732",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000009/result.json",
+    "full_result_sha256": "672bdc00aa7959e227ddba8dc93cb2f22c254dd72da54522230150e0b1b75e49"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000010",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:45.896830+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:45.898002+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:46.098176+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.79, 2026/09/21 21:20:45.935\n",
+    "stderr": "",
+    "source_sha256": "0f3f83e2730e68dac8bb410b4fef07bbb2b460d2a14082677b04148b63d0fafa",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000010/result.json",
+    "full_result_sha256": "8b6f13ac3b9e82af6c0c5892cc8976c1865e9fdbca2a4d6e6f25c3e4b51e5b78"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000011",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:47.099365+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:47.100519+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:47.300695+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.73, 2026/09/21 21:20:47.137\n",
+    "stderr": "",
+    "source_sha256": "931754c37c21b64bba6cdb2c4f01a8271d74475e2bbaadfca74a7dcc6c2ecdcb",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000011/result.json",
+    "full_result_sha256": "a6520534bb5b237709bbcc4d231e2d5369f8e17a92617d37d7d6dc93c1d92ee2"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000012",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:48.301850+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:48.302990+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:48.503172+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.65, 2026/09/21 21:20:48.341\n",
+    "stderr": "",
+    "source_sha256": "9fd82448443b0e56b6072f62aca3491e98458a994af4ae0bc66ef0d9a7f07dbc",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000012/result.json",
+    "full_result_sha256": "b0dab865655bd12eca07ff53fed14492d197209de56b13b2907cea1ac4ddea11"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000013",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:49.504371+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:49.505345+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:49.705523+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.16, 2026/09/21 21:20:49.545\n",
+    "stderr": "",
+    "source_sha256": "38b2d5062a263d57a6bf9dd5f5c0fc4686a2599b80f3effc16cd80da4b1d8b17",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000013/result.json",
+    "full_result_sha256": "48c49dcd543c347ff6e82ebf5f90f901cffc85fda3e5683fd6fafb4573ff7e84"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000014",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:50.706721+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:50.707931+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:50.908110+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.19, 2026/09/21 21:20:50.747\n",
+    "stderr": "",
+    "source_sha256": "4ed9de6bcf5204f7ba4c559afd7e06bb980445e8afa8fc7bd38a4f92fb833f94",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000014/result.json",
+    "full_result_sha256": "4551f4f3400e2cb7594949dbbda804736c1b5becab1ae07e68213407128e3b28"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000015",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:51.909287+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:51.910272+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:52.110448+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.40, 2026/09/21 21:20:51.947\n",
+    "stderr": "",
+    "source_sha256": "0f30ef8eb6beef17d08cb5afd57836b3918b2121f7e7a7c57eea38c782c9d404",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000015/result.json",
+    "full_result_sha256": "d0e84b442d814e8d317c7846f33384ec64d5f1eed116c2f1adcab6e079ebd050"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000016",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:53.111611+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:53.112741+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:53.312916+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 0, 44, 27.16, 2026/09/21 21:20:53.150\n",
+    "stderr": "",
+    "source_sha256": "1183f57811af5070e311487586cf64f9cfab303ee5fadfa6fd784c5a8cc9a9dc",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000016/result.json",
+    "full_result_sha256": "976a495632c4f022e41b07c856c601327b913f69f76b0be4ee5fe733351cdd6b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000017",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:54.314083+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:54.315247+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:54.515418+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.70, 2026/09/21 21:20:54.353\n",
+    "stderr": "",
+    "source_sha256": "6efafb1b6d9c8bd356742f5d88e00dbf952d7b35d9740e40058a6778719e1972",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000017/result.json",
+    "full_result_sha256": "e578b34c1f5a45cec08edd7b739c2196045209cdfa877aa759b60b4cc7d1a2e0"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000018",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:55.516564+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:55.517719+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:55.717921+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.48, 2026/09/21 21:20:55.554\n",
+    "stderr": "",
+    "source_sha256": "fca2e6a426b6a8063dad1bd93f08a3b293fadc8d54b9e7af1d4f7a149cdb9ef6",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000018/result.json",
+    "full_result_sha256": "6a727f70f5e5385111ff5cbac2808d7a94e415dd4ad3539c1fab6e4da2ebe01d"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000019",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:56.719184+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:56.720298+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:56.920461+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 67, 3, 44, 27.83, 2026/09/21 21:20:56.758\n",
+    "stderr": "",
+    "source_sha256": "2ff1e534b20749ab96e628cc58ff712b5b9a69a30b711c44669d2a8a0b8579b6",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000019/result.json",
+    "full_result_sha256": "04048f5d32bd725ae0b4d5e39bd91035068d9ef95bf89de035eaba1124ad47c8"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000020",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:57.921975+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:57.923547+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:58.123765+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 2746, 0, 44, 43.73, 2026/09/21 21:20:57.958\n",
+    "stderr": "",
+    "source_sha256": "1344f9df64965e60258c1a9701391bef8593e336896d142640c4aa841c45ccdb",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000020/result.json",
+    "full_result_sha256": "a70bbcda39f04a76b257893116f8fc69ae1818cd5d50c8502bd3426827d44e75"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000021",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:59.125626+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:59.127313+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:59.327545+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 2746, 1, 45, 72.32, 2026/09/21 21:20:59.162\n",
+    "stderr": "",
+    "source_sha256": "7a7011b5fd92bea1e45e5e44f5a6541a24810932943b41a5539dd7e0d79844fb",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000021/result.json",
+    "full_result_sha256": "c15c27e05901efc16d38eeb3b1bd35e2cc138d774e3503720b1c4df22d42e48d"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000022",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:00.329524+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:00.330715+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:00.530916+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 2746, 1, 45, 72.93, 2026/09/21 21:21:00.364\n",
+    "stderr": "",
+    "source_sha256": "773d0e388d666c3d67cc4976dfa1bd34bbeaabb5b12875935701c652b0693481",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000022/result.json",
+    "full_result_sha256": "30145cd0937e563eba779716840c4ba53d8fc7da9c76f53e28d8b8d050d0d7b9"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000023",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:01.532755+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:01.534300+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:01.734497+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 2746, 1, 45, 73.20, 2026/09/21 21:21:01.568\n",
+    "stderr": "",
+    "source_sha256": "c4a86208f25515f2c255099858a0c9382d995a9006f242ba3e9b58b320ca325a",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000023/result.json",
+    "full_result_sha256": "80e55c3db9ac16cb9299ee5514f7cf5ecd4b06d5bb45197d1c2767ce379181ac"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000024",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:02.736387+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:02.738081+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:02.938312+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 18, 45, 73.96, 2026/09/21 21:21:02.771\n",
+    "stderr": "",
+    "source_sha256": "ca96664217136172e0a7dbfcefd1adcd2a47a94d8a2dd94c426f9a20ffe1999c",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000024/result.json",
+    "full_result_sha256": "c3b493c8d7e154124fbd6ee119d8b7c4eb7a812feba17e715cf16b87b410b862"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000025",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:03.940271+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:03.941771+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:04.142001+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 1, 45, 73.07, 2026/09/21 21:21:03.975\n",
+    "stderr": "",
+    "source_sha256": "79ee644f3b50f8b095371eaeb97f53ed97dbd273e7c8b36ab5547311c3e087be",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000025/result.json",
+    "full_result_sha256": "25142bdb88cd9bf2adb3d891a30ed3699178507f2b9ed09651cabcb9ef990b3b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000026",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:05.143843+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:05.145336+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:05.345559+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 2, 46, 73.76, 2026/09/21 21:21:05.178\n",
+    "stderr": "",
+    "source_sha256": "a5de8b98de8eb96005af144834625b93ce56685a36d7bca181ebf627997faf50",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000026/result.json",
+    "full_result_sha256": "b723e56db13c82d7096ba853ec3856df556c0505fddd4e3c980226960f211f30"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000027",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:06.347450+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:06.348940+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:06.549147+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 1, 46, 74.07, 2026/09/21 21:21:06.382\n",
+    "stderr": "",
+    "source_sha256": "b29c2031cb915891c8b374c726fd3995b4714daed424c3ec457129c82fc05fbb",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000027/result.json",
+    "full_result_sha256": "a8d0d6f217290a5d4b7c89d13c31438fe1f85d0e071ab82979a00fdc379f8f5b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000028",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:07.550606+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:07.551761+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:07.751949+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 1, 46, 73.28, 2026/09/21 21:21:07.584\n",
+    "stderr": "",
+    "source_sha256": "424819674178cb4f3c03cc7cb78a69f177c8c8e250279b3784155a9d70564fe4",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000028/result.json",
+    "full_result_sha256": "25a9db6d64e256e7a0b7f641c9b63cd25d3754e922febce2aa38426fb514c5c0"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000029",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:08.753134+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:08.754273+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:08.954419+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 1, 46, 73.11, 2026/09/21 21:21:08.787\n",
+    "stderr": "",
+    "source_sha256": "6cc6dec67e518e71bed93cda6c633ff85274c25c49bd27890334f19e779ebfef",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000029/result.json",
+    "full_result_sha256": "95540ca81d01f9f129d5642a3cb1ba6f88693083895c5ff0006437665b79f6b1"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000030",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:09.955497+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:09.956629+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:10.156889+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3798, 0, 46, 73.40, 2026/09/21 21:21:09.991\n",
+    "stderr": "",
+    "source_sha256": "f4b907d7b5b44c575818ae9b5fcd9ba5f4714d32faca1e18a18fe6b2e4f2dd19",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000030/result.json",
+    "full_result_sha256": "394b76c607a6539a1d3b32fdb7652c1000c5282de1bc87c8588f2588938ffa6f"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000031",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:11.158182+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:11.159152+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:11.359453+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 3804, 1, 46, 77.15, 2026/09/21 21:21:11.220\n",
+    "stderr": "",
+    "source_sha256": "7c5fb4e9c50da40a3a26a90621808aad44cd03c0cdfe7de28334b25f6a37a159",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000031/result.json",
+    "full_result_sha256": "8459389ba276e3bb17d9bc5be304b2270804ef55e2b0534261250a44354bff7f"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000032",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:12.360965+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:12.361944+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:12.562112+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 3, 46, 87.31, 2026/09/21 21:21:12.395\n",
+    "stderr": "",
+    "source_sha256": "3ae241db1521e39b901cb92e220f57ad9399f82e28b5bddc150788cac29c07a5",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000032/result.json",
+    "full_result_sha256": "71a1a7798c194bf7791944b5353d5c24adac810850dcfe5a8c6249ef154fee37"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000033",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:13.563355+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:13.564550+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:13.764696+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 1, 46, 82.02, 2026/09/21 21:21:13.597\n",
+    "stderr": "",
+    "source_sha256": "9ec2d7258d1e099c56e2cfc6f49050d9bd028a40dd3e5a62ff9498b5d80baa52",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000033/result.json",
+    "full_result_sha256": "a62d837c4d5970c9f4acc2682b8ac351673571d8da045cbb4ffc371491a350e7"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000034",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:14.765802+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:14.767071+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:14.967242+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 3, 46, 74.36, 2026/09/21 21:21:14.801\n",
+    "stderr": "",
+    "source_sha256": "ace7dda3e063fc3c920c0ffa90c77e89a61bf2e9ece75681b9ed409b321c0dd9",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000034/result.json",
+    "full_result_sha256": "eb2b76917559241197856c0d169f3c77e6e70e88d1be052c62cc1e59849c35b9"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000035",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:15.968384+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:15.969352+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:16.169513+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 1, 47, 92.51, 2026/09/21 21:21:16.005\n",
+    "stderr": "",
+    "source_sha256": "1aee1e9106e5cb083604e098971186bedc1a6b0c51d5b685f1284fdefa66f324",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000035/result.json",
+    "full_result_sha256": "aeafe761d0e6a643c1f519fb4455a22306a671842130c15c2104d79d6d932903"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000036",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:17.170678+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:17.171902+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:17.372088+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 3, 47, 91.92, 2026/09/21 21:21:17.206\n",
+    "stderr": "",
+    "source_sha256": "84a109a7b2cd2c002eb39eb3c5b544ecbf871f675c085de4a341fdeb30100406",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000036/result.json",
+    "full_result_sha256": "2c90411b36b196608e8400c9aaab10cecbdd3789930031b66f3149e0490d6c8d"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000037",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:18.373262+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:18.374463+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:18.574626+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 5348, 3, 46, 76.02, 2026/09/21 21:21:18.408\n",
+    "stderr": "",
+    "source_sha256": "94bf4f1d7e7dd2f519ad43d6671ec6719c979330d65537c20de5db3d0fa63c0c",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000037/result.json",
+    "full_result_sha256": "36c7265b376f2abfe679d3994791e1d8f5e22bb02c7e56111233eb219611210f"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000038",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:19.575741+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:19.576670+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:19.776829+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 7388, 50, 47, 92.49, 2026/09/21 21:21:19.610\n",
+    "stderr": "",
+    "source_sha256": "abf226ff8db4550a26f0dab0e2cf9778b6fb9ce64f3cbc50ce757739eb47b058",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000038/result.json",
+    "full_result_sha256": "b8f957d2728e88076a4c85ef8b5d27c09842fdc674d00fd6c078b7428d709242"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000039",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:20.778140+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:20.779372+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:20.979542+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 7388, 1, 47, 95.63, 2026/09/21 21:21:20.814\n",
+    "stderr": "",
+    "source_sha256": "d04365e256c3e4cb4e096fac953486b22ced17a34cf6ffde74cebe98bac5fd60",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000039/result.json",
+    "full_result_sha256": "1cbcc62f73fbd1451ffee25cdd1debe7db8b781c8acd756ede50304292791d41"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000040",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:21.980702+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:21.981806+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:22.181966+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 7388, 0, 46, 82.78, 2026/09/21 21:21:22.015\n",
+    "stderr": "",
+    "source_sha256": "3486e758289536a72ee9d05ed3f59e3ba0b42c39d8a10a29612b5559a3560ff5",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000040/result.json",
+    "full_result_sha256": "bd9037f782b0eedaa9479337ba8bc3031e1b7d5c5cd9fce03d5c86277914bfa3"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000041",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:23.183515+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:23.185303+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:23.385554+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 7388, 1, 46, 74.64, 2026/09/21 21:21:23.219\n",
+    "stderr": "",
+    "source_sha256": "d7d5f75f72be804bb9230921176649088695d2d09ed9fc603544911f2520ca76",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000041/result.json",
+    "full_result_sha256": "065ab85ae4e9ebae470baa18c18a49263c44f4cfeaaa71ec0b7ea18a910488cb"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000042",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:24.387331+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:24.388398+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:24.588628+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8590, 99, 57, 242.00, 2026/09/21 21:21:24.423\n",
+    "stderr": "",
+    "source_sha256": "a66b526d00c84c9549bcc31dd471b883beb27aaf364863db096f76943b40ad14",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000042/result.json",
+    "full_result_sha256": "82d08260602b312256f2950c00d6c55770077154f71174d4975542897c43bc35"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000043",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:25.590566+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:25.592066+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:25.792309+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8596, 99, 62, 531.01, 2026/09/21 21:21:25.626\n",
+    "stderr": "",
+    "source_sha256": "805699500927107db91487a95deec6e736a56c9eb8be616575980f3f3714804d",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000043/result.json",
+    "full_result_sha256": "633c0e53b8e65eb82088735ed237bd37d1902eb1aba598ff3d55fd8b3b6e4822"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000044",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:26.795244+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:26.796700+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:26.996922+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8596, 0, 49, 105.64, 2026/09/21 21:21:26.831\n",
+    "stderr": "",
+    "source_sha256": "2f1b21ca106920dd679ee411854a1e28a9a652ebe1a915d3b61f8e6f0d5c6ac2",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000044/result.json",
+    "full_result_sha256": "c088272ad4c42bfa9d4d1955379b792ad0b66ed0dfedead9e0dcd94b6faaad74"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000045",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:27.998794+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:28.000050+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:28.200268+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8596, 1, 48, 87.96, 2026/09/21 21:21:28.033\n",
+    "stderr": "",
+    "source_sha256": "c0499040547c863ff31d26fd40f2500d373795d42f4665e7063daf228e461c6c",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000045/result.json",
+    "full_result_sha256": "f7f5bcf87107ef940c73124bc726bca7133c6fab9a1f7d0d4aca6b8a63a2fad3"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000046",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:29.202140+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:29.203611+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:29.403826+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8596, 1, 47, 75.25, 2026/09/21 21:21:29.237\n",
+    "stderr": "",
+    "source_sha256": "a6c1cc5dc54cf6f0abc26d5a114ce4a3ecd3713d69f95b1dd90524494223321e",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000046/result.json",
+    "full_result_sha256": "7f0618453137a020f69be5f33cc4311b5d00861b482a91af317f21a27eaa89b5"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000047",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:30.405727+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:30.407270+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:30.607436+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8596, 1, 47, 74.86, 2026/09/21 21:21:30.441\n",
+    "stderr": "",
+    "source_sha256": "0514eaf92a9bf1430360d5eb0eff83e58d3d6f751a9176cfdc403c7a86fe960c",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000047/result.json",
+    "full_result_sha256": "d0c2204da6a0d4fdc527246e8746d113978e1af3f2a173eff666c2b9bbcde230"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000048",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:31.608992+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:31.610472+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:31.810694+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8598, 1, 47, 110.74, 2026/09/21 21:21:31.645\n",
+    "stderr": "",
+    "source_sha256": "ca1bcac399b404deff97329cf24acf0828226f952ac8c7547794fed97e5ce27e",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000048/result.json",
+    "full_result_sha256": "660eaf86ea97b3ac55087103f0ad4daddeba94bde33db4e0365283c91a87bcc0"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000049",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:32.812586+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:32.814099+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:33.014300+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8600, 27, 51, 200.24, 2026/09/21 21:21:32.849\n",
+    "stderr": "",
+    "source_sha256": "56785ab2e4e47c9773186e74b0001ba9ac63e6adc0fd516e1d10306e8fb79afd",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000049/result.json",
+    "full_result_sha256": "93d940593a5fe0b17a9ffae0e9ad88bd17e8b4a1c6ddf505047260dbd38f759b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000050",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:34.016182+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:34.017984+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:34.218218+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 8602, 28, 51, 199.70, 2026/09/21 21:21:34.055\n",
+    "stderr": "",
+    "source_sha256": "72e3e3c9ea43a3cf25b7d6aab399e79b788a9a35d8e34537640cbdc210c34fd4",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000050/result.json",
+    "full_result_sha256": "9ad5803ede539430df84e687fe590d793021cdb57a8717a1a73aaf397faabe0e"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000051",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:35.220152+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:35.221654+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:35.421904+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 10214, 36, 52, 199.11, 2026/09/21 21:21:35.261\n",
+    "stderr": "",
+    "source_sha256": "4221f5cdd4367b97f40eafa8c1673f0236b76e67888ca1158a4403255f21172a",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000051/result.json",
+    "full_result_sha256": "b501693f71fe81ffc8b4728ebe0e315f513fd56570ac9b0446c514a22f67dc1a"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000052",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:36.423828+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:36.425485+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:36.625691+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 22, 49, 171.27, 2026/09/21 21:21:36.482\n",
+    "stderr": "",
+    "source_sha256": "a889fb8a071b555e5e6984255e3951506102bc37557be40b8b6f594e59fd1f97",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000052/result.json",
+    "full_result_sha256": "f0282092c954e7ad54fe82e4ecd7adfe957c26a664f003f7f25565354c803418"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000053",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:37.627490+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:37.629009+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:37.829228+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 1, 49, 97.85, 2026/09/21 21:21:37.663\n",
+    "stderr": "",
+    "source_sha256": "5c87335d301700f9e72a55434e8975b239cfc63d99c19941579f85a2d7442c99",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000053/result.json",
+    "full_result_sha256": "b4c030585187421cc31d66f36a78ac18ed0c437f652d326fbd97a3e3dc93065b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000054",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:38.831143+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:38.832664+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:39.032879+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 1, 48, 84.76, 2026/09/21 21:21:38.867\n",
+    "stderr": "",
+    "source_sha256": "0f8bf1e18159f832df6e4c794f4231a773c660f989e1ed862cc296ef68fe558b",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000054/result.json",
+    "full_result_sha256": "199bbb23780aeab6e24ac4e74216c68717291b56ca06018c1353c4c47a5ec1a6"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000055",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:40.034909+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:40.036421+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:40.236641+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 1, 48, 75.27, 2026/09/21 21:21:40.071\n",
+    "stderr": "",
+    "source_sha256": "efee30049683decc88ef0080bc2949bec3859ffea42c23e5bb23efe803c0a626",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000055/result.json",
+    "full_result_sha256": "ae81ffe94064f481bab8f228482354a0e2328f27e5a0d0d8c3f9b4a71275056b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000056",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:41.238523+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:41.240042+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:41.440244+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 1, 47, 75.28, 2026/09/21 21:21:41.275\n",
+    "stderr": "",
+    "source_sha256": "27153f9582cc00928571b580796b06b50b3c3d92c09505e753cc287fdcf6c658",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000056/result.json",
+    "full_result_sha256": "542d20df152cb4a6dd3b5358811e351af14d8e0a3aa8811f9f19919f21e3e4d2"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000057",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:42.441742+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:42.443006+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:42.643162+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19714, 1, 47, 75.74, 2026/09/21 21:21:42.477\n",
+    "stderr": "",
+    "source_sha256": "7bd0a66ce683395e2529f1b554cd7d3b311fef711b9ce26b5c65af9298c82add",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000057/result.json",
+    "full_result_sha256": "74e2f03a67c60f150758321fa35704cd81f1c3163909da513ac2abff889e1767"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000058",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:43.644279+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:43.645409+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:43.845543+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19730, 0, 48, 87.43, 2026/09/21 21:21:43.679\n",
+    "stderr": "",
+    "source_sha256": "def767b2b15355404dd81cb89e6c621522733daa371b5f41aa77b4fd9ff5a57a",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000058/result.json",
+    "full_result_sha256": "b0c30a0d9540a23f28d02c601978adc43682276315d52a039021d3bf98d1c4ab"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000059",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:44.846952+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:44.848094+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:45.048287+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19780, 20, 48, 111.65, 2026/09/21 21:21:44.884\n",
+    "stderr": "",
+    "source_sha256": "31dda880de22395abd67bb7877798032272f6df66283cbab2397f528206a7a76",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000059/result.json",
+    "full_result_sha256": "61278df845277733efba25b9da7c2d0edc87c123ea2525fe1ab7460086f0c3c7"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000060",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:46.049512+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:46.050695+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:46.250867+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19996, 14, 47, 82.69, 2026/09/21 21:21:46.086\n",
+    "stderr": "",
+    "source_sha256": "3ba72e1ef37e2b0a8665732822115d67af8a36724f849e5d02b6777f4519b5d8",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000060/result.json",
+    "full_result_sha256": "619103e9c759092a057987d792c4ba2796af9b5e5ca5b2d0ab6b56dc347295f4"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000061",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:47.251981+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:47.252871+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:47.452998+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19996, 43, 51, 214.77, 2026/09/21 21:21:47.287\n",
+    "stderr": "",
+    "source_sha256": "3f705a50265307cd76887d8da1bcf0a5265e882b251dc672534f5aba6a88e5b6",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000061/result.json",
+    "full_result_sha256": "362d4be6e3715968ea5626a95aceacd584e566f7a58edd971a577d05b0ed2734"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000062",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:48.454107+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:48.455023+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:48.655179+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19996, 46, 51, 221.87, 2026/09/21 21:21:48.494\n",
+    "stderr": "",
+    "source_sha256": "3b969fe38980df5948a29a82d66db5fe2f11cce04a5dc2cdd04455387595e043",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000062/result.json",
+    "full_result_sha256": "84103f153d0e8a4101b7fbc802c19e09892f4d8867259b72d3588d748ed64596"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000063",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:49.656275+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:49.657449+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:49.857627+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19996, 46, 52, 222.67, 2026/09/21 21:21:49.693\n",
+    "stderr": "",
+    "source_sha256": "7640c9835df2c5174a7fd2e97f83c1707e3330818cb0f2da939859300d32d3a4",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000063/result.json",
+    "full_result_sha256": "a6821c5e197f1e40c9202d97589b439d99905a9d7b6132f38246814082a9e6af"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000064",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:50.858795+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:50.859953+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:51.060117+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19980, 1, 48, 97.52, 2026/09/21 21:21:50.893\n",
+    "stderr": "",
+    "source_sha256": "49cda9dd39f4c00e9b066eb341ccdeaa0926b42afd4750716473e0a7ded679fb",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000064/result.json",
+    "full_result_sha256": "472ab414cb012ecee3a95278e3831c76730b7b983aea1e3353cf35407b474aa7"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-000065",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:52.061282+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:52.062394+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:52.262576+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 19980, 2, 48, 87.79, 2026/09/21 21:21:52.095\n",
+    "stderr": "",
+    "source_sha256": "1e6357a158ee612cdac1ef9d97cd8de99fbc6797c263cd2d1a2ebe293323ab3a",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000065/result.json",
+    "full_result_sha256": "03261baabe64528834a18ce2c2d40c57a6daa7813c0a7a92fe97b05f6cd2903b"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-after",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:21:53.264754+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:21:53.266346+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:21:53.466568+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 2, 48, 78.96, 2026/09/21 21:21:53.300\n",
+    "stderr": "",
+    "source_sha256": "31496b4a07ffc679770d955d9764450add08c12c3b4ba06de164e519dc1555c7",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/result.json",
+    "full_result_sha256": "584ae04619b6529a2ed75f3a4766a4209225a8ec5a66e0fba1686e4d0e3a1099"
+  },
+  {
+    "run": "20260921T122032Z-official-table-bbd1fd923c",
+    "sample": "gpu-usage-before",
+    "result": {
+      "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+      "started_at": "2026-09-21T12:20:33.667278+00:00",
+      "timeout_seconds": 15,
+      "process_started": true,
+      "exit_code": 0,
+      "automatic_retry": false,
+      "process_started_at": "2026-09-21T12:20:33.668724+00:00",
+      "sampler_count": 0,
+      "ended_at": "2026-09-21T12:20:33.868905+00:00"
+    },
+    "stdout": "0, GPU-843dced4-ee97-dbb8-36c9-343fe13b7647, 00000000:02:00.0, NVIDIA GeForce RTX 5090, 595.84, 32607, 64, 0, 44, 33.85, 2026/09/21 21:20:33.705\n",
+    "stderr": "",
+    "source_sha256": "b3d5ad8ed8db189f811a93c00afcfb12fb080756010089e9022d291d587b2d4c",
+    "full_result_source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/result.json",
+    "full_result_sha256": "e9b403492ad7bdeac80a85b3e5369685b0442ed16179ec4c4f8d819d5d698781"
+  }
+]

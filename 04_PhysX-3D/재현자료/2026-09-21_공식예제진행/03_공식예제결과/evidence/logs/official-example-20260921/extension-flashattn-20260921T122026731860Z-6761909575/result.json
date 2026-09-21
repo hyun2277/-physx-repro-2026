@@ -1,0 +1,444 @@
+{
+  "case": "flashattn",
+  "status": "passed",
+  "phase": "completed",
+  "started": "2026-09-21T12:20:26.732034+00:00",
+  "python_version": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+  "python_executable": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+  "selected_gpu_uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+  "script": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_extensions.py",
+  "limit": "One selected bounded extension case, offline; no model, downloads or installation.",
+  "packages": {
+    "torch": {
+      "version": "2.7.1+cu128",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=d6c3cba198dc93f93422a8545f48a6697890366e4b9701f54351fc27e2304bd3",
+          "hashes": {
+            "sha256": "d6c3cba198dc93f93422a8545f48a6697890366e4b9701f54351fc27e2304bd3"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/python-foundation-wheels-20260921/torch-2.7.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl"
+      }
+    },
+    "torchvision": {
+      "version": "0.22.1+cu128",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=538f4db667286d939b4eee0a66d31ed21b51186668006b0e0ffe20338ecc7e00",
+          "hashes": {
+            "sha256": "538f4db667286d939b4eee0a66d31ed21b51186668006b0e0ffe20338ecc7e00"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/python-foundation-wheels-20260921/torchvision-0.22.1%2Bcu128-cp310-cp310-manylinux_2_28_x86_64.whl"
+      }
+    },
+    "flash-attn": {
+      "version": "2.8.3",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=a69268fc612f6c689b4af4647b0cab9c935ae17d2a5bb1c5a1c561e8d46aecd2",
+          "hashes": {
+            "sha256": "a69268fc612f6c689b4af4647b0cab9c935ae17d2a5bb1c5a1c561e8d46aecd2"
+          }
+        },
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/wheels/flash-attention/flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl"
+      }
+    }
+  },
+  "device": {
+    "uuid": "843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "name": "NVIDIA GeForce RTX 5090",
+    "capability": [
+      12,
+      0
+    ],
+    "logical_index": 0
+  },
+  "libraries_before": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "subcases": [
+    {
+      "api": "flash_attn_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:28.673400+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00012065004896838483,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.721851+00:00",
+      "elapsed_seconds": 2.0480733760632575
+    },
+    {
+      "api": "flash_attn_kvpacked_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.722234+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00012065004896838483,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.729879+00:00",
+      "elapsed_seconds": 0.000877999933436513
+    },
+    {
+      "api": "flash_attn_qkvpacked_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.730493+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00012065004896838483,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.732030+00:00",
+      "elapsed_seconds": 0.00033848988823592663
+    },
+    {
+      "api": "flash_attn_varlen_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.732324+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00011082913532622918,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.733347+00:00",
+      "elapsed_seconds": 0.00031889299862086773
+    },
+    {
+      "api": "flash_attn_varlen_kvpacked_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.733863+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00011082913532622918,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.734450+00:00",
+      "elapsed_seconds": 0.0002878748346120119
+    },
+    {
+      "api": "flash_attn_varlen_qkvpacked_func",
+      "dtype": "fp16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.734935+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.00011082913532622918,
+      "atol": 0.002,
+      "rtol": 0.002,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.735956+00:00",
+      "elapsed_seconds": 0.00031446502543985844
+    },
+    {
+      "api": "flash_attn_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.737063+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.000810123095099563,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.740848+00:00",
+      "elapsed_seconds": 0.0033480320125818253
+    },
+    {
+      "api": "flash_attn_kvpacked_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.741192+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.000810123095099563,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.742049+00:00",
+      "elapsed_seconds": 0.0003073010593652725
+    },
+    {
+      "api": "flash_attn_qkvpacked_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.742396+00:00",
+      "shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.000810123095099563,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.743100+00:00",
+      "elapsed_seconds": 0.0002947780303657055
+    },
+    {
+      "api": "flash_attn_varlen_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.743450+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.0011960614055395447,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.744056+00:00",
+      "elapsed_seconds": 0.0002669950481504202
+    },
+    {
+      "api": "flash_attn_varlen_kvpacked_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.744468+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.0011960614055395447,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.745114+00:00",
+      "elapsed_seconds": 0.0002872529439628124
+    },
+    {
+      "api": "flash_attn_varlen_qkvpacked_func",
+      "dtype": "bf16",
+      "status": "passed",
+      "started": "2026-09-21T12:20:30.745482+00:00",
+      "shape": [
+        13,
+        2,
+        64
+      ],
+      "maximum_absolute_error": 0.0011960614055395447,
+      "atol": 0.02,
+      "rtol": 0.02,
+      "finite": true,
+      "finished": "2026-09-21T12:20:30.746129+00:00",
+      "elapsed_seconds": 0.00028715282678604126
+    }
+  ],
+  "checks": {
+    "api_count": 6,
+    "dtype_count": 2,
+    "forward_count": 12,
+    "dense_shape": [
+      2,
+      8,
+      2,
+      64
+    ],
+    "varlen_lengths": [
+      5,
+      8
+    ],
+    "dropout": 0.0,
+    "causal": false,
+    "reference": "CPU float64 softmax(QK^T/sqrt(head_dim))V from quantized inputs",
+    "scope": "Forward only; no backward, long context, causal, GQA, KV-cache or full-model equivalence claim."
+  },
+  "libraries_after": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so",
+        "kind": "extension",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "exit_code": 0,
+  "finished": "2026-09-21T12:20:30.787534+00:00",
+  "elapsed_seconds": 4.055434721056372,
+  "libraries_finally": {
+    "files": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so",
+        "kind": "extension",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ]
+  },
+  "peak_torch_allocation_bytes": 124928,
+  "peak_torch_reserved_bytes": 2097152
+}

@@ -1,0 +1,8 @@
+Submodule 'csrc/composable_kernel' (https://github.com/ROCm/composable_kernel.git) registered for path 'csrc/composable_kernel'
+Submodule 'csrc/cutlass' (https://github.com/NVIDIA/cutlass.git) registered for path 'csrc/cutlass'
+Cloning into '/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec/csrc/composable_kernel'...
+Cloning into '/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec/csrc/cutlass'...
+From https://github.com/ROCm/composable_kernel
+ * branch            e8709c24f403173ad21a2da907d1347957e324fb -> FETCH_HEAD
+From https://github.com/NVIDIA/cutlass
+ * branch            dc4817921edda44a549197ff3a9dcf5df0636e7b -> FETCH_HEAD

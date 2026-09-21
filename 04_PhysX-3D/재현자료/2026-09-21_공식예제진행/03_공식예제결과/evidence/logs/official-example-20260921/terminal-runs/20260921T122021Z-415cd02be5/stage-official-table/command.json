@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+    "--execute",
+    "--profile",
+    "gpu",
+    "--label",
+    "official-table",
+    "--cwd",
+    "/home/minsujo/Desktop/SH/PHYSx/sources/physx-example-work-4f54e750a309",
+    "--timeout-seconds",
+    "7200",
+    "--gpu-uuid",
+    "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "--gpu-index",
+    "1",
+    "--device-minor",
+    "1",
+    "--",
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/run_example.py",
+    "--gpu-uuid",
+    "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T12:20:32.217666+00:00",
+  "exit_code": null,
+  "process": {
+    "pid": 1718251,
+    "start_ticks": 167864925,
+    "boot_id": "2fa89af1-6a2f-4cb1-900e-755fadf69d60"
+  }
+}

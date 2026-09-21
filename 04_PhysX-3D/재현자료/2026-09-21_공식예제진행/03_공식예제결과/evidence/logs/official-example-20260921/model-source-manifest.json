@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-21",
+  "status": "prepared_not_executed",
+  "scope": "One fixed official table example; no model imports, builds, or GPU operations in downloader.",
+  "root": "/home/minsujo/Desktop/SH/PHYSx",
+  "physx_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "hf_metadata_sources": [
+    "https://huggingface.co/api/models/Caoza/PhysXGen/revision/52598097b7092df495ac149e137050ce2d2784fe?blobs=true",
+    "https://huggingface.co/api/models/microsoft/TRELLIS-image-large/revision/25e0d31ffbebe4b5a97464dd851910efc3002d96?blobs=true"
+  ],
+  "input_image": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/example/table.png",
+    "sha256": "67ce4c07693c8814dbdb068c7184b3b6341dc8fd7a595cdaef314d0fb1c2b388",
+    "size_bytes": 483075,
+    "mode": "RGBA",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_nonopaque_count": 1030547,
+    "alpha_above_204_count": 19148,
+    "preprocessing": "RGBA with nonopaque alpha; fixed preprocess_image bypasses rembg/u2net; alpha>204 bbox is nonempty.",
+    "verification": "Pillow image decode only; no model import/GPU",
+    "initial_probe_failure": "System Python3.12 cannot load target Python3.10 Pillow extension; corrected to target Python3.10 interpreter, successful; no package modifications."
+  },
+  "dino_source": {
+    "repo_url": "https://github.com/facebookresearch/dinov2.git",
+    "commit": "9c7e3245797cf7be5b5729445a4af1272bd610df",
+    "local_directory": "sources/dinov2-9c7e3245797c",
+    "downloaded_by_this_runner": false,
+    "selection": "Official register-model introduction commit, 2023-10-27; explicit reproducibility choice because PhysX uses unpinned torch.hub source.",
+    "entrypoint": "dinov2_vitl14_reg",
+    "source_urls": [
+      "https://raw.githubusercontent.com/facebookresearch/dinov2/9c7e3245797cf7be5b5729445a4af1272bd610df/hubconf.py",
+      "https://raw.githubusercontent.com/facebookresearch/dinov2/9c7e3245797cf7be5b5729445a4af1272bd610df/dinov2/hub/backbones.py",
+      "https://raw.githubusercontent.com/facebookresearch/dinov2/9c7e3245797cf7be5b5729445a4af1272bd610df/dinov2/hub/utils.py",
+      "https://raw.githubusercontent.com/facebookresearch/dinov2/9c7e3245797cf7be5b5729445a4af1272bd610df/dinov2/layers/attention.py"
+    ],
+    "required_code_adaptation": "Root-owned patch: torch.hub.load(absolute local_directory, name, source='local', pretrained=True); TORCH_HOME points inside PHYSx.",
+    "unverified": "No DINO model import/inference tested. Runtime can still fail. xformers absence uses source-defined ordinary attention."
+  },
+  "files": [
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/decoder_step0100000.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/decoder_step0100000.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.json",
+      "size_bytes": 406,
+      "sha256": null,
+      "git_blob_sha1": "f9f8e3ab62ec8ad28887bc8e559730bfd63378ba",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/decoder_step0100000.pt",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/decoder_step0100000.pt",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.pt",
+      "size_bytes": 1281392840,
+      "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/denoiser_phy_step0700000.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+      "size_bytes": 445,
+      "sha256": null,
+      "git_blob_sha1": "f27ef551d305385c8a07ad46aa958bb8f32e5ded",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+      "size_bytes": 1619037489,
+      "sha256": "40e9b76b5f4c6663f87539151eb6b40b209e9bb2b09ef5f18feb58e8372a7a60",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/denoiser_step0700000.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/denoiser_step0700000.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.json",
+      "size_bytes": 464,
+      "sha256": null,
+      "git_blob_sha1": "dd408f8947e69fd58b9b38813f2b4cdbaa79b2a8",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/denoiser_step0700000.pt",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/denoiser_step0700000.pt",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.pt",
+      "size_bytes": 2822875445,
+      "sha256": "abf3356a382e13e85e18c282a0963e5d3633b6bee1f29e974258c04a1ff1ac9b",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/property_decoder_step0100000.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/property_decoder_step0100000.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.json",
+      "size_bytes": 372,
+      "sha256": null,
+      "git_blob_sha1": "73642bb89095165ff05d0056cecb42c87594db34",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/property_decoder_step0100000.pt",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/property_decoder_step0100000.pt",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt",
+      "size_bytes": 1099504133,
+      "sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/property_output_step0100000.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/property_output_step0100000.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.json",
+      "size_bytes": 181,
+      "sha256": null,
+      "git_blob_sha1": "7cfa1e4ee2b5f9f7854fd2bc11fb65bc5d01c10c",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/ckpts_new/property_output_step0100000.pt",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/property_output_step0100000.pt",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.pt",
+      "size_bytes": 1099495424,
+      "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "Caoza/PhysXGen",
+      "revision": "52598097b7092df495ac149e137050ce2d2784fe",
+      "filename": "diffusion/pipeline.json",
+      "url": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/pipeline.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/diffusion/pipeline.json",
+      "size_bytes": 2821,
+      "sha256": null,
+      "git_blob_sha1": "896506e8a67da8da3096efe659b4bebf3727637a",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+      "size_bytes": 843,
+      "sha256": null,
+      "git_blob_sha1": "051ade1e3b374738bf7a007516275f72e458f2a7",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors",
+      "size_bytes": 171450952,
+      "sha256": "38c84bcef5ce0af1f48b1b5558dabc7575a13346043c41a7e0610f1fa619a161",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json",
+      "size_bytes": 396,
+      "sha256": null,
+      "git_blob_sha1": "10676bd6322cb1519c9cb603ea77cfa2057ae45e",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+      "size_bytes": 171450488,
+      "sha256": "737da6578d01948016b7c39786113af0d64a46f7922f6b8b5e698b84643be514",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "size_bytes": 245,
+      "sha256": null,
+      "git_blob_sha1": "9f3affaf13ab29fe48105229da9fab72ea8de716",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "size_bytes": 147591972,
+      "sha256": "1c76d4a40519aa2d711cc263a8404105231ac26db31d946bed48b84fee79009a",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/ss_flow_img_dit_L_16l8_fp16.json",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/ss_flow_img_dit_L_16l8_fp16.json",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_flow_img_dit_L_16l8_fp16.json",
+      "size_bytes": 385,
+      "sha256": null,
+      "git_blob_sha1": "d228f99cd828a54695ebd1f0fd1ad1b1f3179f42",
+      "verification": "upstream_git_blob_sha1_and_size"
+    },
+    {
+      "kind": "huggingface",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+      "filename": "ckpts/ss_flow_img_dit_L_16l8_fp16.safetensors",
+      "url": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/ss_flow_img_dit_L_16l8_fp16.safetensors",
+      "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_flow_img_dit_L_16l8_fp16.safetensors",
+      "size_bytes": 1130770840,
+      "sha256": "96dc6bfd4136fd950af564dd16b4ae533c9ba6af8f26c670646b2a9f2789b1db",
+      "git_blob_sha1": null,
+      "verification": "upstream_LFS_sha256_and_size"
+    },
+    {
+      "kind": "url",
+      "name": "openai_clip_ViT-L-14",
+      "url": "https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt",
+      "destination": "cache/clip/ViT-L-14.pt",
+      "size_bytes": 932768134,
+      "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+      "verification": "SHA256 encoded in pinned OpenAI CLIP model URL plus HTTP HEAD size",
+      "source_code": "https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/clip/clip.py",
+      "required_code_adaptation": "clip.load(..., download_root=os.environ[\"PHYSX_CLIP_DOWNLOAD_ROOT\"]); env points to ROOT/cache/clip"
+    },
+    {
+      "kind": "url",
+      "name": "dinov2_vitl14_reg4",
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+      "destination": "cache/torch/hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth",
+      "size_bytes": 1217607321,
+      "sha256": null,
+      "verification": "Official source constructs exact URL; HTTP HEAD size verified; initial download SHA256 is locally recorded, not claimed as upstream cryptographic authentication",
+      "head_etag": "\"b6cbe2bf3ce2f370d5a67bcd465144b0-146\"",
+      "head_last_modified": "Fri, 27 Oct 2023 10:37:32 GMT",
+      "head_s3_version_id": "HLmbhvcd2hPq9CNLwMvwswbRlzZRuOeA"
+    }
+  ],
+  "limits": [
+    "No u2net for verified table.png alpha branch.",
+    "No large weights have been fetched during preparation.",
+    "DINO upstream SHA256 unavailable from reviewed official source; its multipart ETag is not SHA256.",
+    "Expected total excludes cache copy duplication and other pipeline/build outputs.",
+    "Source code, model architecture/configuration, CLIP/DINO path patches must be reviewed by root before execution."
+  ],
+  "file_count": 21,
+  "total_expected_payload_bytes": 11693951596
+}

@@ -1,0 +1,21 @@
+{
+  "original": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+  "work": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-example-work-4f54e750a309",
+  "upstream_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "patch": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/official-example.patch",
+  "patch_sha256": "69183fcc8a17918f44a950ac626f9961dcb718218eac2cefdd61181f98c59a7a",
+  "files": [
+    {
+      "file": "example.py",
+      "original_sha256": "b971d477d48f33eaf981af4c2bc1df1bb5b44e59c11116ac68b4e7f03c8670d5",
+      "patched_sha256": "06aeb0bac270369b8290d3a9952ef726b62b5dfa04b29c5757044c0785ab0c10"
+    },
+    {
+      "file": "trellis/pipelines/trellis_image_to_3d.py",
+      "original_sha256": "6451f758f479a3e9178821939be574236fd64f6d68d7fa11448827a2b5f99473",
+      "patched_sha256": "c6fdd825bf7e63f904ce21a77597f5a0e40d2dbed2fd85e43b0bb50e29069284"
+    }
+  ],
+  "conditions_preserved": "table input, seed1, sampler25steps/cfg5, render30frames, mesh simplification.95, texture1024, official texture optimizer2500steps",
+  "scientific_limit": "Language-slice implementation correction follows training code; patched output is not an unchanged-upstream baseline. Parent-group logic remains unmodified and unvalidated."
+}

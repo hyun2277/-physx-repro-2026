@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "submodule",
+    "status",
+    "--recursive"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec",
+  "started_at": "20260921T085553426875Z"
+}

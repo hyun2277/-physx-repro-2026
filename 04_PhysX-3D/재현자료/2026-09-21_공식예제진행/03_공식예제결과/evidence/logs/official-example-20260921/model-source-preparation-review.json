@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_executed",
+  "prepared_at": "2026-09-21",
+  "runner": "logs/official-example-20260921/prepare_models.py",
+  "runner_sha256": "cb4fdad51fd392daa52a2067dcedc4273aa93ea92cf766362846802006368bc3",
+  "manifest": "logs/official-example-20260921/model-source-manifest.json",
+  "manifest_sha256": "921e73ceaf046d1dc28ff7ec253846dd6ee711e79dc95dc94da680b4ddd8bd89",
+  "validation": {
+    "python_ast": "passed using stdlib ast.parse; runner not imported/executed",
+    "json": "parsed; files 21; total 11693951596 bytes",
+    "image": "Pillow-only decode in target Python 3.10; no model/GPU imports"
+  },
+  "downloaded_weights": false,
+  "dino_source_downloaded_by_subagent": false,
+  "model_imports": false,
+  "GPU_operations": false,
+  "files_modified_elsewhere": false,
+  "issues_and_corrections": [
+    {
+      "issue": "Read-only table probe used system Python3.12 against target Python3.10 Pillow binary extension",
+      "result": "ImportError: cannot import name _imaging from PIL",
+      "correction": "Repeated image-only probe under target Python3.10; successful; no environment changes"
+    },
+    {
+      "issue": "Initial review suspected TorchVersion >= tuple might raise TypeError",
+      "result": "Retracted on reading installed torch/torch_version.py; TorchVersion explicitly implements iterable comparisons",
+      "correction": "Do not cite this as DINO current-main defect. Older DINO pin is an explicit source-freezing choice, not bugfix proof."
+    }
+  ],
+  "not_validated": [
+    "No downloader runtime/network/auth-negative/path-negative tests performed by subagent; root must review runner before execution.",
+    "DINO source/weight compatibility not tested.",
+    "DINO official weight has no reviewed upstream cryptographic digest; size verified by HEAD, locally computed first-download SHA256 will be recorded.",
+    "Successful artifact download does not validate model deserialization or inference.",
+    "Original PhysX CLIP and DINO source path edits remain root-owned."
+  ],
+  "expected_download_command": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+    "--execute",
+    "--profile",
+    "download",
+    "--label",
+    "prepare-models",
+    "--timeout-seconds",
+    "21600",
+    "--",
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/prepare_models.py",
+    "--execute"
+  ]
+}

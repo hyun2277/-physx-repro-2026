@@ -1,0 +1,6 @@
+{
+  "path": "/home/minsujo/Desktop/SH/PHYSx/sources/dinov2-9c7e3245797c",
+  "url": "https://github.com/facebookresearch/dinov2.git",
+  "commit": "9c7e3245797cf7be5b5729445a4af1272bd610df",
+  "reason": "Official register-model release implementation; additional dependency was previously unpinned."
+}

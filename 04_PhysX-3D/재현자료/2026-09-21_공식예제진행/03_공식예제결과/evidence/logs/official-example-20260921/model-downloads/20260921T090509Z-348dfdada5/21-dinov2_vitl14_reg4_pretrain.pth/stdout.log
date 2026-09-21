@@ -1,0 +1,11 @@
+{
+  "status": "running",
+  "operation_exit_code": null,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "cache/torch/hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth",
+  "size_bytes": 1217607321,
+  "sha256": "36e4deffbaef061a2576705b0c36f93621e2ae20bf6274694821b0b492551b51",
+  "git_blob_sha1": "5ff7b2227f6be0b8dcac0c1ca74408a275ae47b3",
+  "upstream_cryptographic_hash_verified": false
+}

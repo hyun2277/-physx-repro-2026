@@ -1,0 +1,51 @@
+{
+  "physx": {
+    "url": "https://github.com/ziangcao0312/PhysX-3D.git",
+    "commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594"
+  },
+  "flash-attention": {
+    "url": "https://github.com/Dao-AILab/flash-attention.git",
+    "version": "2.8.3",
+    "commit": "060c9188beec3a8b62b33a3bfa6d5d2d44975fab",
+    "build_environment": {
+      "FLASH_ATTENTION_FORCE_BUILD": "TRUE",
+      "FLASH_ATTN_CUDA_ARCHS": "120"
+    },
+    "validation": "source/API/architecture flags inspected; no build or GPU validation"
+  },
+  "CLIP": {
+    "url": "https://github.com/openai/CLIP.git",
+    "commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6"
+  },
+  "utils3d": {
+    "url": "https://github.com/EasternJournalist/utils3d.git",
+    "commit": "9a4eb15e4021b67b12c460c7057d642626897ec8"
+  },
+  "nvdiffrast": {
+    "url": "https://github.com/NVlabs/nvdiffrast.git",
+    "version": "0.3.3",
+    "commit": "729261dc64c4241ea36efda84fbf532cc8b425b8",
+    "validation": "JIT build and runtime architecture selection untested"
+  },
+  "diffoctreerast": {
+    "url": "https://github.com/JeffreyXiang/diffoctreerast.git",
+    "commit": "b09c20b84ec3aace4729e6e18a613112320eca3a",
+    "submodules": {
+      "glm": "33b4a621a697a305bc3a7610d290677b96beb181"
+    }
+  },
+  "mip-splatting": {
+    "url": "https://github.com/autonomousvision/mip-splatting.git",
+    "commit": "dda02ab5ecf45d6edb8c540d9bb65c7e451345a9",
+    "install_subdirectory": "submodules/diff-gaussian-rasterization"
+  },
+  "vox2seq": {
+    "source": "physx",
+    "commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+    "install_subdirectory": "vox2seq"
+  },
+  "model_revisions": {
+    "Caoza/PhysXGen": "52598097b7092df495ac149e137050ce2d2784fe",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  }
+}

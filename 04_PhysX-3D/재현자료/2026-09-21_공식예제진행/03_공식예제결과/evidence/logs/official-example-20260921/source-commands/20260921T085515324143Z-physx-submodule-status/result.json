@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "submodule",
+    "status",
+    "--recursive"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+  "started_at": "20260921T085515324143Z",
+  "exit_code": 0,
+  "finished_at": "2026-09-21T08:55:15.346753+00:00"
+}

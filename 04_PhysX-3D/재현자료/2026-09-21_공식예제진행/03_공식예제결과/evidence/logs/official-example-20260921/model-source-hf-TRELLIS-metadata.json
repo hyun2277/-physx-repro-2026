@@ -1,0 +1,274 @@
+{
+  "_id": "674dafddd3f8b0106ee6f2db",
+  "id": "microsoft/TRELLIS-image-large",
+  "private": false,
+  "pipeline_tag": "image-to-3d",
+  "library_name": "trellis",
+  "tags": [
+    "trellis",
+    "image-to-3d",
+    "en",
+    "arxiv:2412.01506",
+    "license:mit",
+    "region:us"
+  ],
+  "downloads": 2482407,
+  "likes": 683,
+  "modelId": "microsoft/TRELLIS-image-large",
+  "author": "microsoft",
+  "sha": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+  "lastModified": "2024-12-06T16:39:24.000Z",
+  "gated": false,
+  "disabled": false,
+  "model-index": null,
+  "config": {},
+  "cardData": {
+    "library_name": "trellis",
+    "pipeline_tag": "image-to-3d",
+    "license": "mit",
+    "language": [
+      "en"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+      "size": 1519
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "e2979a10b76f2cd9f2ea3f12d42f3c4e4d0b00bc",
+      "size": 464
+    },
+    {
+      "rfilename": "ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+      "blobId": "051ade1e3b374738bf7a007516275f72e458f2a7",
+      "size": 843
+    },
+    {
+      "rfilename": "ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors",
+      "blobId": "3a8ca2e522bee8e81fad8bb375064925a6b70ffb",
+      "size": 171450952,
+      "lfs": {
+        "sha256": "38c84bcef5ce0af1f48b1b5558dabc7575a13346043c41a7e0610f1fa619a161",
+        "size": 171450952,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.json",
+      "blobId": "28802825e9ba04bcc2cfdffb491dc9dbb72c8a38",
+      "size": 372
+    },
+    {
+      "rfilename": "ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.safetensors",
+      "blobId": "da28e99a05f40ab6f63172aaef5d695dfb1ab899",
+      "size": 181903412,
+      "lfs": {
+        "sha256": "3e87aba94b5786407eb06d0502c1ed0885a0027a3f2b8537bfe15b0a92c01859",
+        "size": 181903412,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json",
+      "blobId": "10676bd6322cb1519c9cb603ea77cfa2057ae45e",
+      "size": 396
+    },
+    {
+      "rfilename": "ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+      "blobId": "ff6f6c33640ba58478e9d99dec5eb3ba79de7d41",
+      "size": 171450488,
+      "lfs": {
+        "sha256": "737da6578d01948016b7c39786113af0d64a46f7922f6b8b5e698b84643be514",
+        "size": 171450488,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/slat_enc_swin8_B_64l8_fp16.json",
+      "blobId": "19b9b8c99c3b56eb9f07066d2a4bbad578b10291",
+      "size": 321
+    },
+    {
+      "rfilename": "ckpts/slat_enc_swin8_B_64l8_fp16.safetensors",
+      "blobId": "725e180c4092c7ae067a5155f8a964f6e14788fd",
+      "size": 173242816,
+      "lfs": {
+        "sha256": "21dceac6bee917ab6458ff52c9757ba89a779d03031c7bd17f9e7f0103bfd436",
+        "size": 173242816,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/slat_flow_img_dit_L_64l8p2_fp16.json",
+      "blobId": "22f500ab89867eb147f04d313cffac98e54ca163",
+      "size": 442
+    },
+    {
+      "rfilename": "ckpts/slat_flow_img_dit_L_64l8p2_fp16.safetensors",
+      "blobId": "a7d367bccf6fb75d9407675e3d8adc9e51307a03",
+      "size": 1203755136,
+      "lfs": {
+        "sha256": "693fb2a58ad497bd222007301eeec49d14d60f8c12d2f2f00c221fa747b4c66c",
+        "size": 1203755136,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "blobId": "9f3affaf13ab29fe48105229da9fab72ea8de716",
+      "size": 245
+    },
+    {
+      "rfilename": "ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "blobId": "a4b577752af35caab154c83b72427d9cc92285f6",
+      "size": 147591972,
+      "lfs": {
+        "sha256": "1c76d4a40519aa2d711cc263a8404105231ac26db31d946bed48b84fee79009a",
+        "size": 147591972,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/ss_enc_conv3d_16l8_fp16.json",
+      "blobId": "af493f4615283446a71d281eb4fb5d87cc32f159",
+      "size": 244
+    },
+    {
+      "rfilename": "ckpts/ss_enc_conv3d_16l8_fp16.safetensors",
+      "blobId": "6ebc7ddeca312299bedc83fdfa20055a265c8b00",
+      "size": 119068016,
+      "lfs": {
+        "sha256": "107874eeaa0feb82f51b19db5da7db534fb7e7f19e5a122b9ff1bc2e258bfc6d",
+        "size": 119068016,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "ckpts/ss_flow_img_dit_L_16l8_fp16.json",
+      "blobId": "d228f99cd828a54695ebd1f0fd1ad1b1f3179f42",
+      "size": 385
+    },
+    {
+      "rfilename": "ckpts/ss_flow_img_dit_L_16l8_fp16.safetensors",
+      "blobId": "2444705e7da1d8897e5cbd08c08001033f08cf2a",
+      "size": 1130770840,
+      "lfs": {
+        "sha256": "96dc6bfd4136fd950af564dd16b4ae533c9ba6af8f26c670646b2a9f2789b1db",
+        "size": 1130770840,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "pipeline.json",
+      "blobId": "4141e1025889c44ec0dc9239157c4226d8387da0",
+      "size": 1987
+    }
+  ],
+  "spaces": [
+    "embedl/hfviewer",
+    "trellis-community/TRELLIS",
+    "TencentARC/Pixal3D",
+    "linoyts/sketch-to-3d",
+    "prithivMLmods/TRELLIS.2-Text-to-3D",
+    "gradient-spaces/GuideFlow3D",
+    "microsoft/TRELLIS",
+    "theseanlavery/TRELLIS-3D",
+    "gokaygokay/Flux-TRELLIS",
+    "crevelop/Trellis",
+    "innoai/TRELLIS",
+    "HorizonRobotics/EmbodiedGen-Image-to-3D",
+    "Stable-X/ReconViaGen-v0.5",
+    "broyang/3dai",
+    "TencentARC/Pixal3D-Server",
+    "MohamedRashad/Game-Items-Generator",
+    "Saadtoughal/my-3d-generator",
+    "yejunliang23/ShapLLM-Omni",
+    "PUM4CH3N/TRELLIS_TextTo3D",
+    "hysts-mcp/TRELLIS",
+    "fenghora/SegviGen",
+    "HorizonRobotics/EmbodiedGen-Text-to-3D",
+    "kushbhargav/3dImages",
+    "HorizonRobotics/EmbodiedGen-Texture-Gen",
+    "opsiclear-admin/Trellis.2.multiview",
+    "Agents-MCP-Hackathon/3D-Game-Environment-Builder",
+    "prithivMLmods/Image-to-3D-Video-Asset-Generator",
+    "dkatz2391/TRELLIS_TextTo3D_Try2",
+    "sthamann83/TRELLIS",
+    "th3w1zard1/Pixal3D",
+    "joselobenitezg/TRELLIS",
+    "cavargas10/TRELLIS-Texto3D",
+    "gensym/TRELLIS",
+    "cortwave/OccludedTRELLIS",
+    "Theartplug/Maisonmarcel",
+    "Steven18/trellis-3d-api",
+    "suvadityamuk/GuideFlow3D",
+    "vaibhavpandeyvpz/trellis-image-to-3d",
+    "vaibhavpandeyvpz/flux.1-trellis-text-to-3d-generator",
+    "tanminggang2019/TRELLIS",
+    "ifire/TRELLIS",
+    "davinciwearables/3DBodyMeasure",
+    "yonnel/text-to-3d_flux_trellis",
+    "Jbowyer/TRELLIS",
+    "luh0502/NeAR",
+    "AndyDo0942/TRELLIS_TextTo3D_Try2",
+    "akhaliq/Pixal3D-T",
+    "cpuai/Pixal3D",
+    "Chen408550179/TRELLIS",
+    "xywwww/scene_diffusion___",
+    "Konst2021/TRELLIS",
+    "dcrey7/TRELLIS",
+    "faceradix/TRELLIS",
+    "rusandy/TRELLIS2",
+    "UNES97/TRELLIS",
+    "sc03209/TRELLIS",
+    "albayrakcihann/TRELLIS",
+    "diorbeauty/TRELLIS",
+    "d-delaurier/TRELLIS",
+    "rusandy/TRELLIS",
+    "bobsisuu/TRELLIS",
+    "mymani/IMG2DDD",
+    "Dragunflie-420/TRELLIS",
+    "gg03/TRELLIS",
+    "web911/TRELLIS-sinemagic.stufios",
+    "web911/TRELLIS-sinemagic.stufio",
+    "Bwebb/testbroke",
+    "ddlowkey/MeshGen",
+    "myildi25/TRELLIS",
+    "p9iaai/TRELLIS",
+    "saeecl/TRELLIS",
+    "jt5d/TRELLIS-JT",
+    "chateauxai/Arch-1_3D",
+    "eleelenawa/TRELLIS",
+    "Shivamkak/TRELLIS",
+    "123456qwqe/TRELLIS",
+    "woonun/TRELLIS",
+    "theekshana/gradiotest",
+    "mukaist/TRELLIS",
+    "gnosticdev/IMG_TO_3d_model",
+    "belljig/TRELLIS",
+    "mdgh68/TRELLIS",
+    "yonnel/TRELLIS",
+    "robinmia/TRELLIS",
+    "malekradwan130/TRELLIS",
+    "bsriram299/Sneha",
+    "bsriram299/Snehaproject",
+    "CyberSys/Flux-TRELLIS",
+    "ab12321/quizizztrellis",
+    "zumat/TRELLIS",
+    "axiomell/TRELLIS",
+    "Vibu46vk/model3d",
+    "Vibu46vk/TRELLIS",
+    "Vibu46vk/IMG",
+    "eBlessings/TRELLIS",
+    "Abhii5496/TRELLIS",
+    "bsriram299/Snehaanamproject",
+    "bsriram299/Snehaa",
+    "turome-learning/test",
+    "tur-learning/TRELLIS"
+  ],
+  "createdAt": "2024-12-02T13:02:21.000Z",
+  "usedStorage": 3300497168
+}

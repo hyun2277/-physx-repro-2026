@@ -1,0 +1,9 @@
+{
+  "kind": "python_function",
+  "operation": "download_and_verify_one_model",
+  "source": "https://huggingface.co/Caoza/PhysXGen/resolve/52598097b7092df495ac149e137050ce2d2784fe/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+  "destination": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+  "started_at": "2026-09-21T09:07:15.007025+00:00",
+  "authentication": "none; HF token=False",
+  "automatic_task_retry": false
+}

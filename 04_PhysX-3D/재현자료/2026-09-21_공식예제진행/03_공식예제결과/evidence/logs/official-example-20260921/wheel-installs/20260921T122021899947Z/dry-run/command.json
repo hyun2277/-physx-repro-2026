@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-u",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/pip_without_site.py",
+    "install",
+    "--no-index",
+    "--no-deps",
+    "--no-compile",
+    "--only-binary=:all:",
+    "--require-hashes",
+    "-r",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/wheels.lock.txt",
+    "--dry-run",
+    "--report",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/preview.json"
+  ],
+  "started_at": "2026-09-21T12:20:22.063033+00:00"
+}

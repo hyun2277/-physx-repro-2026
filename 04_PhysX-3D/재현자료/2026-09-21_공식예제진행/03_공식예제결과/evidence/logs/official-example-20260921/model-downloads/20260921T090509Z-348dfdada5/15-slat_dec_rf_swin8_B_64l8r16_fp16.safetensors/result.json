@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+  "size_bytes": 171450488,
+  "sha256": "737da6578d01948016b7c39786113af0d64a46f7922f6b8b5e698b84643be514",
+  "git_blob_sha1": "f8568bc765cbad83619c29d2612822e3b12b3935",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:18:03.592715+00:00"
+}

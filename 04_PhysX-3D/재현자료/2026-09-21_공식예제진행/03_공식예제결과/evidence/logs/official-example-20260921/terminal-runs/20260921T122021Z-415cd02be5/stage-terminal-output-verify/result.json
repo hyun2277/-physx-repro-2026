@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+    "--execute",
+    "--profile",
+    "build",
+    "--label",
+    "terminal-output-verify",
+    "--cwd",
+    "/home/minsujo/Desktop/SH/PHYSx",
+    "--timeout-seconds",
+    "1800",
+    "--",
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/validate_example_outputs.py",
+    "--execute",
+    "--output-dir",
+    "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion",
+    "--execution-status",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/status.json",
+    "--report",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T12:21:54.559689+00:00",
+  "exit_code": 0,
+  "process": {
+    "pid": 1719913,
+    "start_ticks": 167873159,
+    "boot_id": "2fa89af1-6a2f-4cb1-900e-755fadf69d60"
+  },
+  "finished_at": "2026-09-21T12:22:01.572870+00:00"
+}

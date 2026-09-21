@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "remote",
+    "add",
+    "origin",
+    "https://github.com/ziangcao0312/PhysX-3D.git"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+  "started_at": "20260921T085513202336Z"
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+    "size_bytes": 80150,
+    "sha256": "023b79543139b57edd944d1ab194f1ccbb078ad65749b22a141a90a06805d6f1"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+    "size_bytes": 79036,
+    "sha256": "aa9535a503d42e25739fcf4f6a325d9e951d85a1b9a05c06ae40a26b5f08b1d1"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+    "size_bytes": 84989,
+    "sha256": "177de33bfba328b7c296dfb1563bf554d511eb5bc8e7801f77954b0b32416ecd"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+    "size_bytes": 260,
+    "sha256": "b2bbf30a730c6d13095f9865a19c34cde58b536aa3d7ee61fddce0801fa68c51"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-model-heads.pt",
+    "size_bytes": 387937265,
+    "sha256": "fc60302356032458e12df88666d74a648a5682159c39c7b3c25cc2497f4bd2f7"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-prediction.pt",
+    "size_bytes": 380373734,
+    "sha256": "2a14e5075577c2a8e53392a9886c5dd460dc68a3b95faba93e5c5144ca3b05ba"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+    "size_bytes": 31521,
+    "sha256": "1a10165a37137f848c6e7f8a0394d487cd078aa32e9aeca2039f6bc1c53017d3"
+  },
+  {
+    "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/texture.glb",
+    "size_bytes": 1309840,
+    "sha256": "6fe5a4c07a7aac453bd8711c6b055afbaa2a2a36d0215b1d777dfaded34dd409"
+  }
+]

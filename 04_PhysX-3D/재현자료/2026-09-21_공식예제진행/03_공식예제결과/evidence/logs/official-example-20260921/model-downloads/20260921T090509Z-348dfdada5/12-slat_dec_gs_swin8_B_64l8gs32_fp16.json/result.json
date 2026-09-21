@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+  "size_bytes": 843,
+  "sha256": "ebe9d3eade6d9cb7662efae109197e97d7ab58aebd5e8ede0c8991dfce88a06a",
+  "git_blob_sha1": "051ade1e3b374738bf7a007516275f72e458f2a7",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:17:30.048742+00:00"
+}

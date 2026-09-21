@@ -1,0 +1,74 @@
+[
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/source-files.json",
+    "bytes": 2543716,
+    "sha256": "dada0d0b43b6431c0924e6492f0e6d4448431d0adf7ca127d568e767ecd47a3d",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/affordance-all-30-frames.png",
+    "bytes": 271442,
+    "sha256": "3515233414ed4f07e0f61d6fc6753de83fa26c6d35ce8e82567d6427336c8341",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/affordance-frame00.png",
+    "bytes": 49437,
+    "sha256": "85a3559ec743db6fd5ed3bbec90131ad76b37b532f9db1bfe29daa3f4056917f",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/description-all-30-frames.png",
+    "bytes": 271345,
+    "sha256": "eef90e3ec5d28b5237c24ceaab265805973333e2abdc4d92f998bb553da696ff",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/description-frame00.png",
+    "bytes": 49546,
+    "sha256": "30eb74dc940b77f44f41bf176d9eabf515ea91178d8b378d70b12965a6cdf193",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/glb-embedded-texture.png",
+    "bytes": 1144652,
+    "sha256": "a90ae6047e9f253a3c83e1ce371d410ec62abd5e2c7b5f130b789f6b5f3f8907",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/glb-three-views.png",
+    "bytes": 137732,
+    "sha256": "6ef48c57b847233f27d31e55ead64563ca0cbabedaa1cfffd2264d82e1610e85",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/input-on-gray.png",
+    "bytes": 33312,
+    "sha256": "d3185e76ccbeb708b9caaaaed4f4170d12085d45eda28791cd6fa994c6cdd869",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/material-all-30-frames.png",
+    "bytes": 272065,
+    "sha256": "f066850c52d10858c5cd1e12513c47d5a36371b3fe5af54b1675f09a4ebc6044",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/material-frame00.png",
+    "bytes": 51868,
+    "sha256": "5ecf0f2d5948e28b18902a749f205afa9f49e7365d364fc24579d27077b25ddd",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/rgb-all-30-frames.png",
+    "bytes": 163622,
+    "sha256": "be86fa6623b957f77ced5f7a8d79fb77dbf1af15e3d54c6d4687e5fd67c2090a",
+    "uploaded": false
+  },
+  {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/rgb-frame00.png",
+    "bytes": 14802,
+    "sha256": "7386f55077e9f8eebc0b7dd0dc5def5e057880617cc426b17a3064b8aff8cd89",
+    "uploaded": false
+  }
+]

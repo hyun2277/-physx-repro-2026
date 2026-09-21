@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/usr/bin/nvidia-smi",
+    "--id=GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "--query-gpu=index,uuid,pci.bus_id,name,driver_version,memory.total,memory.used,utilization.gpu,temperature.gpu,power.draw,timestamp",
+    "--format=csv,noheader,nounits"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T12:20:25.666031+00:00",
+  "timeout_seconds": 15,
+  "process_started": false,
+  "exit_code": null,
+  "automatic_retry": false
+}

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_flow_img_dit_L_16l8_fp16.json",
+  "size_bytes": 385,
+  "sha256": "bf69161da7ece9a87394dd4441f0cfa6d4261696a214a8f68388c81fa9a6b5b7",
+  "git_blob_sha1": "d228f99cd828a54695ebd1f0fd1ad1b1f3179f42",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:18:18.741544+00:00"
+}

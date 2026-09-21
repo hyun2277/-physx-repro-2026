@@ -1,0 +1,11 @@
+{
+  "status": "running",
+  "operation_exit_code": null,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "cache/clip/ViT-L-14.pt",
+  "size_bytes": 932768134,
+  "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+  "git_blob_sha1": "0762c32ee693366142684b6f9bd7fe55317adbdf",
+  "upstream_cryptographic_hash_verified": true
+}

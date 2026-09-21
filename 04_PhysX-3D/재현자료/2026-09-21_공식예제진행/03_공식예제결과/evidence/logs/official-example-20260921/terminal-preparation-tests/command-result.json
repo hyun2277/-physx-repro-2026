@@ -1,0 +1,20 @@
+{
+  "command": "/usr/bin/python3 -I -B -S logs/official-example-20260921/test_terminal_handoff.py",
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "exit_code": 0,
+  "execution_timestamp": null,
+  "timestamp_note": "The original tool response did not provide an absolute execution timestamp. None has been inferred.",
+  "provenance": "Copied from the already completed exec_command tool response, chunk_id 738ebd. Tests were not rerun to create this archive.",
+  "output_file": "combined-output.log",
+  "output_capture": "The tool returned one combined output string, not separate stdout and stderr streams. This archive preserves that string without inventing a stream assignment.",
+  "stdout_separate_capture_available": false,
+  "stderr_separate_capture_available": false,
+  "tool_reported_wall_time_seconds": 0.000003577,
+  "tool_original_token_count": 714,
+  "tool_output_token_limit": 4200,
+  "output_truncated": false,
+  "unittest_reported_test_count": 20,
+  "unittest_reported_elapsed_seconds": 0.037,
+  "unittest_reported_result": "OK",
+  "test_scope": "Stdlib unittest with subprocess.Popen/run mocked or forbidden. Temporary lock and log fixtures were under ROOT/tmp. No installer, build, GPU, network, model import, or live worker manipulation was performed."
+}

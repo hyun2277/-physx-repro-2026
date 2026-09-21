@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "remote",
+    "add",
+    "origin",
+    "https://github.com/Dao-AILab/flash-attention.git"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec",
+  "started_at": "20260921T085528101909Z",
+  "exit_code": 0,
+  "finished_at": "2026-09-21T08:55:28.103534+00:00"
+}

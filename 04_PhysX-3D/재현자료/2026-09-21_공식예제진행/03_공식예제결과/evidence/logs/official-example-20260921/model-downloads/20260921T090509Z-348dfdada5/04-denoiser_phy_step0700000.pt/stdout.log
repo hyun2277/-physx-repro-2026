@@ -1,0 +1,11 @@
+{
+  "status": "running",
+  "operation_exit_code": null,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+  "size_bytes": 1619037489,
+  "sha256": "40e9b76b5f4c6663f87539151eb6b40b209e9bb2b09ef5f18feb58e8372a7a60",
+  "git_blob_sha1": "4bbbf9e00e08077898500827130dbaaf2ab47e5b",
+  "upstream_cryptographic_hash_verified": true
+}

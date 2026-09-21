@@ -1,0 +1,94 @@
+{
+  "recorded_at": "2026-09-21T09:52:53.580442+00:00",
+  "source_commit": "060c9188beec3a8b62b33a3bfa6d5d2d44975fab",
+  "wheel": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/flash-attention/flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl",
+  "wheel_size": 68360417,
+  "wheel_sha256": "a69268fc612f6c689b4af4647b0cab9c935ae17d2a5bb1c5a1c561e8d46aecd2",
+  "distribution": "flash_attn",
+  "version": "2.8.3",
+  "requires_dist": [
+    "torch",
+    "einops"
+  ],
+  "wheel_metadata": "Wheel-Version: 1.0\nGenerator: setuptools (75.8.0)\nRoot-Is-Purelib: false\nTag: cp310-cp310-linux_x86_64\n\n",
+  "binaries": [
+    {
+      "path": "flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so",
+      "size": 303844776,
+      "sha256": "9e1c81dbfcb3b59c2d702372d8e26b36c46dee426f40dbf9e4934cbeb39028de"
+    }
+  ],
+  "source_changes": {
+    "fetched_source": [],
+    "build_copy_original_files": []
+  },
+  "fetched_source_preserved": true,
+  "original_build_source_unmodified": true,
+  "source_patches": [],
+  "attempts": [
+    {
+      "run": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30",
+      "run_id": "20260921T085752Z-flash-attention-wheel-f9f3ed2b30",
+      "profile": "build",
+      "label": "flash-attention-wheel",
+      "started_at": "2026-09-21T08:57:52.091644+00:00",
+      "phase": "stopped",
+      "command_exit_code": null,
+      "command_passed": false,
+      "gpu_uuid": null,
+      "gpu_index": null,
+      "device_minor": null,
+      "runner_sha256": "63e3cf999fc18be6de7314b7107b283eed1780c258bfc5113e5eba89873c4534",
+      "failed_stage": "preflight",
+      "error_type": "Stopped",
+      "reason": "Pinned compiler verification failed.",
+      "ended_at": "2026-09-21T08:57:52.299655+00:00",
+      "exit_code": 1,
+      "automatic_retry": false,
+      "protections_weakened": false
+    },
+    {
+      "run": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d",
+      "run_id": "20260921T090022Z-flash-attention-wheel-775acb713d",
+      "profile": "build",
+      "label": "flash-attention-wheel",
+      "started_at": "2026-09-21T09:00:22.172129+00:00",
+      "phase": "stopped",
+      "command_exit_code": 1,
+      "command_passed": false,
+      "gpu_uuid": null,
+      "gpu_index": null,
+      "device_minor": null,
+      "runner_sha256": "63e3cf999fc18be6de7314b7107b283eed1780c258bfc5113e5eba89873c4534",
+      "failed_stage": "command",
+      "error_type": "Stopped",
+      "reason": "Command returned nonzero; inspect command logs.",
+      "ended_at": "2026-09-21T09:01:45.230474+00:00",
+      "exit_code": 1,
+      "automatic_retry": false,
+      "protections_weakened": false
+    },
+    {
+      "run": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070",
+      "run_id": "20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070",
+      "profile": "build",
+      "label": "flash-attention-wheel-conda-paths",
+      "started_at": "2026-09-21T09:02:59.676884+00:00",
+      "phase": "completed",
+      "command_exit_code": 0,
+      "command_passed": true,
+      "gpu_uuid": null,
+      "gpu_index": null,
+      "device_minor": null,
+      "runner_sha256": "9c8ffa90a24abdb5fd1ad9052dfa71198e0e942bfff77c18c96d6c0acd7c1167",
+      "ended_at": "2026-09-21T09:52:37.763200+00:00",
+      "exit_code": 0,
+      "automatic_retry": false,
+      "protections_weakened": false
+    }
+  ],
+  "build_only": true,
+  "installed_by_this_task": false,
+  "gpu_executed_by_this_task": false,
+  "runtime_compatibility_proven": false
+}

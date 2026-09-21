@@ -1,0 +1,91 @@
+--- a/example.py
++++ b/example.py
+@@ -150,7 +150,7 @@
+ savepath=os.path.join(args.savepath,modelpath)
+ 
+ 
+-clipmodel, preprocess = clip.load("ViT-L/14", jit=False)
++clipmodel, preprocess = clip.load("ViT-L/14", jit=False, download_root=os.environ["PHYSX_CLIP_DOWNLOAD_ROOT"])
+ clipmodel=clipmodel.eval().cuda()
+ os.makedirs(savepath, exist_ok=True)
+ image = Image.open(os.path.join(args.condpath))
+@@ -176,8 +176,17 @@
+ tokens=clip.tokenize(args.question).cuda()
+ info_emb=clipmodel.encode_text(tokens).float()
+ 
+-lang,phy=pipeline.models['slat_decoder_output'](outputs['mesh'][0].phy_property[:,16:,None,None],outputs['mesh'][0].phy_property[:,-16:,None,None])
++lang,phy=pipeline.models['slat_decoder_output'](outputs['mesh'][0].phy_property[:,:16,None,None],outputs['mesh'][0].phy_property[:,-16:,None,None])
+ phy=phy.squeeze()
++# Preserve model output before unit conversion, normalization, or group rounding.
++torch.save({'vertices': outputs['mesh'][0].vertices.detach().cpu(),
++            'faces': outputs['mesh'][0].faces.detach().cpu(),
++            'mesh_properties': outputs['mesh'][0].phy_property.detach().cpu(),
++            'physical_before_unit_conversion': phy.detach().cpu(),
++            'language': lang.detach().cpu()},
++           os.path.join(savepath, 'raw-model-heads.pt'))
++if not bool(torch.isfinite(phy).all()):
++    raise RuntimeError('Nonfinite physical model output; raw-model-heads.pt preserved')
+ # convert normalized data into physical data
+ phy[...,0]=(phy[...,0])*48+95
+ phy[...,2]=(phy[...,2])*2.8+2.3
+@@ -192,6 +201,32 @@
+ affordance=(phy[...,1]-phy[...,1].min())/(phy[...,1].max()-phy[...,1].min())
+ 
+ num_group=round(float(phy[...,3].max()))+1
++
++# Reproduction diagnostics: validate without altering predictions or thresholds.
++for _name, _tensor in {
++    'mesh_vertices': outputs['mesh'][0].vertices,
++    'mesh_properties': outputs['mesh'][0].phy_property,
++    'language': lang, 'physical': phy, 'score': score,
++    'material': material, 'affordance': affordance,
++}.items():
++    if not bool(torch.isfinite(_tensor).all()):
++        raise RuntimeError('Nonfinite official-example output: ' + _name)
++if outputs['mesh'][0].vertices.numel() == 0 or outputs['mesh'][0].faces.numel() == 0:
++    raise RuntimeError('Official example generated an empty mesh')
++import json as _json
++with open(os.path.join(savepath, 'prediction-diagnostics.json'), 'w') as _file:
++    _json.dump({'seed': 1, 'question': args.question, 'question_type': args.question_type,
++                'num_group': num_group,
++                'vertices': int(outputs['mesh'][0].vertices.shape[0]),
++                'faces': int(outputs['mesh'][0].faces.shape[0]),
++                'finite_geometry_properties_and_heatmaps': True,
++                'language_channel_slice': 'first 16 of 32; matches training renderer'}, _file, indent=2)
++print('REPRO_PREDICTION_FINITE num_group=', num_group, flush=True)
++torch.save({'vertices': outputs['mesh'][0].vertices.detach().cpu(),
++            'faces': outputs['mesh'][0].faces.detach().cpu(),
++            'physical': phy.detach().cpu(), 'language': lang.detach().cpu(),
++            'score': score.detach().cpu(), 'num_group': num_group},
++           os.path.join(savepath, 'raw-prediction.pt'))
+ 
+ 
+ 
+@@ -208,8 +243,8 @@
+         if kinematic_map[:,(group_ind-1)*2+1].sum()<100:
+             kinematic_map[:,(group_ind-1)*2+1]=phy[...,3]<-0.5
+ 
+-        kinematic_parameters.append(phy[...,5:-1][kinematic_map[(group_ind-1)*2]].mean(0))
+-        kinematic_type.append(phy[...,-1][kinematic_map[(group_ind-1)*2]].mean(0))
++        kinematic_parameters.append(phy[...,5:-1][kinematic_map[:,(group_ind-1)*2].bool()].mean(0))
++        kinematic_type.append(phy[...,-1][kinematic_map[:,(group_ind-1)*2].bool()].mean(0))
+ 
+     outputs['mesh'][0].render_vis=torch.stack([affordance,material,score]).permute(1,0)
+     outputs['mesh'][0].render_vis=torch.cat([outputs['mesh'][0].render_vis,kinematic_map],1)
+--- a/trellis/pipelines/trellis_image_to_3d.py
++++ b/trellis/pipelines/trellis_image_to_3d.py
+@@ -1,4 +1,5 @@
+ from typing import *
++import os
+ from contextlib import contextmanager
+ import torch
+ import torch.nn as nn
+@@ -70,7 +71,7 @@
+         """
+         Initialize the image conditioning model.
+         """
+-        dinov2_model = torch.hub.load('facebookresearch/dinov2', name, pretrained=True)
++        dinov2_model = torch.hub.load(os.path.join(os.environ['PHYSX_ROOT'], 'sources/dinov2-9c7e3245797c'), name, source='local', pretrained=True)
+         dinov2_model.eval()
+         self.models['image_cond_model'] = dinov2_model
+         transform = transforms.Compose([

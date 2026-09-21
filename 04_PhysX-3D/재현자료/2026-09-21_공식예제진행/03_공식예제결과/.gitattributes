@@ -1,0 +1,5 @@
+* -text
+*.log -whitespace
+*.patch -whitespace
+evidence/logs/official-example-20260921/flash-attention-build/wheel-METADATA.txt -whitespace
+evidence/logs/official-example-20260921/flash-attention-build/wheel-WHEEL.txt -whitespace

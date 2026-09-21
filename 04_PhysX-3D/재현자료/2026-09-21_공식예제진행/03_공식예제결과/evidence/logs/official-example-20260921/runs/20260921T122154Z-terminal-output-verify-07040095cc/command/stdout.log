@@ -1,0 +1,44 @@
+{"kind": "validation_progress", "stage": "validation_started", "at": "2026-09-21T12:21:55.233942+00:00", "output_directory": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion", "report": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json"}
+{"kind": "validation_progress", "stage": "import_cpu_validation_dependencies", "at": "2026-09-21T12:21:55.233979+00:00"}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:57.617698+00:00", "check": "provenance"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:57.622247+00:00", "check": "provenance", "status": "passed", "elapsed_seconds": 0.005}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:57.622275+00:00", "check": "diagnostics"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:57.622493+00:00", "check": "diagnostics", "status": "passed", "elapsed_seconds": 0.0}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:57.622514+00:00", "check": "raw_model_heads"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:58.409518+00:00", "check": "raw_model_heads", "status": "passed", "elapsed_seconds": 0.787}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:58.409591+00:00", "check": "raw_prediction"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.168854+00:00", "check": "raw_prediction", "status": "passed", "elapsed_seconds": 0.759}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:59.168925+00:00", "check": "rgb.mp4"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.272637+00:00", "check": "rgb.mp4", "status": "passed", "elapsed_seconds": 0.104}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:59.272765+00:00", "check": "affordance.mp4"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.380637+00:00", "check": "affordance.mp4", "status": "passed", "elapsed_seconds": 0.108}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:59.380727+00:00", "check": "material.mp4"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.492858+00:00", "check": "material.mp4", "status": "passed", "elapsed_seconds": 0.112}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:59.493001+00:00", "check": "description.mp4"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.606602+00:00", "check": "description.mp4", "status": "passed", "elapsed_seconds": 0.114}
+{"kind": "validation_progress", "stage": "check_started", "at": "2026-09-21T12:21:59.606708+00:00", "check": "texture.glb"}
+{"kind": "validation_progress", "stage": "check_finished", "at": "2026-09-21T12:21:59.664484+00:00", "check": "texture.glb", "status": "passed", "elapsed_seconds": 0.058}
+{"kind": "validation_progress", "stage": "hash_output_inventory", "at": "2026-09-21T12:21:59.664594+00:00"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.664683+00:00", "file": "affordance.mp4", "size_bytes": 80150}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:21:59.664910+00:00", "file": "affordance.mp4"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.664947+00:00", "file": "description.mp4", "size_bytes": 79036}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:21:59.665146+00:00", "file": "description.mp4"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.665178+00:00", "file": "material.mp4", "size_bytes": 84989}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:21:59.665379+00:00", "file": "material.mp4"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.665420+00:00", "file": "prediction-diagnostics.json", "size_bytes": 260}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:21:59.665578+00:00", "file": "prediction-diagnostics.json"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.665610+00:00", "file": "raw-model-heads.pt", "size_bytes": 387937265}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:21:59.874876+00:00", "file": "raw-model-heads.pt"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:21:59.875011+00:00", "file": "raw-prediction.pt", "size_bytes": 380373734}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:22:00.082572+00:00", "file": "raw-prediction.pt"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:22:00.082665+00:00", "file": "rgb.mp4", "size_bytes": 31521}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:22:00.082928+00:00", "file": "rgb.mp4"}
+{"kind": "validation_progress", "stage": "hash_output_file_started", "at": "2026-09-21T12:22:00.082967+00:00", "file": "texture.glb", "size_bytes": 1309840}
+{"kind": "validation_progress", "stage": "hash_output_file_finished", "at": "2026-09-21T12:22:00.084266+00:00", "file": "texture.glb"}
+{"kind": "validation_progress", "stage": "publish_final_report", "at": "2026-09-21T12:22:00.084300+00:00", "status": "passed"}
+{
+  "status": "passed",
+  "exit_code": 0,
+  "issues": [],
+  "report": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json"
+}

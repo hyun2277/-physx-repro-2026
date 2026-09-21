@@ -1,0 +1,20 @@
+{
+  "run_id": "20260921T090022Z-flash-attention-wheel-775acb713d",
+  "profile": "build",
+  "label": "flash-attention-wheel",
+  "started_at": "2026-09-21T09:00:22.172129+00:00",
+  "phase": "stopped",
+  "command_exit_code": 1,
+  "command_passed": false,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "63e3cf999fc18be6de7314b7107b283eed1780c258bfc5113e5eba89873c4534",
+  "failed_stage": "command",
+  "error_type": "Stopped",
+  "reason": "Command returned nonzero; inspect command logs.",
+  "ended_at": "2026-09-21T09:01:45.230474+00:00",
+  "exit_code": 1,
+  "automatic_retry": false,
+  "protections_weakened": false
+}

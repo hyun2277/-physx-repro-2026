@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "fetch",
+    "--depth=1",
+    "origin",
+    "9c7e3245797cf7be5b5729445a4af1272bd610df"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/dinov2-9c7e3245797c",
+  "started_at": "20260921T090142627447Z",
+  "exit_code": 0,
+  "finished_at": "2026-09-21T09:01:43.521849+00:00"
+}

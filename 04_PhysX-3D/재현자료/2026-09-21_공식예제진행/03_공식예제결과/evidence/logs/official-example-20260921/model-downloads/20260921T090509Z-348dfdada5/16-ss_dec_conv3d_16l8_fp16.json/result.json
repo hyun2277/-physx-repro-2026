@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_dec_conv3d_16l8_fp16.json",
+  "size_bytes": 245,
+  "sha256": "646781293f1cda74720de85d1cef50a957fb4aebd9a4bd014e454e32f2330ac5",
+  "git_blob_sha1": "9f3affaf13ab29fe48105229da9fab72ea8de716",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:18:03.830462+00:00"
+}

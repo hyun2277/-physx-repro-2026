@@ -1,0 +1,9 @@
+{
+  "kind": "python_function",
+  "operation": "download_and_verify_one_model",
+  "source": "https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt",
+  "destination": "/home/minsujo/Desktop/SH/PHYSx/cache/clip/ViT-L-14.pt",
+  "started_at": "2026-09-21T09:20:01.904166+00:00",
+  "authentication": "none; HF token=False",
+  "automatic_task_retry": false
+}

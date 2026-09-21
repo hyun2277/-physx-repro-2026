@@ -1,0 +1,17 @@
+{
+  "run_id": "20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070",
+  "profile": "build",
+  "label": "flash-attention-wheel-conda-paths",
+  "started_at": "2026-09-21T09:02:59.676884+00:00",
+  "phase": "completed",
+  "command_exit_code": 0,
+  "command_passed": true,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "9c8ffa90a24abdb5fd1ad9052dfa71198e0e942bfff77c18c96d6c0acd7c1167",
+  "ended_at": "2026-09-21T09:52:37.763200+00:00",
+  "exit_code": 0,
+  "automatic_retry": false,
+  "protections_weakened": false
+}

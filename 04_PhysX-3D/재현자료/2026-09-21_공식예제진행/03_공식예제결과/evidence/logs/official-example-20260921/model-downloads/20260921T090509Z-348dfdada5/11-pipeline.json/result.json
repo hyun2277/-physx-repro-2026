@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/diffusion/pipeline.json",
+  "size_bytes": 2821,
+  "sha256": "6a80728f55ffb644a57f1d80219bc0ef2e06c5ef4c6c3e2f44ef21feed7394ab",
+  "git_blob_sha1": "896506e8a67da8da3096efe659b4bebf3727637a",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:17:29.813951+00:00"
+}

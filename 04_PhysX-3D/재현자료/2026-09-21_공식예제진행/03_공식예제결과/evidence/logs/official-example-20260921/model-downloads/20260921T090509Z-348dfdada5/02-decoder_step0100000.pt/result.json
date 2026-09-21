@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "operation_exit_code": 0,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.pt",
+  "size_bytes": 1281392840,
+  "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+  "git_blob_sha1": "2988e15829b2b4168a53fe013125905a91279bd5",
+  "upstream_cryptographic_hash_verified": true,
+  "finished_at": "2026-09-21T09:07:15.006117+00:00"
+}

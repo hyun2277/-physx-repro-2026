@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-09-21T09:37:11.654926+00:00",
+  "state": "prepared_not_executed",
+  "scripts": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py",
+      "sha256": "b003aedac37c982267d6e99e7b221b5025a0c0551f272a97a85f4e96cc89cab1",
+      "bytes": 26149
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+      "sha256": "d842cf69dacd6b1921a10322a7de85518be0a54847e8aabebd85e9f885dfb6ee",
+      "bytes": 24580
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/install_verified_wheels.py",
+      "sha256": "2287d7e49970fc8e60819f8820c6c36e51a18fe867fed334ce822b5bba65f71a",
+      "bytes": 5168
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/inspect_flash_wheel.py",
+      "sha256": "19561a50bdfc21ce8fe893d32e2d895305f6a6749299c85d972f5a3fc6028149",
+      "bytes": 4642
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_extensions.py",
+      "sha256": "79f84c8c0f3610964def0c87d3e50a666479e06ffda3589a6310e151b6a88d38",
+      "bytes": 22647
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/run_example.py",
+      "sha256": "2b37ac33df0f8fb5c6c866ace6f52e8611c4f30904d35a1711b8e03777d19ea1",
+      "bytes": 8947
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/validate_example_outputs.py",
+      "sha256": "16e7b02f27b955bcaae34d19d687de373442a39463bebd4b0f5ed8b7459e2a64",
+      "bytes": 32460
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-environment-baseline.json",
+      "sha256": "648b71db910901be818a46309c13ae3a983525a90bb044d596e269584e048df5",
+      "bytes": 4939
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/example-source-manifest.json",
+      "sha256": "31b6c8db01f02dec9bd1185484dc8a8f15b458feea8a93cb4f9e15805a84d6b3",
+      "bytes": 1266
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-manifest.json",
+      "sha256": "921e73ceaf046d1dc28ff7ec253846dd6ee711e79dc95dc94da680b4ddd8bd89",
+      "bytes": 17099
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/official-example.patch",
+      "sha256": "69183fcc8a17918f44a950ac626f9961dcb718218eac2cefdd61181f98c59a7a",
+      "bytes": 4633
+    }
+  ],
+  "official_example_started": false,
+  "git_upload_in_script": false
+}

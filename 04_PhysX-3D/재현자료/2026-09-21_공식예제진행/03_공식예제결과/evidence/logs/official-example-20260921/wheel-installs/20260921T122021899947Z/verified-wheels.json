@@ -1,0 +1,13 @@
+[
+  {
+    "name": "flash-attn",
+    "version": "2.8.3",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/flash-attention/flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl",
+    "bytes": 68360417,
+    "sha256": "a69268fc612f6c689b4af4647b0cab9c935ae17d2a5bb1c5a1c561e8d46aecd2",
+    "requires_dist": [
+      "torch",
+      "einops"
+    ]
+  }
+]

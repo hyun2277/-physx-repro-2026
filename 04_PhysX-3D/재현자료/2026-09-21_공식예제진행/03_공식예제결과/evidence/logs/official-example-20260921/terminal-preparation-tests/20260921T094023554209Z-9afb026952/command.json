@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_terminal_handoff.py",
+    "--record-logs"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T09:40:23.554428+00:00",
+  "source_hashes": {
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_terminal_handoff.py": "a2a2ceb20926c575cf3bb3b134825db5f0c9d7c286953db6bbae3dfff15e67fc",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py": "b003aedac37c982267d6e99e7b221b5025a0c0551f272a97a85f4e96cc89cab1",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/inspect_flash_wheel.py": "19561a50bdfc21ce8fe893d32e2d895305f6a6749299c85d972f5a3fc6028149"
+  },
+  "stdout": "stdout.log",
+  "stderr": "stderr.log",
+  "direct_capture": true,
+  "scope": "Stdlib fixture/mock tests only; no actual install, build, GPU, network, model import, or live worker manipulation."
+}

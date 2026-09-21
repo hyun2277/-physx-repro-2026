@@ -1,0 +1,624 @@
+{
+  "reviewed_at": "2026-09-21T12:33:08.613987+00:00",
+  "scope": "Read-only review of completed user terminal logs. No installation, application rerun, model download, compiler invocation, import of torch, or GPU command was performed by this review. Only this JSON report was written.",
+  "terminal_run": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5",
+  "terminal_status": "completed",
+  "terminal_exit_code": 0,
+  "terminal_elapsed_seconds": 100.101956,
+  "terminal_started_at": "2026-09-21T12:20:21.563783+00:00",
+  "terminal_finished_at": "2026-09-21T12:22:01.665739+00:00",
+  "git_upload": false,
+  "terminal_result_evidence": {
+    "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/result.json",
+    "sha256": "b7b46c6fe1159a48140503c532eafcab379b1724be1bd5bc7801f23e699cc2a3"
+  },
+  "stages": [
+    {
+      "label": "terminal-flash-install",
+      "stage_exit_code": 0,
+      "runner_phase": "completed",
+      "command_exit_code": 0,
+      "stage_started_at": "2026-09-21T12:20:21.789661+00:00",
+      "stage_finished_at": "2026-09-21T12:20:24.794326+00:00",
+      "stage_elapsed_seconds": 3.004665,
+      "command_elapsed_seconds": 2.602244,
+      "timing_scope": "Stage includes wrapper/preflight/monitor overhead; command duration includes its own imports and finalization. Neither is pure GPU kernel time.",
+      "package_count_before": 176,
+      "package_count_after": 177,
+      "package_version_changes": {
+        "flash-attn": {
+          "before": null,
+          "after": "2.8.3"
+        }
+      },
+      "stderr_bytes": 0,
+      "evidence": [
+        {
+          "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/result.json",
+          "sha256": "f6de3d3bd8b96259a7c876bea78545b92887b5eaecc894ca0c00d3ffe7760842"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/status.json",
+          "sha256": "1e633baae11b2420eb180b4b7b91f223a3ab003e47cc898c4693bcf844208749"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/result.json",
+          "sha256": "57609b64cf46ab94f8eec8130f245c2c4c40a27f05db3f600788ac75c6dbbb9e"
+        }
+      ],
+      "run_directory": "logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf"
+    },
+    {
+      "label": "terminal-flash-smoke",
+      "stage_exit_code": 0,
+      "runner_phase": "completed",
+      "command_exit_code": 0,
+      "stage_started_at": "2026-09-21T12:20:25.027197+00:00",
+      "stage_finished_at": "2026-09-21T12:20:32.038864+00:00",
+      "stage_elapsed_seconds": 7.011667,
+      "command_elapsed_seconds": 4.810603,
+      "timing_scope": "Stage includes wrapper/preflight/monitor overhead; command duration includes its own imports and finalization. Neither is pure GPU kernel time.",
+      "package_count_before": 177,
+      "package_count_after": 177,
+      "package_version_changes": {},
+      "stderr_bytes": 0,
+      "evidence": [
+        {
+          "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/result.json",
+          "sha256": "106601478db7cd2a6babfc3fb986d17e4161d02ba1df4ba7d3f16cc44067c2e4"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/status.json",
+          "sha256": "fee3c86609c8330c09da8506c9b57305d28e4eb97e21134cd529c8ab4ac56f37"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/result.json",
+          "sha256": "cf357a4cb8eeca7d541e539b7cc830564abe4f6d0780dc563e27f174c0368e02"
+        }
+      ],
+      "run_directory": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b"
+    },
+    {
+      "label": "official-table",
+      "stage_exit_code": 0,
+      "runner_phase": "completed",
+      "command_exit_code": 0,
+      "stage_started_at": "2026-09-21T12:20:32.217666+00:00",
+      "stage_finished_at": "2026-09-21T12:21:54.366919+00:00",
+      "stage_elapsed_seconds": 82.149253,
+      "command_elapsed_seconds": 79.392798,
+      "timing_scope": "Stage includes wrapper/preflight/monitor overhead; command duration includes its own imports and finalization. Neither is pure GPU kernel time.",
+      "package_count_before": 177,
+      "package_count_after": 177,
+      "package_version_changes": {},
+      "stderr_bytes": 317739,
+      "evidence": [
+        {
+          "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/result.json",
+          "sha256": "3c7d4772e9619fbb8209e69c634acbef3b1b73e1b3441719500e1bed55d5f627"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/status.json",
+          "sha256": "1763c1a68c906cac2a338c671d2d539bca4653e078f6718dcf1449120edab809"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/result.json",
+          "sha256": "26fc9155cb28bbd478805c3d3bf8e0f2e1e5bd33164ae39c195572e2f971c11b"
+        }
+      ],
+      "run_directory": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c"
+    },
+    {
+      "label": "terminal-output-verify",
+      "stage_exit_code": 0,
+      "runner_phase": "completed",
+      "command_exit_code": 0,
+      "stage_started_at": "2026-09-21T12:21:54.559689+00:00",
+      "stage_finished_at": "2026-09-21T12:22:01.572870+00:00",
+      "stage_elapsed_seconds": 7.013181,
+      "command_elapsed_seconds": 5.403862,
+      "timing_scope": "Stage includes wrapper/preflight/monitor overhead; command duration includes its own imports and finalization. Neither is pure GPU kernel time.",
+      "package_count_before": 177,
+      "package_count_after": 177,
+      "package_version_changes": {},
+      "stderr_bytes": 0,
+      "evidence": [
+        {
+          "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/result.json",
+          "sha256": "3da8f766de1998242e296247867f1a0b7c5d56f0ad6634337a3d95d2a7b129d1"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/status.json",
+          "sha256": "755103ac0f8df2a8b0558928555f2fcce263945f498e0f156132ff6aa4efb822"
+        },
+        {
+          "path": "logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/result.json",
+          "sha256": "d1d00fad65c5d2e488dcf398a4b6ccbf65c26be836f4680640070a748256996c"
+        }
+      ],
+      "run_directory": "logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc"
+    }
+  ],
+  "installation": {
+    "wheel_name": "flash_attn-2.8.3-cp310-cp310-linux_x86_64.whl",
+    "wheel_sha256": "a69268fc612f6c689b4af4647b0cab9c935ae17d2a5bb1c5a1c561e8d46aecd2",
+    "installed_version": "2.8.3",
+    "installed_from_prebuilt_local_wheel": true,
+    "install_exit_code": 0,
+    "pip_check_exit_code": 0,
+    "pip_check_stdout": "No broken requirements found.",
+    "pip_check_stderr_bytes": 0,
+    "preserved_existing_distribution_versions": 176,
+    "evidence": [
+      {
+        "path": "logs/official-example-20260921/wheel-installs/20260921T122021899947Z/result.json",
+        "sha256": "70238dbb5fb486f640dc349a0219a7a13a1ff31b56492810664cabdca87a01f6"
+      },
+      {
+        "path": "logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/result.json",
+        "sha256": "1deeebbf5ef826dee90a49ed5675f5142b775e26efea0586d3fdb2d80ce04378"
+      },
+      {
+        "path": "logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/result.json",
+        "sha256": "164c5d17146af7738be67e52567b0884e8c4166e9176817ddd312200b733a1eb"
+      },
+      {
+        "path": "logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/stdout.log",
+        "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+      }
+    ],
+    "limit": "Recorded distribution-version comparisons prove only the observed target-environment version changes; they are not a byte-level preservation audit of the system, other environments, or CUDA files."
+  },
+  "flash_attention_smoke": {
+    "status": "passed",
+    "exit_code": 0,
+    "elapsed_seconds": 4.055434721056372,
+    "device": {
+      "uuid": "843dced4-ee97-dbb8-36c9-343fe13b7647",
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "logical_index": 0
+    },
+    "python_version": "3.10.21 (main, Aug 27 2026, 14:42:07) [GCC 14.3.0]",
+    "torch_version": "2.7.1+cu128",
+    "torchvision_version": "0.22.1+cu128",
+    "checks": {
+      "api_count": 6,
+      "dtype_count": 2,
+      "forward_count": 12,
+      "dense_shape": [
+        2,
+        8,
+        2,
+        64
+      ],
+      "varlen_lengths": [
+        5,
+        8
+      ],
+      "dropout": 0.0,
+      "causal": false,
+      "reference": "CPU float64 softmax(QK^T/sqrt(head_dim))V from quantized inputs",
+      "scope": "Forward only; no backward, long context, causal, GQA, KV-cache or full-model equivalence claim."
+    },
+    "all_subcases_passed": true,
+    "maximum_absolute_error_by_dtype": {
+      "fp16": 0.00012065004896838483,
+      "bf16": 0.0011960614055395447
+    },
+    "loaded_runtime_libraries": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/flash_attn_2_cuda.cpython-310-x86_64-linux-gnu.so",
+        "kind": "extension",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublas.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cublas/lib/libcublasLt.so.12",
+        "kind": "cublas",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_nvrtc/lib/libnvrtc.so.12",
+        "kind": "nvrtc",
+        "inside_workspace": true,
+        "stub_path": false,
+        "version_query": {
+          "exit_code": 0,
+          "major": 12,
+          "minor": 8,
+          "already_loaded_handle_only": true
+        }
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/nvidia/cuda_runtime/lib/libcudart.so.12",
+        "kind": "cudart",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so",
+        "kind": "torch_cuda",
+        "inside_workspace": true,
+        "stub_path": false
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.84",
+        "kind": "driver",
+        "inside_workspace": false,
+        "stub_path": false
+      }
+    ],
+    "evidence": {
+      "path": "logs/official-example-20260921/extension-flashattn-20260921T122026731860Z-6761909575/result.json",
+      "sha256": "760511c7be7d1e4c1453b96feb3aed62432caf618a0c433316c9a76358a4f2c9"
+    },
+    "compiler_note": "The GCC 14.3.0 in Python build metadata is the compiler used to build that interpreter; actual recorded extension host GCC/G++ tools are 13.3.0."
+  },
+  "official_example": {
+    "exit_code": 0,
+    "recorded_body_elapsed_seconds": 68.313998,
+    "body_timing_scope": "Example body includes model loading, sampling, rendering/export and texture optimization; not pure inference kernel time.",
+    "launcher_record_elapsed_seconds": 76.432442,
+    "progress": [
+      {
+        "stage": "preflight_started",
+        "updated_at": "2026-09-21T12:20:33.924056+00:00"
+      },
+      {
+        "stage": "verify_input_and_sources",
+        "updated_at": "2026-09-21T12:20:33.924274+00:00"
+      },
+      {
+        "stage": "verify_installed_versions_and_extension_records",
+        "updated_at": "2026-09-21T12:20:40.240063+00:00"
+      },
+      {
+        "stage": "initialize_torch_and_verify_selected_device",
+        "updated_at": "2026-09-21T12:20:40.325366+00:00"
+      },
+      {
+        "stage": "running_official_example",
+        "updated_at": "2026-09-21T12:20:42.041231+00:00"
+      },
+      {
+        "stage": "example_returned_synchronizing",
+        "updated_at": "2026-09-21T12:21:50.355229+00:00"
+      }
+    ],
+    "input": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-example-work-4f54e750a309/example/table.png",
+    "question": "wooden tabletop surface",
+    "question_type": 0,
+    "seed": 1,
+    "conditions_preserved": "table input, seed1, sampler25steps/cfg5, render30frames, mesh simplification.95, texture1024, official texture optimizer2500steps",
+    "model_files_rehashed": 21,
+    "source_commit": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+    "patch_sha256": "69183fcc8a17918f44a950ac626f9961dcb718218eac2cefdd61181f98c59a7a",
+    "torch_peak_allocation_bytes": 17873786368,
+    "torch_peak_reserved_bytes": 20136853504,
+    "torch_peak_allocation_gib": 16.646260738372803,
+    "torch_peak_reserved_gib": 18.75390625,
+    "torch_memory_limit": "PyTorch allocator peaks differ from whole-device nvidia-smi readings and do not include every non-PyTorch allocation.",
+    "compiler_stdout": {
+      "gcc-version": "13.3.0",
+      "gxx-version": "13.3.0",
+      "nvcc-version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:23:50_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0"
+    },
+    "stderr_warning_groups": [
+      {
+        "message": "UserWarning: xFormers is not available (SwiGLU)",
+        "count": 1,
+        "first_splitlines_line": 1
+      },
+      {
+        "message": "UserWarning: xFormers is not available (Attention)",
+        "count": 1,
+        "first_splitlines_line": 3
+      },
+      {
+        "message": "UserWarning: xFormers is not available (Block)",
+        "count": 1,
+        "first_splitlines_line": 5
+      },
+      {
+        "message": "UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation.",
+        "count": 1,
+        "first_splitlines_line": 61
+      },
+      {
+        "message": "MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.",
+        "count": 90,
+        "first_splitlines_line": 69
+      },
+      {
+        "message": "RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.",
+        "count": 1,
+        "first_splitlines_line": 109
+      },
+      {
+        "message": "IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (700, 500) to (704, 512) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).",
+        "count": 3,
+        "first_splitlines_line": 251
+      }
+    ],
+    "stderr_error_pattern_matches": [],
+    "stderr_evidence": {
+      "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stderr.log",
+      "sha256": "8320a38ed0c17655ca9d78df4a91ae40fa0c35e1c1dc7a4070e04c130fbcfc53"
+    },
+    "warning_interpretation": [
+      "DINOv2 reported xFormers unavailable in three modules; the run completed and stdout selected flash_attn for PhysX attention. This does not claim the DINO xFormers path was tested.",
+      "Torch emitted an unset TORCH_CUDA_ARCH_LIST warning during JIT; the logged sandbox exposed one selected RTX 5090. This warning alone is not evidence of a failed compile.",
+      "Matplotlib get_cmap deprecation appeared 90 times and an open-figure warning once; these merit later cleanup for repeated runs.",
+      "Three non-RGB 700x500 frames were resized to 704x512 for video encoding. Decoder validation passed."
+    ],
+    "evidence": {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/execution.json",
+      "sha256": "6db0f3ed1bcb7e6f7a829ea9128a8d8755f099ed296690f9e6dc46f4802d8948"
+    },
+    "scientific_limit": "Language-slice implementation correction follows training code; patched output is not an unchanged-upstream baseline. Parent-group logic remains unmodified and unvalidated."
+  },
+  "gpu_usage": {
+    "terminal-flash-smoke": {
+      "sample_count_including_before_after": 6,
+      "during_sample_count": 4,
+      "maximum_samples": {
+        "memory_used_mib": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 574,
+          "utilization_percent": 3,
+          "temperature_c": 45,
+          "power_w": 50.96,
+          "timestamp_local": "2026/09/21 21:20:29.123",
+          "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000002/stdout.log",
+          "query_exit_code": 0
+        },
+        "utilization_percent": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 64,
+          "utilization_percent": 16,
+          "temperature_c": 44,
+          "power_w": 31.02,
+          "timestamp_local": "2026/09/21 21:20:27.925",
+          "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000001/stdout.log",
+          "query_exit_code": 0
+        },
+        "temperature_c": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 574,
+          "utilization_percent": 3,
+          "temperature_c": 45,
+          "power_w": 50.96,
+          "timestamp_local": "2026/09/21 21:20:29.123",
+          "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-000002/stdout.log",
+          "query_exit_code": 0
+        },
+        "power_w": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 64,
+          "utilization_percent": 0,
+          "temperature_c": 45,
+          "power_w": 73.88,
+          "timestamp_local": "2026/09/21 21:20:31.530",
+          "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stdout.log",
+          "query_exit_code": 0
+        }
+      },
+      "before": {
+        "index": "0",
+        "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+        "pci_bus_id": "00000000:02:00.0",
+        "name": "NVIDIA GeForce RTX 5090",
+        "driver_version": "595.84",
+        "memory_total_mib": 32607,
+        "memory_used_mib": 64,
+        "utilization_percent": 0,
+        "temperature_c": 44,
+        "power_w": 28.97,
+        "timestamp_local": "2026/09/21 21:20:26.518",
+        "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/stdout.log",
+        "query_exit_code": 0
+      },
+      "after": {
+        "index": "0",
+        "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+        "pci_bus_id": "00000000:02:00.0",
+        "name": "NVIDIA GeForce RTX 5090",
+        "driver_version": "595.84",
+        "memory_total_mib": 32607,
+        "memory_used_mib": 64,
+        "utilization_percent": 0,
+        "temperature_c": 45,
+        "power_w": 73.88,
+        "timestamp_local": "2026/09/21 21:20:31.530",
+        "evidence": "logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stdout.log",
+        "query_exit_code": 0
+      },
+      "all_query_exit_codes_zero": true,
+      "limit": "Sampled whole-device readings, nominal 1 second plus query duration. Maxima are not continuous or exclusively attributable to this process. GPU sample timestamps are local Asia/Seoul, other ISO timestamps UTC."
+    },
+    "official-table": {
+      "sample_count_including_before_after": 68,
+      "during_sample_count": 66,
+      "maximum_samples": {
+        "memory_used_mib": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 19996,
+          "utilization_percent": 14,
+          "temperature_c": 47,
+          "power_w": 82.69,
+          "timestamp_local": "2026/09/21 21:21:46.086",
+          "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000060/stdout.log",
+          "query_exit_code": 0
+        },
+        "utilization_percent": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 8590,
+          "utilization_percent": 99,
+          "temperature_c": 57,
+          "power_w": 242.0,
+          "timestamp_local": "2026/09/21 21:21:24.423",
+          "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000042/stdout.log",
+          "query_exit_code": 0
+        },
+        "temperature_c": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 8596,
+          "utilization_percent": 99,
+          "temperature_c": 62,
+          "power_w": 531.01,
+          "timestamp_local": "2026/09/21 21:21:25.626",
+          "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000043/stdout.log",
+          "query_exit_code": 0
+        },
+        "power_w": {
+          "index": "0",
+          "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+          "pci_bus_id": "00000000:02:00.0",
+          "name": "NVIDIA GeForce RTX 5090",
+          "driver_version": "595.84",
+          "memory_total_mib": 32607,
+          "memory_used_mib": 8596,
+          "utilization_percent": 99,
+          "temperature_c": 62,
+          "power_w": 531.01,
+          "timestamp_local": "2026/09/21 21:21:25.626",
+          "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-000043/stdout.log",
+          "query_exit_code": 0
+        }
+      },
+      "before": {
+        "index": "0",
+        "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+        "pci_bus_id": "00000000:02:00.0",
+        "name": "NVIDIA GeForce RTX 5090",
+        "driver_version": "595.84",
+        "memory_total_mib": 32607,
+        "memory_used_mib": 64,
+        "utilization_percent": 0,
+        "temperature_c": 44,
+        "power_w": 33.85,
+        "timestamp_local": "2026/09/21 21:20:33.705",
+        "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/stdout.log",
+        "query_exit_code": 0
+      },
+      "after": {
+        "index": "0",
+        "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+        "pci_bus_id": "00000000:02:00.0",
+        "name": "NVIDIA GeForce RTX 5090",
+        "driver_version": "595.84",
+        "memory_total_mib": 32607,
+        "memory_used_mib": 64,
+        "utilization_percent": 2,
+        "temperature_c": 48,
+        "power_w": 78.96,
+        "timestamp_local": "2026/09/21 21:21:53.300",
+        "evidence": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/stdout.log",
+        "query_exit_code": 0
+      },
+      "all_query_exit_codes_zero": true,
+      "limit": "Sampled whole-device readings, nominal 1 second plus query duration. Maxima are not continuous or exclusively attributable to this process. GPU sample timestamps are local Asia/Seoul, other ISO timestamps UTC."
+    }
+  },
+  "gpu_selection": {
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "host_index": 1,
+    "isolated_index": 0,
+    "device_minor": 1,
+    "pci_bus_id": "00000000:02:00.0",
+    "host_compute_query_was_empty": true,
+    "isolated_compute_query_was_empty": true,
+    "evidence": [
+      {
+        "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/stdout.log",
+        "sha256": "672022301937bc65828683d35aea71f85c867e06ff53bb8ad40ca0b46c21b61a"
+      },
+      {
+        "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/stdout.log",
+        "sha256": "7332cbd53f6fef57d19eda0c98a82acb8990b24883c79288123941bfd445ae70"
+      },
+      {
+        "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "limit": "The selected UUID/PCI match across index remapping; empty preflight compute lists do not guarantee no later process or display activity."
+  },
+  "output_validation": {
+    "status": "passed",
+    "exit_code": 0,
+    "elapsed_seconds": 4.850579,
+    "issues": [],
+    "checks": {
+      "provenance": "passed",
+      "diagnostics": "passed",
+      "raw_model_heads": "passed",
+      "raw_prediction": "passed",
+      "rgb.mp4": "passed",
+      "affordance.mp4": "passed",
+      "material.mp4": "passed",
+      "description.mp4": "passed",
+      "texture.glb": "passed",
+      "kinematic_child.mp4": "not_required",
+      "kinematic_parent.mp4": "not_required",
+      "kinematic.obj": "not_required"
+    },
+    "limits": [
+      "This is a patched-example artifact integrity check, not an unchanged-upstream baseline or paper reproduction metric.",
+      "Parent-group inference/aggregation remains unmodified and unvalidated; valid conditional artifacts do not establish its correctness.",
+      "Visual quality, language grounding, physical units/accuracy and kinematic semantics need separate interpretation.",
+      "CPU torch.load uses weights_only=True and map_location=cpu; no project model class is imported."
+    ],
+    "evidence": {
+      "path": "logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json",
+      "sha256": "adeece95a342653b068122497b630cc9cb80f65368b4cce799b5d457cb66282b"
+    }
+  },
+  "review_conclusion": "All four recorded terminal stages and the separate output integrity validator passed. This demonstrates one patched official example completed; it does not establish unchanged upstream behavior, quantitative paper reproduction, correct physical predictions, or validated parent-group semantics."
+}

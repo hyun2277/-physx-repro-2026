@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "checkout",
+    "--detach",
+    "060c9188beec3a8b62b33a3bfa6d5d2d44975fab"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec",
+  "started_at": "20260921T085529810482Z"
+}

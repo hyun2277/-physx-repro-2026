@@ -1,0 +1,291 @@
+{
+  "purpose": "CPU inspection of completed outputs; no inference rerun",
+  "directory": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300",
+  "hash_checks": [
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+      "sha256": "023b79543139b57edd944d1ab194f1ccbb078ad65749b22a141a90a06805d6f1",
+      "bytes": 80150,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+      "sha256": "aa9535a503d42e25739fcf4f6a325d9e951d85a1b9a05c06ae40a26b5f08b1d1",
+      "bytes": 79036,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+      "sha256": "177de33bfba328b7c296dfb1563bf554d511eb5bc8e7801f77954b0b32416ecd",
+      "bytes": 84989,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+      "sha256": "b2bbf30a730c6d13095f9865a19c34cde58b536aa3d7ee61fddce0801fa68c51",
+      "bytes": 260,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-model-heads.pt",
+      "sha256": "fc60302356032458e12df88666d74a648a5682159c39c7b3c25cc2497f4bd2f7",
+      "bytes": 387937265,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-prediction.pt",
+      "sha256": "2a14e5075577c2a8e53392a9886c5dd460dc68a3b95faba93e5c5144ca3b05ba",
+      "bytes": 380373734,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+      "sha256": "1a10165a37137f848c6e7f8a0394d487cd078aa32e9aeca2039f6bc1c53017d3",
+      "bytes": 31521,
+      "matches_original_validation": true
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/texture.glb",
+      "sha256": "6fe5a4c07a7aac453bd8711c6b055afbaa2a2a36d0215b1d777dfaded34dd409",
+      "bytes": 1309840,
+      "matches_original_validation": true
+    }
+  ],
+  "videos": {
+    "rgb": {
+      "frames_viewable_in_sheet": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dimensions": [
+        512,
+        512
+      ],
+      "fps": 30.0
+    },
+    "affordance": {
+      "frames_viewable_in_sheet": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dimensions": [
+        704,
+        512
+      ],
+      "fps": 30.0
+    },
+    "material": {
+      "frames_viewable_in_sheet": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dimensions": [
+        704,
+        512
+      ],
+      "fps": 30.0
+    },
+    "description": {
+      "frames_viewable_in_sheet": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dimensions": [
+        704,
+        512
+      ],
+      "fps": 30.0
+    }
+  },
+  "previews": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/rgb-all-30-frames.png",
+      "bytes": 163622,
+      "sha256": "be86fa6623b957f77ced5f7a8d79fb77dbf1af15e3d54c6d4687e5fd67c2090a"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/rgb-frame00.png",
+      "bytes": 14802,
+      "sha256": "7386f55077e9f8eebc0b7dd0dc5def5e057880617cc426b17a3064b8aff8cd89"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/affordance-all-30-frames.png",
+      "bytes": 271442,
+      "sha256": "3515233414ed4f07e0f61d6fc6753de83fa26c6d35ce8e82567d6427336c8341"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/affordance-frame00.png",
+      "bytes": 49437,
+      "sha256": "85a3559ec743db6fd5ed3bbec90131ad76b37b532f9db1bfe29daa3f4056917f"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/material-all-30-frames.png",
+      "bytes": 272065,
+      "sha256": "f066850c52d10858c5cd1e12513c47d5a36371b3fe5af54b1675f09a4ebc6044"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/material-frame00.png",
+      "bytes": 51868,
+      "sha256": "5ecf0f2d5948e28b18902a749f205afa9f49e7365d364fc24579d27077b25ddd"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/description-all-30-frames.png",
+      "bytes": 271345,
+      "sha256": "eef90e3ec5d28b5237c24ceaab265805973333e2abdc4d92f998bb553da696ff"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/description-frame00.png",
+      "bytes": 49546,
+      "sha256": "30eb74dc940b77f44f41bf176d9eabf515ea91178d8b378d70b12965a6cdf193"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/glb-embedded-texture.png",
+      "bytes": 1144652,
+      "sha256": "a90ae6047e9f253a3c83e1ce371d410ec62abd5e2c7b5f130b789f6b5f3f8907"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/glb-three-views.png",
+      "bytes": 137732,
+      "sha256": "6ef48c57b847233f27d31e55ead64563ca0cbabedaa1cfffd2264d82e1610e85"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/input-on-gray.png",
+      "bytes": 33312,
+      "sha256": "d3185e76ccbeb708b9caaaaed4f4170d12085d45eda28791cd6fa994c6cdd869"
+    }
+  ],
+  "versions": {
+    "numpy": "1.26.4",
+    "trimesh": "4.6.8",
+    "imageio_ffmpeg": "0.6.0"
+  },
+  "mesh": {
+    "vertices": 4533,
+    "faces": 6098,
+    "bounds": [
+      [
+        -0.49776485562324524,
+        -0.10719514638185501,
+        -0.24113386869430542
+      ],
+      [
+        0.49809426069259644,
+        0.0998503640294075,
+        0.24208855628967285
+      ]
+    ],
+    "preview_limit": "Approximate orthographic CPU UV texture preview; no PBR, no interactive viewer or semantic/physical accuracy test."
+  }
+}

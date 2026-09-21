@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "git",
+    "-c",
+    "credential.helper=",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "remote",
+    "add",
+    "origin",
+    "https://github.com/facebookresearch/dinov2.git"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/sources/dinov2-9c7e3245797c",
+  "started_at": "20260921T090142625639Z",
+  "exit_code": 0,
+  "finished_at": "2026-09-21T09:01:42.627352+00:00"
+}

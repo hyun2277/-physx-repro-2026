@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-09-21T12:20:21.563783+00:00",
+  "status": "running",
+  "exit_code": null,
+  "argv": [
+    "/usr/bin/python3",
+    "-u",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py",
+    "--execute"
+  ],
+  "pid_identity": {
+    "pid": 1718029,
+    "start_ticks": 167863855,
+    "boot_id": "2fa89af1-6a2f-4cb1-900e-755fadf69d60"
+  },
+  "git_upload": false,
+  "stages": [],
+  "script_sha256": "b003aedac37c982267d6e99e7b221b5025a0c0551f272a97a85f4e96cc89cab1"
+}

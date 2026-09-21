@@ -1,0 +1,25 @@
+test_active_requires_exactly_one_live_controller (__main__.HandoffTests.test_active_requires_exactly_one_live_controller) ... ok
+test_actual_nonzero_stage_is_logged_and_stops (__main__.HandoffTests.test_actual_nonzero_stage_is_logged_and_stops) ... ok
+test_bad_completed_install_version_never_reinstalls (__main__.HandoffTests.test_bad_completed_install_version_never_reinstalls) ... ok
+test_completed_example_never_respawns_or_selects_gpu (__main__.HandoffTests.test_completed_example_never_respawns_or_selects_gpu) ... ok
+test_completed_requires_both_success_codes (__main__.HandoffTests.test_completed_requires_both_success_codes) ... ok
+test_exact_environment_baseline_allows_only_pinned_flash_addition (__main__.HandoffTests.test_exact_environment_baseline_allows_only_pinned_flash_addition) ... ok
+test_failed_actual_stage_never_becomes_wait_or_retry (__main__.HandoffTests.test_failed_actual_stage_never_becomes_wait_or_retry) ... ok
+test_interrupt_detaches_worker_without_killing (__main__.HandoffTests.test_interrupt_detaches_worker_without_killing) ... ok
+test_no_record_with_live_controller_is_not_new_work (__main__.HandoffTests.test_no_record_with_live_controller_is_not_new_work) ... ok
+test_orphan_terminal_stage_without_runner_status_fails_closed (__main__.HandoffTests.test_orphan_terminal_stage_without_runner_status_fails_closed) ... ok
+test_plan_does_not_create_session_or_spawn (__main__.HandoffTests.test_plan_does_not_create_session_or_spawn) ... ok
+test_previous_refuses_failed_stale_and_duplicate_records (__main__.HandoffTests.test_previous_refuses_failed_stale_and_duplicate_records) ... ok
+test_real_file_lock_blocks_duplicate_and_keeps_inode (__main__.HandoffTests.test_real_file_lock_blocks_duplicate_and_keeps_inode) ... ok
+test_recorded_live_launch_waits_for_first_status_instead_of_spawning (__main__.HandoffTests.test_recorded_live_launch_waits_for_first_status_instead_of_spawning) ... ok
+test_recorded_live_launch_without_status_times_out_without_killing (__main__.HandoffTests.test_recorded_live_launch_without_status_times_out_without_killing) ... ok
+test_session_logs_are_unique_and_existing_logs_unchanged (__main__.HandoffTests.test_session_logs_are_unique_and_existing_logs_unchanged) ... ok
+test_success_stage_writes_live_streams_and_version_evidence (__main__.HandoffTests.test_success_stage_writes_live_streams_and_version_evidence) ... ok
+test_symlink_lock_is_rejected (__main__.HandoffTests.test_symlink_lock_is_rejected) ... ok
+test_wait_detects_pid_reuse_or_controller_replacement (__main__.HandoffTests.test_wait_detects_pid_reuse_or_controller_replacement) ... ok
+test_wait_existing_job_without_spawning_or_signalling (__main__.HandoffTests.test_wait_existing_job_without_spawning_or_signalling) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.037s
+
+OK

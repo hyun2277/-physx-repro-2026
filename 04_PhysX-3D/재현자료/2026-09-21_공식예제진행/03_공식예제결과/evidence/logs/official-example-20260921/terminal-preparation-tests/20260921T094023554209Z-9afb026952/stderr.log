@@ -1,0 +1,50 @@
+test_active_requires_exactly_one_live_controller (__main__.HandoffTests.test_active_requires_exactly_one_live_controller) ... ok
+test_actual_nonzero_stage_is_logged_and_stops (__main__.HandoffTests.test_actual_nonzero_stage_is_logged_and_stops) ... ok
+test_bad_completed_install_version_never_reinstalls (__main__.HandoffTests.test_bad_completed_install_version_never_reinstalls) ... ok
+test_busy_previously_tested_gpu_does_not_fallback_or_infer (__main__.HandoffTests.test_busy_previously_tested_gpu_does_not_fallback_or_infer) ... ok
+test_completed_example_never_respawns_or_selects_gpu (__main__.HandoffTests.test_completed_example_never_respawns_or_selects_gpu) ... ok
+test_completed_requires_both_success_codes (__main__.HandoffTests.test_completed_requires_both_success_codes) ... ok
+test_continuation_checks_occupancy_only_on_previously_tested_gpu (__main__.HandoffTests.test_continuation_checks_occupancy_only_on_previously_tested_gpu) ... ok
+test_exact_environment_baseline_allows_only_pinned_flash_addition (__main__.HandoffTests.test_exact_environment_baseline_allows_only_pinned_flash_addition) ... ok
+test_existing_agent_wheel_receipt_is_reused_without_inspection (__main__.HandoffTests.test_existing_agent_wheel_receipt_is_reused_without_inspection) ... ok
+test_existing_terminal_inspection_receipt_is_reused_and_hash_checked (__main__.HandoffTests.test_existing_terminal_inspection_receipt_is_reused_and_hash_checked) ... ok
+test_existing_validator_report_is_bound_to_exact_example_and_output (__main__.HandoffTests.test_existing_validator_report_is_bound_to_exact_example_and_output) ... ERROR
+test_existing_workers_finish_before_missing_receipt_inspection (__main__.HandoffTests.test_existing_workers_finish_before_missing_receipt_inspection) ... ok
+test_failed_actual_stage_never_becomes_wait_or_retry (__main__.HandoffTests.test_failed_actual_stage_never_becomes_wait_or_retry) ... ok
+test_gpu_restore_rejects_unknown_uuid_and_inconsistent_mapping (__main__.HandoffTests.test_gpu_restore_rejects_unknown_uuid_and_inconsistent_mapping) ... ok
+test_inspector_output_override_preserves_default_receipt_and_refuses_reuse (__main__.HandoffTests.test_inspector_output_override_preserves_default_receipt_and_refuses_reuse) ... ok
+test_interrupt_detaches_worker_without_killing (__main__.HandoffTests.test_interrupt_detaches_worker_without_killing) ... ok
+test_missing_wheel_receipt_uses_only_static_inspector_in_unique_session (__main__.HandoffTests.test_missing_wheel_receipt_uses_only_static_inspector_in_unique_session) ... ok
+test_no_record_with_live_controller_is_not_new_work (__main__.HandoffTests.test_no_record_with_live_controller_is_not_new_work) ... ok
+test_orphan_terminal_stage_without_runner_status_fails_closed (__main__.HandoffTests.test_orphan_terminal_stage_without_runner_status_fails_closed) ... ok
+test_plan_does_not_create_session_or_spawn (__main__.HandoffTests.test_plan_does_not_create_session_or_spawn) ... ok
+test_previous_refuses_failed_stale_and_duplicate_records (__main__.HandoffTests.test_previous_refuses_failed_stale_and_duplicate_records) ... ok
+test_real_file_lock_blocks_duplicate_and_keeps_inode (__main__.HandoffTests.test_real_file_lock_blocks_duplicate_and_keeps_inode) ... ok
+test_recorded_live_launch_waits_for_first_status_instead_of_spawning (__main__.HandoffTests.test_recorded_live_launch_waits_for_first_status_instead_of_spawning) ... ok
+test_recorded_live_launch_without_status_times_out_without_killing (__main__.HandoffTests.test_recorded_live_launch_without_status_times_out_without_killing) ... ok
+test_restores_exact_previously_tested_gpu (__main__.HandoffTests.test_restores_exact_previously_tested_gpu) ... ok
+test_session_logs_are_unique_and_existing_logs_unchanged (__main__.HandoffTests.test_session_logs_are_unique_and_existing_logs_unchanged) ... ok
+test_success_stage_writes_live_streams_and_version_evidence (__main__.HandoffTests.test_success_stage_writes_live_streams_and_version_evidence) ... ok
+test_symlink_lock_is_rejected (__main__.HandoffTests.test_symlink_lock_is_rejected) ... ok
+test_validator_rejects_failed_report_wrong_output_and_wrong_evidence (__main__.HandoffTests.test_validator_rejects_failed_report_wrong_output_and_wrong_evidence) ... ok
+test_validator_rejects_other_example_command (__main__.HandoffTests.test_validator_rejects_other_example_command) ... ok
+test_wait_detects_pid_reuse_or_controller_replacement (__main__.HandoffTests.test_wait_detects_pid_reuse_or_controller_replacement) ... ok
+test_wait_existing_job_without_spawning_or_signalling (__main__.HandoffTests.test_wait_existing_job_without_spawning_or_signalling) ... ok
+
+======================================================================
+ERROR: test_existing_validator_report_is_bound_to_exact_example_and_output (__main__.HandoffTests.test_existing_validator_report_is_bound_to_exact_example_and_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_terminal_handoff.py", line 366, in test_existing_validator_report_is_bound_to_exact_example_and_output
+    self.assertEqual(H.verify_validation_binding(validation, example, output), report)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py", line 347, in verify_validation_binding
+    require(bool(artifacts), '검증 보고서에 출력 파일 목록이 없습니다.')
+  File "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py", line 47, in require
+    raise Stopped(message)
+handoff_under_test.Stopped: 검증 보고서에 출력 파일 목록이 없습니다.
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.067s
+
+FAILED (errors=1)

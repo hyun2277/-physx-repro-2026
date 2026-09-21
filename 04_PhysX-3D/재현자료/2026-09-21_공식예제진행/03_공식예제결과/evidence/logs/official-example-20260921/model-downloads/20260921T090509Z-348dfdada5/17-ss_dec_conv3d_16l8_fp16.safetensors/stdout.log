@@ -1,0 +1,11 @@
+{
+  "status": "running",
+  "operation_exit_code": null,
+  "exit_code_semantics": "0/1 for this Python operation; process exit is recorded by outer runner",
+  "reused": false,
+  "destination": "sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+  "size_bytes": 147591972,
+  "sha256": "1c76d4a40519aa2d711cc263a8404105231ac26db31d946bed48b84fee79009a",
+  "git_blob_sha1": "8f78c21113b60533a99c5d8a372d9c30919a803f",
+  "upstream_cryptographic_hash_verified": true
+}

@@ -1,0 +1,9 @@
+{
+  "kind": "python_function",
+  "operation": "download_and_verify_one_model",
+  "source": "https://huggingface.co/microsoft/TRELLIS-image-large/resolve/25e0d31ffbebe4b5a97464dd851910efc3002d96/ckpts/ss_dec_conv3d_16l8_fp16.json",
+  "destination": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/trellis/ckpts/ss_dec_conv3d_16l8_fp16.json",
+  "started_at": "2026-09-21T09:18:03.593779+00:00",
+  "authentication": "none; HF token=False",
+  "automatic_task_retry": false
+}

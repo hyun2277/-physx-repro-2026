@@ -1,0 +1,166 @@
+{
+  "_id": "6894ae169f4d0b8c9e72e51e",
+  "id": "Caoza/PhysXGen",
+  "private": false,
+  "tags": [
+    "dataset:Caoza/PhysX-3D",
+    "license:mit",
+    "region:us"
+  ],
+  "downloads": 0,
+  "likes": 0,
+  "modelId": "Caoza/PhysXGen",
+  "author": "Caoza",
+  "sha": "52598097b7092df495ac149e137050ce2d2784fe",
+  "lastModified": "2025-08-08T06:09:16.000Z",
+  "gated": false,
+  "disabled": false,
+  "model-index": null,
+  "config": {},
+  "cardData": {
+    "license": "mit",
+    "datasets": [
+      "Caoza/PhysX-3D"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+      "size": 1519
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "37e403c4be032a113372cbe104441a282ef324b4",
+      "size": 233
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/decoder_step0100000.json",
+      "blobId": "f9f8e3ab62ec8ad28887bc8e559730bfd63378ba",
+      "size": 406
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/decoder_step0100000.pt",
+      "blobId": "87c059bee75e54242a6449d8833ad9d39e40eb74",
+      "size": 1281392840,
+      "lfs": {
+        "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+        "size": 1281392840,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/denoiser_phy_step0700000.json",
+      "blobId": "f27ef551d305385c8a07ad46aa958bb8f32e5ded",
+      "size": 445
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+      "blobId": "6dbb057b4e898d826c8f51628bdc88f5217de3d4",
+      "size": 1619037489,
+      "lfs": {
+        "sha256": "40e9b76b5f4c6663f87539151eb6b40b209e9bb2b09ef5f18feb58e8372a7a60",
+        "size": 1619037489,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/denoiser_step0700000.json",
+      "blobId": "dd408f8947e69fd58b9b38813f2b4cdbaa79b2a8",
+      "size": 464
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/denoiser_step0700000.pt",
+      "blobId": "b1f261bd2917c6e6e024a36d82bfa40bb14fd374",
+      "size": 2822875445,
+      "lfs": {
+        "sha256": "abf3356a382e13e85e18c282a0963e5d3633b6bee1f29e974258c04a1ff1ac9b",
+        "size": 2822875445,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/property_decoder_step0100000.json",
+      "blobId": "73642bb89095165ff05d0056cecb42c87594db34",
+      "size": 372
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/property_decoder_step0100000.pt",
+      "blobId": "05bc601c57959603bb482efbac32724b16c0eca5",
+      "size": 1099504133,
+      "lfs": {
+        "sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4",
+        "size": 1099504133,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/property_output_step0100000.json",
+      "blobId": "7cfa1e4ee2b5f9f7854fd2bc11fb65bc5d01c10c",
+      "size": 181
+    },
+    {
+      "rfilename": "diffusion/ckpts_new/property_output_step0100000.pt",
+      "blobId": "d39d2e69890b40033ebcf1bf75f284ad7d269f17",
+      "size": 1099495424,
+      "lfs": {
+        "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2",
+        "size": 1099495424,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "diffusion/pipeline.json",
+      "blobId": "896506e8a67da8da3096efe659b4bebf3727637a",
+      "size": 2821
+    },
+    {
+      "rfilename": "vae/ckpts/decoder_step0100000.pt",
+      "blobId": "87c059bee75e54242a6449d8833ad9d39e40eb74",
+      "size": 1281392840,
+      "lfs": {
+        "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+        "size": 1281392840,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "vae/ckpts/property_decoder_step0100000.pt",
+      "blobId": "05bc601c57959603bb482efbac32724b16c0eca5",
+      "size": 1099504133,
+      "lfs": {
+        "sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4",
+        "size": 1099504133,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "vae/ckpts/property_encoder_step0100000.pt",
+      "blobId": "8b2b761c4f796d8cebcc7fd522a553f867b0461c",
+      "size": 1099500741,
+      "lfs": {
+        "sha256": "04e5ae16b65d2f29e014a898a06d7e555a3ad7f18a67ebe336f2f9208c860bcc",
+        "size": 1099500741,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "vae/ckpts/property_output_step0100000.pt",
+      "blobId": "d39d2e69890b40033ebcf1bf75f284ad7d269f17",
+      "size": 1099495424,
+      "lfs": {
+        "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2",
+        "size": 1099495424,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "vae/config.json",
+      "blobId": "b57f046aabaa34eb524108962ae823c5e3c61406",
+      "size": 3512
+    }
+  ],
+  "spaces": [],
+  "createdAt": "2025-08-07T13:45:58.000Z",
+  "usedStorage": 9021806072
+}

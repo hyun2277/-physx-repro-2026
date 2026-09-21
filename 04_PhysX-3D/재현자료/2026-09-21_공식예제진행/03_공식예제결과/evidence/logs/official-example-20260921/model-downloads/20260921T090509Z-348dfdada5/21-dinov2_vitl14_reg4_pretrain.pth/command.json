@@ -1,0 +1,9 @@
+{
+  "kind": "python_function",
+  "operation": "download_and_verify_one_model",
+  "source": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+  "destination": "/home/minsujo/Desktop/SH/PHYSx/cache/torch/hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth",
+  "started_at": "2026-09-21T09:21:23.919218+00:00",
+  "authentication": "none; HF token=False",
+  "automatic_task_retry": false
+}

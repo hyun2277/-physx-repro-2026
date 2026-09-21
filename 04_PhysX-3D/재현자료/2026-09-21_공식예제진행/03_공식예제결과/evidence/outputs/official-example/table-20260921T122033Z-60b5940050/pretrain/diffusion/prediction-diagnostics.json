@@ -1,0 +1,10 @@
+{
+  "seed": 1,
+  "question": "wooden tabletop surface",
+  "question_type": 0,
+  "num_group": 1,
+  "vertices": 60996,
+  "faces": 121992,
+  "finite_geometry_properties_and_heatmaps": true,
+  "language_channel_slice": "first 16 of 32; matches training renderer"
+}

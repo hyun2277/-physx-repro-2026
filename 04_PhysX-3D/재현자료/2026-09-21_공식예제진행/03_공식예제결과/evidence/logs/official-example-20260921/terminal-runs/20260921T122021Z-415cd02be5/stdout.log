@@ -1,0 +1,23 @@
+[2026-09-21T12:20:21.564327+00:00] 로그 폴더: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5
+[2026-09-21T12:20:21.564354+00:00] 기존 작업을 중단하지 않으며 실패한 실제 단계는 자동 반복하지 않습니다.
+[2026-09-21T12:20:21.565525+00:00] 기존 단계 완료 확인: flash-attention-wheel-conda-paths
+[2026-09-21T12:20:21.565579+00:00] 기존 단계 완료 확인: prepare-models
+[2026-09-21T12:20:21.790041+00:00] 시작: terminal-flash-install / 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install
+[2026-09-21T12:20:22.793066+00:00] 실시간 상세 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command
+[2026-09-21T12:20:24.795193+00:00] 종료 0: terminal-flash-install
+[2026-09-21T12:20:24.874003+00:00] 기존 단계 완료 확인: terminal-flash-install
+[2026-09-21T12:20:24.950084+00:00] 계산 프로세스가 없는 GPU 후보: 호스트 1 / GPU-843dced4-ee97-dbb8-36c9-343fe13b7647
+[2026-09-21T12:20:25.027480+00:00] 시작: terminal-flash-smoke / 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke
+[2026-09-21T12:20:26.030393+00:00] 실시간 상세 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command
+[2026-09-21T12:20:32.039677+00:00] 종료 0: terminal-flash-smoke
+[2026-09-21T12:20:32.128563+00:00] 기존 단계 완료 확인: terminal-flash-smoke
+[2026-09-21T12:20:32.217989+00:00] 시작: official-table / 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table
+[2026-09-21T12:20:33.221185+00:00] 실시간 상세 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command
+[2026-09-21T12:21:54.367769+00:00] 종료 0: official-table
+[2026-09-21T12:21:54.471116+00:00] 기존 단계 완료 확인: official-table
+[2026-09-21T12:21:54.559983+00:00] 시작: terminal-output-verify / 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify
+[2026-09-21T12:21:55.562805+00:00] 실시간 상세 로그: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command
+[2026-09-21T12:22:01.573732+00:00] 종료 0: terminal-output-verify
+[2026-09-21T12:22:01.664708+00:00] 기존 단계 완료 확인: terminal-output-verify
+[2026-09-21T12:22:01.665697+00:00] 예제 실행과 자동 출력 검사가 끝났습니다. Git 업로드는 하지 않았습니다.
+[2026-09-21T12:22:01.665968+00:00] 결과 파일: /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/result.json

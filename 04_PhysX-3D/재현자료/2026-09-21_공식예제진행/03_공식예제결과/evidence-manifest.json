@@ -1,0 +1,2804 @@
+[
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/install-plan-20260921/source-pins.json",
+    "copy": "evidence/logs/install-plan-20260921/source-pins.json",
+    "bytes": 1777,
+    "sha256": "e86de6a7a242a90af756a32d2f8745b88acd8276715d028ad17632373ba2eb92"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/CLIP-source.json",
+    "copy": "evidence/logs/official-example-20260921/CLIP-source.json",
+    "bytes": 176,
+    "sha256": "cc6f4b0e48f6eebedbef72f7a67650ffc5e938f714031043f8c103b5b46a682c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/TERMINAL_HANDOFF.md",
+    "copy": "evidence/logs/official-example-20260921/TERMINAL_HANDOFF.md",
+    "bytes": 5064,
+    "sha256": "47dc60227c19c6ee25fdea81ecba393f79247b7d50c26804c9252fe08e62db2c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_cpu_prerequisites.py",
+    "copy": "evidence/logs/official-example-20260921/check_cpu_prerequisites.py",
+    "bytes": 1171,
+    "sha256": "844261e8f93ce7ef9f1aa12bab0d15ea82ee605146fdd17c66178362c74a5975"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_extensions.py",
+    "copy": "evidence/logs/official-example-20260921/check_extensions.py",
+    "bytes": 22647,
+    "sha256": "79f84c8c0f3610964def0c87d3e50a666479e06ffda3589a6310e151b6a88d38"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/dinov2-source.json",
+    "copy": "evidence/logs/official-example-20260921/dinov2-source.json",
+    "bytes": 300,
+    "sha256": "2db780df510dd7393bb48980aa11659b2db6c3e597811986e2b0434fa5595bbd"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/example-source-manifest.json",
+    "copy": "evidence/logs/official-example-20260921/example-source-manifest.json",
+    "bytes": 1266,
+    "sha256": "31b6c8db01f02dec9bd1185484dc8a8f15b458feea8a93cb4f9e15805a84d6b3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-flashattn-20260921T122026731860Z-6761909575/result.json",
+    "copy": "evidence/logs/official-example-20260921/extension-flashattn-20260921T122026731860Z-6761909575/result.json",
+    "bytes": 13231,
+    "sha256": "760511c7be7d1e4c1453b96feb3aed62432caf618a0c433316c9a76358a4f2c9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-gaussian-20260921T091240646843Z-0f75744077/result.json",
+    "copy": "evidence/logs/official-example-20260921/extension-gaussian-20260921T091240646843Z-0f75744077/result.json",
+    "bytes": 8574,
+    "sha256": "71ba084ab4c4c692fa2f49977941cfdc24596479446ee2bef6242690854d557d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-kaolin-20260921T091144815712Z-21466a1bb2/result.json",
+    "copy": "evidence/logs/official-example-20260921/extension-kaolin-20260921T091144815712Z-21466a1bb2/result.json",
+    "bytes": 9325,
+    "sha256": "0f95ab0cb3aef48997ba3122d947e82e2b8471edfd8259ee5a1cc623d495dc7f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/extension-nvdiffrast-20260921T091332288648Z-c75a685174/result.json",
+    "copy": "evidence/logs/official-example-20260921/extension-nvdiffrast-20260921T091332288648Z-c75a685174/result.json",
+    "bytes": 7854,
+    "sha256": "0e7904e1e21141e49c8ad18fcf0d123ed671ced60fe2a32aa823c15bf571d1b9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/fetch_sources.py",
+    "copy": "evidence/logs/official-example-20260921/fetch_sources.py",
+    "bytes": 3016,
+    "sha256": "f19f856cf47f6758532386f74ca1a1f6fe5fef33b009b3b3d6c9c6165c688976"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/conda-target-path-adjustment.json",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-build/conda-target-path-adjustment.json",
+    "bytes": 1311,
+    "sha256": "b0e3c0c1a82597b2a45b115eb3375ff5033f385e7da3f4d6ef9c938554322ab9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/preparation.json",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-build/preparation.json",
+    "bytes": 667,
+    "sha256": "7bece4537e2e54a5cc55fd824d93e5d5603a106e84ddfd6e649bba8d7fb9f012"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/result.json",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-build/result.json",
+    "bytes": 3648,
+    "sha256": "6bfacbdd971f5fcd3c3f88b43f1ac0142e5275c7389adaeefa0a5618ffe1d020"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/wheel-METADATA.txt",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-build/wheel-METADATA.txt",
+    "bytes": 23500,
+    "sha256": "e06c67f26e0ed2da0e259965e83382fb99d7b20fa26d3d3ee559004a64e76ad8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-build/wheel-WHEEL.txt",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-build/wheel-WHEEL.txt",
+    "bytes": 104,
+    "sha256": "689e11bf21a435edeca489e28c6fed75ea362998520535709a1e4b439db7a5b9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/flash-attention-source.json",
+    "copy": "evidence/logs/official-example-20260921/flash-attention-source.json",
+    "bytes": 418,
+    "sha256": "e0a5b9f94f640c0ca78722d588f8a3ef50203aeb066156356f13d9a201cfc874"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/inspect_flash_wheel.py",
+    "copy": "evidence/logs/official-example-20260921/inspect_flash_wheel.py",
+    "bytes": 4642,
+    "sha256": "19561a50bdfc21ce8fe893d32e2d895305f6a6749299c85d972f5a3fc6028149"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/install_verified_wheels.py",
+    "copy": "evidence/logs/official-example-20260921/install_verified_wheels.py",
+    "bytes": 5168,
+    "sha256": "2287d7e49970fc8e60819f8820c6c36e51a18fe867fed334ce822b5bba65f71a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-download-receipt.json",
+    "copy": "evidence/logs/official-example-20260921/model-download-receipt.json",
+    "bytes": 12661,
+    "sha256": "fed004d7c00d8f37544790df5fe5fb0466b9b82a385c0328dcb9fe696b9b8d44"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/command.json",
+    "bytes": 488,
+    "sha256": "1161482a1813e94d96e6115afa97933e426a45074b229a9139d5725cc3a734c7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/result.json",
+    "bytes": 538,
+    "sha256": "f3d81f890e3b0a0512c227e800f7ad2a1b8ef3685ebf0294d1018c2b18969537"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/01-decoder_step0100000.json/stdout.log",
+    "bytes": 489,
+    "sha256": "9ecf002ce24929bc647564539680748cdf73e0ba289bf5449684e5aba6bb8066"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/command.json",
+    "bytes": 484,
+    "sha256": "b5c30f5c171093fe491f842397fc6c928e8d253b525b978e2f9aa448141f94a1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/result.json",
+    "bytes": 543,
+    "sha256": "b70454c17f1969b9c87b1422edec03b352dd7c2827852a9ab77e65b438e9d6b7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/02-decoder_step0100000.pt/stdout.log",
+    "bytes": 494,
+    "sha256": "f56a57091451d15cdb3a0ff3b49cee5eb255fedec37681d1de680c207e15c2b8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/command.json",
+    "bytes": 498,
+    "sha256": "4de9427f87f10300a5f7bf770c6c67acbf14a94096e9e009ec182c271d38b975"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/result.json",
+    "bytes": 543,
+    "sha256": "7e8290b8280557aaafbf7490aecfe03f2d04e878bd46bdaa8c40436cea4d113a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/03-denoiser_phy_step0700000.json/stdout.log",
+    "bytes": 494,
+    "sha256": "22285101e3098d731f3eed20e6b68d4d33cd827b3eef94708e91bd61b5901c7e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/command.json",
+    "bytes": 494,
+    "sha256": "b7c656235eb0372bbbc1f90d2966ba62343e65daee115c157e5ec4875fbf0605"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/result.json",
+    "bytes": 548,
+    "sha256": "9575ab499a11c6f41d54b92441bd6f51a5cea677a7dbe0360f0257c7ebe12837"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/04-denoiser_phy_step0700000.pt/stdout.log",
+    "bytes": 499,
+    "sha256": "3dad9256ff9df920073f5d634576b162ace448ec8618f93176c570d5dcbd287c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/command.json",
+    "bytes": 490,
+    "sha256": "db048dd5f541a1b79af20b0cc39108f7325553efd09ccf26fc253ef8b6dc7862"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/result.json",
+    "bytes": 539,
+    "sha256": "d2bf392d1aebaa8337733899363a7a1ebcc98da59a86993e018687e94351395a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/05-denoiser_step0700000.json/stdout.log",
+    "bytes": 490,
+    "sha256": "c83d372d6e4f6c173106f819b7ee240d4364daee21ae4d89df741d27cde8ad36"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/command.json",
+    "bytes": 486,
+    "sha256": "2fe6f8a8cc8967b192074afa78cbdcd14f9c14bf23afd5013dc5aff7f3e541c2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/result.json",
+    "bytes": 544,
+    "sha256": "72ce28a4752575061e1d6222a3b8248cf5c379ebcd34e7fd9ab38e08fe218a18"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/06-denoiser_step0700000.pt/stdout.log",
+    "bytes": 495,
+    "sha256": "a89c6d14f1b21679dd8d013917e30fdd473c6e518ba4c6c1e2c1843295e85665"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/command.json",
+    "bytes": 506,
+    "sha256": "b5dfeceb4eaa1d3b2f7520a7ee3d855d36452da029e0c713df6f18f84f01aa83"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/result.json",
+    "bytes": 547,
+    "sha256": "f9dddd836f77aef75c8f2bf7f864b4b5b87a59fcd48ed1df37c0e27fb1947eb5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/07-property_decoder_step0100000.json/stdout.log",
+    "bytes": 498,
+    "sha256": "a8796689d6cc7723bbfa64b9a743399828579bf19e6cb579a8c3cce4aa915864"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/command.json",
+    "bytes": 502,
+    "sha256": "5dd4e6b08306d7dc721eb6c0a4f648cb0801ca96a5b8d0c71779006fe56ba8ab"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/result.json",
+    "bytes": 552,
+    "sha256": "00f09d6e856e7c9e6efbb030782f2b3f6d20443444512eba872d205f8b492873"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/08-property_decoder_step0100000.pt/stdout.log",
+    "bytes": 503,
+    "sha256": "554a36c014ced5a2c4d6ab667c4ea40d3b1daa39006967b3e69e5163635a4a74"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/command.json",
+    "bytes": 504,
+    "sha256": "cc58ec0dedb42f56ac4621c7e4a6fc2f9fe0ec95d3cd7429afce38fe419bba7c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/result.json",
+    "bytes": 546,
+    "sha256": "62bcfe9fd186827c27be3a245e16b17daa1b7e009dfd7f0bc8c172ffd174dfba"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/09-property_output_step0100000.json/stdout.log",
+    "bytes": 497,
+    "sha256": "b56403cf79dc5409bfa562f9cd5d80e6c5730fcd05735c2e9c6c3b1ce0c48040"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/command.json",
+    "bytes": 500,
+    "sha256": "ca4d04b53422582f4c9a9634ee361d3d8400a80f3df70bee96a279337d4b633a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/result.json",
+    "bytes": 551,
+    "sha256": "7ae635666a89e43343153ef30959ea0b3f57f12cdde5cda68065a551d3741c20"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/10-property_output_step0100000.pt/stdout.log",
+    "bytes": 502,
+    "sha256": "9be46c176c286188c04b554185c52920b6e8b5a3c24d859e9e902530658d26a2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/command.json",
+    "bytes": 446,
+    "sha256": "665b9c59ec5f0bf5d4c660086b641b47c83d3e680a59d18d63de30a8a97f54a3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/result.json",
+    "bytes": 518,
+    "sha256": "75a2325f716243f750cbf0e062e8932e19a0f82f6f82ab2e02b1bea4fe53cddd"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/11-pipeline.json/stdout.log",
+    "bytes": 469,
+    "sha256": "20f5db515b8b535ae9ae412169b52b268a5582ed68ce687d1c09e80893f639c6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/command.json",
+    "bytes": 511,
+    "sha256": "975040516d4303b8c9e2882293db2799385bf4f37eb73a5adf578ddd4219c318"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/result.json",
+    "bytes": 546,
+    "sha256": "19831c1a8e20f4749502e85db17bcbe554db00adfdec34dba4d42cbec331a545"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/12-slat_dec_gs_swin8_B_64l8gs32_fp16.json/stdout.log",
+    "bytes": 497,
+    "sha256": "68b2daf748c259e05b7d3c2b21e0686e9888fa805ce8bc47ed7c3e7846c15db4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/command.json",
+    "bytes": 525,
+    "sha256": "4ad9dd8cd0ed49a07ca6b87c272cf2f18def6e6ae4bb1ef94dc3f01c01745222"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/result.json",
+    "bytes": 559,
+    "sha256": "a992bfa6e7c91623b29eefb8c5d83421299111907c0d63be7634e45f04f8b147"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/13-slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors/stdout.log",
+    "bytes": 510,
+    "sha256": "72d9f877168e2631e0e7ff016f3de5126cfd6fa69045ee0ee92b97474a449388"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/command.json",
+    "bytes": 509,
+    "sha256": "d79d17704948edc2d73c0acf2cfe1fc44ce9896ecdf1a5b53e4a08ec06d4df3f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/result.json",
+    "bytes": 545,
+    "sha256": "0036267fe30e3a50972c4e320d2c390c3ce8f1b9a16fb995d91db93913203933"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/14-slat_dec_rf_swin8_B_64l8r16_fp16.json/stdout.log",
+    "bytes": 496,
+    "sha256": "e0dbeec6ebc6bf38f74e5b39c9147a1ace6d665915c310c072681d6f5abd0896"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/command.json",
+    "bytes": 523,
+    "sha256": "2c38dc311aa9e83f5b6ee6e45021fa6e3cdcd02365a4ad0e7491e0c1c0bc6a62"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/result.json",
+    "bytes": 558,
+    "sha256": "8789d24f75b1085448cb1d802a01c1bdeadb2e62378eb7f5fe05865b39e1d0df"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/15-slat_dec_rf_swin8_B_64l8r16_fp16.safetensors/stdout.log",
+    "bytes": 509,
+    "sha256": "3248c4f2b1466dcb243f95e6d5e8fae6303fbe821d2fd9736f85be02445dbf06"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/command.json",
+    "bytes": 491,
+    "sha256": "fca477c0cead324ebfd1252eea75e0efaf4a3ddbed8a6f4de7d9147a468177f1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/result.json",
+    "bytes": 536,
+    "sha256": "4e8e871100fa0ec1cc3e1dec5421ad00bdf27d79183d49e912f614f8d4b1e9e7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/16-ss_dec_conv3d_16l8_fp16.json/stdout.log",
+    "bytes": 487,
+    "sha256": "3ee89ebda38a399d5997b0f34b3faf675f7335ab0ab08f48c64748a2318b9710"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/command.json",
+    "bytes": 505,
+    "sha256": "58ab1203064ab73c14990cef1a4e373562ad4c5ff4d106cc943822f237375ae2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/result.json",
+    "bytes": 549,
+    "sha256": "4b3854134d1ed77e130cd9a5ab5e51f1f6d163e3cbb19a48d099bcb12eb23820"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/17-ss_dec_conv3d_16l8_fp16.safetensors/stdout.log",
+    "bytes": 500,
+    "sha256": "c0f3747aef23e146a2ef1d661c26003ee65b6cc38edd1c7459f8900683693dd0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/command.json",
+    "bytes": 499,
+    "sha256": "f03c6a9ef7380eb404e02b2a3912d46e557f9679c7049af18b07236de1f1f6f4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/result.json",
+    "bytes": 540,
+    "sha256": "61657883283ccc605b84e7a8c12ec4ec87f9264be6fa2cea4cb92b7bdc82b998"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/18-ss_flow_img_dit_L_16l8_fp16.json/stdout.log",
+    "bytes": 491,
+    "sha256": "1f63e1bea5c1428f2d5c57f08d1f41379587b033dc706e035aa281a1be81158b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/command.json",
+    "bytes": 513,
+    "sha256": "78d82ec5ae80e1b6149034dc2c7ab376b4931bbdd51692912f0d8ceb3fa91a33"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/result.json",
+    "bytes": 554,
+    "sha256": "9cef049d1459379a9f9f6051a4417a1c5fcb0fe7d4d201f3cf9bcbaa89495f91"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/19-ss_flow_img_dit_L_16l8_fp16.safetensors/stdout.log",
+    "bytes": 505,
+    "sha256": "c65e97700cabd14d9001e602ddf5ec54f7ed6cb69f4ed22bf064ba944478d0b4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/command.json",
+    "bytes": 422,
+    "sha256": "b154a07872026e4c1d7bb76a459c4b1c240f2a21bd9e7840b67ea99aa2526e4d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/result.json",
+    "bytes": 486,
+    "sha256": "f4c16ff4b74019c3693bbe847e6e08111b1dd8e6e5762ed0b0a0bb3d295b88a4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/20-ViT-L-14.pt/stdout.log",
+    "bytes": 437,
+    "sha256": "0101fdbd1556d145d4a0f8b997d1adda7d31e65a499455384f4f179844b9e0a9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/command.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/command.json",
+    "bytes": 419,
+    "sha256": "55bfd25abed6fc971fc293c3f1148e6869064b23d2d295e5b23471adcc8389ad"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/result.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/result.json",
+    "bytes": 525,
+    "sha256": "f1b0ef7ac82b6ce518c07fe2e60dd27c3c521f6d57ee681212a0c651c107be9d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/21-dinov2_vitl14_reg4_pretrain.pth/stdout.log",
+    "bytes": 476,
+    "sha256": "8589302dd9c662675ced5a26ba10d77d708255eb96a3be488e24d112b19959e8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/status.json",
+    "copy": "evidence/logs/official-example-20260921/model-downloads/20260921T090509Z-348dfdada5/status.json",
+    "bytes": 433,
+    "sha256": "2312a67ac727929ed35054020f802e49552bef99b37ebd28b81563c0284b8448"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-hf-PhysXGen-metadata.json",
+    "copy": "evidence/logs/official-example-20260921/model-source-hf-PhysXGen-metadata.json",
+    "bytes": 4921,
+    "sha256": "2a8034903cca890cbb4faf442470b6764941fd62fd25fd16ec879a392b6e838d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-hf-TRELLIS-metadata.json",
+    "copy": "evidence/logs/official-example-20260921/model-source-hf-TRELLIS-metadata.json",
+    "bytes": 8023,
+    "sha256": "322d3977563b7c840e5b7b5a52fa364409846bc6c68935521726f0a8cfaee186"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-manifest.json",
+    "copy": "evidence/logs/official-example-20260921/model-source-manifest.json",
+    "bytes": 17099,
+    "sha256": "921e73ceaf046d1dc28ff7ec253846dd6ee711e79dc95dc94da680b4ddd8bd89"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-preparation-review.json",
+    "copy": "evidence/logs/official-example-20260921/model-source-preparation-review.json",
+    "bytes": 2566,
+    "sha256": "aa1ff74080e5d001e2644b7312836b0ae7b3b804668d34dae848507bf88c6f2e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/model-source-review.md",
+    "copy": "evidence/logs/official-example-20260921/model-source-review.md",
+    "bytes": 6165,
+    "sha256": "da421b575fa7dcd48a86bc3795f6e7c7b698487746bab3221f99c0adfb82b90d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/official-example.patch",
+    "copy": "evidence/logs/official-example-20260921/official-example.patch",
+    "bytes": 4633,
+    "sha256": "69183fcc8a17918f44a950ac626f9961dcb718218eac2cefdd61181f98c59a7a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/physx-source.json",
+    "copy": "evidence/logs/official-example-20260921/physx-source.json",
+    "bytes": 187,
+    "sha256": "f4ee0abcc054853ac6be5280be014fddcda6a5b621083ad5189b478dde0dd553"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/prepare_example_source.py",
+    "copy": "evidence/logs/official-example-20260921/prepare_example_source.py",
+    "bytes": 6126,
+    "sha256": "cb5065817b17024d890d4e85d5858d2261b85973b5692270f23e0ec5cb99682e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/prepare_flash_build.py",
+    "copy": "evidence/logs/official-example-20260921/prepare_flash_build.py",
+    "bytes": 2825,
+    "sha256": "aae8ddc2ead698afefaad9125c077632baa5690db3cdfcd25e3ada06de447196"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/prepare_models.py",
+    "copy": "evidence/logs/official-example-20260921/prepare_models.py",
+    "bytes": 13495,
+    "sha256": "cb4fdad51fd392daa52a2067dcedc4273aa93ea92cf766362846802006368bc3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/run_example.py",
+    "copy": "evidence/logs/official-example-20260921/run_example.py",
+    "bytes": 8947,
+    "sha256": "2b37ac33df0f8fb5c6c866ace6f52e8611c4f30904d35a1711b8e03777d19ea1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/command.json",
+    "bytes": 7823,
+    "sha256": "46514f32f3a3bbe43afd46318805cc421058740ea33d9017a243ade3117fc7d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/result.json",
+    "bytes": 7951,
+    "sha256": "6a1e2b1869f4a04753f390659caf9b8af357878d5a5ff252dde0b6b0c3531774"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stderr.log",
+    "bytes": 208,
+    "sha256": "f584d723d6016799815da1fe797c1cb4d40b556ab350e3d7b78d3d12d7febf46"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/plan.json",
+    "bytes": 9014,
+    "sha256": "3102775d1d51181702199ce1899bd04d5470d73becdf3c76644e4bd76cd4b812"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/status.json",
+    "bytes": 647,
+    "sha256": "b8fc94329b6f67883575ee2138ddf767970c970eccd2f69ce86fa598b4937735"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/command.json",
+    "bytes": 8250,
+    "sha256": "c193b3b5c4fa2204e8ab189e46b88fa1405901048803e27b7c6f776ac4514ab0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/result.json",
+    "bytes": 8378,
+    "sha256": "153c93a913f01ba5652bb510788b612191890d1049469fceeb1521accb1582ec"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stderr.log",
+    "bytes": 25036,
+    "sha256": "64cf3c63bd0f6c2bec1ddea6e1c3058cff107a4ed595500a593ebf7753f36e86"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stdout.log",
+    "bytes": 411,
+    "sha256": "34c63ebb79504107226ef17663d87945a17632994408494084ff767c15b2db55"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/command.json",
+    "bytes": 7783,
+    "sha256": "b0ea9f87d1eee0f19b0d231acd11045936a5487b4417efff11c766adcfe35b1e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/result.json",
+    "bytes": 7911,
+    "sha256": "5e07ed5ff2dabb7154caa86f9c876d606c616ac2dc76c65269a10f2e81620461"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/command.json",
+    "bytes": 7783,
+    "sha256": "899c145715fab01ee72de8205d5e77afa811aa3b64852cdc88983afae9d4b0cb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/result.json",
+    "bytes": 7911,
+    "sha256": "b67119b80c3add2751c4371ea1c1f29544a0a9c6e74e098bb8b97df4341d38d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/command.json",
+    "bytes": 7823,
+    "sha256": "fda9cd5433512c796c12c87f7ef90cf595c11ad0506dde03ab87ceebae5f4a79"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/result.json",
+    "bytes": 7951,
+    "sha256": "73fdacd802f631a5b601654aaf9b92b009f21d28f44fa543b31e914d960f661d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/plan.json",
+    "bytes": 9014,
+    "sha256": "3102775d1d51181702199ce1899bd04d5470d73becdf3c76644e4bd76cd4b812"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/status.json",
+    "bytes": 653,
+    "sha256": "3fdb9466fb2964310cf2dbbacec172299ee2ea4c448de7b84c5c3255747b303a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/command.json",
+    "bytes": 8716,
+    "sha256": "b4cb71976af5b102f0b6d267f5434eac1d3f516bb8f6973bdc9626fe23a054d4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/result.json",
+    "bytes": 8844,
+    "sha256": "59ec4e6c9a82ca628a297e9a45d11ca4853e068da8fcf9ec8c4ce211d251ff96"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/command/stdout.log",
+    "bytes": 3099,
+    "sha256": "2f958997a3c66e8a02bffd065038b7f8b201bbd06607759a90805923d414dbea"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/command.json",
+    "bytes": 8249,
+    "sha256": "c01d03ac6790567a7d837fbf818afd400f4f7aea4f274bc47d8c43761cb4ce00"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/result.json",
+    "bytes": 8377,
+    "sha256": "4cd8937720e6d5b0bde27f4b6efeabd839808501671f9de6685db608949ea932"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/command.json",
+    "bytes": 8249,
+    "sha256": "54a8e88c1febb791d49d680ece93e2adaaa63d4e148a4ebd0b78542808aaadb4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/result.json",
+    "bytes": 8377,
+    "sha256": "22a5513c653da7050cc166f7f3b1d90681905ddac9d57908537daec14273fa1d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/command.json",
+    "bytes": 8289,
+    "sha256": "ca247b63c9a090f5a3004cb46d71cd2086a6840772e86ff52fb6935798d673f2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/result.json",
+    "bytes": 8417,
+    "sha256": "32e325cd6ad0e271d3f2717013bbcdbd3181935477f33650ec4180ad781cfcc8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/plan.json",
+    "bytes": 9433,
+    "sha256": "608228b40b9164e919c77a4ef8387073076d4f9acc003f0f20d739d675f78ed8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090259Z-flash-attention-wheel-conda-paths-2d7b8ff070/status.json",
+    "bytes": 559,
+    "sha256": "5e9e7fea8934385d6cea38451e305a21b4cbe658636fd9c6af449b9c6ada36aa"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/command.json",
+    "bytes": 6909,
+    "sha256": "aa3d6bd7024ac1a7aa48dd5376f7bd2ad32ad0390adfcb18395ce1ba05b59cf9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/result.json",
+    "bytes": 7037,
+    "sha256": "9067d4c84a26c70bc4cba4c3d6a7213618ab58806aa026f80dbc82913541c44e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/command/stdout.log",
+    "bytes": 561,
+    "sha256": "c1c3a03f51422cbc39c37a02968c33cd441261a4903d4ccad9a72fb7bd5d9b0c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/plan.json",
+    "bytes": 7393,
+    "sha256": "d481da3d614cdf40f684476d64ec2513f76a66076e2df96d2bfe87b53d912edb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T090509Z-prepare-models-9fb53e503a/status.json",
+    "bytes": 524,
+    "sha256": "8d769770455595e92e8f4c2740259209818a376a9ba227c406f1eb64f8690745"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/command.json",
+    "bytes": 8245,
+    "sha256": "f2f8c906623eac6bd12fb32a6e9009f34f61620af05d65dec955663ed659fb3e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/result.json",
+    "bytes": 8373,
+    "sha256": "8cdf4c0f4279b913bde3dd9578da5f67d474de383c59d25595296e4f0b93148d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/command/stdout.log",
+    "bytes": 3486,
+    "sha256": "541e0ceb5ab15063daf48613edcfe73ebaa67c5873c73542baa78c92e979e4e3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/command.json",
+    "bytes": 8102,
+    "sha256": "5612b6668fbc2d18c1558ec52fe53f6729026dbe47c514a6ea91f331a44d9761"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/result.json",
+    "bytes": 8230,
+    "sha256": "37df1c528dd05653ec01a10d5d2061975deb2504b0bd48d22d8cfd19d130d4ab"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/command.json",
+    "bytes": 8102,
+    "sha256": "ef7b0e5c3a87cc8f685a9cd9557b03fe2014e22d0c288375f8807eadfe976370"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/result.json",
+    "bytes": 8230,
+    "sha256": "0909b1dfd1da453be7648e2be0dfd6a8e833e5218842b37ad9c4492c17ca6c97"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/command.json",
+    "bytes": 8142,
+    "sha256": "05d1a7456fcf9eb0f8146508fe50ca69b27c4c40a1649ec5e99c11afe376e0b9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/result.json",
+    "bytes": 8270,
+    "sha256": "916bc58c3652046288a66f81a6f87fb234ed0095a9f856b251d933d1f264fada"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/plan.json",
+    "bytes": 8701,
+    "sha256": "c3fe45779fc3207ad2f4ebea145c0591c8e3e91a632d978f7be7b5253b9867f8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T091902Z-cpu-prerequisites-63a2a12dbd/status.json",
+    "bytes": 527,
+    "sha256": "fba05a4712178eb9e65f0252d9a8bddabaf9d907ec72d62552532f782a6d0d8c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/command.json",
+    "bytes": 7165,
+    "sha256": "aa15fdc46ea891cbb679c69fa598195dd435788f0f7cf2dd5ea66f909766b91a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/result.json",
+    "bytes": 7293,
+    "sha256": "57609b64cf46ab94f8eec8130f245c2c4c40a27f05db3f600788ac75c6dbbb9e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/command/stdout.log",
+    "bytes": 633,
+    "sha256": "7339f81bc6f2afbce32ff02cc1cc909ef1b5eab17c590fce199d65396379b50c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/plan.json",
+    "bytes": 7705,
+    "sha256": "086baf375f99d46a4410376e1a9c69047952059b8acc821627580cfe8db013e4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122021Z-terminal-flash-install-20357133cf/status.json",
+    "bytes": 539,
+    "sha256": "1e633baae11b2420eb180b4b7b91f223a3ab003e47cc898c4693bcf844208749"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/command.json",
+    "bytes": 8595,
+    "sha256": "2438d9813fb0378cb9204a71c5a9e4047dfa1cb3ae31c5ad853d68c5bf515cc9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/result.json",
+    "bytes": 8723,
+    "sha256": "cf357a4cb8eeca7d541e539b7cc830564abe4f6d0780dc563e27f174c0368e02"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/command/stdout.log",
+    "bytes": 199,
+    "sha256": "25e4ffecfcc46013a0199b3e6e5699bd9aba3611c8a6a745dd64738eac44b025"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/device-mapping.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/command.json",
+    "bytes": 8345,
+    "sha256": "b321bf1b42ebef7b58c5439f207928acf980b52f4033d3c72feee802d5d76aec"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/result.json",
+    "bytes": 8473,
+    "sha256": "30fb92834f012415f9c6d6ba58c6bf227b73cc4e16b704a2d3090b55bc8fbe61"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/command.json",
+    "bytes": 8554,
+    "sha256": "bb4475c3e72cad516c11ecd6336be709798549c1acb0dae808fde1a3e75c0ea4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/result.json",
+    "bytes": 8682,
+    "sha256": "15356217341d677c7977f14d0699f0f4df47f98fd97c67960cf5c1d46da2d82e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-driver-info/stdout.log",
+    "bytes": 145,
+    "sha256": "f00fb8c04eb99a065c4d224c681eb9ae1f35fa37e9681a3f01571fec17497b3a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/command.json",
+    "bytes": 8472,
+    "sha256": "ddffdcec6b22ea012335d7a1bb65b9cf8290d93aabd39a4b8d06057e982dcb5d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/result.json",
+    "bytes": 8600,
+    "sha256": "9e9e97209e48e8becb62d1b0d25a5ac959b738ab5c10d068b33dee1b391228c7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/command.json",
+    "bytes": 8554,
+    "sha256": "2630737ea5f15a415fc4920fd449db1af21a74a6340cdbd9fe968fe572db5f85"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/result.json",
+    "bytes": 8682,
+    "sha256": "72c3fcf611d62c693e4cff1c3752d3e271d88705674e8df6584c42013bfcf8af"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-after/stdout.log",
+    "bytes": 145,
+    "sha256": "db145f1c077bf87ea54d9ee98447bce545346aa21848e67627fcc4e654a9f82f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/command.json",
+    "bytes": 8554,
+    "sha256": "2220cd2973d0196057aeb1ea3177b1e7e9d4d3d3e0d656203ecda37998bbceeb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/result.json",
+    "bytes": 8682,
+    "sha256": "29673459a4fe1b4ab3f94b6f16d5da24d79f4145e654309ffceac5fbc92a7909"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gpu-usage-before/stdout.log",
+    "bytes": 145,
+    "sha256": "176c17952d7c4e199496974e53fa59556f7b6bbceb873e6163f0f45e7df0e3fe"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/command.json",
+    "bytes": 8345,
+    "sha256": "7419f4190f7ea7436bf9189ef7b22e97c3467fecc6a0223e12dd4263f688c698"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/result.json",
+    "bytes": 8473,
+    "sha256": "e1ca0b255bc32087732a62297158b6f1aa79b655196ffb68d2a5b5a4261fae9a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "68f9df6ad8475baa0b54a8278321be146da03591d8a8484ee98c97b75f943312"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "f3daa687fa38a1da9a2305354ee08870c11f9847806a50baca784918bdd5b2b4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "638f6c2a573f7cf7cc41597c2b4a3a1e6d9479c938b8e194f73971b67d92a4a5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "315d4163faaf8b4c1aa4b44b85db87ccd5c439e9394b18cf14db3b3ae1e5b135"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/host-selected-gpu/stdout.log",
+    "bytes": 145,
+    "sha256": "3ef57fb78066f67f9f5943ea4bf1064d3cbd11b900f02afaf15d7e2f125ac210"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/command.json",
+    "bytes": 8385,
+    "sha256": "c74bd0368b810fa289e746738302397bf2899104dbdb14133730c7e2b35ff92a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/result.json",
+    "bytes": 8513,
+    "sha256": "9200f24e2cfc68909d915413fb3979886159526038a2a36487ab47060af60d02"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/plan.json",
+    "bytes": 9460,
+    "sha256": "62c96acd1c14145e1666f262dcec628a8151663f938f20bbbe1ebc9c3a9d5f15"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122025Z-terminal-flash-smoke-b0755f7e8b/status.json",
+    "bytes": 688,
+    "sha256": "fee3c86609c8330c09da8506c9b57305d28e4eb97e21134cd529c8ab4ac56f37"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/command.json",
+    "bytes": 8541,
+    "sha256": "5b3fe07b857ece2fa68ee0bdc62ca9743e1bdce01f1649511c75981c81115085"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/result.json",
+    "bytes": 8670,
+    "sha256": "26fc9155cb28bbd478805c3d3bf8e0f2e1e5bd33164ae39c195572e2f971c11b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stderr.log",
+    "bytes": 317739,
+    "sha256": "8320a38ed0c17655ca9d78df4a91ae40fa0c35e1c1dc7a4070e04c130fbcfc53"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stdout.log",
+    "bytes": 40864,
+    "sha256": "3e33ab82a75f230a392368f6916fa1b4b25201dd3a4db53ac6866253c2abba1d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/device-mapping.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/command.json",
+    "bytes": 8343,
+    "sha256": "52647c644d61952eda078405453ed21a00922ed7c28a69398f5958e8a8838a12"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/result.json",
+    "bytes": 8471,
+    "sha256": "4ced5edb560ac7aad4c3ef9fefde7dc3153c6b0d4dc75048939d1dfd29ef0837"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/command.json",
+    "bytes": 8552,
+    "sha256": "67486af5aa7147d644b6e9a44b002c78f6d81c820de19178b4fa1c42ff651043"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/result.json",
+    "bytes": 8680,
+    "sha256": "3a0423176c7c0e8bc59e07e0634185ac33ccb35d7412a3ab077af5d2f3951200"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-driver-info/stdout.log",
+    "bytes": 145,
+    "sha256": "7332cbd53f6fef57d19eda0c98a82acb8990b24883c79288123941bfd445ae70"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/command.json",
+    "bytes": 8470,
+    "sha256": "ab935dd5a4e88d9c3973f884116910fc1760a674cdf15cacbe23ed6e586c820c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/result.json",
+    "bytes": 8598,
+    "sha256": "380c47d32d03afa400b5d1510ba42bc77fff40e4fd9f6b1b691c55aadebc84a3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/command.json",
+    "bytes": 8552,
+    "sha256": "9c1d972964c47d8068216b60073af6e1c40b9fc1770be52e6e285c1b9e98c477"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/result.json",
+    "bytes": 8680,
+    "sha256": "584ae04619b6529a2ed75f3a4766a4209225a8ec5a66e0fba1686e4d0e3a1099"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-after/stdout.log",
+    "bytes": 145,
+    "sha256": "31496b4a07ffc679770d955d9764450add08c12c3b4ba06de164e519dc1555c7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/command.json",
+    "bytes": 8552,
+    "sha256": "742df47d95b2a567470d9d135fa4b8e92506e03199c13dc635c7d0103c5063b1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/result.json",
+    "bytes": 8680,
+    "sha256": "e9b403492ad7bdeac80a85b3e5369685b0442ed16179ec4c4f8d819d5d698781"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gpu-usage-before/stdout.log",
+    "bytes": 145,
+    "sha256": "b3d5ad8ed8db189f811a93c00afcfb12fb080756010089e9022d291d587b2d4c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/command.json",
+    "bytes": 8343,
+    "sha256": "4e230855a3e42bebf2a8f2f36fce63e52aa6d64460f093d95c108e291efa0a34"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/result.json",
+    "bytes": 8471,
+    "sha256": "13d3883a4862811f756cf5d982997b98592b6bf8ad44e2218852edc2c3b3e2e6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "2f64de17b48e6cb2cbea480dab35027831700aee5c7c7df3682d074a399cad71"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "cd67b373e5a14d878c64e19e72e743f9e909132b942c7b684366bfffe22192a5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "a21ce8be385bffab60f69efa727df9c88ea00167442e871a48b90ecdb3265297"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "86293fd7aefe8d979774ab036bc595d84da95a00984673e2257b09896d745e8b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/host-selected-gpu/stdout.log",
+    "bytes": 145,
+    "sha256": "672022301937bc65828683d35aea71f85c867e06ff53bb8ad40ca0b46c21b61a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/command.json",
+    "bytes": 8383,
+    "sha256": "634ce9fa11818f7d575690546de09448e51a4ef9bf128cc611cb39123913ac72"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/result.json",
+    "bytes": 8511,
+    "sha256": "c67ac0533aa6f1d9914a0b902f31770ae46c4cf6ae6793b4c0f946bef713e0cc"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/plan.json",
+    "bytes": 9429,
+    "sha256": "e61691d63c724d4830eab5e4844dc128f73fc0ca3603a3f6125399508eb3d79f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/status.json",
+    "bytes": 676,
+    "sha256": "1763c1a68c906cac2a338c671d2d539bca4653e078f6718dcf1449120edab809"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/command.json",
+    "bytes": 8740,
+    "sha256": "7025b8d2a22130f16e8b1d8d239dd84e0b4577332c2edd0b2c35f735626ec374"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/result.json",
+    "bytes": 8868,
+    "sha256": "d1d00fad65c5d2e488dcf398a4b6ccbf65c26be836f4680640070a748256996c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/command/stdout.log",
+    "bytes": 6001,
+    "sha256": "5239599c0b789da309cf5bf4cfdfeb6cee39a9f57e04372f08955d8a919c9834"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/command.json",
+    "bytes": 8137,
+    "sha256": "3555ae3fb8f959e92dd70104ea80b3e9bea2aa5948b95b34f419b1cf6f51b0b1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/result.json",
+    "bytes": 8265,
+    "sha256": "19a8256b8147c1e2663d56c2dfd015afdbdc68bd614c0d1781ecbabbc73d83cb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/command.json",
+    "bytes": 8137,
+    "sha256": "aafe58c64080a6f39e801d2b35eefd6fe2814695a3de195bfdb4daa5e156b60f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/result.json",
+    "bytes": 8265,
+    "sha256": "c39a8829e2c6413169afdf447f5e21ce3694e90f9b58adcfde12670065f99e74"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/command.json",
+    "bytes": 8177,
+    "sha256": "6c0f35b8c128e2d24f3009bba5b8af93aece6902abbbc65f6132b9e1df515550"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/result.json",
+    "bytes": 8305,
+    "sha256": "69ea4625e6d868cd5d5fac97e613619b54aceb464930adcf2fc24a7a0b9c0195"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/plan.json",
+    "bytes": 9625,
+    "sha256": "d95c2f8d291ca7326c3183cdb158c75d709c99227709acb0f4cafcabee561383"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc/status.json",
+    "bytes": 537,
+    "sha256": "755103ac0f8df2a8b0558928555f2fcce263945f498e0f156132ff6aa4efb822"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/command.json",
+    "bytes": 8351,
+    "sha256": "c70cedcbcee9d65a168ade4c82b7f88b977b30241e35fc55847c82070c6be023"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/result.json",
+    "bytes": 8479,
+    "sha256": "ac1a075978d4fd5fb13ce5ead1ed843a9bea5a6d766c1e8b90d4a2d9a59d5aeb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/command/stdout.log",
+    "bytes": 1554,
+    "sha256": "88776efce10b36fc2c8e49f7dbbed6700a24bcd33db8a7a1c34962d2622467be"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/command.json",
+    "bytes": 8207,
+    "sha256": "4290f8aee010097d47c301e5d9bdb41011b7041611a48017ad5949184adb4466"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/result.json",
+    "bytes": 8335,
+    "sha256": "b49028432e8da34ca55553029d227238393ce89a53946574e51887b7cf703687"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/command.json",
+    "bytes": 8207,
+    "sha256": "63350584c3cd1d29a45a2ff865a3382d323e67f154d3f4bf015f200368ccaa0e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/result.json",
+    "bytes": 8335,
+    "sha256": "ef4e042753434a525caf8cff192c3c91c2d9b8e039061a96c1fdae967f5b7d14"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/command.json",
+    "bytes": 8247,
+    "sha256": "612735172498e38bc8c3fda89bdd42b8425ee009393a245b256c091e75766202"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/result.json",
+    "bytes": 8375,
+    "sha256": "aaecb7072f55b301b423657fef44773b5c298dae8a8fe5ae2dc5d681f1bd6a65"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/plan.json",
+    "bytes": 8718,
+    "sha256": "1945e6ff9b17647ed6cf779b647c0605cb647073c7b2773009220dd62d3cb875"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T122927Z-completed-artifact-visual-review-96c2b97aae/status.json",
+    "bytes": 557,
+    "sha256": "f4b405441ea3da8daa17e25ea4a6c69e089609d08c370ad5affd61fc7b6da541"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/command.json",
+    "bytes": 241,
+    "sha256": "7ed4cd20000d718a06e339cb29a3683e34bf5bec491a33e89c2f4af12d017dc1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/result.json",
+    "bytes": 312,
+    "sha256": "b3cee318b733c7f474762b43713da4978e65cdfaad1d1d2099480822cd0b79a8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/stderr.log",
+    "bytes": 485,
+    "sha256": "7cc74f74cc8a8f9938bd00571e2c171ce3c59d048f2242a836ccca722182d430"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513199413Z-physx-init/stdout.log",
+    "bytes": 100,
+    "sha256": "0267a998e49626f17b44009ff15caeb557c25229076cde8ad2d9771c65927970"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/command.json",
+    "bytes": 311,
+    "sha256": "3530112e20899f3132d006c030581c359be8679fef985f111fa2f7c6d734ba36"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/result.json",
+    "bytes": 382,
+    "sha256": "12f569dc598d80d365348061c47902bb4ed0a265a79b3c7a9754f81362168f4d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513202336Z-physx-origin/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/command.json",
+    "bytes": 312,
+    "sha256": "5580cd0bdcae242d5942f6eb429f2bdaf5d4a9fc1d7d70c19e8beefbf1ffc981"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/result.json",
+    "bytes": 383,
+    "sha256": "bca0b3f49e33bfdf0a64af8b0326f23440d9ad9a4bdc44179665ad3c1f2d0d9b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/stderr.log",
+    "bytes": 122,
+    "sha256": "f29b074fc316ffec8c39376d638a2795cc504385fd55e657b008aa942ee19bf5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085513204316Z-physx-fetch/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/command.json",
+    "bytes": 300,
+    "sha256": "9a8dbd74e9dbc413eaeda4e2b273fc78b9728328b4a872530e58ce52f9adac0a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/result.json",
+    "bytes": 371,
+    "sha256": "75e4af30be3eb0a56a002703b83b454b892d332a9ad0067729011e9c2bcc4614"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/stderr.log",
+    "bytes": 30,
+    "sha256": "b9ebf233cce02e363fd35752c19849191f1e192c72ed9a58ba8577ecb1015054"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515228764Z-physx-checkout/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/command.json",
+    "bytes": 253,
+    "sha256": "05f722f791312e2a5c5788a49c3636aa9a115952a0a8069778de00b8f855514a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/result.json",
+    "bytes": 324,
+    "sha256": "8ddad81e4fc3b793400cce7b5fb9282c233e0f2cc2f2fe018f6ba2e6d83a01be"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515289990Z-physx-status/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/command.json",
+    "bytes": 270,
+    "sha256": "ad1f8180ba4d65d9c62291b4f329853770b1656c549184d958e1688ea3aeaa63"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/result.json",
+    "bytes": 341,
+    "sha256": "d6ee31402317fe1927dcac07b488266023ba88105b9de489c2b9b8eda4d4e6c7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085515324143Z-physx-submodule-status/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/command.json",
+    "bytes": 251,
+    "sha256": "ffb5f6b2fe54fa38367fd4bde8d49ebba7971c2a91aee427e7a6a9618d4754bb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/result.json",
+    "bytes": 322,
+    "sha256": "ae5098437f92dafe60ad8ee6ee89bdf31950a803fe51199e06876ebf11fb0818"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/stderr.log",
+    "bytes": 485,
+    "sha256": "7cc74f74cc8a8f9938bd00571e2c171ce3c59d048f2242a836ccca722182d430"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528099587Z-flash-attention-init/stdout.log",
+    "bytes": 110,
+    "sha256": "c2722770db54fc24cf58000061625e66dab8c06a8c0e3f845bd30cff68757d4d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/command.json",
+    "bytes": 325,
+    "sha256": "32706ed18bcb00581d685dbd39be5c3f957c05cf5678a7d315518a0018a8a4ac"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/result.json",
+    "bytes": 396,
+    "sha256": "a90cfa666034793489a28e884582af80df13525c049b5af8246c094519441414"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528101909Z-flash-attention-origin/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/command.json",
+    "bytes": 322,
+    "sha256": "e8ff75ee49d99b6efe10aaa08e58dfbc88fac6b758cf25ddbbcb2a2b515497d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/result.json",
+    "bytes": 393,
+    "sha256": "b3b0d1bc7f2db369698bd9156f4f0b5ec998df1c28744d6ecf72f39927a97cbf"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/stderr.log",
+    "bytes": 126,
+    "sha256": "391676f1e7b84ba423ba1da71b5717419a6149f57a51faf4c5beaa6eebbdc25b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085528103630Z-flash-attention-fetch/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/command.json",
+    "bytes": 310,
+    "sha256": "483ecb40cc15c60a81b40002c10a0aaa06a0531913311cf4814698e1c0ee1385"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/result.json",
+    "bytes": 381,
+    "sha256": "f5514a7d1ecf41742f3bb44ba5d3da6554f2ad32a816a0acc962aa5c6196042b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/stderr.log",
+    "bytes": 38,
+    "sha256": "9edbbe027434bf44ac5c986af279176e665df08c455b03f9522aa0a42a455867"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529810482Z-flash-attention-checkout/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/command.json",
+    "bytes": 311,
+    "sha256": "b466feb7f00b0c7dda320536255e98c82c586157b0f741c7d41677c306bb34db"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/result.json",
+    "bytes": 382,
+    "sha256": "b5be99aaa6bc015f5a6a15033c1434a781f8e2d500bb85308bc660d1fa0defd5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/stderr.log",
+    "bytes": 674,
+    "sha256": "56f20b284c3a33da54878e8818008bf9569b824d89b1f69e8e1c61314e10df66"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085529868802Z-flash-attention-submodules/stdout.log",
+    "bytes": 182,
+    "sha256": "8668fc036edf7f03b55c23bd296bad1d5715eab5e5cae4d594756c0f4e4422c1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/command.json",
+    "bytes": 263,
+    "sha256": "c2cd85627b408b13b39137366f514747f4710e3ca09bc12414dc781fc2432a79"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/result.json",
+    "bytes": 334,
+    "sha256": "9975dd1f7ac8432dfda37a523121dfa87122f0f2011f6b5838d0594333da172c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553122142Z-flash-attention-status/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/command.json",
+    "bytes": 280,
+    "sha256": "29cc7a2a2fa51a084565fae5722f590c625585827c7de1fa89050c886728e8c6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/result.json",
+    "bytes": 351,
+    "sha256": "f9bb008681d27028d204e626f92310baf37c3af06ec9c091e6d85bed0a2e4068"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T085553426875Z-flash-attention-submodule-status/stdout.log",
+    "bytes": 140,
+    "sha256": "70b84a816bf2de497d86bf88c5e4e9ddb47c0717658ca1a876d08abd9cd7facb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/command.json",
+    "bytes": 242,
+    "sha256": "374a4a7c696b27213136a4c53941496eba2732d44ac4ddbf5e499aeca0d5f9d3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/result.json",
+    "bytes": 313,
+    "sha256": "aabfe6abaafb32cd351988d271136b8cbcfd80835ccd06ccbbedf61535f78fb5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/stderr.log",
+    "bytes": 485,
+    "sha256": "7cc74f74cc8a8f9938bd00571e2c171ce3c59d048f2242a836ccca722182d430"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142622222Z-dinov2-init/stdout.log",
+    "bytes": 101,
+    "sha256": "47d477fcc73a0a7f3ccfdb45468526948c9c6462b581b643f36cd4b7acc16654"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/command.json",
+    "bytes": 314,
+    "sha256": "eb4bec11a616f774cb86b6d74af9a6d28622d55af28482b9d2395cb42e164be6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/result.json",
+    "bytes": 385,
+    "sha256": "6c18d70c9da29ce70b8b42adc16e930b1f0ca11b573ca0cbe923e5cafd4a9c3a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142625639Z-dinov2-origin/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/command.json",
+    "bytes": 313,
+    "sha256": "cc0243a3c28976849e7f0aecfb9e7a165dfe1be73cb3db94370109d9a15c3ea3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/result.json",
+    "bytes": 384,
+    "sha256": "4398af89feddf38dc218af472a81194515c91f3d4e711b519290fa8490e53ff4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/stderr.log",
+    "bytes": 124,
+    "sha256": "e1e7ea30753343b9980a8655929475e954fb86c29cd40d767bf96cb7afa2d099"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090142627447Z-dinov2-fetch/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/command.json",
+    "bytes": 301,
+    "sha256": "98a0b1a80399ca0921333dd2b07c2fe9eb6237525d3a15af45a42dbfe175c0a9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/result.json",
+    "bytes": 372,
+    "sha256": "87e7612d71283740c5e643c292933d16d141b86c85aaa2a50da8e32f452fb4e9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/stderr.log",
+    "bytes": 71,
+    "sha256": "630dec26a43cc934ff7db9f94f9ee11a1324828e2d775fa793eb96ee17fd1b43"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143522074Z-dinov2-checkout/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/command.json",
+    "bytes": 254,
+    "sha256": "a7e215dec4d5d7cf5fc1c32f64ef96fdcf8a07aec7c617868fb1ce7b51c97135"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/result.json",
+    "bytes": 325,
+    "sha256": "ef0c93cf17a39e55441a768b79214d97f20683f0078dcfb3946ef11436952e6d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143537396Z-dinov2-status/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/command.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/command.json",
+    "bytes": 271,
+    "sha256": "061e20ad1ec7e59e5d03800a7207ff5e1eedb1d8b9ae9a0c8c9981c61c2103e4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/result.json",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/result.json",
+    "bytes": 342,
+    "sha256": "c81461d8fb690e8384a6b9e2c03c7a2ed8aaa21f958da3c44dce94776c33b40f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/source-commands/20260921T090143546461Z-dinov2-submodule-status/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/sparse-check-20260921T090645683991Z-8f611c0f11/result.json",
+    "copy": "evidence/logs/official-example-20260921/sparse-check-20260921T090645683991Z-8f611c0f11/result.json",
+    "bytes": 27906,
+    "sha256": "3ede69cc3ec394b80549f99e7cbb981e338c819bf92e5c478620401b283863f6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-environment-baseline.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-environment-baseline.json",
+    "bytes": 4939,
+    "sha256": "648b71db910901be818a46309c13ae3a983525a90bb044d596e269584e048df5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-handoff-preparation-result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-handoff-preparation-result.json",
+    "bytes": 673,
+    "sha256": "33d1e6525c0198e0bc381b3919167c00b0e6ea69e20b1464b5894450510ab3e4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-manifest.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-manifest.json",
+    "bytes": 2608,
+    "sha256": "6dfd9b8f2c50ec47e0c1cb01a5a1cc22a4f57e3f4b680b6af666d33adb8b489d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/command.json",
+    "bytes": 994,
+    "sha256": "a156229271d21548cc670f0564f0d6c98f79db7e6b288f5b00b5698af9c95b7f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/result.json",
+    "bytes": 1130,
+    "sha256": "c2c9eeac588acc8a2fd3f340cec3e3009ddb41c74326dbd73c6175249df0116c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/stderr.log",
+    "bytes": 5883,
+    "sha256": "73b0c1b567d34e8821d2f8caeee50211caac04629a9fc110278d9be1a7df2e17"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094023554209Z-9afb026952/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/command.json",
+    "bytes": 994,
+    "sha256": "c693b8d00865dd93205d028f02b71fcb748405ae03e6803c3e7dfe18b74c2f61"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/result.json",
+    "bytes": 1130,
+    "sha256": "c357830b8e91dc4e8103c16c6565bc649c04cf3051975a125eadfda8caba9cf1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/stderr.log",
+    "bytes": 4894,
+    "sha256": "b66f33960cb23c768506ff7e384e5597e985875156158cf4f3a9161a337cd943"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/combined-output.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/combined-output.log",
+    "bytes": 2853,
+    "sha256": "4dda98128751a8970a1a7fc30b0be098552f63789bd2cd47e36f598a4802129d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/command-result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-preparation-tests/command-result.json",
+    "bytes": 1271,
+    "sha256": "066201a6b124d3f9ae5badb36bea4fb5d9d3ed76afa4539db6d6fe8c9dc171e5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/command.json",
+    "bytes": 540,
+    "sha256": "eaadb6a3cdd2954e3b7ba8801ef34d59a27a4fde2810c95cc013afe5628166a1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/environment-before.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/environment-before.json",
+    "bytes": 5184,
+    "sha256": "f675f128bb53c569aec4a7965acc3bc20a5b98b014f22ec6633f3430c381c1e5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/flash-wheel-verified.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/flash-wheel-verified.json",
+    "bytes": 3648,
+    "sha256": "6bfacbdd971f5fcd3c3f88b43f1ac0142e5275c7389adaeefa0a5618ffe1d020"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/command-result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/command-result.json",
+    "bytes": 316,
+    "sha256": "f8035f19d4783e998db2c41a65706f8d6893f2107a35dbc3b8adc5eac1426382"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/gpu-selection-1/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/official-table-versions-after.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/official-table-versions-after.json",
+    "bytes": 5211,
+    "sha256": "59621d893e1ad99bcb31e216953fa4ac2db688fff74d80cda4f69222d879eb35"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/official-table-versions-before.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/official-table-versions-before.json",
+    "bytes": 5211,
+    "sha256": "11d4286657167c4fbfbd7d623a5e41643f34fc0994f3b9c48de7019a4b35f7b0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json",
+    "bytes": 34485,
+    "sha256": "adeece95a342653b068122497b630cc9cb80f65368b4cce799b5d457cb66282b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/preparation-manifest.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/preparation-manifest.json",
+    "bytes": 2608,
+    "sha256": "6dfd9b8f2c50ec47e0c1cb01a5a1cc22a4f57e3f4b680b6af666d33adb8b489d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/result.json",
+    "bytes": 2408,
+    "sha256": "b7b46c6fe1159a48140503c532eafcab379b1724be1bd5bc7801f23e699cc2a3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/command.json",
+    "bytes": 990,
+    "sha256": "3b4195b5efaf23efc297e567fb6431efcd5ba2807d650558d7a94cb8836c9cf9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/result.json",
+    "bytes": 1040,
+    "sha256": "3c7d4772e9619fbb8209e69c634acbef3b1b73e1b3441719500e1bed55d5f627"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table/stdout.log",
+    "bytes": 184,
+    "sha256": "39ec143e75c5bb22eda66b7d79f676e20bc8aae8cbf50a44d8633e2e2729738d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/command.json",
+    "bytes": 896,
+    "sha256": "e609ac89a6c3c36bd582cb39c83d7b03d90942223c13193446c584a27c7ad269"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/result.json",
+    "bytes": 946,
+    "sha256": "f6de3d3bd8b96259a7c876bea78545b92887b5eaecc894ca0c00d3ffe7760842"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install/stdout.log",
+    "bytes": 192,
+    "sha256": "dc4f1ef6f3cd71ff1b5302f493cb31c27f83ed5050d9a7af4ea1e3f8d802f13a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/command.json",
+    "bytes": 1008,
+    "sha256": "d7681806652118ba99be9900950349d97be9715f5156ce3b40f96f6e148bfcea"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/result.json",
+    "bytes": 1058,
+    "sha256": "106601478db7cd2a6babfc3fb986d17e4161d02ba1df4ba7d3f16cc44067c2e4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke/stdout.log",
+    "bytes": 190,
+    "sha256": "ad02cb8a3d6884f068d769366e73e22e40ee821290da272f04dfdbd85f19089f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/command.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/command.json",
+    "bytes": 1240,
+    "sha256": "7e6f8f1f5bfa248866cc81bb2e0f5a1fd083f61b363b008e8f954cbaa1aa3c96"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/result.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/result.json",
+    "bytes": 1290,
+    "sha256": "3da8f766de1998242e296247867f1a0b7c5d56f0ad6634337a3d95d2a7b129d1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify/stdout.log",
+    "bytes": 192,
+    "sha256": "d116222ff5570c30d95054db98b7a93413fae4e5ba31421d3558aa31ea183d5e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stdout.log",
+    "bytes": 3049,
+    "sha256": "8d6c4bd2a6a01d036acb35644385a234aa73d3f918869d73321017fd3faa4e82"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-install-versions-after.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-install-versions-after.json",
+    "bytes": 5211,
+    "sha256": "a039f3618adb4a81cd5e97d85129f46bd6e2878875953b75a59130ec17f4dc3d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-install-versions-before.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-install-versions-before.json",
+    "bytes": 5184,
+    "sha256": "31f0692b2d2f5ce53e448f92e48766c5cfbfcd30fd978b166ffebf2b478fa7b2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-smoke-versions-after.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-smoke-versions-after.json",
+    "bytes": 5211,
+    "sha256": "a121ca00d79073fd71ebb586c2253e904d43b83b757598f0c90034ba45afd4b4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-smoke-versions-before.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-flash-smoke-versions-before.json",
+    "bytes": 5211,
+    "sha256": "ded846d3552725a573ec54410e557b36f9b36d20015f100821c7b30c3ad3b84a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-output-verify-versions-after.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-output-verify-versions-after.json",
+    "bytes": 5211,
+    "sha256": "5f634c2e2b0435ee481e7617e13a9eb2cc6c7a573480a668fa96136276bc6c10"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-output-verify-versions-before.json",
+    "copy": "evidence/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/terminal-output-verify-versions-before.json",
+    "bytes": 5211,
+    "sha256": "e2f4a1b333fd9701c460fefbc7db1ead6eb3bdeee076748da1de6a83f2c71d42"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py",
+    "copy": "evidence/logs/official-example-20260921/terminal_handoff.py",
+    "bytes": 26149,
+    "sha256": "b003aedac37c982267d6e99e7b221b5025a0c0551f272a97a85f4e96cc89cab1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_terminal_handoff.py",
+    "copy": "evidence/logs/official-example-20260921/test_terminal_handoff.py",
+    "bytes": 32149,
+    "sha256": "57aa9410dc85efd28fe843adf1848c117b47c957ec5f4ae1f03834ce806fa7ce"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_workspace_runner.py",
+    "copy": "evidence/logs/official-example-20260921/test_workspace_runner.py",
+    "bytes": 6214,
+    "sha256": "ec6f0a8bd40cadf7852e4c145dbac7caae865a62fbd463190122d4d1b5edccb5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/validate_example_outputs.py",
+    "copy": "evidence/logs/official-example-20260921/validate_example_outputs.py",
+    "bytes": 32460,
+    "sha256": "16e7b02f27b955bcaae34d19d687de373442a39463bebd4b0f5ed8b7459e2a64"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/after.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/after.json",
+    "bytes": 4534,
+    "sha256": "ccd87fa71ee0d36fd4f36525002e9d6a43b056fbccde5682fc6210cd51e3110c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/before.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/before.json",
+    "bytes": 4509,
+    "sha256": "6751f6dd6779a3cc55d2687479c92008cf3c4643e6acc421df1914214901c590"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/command.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/command.json",
+    "bytes": 679,
+    "sha256": "21f79e7c1c08ca9c2df868aeb5e89cb8a5b50cf2b717087137c77d768479b2be"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/result.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/result.json",
+    "bytes": 747,
+    "sha256": "268f9161bc6be4a9cbf18eb722bf3407b7166226e902736ea9bda85cd498ad67"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/dry-run/stdout.log",
+    "bytes": 254,
+    "sha256": "a3342ae3c447b330c5c8a6eade01fdc59ff89b814c96ad4c4390e5571b8f1ee8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/command.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/command.json",
+    "bytes": 526,
+    "sha256": "97c30b7dec65ed6527839602965e3531f08acefcc49fbc6ffc8847437e68c118"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/result.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/result.json",
+    "bytes": 594,
+    "sha256": "1deeebbf5ef826dee90a49ed5675f5142b775e26efea0586d3fdb2d80ce04378"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/install/stdout.log",
+    "bytes": 305,
+    "sha256": "20bbd017f09fb62222e2dede2921903a82d24de19c0e64a348427f49efc93003"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/interpreter.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/interpreter.json",
+    "bytes": 145,
+    "sha256": "ce8a6b2152c2ff79662816e573ca888dfe7130d203febd1913ab57134b25590c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/command.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/command.json",
+    "bytes": 285,
+    "sha256": "69cc0a1c0862b89e348771ed6698d0e977638410c35dc6ece538765784d19d53"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/result.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/result.json",
+    "bytes": 353,
+    "sha256": "164c5d17146af7738be67e52567b0884e8c4166e9176817ddd312200b733a1eb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/pip-check/stdout.log",
+    "bytes": 30,
+    "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/preview.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/preview.json",
+    "bytes": 25481,
+    "sha256": "79103dc3b2da586d58d5a8e02656e1968a73e9fada342e8dd49b17ab49192b1b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/result.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/result.json",
+    "bytes": 212,
+    "sha256": "70238dbb5fb486f640dc349a0219a7a13a1ff31b56492810664cabdca87a01f6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/verified-wheels.json",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/verified-wheels.json",
+    "bytes": 347,
+    "sha256": "953ac7cc71f007403bd5a80aa216014c16f8a2d41f25e786a6fe686bc63682f2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/wheels.lock.txt",
+    "copy": "evidence/logs/official-example-20260921/wheel-installs/20260921T122021899947Z/wheels.lock.txt",
+    "bytes": 205,
+    "sha256": "eafe519ae10dd580fa1e26c12814f6e5c8b7feef1be43eeff9b5cbd90156072c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+    "copy": "evidence/logs/official-example-20260921/workspace_runner.py",
+    "bytes": 24580,
+    "sha256": "d842cf69dacd6b1921a10322a7de85518be0a54847e8aabebd85e9f885dfb6ee"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/inspect_artifacts.py",
+    "copy": "evidence/logs/official-example-review-20260921/inspect_artifacts.py",
+    "bytes": 6294,
+    "sha256": "3fbd21dc7ff71ef19f7b95cf72ff71c0e8e2cc2b0fd86c34ab0931a42eec8ae9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/inspection.json",
+    "copy": "evidence/logs/official-example-review-20260921/previews-20260921T122929Z-87522300/inspection.json",
+    "bytes": 7830,
+    "sha256": "cb6278b4b080981f9894677ca025cd8a371ffc4b21690275522d05c30f6bd9da"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/stage-review.json",
+    "copy": "evidence/logs/official-example-review-20260921/stage-review.json",
+    "bytes": 28287,
+    "sha256": "42609a73dd1f580dc8480845bc2112954a17e49eda985314ad008a2a16b1b81b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-review-20260921/visual-review.md",
+    "copy": "evidence/logs/official-example-review-20260921/visual-review.md",
+    "bytes": 4965,
+    "sha256": "4743fbf99e9945d4e334171d1fb5ba03a2238834c0f8b297b3aa142626a6799c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/pip_without_site.py",
+    "copy": "evidence/logs/python-foundation-install-20260921/pip_without_site.py",
+    "bytes": 249,
+    "sha256": "f15a06f3de03f5f5c2236b8619a2d65c7392af5b3f4bd793c6d460cbadf1a992"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/execution.json",
+    "copy": "evidence/outputs/official-example/table-20260921T122033Z-60b5940050/execution.json",
+    "bytes": 8006,
+    "sha256": "6db0f3ed1bcb7e6f7a829ea9128a8d8755f099ed296690f9e6dc46f4802d8948"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+    "copy": "evidence/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+    "bytes": 260,
+    "sha256": "b2bbf30a730c6d13095f9865a19c34cde58b536aa3d7ee61fddce0801fa68c51"
+  }
+]

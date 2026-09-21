@@ -1,0 +1,54 @@
+{
+  "started_at": "2026-09-21T12:20:21.563783+00:00",
+  "status": "completed",
+  "exit_code": 0,
+  "argv": [
+    "/usr/bin/python3",
+    "-u",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal_handoff.py",
+    "--execute"
+  ],
+  "pid_identity": {
+    "pid": 1718029,
+    "start_ticks": 167863855,
+    "boot_id": "2fa89af1-6a2f-4cb1-900e-755fadf69d60"
+  },
+  "git_upload": false,
+  "stages": [
+    {
+      "label": "terminal-flash-install",
+      "directory": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-install",
+      "state": "passed",
+      "exit_code": 0
+    },
+    {
+      "label": "terminal-flash-smoke",
+      "directory": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-flash-smoke",
+      "state": "passed",
+      "exit_code": 0
+    },
+    {
+      "label": "official-table",
+      "directory": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-official-table",
+      "state": "passed",
+      "exit_code": 0
+    },
+    {
+      "label": "terminal-output-verify",
+      "directory": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/stage-terminal-output-verify",
+      "state": "passed",
+      "exit_code": 0
+    }
+  ],
+  "script_sha256": "b003aedac37c982267d6e99e7b221b5025a0c0551f272a97a85f4e96cc89cab1",
+  "official_example_run": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c",
+  "example_execution_record": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/execution.json",
+  "output_directory": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion",
+  "validation_run": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T122154Z-terminal-output-verify-07040095cc",
+  "validation_report": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-runs/20260921T122021Z-415cd02be5/output-validation.json",
+  "next_action": "Codex reviews logs and artifacts, then commits/pushes only reviewed 04_PhysX-3D records.",
+  "finished_at": "2026-09-21T12:22:01.665739+00:00"
+}

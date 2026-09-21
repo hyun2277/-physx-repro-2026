@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+    "-u",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/python-foundation-install-20260921/pip_without_site.py",
+    "check"
+  ],
+  "started_at": "2026-09-21T12:20:23.692061+00:00",
+  "exit_code": 0,
+  "ended_at": "2026-09-21T12:20:24.242909+00:00"
+}

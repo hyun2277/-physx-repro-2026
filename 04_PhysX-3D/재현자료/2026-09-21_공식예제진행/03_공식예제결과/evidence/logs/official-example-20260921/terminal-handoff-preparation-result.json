@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-09-21T09:42:01.012845+00:00",
+  "terminal_script_prepared": true,
+  "terminal_script_executed": false,
+  "official_example_started": false,
+  "existing_flash_build_phase": "command",
+  "existing_build_interrupted": false,
+  "models_downloaded_and_verified": 21,
+  "tests": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/terminal-preparation-tests/20260921T094108871329Z-efa0ac5d42/result.json",
+  "preparation_manifest_sha256": "6dfd9b8f2c50ec47e0c1cb01a5a1cc22a4f57e3f4b680b6af666d33adb8b489d",
+  "new_gpu_install_build_or_inference_after_user_handoff_request": false,
+  "git_upload_deferred_until_execution_result_review": true
+}

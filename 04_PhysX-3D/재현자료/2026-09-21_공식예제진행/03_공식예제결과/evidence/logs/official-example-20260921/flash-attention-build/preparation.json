@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-09-21T08:57:24.294342+00:00",
+  "source": "/home/minsujo/Desktop/SH/PHYSx/sources/flash-attention-060c9188beec",
+  "source_commit": "060c9188beec3a8b62b33a3bfa6d5d2d44975fab",
+  "build_copy": "/home/minsujo/Desktop/SH/PHYSx/build/flash-attention-060c9188beec",
+  "wheel_destination": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/flash-attention",
+  "source_file_count": 12082,
+  "source_manifest_sha256": "dada0d0b43b6431c0924e6492f0e6d4448431d0adf7ca127d568e767ecd47a3d",
+  "copy_matches_source": true,
+  "excluded": [
+    ".git metadata only"
+  ],
+  "patches": [],
+  "build_attempted": false,
+  "installed": false,
+  "gpu_executed": false
+}

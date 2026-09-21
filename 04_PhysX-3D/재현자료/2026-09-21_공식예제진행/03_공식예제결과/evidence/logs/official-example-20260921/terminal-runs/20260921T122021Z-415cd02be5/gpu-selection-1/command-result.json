@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/usr/bin/nvidia-smi",
+    "--id=GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "--query-compute-apps=pid,gpu_uuid,used_gpu_memory",
+    "--format=csv,noheader,nounits"
+  ],
+  "started_at": "2026-09-21T12:20:24.885829+00:00",
+  "exit_code": 0,
+  "finished_at": "2026-09-21T12:20:24.949815+00:00"
+}

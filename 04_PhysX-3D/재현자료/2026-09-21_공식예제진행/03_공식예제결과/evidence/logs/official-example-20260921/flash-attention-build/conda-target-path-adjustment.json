@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-09-21T09:04:57.314675+00:00",
+  "scope": "Build profile environment only; fetched FlashAttention source remains unchanged.",
+  "failed_build_log": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stderr.log",
+  "observed_error": "g++-13: cuda_runtime_api.h not found with CUDA_HOME/include alone",
+  "actual_header": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include/cuda_runtime_api.h",
+  "adjustment": {
+    "CPLUS_INCLUDE_PATH": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include",
+    "C_INCLUDE_PATH": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/include",
+    "LIBRARY_PATH": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/targets/x86_64-linux/lib"
+  },
+  "runtime_LD_LIBRARY_PATH_added": false,
+  "source_patch": null,
+  "runner_sha256": "9c8ffa90a24abdb5fd1ad9052dfa71198e0e942bfff77c18c96d6c0acd7c1167",
+  "actual_ninja_evidence": {
+    "cxx": "/usr/bin/g++-13",
+    "nvcc": "/home/minsujo/Desktop/SH/PHYSx/toolchains/cuda-12.8.1/bin/nvcc",
+    "cuda_arch_flag": "-gencode arch=compute_120,code=sm_120",
+    "host_flag": "-ccbin /usr/bin/gcc-13",
+    "max_jobs": 2,
+    "nvcc_threads": 1
+  }
+}

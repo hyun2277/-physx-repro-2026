@@ -1,0 +1,864 @@
+{
+  "started_at": "2026-09-21T12:21:55.233717+00:00",
+  "status": "passed",
+  "issues": [],
+  "checks": {
+    "provenance": {
+      "status": "passed",
+      "result": {
+        "input": {
+          "path": "sources/physx-4f54e750a309/example/table.png",
+          "size_bytes": 483075,
+          "sha256": "67ce4c07693c8814dbdb068c7184b3b6341dc8fd7a595cdaef314d0fb1c2b388"
+        },
+        "source_manifest": {
+          "path": "logs/official-example-20260921/example-source-manifest.json",
+          "size_bytes": 1266,
+          "sha256": "31b6c8db01f02dec9bd1185484dc8a8f15b458feea8a93cb4f9e15805a84d6b3"
+        },
+        "source_files": [
+          {
+            "original": {
+              "path": "sources/physx-4f54e750a309/example.py",
+              "size_bytes": 9870,
+              "sha256": "b971d477d48f33eaf981af4c2bc1df1bb5b44e59c11116ac68b4e7f03c8670d5"
+            },
+            "working": {
+              "path": "sources/physx-example-work-4f54e750a309/example.py",
+              "size_bytes": 12072,
+              "sha256": "06aeb0bac270369b8290d3a9952ef726b62b5dfa04b29c5757044c0785ab0c10"
+            }
+          },
+          {
+            "original": {
+              "path": "sources/physx-4f54e750a309/trellis/pipelines/trellis_image_to_3d.py",
+              "size_bytes": 16096,
+              "sha256": "6451f758f479a3e9178821939be574236fd64f6d68d7fa11448827a2b5f99473"
+            },
+            "working": {
+              "path": "sources/physx-example-work-4f54e750a309/trellis/pipelines/trellis_image_to_3d.py",
+              "size_bytes": 16166,
+              "sha256": "c6fdd825bf7e63f904ce21a77597f5a0e40d2dbed2fd85e43b0bb50e29069284"
+            }
+          }
+        ],
+        "patch": {
+          "path": "logs/official-example-20260921/official-example.patch",
+          "size_bytes": 4633,
+          "sha256": "69183fcc8a17918f44a950ac626f9961dcb718218eac2cefdd61181f98c59a7a"
+        },
+        "execution_status": {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/status.json",
+          "size_bytes": 676,
+          "sha256": "1763c1a68c906cac2a338c671d2d539bca4653e078f6718dcf1449120edab809"
+        },
+        "execution_plan": {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/plan.json",
+          "size_bytes": 9429,
+          "sha256": "e61691d63c724d4830eab5e4844dc128f73fc0ca3603a3f6125399508eb3d79f"
+        },
+        "execution_record": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/execution.json",
+          "size_bytes": 8006,
+          "sha256": "6db0f3ed1bcb7e6f7a829ea9128a8d8755f099ed296690f9e6dc46f4802d8948"
+        },
+        "working_input": {
+          "path": "sources/physx-example-work-4f54e750a309/example/table.png",
+          "size_bytes": 483075,
+          "sha256": "67ce4c07693c8814dbdb068c7184b3b6341dc8fd7a595cdaef314d0fb1c2b388"
+        },
+        "device_mapping": {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/device-mapping.json",
+          "size_bytes": 277,
+          "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+        },
+        "actual_command_result": {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/result.json",
+          "size_bytes": 8670,
+          "sha256": "26fc9155cb28bbd478805c3d3bf8e0f2e1e5bd33164ae39c195572e2f971c11b"
+        },
+        "launcher_stdout": {
+          "path": "logs/official-example-20260921/runs/20260921T122032Z-official-table-bbd1fd923c/command/stdout.log",
+          "size_bytes": 40864,
+          "sha256": "3e33ab82a75f230a392368f6916fa1b4b25201dd3a4db53ac6866253c2abba1d"
+        },
+        "launcher": {
+          "path": "logs/official-example-20260921/run_example.py",
+          "size_bytes": 8947,
+          "sha256": "2b37ac33df0f8fb5c6c866ace6f52e8611c4f30904d35a1711b8e03777d19ea1"
+        },
+        "model_manifest": {
+          "path": "logs/official-example-20260921/model-source-manifest.json",
+          "size_bytes": 17099,
+          "sha256": "921e73ceaf046d1dc28ff7ec253846dd6ee711e79dc95dc94da680b4ddd8bd89"
+        },
+        "gpu_uuid": "843dced4-ee97-dbb8-36c9-343fe13b7647",
+        "output_bound_to_supplied_run": true,
+        "recorded_conditions": "table input, seed1, sampler25steps/cfg5, render30frames, mesh simplification.95, texture1024, official texture optimizer2500steps",
+        "scientific_limit": "Language-slice implementation correction follows training code; patched output is not an unchanged-upstream baseline. Parent-group logic remains unmodified and unvalidated.",
+        "limit": "Binds trusted local records, timestamps and stdout to one run/output; not tamper-proof attestation or proof of prior process memory state."
+      }
+    },
+    "diagnostics": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+          "size_bytes": 260,
+          "sha256": "b2bbf30a730c6d13095f9865a19c34cde58b536aa3d7ee61fddce0801fa68c51"
+        },
+        "values": {
+          "seed": 1,
+          "question": "wooden tabletop surface",
+          "question_type": 0,
+          "num_group": 1,
+          "vertices": 60996,
+          "faces": 121992,
+          "finite_geometry_properties_and_heatmaps": true,
+          "language_channel_slice": "first 16 of 32; matches training renderer"
+        }
+      }
+    },
+    "raw_model_heads": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-model-heads.pt",
+          "size_bytes": 387937265,
+          "sha256": "fc60302356032458e12df88666d74a648a5682159c39c7b3c25cc2497f4bd2f7"
+        },
+        "tensors": {
+          "vertices": {
+            "shape": [
+              60996,
+              3
+            ],
+            "dtype": "torch.float32",
+            "device": "cpu",
+            "numel": 182988,
+            "finite": true,
+            "minimum": -0.4976842999458313,
+            "maximum": 0.4980597496032715
+          },
+          "faces": {
+            "shape": [
+              121992,
+              3
+            ],
+            "dtype": "torch.int64",
+            "device": "cpu",
+            "numel": 365976,
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 60995.0
+          },
+          "mesh_properties": {
+            "shape": [
+              60996,
+              32
+            ],
+            "dtype": "torch.float32",
+            "device": "cpu",
+            "numel": 1951872,
+            "finite": true,
+            "minimum": -2.6855273246765137,
+            "maximum": 3.146423101425171
+          },
+          "physical_before_unit_conversion": {
+            "shape": [
+              60996,
+              14
+            ],
+            "dtype": "torch.float16",
+            "device": "cpu",
+            "numel": 853944,
+            "finite": true,
+            "minimum": -1.068359375,
+            "maximum": 1.9267578125
+          },
+          "language": {
+            "shape": [
+              60996,
+              3072,
+              1,
+              1
+            ],
+            "dtype": "torch.float16",
+            "device": "cpu",
+            "numel": 187379712,
+            "finite": true,
+            "minimum": -4.09765625,
+            "maximum": 3.966796875
+          }
+        },
+        "note": "Saved before physical-unit conversion, heatmap normalization and group rounding; shape/finite checks only."
+      }
+    },
+    "raw_prediction": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-prediction.pt",
+          "size_bytes": 380373734,
+          "sha256": "2a14e5075577c2a8e53392a9886c5dd460dc68a3b95faba93e5c5144ca3b05ba"
+        },
+        "tensors": {
+          "vertices": {
+            "shape": [
+              60996,
+              3
+            ],
+            "dtype": "torch.float32",
+            "device": "cpu",
+            "numel": 182988,
+            "finite": true,
+            "minimum": -0.4976842999458313,
+            "maximum": 0.4980597496032715
+          },
+          "faces": {
+            "shape": [
+              121992,
+              3
+            ],
+            "dtype": "torch.int64",
+            "device": "cpu",
+            "numel": 365976,
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 60995.0
+          },
+          "physical": {
+            "shape": [
+              60996,
+              14
+            ],
+            "dtype": "torch.float16",
+            "device": "cpu",
+            "numel": 853944,
+            "finite": true,
+            "minimum": -1.068359375,
+            "maximum": 140.875
+          },
+          "language": {
+            "shape": [
+              60996,
+              3072,
+              1,
+              1
+            ],
+            "dtype": "torch.float16",
+            "device": "cpu",
+            "numel": 187379712,
+            "finite": true,
+            "minimum": -4.09765625,
+            "maximum": 3.966796875
+          },
+          "score": {
+            "shape": [
+              60996
+            ],
+            "dtype": "torch.float32",
+            "device": "cpu",
+            "numel": 60996,
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        },
+        "num_group": 1,
+        "note": "physical values may already have the official unit conversion; see raw keys and source patch. Finite values do not establish physical or semantic accuracy."
+      }
+    },
+    "rgb.mp4": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+          "size_bytes": 31521,
+          "sha256": "1a10165a37137f848c6e7f8a0394d487cd078aa32e9aeca2039f6bc1c53017d3"
+        },
+        "strict_decode": {
+          "argv": [
+            "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+            "-nostdin",
+            "-v",
+            "error",
+            "-xerror",
+            "-err_detect",
+            "explode",
+            "-hwaccel",
+            "none",
+            "-protocol_whitelist",
+            "file,pipe",
+            "-i",
+            "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+            "-map",
+            "0:v:0",
+            "-an",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "decoder": "imageio_ffmpeg.read_frames; rgb24 CPU",
+        "metadata": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 30.0,
+          "source_size": [
+            512,
+            512
+          ],
+          "size": [
+            512,
+            512
+          ],
+          "rotate": 0,
+          "duration": 1.0
+        },
+        "decoded_frames": 30,
+        "decoded_frame_sha256": [
+          "4fcb65c7bf7c6bb9f7bd0fedcab2e1ecdae57e99cdc536ab417e5ea4fb9eecdc",
+          "a529f374c016c03f2fee06a60c295271b85fef78c33e4ffb90fcb0a9b65e6741",
+          "1b42725510be40f72675e5f1822495bad620c5e3380c0def28ddb998a42b5edb",
+          "5e78cf2c87573ee2f0aba4c16f5de7cd9a9f1521b88d991e6f456ecb3dbfa16c",
+          "8aee17748d7fa5cbc67e895dd2f6b9a4c7cebb9f1a8ad6aad1db4ec5af8a4a57",
+          "079de2573069152f543342da5c1e059f5dc2f899884cb97d0b19cfd825461254",
+          "ffadc4978602f0b764574c5bcc311b7182fe2823a06282eedb5c58db15f093a9",
+          "ed43e37266154f2cb143232d95337071073f7643fa2348806d1dfa7617a97af7",
+          "f4382dd56ebd7bfe40b09f52074161ad7bf5fb8e8d52b2e88da4125d1d11b1c8",
+          "808fe2c6e95220f50f09e6b0e5279c306ca56d25f30041516dbdb3e9fe609ed4",
+          "1b506111f981c037ce9337d11495355abfca57d88f4c8b74bbd2af28142c0b72",
+          "29d46bd389ffbce39a0baf65405b61517861208a17413575e55b332c526b4519",
+          "10b26d4a680b036495b67d80337bb8ae7d1f8af936ab5a13637bd622257e7336",
+          "abf8fec915c8ef2d650e0ed92986d5bf307c78cacdb98a427e0800ee40d40f09",
+          "920491b557650efb07f5694935b1cbc82efa672d4fedf34c6b7ecc1383167e28",
+          "907d82785a92693943980ff883c4465c1c67005f31786c8ea05473e2cc42e331",
+          "b0cf797adb2fe93c8e13d43b4f30c0ed517f6a3d2739aad18f1b770d91a3b0c6",
+          "bdda8814b6fc6fabbd300b9e15ef7b7d815a85db0f7c013202e492a7c440bfef",
+          "dffe93ed5f1eb5df0d84df4ae5dc22414b74e19887fdd9b379e00a7c697a5b89",
+          "810d2c40f359053912ddef1299c9707fbcd5b912246b69db5cf7061e2306bd83",
+          "ec4cf6352b01244b7e414cc38d96a4430d08a8039475ca09b20adc8fc530a371",
+          "8f52640fb249b0b6264c1208bc2f4aec49aab3945f2195486235a8ad55b4b516",
+          "89e8aeea6b324acb7942c0dc2eaf7bb5e99f6f3543c97cef27ec9f43a4a343d5",
+          "84e3dd6e68d2926105dcf8589e3565c92b8e30cb51d173e8fbe3ae446011117b",
+          "2ae7667f380e4c1dee9a19c54df54d72dc23cf7e6678464144f6c87cab2802d5",
+          "5b36a078bbde6d7e02cdd0b92a80471da6f832e7b499e80958f83ac693079157",
+          "62577d85bc3ca6fa23ef3ef89de171f6c160e7e004a52c8648b3daa79cdba485",
+          "d627f908c28bf2dff5c8e81cb44d7696194b955d896ec0925799c2f94ad35401",
+          "a074b727875950b0a9b3e3e334031871fcab524acf08c51b77bd6426607efd9f",
+          "569c66e04e4531d905ea618df34d55c711c71d966c3c619be2ac7c1460bae274"
+        ],
+        "unique_decoded_frames": 30,
+        "pixel_minimum": 0,
+        "pixel_maximum": 255,
+        "limit": "Decodability and finite uint8 pixels do not certify object quality, colors, or semantic heatmaps."
+      }
+    },
+    "affordance.mp4": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+          "size_bytes": 80150,
+          "sha256": "023b79543139b57edd944d1ab194f1ccbb078ad65749b22a141a90a06805d6f1"
+        },
+        "strict_decode": {
+          "argv": [
+            "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+            "-nostdin",
+            "-v",
+            "error",
+            "-xerror",
+            "-err_detect",
+            "explode",
+            "-hwaccel",
+            "none",
+            "-protocol_whitelist",
+            "file,pipe",
+            "-i",
+            "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+            "-map",
+            "0:v:0",
+            "-an",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "decoder": "imageio_ffmpeg.read_frames; rgb24 CPU",
+        "metadata": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 30.0,
+          "source_size": [
+            704,
+            512
+          ],
+          "size": [
+            704,
+            512
+          ],
+          "rotate": 0,
+          "duration": 1.0
+        },
+        "decoded_frames": 30,
+        "decoded_frame_sha256": [
+          "19636be38e4fc54e8da510428130d914a4b106de72a61733c4bbb71299fe8976",
+          "3f23119b0c47cb1057e401127f22bd92c197799bec07981b622dd8ca24a119b1",
+          "b8fb1a3fb9c416ba2ce6938bc2f33fcc4e54322f47ef1b6c12a6a21e045783eb",
+          "aa29de88fd3325437ecd3bfd09ceedfd7e1a68f51edf59eb19583dbb1be89db1",
+          "d7e48832221ef95a62c353abd765c6073fdebcbc685d76fe15c1e5419ee98d40",
+          "6ac6d8dc2fbd62e6de2ccb6a128b82a60b092ba9b7effba29f375da886160b6a",
+          "6bc421b3d06fe211c741a9db6f9111b2af248635716650e74676ef797257e74d",
+          "9e2307708506f1262a4c3de6c4a2d19798a6ebc8660d2e45f04121a63c0f7a69",
+          "445ad138f83c90a43f540dca14ac2ada787a7c75fe93df54c6f6ab9c05fc8387",
+          "138b923642c17e72c7c6ab38fb40ce430bd979c2374c437d75af4664cfcc7916",
+          "15bcc7ad64bbb5313ebae7908f19e25aea7cafb12a505d5027999f66f451e2a4",
+          "8076602e9f6c128248f987b04b998ab23ce1b208b29b05ed195b4f90aaeafbda",
+          "3fc1745aba96deace50394016966fb95971c9c6af6848dab714609c7d690b61c",
+          "a4cb3368d47302d47392fd55b14695c27b5a9ce79295224181a8b14793b66945",
+          "011cd0995ebb058b7affce9a2a3b46c0d0150e0f459bc3addd1bdc012239aa28",
+          "48611af5fe12589c330239ffbc2331b994de29885ce516663a9eae8d90cf6c15",
+          "1e7b379ff6a7c0c1fd045a73906e964b2c741ed29d976bf6e7f8ececa4fc8cb0",
+          "8370206795dd480b2b61a5b73b43c819f16a81b61659cf4d939bc981f3acdbfc",
+          "0258f4169b43a4f904a459cdaab213d91b760b3da6274975b0bb378aaf955639",
+          "07f62e7ef763967e3ddae63577548cdbe4ea3e1886b50e27ccff8d8e194a8541",
+          "e1142026bc8766b6bf6e8fe61073a180db301bfe738fe8500b2ac959bd3549a0",
+          "a98319c679898da1472b5a94e3b9a1c5d0b992e67aec72ccebb374e059209cbb",
+          "751c692b049049f2ca45523fa1b005a1e47fec52ee510ec12a50477852c2d61a",
+          "ed5cae8b523a211e23d35d63a4f9b1c3491ecef59a63773860c7808ebdc53090",
+          "5ca8c70bfa37c1e177be84836964d362a451ae4ec010374228eaa0ff75142f6c",
+          "99fc06d29cbc9a53dc5b549f4cb19ecca464f96c53554deca9a8848cfe573e07",
+          "7b7bf4985442740bb0a5082ea9040282c0401e38fbc153e32d742e0711e1bf6b",
+          "9296de02e0c0597b87ead21806638e4a5ce0940d6a11df6c823488bee1dfd888",
+          "d990903fe702db89cda76421190b2496fae768030aa8a9906734610f338bdb3f",
+          "c010a4f2e353d59fecbfe5f7473b14d18fea68ba644e5e0bddf99bf4eb146957"
+        ],
+        "unique_decoded_frames": 30,
+        "pixel_minimum": 0,
+        "pixel_maximum": 255,
+        "limit": "Decodability and finite uint8 pixels do not certify object quality, colors, or semantic heatmaps."
+      }
+    },
+    "material.mp4": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+          "size_bytes": 84989,
+          "sha256": "177de33bfba328b7c296dfb1563bf554d511eb5bc8e7801f77954b0b32416ecd"
+        },
+        "strict_decode": {
+          "argv": [
+            "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+            "-nostdin",
+            "-v",
+            "error",
+            "-xerror",
+            "-err_detect",
+            "explode",
+            "-hwaccel",
+            "none",
+            "-protocol_whitelist",
+            "file,pipe",
+            "-i",
+            "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+            "-map",
+            "0:v:0",
+            "-an",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "decoder": "imageio_ffmpeg.read_frames; rgb24 CPU",
+        "metadata": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 30.0,
+          "source_size": [
+            704,
+            512
+          ],
+          "size": [
+            704,
+            512
+          ],
+          "rotate": 0,
+          "duration": 1.0
+        },
+        "decoded_frames": 30,
+        "decoded_frame_sha256": [
+          "48fcf5989adcb7242c1b2742aa2554e754ddf928f112b538261188af540e142e",
+          "98b1500fcfbda77d8b75f4140e68591a279f987e3914c55c977c83a251d705e6",
+          "55f0543ecf61ecd9ecc5dea56d2ceac789d31735e27bd49a95645b8963d20913",
+          "9ec8adfc3de02c9e74ee0c5a2f0d6ae9dad31bbc634d23ee62ad9f821920debb",
+          "c39ecfc6e0467f9a659477be9b0c4bc948bde8b857c2cecb86ca88c752386401",
+          "9a248e567bee7dcc0350391daa0178cfdf265700c41c63e3f6735dca7dc16463",
+          "f2e32fad500faaaef7b4f5a6dc8d3d60146e5dd73ef5067cc25b59a7aba3f249",
+          "c4e8be8c17c50c7362eae319315169d9f49690d93178d3c87744722876442597",
+          "ca25a88e09d56e5e7558260e759d06a41a5a7dfd9608d0a45d242e8898c11b41",
+          "131f067edf0cb72461fb7ee564935418f1052fbed52c1e8f34e45d4a8757b77c",
+          "18b6584efe125c5d237503cbccc04a187e902fc405d32a5233fbf3c13d4f41db",
+          "9a11a54800de0dd3b349c35342c854ac08d3775355d03e7893f0a2e5d1422dff",
+          "4227e7db087946af1948219c6079e1101287892354140b9a4118749bdf8ef845",
+          "c3bd710fc19c71b16e1fedf850386eec4481d44e0820652549c06042b7b9f0e1",
+          "5fd575fed66c8e5f94ee96d6561c2da12a941c724ca5bc1b6a13d67c78aa2dc0",
+          "f8d63885226d75882aad7b05e0487dbacb4fd756a5582239e4c2275ea3309fb4",
+          "0a05bd6476cb686104de23d20bcb119c7c0910a1196674648747526f32a27090",
+          "6212d6975d8f21c875bbd0a9f0311f2ae4d461b9a1d7e7d8afb2a330fc4b9cbe",
+          "45daa20a0ba22bf7773ca062f050d08cb644ac68d0e9c307d7ff7412cf1aae65",
+          "f6d64913d89fa24b1a83abc0603828a21d10eb8ea14b8b46f24fb43c33f4f3fd",
+          "3d2ed5e8740cd6459df90f92bd151f58e0123f32893a203ded951edc9c321c35",
+          "e3b2824859eeb3331ef8014bd1b63a1853e4ea3a7c37ded4c9603a64eee918b6",
+          "509d09ccc1598c8b7dd7c7c1049c36425e2626415c0b2a9f78e1a08bc9f2002a",
+          "a970fd9cbf3821c9dd5e7be6af9a9561b3e47ff5d0821781cdc99a8d4a9569f9",
+          "67d90d11dde1f6563324def40b416e140a1485feaf5120a0e7dea2e09c1b40b8",
+          "290c8023edbed487ed9b13121713c45e3c801b61c3f2ba46e0e5cc998c1a0461",
+          "33a207e82792b9ae6df4e9374034d7de8cb36a175b7670353111d79280d2614a",
+          "5b9d064eca6d7ca8d4f95bb44a93b79c8c0fb1c9e5b0e191945030af3261c8db",
+          "2c82f83ae62784e10a2bee216d40daa579d7216a537d0e5b16fcfe2c13235a6e",
+          "edfd7f45b2fd765ed59cbbd2014ac80422884627337cd0a457c48f3e8545a74c"
+        ],
+        "unique_decoded_frames": 30,
+        "pixel_minimum": 0,
+        "pixel_maximum": 255,
+        "limit": "Decodability and finite uint8 pixels do not certify object quality, colors, or semantic heatmaps."
+      }
+    },
+    "description.mp4": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+          "size_bytes": 79036,
+          "sha256": "aa9535a503d42e25739fcf4f6a325d9e951d85a1b9a05c06ae40a26b5f08b1d1"
+        },
+        "strict_decode": {
+          "argv": [
+            "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+            "-nostdin",
+            "-v",
+            "error",
+            "-xerror",
+            "-err_detect",
+            "explode",
+            "-hwaccel",
+            "none",
+            "-protocol_whitelist",
+            "file,pipe",
+            "-i",
+            "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+            "-map",
+            "0:v:0",
+            "-an",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "decoder": "imageio_ffmpeg.read_frames; rgb24 CPU",
+        "metadata": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 30.0,
+          "source_size": [
+            704,
+            512
+          ],
+          "size": [
+            704,
+            512
+          ],
+          "rotate": 0,
+          "duration": 1.0
+        },
+        "decoded_frames": 30,
+        "decoded_frame_sha256": [
+          "10f316376537f934023bd931604c0759ea569f27c42a5fa6723ba8a009a2a2c5",
+          "06dee13235a9ae5dfb90bb84a2b99730c1253b7bb93d6f60c3734737726f5a2c",
+          "046adcf318af0843a7ef5824ca23c9c8797a6f298bf9254860cbf0876e92c198",
+          "a258d23430929abad70d3f19c53887e5e7c9482dbea4fa72c83bdb6f0b2f0807",
+          "a88970fe2f5ff04eb937c9688865ce6e5687b0543d0dc112e62079e3b9faa3d3",
+          "edb5ab8a690e062fcf02714b38b8b01d354f7c8693db02cc62430860be789bd8",
+          "d4e222def899796e9ff2677f5952211b333921f6801a43cc6f022cc5693bb33d",
+          "0ce632c70ab5eba0f21dca683ab9c9b7eb13b8bc7d59962f32c827c1ec2e06e4",
+          "30ae3a0c021854bda9dea30858546dd23439328a48ce216963dda22308039b83",
+          "cc59023cbf44089f0ea67d5bc9697e0a82e364633894c3aead7b1c82d52e7059",
+          "20c96a3666fb0b383419f6a67751b641371e5bba0c3d593a718d6b04e536e1f8",
+          "cd648176fb1b86554556c068df80f0090501519ac933d6bbbbc20fc7dc08aeda",
+          "bd037286bef4dc4ee985512215bdba5e4f6741f4735f9838a897cb016999c2a6",
+          "011ed4805f0a5ba3ae1793fb605a0db40dffd05a7b1ddfbd018a1dde96a71821",
+          "371dff74438f5b4e8fe35d641563121809b39b36b99f75ad313b532b8d8c4452",
+          "731b0747a00f71e409fd3837bda09f55631c2147cdf8996d6dd660edd2fbd93a",
+          "4938bcb9071b9ae9062bb33f63dd7d877ec314567b8e933cb86ce1f36a09838e",
+          "c8d338fde2bbf94d60305cbdcee3ecda6fcb2cde7893d11ca7c2b2cdbf26753c",
+          "9f531812417e705a83feb5794929f1ac1642ab2ebd4e20d63f1f234d6278e625",
+          "e1f122cd209c4a68e8fa663dd9643fefecf740a7cf3b5141c597fc8abc46b894",
+          "263ae46829c07df5925cb252c664e32adafcca547c97e1c01a24327901062c2d",
+          "fc3966b3080b28dccf78aa7ec62c8897da6ecfd00b298dbab79c8f61154c4ec7",
+          "79d81d876965129fe2b8b132267ff9e71ea82a42c122495ed90fba7c46bffa97",
+          "f52571add7319d5033cc35c542192ba2d37638894d49d6b8d4c48fc336df57d5",
+          "fe05122dbad60e7fe38c7a4f10ce1eeea6bc59733aa45da5d7130a6b51a073bc",
+          "1496143f1c1e96b12c21af9b237cd37ed4165f2ed165e7a7cd854d9c02e6ff7b",
+          "130719c22fed9326b95875649c7fa5313177da93dbb6352c69f5210c91de538b",
+          "47177e6d9e28a1b487e8daae8c8e2c811ee84480355ab7fadfa837dc2498dbe1",
+          "64fc3d8d3a964566b2537f5395321d93290fc9dd4dc6246e1ecb54d010ae72fd",
+          "baaed56592c88746a4e41d6ee760f0bcb114032abda42259e0ca942dc86dc74b"
+        ],
+        "unique_decoded_frames": 30,
+        "pixel_minimum": 0,
+        "pixel_maximum": 255,
+        "limit": "Decodability and finite uint8 pixels do not certify object quality, colors, or semantic heatmaps."
+      }
+    },
+    "texture.glb": {
+      "status": "passed",
+      "result": {
+        "artifact": {
+          "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/texture.glb",
+          "size_bytes": 1309840,
+          "sha256": "6fe5a4c07a7aac453bd8711c6b055afbaa2a2a36d0215b1d777dfaded34dd409"
+        },
+        "geometry": {
+          "geometry_0": {
+            "vertices": 4533,
+            "faces": 6098,
+            "finite_geometry": true,
+            "bounds": [
+              [
+                -0.49776485562324524,
+                -0.10719514638185501,
+                -0.24113386869430542
+              ],
+              [
+                0.49809426069259644,
+                0.0998503640294075,
+                0.24208855628967285
+              ]
+            ],
+            "texture": {
+              "size": [
+                1024,
+                1024
+              ],
+              "mode": "RGB",
+              "finite": true,
+              "pixel_sha256": "8caa48738c13c50a28da3f76a0b599444a0a68a9fc65d689659270582994f301",
+              "minimum": 0.0,
+              "maximum": 255.0
+            },
+            "finite_uv": true
+          }
+        },
+        "embedded_images": 1,
+        "finite_scene_transforms": true,
+        "external_resources": false,
+        "limit": "No accuracy, watertightness, scale correctness, texture alignment, or paper metric is certified."
+      }
+    },
+    "kinematic_child.mp4": {
+      "status": "not_required"
+    },
+    "kinematic_parent.mp4": {
+      "status": "not_required"
+    },
+    "kinematic.obj": {
+      "status": "not_required"
+    }
+  },
+  "script": {
+    "path": "logs/official-example-20260921/validate_example_outputs.py",
+    "size_bytes": 32460,
+    "sha256": "16e7b02f27b955bcaae34d19d687de373442a39463bebd4b0f5ed8b7459e2a64"
+  },
+  "output_directory": "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion",
+  "GPU_calls": false,
+  "inference": false,
+  "payload_mutation": false,
+  "decoder_commands": [
+    {
+      "argv": [
+        "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-err_detect",
+        "explode",
+        "-hwaccel",
+        "none",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-i",
+        "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-err_detect",
+        "explode",
+        "-hwaccel",
+        "none",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-i",
+        "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-err_detect",
+        "explode",
+        "-hwaccel",
+        "none",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-i",
+        "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+        "-nostdin",
+        "-v",
+        "error",
+        "-xerror",
+        "-err_detect",
+        "explode",
+        "-hwaccel",
+        "none",
+        "-protocol_whitelist",
+        "file,pipe",
+        "-i",
+        "/home/minsujo/Desktop/SH/PHYSx/outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "versions": {
+    "python": "3.10.21",
+    "torch": "2.7.1+cu128",
+    "numpy": "1.26.4",
+    "trimesh": "4.6.8",
+    "imageio_ffmpeg": "0.6.0"
+  },
+  "ffmpeg": {
+    "path": "envs/physxgen/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+    "size_bytes": 79826272,
+    "sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99"
+  },
+  "all_output_files": [
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/affordance.mp4",
+      "size_bytes": 80150,
+      "sha256": "023b79543139b57edd944d1ab194f1ccbb078ad65749b22a141a90a06805d6f1"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/description.mp4",
+      "size_bytes": 79036,
+      "sha256": "aa9535a503d42e25739fcf4f6a325d9e951d85a1b9a05c06ae40a26b5f08b1d1"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/material.mp4",
+      "size_bytes": 84989,
+      "sha256": "177de33bfba328b7c296dfb1563bf554d511eb5bc8e7801f77954b0b32416ecd"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/prediction-diagnostics.json",
+      "size_bytes": 260,
+      "sha256": "b2bbf30a730c6d13095f9865a19c34cde58b536aa3d7ee61fddce0801fa68c51"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-model-heads.pt",
+      "size_bytes": 387937265,
+      "sha256": "fc60302356032458e12df88666d74a648a5682159c39c7b3c25cc2497f4bd2f7"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/raw-prediction.pt",
+      "size_bytes": 380373734,
+      "sha256": "2a14e5075577c2a8e53392a9886c5dd460dc68a3b95faba93e5c5144ca3b05ba"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/rgb.mp4",
+      "size_bytes": 31521,
+      "sha256": "1a10165a37137f848c6e7f8a0394d487cd078aa32e9aeca2039f6bc1c53017d3"
+    },
+    {
+      "path": "outputs/official-example/table-20260921T122033Z-60b5940050/pretrain/diffusion/texture.glb",
+      "size_bytes": 1309840,
+      "sha256": "6fe5a4c07a7aac453bd8711c6b055afbaa2a2a36d0215b1d777dfaded34dd409"
+    }
+  ],
+  "limits": [
+    "This is a patched-example artifact integrity check, not an unchanged-upstream baseline or paper reproduction metric.",
+    "Parent-group inference/aggregation remains unmodified and unvalidated; valid conditional artifacts do not establish its correctness.",
+    "Visual quality, language grounding, physical units/accuracy and kinematic semantics need separate interpretation.",
+    "CPU torch.load uses weights_only=True and map_location=cpu; no project model class is imported."
+  ],
+  "finished_at": "2026-09-21T12:22:00.084296+00:00",
+  "exit_code": 0
+}
