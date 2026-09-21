@@ -1,0 +1,182 @@
+[
+  {
+    "sample": "gpu-usage-000000",
+    "timestamp": "2026-09-21T09:06:45.635040+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 10.0,
+    "temperature_C": 36.0,
+    "power_W": 28.44
+  },
+  {
+    "sample": "gpu-usage-000001",
+    "timestamp": "2026-09-21T09:06:46.837211+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 11.0,
+    "temperature_C": 36.0,
+    "power_W": 28.27
+  },
+  {
+    "sample": "gpu-usage-000002",
+    "timestamp": "2026-09-21T09:06:48.039499+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 10.0,
+    "temperature_C": 36.0,
+    "power_W": 27.77
+  },
+  {
+    "sample": "gpu-usage-000003",
+    "timestamp": "2026-09-21T09:06:49.241960+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 10.0,
+    "temperature_C": 36.0,
+    "power_W": 28.08
+  },
+  {
+    "sample": "gpu-usage-000004",
+    "timestamp": "2026-09-21T09:06:50.444422+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 11.0,
+    "temperature_C": 36.0,
+    "power_W": 28.08
+  },
+  {
+    "sample": "gpu-usage-000005",
+    "timestamp": "2026-09-21T09:06:51.646708+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 11.0,
+    "temperature_C": 36.0,
+    "power_W": 27.97
+  },
+  {
+    "sample": "gpu-usage-000006",
+    "timestamp": "2026-09-21T09:06:52.848975+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 11.0,
+    "temperature_C": 36.0,
+    "power_W": 28.28
+  },
+  {
+    "sample": "gpu-usage-000007",
+    "timestamp": "2026-09-21T09:06:54.051201+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 570.0,
+    "gpu_utilization_percent": 57.0,
+    "temperature_C": 36.0,
+    "power_W": 33.36
+  },
+  {
+    "sample": "gpu-usage-000008",
+    "timestamp": "2026-09-21T09:06:55.253422+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 37.0,
+    "power_W": 69.34
+  },
+  {
+    "sample": "gpu-usage-000009",
+    "timestamp": "2026-09-21T09:06:56.455671+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 37.0,
+    "power_W": 69.52
+  },
+  {
+    "sample": "gpu-usage-000010",
+    "timestamp": "2026-09-21T09:06:57.658076+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 37.0,
+    "power_W": 69.89
+  },
+  {
+    "sample": "gpu-usage-000011",
+    "timestamp": "2026-09-21T09:06:58.860385+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 37.0,
+    "power_W": 69.84
+  },
+  {
+    "sample": "gpu-usage-000012",
+    "timestamp": "2026-09-21T09:07:00.062749+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 37.0,
+    "power_W": 70.04
+  },
+  {
+    "sample": "gpu-usage-000013",
+    "timestamp": "2026-09-21T09:07:01.265060+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 714.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 38.0,
+    "power_W": 69.74
+  },
+  {
+    "sample": "gpu-usage-000014",
+    "timestamp": "2026-09-21T09:07:02.467464+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 716.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 38.0,
+    "power_W": 69.88
+  },
+  {
+    "sample": "gpu-usage-000015",
+    "timestamp": "2026-09-21T09:07:03.669716+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 716.0,
+    "gpu_utilization_percent": 3.0,
+    "temperature_C": 38.0,
+    "power_W": 69.7
+  },
+  {
+    "sample": "gpu-usage-after",
+    "timestamp": "2026-09-21T09:07:04.872610+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 2.0,
+    "temperature_C": 38.0,
+    "power_W": 69.46
+  },
+  {
+    "sample": "gpu-usage-before",
+    "timestamp": "2026-09-21T09:06:45.431507+00:00",
+    "index_inside_isolation": "0",
+    "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "used_memory_MiB": 64.0,
+    "gpu_utilization_percent": 10.0,
+    "temperature_C": 36.0,
+    "power_W": 28.41
+  }
+]

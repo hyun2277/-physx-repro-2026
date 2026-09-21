@@ -1,0 +1,4 @@
+{"step": "dry-run", "exit_code": 0, "log": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run"}
+{"step": "install", "exit_code": 0, "log": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/install"}
+{"step": "pip-check", "exit_code": 0, "log": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check"}
+{"success": true, "installed": {"clip": "1.0", "utils3d": "0.0.2", "nvdiffrast": "0.3.3"}, "logs": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z"}

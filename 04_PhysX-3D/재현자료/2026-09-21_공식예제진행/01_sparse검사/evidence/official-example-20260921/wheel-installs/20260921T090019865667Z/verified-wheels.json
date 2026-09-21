@@ -1,0 +1,32 @@
+[
+  {
+    "name": "cumm-cu126",
+    "version": "0.7.11",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl",
+    "bytes": 26584327,
+    "sha256": "97a07c38b45d552952a12fd16f7f570f35b108e88068ed86386686bbbadaa59c",
+    "requires_dist": [
+      "pccm>=0.4.15",
+      "pybind11>=2.6.0",
+      "fire",
+      "numpy",
+      "sympy",
+      "contextvars; python_version == \"3.6\""
+    ]
+  },
+  {
+    "name": "spconv-cu126",
+    "version": "2.3.8",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl",
+    "bytes": 70476017,
+    "sha256": "16f3744cd697e225b1d6a9f37fd2a4aed7bd6b89dd4c431af5a76c39fda0ab38",
+    "requires_dist": [
+      "pccm>=0.4.16",
+      "ccimport>=0.4.4",
+      "pybind11>=2.6.0",
+      "fire",
+      "numpy",
+      "cumm-cu126<0.8.0,>=0.7.11"
+    ]
+  }
+]

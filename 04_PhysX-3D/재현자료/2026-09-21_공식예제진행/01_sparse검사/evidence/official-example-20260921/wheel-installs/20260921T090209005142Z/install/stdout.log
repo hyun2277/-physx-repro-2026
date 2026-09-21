@@ -1,0 +1,6 @@
+Processing ./cache/wheels/official-example/clip-1.0-py3-none-any.whl (from -r /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/wheels.lock.txt (line 1))
+Processing ./cache/wheels/official-example/utils3d-0.0.2-py3-none-any.whl (from -r /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/wheels.lock.txt (line 2))
+Processing ./cache/wheels/official-example/nvdiffrast-0.3.3-py3-none-any.whl (from -r /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/wheels.lock.txt (line 3))
+Installing collected packages: clip, utils3d, nvdiffrast
+
+Successfully installed clip-1.0 nvdiffrast-0.3.3 utils3d-0.0.2

@@ -1,0 +1,25 @@
+{
+  "name": "cumm-cu126",
+  "url": "https://files.pythonhosted.org/packages/13/88/7fb0714281c476d4295c28b57f16491a1abf266de88c8307c3cfdc0ce6a0/cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl",
+  "sha256": "97a07c38b45d552952a12fd16f7f570f35b108e88068ed86386686bbbadaa59c",
+  "filename": "cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl",
+  "bytes": 26584327,
+  "metadata_name": "cumm-cu126",
+  "version": "0.7.11",
+  "requires_python": ">=3.8",
+  "requires_dist": [
+    "pccm>=0.4.15",
+    "pybind11>=2.6.0",
+    "fire",
+    "numpy",
+    "sympy",
+    "contextvars; python_version == \"3.6\""
+  ],
+  "startup_files": [],
+  "elf_files": [
+    "extracted/cumm-cu126/cumm/core_cc.cpython-310-x86_64-linux-gnu.so",
+    "extracted/cumm-cu126/cumm_cu126.libs/libcudart-53d54daa.so.12.6.68",
+    "extracted/cumm-cu126/cumm_cu126.libs/libnvrtc-a1f1e7d6.so.12.6.85",
+    "extracted/cumm-cu126/cumm_cu126.libs/libnvrtc-builtins-a1d5fce3.so.12.6.85"
+  ]
+}

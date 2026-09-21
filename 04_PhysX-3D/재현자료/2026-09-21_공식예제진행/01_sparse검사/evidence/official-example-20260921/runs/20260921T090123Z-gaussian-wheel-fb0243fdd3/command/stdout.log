@@ -1,0 +1,9 @@
+Processing ./build/official-example-sources/diff-gaussian-rasterization
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: diff_gaussian_rasterization
+  Building wheel for diff_gaussian_rasterization (pyproject.toml): started
+  Building wheel for diff_gaussian_rasterization (pyproject.toml): finished with status 'done'
+  Created wheel for diff_gaussian_rasterization: filename=diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl size=511009 sha256=1062b26488be106a39df3e5e6cf2ce94d20845284c16251ebe92cf62a853eec5
+  Stored in directory: /home/minsujo/Desktop/SH/PHYSx/tmp/official-example-20260921T090123Z-gaussian-wheel-fb0243fdd3/pip-ephem-wheel-cache-y_vu28vk/wheels/04/e4/ad/e75f01b28fac95db32c9da00ddd3d7c59e621cf685e6d83be2
+Successfully built diff_gaussian_rasterization

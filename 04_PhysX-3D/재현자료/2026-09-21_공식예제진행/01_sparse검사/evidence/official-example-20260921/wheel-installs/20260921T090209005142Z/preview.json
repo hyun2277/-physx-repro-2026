@@ -1,0 +1,148 @@
+{
+  "version": "1",
+  "pip_version": "26.2.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/clip-1.0-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "c2661589f08a492f5b08e34154ac4be0e05a1d96059401352ee4603808c82c22"
+          },
+          "hash": "sha256=c2661589f08a492f5b08e34154ac4be0e05a1d96059401352ee4603808c82c22"
+        }
+      },
+      "is_direct": true,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.2",
+        "name": "clip",
+        "version": "1.0",
+        "dynamic": [
+          "author",
+          "provides-extra",
+          "requires-dist"
+        ],
+        "author": "OpenAI",
+        "license_file": [
+          "LICENSE"
+        ],
+        "requires_dist": [
+          "ftfy",
+          "packaging",
+          "regex",
+          "tqdm",
+          "torch",
+          "torchvision",
+          "pytest; extra == \"dev\""
+        ],
+        "provides_extra": [
+          "dev"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/utils3d-0.0.2-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "b308725a82ebafc6ebf88a5876fff882cbc327104179bc7608f1cb2f464f15b3"
+          },
+          "hash": "sha256=b308725a82ebafc6ebf88a5876fff882cbc327104179bc7608f1cb2f464f15b3"
+        }
+      },
+      "is_direct": true,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.2",
+        "name": "utils3d",
+        "version": "0.0.2",
+        "summary": "A small package for 3D graphics",
+        "description_content_type": "text/markdown",
+        "author_email": "EasternJournalist <wangrc2081cs@mail.ustc.edu.cn>",
+        "license": "MIT",
+        "license_file": [
+          "LICENSE"
+        ],
+        "classifier": [
+          "Programming Language :: Python :: 3",
+          "License :: OSI Approved :: MIT License",
+          "Operating System :: OS Independent"
+        ],
+        "requires_dist": [
+          "moderngl",
+          "numpy",
+          "plyfile",
+          "scipy"
+        ],
+        "requires_python": ">=3.7",
+        "project_url": [
+          "Homepage, https://github.com/EasternJournalist/utils3d"
+        ],
+        "description": "# utils3d\nEasy 3D python utilities for computer vision and graphics researchers.\n\nSupports:\n* Transformation between OpenCV and OpenGL coordinate systems, **no more confusion**\n* Easy rasterization, **no worries about OpenGL objects and buffers**\n* Some mesh processing utilities, **all vectorized for effciency; some differentiable**\n* Projection, unprojection, depth-based image warping, flow-based image warping...\n* Easy Reading and writing .obj, .ply files\n* Reading and writing Colmap format camera parameters\n* NeRF/MipNeRF utilities\n\nFor most functions, there are both numpy (indifferentiable) and pytorch implementations (differentiable).\n\nPytorch is not required for using this package, but if you want to use the differentiable functions, you will need to install pytorch (and nvdiffrast if you want to use the pytorch rasterization functions).\n\n## Install\n\nInstall by git\n\n```bash\npip install git+https://github.com/EasternJournalist/utils3d.git#egg=utils3d\n```\n\nor clone the repo and install with `-e` option for convenient updating and modifying.\n\n```bash\ngit clone https://github.com/EasternJournalist/utils3d.git\npip install -e ./utils3d\n```\n\n## Topics (TODO)\n\n### Camera\n\n### Rotations\n\n### Mesh\n\n### Rendering\n\n### Projection\n\n### Image warping\n\n### NeRF\n"
+      }
+    },
+    {
+      "download_info": {
+        "url": "file:///home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/nvdiffrast-0.3.3-py3-none-any.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "af497056848b278f0415db8e1d2d62087c493205bd8da1e289e951fbf1c52837"
+          },
+          "hash": "sha256=af497056848b278f0415db8e1d2d62087c493205bd8da1e289e951fbf1c52837"
+        }
+      },
+      "is_direct": true,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.2",
+        "name": "nvdiffrast",
+        "version": "0.3.3",
+        "dynamic": [
+          "author",
+          "author-email",
+          "classifier",
+          "description",
+          "description-content-type",
+          "home-page",
+          "requires-dist",
+          "requires-python",
+          "summary"
+        ],
+        "summary": "nvdiffrast - modular primitives for high-performance differentiable rendering",
+        "description_content_type": "text/markdown",
+        "home_page": "https://github.com/NVlabs/nvdiffrast",
+        "author": "Samuli Laine",
+        "author_email": "slaine@nvidia.com",
+        "license_file": [
+          "LICENSE.txt"
+        ],
+        "classifier": [
+          "Programming Language :: Python :: 3",
+          "Operating System :: OS Independent"
+        ],
+        "requires_dist": [
+          "numpy"
+        ],
+        "requires_python": ">=3.6",
+        "description": "## Nvdiffrast &ndash; Modular Primitives for High-Performance Differentiable Rendering\n\n![Teaser image](./docs/img/teaser.png)\n\n**Modular Primitives for High-Performance Differentiable Rendering**<br>\nSamuli Laine, Janne Hellsten, Tero Karras, Yeongho Seol, Jaakko Lehtinen, Timo Aila<br>\n[http://arxiv.org/abs/2011.03277](http://arxiv.org/abs/2011.03277)\n\nNvdiffrast is a PyTorch/TensorFlow library that provides high-performance primitive operations for rasterization-based differentiable rendering.\nPlease refer to &#x261E;&#x261E; [nvdiffrast documentation](https://nvlabs.github.io/nvdiffrast) &#x261C;&#x261C; for more information.\n\n## Licenses\n\nCopyright &copy; 2020&ndash;2024, NVIDIA Corporation. All rights reserved.\n\nThis work is made available under the [Nvidia Source Code License](https://github.com/NVlabs/nvdiffrast/blob/main/LICENSE.txt).\n\nFor business inquiries, please visit our website and submit the form: [NVIDIA Research Licensing](https://www.nvidia.com/en-us/research/inquiries/)\n\nWe do not currently accept outside code contributions in the form of pull requests.\n\nEnvironment map stored as part of `samples/data/envphong.npz` is derived from a Wave Engine\n[sample material](https://github.com/WaveEngine/Samples-2.5/tree/master/Materials/EnvironmentMap/Content/Assets/CubeMap.cubemap)\noriginally shared under \n[MIT License](https://github.com/WaveEngine/Samples-2.5/blob/master/LICENSE.md).\nMesh and texture stored as part of `samples/data/earth.npz` are derived from\n[3D Earth Photorealistic 2K](https://www.turbosquid.com/3d-models/3d-realistic-earth-photorealistic-2k-1279125)\nmodel originally made available under\n[TurboSquid 3D Model License](https://blog.turbosquid.com/turbosquid-3d-model-license/#3d-model-license).\n\n## Citation\n\n```\n@article{Laine2020diffrast,\n  title   = {Modular Primitives for High-Performance Differentiable Rendering},\n  author  = {Samuli Laine and Janne Hellsten and Tero Karras and Yeongho Seol and Jaakko Lehtinen and Timo Aila},\n  journal = {ACM Transactions on Graphics},\n  year    = {2020},\n  volume  = {39},\n  number  = {6}\n}\n```\n"
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.10.21",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.8.0-138-generic",
+    "platform_system": "Linux",
+    "platform_version": "#138-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 22:41:49 UTC 2026",
+    "python_full_version": "3.10.21",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.10",
+    "sys_platform": "linux"
+  }
+}

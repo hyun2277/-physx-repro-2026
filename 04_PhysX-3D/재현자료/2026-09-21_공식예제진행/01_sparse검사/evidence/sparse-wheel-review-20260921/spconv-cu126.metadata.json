@@ -1,0 +1,23 @@
+{
+  "name": "spconv-cu126",
+  "url": "https://files.pythonhosted.org/packages/30/7f/5c1c0ba114f4bd50aed095f2695ffd28f292f04463f99ba3a8cfc2f183eb/spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl",
+  "sha256": "16f3744cd697e225b1d6a9f37fd2a4aed7bd6b89dd4c431af5a76c39fda0ab38",
+  "filename": "spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl",
+  "bytes": 70476017,
+  "metadata_name": "spconv-cu126",
+  "version": "2.3.8",
+  "requires_python": ">=3.9",
+  "requires_dist": [
+    "pccm>=0.4.16",
+    "ccimport>=0.4.4",
+    "pybind11>=2.6.0",
+    "fire",
+    "numpy",
+    "cumm-cu126<0.8.0,>=0.7.11"
+  ],
+  "startup_files": [],
+  "elf_files": [
+    "extracted/spconv-cu126/spconv_cu126.libs/libcudart-53d54daa.so.12.6.68",
+    "extracted/spconv-cu126/spconv/core_cc.cpython-310-x86_64-linux-gnu.so"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "scope": "Completed historical download/static review only; later parent installation/runtime records are separate.",
+  "status": {
+    "phase": "completed",
+    "timestamp": "2026-09-21T08:55:37.937867+00:00",
+    "installed": false,
+    "gpu_executed": false,
+    "wheel_count": 2,
+    "metadata_matches_reviewed_baseline": true
+  },
+  "artifacts": [
+    {
+      "name": "cumm-cu126",
+      "url": "https://files.pythonhosted.org/packages/13/88/7fb0714281c476d4295c28b57f16491a1abf266de88c8307c3cfdc0ce6a0/cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "sha256": "97a07c38b45d552952a12fd16f7f570f35b108e88068ed86386686bbbadaa59c",
+      "filename": "cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "bytes": 26584327,
+      "local_path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/cumm_cu126-0.7.11-cp310-cp310-manylinux_2_28_x86_64.whl"
+    },
+    {
+      "name": "spconv-cu126",
+      "url": "https://files.pythonhosted.org/packages/30/7f/5c1c0ba114f4bd50aed095f2695ffd28f292f04463f99ba3a8cfc2f183eb/spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "sha256": "16f3744cd697e225b1d6a9f37fd2a4aed7bd6b89dd4c431af5a76c39fda0ab38",
+      "filename": "spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "bytes": 70476017,
+      "local_path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/spconv_cu126-2.3.8-cp310-cp310-manylinux_2_28_x86_64.whl"
+    }
+  ],
+  "metadata_matches_reviewed_baseline": true,
+  "preservation_during_this_static_review": {
+    "python_distribution_versions_unchanged": true,
+    "distribution_count": 170
+  },
+  "elf": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/cumm-cu126/cumm/core_cc.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 2735945,
+      "sha256": "a2946f86b3ba3333d03e394286ee86c21aa49ce7d225ee3a540106dbf53c4610",
+      "needed": [
+        "libcudart-53d54daa.so.12.6.68",
+        "libnvrtc-a1f1e7d6.so.12.6.85",
+        "libdl.so.2",
+        "libnvrtc-builtins-a1d5fce3.so.12.6.85",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "rpath": [
+        "$ORIGIN/../cumm_cu126.libs"
+      ],
+      "ptx_module_count": 0,
+      "ptx_architectures": {},
+      "cubin_module_count": 0,
+      "cubin_architectures": {}
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/cumm-cu126/cumm_cu126.libs/libcudart-53d54daa.so.12.6.68",
+      "bytes": 732713,
+      "sha256": "8b65103e374e81b486c1d421097802620bf750ee49ec940cf4b44aab86cc66eb",
+      "needed": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libdl.so.2",
+        "libpthread.so.0",
+        "librt.so.1"
+      ],
+      "rpath": [],
+      "ptx_module_count": 0,
+      "ptx_architectures": {},
+      "cubin_module_count": 0,
+      "cubin_architectures": {}
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/cumm-cu126/cumm_cu126.libs/libnvrtc-a1f1e7d6.so.12.6.85",
+      "bytes": 58066337,
+      "sha256": "695bec5f0e84f6771617eac5fc879c04dcfb16ce00188a60767879693e238e4e",
+      "needed": [
+        "libpthread.so.0",
+        "librt.so.1",
+        "libdl.so.2",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "rpath": [],
+      "ptx_module_count": 0,
+      "ptx_architectures": {},
+      "cubin_module_count": 0,
+      "cubin_architectures": {}
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/cumm-cu126/cumm_cu126.libs/libnvrtc-builtins-a1d5fce3.so.12.6.85",
+      "bytes": 5325905,
+      "sha256": "3889413f7c18b73d6f18199fef32b7bcc102724e7ea0ad9f06265306f5d59fdf",
+      "needed": [
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6"
+      ],
+      "rpath": [],
+      "ptx_module_count": 0,
+      "ptx_architectures": {},
+      "cubin_module_count": 0,
+      "cubin_architectures": {}
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/spconv-cu126/spconv_cu126.libs/libcudart-53d54daa.so.12.6.68",
+      "bytes": 732713,
+      "sha256": "8b65103e374e81b486c1d421097802620bf750ee49ec940cf4b44aab86cc66eb",
+      "needed": [
+        "libc.so.6",
+        "ld-linux-x86-64.so.2",
+        "libdl.so.2",
+        "libpthread.so.0",
+        "librt.so.1"
+      ],
+      "rpath": [],
+      "ptx_module_count": 0,
+      "ptx_architectures": {},
+      "cubin_module_count": 0,
+      "cubin_architectures": {}
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/cache/sparse-wheels/extracted/spconv-cu126/spconv/core_cc.cpython-310-x86_64-linux-gnu.so",
+      "bytes": 284116361,
+      "sha256": "9d8c4d6f710033cef101e127844d3ff1b329d65c0eb9a8c3f37f44137e69f892",
+      "needed": [
+        "libcudart-53d54daa.so.12.6.68",
+        "libstdc++.so.6",
+        "libm.so.6",
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "rpath": [
+        "$ORIGIN/../spconv_cu126.libs"
+      ],
+      "ptx_versions": [
+        ".version 8.5"
+      ],
+      "ptx_targets": [
+        ".target sm_52",
+        ".target sm_90"
+      ],
+      "ptx_entry_line_count": 1242,
+      "ptx_inspection_exit_code": 0,
+      "ptx_module_count": 606,
+      "ptx_architectures": {
+        "sm_52": 195,
+        "sm_90": 411
+      },
+      "cubin_module_count": 3471,
+      "cubin_architectures": {
+        "sm_50": 133,
+        "sm_52": 328,
+        "sm_60": 411,
+        "sm_61": 133,
+        "sm_70": 411,
+        "sm_75": 411,
+        "sm_80": 411,
+        "sm_86": 411,
+        "sm_89": 411,
+        "sm_90": 411
+      }
+    }
+  ],
+  "runtime_not_proven_by_this_review": true,
+  "runtime_risk": "Bundled NVRTC12.6.85 may receive unsupported sm_120 if NVRTC fallback is reached. Generic sm_52/sm_90 PTX exists, but this is not a numerical/runtime compatibility proof.",
+  "further_action": "Parent executes the separately logged tiny native/auto SubMConv check; no runtime was performed by this inspection."
+}

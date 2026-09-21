@@ -1,0 +1,23 @@
+Processing ./build/official-example-sources/CLIP
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Processing ./build/official-example-sources/utils3d
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Processing ./build/official-example-sources/nvdiffrast
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: clip, utils3d, nvdiffrast
+  Building wheel for clip (pyproject.toml): started
+  Building wheel for clip (pyproject.toml): finished with status 'done'
+  Created wheel for clip: filename=clip-1.0-py3-none-any.whl size=1369515 sha256=c2661589f08a492f5b08e34154ac4be0e05a1d96059401352ee4603808c82c22
+  Stored in directory: /home/minsujo/Desktop/SH/PHYSx/tmp/official-example-20260921T090107Z-helper-wheels-802e209635/pip-ephem-wheel-cache-mq9unscw/wheels/e0/06/00/f15801db6ebd5d60cc0f834d5aaf6969d6e44e826ff2851cb8
+  Building wheel for utils3d (pyproject.toml): started
+  Building wheel for utils3d (pyproject.toml): finished with status 'done'
+  Created wheel for utils3d: filename=utils3d-0.0.2-py3-none-any.whl size=88916 sha256=b308725a82ebafc6ebf88a5876fff882cbc327104179bc7608f1cb2f464f15b3
+  Stored in directory: /home/minsujo/Desktop/SH/PHYSx/tmp/official-example-20260921T090107Z-helper-wheels-802e209635/pip-ephem-wheel-cache-mq9unscw/wheels/6e/c1/6a/8e5c81706042494897b801e3b86bc171bb54df84b0cb07ccae
+  Building wheel for nvdiffrast (pyproject.toml): started
+  Building wheel for nvdiffrast (pyproject.toml): finished with status 'done'
+  Created wheel for nvdiffrast: filename=nvdiffrast-0.3.3-py3-none-any.whl size=139963 sha256=af497056848b278f0415db8e1d2d62087c493205bd8da1e289e951fbf1c52837
+  Stored in directory: /home/minsujo/Desktop/SH/PHYSx/tmp/official-example-20260921T090107Z-helper-wheels-802e209635/pip-ephem-wheel-cache-mq9unscw/wheels/1a/99/26/281c037cca26ffc90eac4d4fe1bae3e521ab421657b872c62d
+Successfully built clip utils3d nvdiffrast

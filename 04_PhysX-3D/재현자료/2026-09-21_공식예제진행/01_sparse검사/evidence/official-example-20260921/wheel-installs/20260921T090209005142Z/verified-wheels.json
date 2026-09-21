@@ -1,0 +1,41 @@
+[
+  {
+    "name": "clip",
+    "version": "1.0",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/clip-1.0-py3-none-any.whl",
+    "bytes": 1369515,
+    "sha256": "c2661589f08a492f5b08e34154ac4be0e05a1d96059401352ee4603808c82c22",
+    "requires_dist": [
+      "ftfy",
+      "packaging",
+      "regex",
+      "tqdm",
+      "torch",
+      "torchvision",
+      "pytest; extra == \"dev\""
+    ]
+  },
+  {
+    "name": "utils3d",
+    "version": "0.0.2",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/utils3d-0.0.2-py3-none-any.whl",
+    "bytes": 88916,
+    "sha256": "b308725a82ebafc6ebf88a5876fff882cbc327104179bc7608f1cb2f464f15b3",
+    "requires_dist": [
+      "moderngl",
+      "numpy",
+      "plyfile",
+      "scipy"
+    ]
+  },
+  {
+    "name": "nvdiffrast",
+    "version": "0.3.3",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/nvdiffrast-0.3.3-py3-none-any.whl",
+    "bytes": 139963,
+    "sha256": "af497056848b278f0415db8e1d2d62087c493205bd8da1e289e951fbf1c52837",
+    "requires_dist": [
+      "numpy"
+    ]
+  }
+]

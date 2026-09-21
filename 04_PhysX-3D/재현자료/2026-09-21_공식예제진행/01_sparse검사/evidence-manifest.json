@@ -1,0 +1,1214 @@
+[
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/check_sparse.py",
+    "copy": "evidence/official-example-20260921/check_sparse.py",
+    "bytes": 15034,
+    "sha256": "701173aa887ca45532b2af0c3477a9ee0dbaaf3848590b4379a0c60bcc394a4a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/fetch_sources.py",
+    "copy": "evidence/official-example-20260921/fetch_sources.py",
+    "bytes": 3016,
+    "sha256": "f19f856cf47f6758532386f74ca1a1f6fe5fef33b009b3b3d6c9c6165c688976"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/install_verified_wheels.py",
+    "copy": "evidence/official-example-20260921/install_verified_wheels.py",
+    "bytes": 4929,
+    "sha256": "e2ac2212515eec3c4324a8c367fa5ca656556f53fd3cb5b57de8334e2040fdd1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/command.json",
+    "bytes": 7823,
+    "sha256": "46514f32f3a3bbe43afd46318805cc421058740ea33d9017a243ade3117fc7d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/result.json",
+    "bytes": 7951,
+    "sha256": "6a1e2b1869f4a04753f390659caf9b8af357878d5a5ff252dde0b6b0c3531774"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stderr.log",
+    "bytes": 208,
+    "sha256": "f584d723d6016799815da1fe797c1cb4d40b556ab350e3d7b78d3d12d7febf46"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/nvcc-version/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/plan.json",
+    "bytes": 9014,
+    "sha256": "3102775d1d51181702199ce1899bd04d5470d73becdf3c76644e4bd76cd4b812"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T085752Z-flash-attention-wheel-f9f3ed2b30/status.json",
+    "bytes": 647,
+    "sha256": "b8fc94329b6f67883575ee2138ddf767970c970eccd2f69ce86fa598b4937735"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/command.json",
+    "bytes": 7225,
+    "sha256": "77af52e6d8d474bac49ec16f9679cbb91cb85d1d235e5b0549c16e4890ca14f7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/result.json",
+    "bytes": 7353,
+    "sha256": "c2303f5c2fbe1a26a1eb073ca14c7b94163f5b34f2a638646175b62bd87a39ed"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/command/stdout.log",
+    "bytes": 659,
+    "sha256": "bc49e92b4b4eaa3c616e19319c9f83cdd54813569b5baee24d5eaf34c0623742"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/plan.json",
+    "bytes": 7904,
+    "sha256": "3ad201852455a21ed0d0ba8ece499ad226fcd757d937a024c8a457374214661d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090019Z-sparse-install-6f7de1b43b/status.json",
+    "bytes": 523,
+    "sha256": "ac57d5cf15d9b72f035ba099bbe7e6e2b134da0bc786a4aaf5692174fc4ad777"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/command.json",
+    "bytes": 8250,
+    "sha256": "c193b3b5c4fa2204e8ab189e46b88fa1405901048803e27b7c6f776ac4514ab0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/result.json",
+    "bytes": 8378,
+    "sha256": "153c93a913f01ba5652bb510788b612191890d1049469fceeb1521accb1582ec"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stderr.log",
+    "bytes": 25036,
+    "sha256": "64cf3c63bd0f6c2bec1ddea6e1c3058cff107a4ed595500a593ebf7753f36e86"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/command/stdout.log",
+    "bytes": 411,
+    "sha256": "34c63ebb79504107226ef17663d87945a17632994408494084ff767c15b2db55"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/command.json",
+    "bytes": 7783,
+    "sha256": "b0ea9f87d1eee0f19b0d231acd11045936a5487b4417efff11c766adcfe35b1e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/result.json",
+    "bytes": 7911,
+    "sha256": "5e07ed5ff2dabb7154caa86f9c876d606c616ac2dc76c65269a10f2e81620461"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/command.json",
+    "bytes": 7783,
+    "sha256": "899c145715fab01ee72de8205d5e77afa811aa3b64852cdc88983afae9d4b0cb"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/result.json",
+    "bytes": 7911,
+    "sha256": "b67119b80c3add2751c4371ea1c1f29544a0a9c6e74e098bb8b97df4341d38d0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/command.json",
+    "bytes": 7823,
+    "sha256": "fda9cd5433512c796c12c87f7ef90cf595c11ad0506dde03ab87ceebae5f4a79"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/result.json",
+    "bytes": 7951,
+    "sha256": "73fdacd802f631a5b601654aaf9b92b009f21d28f44fa543b31e914d960f661d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/plan.json",
+    "bytes": 9014,
+    "sha256": "3102775d1d51181702199ce1899bd04d5470d73becdf3c76644e4bd76cd4b812"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090022Z-flash-attention-wheel-775acb713d/status.json",
+    "bytes": 653,
+    "sha256": "3fdb9466fb2964310cf2dbbacec172299ee2ea4c448de7b84c5c3255747b303a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/command.json",
+    "bytes": 8232,
+    "sha256": "5d1625b446b1cd8e1b5385ef9358cffcffe84c40a00a651cdcbb784395e08df6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/result.json",
+    "bytes": 8360,
+    "sha256": "9ed203f84813712b73850cdf414559f631eec685214b8e85446a0df7e5454a8b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/command/stdout.log",
+    "bytes": 2099,
+    "sha256": "a679ff5cf56d2a0af23e110deab08080c3bcb8578793d2880b8eb1025a244a9d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/command.json",
+    "bytes": 7692,
+    "sha256": "125d3ecfe74cea039b863ae1becafb4b48222375aa3945f4f961db91fad89967"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/result.json",
+    "bytes": 7820,
+    "sha256": "528a79d656f09c132fea9685342e99d54ac274f426531d9445723e64c16f6439"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/command.json",
+    "bytes": 7692,
+    "sha256": "cc1ddc83eabfa99b89939fea30ffe7953aac0f8f291aa8b382fd263c9e354e84"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/result.json",
+    "bytes": 7820,
+    "sha256": "8117a603d5e2c12e0e9320a94e55cd56db93350c9169366c65b17f54be6ba9dd"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/command.json",
+    "bytes": 7732,
+    "sha256": "61f5e14c037b9851dbca06d748256ac84810150ff16d074cebba361a68d70537"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/result.json",
+    "bytes": 7860,
+    "sha256": "aef1e82826e69a626913decbb01d7aaf9f4da97eb1f9115ec48d8df801222ae8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/plan.json",
+    "bytes": 9083,
+    "sha256": "2718cae5c388a2f2e607c6f0fcd0bdd8cc3ffeb03ecedd10ff77d5092274b10f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090107Z-helper-wheels-802e209635/status.json",
+    "bytes": 519,
+    "sha256": "7fd6194475d8da0f81a7a57028bc9f1769ed7ee2e83b16022b98692a6f203f15"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/command.json",
+    "bytes": 8105,
+    "sha256": "838ad87db301b90350684adbff65a9d29179cae659c782f130ac04d8349390e2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/result.json",
+    "bytes": 8233,
+    "sha256": "7a493126ac467236a1f32df7a9333cd12ea65fe6ad6db6adaf45d6084e9c07da"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/command/stdout.log",
+    "bytes": 892,
+    "sha256": "3957cda16ae37fca6f67cf5334d1b1a15e843a3ccc47b1404eb352c746afeefa"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/command.json",
+    "bytes": 7699,
+    "sha256": "fc49a47a12a3518a04efef4f56cb2abbbad3812855f1de6ae4b118dfca351b1a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/result.json",
+    "bytes": 7827,
+    "sha256": "2a427f5a5699e05126a88ada3021edd119ebb931d372bdb2ac51c1d049e5f2fd"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/command.json",
+    "bytes": 7699,
+    "sha256": "b64d980cd6487294047ef040965a30bf71ca14fd039883b4de134bf62dee04b5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/result.json",
+    "bytes": 7827,
+    "sha256": "317bce83ca227e9ac521487c55b1ce08043f419050fd966d921b6eee2cdd84f0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/command.json",
+    "bytes": 7739,
+    "sha256": "d9a44fc53055f42622b8e855a88e4fbfb4e918242650a2cf606aa84efce996f2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/result.json",
+    "bytes": 7867,
+    "sha256": "bb27210cfc2bb6b5160719df7fc3d2c76777ad15b431687fbf97f24206855af1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/plan.json",
+    "bytes": 8816,
+    "sha256": "f9d2163b4eb1b212dc0bc38871931e9739e4390024684e94cfaec2259f1ce5a9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090123Z-gaussian-wheel-fb0243fdd3/status.json",
+    "bytes": 521,
+    "sha256": "c80d0821953319833694f3b36f4018cf05e1474edd69d74839fe048703d36938"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/command.json",
+    "bytes": 7291,
+    "sha256": "02eba354e8bd1b83f892879b58751863677bf74c5395b622582a9118935a1588"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/result.json",
+    "bytes": 7419,
+    "sha256": "9d34e4cec687b838713dc902d1543326f3e4abf02265f4d49d02ecc9ebdbd895"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/command/stdout.log",
+    "bytes": 668,
+    "sha256": "9ba264d7d138790bf478d67f88c4407b23ba5585ec079d90c8a2da93df76f6f6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/plan.json",
+    "bytes": 8036,
+    "sha256": "b2e398ac92aa111fd4ec5fc4043bd999975e9c6014886170ba02b18840e5d46f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090208Z-helper-install-e220f5c417/status.json",
+    "bytes": 523,
+    "sha256": "4ede2341815b3ce740dcbdcc5102c7810492bf5fd79d8de22cfe063915a858c6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/command.json",
+    "bytes": 7141,
+    "sha256": "e6e790ff12889c7eeebbf85c597052859cd4d550e9bd9e900488787733e2e068"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/result.json",
+    "bytes": 7269,
+    "sha256": "c35a729bcdfff11dab090175c343152ff626960d69e0e3138dc9f3a5e58e8fbc"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/command/stdout.log",
+    "bytes": 650,
+    "sha256": "314c5353621843e39e51111429f2999681606ca18c03f442d81d11dec5f15c45"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/plan.json",
+    "bytes": 7735,
+    "sha256": "ce195eae4edf70d1359aac8ca42b8a6c9d916dedc635e35659833a167144509d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090304Z-gaussian-install-fc1dfe6a81/status.json",
+    "bytes": 527,
+    "sha256": "c0caf19097b41b1003c32f68723818b59e0ecc75660e8f424190357b733844f5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/device-mapping.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/command.json",
+    "bytes": 8289,
+    "sha256": "98a081744959484ae75778298efa82c29287b3d553ac800c786b6955fb863780"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/result.json",
+    "bytes": 8417,
+    "sha256": "4ea701ecd7e7b9ac7e7365642d7cc72dca17ce43e68958ac0d9edef8ac4d057d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/command.json",
+    "bytes": 8498,
+    "sha256": "45d27f8bd91007b598d8e3784465d46672608914ea7a6de1320dbf68bc11e704"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/result.json",
+    "bytes": 8626,
+    "sha256": "248cbc5536db71bab22d16dd9225e3bbbe4c7689a30aff3f4d0bf5d9d66ae74c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gpu-driver-info/stdout.log",
+    "bytes": 146,
+    "sha256": "99f93c6ca2ebe9a6cc6946858b867e37a704844f081408b7eb38592adb5e01d3"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/command.json",
+    "bytes": 8289,
+    "sha256": "da2ab43879e121d9f13c285cc2d70aa2ac9c9543db0df64737188d6a720216e1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/result.json",
+    "bytes": 8417,
+    "sha256": "275b8da06586d6f91da35bc4166141da97a4aef93392bbec830c15ddbd67d5b2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "ab45a0f3abbc6091f3add5ec07c43289f6da0ab398580e0ae966785fb11dd0b0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "90442d6ec3e3a925e864d7c544260195a3e7dd7ab95c0f9ff89baf42c095362a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/host-selected-gpu/stdout.log",
+    "bytes": 146,
+    "sha256": "274ad6e2b1a1a274bb43b1127698ed07657d900b6b633a34cc190550cf37e80e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/command.json",
+    "bytes": 8329,
+    "sha256": "36a48a1da0210957b96cea8e288c80940ddf53793a1a27201d17cd014f3385c8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/result.json",
+    "bytes": 8457,
+    "sha256": "61f939491dedb642da2dd69af43433fe7bf075fd10fb0b58f35814073bb9a34d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/plan.json",
+    "bytes": 9382,
+    "sha256": "ee09cb081ad29af23009ebeb4a395dc7d4acdd76d6c50d3021be30f0d369b6db"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090432Z-sparse-smoke-9f0c1937e4/status.json",
+    "bytes": 721,
+    "sha256": "b1333b70d7193866694985c20c985e95a917408011409fceccba8b845905796a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/command.json",
+    "bytes": 8595,
+    "sha256": "d1911953748fcb71c48a2e5d0c8bd26b7f1758645b095e752b889538834ee318"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/result.json",
+    "bytes": 8724,
+    "sha256": "8760833d0192fab826837b5253fc7c1f5c313e86ba2e0078422b505993408ad4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/command/stdout.log",
+    "bytes": 171,
+    "sha256": "b23e5d3ba0840669fde4760f9db3a7c67485b7d9ccaa9bb9901f0463c8fa12ec"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/device-mapping.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/device-mapping.json",
+    "bytes": 277,
+    "sha256": "a722ac59a8ce5de35b3604e7f307c3b75f3e60a57ec79359b60f97d3eee7f470"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/command.json",
+    "bytes": 8380,
+    "sha256": "f42dd300e9942c6572da7397d80c3753f603c12751af5047e50042d336bbc8ef"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/result.json",
+    "bytes": 8508,
+    "sha256": "5f3689cc3710c4ae728115adf0fca73de8147ec84c0b560a22ec6ec28146e0b0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gcc-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/command.json",
+    "bytes": 8589,
+    "sha256": "95b287597340d8db3c600689a63b097f313a0fa4db78ac48ce4edcb36007de1a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/result.json",
+    "bytes": 8717,
+    "sha256": "0d0363c17cfd3988f65b4c748bdda0ad54943f102186308729f52c3266423fe7"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-driver-info/stdout.log",
+    "bytes": 146,
+    "sha256": "b0081088c9d2dc737b9d6ddc2dd9b825f75a1bf465c9060aa488730a2cc2a186"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/command.json",
+    "bytes": 8507,
+    "sha256": "3a5ba6dfe3d067ae39b2bd74dfbf43a5b0d4540e3a9bf2df7480ec062803e358"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/result.json",
+    "bytes": 8635,
+    "sha256": "8e327b1a7700cd3f0a9248cb0a6d8c4edd7d28d071b1d68dd36ad52ac2aba5a9"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gpu-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/command.json",
+    "bytes": 8380,
+    "sha256": "b992c29d8789277dadc244e1bf6de341aa1af5f6ea513a4c6487cea204424e82"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/result.json",
+    "bytes": 8508,
+    "sha256": "965b739112ba600fff8953de77378519abab2bb82206417229ee318de13d5304"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/gxx-version/stdout.log",
+    "bytes": 7,
+    "sha256": "bb6aade8c4ca40cae9cb1be8abe12377f651fccd82954af74ec61703b6608fc5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/command.json",
+    "bytes": 390,
+    "sha256": "c2ed274ae8d30d0bc45af65c71aca7ce6f58e53b763f962b3f97259ce38a66a5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/result.json",
+    "bytes": 518,
+    "sha256": "86698bc854fba9a0704f07984ebcebd7f2a6c4cf5215917b9fc5d7d2164b466e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-existing-compute-apps/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/command.json",
+    "bytes": 472,
+    "sha256": "78b6122f29aaeb05a973f994881ed3bf67841247d18e8628f2da37cf5349eb3b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/result.json",
+    "bytes": 600,
+    "sha256": "983f2234d67537d0357cebe39f4b8e9cac0297ccf9703dfaa674394d86e5e2fd"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/host-selected-gpu/stdout.log",
+    "bytes": 146,
+    "sha256": "9893112c92ce135c81cc045e6a7f016a058ee0d9d7e1012f583da4d5ab7cef7e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/command.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/command.json",
+    "bytes": 8420,
+    "sha256": "70cd2908b779522bd5c6cb2d1506023495fc0b679d44e706748b71140266b4f8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/result.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/result.json",
+    "bytes": 8548,
+    "sha256": "1b5d673ad8f3485e2661215a73f5b9c986f352e5079ddaa2714cab6767aa23c0"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/stderr.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/stdout.log",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/nvcc-version/stdout.log",
+    "bytes": 208,
+    "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/plan.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/plan.json",
+    "bytes": 9395,
+    "sha256": "0f644edaff8115583508f3708c4a33168fc757e37d3f54a350aafd9ecdabf09b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/status.json",
+    "copy": "evidence/official-example-20260921/runs/20260921T090644Z-sparse-smoke-nvml-mapping-154acee056/status.json",
+    "bytes": 698,
+    "sha256": "9e6991768521923b8f27873b2a4acf9d4e343c8858e3dad45cd3dca7f21a8047"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/sparse-check-20260921T090645683991Z-8f611c0f11/result.json",
+    "copy": "evidence/official-example-20260921/sparse-check-20260921T090645683991Z-8f611c0f11/result.json",
+    "bytes": 27906,
+    "sha256": "3ede69cc3ec394b80549f99e7cbb981e338c819bf92e5c478620401b283863f6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/test_workspace_runner.py",
+    "copy": "evidence/official-example-20260921/test_workspace_runner.py",
+    "bytes": 6214,
+    "sha256": "ec6f0a8bd40cadf7852e4c145dbac7caae865a62fbd463190122d4d1b5edccb5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/after.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/after.json",
+    "bytes": 4403,
+    "sha256": "ab91f19fa830db8a0ac388abf2ffc7da7c965fb2c7694544e0a7f1b84163ff9a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/before.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/before.json",
+    "bytes": 4350,
+    "sha256": "75f7624d60946ed5892764bf7f945a68f2b5d235fac7d701acb677a4a94159db"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/command.json",
+    "bytes": 669,
+    "sha256": "1544c6943ccaa7de7eee832277e511232bca8d069f668842507201b7a037901f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/result.json",
+    "bytes": 737,
+    "sha256": "ecaa244db70935b80017652d834ac6e74d6f8ec17808f69100c382ba2bee4997"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/dry-run/stdout.log",
+    "bytes": 500,
+    "sha256": "f12ba6f7c00de03462eeaac9040adc1bf6d0c624393a4bee9833ce2476e78a67"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/install/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/install/command.json",
+    "bytes": 516,
+    "sha256": "c31403b89ecbbeb3f6621f87a86e7018c585157ae5ef64885d5b30f2864f3bfc"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/install/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/install/result.json",
+    "bytes": 584,
+    "sha256": "26baf5c5e6946714d43fcbc6be6a554cc24e47b78ca471149d92fb31fe17f8d8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/install/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/install/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/install/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/install/stdout.log",
+    "bytes": 566,
+    "sha256": "6562a93751590e23e89cea1d8ed631f0e2f5cefad3268967b76f66580bae899d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/command.json",
+    "bytes": 275,
+    "sha256": "4cf666551264642838c04737f75982366f20572339a770884635ac0cda035a35"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/result.json",
+    "bytes": 343,
+    "sha256": "53bbc6b8d5a612745c04e549db3eb730537590c9a7c650fe5297a5610dc4567d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/pip-check/stdout.log",
+    "bytes": 30,
+    "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/preview.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/preview.json",
+    "bytes": 21539,
+    "sha256": "b57dd547635bcfc83c13383412067e0fd0957e6149dd3437bac88aef15644ffe"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/result.json",
+    "bytes": 242,
+    "sha256": "faaee297c62dd702a2aa864b67bad70257becd0768121d1df971ee3c9b08df41"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/verified-wheels.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/verified-wheels.json",
+    "bytes": 910,
+    "sha256": "139c8a8a76d564019da066f8245d43566327fa970bfab21ea9ff183f8ace7b16"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z/wheels.lock.txt",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090019865667Z/wheels.lock.txt",
+    "bytes": 415,
+    "sha256": "22bef59d0c87d96d2042265bf5c2f7d7fc36cc2ea44e0ba75ca3f7d1af1c6c0d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/after.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/after.json",
+    "bytes": 4467,
+    "sha256": "fa461e59c787607781e5bb4726eed4078d79e879814337141a0305cf6a7d4f95"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/before.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/before.json",
+    "bytes": 4403,
+    "sha256": "ab91f19fa830db8a0ac388abf2ffc7da7c965fb2c7694544e0a7f1b84163ff9a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/command.json",
+    "bytes": 669,
+    "sha256": "73429a6bb41ae4238495d51f70883eaae5c751053639491cff0c8965dc8f7d8e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/result.json",
+    "bytes": 737,
+    "sha256": "30d439c335dd410d5094947bf45bb8e80c6d790357204b3483f376f22f66ec68"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/dry-run/stdout.log",
+    "bytes": 679,
+    "sha256": "e6b557d1e1805d3649e5befe767810421da35a4381e771fe3244c66a3ecf9c15"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/install/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/install/command.json",
+    "bytes": 516,
+    "sha256": "57b820c78f8f2ee72bb75ecd5089c63c4e9aeb81f4934a631edf0b1e58ea4173"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/install/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/install/result.json",
+    "bytes": 584,
+    "sha256": "a0caafcb9b10c86a9c897312964b9ff85c4e48080de072f6b00dd65155c30255"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/install/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/install/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/install/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/install/stdout.log",
+    "bytes": 746,
+    "sha256": "b7a717c271181e0a5035abe8f9a79a918a7f32a097184cf2f7b1638bcd880d92"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/command.json",
+    "bytes": 275,
+    "sha256": "5a1e2c1401d752e56b68282fc691ae04c475d1bdf4582a22527e3b7f157fe00d"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/result.json",
+    "bytes": 343,
+    "sha256": "afd8788cde41e3867f5363eb0e6bca690fa130c0aaa732325b0a04747d8ad30c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/pip-check/stdout.log",
+    "bytes": 30,
+    "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/preview.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/preview.json",
+    "bytes": 7861,
+    "sha256": "124feb1123bd7fbcd6632a85209cb712712c20b311854914786c43af711d10af"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/result.json",
+    "bytes": 255,
+    "sha256": "5af34e56c81a9faabe309637451dee5a1801b178904323fa0ec69c1550e4c3f4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/verified-wheels.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/verified-wheels.json",
+    "bytes": 1093,
+    "sha256": "2a74e444f3506a6acebd8c03b3c8adab4be313cc5e80ab40fca2efec50337e1c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090209005142Z/wheels.lock.txt",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090209005142Z/wheels.lock.txt",
+    "bytes": 562,
+    "sha256": "62687b2a764886d2712a9aeb1d4656cfd63923abcf6eda85d9df3518e3cfb50e"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/after.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/after.json",
+    "bytes": 4509,
+    "sha256": "6751f6dd6779a3cc55d2687479c92008cf3c4643e6acc421df1914214901c590"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/before.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/before.json",
+    "bytes": 4467,
+    "sha256": "fa461e59c787607781e5bb4726eed4078d79e879814337141a0305cf6a7d4f95"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/command.json",
+    "bytes": 669,
+    "sha256": "175622e838f147fee85280230fb44ad9ad5dca7c6515ceabf2c07a3dafcc90a5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/result.json",
+    "bytes": 737,
+    "sha256": "b9d49856c85f1af11757ed2aaf4097df6e13579e9382ec0abe59173ed8574fab"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/dry-run/stdout.log",
+    "bytes": 289,
+    "sha256": "a7c9c47181ca47224007e137cf75636cf6b71dc4bb2400c03ff5e11332e232c5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/install/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/install/command.json",
+    "bytes": 516,
+    "sha256": "8483f5b0462638f59fd75ccacd2586da82f09f60b8e8ea4942b2a48b7ca39c50"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/install/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/install/result.json",
+    "bytes": 584,
+    "sha256": "76613993b744b57262cc496860f0c3217305dda3f22c51be5dc4e608017338d4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/install/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/install/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/install/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/install/stdout.log",
+    "bytes": 357,
+    "sha256": "c9530c16ad704b19e87635c1387962c4e963e225bfacfc3ac7ab807abf2179ca"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/command.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/command.json",
+    "bytes": 275,
+    "sha256": "06678047cf43ceaebb8978f0ebdc7e57474023ce8e90efaed6e02f03d9c2bcbe"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/result.json",
+    "bytes": 343,
+    "sha256": "fac7c4fc9adae51b0152796883deedbf37b6c52f81aae18b0409396673dec2b4"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/stderr.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/stdout.log",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/pip-check/stdout.log",
+    "bytes": 30,
+    "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/preview.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/preview.json",
+    "bytes": 1258,
+    "sha256": "28f47f95509126a03cb782c276ca52bd31e2b3ff80ee5dae698719e7b0110b54"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/result.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/result.json",
+    "bytes": 229,
+    "sha256": "0d0925dc1d610d632c456745b5875743ea32bc2f9a7eeb1960cb175dbda451a6"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/verified-wheels.json",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/verified-wheels.json",
+    "bytes": 345,
+    "sha256": "ceead456522d7381e26e4012c940c0944f20a7a2bdb97e764bfedc4fe512a9a8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/wheels.lock.txt",
+    "copy": "evidence/official-example-20260921/wheel-installs/20260921T090304164904Z/wheels.lock.txt",
+    "bytes": 240,
+    "sha256": "220f91235297ae363bbc47b47a0f5331a7caf9e80df69b2d9c374457b56da3b5"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/workspace_runner.py",
+    "copy": "evidence/official-example-20260921/workspace_runner.py",
+    "bytes": 24580,
+    "sha256": "d842cf69dacd6b1921a10322a7de85518be0a54847e8aabebd85e9f885dfb6ee"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/artifacts-sha256.json",
+    "copy": "evidence/sparse-wheel-review-20260921/artifacts-sha256.json",
+    "bytes": 18782,
+    "sha256": "e55dc8984d385344190bbf32f655e7955d0fe7dd3fbc66dda4aa9afc7778a928"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/cumm-cu126.metadata.json",
+    "copy": "evidence/sparse-wheel-review-20260921/cumm-cu126.metadata.json",
+    "bytes": 960,
+    "sha256": "e925d7f407ee11f9d2b3f34b48aa76f9e504272cd7bcabffb90bef1c244b0e6b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/result.json",
+    "copy": "evidence/sparse-wheel-review-20260921/result.json",
+    "bytes": 6075,
+    "sha256": "74fd53566e01a30ef9bea2bb50110d93d376a6326e64211340947e0e06627585"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/review_wheels.py",
+    "copy": "evidence/sparse-wheel-review-20260921/review_wheels.py",
+    "bytes": 11556,
+    "sha256": "dd24da6afb00beb7450d3fa16d4bc3df8e5dc3d38b7a269806b9d53b29f179da"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/spconv-cu126.metadata.json",
+    "copy": "evidence/sparse-wheel-review-20260921/spconv-cu126.metadata.json",
+    "bytes": 815,
+    "sha256": "afef5c27ec441214e83e20cd4b30c9e768b923bc2283982b921de31cb4321bf2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/sparse-wheel-review-20260921/summary.md",
+    "copy": "evidence/sparse-wheel-review-20260921/summary.md",
+    "bytes": 5030,
+    "sha256": "198f6bb5f66222f23036698cf2318d8776cbb64d0043740d92334fcaa59e0c0f"
+  }
+]

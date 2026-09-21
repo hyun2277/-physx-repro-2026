@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "installed": {
+    "cumm-cu126": "0.7.11",
+    "spconv-cu126": "2.3.8"
+  },
+  "preserved_existing": 170,
+  "logs": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090019865667Z"
+}

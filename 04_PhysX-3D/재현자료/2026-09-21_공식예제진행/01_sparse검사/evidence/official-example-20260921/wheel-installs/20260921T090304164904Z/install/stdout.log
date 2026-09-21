@@ -1,0 +1,3 @@
+Processing ./cache/wheels/official-example/diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl (from -r /home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/wheel-installs/20260921T090304164904Z/wheels.lock.txt (line 1))
+Installing collected packages: diff-gaussian-rasterization
+Successfully installed diff-gaussian-rasterization-0.0.0

@@ -1,0 +1,17 @@
+{
+  "run_id": "20260921T090208Z-helper-install-e220f5c417",
+  "profile": "install",
+  "label": "helper-install",
+  "started_at": "2026-09-21T09:02:08.930505+00:00",
+  "phase": "completed",
+  "command_exit_code": 0,
+  "command_passed": true,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "9de48577bec2a1fc418d57a73a49dc6c39625c90e4d1e51f449821daae097a53",
+  "ended_at": "2026-09-21T09:02:10.538227+00:00",
+  "exit_code": 0,
+  "automatic_retry": false,
+  "protections_weakened": false
+}

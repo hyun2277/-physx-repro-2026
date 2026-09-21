@@ -1,0 +1,10 @@
+[
+  {
+    "name": "diff-gaussian-rasterization",
+    "version": "0.0.0",
+    "path": "/home/minsujo/Desktop/SH/PHYSx/cache/wheels/official-example/diff_gaussian_rasterization-0.0.0-cp310-cp310-linux_x86_64.whl",
+    "bytes": 511009,
+    "sha256": "1062b26488be106a39df3e5e6cf2ce94d20845284c16251ebe92cf62a853eec5",
+    "requires_dist": []
+  }
+]

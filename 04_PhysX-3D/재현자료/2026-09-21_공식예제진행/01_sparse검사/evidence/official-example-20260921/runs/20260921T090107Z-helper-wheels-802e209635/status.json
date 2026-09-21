@@ -1,0 +1,17 @@
+{
+  "run_id": "20260921T090107Z-helper-wheels-802e209635",
+  "profile": "build",
+  "label": "helper-wheels",
+  "started_at": "2026-09-21T09:01:07.928515+00:00",
+  "phase": "completed",
+  "command_exit_code": 0,
+  "command_passed": true,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "63e3cf999fc18be6de7314b7107b283eed1780c258bfc5113e5eba89873c4534",
+  "ended_at": "2026-09-21T09:01:11.942842+00:00",
+  "exit_code": 0,
+  "automatic_retry": false,
+  "protections_weakened": false
+}

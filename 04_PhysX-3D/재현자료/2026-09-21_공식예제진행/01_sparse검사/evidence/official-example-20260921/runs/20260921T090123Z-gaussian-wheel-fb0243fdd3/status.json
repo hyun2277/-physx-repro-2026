@@ -1,0 +1,17 @@
+{
+  "run_id": "20260921T090123Z-gaussian-wheel-fb0243fdd3",
+  "profile": "build",
+  "label": "gaussian-wheel",
+  "started_at": "2026-09-21T09:01:23.004610+00:00",
+  "phase": "completed",
+  "command_exit_code": 0,
+  "command_passed": true,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "63e3cf999fc18be6de7314b7107b283eed1780c258bfc5113e5eba89873c4534",
+  "ended_at": "2026-09-21T09:02:14.046035+00:00",
+  "exit_code": 0,
+  "automatic_retry": false,
+  "protections_weakened": false
+}
