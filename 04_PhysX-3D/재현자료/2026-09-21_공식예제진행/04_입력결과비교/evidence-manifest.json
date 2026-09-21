@@ -1,0 +1,92 @@
+[
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-comparison-20260921/make_comparison.py",
+    "copy": "evidence/logs/official-example-comparison-20260921/make_comparison.py",
+    "bytes": 5247,
+    "sha256": "680f4839c1132eeead8dc145e219dc972faf21ced1c38c63c4c4fd94f4943a6b"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-comparison-20260921/candidates-record.json",
+    "copy": "evidence/logs/official-example-comparison-20260921/candidates-record.json",
+    "bytes": 1146,
+    "sha256": "e7310c674eb0271ee7236665e5d1c281a73028d1ebc2a23d9063dbc71881d648"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-comparison-20260921/comparison-record.json",
+    "copy": "evidence/logs/official-example-comparison-20260921/comparison-record.json",
+    "bytes": 1223,
+    "sha256": "5940781202a4fe708d8a1322ab71accc49225f1c92233dea9bee9aa9c9a14b7f"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/status.json",
+    "bytes": 547,
+    "sha256": "61ee51af35bf14833d53584171c1b6cd6bc9f883f167f58811767b51fa40d692"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/plan.json",
+    "bytes": 8781,
+    "sha256": "f82e19e8a939b1051b096cc003ecdab25c67b27f89d734b04a91dd931a5ac603"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/command.json",
+    "bytes": 8350,
+    "sha256": "fee9c3f35af8737af1872934c3e75a10b33c29d8cbfbeb5b4c5f79f536e7137c"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/result.json",
+    "bytes": 8478,
+    "sha256": "774be1fdae27cb8dd96a5331df30beb93c8d7127726184d9d7e91262729ee7a8"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/stdout.log",
+    "bytes": 1139,
+    "sha256": "c5265d3b52c4f67f7165c6596563258e21e66ac45297dd0da82d16c678fc8af2"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125236Z-saved-comparison-candidates-52912abd34/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/status.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/status.json",
+    "bytes": 551,
+    "sha256": "8fbae9953dd052f63b84ca6dcb66e9009fb5924ef57539e678408f7ce34582c1"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/plan.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/plan.json",
+    "bytes": 8833,
+    "sha256": "dd7770f55972d81ceff1d6d1c983e4bc708c7ea35514fb3ff8e31aa519f14a30"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/command.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/command.json",
+    "bytes": 8389,
+    "sha256": "0dd24adec8781ce1c8d87e67bcfe57f6410d7ecf356d1c5b7dcbe4191f66fb9a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/result.json",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/result.json",
+    "bytes": 8517,
+    "sha256": "4ae298520682353de781e8c2dd19b3c3cbda87e816be49974f22452513a9b71a"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/stdout.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/stdout.log",
+    "bytes": 1099,
+    "sha256": "2c88851f0880426d69d38a5d541bd37f0c270b98a062c93603bc0438f88ef4da"
+  },
+  {
+    "source": "/home/minsujo/Desktop/SH/PHYSx/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/stderr.log",
+    "copy": "evidence/logs/official-example-20260921/runs/20260921T125306Z-saved-input-output-comparison-7944889035/command/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

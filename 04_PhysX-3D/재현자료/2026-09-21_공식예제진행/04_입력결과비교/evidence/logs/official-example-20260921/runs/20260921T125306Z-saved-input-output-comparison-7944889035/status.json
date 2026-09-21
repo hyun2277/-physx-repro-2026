@@ -1,0 +1,17 @@
+{
+  "run_id": "20260921T125306Z-saved-input-output-comparison-7944889035",
+  "profile": "build",
+  "label": "saved-input-output-comparison",
+  "started_at": "2026-09-21T12:53:06.343480+00:00",
+  "phase": "completed",
+  "command_exit_code": 0,
+  "command_passed": true,
+  "gpu_uuid": null,
+  "gpu_index": null,
+  "device_minor": null,
+  "runner_sha256": "d842cf69dacd6b1921a10322a7de85518be0a54847e8aabebd85e9f885dfb6ee",
+  "ended_at": "2026-09-21T12:53:07.358079+00:00",
+  "exit_code": 0,
+  "automatic_retry": false,
+  "protections_weakened": false
+}
