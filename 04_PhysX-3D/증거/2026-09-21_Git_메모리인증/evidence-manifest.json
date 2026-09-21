@@ -88,5 +88,59 @@
     "source_relative_to_PHYSx": "logs/git-records-20260921/git_records_network.py",
     "source_sha256": "184e0bc659a0a94441eefc864c9c5ab38ce28236d4c7bb21f83f6679e1411349",
     "published_sha256": "184e0bc659a0a94441eefc864c9c5ab38ce28236d4c7bb21f83f6679e1411349"
+  },
+  {
+    "file": "publication-receipt.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/first-authenticated-upload-receipt.json",
+    "source_sha256": "49577628ac73a4c945edd538e87bf645b60679c5a99cf3a6b4d95ad209e900a6",
+    "published_sha256": "49577628ac73a4c945edd538e87bf645b60679c5a99cf3a6b4d95ad209e900a6"
+  },
+  {
+    "file": "publication-push.command.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T152119942215/command.json",
+    "source_sha256": "088dc8f1c51ee1bd251b1d2548093a95ec0fb5596e8d87c9e0f5b4f9ac47d5e8",
+    "published_sha256": "088dc8f1c51ee1bd251b1d2548093a95ec0fb5596e8d87c9e0f5b4f9ac47d5e8"
+  },
+  {
+    "file": "publication-push.stdout.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T152119942215/stdout.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "publication-push.stderr.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T152119942215/stderr.log",
+    "source_sha256": "d84cf0eba80d0cf74fe7e2a5d26ac75084711ce6b9a1a021b90d725eecaabcb2",
+    "published_sha256": "d84cf0eba80d0cf74fe7e2a5d26ac75084711ce6b9a1a021b90d725eecaabcb2"
+  },
+  {
+    "file": "publication-push.result.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T152119942215/result.json",
+    "source_sha256": "0d135480ac618316414a60823619c455af7e5e0ae740435ff3dddcb8ba51de6a",
+    "published_sha256": "0d135480ac618316414a60823619c455af7e5e0ae740435ff3dddcb8ba51de6a"
+  },
+  {
+    "file": "publication-verify.command.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T152122045963/command.json",
+    "source_sha256": "ed27e6343b38efb9a481cd28196f6f5b64735cd146ec68fb215da9f28b26f587",
+    "published_sha256": "ed27e6343b38efb9a481cd28196f6f5b64735cd146ec68fb215da9f28b26f587"
+  },
+  {
+    "file": "publication-verify.stdout.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T152122045963/stdout.log",
+    "source_sha256": "7b69f6a7b9e0fb2d225ae4bc61647ab0774158486ab87b66337569af461eadb7",
+    "published_sha256": "7b69f6a7b9e0fb2d225ae4bc61647ab0774158486ab87b66337569af461eadb7"
+  },
+  {
+    "file": "publication-verify.stderr.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T152122045963/stderr.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "publication-verify.result.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T152122045963/result.json",
+    "source_sha256": "0123a9725f1b22dd47fed9666d4d4654b668d4b25abe1e017f0e2739764db740",
+    "published_sha256": "0123a9725f1b22dd47fed9666d4d4654b668d4b25abe1e017f0e2739764db740"
   }
 ]

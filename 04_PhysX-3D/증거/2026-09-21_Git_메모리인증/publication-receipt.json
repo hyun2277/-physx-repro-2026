@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-09-21T15:22:49.213771+09:00",
+  "verified_upload_commit": "ee065b4ed01040e6c9f48aefdf71bc532f372e08",
+  "github_commit_url": "https://github.com/hyun2277/-physx-repro-2026/commit/ee065b4ed01040e6c9f48aefdf71bc532f372e08",
+  "repository": "hyun2277/-physx-repro-2026",
+  "branch": "main",
+  "authenticated_account": "hyun2277",
+  "push_exit_code": 0,
+  "remote_query_exit_code": 0,
+  "remote_main_sha": "ee065b4ed01040e6c9f48aefdf71bc532f372e08",
+  "local_head_at_verification": "ee065b4ed01040e6c9f48aefdf71bc532f372e08",
+  "exact_match": true,
+  "force_push": false,
+  "outgoing_content_scope": "04_PhysX-3D only",
+  "preserved_commits": [
+    "ebd8d8999536c0a9c0fa4e081a7e86204998263e",
+    "4052f2934ca81a60c3ef05f9bb691929ef2fb4cf"
+  ],
+  "publication_note": "This receipt records the completed upload of ee065b4. The receipt itself will be published in a subsequent normal commit; it does not claim its own future SHA."
+}
