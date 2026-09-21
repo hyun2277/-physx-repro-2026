@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "claim": "proposal_cpu_check",
+  "execution_scope": "synthetic_fixture",
+  "failure_mode": "stop",
+  "aggregation": {"mode": "disabled", "duplicate_policy": null, "failure_policy": null, "denominator": null},
+  "metrics": {
+    "scale_l2": {
+      "authority": "proposal",
+      "unit": "cm",
+      "normalization": {"kind": "identity"},
+      "representation": "scalar",
+      "alignment": "already_aligned",
+      "context": {"coordinate_frame": "synthetic_xyz", "normalization_id": "synthetic_identity"}
+    }
+  }
+}

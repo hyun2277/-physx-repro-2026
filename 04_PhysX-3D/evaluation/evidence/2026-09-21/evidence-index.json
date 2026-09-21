@@ -1,0 +1,177 @@
+{
+  "runs": [
+    {
+      "evidence": "01-namespace-blocked",
+      "source_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/evaluation-cpu-20260921/20260921T134756362683Z-83a0db4e",
+      "files": [
+        {
+          "name": "command.json",
+          "bytes": 2853,
+          "sha256": "0e7c94d95fbd335da28d5ab64f0be84edd2a028a854d6782fa4f707a95f8573a"
+        },
+        {
+          "name": "code-hashes.json",
+          "bytes": 987,
+          "sha256": "68486eef6d9925718ab8075c9880a0a390ab32fd32ff238ad82e7d57726ac5cf"
+        },
+        {
+          "name": "stdout.log",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "stderr.log",
+          "bytes": 208,
+          "sha256": "f584d723d6016799815da1fe797c1cb4d40b556ab350e3d7b78d3d12d7febf46"
+        },
+        {
+          "name": "result.json",
+          "bytes": 304,
+          "sha256": "067776e2b5d4813e4154a832b763dbf640b3c6ad2fb7eeb2a195313c86bb8b12"
+        }
+      ]
+    },
+    {
+      "evidence": "02-initial-42",
+      "source_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/evaluation-cpu-20260921/20260921T134832063461Z-6dad3d22",
+      "files": [
+        {
+          "name": "command.json",
+          "bytes": 2853,
+          "sha256": "6d9d3344cfcbf7b8e9ce6e0454e288c8f443fe406532935833fd4a137ec6c63d"
+        },
+        {
+          "name": "code-hashes.json",
+          "bytes": 987,
+          "sha256": "68486eef6d9925718ab8075c9880a0a390ab32fd32ff238ad82e7d57726ac5cf"
+        },
+        {
+          "name": "versions.json",
+          "bytes": 284,
+          "sha256": "9e9bad0504cb5ef3aec2cfa8ac00f7438bd4c68c44179233c673e323312230d8"
+        },
+        {
+          "name": "stdout.log",
+          "bytes": 98,
+          "sha256": "1e36aa2e1f396ad52edf1084adba8f8225eaf5cab190f4e263c4dc67676535e8"
+        },
+        {
+          "name": "stderr.log",
+          "bytes": 3817,
+          "sha256": "a2262f56f6fa58b1f1570567fd1fbfc76f436203cb1f588deed77df941f9eb58"
+        },
+        {
+          "name": "result.json",
+          "bytes": 304,
+          "sha256": "3afba5f362eb9549375499650817ac36c46b10b03cb09188c53483cd6559d310"
+        },
+        {
+          "name": "checks.json",
+          "bytes": 8638,
+          "sha256": "d8a1ab6b8c82de4b81e5ca300eed1c4822b6cddc34d307a518bb85b937bc83c0"
+        },
+        {
+          "name": "manifest-summary.json",
+          "bytes": 420,
+          "sha256": "65d9d26a5d52707f3d6de50cb798a395a65e084b8acfa825143683e74843a732"
+        }
+      ]
+    },
+    {
+      "evidence": "03-expanded-51",
+      "source_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/evaluation-cpu-20260921/20260921T135253629289Z-214ae99e",
+      "files": [
+        {
+          "name": "command.json",
+          "bytes": 2853,
+          "sha256": "0b24ce0f6f89fa052df9b2e3ef75e16fe88f8ce8072c5cebd194408f9c5531a7"
+        },
+        {
+          "name": "code-hashes.json",
+          "bytes": 1085,
+          "sha256": "ed146410f05e95bea01aad706b43df9dc42719ba58a318030fc7d0118075cacd"
+        },
+        {
+          "name": "versions.json",
+          "bytes": 284,
+          "sha256": "9e9bad0504cb5ef3aec2cfa8ac00f7438bd4c68c44179233c673e323312230d8"
+        },
+        {
+          "name": "stdout.log",
+          "bytes": 98,
+          "sha256": "1e36aa2e1f396ad52edf1084adba8f8225eaf5cab190f4e263c4dc67676535e8"
+        },
+        {
+          "name": "stderr.log",
+          "bytes": 4680,
+          "sha256": "14353942e4718cb34781bfe69c722a3ba9c8e6c60a690dc59938ec05da861fff"
+        },
+        {
+          "name": "result.json",
+          "bytes": 304,
+          "sha256": "67104effbf03d4f6c197f71e865e23fdbeb3e570be76cc4b38e2e975569645fd"
+        },
+        {
+          "name": "checks.json",
+          "bytes": 10527,
+          "sha256": "f5f66040eaa25a75c8c5780485e6b360894ae9f402133b24230c9d6756427ad0"
+        },
+        {
+          "name": "manifest-summary.json",
+          "bytes": 420,
+          "sha256": "65d9d26a5d52707f3d6de50cb798a395a65e084b8acfa825143683e74843a732"
+        }
+      ]
+    },
+    {
+      "evidence": "04-final-53",
+      "source_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/evaluation-cpu-20260921/20260921T135448331216Z-4f2a809b",
+      "files": [
+        {
+          "name": "command.json",
+          "bytes": 2853,
+          "sha256": "8c8862e37e1e53bd66a36e65ba3111ca1df29070ae80df3f2d640e7662b40d24"
+        },
+        {
+          "name": "code-hashes.json",
+          "bytes": 1085,
+          "sha256": "afe8dac219cc423fdf09cb61b7f4b2ed0601fe01923e5b98b5c394d32178318e"
+        },
+        {
+          "name": "versions.json",
+          "bytes": 284,
+          "sha256": "9e9bad0504cb5ef3aec2cfa8ac00f7438bd4c68c44179233c673e323312230d8"
+        },
+        {
+          "name": "stdout.log",
+          "bytes": 98,
+          "sha256": "1e36aa2e1f396ad52edf1084adba8f8225eaf5cab190f4e263c4dc67676535e8"
+        },
+        {
+          "name": "stderr.log",
+          "bytes": 4871,
+          "sha256": "f90a630f146cc5cd95ab1f4f1462da2f869f1b8442b4abb806756c4fc22676e5"
+        },
+        {
+          "name": "result.json",
+          "bytes": 304,
+          "sha256": "e18c865ea99d587e32492cb846157cb6d2688fedc7d09699201ee6f22173e55e"
+        },
+        {
+          "name": "checks.json",
+          "bytes": 10946,
+          "sha256": "d85567a9ca2798e4288e49ecfe18704946c8cbcbb26f836a53bd317f6f79b05e"
+        },
+        {
+          "name": "manifest-summary.json",
+          "bytes": 420,
+          "sha256": "65d9d26a5d52707f3d6de50cb798a395a65e084b8acfa825143683e74843a732"
+        }
+      ]
+    }
+  ],
+  "retry_sample_source": "/home/minsujo/Desktop/SH/PHYSx/logs/evaluation-cpu-20260921/20260921T135448331216Z-4f2a809b/temporary/fixtures/fixture-1ze83kt8/session/items/test-000000/scale_l2",
+  "omitted": "Generated manifests and all synthetic fixture payloads remain in local logs; only selected small logs copied.",
+  "final_tests": 53,
+  "paper_equivalent": false
+}

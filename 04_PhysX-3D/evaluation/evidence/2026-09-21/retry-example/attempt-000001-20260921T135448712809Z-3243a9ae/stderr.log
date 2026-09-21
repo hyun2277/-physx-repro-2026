@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/evaluation/physx_eval/runner.py", line 160, in _run_locked
+    score = evaluate(metric, prediction, gt, settings)
+  File "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+RuntimeError: synthetic transient failure

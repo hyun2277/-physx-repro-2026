@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "claim": "proposal_cpu_check",
+  "execution_scope": "synthetic_fixture",
+  "failure_mode": "stop",
+  "aggregation": {"mode": "disabled", "duplicate_policy": null, "failure_policy": null, "denominator": null},
+  "metrics": {
+    "appearance_psnr": {"authority": "proposal", "unit": null, "normalization": null, "alignment": null, "context": null, "max_value": null, "mask_policy": null, "zero_mse_policy": null, "view_reduction": "mean_psnr"},
+    "density_psnr": {"authority": "proposal", "unit": "g/cm^3", "normalization": null, "alignment": null, "context": null, "max_value": null, "mask_policy": null, "zero_mse_policy": null, "view_reduction": null},
+    "affordance_psnr": {"authority": "proposal", "unit": null, "normalization": null, "alignment": null, "context": null, "max_value": null, "mask_policy": null, "zero_mse_policy": null, "view_reduction": null},
+    "description_psnr": {"authority": "proposal", "unit": null, "normalization": null, "alignment": null, "context": null, "max_value": null, "mask_policy": null, "zero_mse_policy": null, "view_reduction": null},
+    "scale_l2": {"authority": "proposal", "unit": "cm", "normalization": null, "alignment": null, "context": null, "representation": null},
+    "cd": {"authority": "proposal", "unit": null, "normalization": null, "alignment": null, "context": null, "coordinate_frame": null, "point_sampling": null, "distance": null, "direction_reduction": null},
+    "fscore": {"authority": "proposal", "unit": null, "normalization": null, "alignment": null, "context": null, "coordinate_frame": null, "point_sampling": null, "distance": null, "threshold": 0.05, "threshold_interpretation": null, "comparison": null, "zero_precision_recall": null},
+    "cov": {"authority": "proposal", "implementation": null},
+    "mmd": {"authority": "proposal", "implementation": null}
+  }
+}

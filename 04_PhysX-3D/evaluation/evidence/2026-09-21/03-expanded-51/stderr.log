@@ -1,0 +1,56 @@
+test_cd_directional_terms_sum_mean_and_squared_definitions (test_metrics.GeometryTests) ... ok
+test_display_conversion_is_derived_once_from_raw (test_metrics.GeometryTests) ... ok
+test_empty_wrong_shape_and_nonfinite_points_rejected (test_metrics.GeometryTests) ... ok
+test_equal_point_counts_can_still_have_different_hit_counts (test_metrics.GeometryTests) ... ok
+test_euclidean_radius_cannot_be_replaced_by_squared_value (test_metrics.GeometryTests) ... ok
+test_fscore_uses_separate_directional_hit_denominators (test_metrics.GeometryTests) ... ok
+test_squared_distance_maps_radius_to_squared_threshold (test_metrics.GeometryTests) ... ok
+test_zero_hit_policy_is_required_and_respected (test_metrics.GeometryTests) ... ok
+test_all_psnr_names_use_hand_computed_mse (test_metrics.PSNRTests) ... ok
+test_distinct_constant_maps_do_not_trigger_minmax_normalization (test_metrics.PSNRTests) ... ok
+test_identical_constant_maps_have_explicit_infinity (test_metrics.PSNRTests) ... ok
+test_invalid_values_do_not_become_scores (test_metrics.PSNRTests) ... ok
+test_numerical_overflow_and_underflow_are_reported (test_metrics.PSNRTests) ... ok
+test_same_fixed_affine_is_applied_to_both_maps (test_metrics.PSNRTests) ... ok
+test_view_and_shape_must_match (test_metrics.PSNRTests) ... ok
+test_code_verified_label_still_never_claims_paper_equivalence (test_metrics.ScaleAndSettingsTests) ... ok
+test_every_required_setting_is_mandatory (test_metrics.ScaleAndSettingsTests) ... ok
+test_invalid_numeric_settings_rejected (test_metrics.ScaleAndSettingsTests) ... ok
+test_joint_set_metrics_are_explicitly_unimplemented (test_metrics.ScaleAndSettingsTests) ... ok
+test_normalization_is_explicit_and_disallows_per_item_minmax (test_metrics.ScaleAndSettingsTests) ... ok
+test_scale_scalar_and_vector_are_euclidean (test_metrics.ScaleAndSettingsTests) ... ok
+test_scale_units_shape_and_representation_are_not_inferred (test_metrics.ScaleAndSettingsTests) ... ok
+test_unresolved_settings_and_paper_equivalence_authority_rejected (test_metrics.ScaleAndSettingsTests) ... ok
+test_duplicate_mismatched_and_reordered_results_are_rejected (test_metrics.ThirtyViewAppearanceTests) ... ok
+test_infinity_policy_is_explicit_and_does_not_clip (test_metrics.ThirtyViewAppearanceTests) ... ok
+test_mean_of_psnr_is_not_psnr_of_pooled_mse (test_metrics.ThirtyViewAppearanceTests) ... ok
+test_record_type_metric_scope_authority_and_finite_values_are_checked (test_metrics.ThirtyViewAppearanceTests) ... ok
+test_requires_all_30_distinct_expected_views (test_metrics.ThirtyViewAppearanceTests) ... ok
+test_cli_does_not_overwrite_existing_validation (test_workflow.CLITests) ... ok
+test_cli_run_resume_and_unresolved_validation (test_workflow.CLITests) ... ok
+test_checked_in_configs_have_no_silent_evaluation_defaults (test_workflow.ManifestTests) ... ok
+test_duplicate_ids_are_distinct_rows_without_weights (test_workflow.ManifestTests) ... ok
+test_official_manifest_matches_existing_original_test_order (test_workflow.ManifestTests) ... ok
+test_reordered_duplicate_rows_wrong_indices_and_dedup_are_rejected (test_workflow.ManifestTests) ... ok
+test_camera_question_unit_and_part_correspondence (test_workflow.MappingTests) ... ok
+test_hash_missing_input_and_path_escape (test_workflow.MappingTests) ... ok
+test_json_duplicate_keys_and_nonfinite_exponents_are_rejected (test_workflow.MappingTests) ... ok
+test_part_label_index_is_not_assumed_from_filename (test_workflow.MappingTests) ... ok
+test_symlink_escape_is_not_allowed (test_workflow.MappingTests) ... ok
+test_valid_pair_and_duplicate_identity (test_workflow.MappingTests) ... ok
+test_view_input_question_context_and_shape_mismatch (test_workflow.MappingTests) ... ok
+test_aggregation_real_execution_and_paper_claims_are_blocked (test_workflow.ResumeTests) ... ok
+test_changed_artifact_is_revalidated_before_skip (test_workflow.ResumeTests) ... ok
+test_changed_config_manifest_code_block_reuse (test_workflow.ResumeTests) ... ok
+test_failure_stops_then_explicit_retry_preserves_failed_attempt (test_workflow.ResumeTests) ... ok
+test_interrupted_or_corrupt_result_requires_retry_and_keeps_evidence (test_workflow.ResumeTests) ... ok
+test_missing_or_changed_snapshot_blocks_resume (test_workflow.ResumeTests) ... ok
+test_missing_setting_records_blocked_without_default (test_workflow.ResumeTests) ... ok
+test_other_item_success_record_is_not_reused (test_workflow.ResumeTests) ... ok
+test_session_lock_prevents_duplicate_work (test_workflow.ResumeTests) ... ok
+test_success_resume_preserves_completed_attempts_and_no_final_mean (test_workflow.ResumeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 0.406s
+
+OK
