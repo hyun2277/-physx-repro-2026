@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/usr/bin/git",
+    "-C",
+    "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+    "-c",
+    "core.hooksPath=/dev/null",
+    "-c",
+    "http.extraHeader=",
+    "-c",
+    "http.followRedirects=false",
+    "-c",
+    "http.proxy=",
+    "-c",
+    "http.sslVerify=true",
+    "fetch",
+    "--no-tags",
+    "origin",
+    "refs/heads/main:refs/remotes/origin/main"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+  "started_at": "2026-09-21T15:18:23.677958+09:00",
+  "head_before": "4052f2934ca81a60c3ef05f9bb691929ef2fb4cf",
+  "origin_main_before": "57024349614adb6f846a7a988b59a4ff1e0c9bd8",
+  "authentication": "hyun2277 repository-only RAM helper; no credential captured",
+  "force": false
+}

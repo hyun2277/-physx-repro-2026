@@ -1,0 +1,16 @@
+test_backend_secret_is_stdin_only_and_no_global_helper (__main__.Checks.test_backend_secret_is_stdin_only_and_no_global_helper) ... ok
+test_cache_miss_quits_without_prompt_fallback (__main__.Checks.test_cache_miss_quits_without_prompt_fallback) ... ok
+test_getpass_fallback_warning_stops (__main__.Checks.test_getpass_fallback_warning_stops) ... ok
+test_helper_store_does_not_refresh_ttl (__main__.Checks.test_helper_store_does_not_refresh_ttl) ... ok
+test_login_status_contains_no_credential (__main__.Checks.test_login_status_contains_no_credential) ... ok
+test_non_tty_login_stops_before_prompt (__main__.Checks.test_non_tty_login_stops_before_prompt) ... ok
+test_status_does_not_output_cached_credential (__main__.Checks.test_status_does_not_output_cached_credential) ... ok
+test_stop_only_uses_dedicated_cache_exit_and_get (__main__.Checks.test_stop_only_uses_dedicated_cache_exit_and_get) ... ok
+test_store_failure_cleans_possible_partial_store (__main__.Checks.test_store_failure_cleans_possible_partial_store) ... ok
+test_wrong_account_is_rejected (__main__.Checks.test_wrong_account_is_rejected) ... ok
+test_wrong_scope_quits_and_never_reads_cache (__main__.Checks.test_wrong_scope_quits_and_never_reads_cache) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.005s
+
+OK

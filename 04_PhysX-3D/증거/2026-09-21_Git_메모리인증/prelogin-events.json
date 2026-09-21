@@ -1,0 +1,22 @@
+{
+  "captured_at": "2026-09-21T14:58:30.774182+09:00",
+  "events": [
+    {
+      "account": "hyun2277",
+      "error_code": "cache_operation_failed",
+      "exit_code": 1,
+      "phase": "failed",
+      "timestamp": "2026-09-21T05:54:31.716680+00:00"
+    },
+    {
+      "account": "hyun2277",
+      "exit_code": 0,
+      "head": "4052f2934ca81a60c3ef05f9bb691929ef2fb4cf",
+      "phase": "status",
+      "present": false,
+      "timestamp": "2026-09-21T05:55:23.879951+00:00",
+      "verified": false
+    }
+  ],
+  "interpretation": "Restricted sandbox status returned cache_operation_failed exit1; command-specific approved retry returned empty cache exit0. Protection settings unchanged. No token or real GitHub authentication yet."
+}

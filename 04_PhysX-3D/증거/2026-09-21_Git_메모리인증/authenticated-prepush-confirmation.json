@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-09-21T15:19:44.679315+09:00",
+  "account": "hyun2277",
+  "api_user_id": 205583982,
+  "live_api_account_verification": true,
+  "verified_at": "2026-09-21T06:15:44.366452+00:00",
+  "memory_cache_present": true,
+  "ttl_seconds": 28800,
+  "ttl_refresh_on_git_use": false,
+  "repository_permission_metadata_push": true,
+  "scope_note": "Repository metadata permission is not proof of successful push. Actual push and remote SHA verification are separate.",
+  "protected_credentials_modified": false,
+  "token_logged": false,
+  "existing_commits_preserved": [
+    "ebd8d8999536c0a9c0fa4e081a7e86204998263e",
+    "4052f2934ca81a60c3ef05f9bb691929ef2fb4cf"
+  ],
+  "remote_main_after_fetch": "57024349614adb6f846a7a988b59a4ff1e0c9bd8",
+  "new_remote_commits": 0,
+  "actual_push_result": "pending"
+}

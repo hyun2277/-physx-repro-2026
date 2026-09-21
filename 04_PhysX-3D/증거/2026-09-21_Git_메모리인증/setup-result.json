@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-09-21T14:54:19.083587+09:00",
+  "result": "Repository-local memory credential helper configured; awaiting hidden token input",
+  "ttl_seconds": 28800,
+  "ttl_refresh_on_git_use": false,
+  "helper_script": "/home/minsujo/Desktop/SH/PHYSx/logs/git-records-20260921/physx_auth_session.py",
+  "helper_script_sha256": "a382bbe79835dfc2a295c6908fba37c698ceebe8d4d85c4700cb1eaa8305c3d3",
+  "socket": "/home/minsujo/Desktop/SH/PHYSx/tmp/gh-hyun2277/socket",
+  "socket_parent_mode": "0700",
+  "configured_local_keys": {
+    "credential.helper": [
+      "",
+      "/usr/bin/python3 -I -B -S /home/minsujo/Desktop/SH/PHYSx/logs/git-records-20260921/physx_auth_session.py helper"
+    ],
+    "credential.useHttpPath": "true",
+    "credential.username": "hyun2277"
+  },
+  "protected_files_metadata_unchanged": {
+    "/home/minsujo/.gitconfig": true,
+    "/home/minsujo/.git-credentials": true,
+    "/home/minsujo/.config/gh/hosts.yml": true,
+    "/home/minsujo/.config/gh/config.yml": true
+  },
+  "secret_file_contents_read": false,
+  "token_received": false,
+  "cache_daemon_started": false,
+  "existing_commits_preserved": true,
+  "real_authentication_or_push_verified": false
+}

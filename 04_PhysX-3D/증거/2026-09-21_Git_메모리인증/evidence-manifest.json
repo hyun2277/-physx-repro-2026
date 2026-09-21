@@ -1,0 +1,92 @@
+[
+  {
+    "file": "physx_auth_session.py",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/physx_auth_session.py",
+    "source_sha256": "a382bbe79835dfc2a295c6908fba37c698ceebe8d4d85c4700cb1eaa8305c3d3",
+    "published_sha256": "a382bbe79835dfc2a295c6908fba37c698ceebe8d4d85c4700cb1eaa8305c3d3"
+  },
+  {
+    "file": "auth_session_security_checks.py",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/auth_session_security_checks.py",
+    "source_sha256": "500e72ccea40bf57ec55adc97a2cb6fdf88c915aaaed42f63bcce491e76b8175",
+    "published_sha256": "500e72ccea40bf57ec55adc97a2cb6fdf88c915aaaed42f63bcce491e76b8175"
+  },
+  {
+    "file": "setup-result.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/auth-session-setup-result.json",
+    "source_sha256": "731ca51fe4fa46ba7884398747ffd4cd9cc372ab0a7c633c7720e433245f1bd0",
+    "published_sha256": "731ca51fe4fa46ba7884398747ffd4cd9cc372ab0a7c633c7720e433245f1bd0"
+  },
+  {
+    "file": "security-check.command.json",
+    "source_relative_to_PHYSx": "logs/auth-session-check-20260921T145318818437/command.json",
+    "source_sha256": "ee21d602709dc3c03754caa44d39f57a8ba813416da5522c8626b3b437947917",
+    "published_sha256": "ee21d602709dc3c03754caa44d39f57a8ba813416da5522c8626b3b437947917"
+  },
+  {
+    "file": "security-check.stdout.log",
+    "source_relative_to_PHYSx": "logs/auth-session-check-20260921T145318818437/stdout.log",
+    "source_sha256": "6c304272f14acdb82e4149ab5f09c04dffced17b68f62bace7c56beb0a84f9cc",
+    "published_sha256": "6c304272f14acdb82e4149ab5f09c04dffced17b68f62bace7c56beb0a84f9cc"
+  },
+  {
+    "file": "security-check.stderr.log",
+    "source_relative_to_PHYSx": "logs/auth-session-check-20260921T145318818437/stderr.log",
+    "source_sha256": "8799e4ced2eda29fc1f1ff082a6d0653d7a2771717544895598d9a6823baf43e",
+    "published_sha256": "8799e4ced2eda29fc1f1ff082a6d0653d7a2771717544895598d9a6823baf43e"
+  },
+  {
+    "file": "security-check.result.json",
+    "source_relative_to_PHYSx": "logs/auth-session-check-20260921T145318818437/result.json",
+    "source_sha256": "8b550cba9ebf33bc6e64a869270b8d714d79ce9b8f4a0752894e2b2935726d1a",
+    "published_sha256": "8b550cba9ebf33bc6e64a869270b8d714d79ce9b8f4a0752894e2b2935726d1a"
+  },
+  {
+    "file": "setup-commands.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/auth-session-setup/commands.json",
+    "source_sha256": "08953017c0ed98b88f242e58feb8ce5b6c3e45466a7cb61d482587e033458564",
+    "published_sha256": "08953017c0ed98b88f242e58feb8ce5b6c3e45466a7cb61d482587e033458564"
+  },
+  {
+    "file": "prelogin-events.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/auth-session-prelogin-events.json",
+    "source_sha256": "c9fa23aef23719bfd840e810b972161a593ef31a502d20ba3c41634f8001e79c",
+    "published_sha256": "c9fa23aef23719bfd840e810b972161a593ef31a502d20ba3c41634f8001e79c"
+  },
+  {
+    "file": "authenticated-prepush-confirmation.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/authenticated-prepush-confirmation.json",
+    "source_sha256": "059bb7aa2f1d936eb80872dba4950c888d1c8d59dcd84740c0a37746e0a24e54",
+    "published_sha256": "059bb7aa2f1d936eb80872dba4950c888d1c8d59dcd84740c0a37746e0a24e54"
+  },
+  {
+    "file": "authenticated-fetch.command.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-fetch-20260921T151823677958/command.json",
+    "source_sha256": "2521f76a39c3d26b78a2bacd8b2acc14046bbec8be2bb66bb51054be2c07aab9",
+    "published_sha256": "2521f76a39c3d26b78a2bacd8b2acc14046bbec8be2bb66bb51054be2c07aab9"
+  },
+  {
+    "file": "authenticated-fetch.stdout.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-fetch-20260921T151823677958/stdout.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "authenticated-fetch.stderr.log",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-fetch-20260921T151823677958/stderr.log",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "authenticated-fetch.result.json",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/network-fetch-20260921T151823677958/result.json",
+    "source_sha256": "51f58b0d8eb5227ba037ad4887c5f0645719c98c031c57982465e956b6d825d1",
+    "published_sha256": "51f58b0d8eb5227ba037ad4887c5f0645719c98c031c57982465e956b6d825d1"
+  },
+  {
+    "file": "git_records_network.py",
+    "source_relative_to_PHYSx": "logs/git-records-20260921/git_records_network.py",
+    "source_sha256": "184e0bc659a0a94441eefc864c9c5ab38ce28236d4c7bb21f83f6679e1411349",
+    "published_sha256": "184e0bc659a0a94441eefc864c9c5ab38ce28236d4c7bb21f83f6679e1411349"
+  }
+]

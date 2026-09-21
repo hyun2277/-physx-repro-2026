@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-S",
+    "/home/minsujo/Desktop/SH/PHYSx/logs/git-records-20260921/auth_session_security_checks.py"
+  ],
+  "cwd": "/home/minsujo/Desktop/SH/PHYSx",
+  "started_at": "2026-09-21T14:53:18.818437+09:00",
+  "purpose": "Mock-only security checks; no real credentials/network/cache/GPU"
+}

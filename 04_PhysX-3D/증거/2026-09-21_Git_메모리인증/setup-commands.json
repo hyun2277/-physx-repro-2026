@@ -1,0 +1,60 @@
+[
+  {
+    "argv": [
+      "/usr/bin/git",
+      "-C",
+      "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+      "config",
+      "--local",
+      "--add",
+      "credential.helper",
+      ""
+    ],
+    "started_at": "2026-09-21T14:54:19.071329+09:00",
+    "ended_at": "2026-09-21T14:54:19.073012+09:00",
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "/usr/bin/git",
+      "-C",
+      "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+      "config",
+      "--local",
+      "--add",
+      "credential.helper",
+      "/usr/bin/python3 -I -B -S /home/minsujo/Desktop/SH/PHYSx/logs/git-records-20260921/physx_auth_session.py helper"
+    ],
+    "started_at": "2026-09-21T14:54:19.073106+09:00",
+    "ended_at": "2026-09-21T14:54:19.074825+09:00",
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "/usr/bin/git",
+      "-C",
+      "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+      "config",
+      "--local",
+      "credential.useHttpPath",
+      "true"
+    ],
+    "started_at": "2026-09-21T14:54:19.074977+09:00",
+    "ended_at": "2026-09-21T14:54:19.076708+09:00",
+    "exit_code": 0
+  },
+  {
+    "argv": [
+      "/usr/bin/git",
+      "-C",
+      "/home/minsujo/Desktop/SH/PHYSx/repro-records",
+      "config",
+      "--local",
+      "credential.username",
+      "hyun2277"
+    ],
+    "started_at": "2026-09-21T14:54:19.076847+09:00",
+    "ended_at": "2026-09-21T14:54:19.078493+09:00",
+    "exit_code": 0
+  }
+]
