@@ -111,6 +111,60 @@
       "size_bytes": 2256,
       "sha256": "157cd9ea0b503abf4c245d8745e150407d0991297f2f97ea5eaed7f7dbb26813",
       "purpose": "historical local validation command source; fixed Linux workspace paths"
+    },
+    {
+      "path": "publication-push.command.json",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T161019754325/command.json",
+      "size_bytes": 681,
+      "sha256": "bc6b07c65b4b2555b28e2dd640e89e42147774e47c2a6c44b86c1e910f489826"
+    },
+    {
+      "path": "publication-push.stdout.log",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T161019754325/stdout.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "publication-push.stderr.log",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T161019754325/stderr.log",
+      "size_bytes": 87,
+      "sha256": "f61948e46176cf12be796f1c360afb2380bf037192c016d26e6f4d0f3524d871"
+    },
+    {
+      "path": "publication-push.result.json",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-push-20260921T161019754325/result.json",
+      "size_bytes": 457,
+      "sha256": "dfdfe3c5b944a6c6022690423672c87a761d8b30ba47d1caf3efd5903390230f"
+    },
+    {
+      "path": "publication-verify.command.json",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T161022610014/command.json",
+      "size_bytes": 700,
+      "sha256": "06a829b611334a1974d7bc197af3cad63fd4134ddac611fa06a15ce3d1e08ccc"
+    },
+    {
+      "path": "publication-verify.stdout.log",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T161022610014/stdout.log",
+      "size_bytes": 57,
+      "sha256": "a02dee20fd22ac559784fe264c8839e845202e390efe7d22fbc706e9519ceac7"
+    },
+    {
+      "path": "publication-verify.stderr.log",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T161022610014/stderr.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "publication-verify.result.json",
+      "source_relative_to_PHYSx": "logs/git-records-20260921/network-verify-20260921T161022610014/result.json",
+      "size_bytes": 461,
+      "sha256": "b3d953d34d262f4bd3ee005601db1e2ac3929ac561f5d559714669bd54302676"
+    },
+    {
+      "path": "publication-receipt.json",
+      "source_relative_to_PHYSx": "logs/repro-materials-20260921/materials-publication-receipt.json",
+      "size_bytes": 738,
+      "sha256": "82e7266dfb25dd2b6bbb02a2c408cccc4c0b7e913f80814e4ca7a91fc382ea4c"
     }
   ],
   "excluded": [
@@ -118,5 +172,6 @@
     "evidence-manifest.json (self-reference)"
   ],
   "gpu_execution": false,
-  "installation": false
+  "installation": false,
+  "publication_added_at": "2026-09-21T16:11:25.825228+09:00"
 }

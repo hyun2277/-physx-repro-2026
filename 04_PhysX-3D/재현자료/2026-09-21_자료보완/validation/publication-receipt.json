@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-09-21T16:11:25.825228+09:00",
+  "published_commit": "55fa16379fe9ddae1120b90dcbfe179c8a97c6e7",
+  "verified_remote_main": "55fa16379fe9ddae1120b90dcbfe179c8a97c6e7",
+  "remote_matches_local": true,
+  "normal_push_exit_code": 0,
+  "remote_query_exit_code": 0,
+  "published_new_files": 88,
+  "all_paths_within": "04_PhysX-3D/",
+  "no_existing_tracked_files_modified_by_materials_commit": true,
+  "gpu_execution": false,
+  "installation": false,
+  "commit_url": "https://github.com/hyun2277/-physx-repro-2026/commit/55fa16379fe9ddae1120b90dcbfe179c8a97c6e7",
+  "note": "This receipt records the materials commit; the receipt commit is verified separately in PHYSx/logs/repro-materials-20260921 after publication."
+}
