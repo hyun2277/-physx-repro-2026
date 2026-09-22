@@ -9,6 +9,8 @@ PYTHON="$ROOT/envs/physxgen/bin/python"
 CUDA_TOOLKIT_ROOT="$ROOT/toolchains/cuda-12.8.1"
 CUDA_TARGET="$CUDA_TOOLKIT_ROOT/targets/x86_64-linux"
 CUDA_NVCC="$CUDA_TOOLKIT_ROOT/bin/nvcc"
+HOST_CC=/usr/bin/gcc-12
+HOST_CXX=/usr/bin/g++-12
 EXPECTED_HEAD=4f54e750a309fe9cd9f20816916ecc0e8a9ae594
 INPUT="$SRC/example/table.png"
 LOG_ROOT="$ROOT/logs/original-example-terminal"
@@ -55,6 +57,8 @@ else
     CUDA_TARGET_LIB64="$CUDA_TARGET/lib"
 fi
 [[ -x "$CUDA_NVCC" ]] || stop_with_failure cuda_toolkit_nvcc_missing
+[[ -x "$HOST_CC" ]] || stop_with_failure host_gcc12_missing
+[[ -x "$HOST_CXX" ]] || stop_with_failure host_gxx12_missing
 [[ -d "$CUDA_TARGET_INCLUDE" ]] || stop_with_failure cuda_target_include_missing
 [[ -d "$CUDA_TARGET_LIB" ]] || stop_with_failure cuda_target_lib_missing
 mkdir -p "$CUDA_HOME/bin"
@@ -68,11 +72,19 @@ ln -s "$CUDA_TOOLKIT_ROOT/nvvm" "$CUDA_HOME/nvvm" || stop_with_failure cuda_over
     printf 'CUDA_TOOLKIT_ROOT=%s\n' "$CUDA_TOOLKIT_ROOT"
     printf 'CUDA_HOME=%s\n' "$CUDA_HOME"
     printf 'CUDACXX=%s\n' "$CUDA_RUN_NVCC"
+    printf 'CC=%s\n' "$HOST_CC"
+    printf 'CXX=%s\n' "$HOST_CXX"
+    printf 'CUDAHOSTCXX=%s\n' "$HOST_CXX"
+    printf 'NVCC_CCBIN=%s\n' "$HOST_CXX"
+    printf 'CC_RESOLVED=%s\n' "$(readlink -f "$HOST_CC")"
+    printf 'CXX_RESOLVED=%s\n' "$(readlink -f "$HOST_CXX")"
     printf 'CUDA_TARGET_INCLUDE=%s\n' "$CUDA_TARGET_INCLUDE"
     printf 'CUDA_TARGET_LIB=%s\n' "$CUDA_TARGET_LIB"
     printf 'CUDA_TARGET_LIB64=%s\n' "$CUDA_TARGET_LIB64"
 } > "$RUN/cuda_toolkit_environment.txt"
-run_logged cuda_overlay_check env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" bash -c 'set -eu; test -x "$CUDA_HOME/bin/nvcc"; test -f "$CUDA_HOME/include/cuda_runtime_api.h"; test -d "$CUDA_HOME/lib"; test -d "$CUDA_HOME/lib64"; printf "nvcc=%s\nruntime_header=%s\nlib=%s\nlib64=%s\n" "$(readlink -f "$CUDA_HOME/bin/nvcc")" "$(readlink -f "$CUDA_HOME/include/cuda_runtime_api.h")" "$(readlink -f "$CUDA_HOME/lib")" "$(readlink -f "$CUDA_HOME/lib64")"' || stop_with_failure cuda_overlay_check_failed
+"$HOST_CC" --version > "$RUN/host_gcc12_version.stdout.log" 2> "$RUN/host_gcc12_version.stderr.log" || stop_with_failure host_gcc12_version_check_failed
+"$HOST_CXX" --version > "$RUN/host_gxx12_version.stdout.log" 2> "$RUN/host_gxx12_version.stderr.log" || stop_with_failure host_gxx12_version_check_failed
+run_logged cuda_overlay_check env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" bash -c 'set -eu; test -x "$CUDA_HOME/bin/nvcc"; test -f "$CUDA_HOME/include/cuda_runtime_api.h"; test -d "$CUDA_HOME/lib"; test -d "$CUDA_HOME/lib64"; printf "nvcc=%s\nruntime_header=%s\nlib=%s\nlib64=%s\nCC=%s\nCXX=%s\nCUDAHOSTCXX=%s\nNVCC_CCBIN=%s\n" "$(readlink -f "$CUDA_HOME/bin/nvcc")" "$(readlink -f "$CUDA_HOME/include/cuda_runtime_api.h")" "$(readlink -f "$CUDA_HOME/lib")" "$(readlink -f "$CUDA_HOME/lib64")" "$CC" "$CXX" "$CUDAHOSTCXX" "$NVCC_CCBIN"' || stop_with_failure cuda_overlay_check_failed
 
 # The source checkout must be fixed and have no tracked modifications. An
 # untracked pretrain/ directory is explicitly allowed and is inventoried below.
@@ -125,8 +137,8 @@ ln -s "$ROOT/cache/clip" "$RUNTIME_HOME/.cache/clip" 2>"$RUN/clip_cache_link.std
 
 # These are the only GPU preflight commands. GPU 0 may be busy; GPU 1 must have
 # no compute process. The visible device is physical GPU 1, logical torch:0.
-run_logged preflight_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure cuda_toolkit_path_check_failed
-run_logged preflight_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_RUN_NVCC" --version || stop_with_failure cuda_toolkit_version_check_failed
+run_logged preflight_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure cuda_toolkit_path_check_failed
+run_logged preflight_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_RUN_NVCC" --version || stop_with_failure cuda_toolkit_version_check_failed
 run_logged preflight_nvidia_smi nvidia-smi || stop_with_failure nvidia_smi_failed
 run_logged preflight_gpu_index_uuid nvidia-smi --query-gpu=index,uuid --format=csv,noheader,nounits || stop_with_failure gpu_index_uuid_query_failed
 run_logged preflight_compute_apps nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits || stop_with_failure compute_app_query_failed
@@ -137,16 +149,16 @@ if awk -F', *' -v uuid="$gpu1_uuid" '$1 == uuid {found=1} END {exit found ? 0 : 
     stop_with_failure gpu1_has_compute_process
 fi
 
-run_logged preflight_torch env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" -I -B -c 'import torch; assert torch.cuda.is_available(); assert torch.cuda.device_count() == 1; print("torch="+torch.__version__); print("logical_device="+str(torch.cuda.current_device())); print("device_name="+torch.cuda.get_device_name(0)); x=torch.ones((256,256),device="cuda"); y=x @ x; torch.cuda.synchronize(); print("matmul_sum="+str(float(y.sum().item())))' || stop_with_failure torch_cuda_preflight_failed
+run_logged preflight_torch env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" -I -B -c 'import torch; assert torch.cuda.is_available(); assert torch.cuda.device_count() == 1; print("torch="+torch.__version__); print("logical_device="+str(torch.cuda.current_device())); print("device_name="+torch.cuda.get_device_name(0)); x=torch.ones((256,256),device="cuda"); y=x @ x; torch.cuda.synchronize(); print("matmul_sum="+str(float(y.sum().item())))' || stop_with_failure torch_cuda_preflight_failed
 
 printf '%s\n' 'CUDA_VISIBLE_DEVICES=1' > "$RUN/example_environment.txt"
-run_logged example_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure example_cuda_toolkit_path_check_failed
-run_logged example_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_RUN_NVCC" --version || stop_with_failure example_cuda_toolkit_version_check_failed
+run_logged example_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure example_cuda_toolkit_path_check_failed
+run_logged example_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_RUN_NVCC" --version || stop_with_failure example_cuda_toolkit_version_check_failed
 printf 'cd %q && ' "$SRC" > "$RUN/example.command.txt"
-printf '%q ' env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >> "$RUN/example.command.txt"
+printf '%q ' env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >> "$RUN/example.command.txt"
 printf '\n' >> "$RUN/example.command.txt"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/example_started_at.txt"
-(cd "$SRC" && PYTHONUNBUFFERED=1 env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT") >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
+(cd "$SRC" && PYTHONUNBUFFERED=1 env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT") >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
 example_pid=$!
 # Record usage while the one allowed example process runs. This monitor is
 # observational and does not reset, kill, or otherwise control the GPU.
