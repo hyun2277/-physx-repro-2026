@@ -43,7 +43,23 @@ stop_with_failure() {
 # untracked pretrain/ directory is explicitly allowed and is inventoried below.
 run_logged source_head git -C "$SRC" rev-parse HEAD || stop_with_failure source_head_check_failed
 [[ "$(cat "$RUN/source_head.stdout.log")" == "$EXPECTED_HEAD" ]] || stop_with_failure source_head_mismatch
-run_logged source_diff git -C "$SRC" diff --quiet || stop_with_failure tracked_source_diff_present
+run_logged source_diff git -C "$SRC" diff --name-only || stop_with_failure source_diff_check_failed
+run_logged source_staged_diff git -C "$SRC" diff --cached --name-only || stop_with_failure source_staged_diff_check_failed
+{
+    cat "$RUN/source_diff.stdout.log"
+    cat "$RUN/source_staged_diff.stdout.log"
+} | LC_ALL=C sort -u > "$RUN/source_changed_paths.txt"
+awk '
+    /(^|\/)__pycache__\/[^\/]+\.pyc$/ {print > ignored; next}
+    {print > tracked}
+' ignored="$RUN/source_ignored_bytecode.txt" tracked="$RUN/source_remaining_changed_paths.txt" "$RUN/source_changed_paths.txt"
+if [[ ! -s "$RUN/source_ignored_bytecode.txt" ]]; then
+    printf '%s\n' '(none)' > "$RUN/source_ignored_bytecode.txt"
+fi
+if [[ -s "$RUN/source_remaining_changed_paths.txt" ]]; then
+    stop_with_failure tracked_source_diff_present
+fi
+printf '%s\n' 'staged and unstaged tracked source checks passed after excluding __pycache__/*.pyc' > "$RUN/source_tracked_check.txt"
 run_logged source_status git -C "$SRC" status --short --untracked-files=normal
 printf '%s\n' 'untracked pretrain/ is retained; git clean is never run' > "$RUN/source_status_note.txt"
 
