@@ -75,8 +75,9 @@ ln -s "$ROOT/cache/clip" "$RUNTIME_HOME/.cache/clip" 2>"$RUN/clip_cache_link.std
 # These are the only GPU preflight commands. GPU 0 may be busy; GPU 1 must have
 # no compute process. The visible device is physical GPU 1, logical torch:0.
 run_logged preflight_nvidia_smi nvidia-smi || stop_with_failure nvidia_smi_failed
+run_logged preflight_gpu_index_uuid nvidia-smi --query-gpu=index,uuid --format=csv,noheader,nounits || stop_with_failure gpu_index_uuid_query_failed
 run_logged preflight_compute_apps nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits || stop_with_failure compute_app_query_failed
-gpu1_uuid=$(awk -F', *' '$1 == 1 {print $2; exit}' "$RUN/preflight_nvidia_smi.stdout.log")
+gpu1_uuid=$(awk -F',' 'function trim(value) {gsub(/^[[:space:]]+|[[:space:]]+$/, "", value); return value} {index=trim($1); uuid=trim($2); if (index == "1") {print uuid; exit}}' "$RUN/preflight_gpu_index_uuid.stdout.log")
 [[ -n "$gpu1_uuid" ]] || stop_with_failure gpu1_uuid_missing
 printf '%s\n' "$gpu1_uuid" > "$RUN/gpu1_uuid.txt"
 if awk -F', *' -v uuid="$gpu1_uuid" '$1 == uuid {found=1} END {exit found ? 0 : 1}' "$RUN/preflight_compute_apps.stdout.log"; then
@@ -86,10 +87,11 @@ fi
 run_logged preflight_torch env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" -I -B -c 'import torch; assert torch.cuda.is_available(); assert torch.cuda.device_count() == 1; print("torch="+torch.__version__); print("logical_device="+str(torch.cuda.current_device())); print("device_name="+torch.cuda.get_device_name(0)); x=torch.ones((256,256),device="cuda"); y=x @ x; torch.cuda.synchronize(); print("matmul_sum="+str(float(y.sum().item())))' || stop_with_failure torch_cuda_preflight_failed
 
 printf '%s\n' 'CUDA_VISIBLE_DEVICES=1' > "$RUN/example_environment.txt"
-printf '%q ' env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" > "$RUN/example.command.txt"
+printf 'cd %q && ' "$SRC" > "$RUN/example.command.txt"
+printf '%q ' env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >> "$RUN/example.command.txt"
 printf '\n' >> "$RUN/example.command.txt"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/example_started_at.txt"
-PYTHONUNBUFFERED=1 env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
+(cd "$SRC" && PYTHONUNBUFFERED=1 env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT") >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
 example_pid=$!
 # Record usage while the one allowed example process runs. This monitor is
 # observational and does not reset, kill, or otherwise control the GPU.
