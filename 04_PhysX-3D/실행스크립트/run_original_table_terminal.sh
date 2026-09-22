@@ -6,6 +6,8 @@ set -uo pipefail
 ROOT=/home/minsujo/Desktop/SH/PHYSx
 SRC="$ROOT/sources/physx-4f54e750a309"
 PYTHON="$ROOT/envs/physxgen/bin/python"
+CUDA_HOME="$ROOT/toolchains/cuda-12.8.1"
+CUDA_NVCC="$CUDA_HOME/bin/nvcc"
 EXPECTED_HEAD=4f54e750a309fe9cd9f20816916ecc0e8a9ae594
 INPUT="$SRC/example/table.png"
 LOG_ROOT="$ROOT/logs/original-example-terminal"
@@ -21,6 +23,11 @@ OUTPUT="$RUN/output"
 mkdir -p "$OUTPUT"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/started_at.txt"
 printf '%s\n' 'CUDA_VISIBLE_DEVICES=1' > "$RUN/cuda_visible_devices.txt"
+{
+    printf 'CUDA_HOME=%s\n' "$CUDA_HOME"
+    printf 'CUDACXX=%s\n' "$CUDA_NVCC"
+    printf 'PATH_PREFIX=%s/bin\n' "$CUDA_HOME"
+} > "$RUN/cuda_toolkit_environment.txt"
 printf '%s\n' "$EXPECTED_HEAD" > "$RUN/expected_source_head.txt"
 
 run_logged() {
@@ -36,6 +43,7 @@ stop_with_failure() {
     local reason="$1"
     printf '%s\n' "$reason" > "$RUN/ABORT_REASON.txt"
     printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/ended_at.txt"
+    printf 'run failed at %s; logs: %s\n' "$reason" "$RUN" >&2
     exit 1
 }
 
@@ -64,6 +72,7 @@ run_logged source_status git -C "$SRC" status --short --untracked-files=normal
 printf '%s\n' 'untracked pretrain/ is retained; git clean is never run' > "$RUN/source_status_note.txt"
 
 [[ -x "$PYTHON" ]] || stop_with_failure physxgen_python_missing
+[[ -x "$CUDA_NVCC" ]] || stop_with_failure cuda_toolkit_nvcc_missing
 [[ -f "$INPUT" ]] || stop_with_failure table_input_missing
 [[ -f "$CLIP_CACHE" ]] || stop_with_failure clip_checkpoint_missing
 [[ -d "$SRC/pretrain/diffusion" ]] || stop_with_failure diffusion_checkpoint_directory_missing
@@ -90,6 +99,8 @@ ln -s "$ROOT/cache/clip" "$RUNTIME_HOME/.cache/clip" 2>"$RUN/clip_cache_link.std
 
 # These are the only GPU preflight commands. GPU 0 may be busy; GPU 1 must have
 # no compute process. The visible device is physical GPU 1, logical torch:0.
+run_logged preflight_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure cuda_toolkit_path_check_failed
+run_logged preflight_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_NVCC" --version || stop_with_failure cuda_toolkit_version_check_failed
 run_logged preflight_nvidia_smi nvidia-smi || stop_with_failure nvidia_smi_failed
 run_logged preflight_gpu_index_uuid nvidia-smi --query-gpu=index,uuid --format=csv,noheader,nounits || stop_with_failure gpu_index_uuid_query_failed
 run_logged preflight_compute_apps nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits || stop_with_failure compute_app_query_failed
@@ -100,14 +111,16 @@ if awk -F', *' -v uuid="$gpu1_uuid" '$1 == uuid {found=1} END {exit found ? 0 : 
     stop_with_failure gpu1_has_compute_process
 fi
 
-run_logged preflight_torch env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" -I -B -c 'import torch; assert torch.cuda.is_available(); assert torch.cuda.device_count() == 1; print("torch="+torch.__version__); print("logical_device="+str(torch.cuda.current_device())); print("device_name="+torch.cuda.get_device_name(0)); x=torch.ones((256,256),device="cuda"); y=x @ x; torch.cuda.synchronize(); print("matmul_sum="+str(float(y.sum().item())))' || stop_with_failure torch_cuda_preflight_failed
+run_logged preflight_torch env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" -I -B -c 'import torch; assert torch.cuda.is_available(); assert torch.cuda.device_count() == 1; print("torch="+torch.__version__); print("logical_device="+str(torch.cuda.current_device())); print("device_name="+torch.cuda.get_device_name(0)); x=torch.ones((256,256),device="cuda"); y=x @ x; torch.cuda.synchronize(); print("matmul_sum="+str(float(y.sum().item())))' || stop_with_failure torch_cuda_preflight_failed
 
 printf '%s\n' 'CUDA_VISIBLE_DEVICES=1' > "$RUN/example_environment.txt"
+run_logged example_nvcc_path env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" bash -c 'command -v nvcc' || stop_with_failure example_cuda_toolkit_path_check_failed
+run_logged example_nvcc_version env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" "$CUDA_NVCC" --version || stop_with_failure example_cuda_toolkit_version_check_failed
 printf 'cd %q && ' "$SRC" > "$RUN/example.command.txt"
-printf '%q ' env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >> "$RUN/example.command.txt"
+printf '%q ' env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT" >> "$RUN/example.command.txt"
 printf '\n' >> "$RUN/example.command.txt"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/example_started_at.txt"
-(cd "$SRC" && PYTHONUNBUFFERED=1 env HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT") >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
+(cd "$SRC" && PYTHONUNBUFFERED=1 env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_NVCC" PATH="$CUDA_HOME/bin:$PATH" HOME="$RUNTIME_HOME" XDG_CACHE_HOME="$ROOT/cache" CUDA_VISIBLE_DEVICES=1 "$PYTHON" example.py --condpath "$INPUT" --savepath "$OUTPUT") >"$RUN/example.stdout.log" 2>"$RUN/example.stderr.log" &
 example_pid=$!
 # Record usage while the one allowed example process runs. This monitor is
 # observational and does not reset, kill, or otherwise control the GPU.
@@ -141,5 +154,11 @@ for expected in rgb.mp4 affordance.mp4 material.mp4 description.mp4 texture.glb 
     fi
 done > "$RUN/expected_outputs.txt"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/ended_at.txt"
+if [[ "$example_rc" -ne 0 ]]; then
+    printf 'example_failed_exit_code=%s\n' "$example_rc" > "$RUN/ABORT_REASON.txt"
+    printf 'example.py failed (exit code %s); logs: %s\n' "$example_rc" "$RUN" >&2
+else
+    printf 'example.py completed successfully; logs: %s\n' "$RUN"
+fi
 # Return the official example's exit code; inspection never changes it.
 exit "$example_rc"
