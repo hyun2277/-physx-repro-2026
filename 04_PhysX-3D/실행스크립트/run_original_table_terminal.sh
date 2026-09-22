@@ -77,7 +77,7 @@ ln -s "$ROOT/cache/clip" "$RUNTIME_HOME/.cache/clip" 2>"$RUN/clip_cache_link.std
 run_logged preflight_nvidia_smi nvidia-smi || stop_with_failure nvidia_smi_failed
 run_logged preflight_gpu_index_uuid nvidia-smi --query-gpu=index,uuid --format=csv,noheader,nounits || stop_with_failure gpu_index_uuid_query_failed
 run_logged preflight_compute_apps nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits || stop_with_failure compute_app_query_failed
-gpu1_uuid=$(awk -F',' 'function trim(value) {gsub(/^[[:space:]]+|[[:space:]]+$/, "", value); return value} {index=trim($1); uuid=trim($2); if (index == "1") {print uuid; exit}}' "$RUN/preflight_gpu_index_uuid.stdout.log")
+gpu1_uuid=$(awk -F',' 'function trim(value) {gsub(/^[[:space:]]+|[[:space:]]+$/, "", value); return value} {gpu_index=trim($1); uuid=trim($2); if (gpu_index == "1") {print uuid; exit}}' "$RUN/preflight_gpu_index_uuid.stdout.log")
 [[ -n "$gpu1_uuid" ]] || stop_with_failure gpu1_uuid_missing
 printf '%s\n' "$gpu1_uuid" > "$RUN/gpu1_uuid.txt"
 if awk -F', *' -v uuid="$gpu1_uuid" '$1 == uuid {found=1} END {exit found ? 0 : 1}' "$RUN/preflight_compute_apps.stdout.log"; then
