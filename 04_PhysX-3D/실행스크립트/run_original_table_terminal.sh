@@ -134,8 +134,11 @@ example_pid=$!
     done
 ) > "$RUN/gpu_usage.log" 2>&1 &
 monitor_pid=$!
-wait "$example_pid"
-example_rc=$?
+if wait "$example_pid"; then
+    example_rc=0
+else
+    example_rc=$?
+fi
 printf '%s\n' "$example_rc" > "$RUN/example.exit_code.txt"
 printf '%s\n' "$(date -u +%FT%TZ)" > "$RUN/example_ended_at.txt"
 wait "$monitor_pid" 2>/dev/null || true
