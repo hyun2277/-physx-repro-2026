@@ -3,6 +3,7 @@
 # This script never downloads, installs, pushes, or edits the source checkout.
 set -uo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 ROOT=/home/minsujo/Desktop/SH/PHYSx
 SRC="$ROOT/sources/physx-4f54e750a309"
 PYTHON="$ROOT/envs/physxgen/bin/python"
@@ -45,45 +46,15 @@ stop_with_failure() {
     exit 1
 }
 
-# Conda's CUDA headers and libraries live below targets/x86_64-linux. Build a
-# per-run overlay so CUDA_HOME points at the layout expected by JIT builds.
-CUDA_HOME="$RUN/cuda-home"
-CUDA_RUN_NVCC="$CUDA_HOME/bin/nvcc"
-CUDA_TARGET_INCLUDE="$CUDA_TARGET/include"
-CUDA_TARGET_LIB="$CUDA_TARGET/lib"
-if [[ -d "$CUDA_TARGET/lib64" ]]; then
-    CUDA_TARGET_LIB64="$CUDA_TARGET/lib64"
-else
-    CUDA_TARGET_LIB64="$CUDA_TARGET/lib"
-fi
-[[ -x "$CUDA_NVCC" ]] || stop_with_failure cuda_toolkit_nvcc_missing
-[[ -x "$HOST_CC" ]] || stop_with_failure host_gcc12_missing
-[[ -x "$HOST_CXX" ]] || stop_with_failure host_gxx12_missing
-[[ -d "$CUDA_TARGET_INCLUDE" ]] || stop_with_failure cuda_target_include_missing
-[[ -d "$CUDA_TARGET_LIB" ]] || stop_with_failure cuda_target_lib_missing
-mkdir -p "$CUDA_HOME/bin"
-ln -s "$CUDA_NVCC" "$CUDA_RUN_NVCC" || stop_with_failure cuda_overlay_nvcc_link_failed
-ln -s "$CUDA_TARGET_INCLUDE" "$CUDA_HOME/include" || stop_with_failure cuda_overlay_include_link_failed
-ln -s "$CUDA_TARGET_LIB" "$CUDA_HOME/lib" || stop_with_failure cuda_overlay_lib_link_failed
-ln -s "$CUDA_TARGET_LIB64" "$CUDA_HOME/lib64" || stop_with_failure cuda_overlay_lib64_link_failed
-ln -s "$CUDA_TARGET" "$CUDA_HOME/targets" || stop_with_failure cuda_overlay_targets_link_failed
-ln -s "$CUDA_TOOLKIT_ROOT/nvvm" "$CUDA_HOME/nvvm" || stop_with_failure cuda_overlay_nvvm_link_failed
-{
-    printf 'CUDA_TOOLKIT_ROOT=%s\n' "$CUDA_TOOLKIT_ROOT"
-    printf 'CUDA_HOME=%s\n' "$CUDA_HOME"
-    printf 'CUDACXX=%s\n' "$CUDA_RUN_NVCC"
-    printf 'CC=%s\n' "$HOST_CC"
-    printf 'CXX=%s\n' "$HOST_CXX"
-    printf 'CUDAHOSTCXX=%s\n' "$HOST_CXX"
-    printf 'NVCC_CCBIN=%s\n' "$HOST_CXX"
-    printf 'CC_RESOLVED=%s\n' "$(readlink -f "$HOST_CC")"
-    printf 'CXX_RESOLVED=%s\n' "$(readlink -f "$HOST_CXX")"
-    printf 'CUDA_TARGET_INCLUDE=%s\n' "$CUDA_TARGET_INCLUDE"
-    printf 'CUDA_TARGET_LIB=%s\n' "$CUDA_TARGET_LIB"
-    printf 'CUDA_TARGET_LIB64=%s\n' "$CUDA_TARGET_LIB64"
-} > "$RUN/cuda_toolkit_environment.txt"
-"$HOST_CC" --version > "$RUN/host_gcc12_version.stdout.log" 2> "$RUN/host_gcc12_version.stderr.log" || stop_with_failure host_gcc12_version_check_failed
-"$HOST_CXX" --version > "$RUN/host_gxx12_version.stdout.log" 2> "$RUN/host_gxx12_version.stderr.log" || stop_with_failure host_gxx12_version_check_failed
+source "$SCRIPT_DIR/cuda_jit_environment.sh"
+cuda_jit_prepare "$RUN" "$CUDA_TOOLKIT_ROOT" "$HOST_CC" "$HOST_CXX" || stop_with_failure cuda_jit_environment_prepare_failed
+CUDA_HOME="$CUDA_JIT_OVERLAY"
+CUDA_RUN_NVCC="$CUDACXX"
+CUDA_TARGET_INCLUDE="$CUDA_JIT_TARGET/include"
+CUDA_TARGET_LIB="$CUDA_JIT_TARGET/lib"
+CUDA_TARGET_LIB64="$CUDA_JIT_TARGET/lib"
+cuda_jit_write_environment "$RUN/cuda_toolkit_environment.txt" || stop_with_failure cuda_jit_environment_log_failed
+cp "$RUN/cuda_toolkit_environment.txt" "$RUN/cuda_jit_environment.txt" || stop_with_failure cuda_jit_environment_record_failed
 run_logged cuda_overlay_check env CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDA_RUN_NVCC" CC="$HOST_CC" CXX="$HOST_CXX" CUDAHOSTCXX="$HOST_CXX" NVCC_CCBIN="$HOST_CXX" PATH="$CUDA_HOME/bin:$PATH" bash -c 'set -eu; test -x "$CUDA_HOME/bin/nvcc"; test -f "$CUDA_HOME/include/cuda_runtime_api.h"; test -d "$CUDA_HOME/lib"; test -d "$CUDA_HOME/lib64"; printf "nvcc=%s\nruntime_header=%s\nlib=%s\nlib64=%s\nCC=%s\nCXX=%s\nCUDAHOSTCXX=%s\nNVCC_CCBIN=%s\n" "$(readlink -f "$CUDA_HOME/bin/nvcc")" "$(readlink -f "$CUDA_HOME/include/cuda_runtime_api.h")" "$(readlink -f "$CUDA_HOME/lib")" "$(readlink -f "$CUDA_HOME/lib64")" "$CC" "$CXX" "$CUDAHOSTCXX" "$NVCC_CCBIN"' || stop_with_failure cuda_overlay_check_failed
 
 # The source checkout must be fixed and have no tracked modifications. An

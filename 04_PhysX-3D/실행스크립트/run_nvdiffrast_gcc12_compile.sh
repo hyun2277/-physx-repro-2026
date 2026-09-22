@@ -4,53 +4,14 @@ set -u
 ROOT=/home/minsujo/Desktop/SH/PHYSx
 TOOLKIT="$ROOT/toolchains/cuda-12.8.1"
 PYTHON="$ROOT/envs/physxgen/bin/python"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 RUN="$ROOT/logs/nvdiffrast-gcc12/$STAMP"
-OVERLAY="$RUN/cuda-home"
-BUILD="$RUN/torch-extensions"
-mkdir -p "$RUN" "$OVERLAY/bin" "$BUILD"
-
-ln -s "$TOOLKIT/bin/nvcc" "$OVERLAY/bin/nvcc"
-ln -s "$TOOLKIT/bin/nvlink" "$OVERLAY/bin/nvlink"
-ln -s "$TOOLKIT/bin/ptxas" "$OVERLAY/bin/ptxas"
-ln -s "$TOOLKIT/bin/fatbinary" "$OVERLAY/bin/fatbinary"
-ln -s "$TOOLKIT/nvvm/bin/cicc" "$OVERLAY/bin/cicc"
-ln -s "$TOOLKIT/targets/x86_64-linux/include" "$OVERLAY/include"
-ln -s "$TOOLKIT/targets/x86_64-linux/lib" "$OVERLAY/lib"
-ln -s "$TOOLKIT/targets/x86_64-linux/lib" "$OVERLAY/lib64"
-ln -s "$TOOLKIT/targets/x86_64-linux" "$OVERLAY/targets"
-ln -s "$TOOLKIT/nvvm" "$OVERLAY/nvvm"
-
-export CC=/usr/bin/gcc-12
-export CXX=/usr/bin/g++-12
-export CUDAHOSTCXX=/usr/bin/g++-12
-export NVCC_CCBIN=/usr/bin/g++-12
-export CUDA_HOME="$OVERLAY"
-export CUDACXX="$OVERLAY/bin/nvcc"
-export PATH="$OVERLAY/bin:$PATH"
-export TORCH_EXTENSIONS_DIR="$BUILD"
-export TORCH_CUDA_ARCH_LIST=12.0
+mkdir -p "$RUN"
+source "$SCRIPT_DIR/cuda_jit_environment.sh"
+cuda_jit_prepare "$RUN" "$TOOLKIT" /usr/bin/gcc-12 /usr/bin/g++-12 || exit 1
+cuda_jit_write_environment "$RUN/environment.log"
 export CUDA_VISIBLE_DEVICES=
-
-{
-  echo "run=$RUN"
-  echo "CUDA_HOME=$CUDA_HOME"
-  echo "CUDACXX=$CUDACXX"
-  echo "CC=$CC"
-  echo "CXX=$CXX"
-  echo "CUDAHOSTCXX=$CUDAHOSTCXX"
-  echo "NVCC_CCBIN=$NVCC_CCBIN"
-  echo "TORCH_EXTENSIONS_DIR=$TORCH_EXTENSIONS_DIR"
-  echo "TORCH_CUDA_ARCH_LIST=$TORCH_CUDA_ARCH_LIST"
-  echo "CUDA_VISIBLE_DEVICES=<empty>"
-  echo "nvcc_resolved=$(readlink -f "$CUDACXX")"
-  echo "gcc_resolved=$(readlink -f "$CC")"
-  echo "g++_resolved=$(readlink -f "$CXX")"
-  "$CUDACXX" --version
-  "$CC" --version | head -1
-  "$CXX" --version | head -1
-  echo "host compiler selection: CC/CXX/CUDAHOSTCXX/NVCC_CCBIN explicitly set to GCC/G++ 12"
-} >"$RUN/environment.log" 2>&1
 
 cat >"$RUN/build_nvdiffrast.py" <<'PY'
 import os
