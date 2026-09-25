@@ -1,0 +1,13 @@
+# Read-only metadata/hash record; data files are intentionally outside Git.
+repo=ShapeNet/ShapeNetCore
+account=hyun2277
+archive=04379243.zip
+expected_bytes=1666983898
+actual_bytes=1666983898
+archive_sha256=625701ed0a2de08cc28bce6fd4f3643c67ed573c6abcbba5f0cbbb5e810d0503
+candidate=04379243/db406d9b2a94bce5622d7484764b58f
+extracted=models/model_normalized.obj size=12044 sha256=d538696f9ac131cf3b36134d1ada25426701e85375c03daff26561e9c4933a9a
+extracted=models/model_normalized.mtl size=452 sha256=0eb2c76763251d7d00dff73d0f130db6a482a7bd2adfd48896f8454c74ac2ee5
+extracted=images/texture0.jpg size=25958 sha256=37d97e4c0897fc8c139bf128379cfb033f5f207cc1ecec746691a1d8664848a9
+partnet_downloaded=false
+objectives=single-sample texture-source linkage only; no inference/evaluation
