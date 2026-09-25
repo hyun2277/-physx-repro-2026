@@ -3,7 +3,7 @@
 Linux 일반 터미널에서 PHYSx 작업 폴더를 기준으로 다음 한 줄을 실행한다.
 
 ```bash
-/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhYSx-3D/자료확보/run_inference_29354.sh
+/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/run_inference_29354.sh
 ```
 
 실제 경로의 디렉터리 이름은 `04_PhysX-3D`이다.
