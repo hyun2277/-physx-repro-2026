@@ -14,10 +14,33 @@ mkdir -p "$LOG"
   echo "tracked_diff_begin"
   git -C "$SRC" diff --name-status
   echo "tracked_diff_end"
+  echo "staged_diff_begin"
+  git -C "$SRC" diff --cached --name-status
+  echo "staged_diff_end"
   echo "untracked_begin"
   git -C "$SRC" status --short --untracked-files=all | awk '$1=="??" {print}'
   echo "untracked_end"
 } > "$LOG/preflight.log" 2>&1
+
+changed_paths() {
+  { git -C "$SRC" diff --name-only; git -C "$SRC" diff --cached --name-only; } | sort -u
+}
+is_allowed_pyc() {
+  [[ "$1" =~ ^trellis/(.*/)?__pycache__/[^/]+\.pyc$ ]]
+}
+mapfile -t changed < <(changed_paths)
+bad=()
+allowed=()
+for path in "${changed[@]}"; do
+  test -z "$path" && continue
+  if is_allowed_pyc "$path"; then allowed+=("$path"); else bad+=("$path"); fi
+done
+{
+  echo "allowed_pyc_count=${#allowed[@]}"
+  printf 'allowed_pyc=%s\n' "${allowed[@]}"
+  echo "remaining_tracked_source_changes=${#bad[@]}"
+  printf 'remaining_change=%s\n' "${bad[@]}"
+} >> "$LOG/preflight.log"
 
 "$ROOT/envs/physxgen/bin/python" -B - "$RENDER" "$LOG/selection.log" <<'PY'
 import hashlib, json, math, pathlib, sys
@@ -49,11 +72,11 @@ with open(log, 'w') as out:
     out.write('selected_transform=' + json.dumps(matrix, separators=(',', ':')) + '\n')
 PY
 
-if test -n "$(git -C "$SRC" diff --name-only)"; then
-  echo 'ABORT_REASON=tracked source changes present; example.py was not executed' | tee "$LOG/abort_reason.txt"
+if test "${#bad[@]}" -ne 0; then
+  echo 'ABORT_REASON=non-pyc tracked source changes present; example.py was not executed' | tee "$LOG/abort_reason.txt"
   echo 2 > "$LOG/exit_code.txt"
   exit 2
 fi
-echo 'ABORT_REASON=preflight only; no execution requested because source diff gate failed' > "$LOG/abort_reason.txt"
+echo 'ABORT_REASON=preflight only; source changes are pyc-only and example.py was not executed' > "$LOG/abort_reason.txt"
 echo 2 > "$LOG/exit_code.txt"
 exit 2

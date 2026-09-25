@@ -1,0 +1,9 @@
+run_id=20260925T190722Z
+source_head=4f54e750a309fe9cd9f20816916ecc0e8a9ae594
+staged_tracked_changes=0
+unstaged_tracked_changes=70
+allowed_pyc_changes=70
+remaining_tracked_source_changes=0
+untracked_pretrain=present_and_protected
+example_execution=SKIPPED
+gpu_execution=SKIPPED
