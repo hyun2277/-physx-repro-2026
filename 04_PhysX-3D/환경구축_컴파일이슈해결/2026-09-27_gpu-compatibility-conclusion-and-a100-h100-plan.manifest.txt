@@ -1,0 +1,15 @@
+source_head=4f54e750a309fe9cd9f20816916ecc0e8a9ae594
+cu118_env=/home/minsujo/Desktop/SH/PHYSx/envs/physxgen-cu118-official
+cu118_torch=2.4.0+cu118
+cu118_torchvision=0.19.0+cu118
+cu118_spconv=2.3.8
+cu118_cumm=0.7.11
+cu118_rtx5090_status=blocked_supported_capability_upper_bound_sm90_device_sm120
+physxgen_torch=2.7.1+cu128
+physxgen_spconv=2.3.8_cu126
+physxgen_cumm=0.7.11_cu126
+physxgen_29354_status=native_and_implicit_gemm_int32_overflow
+planned_gpu=A100_sm80_or_H100_sm90
+planned_input=/home/minsujo/Desktop/SH/PHYSx/staging/render-cond-29354-portable-20260925T185825Z/datasets/PhysXNet/renders_cond/29354_/000.png
+planned_checkpoint_manifest=/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/evidence/29354-inference-checkpoint-manifest.txt
+execution=not_run
