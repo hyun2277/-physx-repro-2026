@@ -1,0 +1,9 @@
+{
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "cpu_reference": {"status": "pass", "rows": 25, "input_channels": 64, "output_channels": 32, "max_absolute_error": 4.263256414560601e-14, "max_relative_error": 1.3663052697685104e-13},
+  "cpu_spconv": {"status": "pass", "rows": 25, "input_channels": 64, "output_channels": 32, "max_absolute_error_vs_spconv": 2.384185791015625e-7, "max_absolute_error_vs_reference": 1.6540710567891637e-7, "bias": "not_supported_by_spconv_cpu"},
+  "int32_boundary": {"full_bytes": 2220752896, "tile_256_bytes": 1110376448, "output_256_bytes": 1110376448, "int32_max": 2147483647, "status": "pass"},
+  "gpu_numeric_equivalence": "not_run",
+  "decoder_29354": "not_run",
+  "full_inference_29354": "not_run"
+}
