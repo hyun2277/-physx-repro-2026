@@ -84,11 +84,17 @@ def _output_tiled_forward(self, sparse_input, add_input=None):
             if not torch.equal(part.indices, sparse_input.indices):
                 raise RuntimeError("output tile changed sparse coordinate order")
             accumulator = part.features.float() if accumulator is None else accumulator + part.features.float()
+            del part, tile_input, tile
         if self.bias is not None:
             accumulator = accumulator + self.bias[output_first:output_last].float()
-        result[:, output_first:output_last] = accumulator.to(features.dtype)
-        del accumulator
-    if result.shape != (n, self.out_channels) or not torch.isfinite(result).all().item():
+        converted = accumulator.to(features.dtype)
+        for row_first in range(0, n, 16384):
+            row_last = min(n, row_first + 16384)
+            if not torch.isfinite(converted[row_first:row_last]).all().item():
+                raise RuntimeError("nonfinite output-tiled result chunk")
+            result[row_first:row_last, output_first:output_last] = converted[row_first:row_last]
+        del accumulator, converted
+    if result.shape != (n, self.out_channels):
         raise RuntimeError(f"invalid output-tiled result: {tuple(result.shape)}")
     return sparse_input.replace_feature(result)
 

@@ -1,0 +1,63 @@
+{
+  "policy_set_before_results": {
+    "fp32_atol": 0.00002,
+    "fp32_rtol": 0.00002,
+    "fp16_atol": 0.002,
+    "fp16_rtol": 0.002,
+    "variance": "biased",
+    "normalization_scope": "each batch and group across all points and channels within the group",
+    "backward": "out of scope; runtime adapter rejects grad-enabled execution"
+  },
+  "cases": [
+    {
+      "dtype": "float32",
+      "batch_sizes": [37],
+      "groups": 4,
+      "affine": true,
+      "max_abs_vs_torch": 7.152557373046875e-07,
+      "max_rel_vs_torch": 6.384630978573114e-05,
+      "max_abs_vs_independent_float64_reference": 4.76837158203125e-07,
+      "pass": true
+    },
+    {
+      "dtype": "float32",
+      "batch_sizes": [19, 43],
+      "groups": 8,
+      "affine": false,
+      "max_abs_vs_torch": 4.76837158203125e-07,
+      "max_rel_vs_torch": 1.6217969459830783e-05,
+      "max_abs_vs_independent_float64_reference": 4.76837158203125e-07,
+      "pass": true
+    },
+    {
+      "dtype": "float16",
+      "batch_sizes": [41],
+      "groups": 4,
+      "affine": false,
+      "max_abs_vs_torch": 0.0,
+      "max_rel_vs_torch": 0.0,
+      "max_abs_vs_independent_float64_reference": 0.0,
+      "pass": true
+    },
+    {
+      "dtype": "float16",
+      "batch_sizes": [17, 52],
+      "groups": 8,
+      "affine": true,
+      "max_abs_vs_torch": 0.0,
+      "max_rel_vs_torch": 0.0,
+      "max_abs_vs_independent_float64_reference": 0.0,
+      "pass": true
+    }
+  ],
+  "invalid_input_rejection": {
+    "nan": "PASS",
+    "channel_group_divisibility": "PASS"
+  },
+  "independent_branch_reschedule_mock": {
+    "shape": [56, 4],
+    "max_abs": 0.0,
+    "exact": true
+  },
+  "gpu_equivalence": "NOT_RUN_BY_CODEX; mandatory small matrix and medium 131072x256 checks run at stage 7 before decoder"
+}

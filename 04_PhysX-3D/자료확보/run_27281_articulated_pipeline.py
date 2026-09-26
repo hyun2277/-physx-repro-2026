@@ -102,9 +102,9 @@ def gpu_guard():
     apps=subprocess.check_output(["nvidia-smi","--query-compute-apps=pid,gpu_uuid,used_memory","--format=csv,noheader,nounits"],text=True).splitlines()
     if any(len(p:=[x.strip() for x in r.split(",")])>=2 and p[1]==gpu[1] for r in apps):
         raise RuntimeError("GPU 1 already has a compute process")
-    if int(gpu[3]) < MAX_GPU_MIB+RESERVE_MIB: raise RuntimeError("GPU total memory does not preserve configured hard-limit reserve")
+    if int(gpu[3]) < MAX_GPU_MIB+RESERVE_MIB: raise RuntimeError("GPU total memory does not preserve configured reserve")
     return {"index":1,"uuid":gpu[1],"name":gpu[2],"total_mib":int(gpu[3]),"free_mib":int(gpu[4]),
-            "hard_limit_mib":MAX_GPU_MIB,"reserve_mib":RESERVE_MIB}
+            "sampled_monitor_limit_mib":MAX_GPU_MIB,"reserve_mib":RESERVE_MIB}
 
 def cuda_env(run):
     home=run/"home"; clip=home/".cache/clip"; clip.mkdir(parents=True,exist_ok=True)
@@ -135,7 +135,7 @@ class Runner:
         self.run=run; self.stage=stage; self.resume=resume
         self.result={"status":"not_run","reason":None,"stage":"created","child_exit_code":None,
                      "run_dir":str(run),"staging_dir":str(stage),"started_utc":now(),
-                     "gpu_hard_limit_mib":MAX_GPU_MIB,"gpu_reserve_mib":RESERVE_MIB}
+                     "gpu_sampled_monitor_limit_mib":MAX_GPU_MIB,"gpu_reserve_mib":RESERVE_MIB}
         run.mkdir(parents=True,exist_ok=resume); stage.mkdir(parents=True,exist_ok=resume); self.save()
     def save(self): self.result["updated_utc"]=now(); write_json(self.run/"result.json",self.result)
     def outputs(self, paths):
@@ -173,7 +173,7 @@ class Runner:
     def child(self,directory,args,env=None,cwd=None,gpu=False,log_prefix=""):
         prefix=f"{log_prefix}." if log_prefix else ""
         write_json(directory/f"{prefix}command.json",{"argv":list(map(str,args)),"cwd":str(cwd or Path.cwd()),
-            "environment":{k:(env or os.environ).get(k) for k in ("CUDA_VISIBLE_DEVICES","CUDA_HOME","CUDACXX","CC","CXX","CUDAHOSTCXX","NVCC_CCBIN","SPCONV_ALGO","PHYSX_TILE_ENABLE","PHYSX_OUTPUT_TILE_ENABLE","PYTHONPATH")}})
+            "environment":{k:(env or os.environ).get(k) for k in ("CUDA_VISIBLE_DEVICES","CUDA_HOME","CUDACXX","CC","CXX","CUDAHOSTCXX","NVCC_CCBIN","SPCONV_ALGO","PHYSX_TILE_ENABLE","PHYSX_OUTPUT_TILE_ENABLE","PHYSX_STREAMING_GROUPNORM_ENABLE","PHYSX_STREAMING_GROUPNORM_CHUNK_ROWS","PHYSX_GPU_RESERVE_MIB","PYTHONPATH")}})
         out=open(directory/f"{prefix}stdout.log","w"); err=open(directory/f"{prefix}stderr.log","w")
         p=subprocess.Popen(list(map(str,args)),cwd=cwd,env=env,stdout=out,stderr=err,start_new_session=True)
         samples=[]; start=time.monotonic(); reason=None
@@ -378,12 +378,13 @@ def execute(run,stage,resume):
             gpu=gpu_guard(); write_json(d/"gpu_preflight.json",gpu); latent=sampling/"sampled_latents.pt"
             decoder_output=stage/("decoder" if d.name.startswith("07_") else f"decoder-{d.name}")
             args=[PY,ADAPTER/"decode_cached_29354.py","--latent",latent,"--source",SRC,"--output",decoder_output,"--report",d/"decoder_report.json"]
-            decoder_env={**env,"PHYSX_OUTPUT_TILE_ENABLE":"1"}
+            decoder_env={**env,"PHYSX_OUTPUT_TILE_ENABLE":"1","PHYSX_STREAMING_GROUPNORM_ENABLE":"1",
+                         "PHYSX_STREAMING_GROUPNORM_CHUNK_ROWS":"16384","PHYSX_GPU_RESERVE_MIB":str(RESERVE_MIB)}
             r.child(d,args,env=decoder_env,cwd=SRC,gpu=True)
             raw=decoder_output/"mesh_physics_raw.pt"; mesh=decoder_output/"mesh.obj"
             if not raw.is_file() or not mesh.is_file(): raise RuntimeError("decoder outputs missing")
             return [raw,mesh,d/"decoder_report.json"],{"latent_sha256":sha(latent),"output_dir":str(decoder_output)}
-        decoder_marker=r.step(7,"cached_physics_mesh_decoder",sha(sampling/"sampled_latents.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/decoder_step0100000.pt")+sha(ADAPTER/"decode_cached_29354.py")+sha(ADAPTER/"channel_tiled_spconv.py")+sha(ADAPTER/"output_channel_tiled_spconv.py"),s7)
+        decoder_marker=r.step(7,"cached_physics_mesh_decoder",sha(sampling/"sampled_latents.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/decoder_step0100000.pt")+sha(ADAPTER/"decode_cached_29354.py")+sha(ADAPTER/"channel_tiled_spconv.py")+sha(ADAPTER/"output_channel_tiled_spconv.py")+sha(ADAPTER/"memory_bounded_groupnorm.py"),s7)
         decoded=Path(decoder_marker["detail"]["output_dir"])
 
         audit=stage/"articulation_audit"

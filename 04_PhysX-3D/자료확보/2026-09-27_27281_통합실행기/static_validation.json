@@ -48,6 +48,20 @@
     "new_output_tiling_gpu_equivalence": "PENDING_STAGE_7_RESUME",
     "gpu_or_decoder_executed_during_fix": false
   },
+  "stage7_groupnorm_oom_audit": {
+    "failure_stage": "physics_decoder.upsample[1].out_layers[1] SparseGroupNorm32",
+    "settings": "channels=256 groups=32 eps=1e-5 affine=true input=float16",
+    "full_fp32_copy_bytes": 4785700864,
+    "residual_subdivision_peak_bytes_removed_by_reschedule": 4785700864,
+    "streaming_chunk_rows": 16384,
+    "streaming_chunk_peak_bytes_conservative": 50331648,
+    "estimated_peak_mib_from_rounded_failure_evidence": 27718,
+    "estimated_reserve_mib": 4889,
+    "required_reserve_mib": 4607,
+    "cpu_equivalence": "PASS",
+    "gpu_equivalence": "NOT_RUN_BY_CODEX; mandatory stage-7 gate",
+    "gpu_decoder_sampling_executed_during_fix": false
+  },
   "legacy_defaults": {
     "render_wrapper_default_object_id": "29354",
     "retrieval_verifier_default_object_id": "29354",

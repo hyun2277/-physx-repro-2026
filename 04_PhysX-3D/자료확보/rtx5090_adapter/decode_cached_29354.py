@@ -83,6 +83,7 @@ def main():
     from trellis.modules import sparse as sp
     from trellis.modules.sparse import conv as sparse_conv
     import output_channel_tiled_spconv as output_adapter
+    import memory_bounded_groupnorm as groupnorm_adapter
 
     report['spconv_algo_actual'] = sparse_conv.SPCONV_ALGO
     report_path.write_text(json.dumps(report, indent=2) + '\n')
@@ -95,11 +96,27 @@ def main():
         raise RuntimeError('SPCONV_ALGO native selection required before decoder')
     if os.environ.get('PHYSX_OUTPUT_TILE_ENABLE') != '1':
         raise RuntimeError('PHYSX_OUTPUT_TILE_ENABLE=1 is required for cached decoder')
+    if os.environ.get('PHYSX_STREAMING_GROUPNORM_ENABLE') != '1':
+        raise RuntimeError('PHYSX_STREAMING_GROUPNORM_ENABLE=1 is required for cached decoder')
     output_adapter.install()
     try:
         report['output_tiling_small_gpu_equivalence'] = output_adapter.validate_small_gpu()
     except Exception as exc:
         record_failure(report, report_path, 'output_tiling_small_gpu_equivalence', exc)
+        raise
+    try:
+        validation_cpu_rng = torch.get_rng_state()
+        validation_cuda_rng = torch.cuda.get_rng_state_all()
+        try:
+            report['groupnorm_small_gpu_equivalence'] = groupnorm_adapter.validate_cases('cuda')
+            report['groupnorm_medium_gpu_equivalence'] = groupnorm_adapter.validate_medium_gpu()
+        finally:
+            torch.set_rng_state(validation_cpu_rng)
+            torch.cuda.set_rng_state_all(validation_cuda_rng)
+            torch.cuda.empty_cache()
+        groupnorm_adapter.install()
+    except Exception as exc:
+        record_failure(report, report_path, 'groupnorm_gpu_equivalence', exc)
         raise
     report['status'] = 'running'
     report_path.write_text(json.dumps(report, indent=2) + '\n')

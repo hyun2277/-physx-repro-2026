@@ -27,14 +27,14 @@
 7. 저장 latent를 별도 child에서 기존 cached decoder로 읽는다. physics decoder를 끝낸 뒤 그 weight를 CPU로 내리고 정리한 후 mesh decoder를 로드한다. `mesh_physics_raw.pt`와 `mesh.obj`를 생성한다.
 8. CPU에서 공식 property-output checkpoint의 마지막 16채널→14채널 head와 공식 후처리를 적용한다. GT group 수 3과 공식 `num_group` 결과, group별 vertex/face/area/component를 저장한다. 공식 parent/group indexing 결과와 기존 column-index 수정 후보는 서로 다른 JSON이다. description은 공식 example/training slice 불일치가 해결되지 않아 만들지 않는다. direction/position/range는 좌표계·단위와 GT 대응 계약이 확인되기 전에는 오차를 계산하지 않는다.
 
-각 단계의 `SUCCESS.json`에는 입력 fingerprint와 출력 hash가 있다. 재개 시 둘 다 맞는 단계만 건너뛴다. timestamp+UUID와 전역 lock이 중복 실행을 막는다. 각 child는 명령, 선택 환경, stdout/stderr, exit code를 저장한다. GPU 단계는 실행 직전 물리 GPU index 1의 UUID와 compute process를 확인하고 `CUDA_VISIBLE_DEVICES=1`로 실행한다. 실행 중 GPU 1에 다른 compute process가 나타나거나 사용량이 28,000 MiB를 넘으면 child process group을 종료한다. 전체 32,607 MiB 중 4,607 MiB는 reserve로 남긴다. Ctrl+C, 상한 초과, child 실패는 `result.json`에 서로 다른 reason/status/exit code로 남는다.
+각 단계의 `SUCCESS.json`에는 입력 fingerprint와 출력 hash가 있다. 재개 시 둘 다 맞는 단계만 건너뛴다. timestamp+UUID와 전역 lock이 중복 실행을 막는다. 각 child는 명령, 선택 환경, stdout/stderr, exit code를 저장한다. GPU 단계는 실행 직전 물리 GPU index 1의 UUID와 compute process를 확인하고 `CUDA_VISIBLE_DEVICES=1`로 실행한다. 3초 간격 `nvidia-smi` 감시는 관측 표본이며 절대적 hard limit 보장이 아니다. 표본에서 GPU 1의 다른 compute process나 28,000 MiB 초과를 보면 child process group을 종료한다. 대형 GroupNorm 할당 직전에는 CUDA free/allocated/reserved와 예상 추가 할당을 계산하는 proactive guard를 별도로 실행해 4,607 MiB reserve를 침범하면 할당 전에 중단한다. Ctrl+C, 감시 상한 초과, child 실패는 `result.json`에 서로 다른 reason/status/exit code로 남는다.
 
 ## 29354에서 재사용한 계산
 
 - CUDA 12.8.1 per-run overlay, GCC/G++ 12, physxgen torch 2.7.1+cu128 환경
 - `channel_tiled_spconv.py`, `sitecustomize.py`, `validate_candidate.py`와 Native 전용 fail-closed 범위
 - physics decoder 후 weight 해제, mesh decoder 순차 로드 방식
-- 28,000 MiB hard limit와 4,607 MiB reserve
+- 28,000 MiB sampled-monitor limit, proactive allocation guard, 4,607 MiB reserve
 - source HEAD/pycache-only tracked diff/checkpoint manifest/GPU 1 보호 규칙
 - retrieval의 형상·UV·source texture 검증과 portable Blender wrapper
 
