@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CPU-only 27281 raw physics/head/articulation audit."""
+"""CPU-only raw physics/head/articulation audit for one PhysXNet sample."""
 
 import argparse
 import hashlib
