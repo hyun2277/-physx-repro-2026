@@ -1,0 +1,323 @@
+{
+  "scope": "official checkpoint head and exact example thresholds; CPU only",
+  "group_id": {
+    "count": 381856,
+    "finite": true,
+    "min": -0.07841727882623672,
+    "max": 0.5162070393562317,
+    "mean": 0.025018421933054924,
+    "std_population": 0.033727407455444336,
+    "vertices_ge_0_5": 6,
+    "fraction_ge_0_5": 1.5712729405849327e-05
+  },
+  "num_group_formula": "round(float(max(group_id))) + 1",
+  "num_group": 2,
+  "official_fixed_branch": false,
+  "groups": {
+    "0": {
+      "vertex_count": 381850,
+      "vertex_fraction": 0.9999842872705942,
+      "majority_assigned_face_count": 763670,
+      "majority_assigned_face_fraction": 0.9999921432649448,
+      "majority_assigned_surface_area": 4.999668598175049,
+      "majority_assigned_surface_area_fraction": 0.9999915361404419,
+      "homogeneous_face_count": 763646,
+      "homogeneous_surface_area": 4.999512672424316,
+      "coordinate_min": [
+        -0.5005630850791931,
+        -0.18009202182292938,
+        -0.3912946283817291
+      ],
+      "coordinate_max": [
+        0.5004652142524719,
+        0.18752513825893402,
+        0.38758352398872375
+      ],
+      "component_count_including_isolated_vertices": 27,
+      "largest_component_vertices": 190568,
+      "largest_component_fraction": 0.4990650779101741,
+      "component_sizes_top10": [
+        190568,
+        185544,
+        1364,
+        1338,
+        1338,
+        1332,
+        76,
+        68,
+        24,
+        20
+      ],
+      "components_top10": [
+        {
+          "vertex_count": 190568,
+          "coordinate_min": [
+            -0.4872303009033203,
+            -0.15794451534748077,
+            -0.1843709796667099
+          ],
+          "coordinate_max": [
+            0.4884447455406189,
+            0.15906378626823425,
+            0.3511109948158264
+          ]
+        },
+        {
+          "vertex_count": 185544,
+          "coordinate_min": [
+            -0.5005630850791931,
+            -0.18009202182292938,
+            -0.3912946283817291
+          ],
+          "coordinate_max": [
+            0.5004652142524719,
+            0.17920935153961182,
+            0.38758352398872375
+          ]
+        },
+        {
+          "vertex_count": 1364,
+          "coordinate_min": [
+            0.40456855297088623,
+            -0.1575576812028885,
+            -0.3757741451263428
+          ],
+          "coordinate_max": [
+            0.47003453969955444,
+            -0.10797955840826035,
+            -0.2169724404811859
+          ]
+        },
+        {
+          "vertex_count": 1338,
+          "coordinate_min": [
+            -0.47033101320266724,
+            0.10790105164051056,
+            -0.37560346722602844
+          ],
+          "coordinate_max": [
+            -0.4045974612236023,
+            0.15767556428909302,
+            -0.21696846187114716
+          ]
+        },
+        {
+          "vertex_count": 1338,
+          "coordinate_min": [
+            -0.47027361392974854,
+            -0.15770986676216125,
+            -0.3754269480705261
+          ],
+          "coordinate_max": [
+            -0.4045330286026001,
+            -0.10793748497962952,
+            -0.21691377460956573
+          ]
+        },
+        {
+          "vertex_count": 1332,
+          "coordinate_min": [
+            0.4046081304550171,
+            0.10786407440900803,
+            -0.37520885467529297
+          ],
+          "coordinate_max": [
+            0.47018325328826904,
+            0.15758752822875977,
+            -0.21691957116127014
+          ]
+        },
+        {
+          "vertex_count": 76,
+          "coordinate_min": [
+            -0.18468619883060455,
+            0.034271541982889175,
+            0.0006725545972585678
+          ],
+          "coordinate_max": [
+            -0.17946064472198486,
+            0.05261890962719917,
+            0.019407857209444046
+          ]
+        },
+        {
+          "vertex_count": 68,
+          "coordinate_min": [
+            -0.2620474696159363,
+            0.1846524477005005,
+            0.3521914482116699
+          ],
+          "coordinate_max": [
+            -0.22574806213378906,
+            0.18612025678157806,
+            0.3608851134777069
+          ]
+        },
+        {
+          "vertex_count": 24,
+          "coordinate_min": [
+            0.034550104290246964,
+            0.06943026930093765,
+            -0.1733161360025406
+          ],
+          "coordinate_max": [
+            0.04405511915683746,
+            0.07594846934080124,
+            -0.17222709953784943
+          ]
+        },
+        {
+          "vertex_count": 20,
+          "coordinate_min": [
+            -0.46967029571533203,
+            0.18549492955207825,
+            0.13542290031909943
+          ],
+          "coordinate_max": [
+            -0.45619770884513855,
+            0.18671803176403046,
+            0.13807813823223114
+          ]
+        }
+      ]
+    },
+    "1": {
+      "vertex_count": 6,
+      "vertex_fraction": 1.5712729405849327e-05,
+      "majority_assigned_face_count": 6,
+      "majority_assigned_face_fraction": 7.856735055180469e-06,
+      "majority_assigned_surface_area": 4.248279219609685e-05,
+      "majority_assigned_surface_area_fraction": 8.497049748257268e-06,
+      "homogeneous_face_count": 0,
+      "homogeneous_surface_area": 0.0,
+      "coordinate_min": [
+        -0.4308300018310547,
+        -0.14601227641105652,
+        0.021515535190701485
+      ],
+      "coordinate_max": [
+        0.43145835399627686,
+        0.13158315420150757,
+        0.25648289918899536
+      ],
+      "component_count_including_isolated_vertices": 3,
+      "largest_component_vertices": 3,
+      "largest_component_fraction": 0.5,
+      "component_sizes_top10": [
+        3,
+        2,
+        1
+      ],
+      "components_top10": [
+        {
+          "vertex_count": 3,
+          "coordinate_min": [
+            0.42755332589149475,
+            -0.13863703608512878,
+            0.14764370024204254
+          ],
+          "coordinate_max": [
+            0.43145835399627686,
+            -0.13667577505111694,
+            0.15065784752368927
+          ]
+        },
+        {
+          "vertex_count": 2,
+          "coordinate_min": [
+            -0.4308300018310547,
+            0.12983514368534088,
+            0.2561991214752197
+          ],
+          "coordinate_max": [
+            -0.42643988132476807,
+            0.13158315420150757,
+            0.25648289918899536
+          ]
+        },
+        {
+          "vertex_count": 1,
+          "coordinate_min": [
+            0.09565719962120056,
+            -0.14601227641105652,
+            0.021515535190701485
+          ],
+          "coordinate_max": [
+            0.09565719962120056,
+            -0.14601227641105652,
+            0.021515535190701485
+          ]
+        }
+      ]
+    }
+  },
+  "face_assignment": "triangle assigned by majority of its three thresholded vertex labels",
+  "mixed_group_face_count": 30,
+  "mixed_group_face_fraction": 3.9283675275902344e-05,
+  "boundary_distribution": [
+    {
+      "left_inclusive": "-inf",
+      "right_exclusive": 0.45,
+      "count": 381822,
+      "fraction": 0.9999109612000335
+    },
+    {
+      "left_inclusive": 0.45,
+      "right_exclusive": 0.49,
+      "count": 21,
+      "fraction": 5.499455292047264e-05
+    },
+    {
+      "left_inclusive": 0.49,
+      "right_exclusive": 0.5,
+      "count": 7,
+      "fraction": 1.8331517640157546e-05
+    },
+    {
+      "left_inclusive": 0.5,
+      "right_exclusive": 0.505,
+      "count": 1,
+      "fraction": 2.618788234308221e-06
+    },
+    {
+      "left_inclusive": 0.505,
+      "right_exclusive": 0.51,
+      "count": 3,
+      "fraction": 7.856364702924663e-06
+    },
+    {
+      "left_inclusive": 0.51,
+      "right_exclusive": "+inf",
+      "count": 2,
+      "fraction": 5.237576468616442e-06
+    }
+  ],
+  "scale": {
+    "predicted_vertex_mean_cm": 99.78856658935547,
+    "gt_scalar_cm": 120.0,
+    "absolute_error_cm": 20.21143341064453,
+    "relative_absolute_error": 0.1684286117553711
+  },
+  "density_prediction_g_cm3": {
+    "count": 381856,
+    "finite": true,
+    "min": 0.6811288595199585,
+    "max": 6.49117374420166,
+    "mean": 1.464479684829712,
+    "std_population": 0.9955583810806274
+  },
+  "affordance_prediction_before_display_minmax": {
+    "count": 381856,
+    "finite": true,
+    "min": 0.2441151887178421,
+    "max": 0.6518603563308716,
+    "mean": 0.5750262141227722,
+    "std_population": 0.033132996410131454
+  },
+  "direct_generated_vertex_to_gt_part_mapping": false,
+  "mapping_policy": "no nearest-part, ICP, or arbitrary alignment was created",
+  "second_group_meaningful": false,
+  "meaningful_screen_rule": "a mesh surface region requires at minimum one triangle whose three vertices are group 1; this is a descriptive screen, not an official metric",
+  "false_articulation_candidate": false,
+  "classification": "official max/round branch says articulated, but six threshold-crossing vertices do not form a meaningful second region"
+}

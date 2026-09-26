@@ -1,0 +1,32 @@
+{
+  "object_name": "Rectangular Table",
+  "category": "Furniture",
+  "dimension_field": "120*40*45",
+  "dimension_vector_cm": [
+    120.0,
+    40.0,
+    45.0
+  ],
+  "scale_rule": "maximum numeric dimension",
+  "scale_scalar_cm": 120.0,
+  "group_info": {
+    "0": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "group_keys": [
+    "0"
+  ],
+  "fixed_under_merge_property_rule": true,
+  "parent_relation": null,
+  "movement_type": null,
+  "movement_direction": null,
+  "movement_position": null,
+  "movement_range": null,
+  "missing_reason": "group_info contains only group 0 and no articulated-group tuple"
+}

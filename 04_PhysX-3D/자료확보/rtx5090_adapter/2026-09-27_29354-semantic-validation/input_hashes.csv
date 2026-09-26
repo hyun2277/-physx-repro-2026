@@ -1,0 +1,13 @@
+role,path,bytes,sha256
+physxnet_json,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/finaljson/29354.json,3536,cf687c21110697a6ed1fc25146a8b101d789ae82acfd1b11a7e309a5b15b3600
+part_obj_0,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/0.obj,107518,5fdff00d91b80928bba62f14d0b1032d9fa5bddbd22ddbc36aeb4c52ab255087
+part_obj_1,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/1.obj,518571,1e968c4104ac4ac41e19f89b15cf910fb7c6745249c25dd3c0b8f10eedd2dc13
+part_obj_2,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/2.obj,1228,3cdedd1b03d4d311bd54740c7831e53c5ef5e30be1b2ef57e3fd06cbc98cabeb
+part_obj_3,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/3.obj,1245,33f8f6acc93f807680dc544550be8f4be57c6e3deb5f01f337751eebe08ef8dd
+part_obj_4,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/4.obj,1228,fa48aea6e9ecce2d87ff10a809ab1f2fc0e5a08b8b5e08cd74d227a02a46f234
+part_obj_5,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/partseg/29354/objs/5.obj,1211,c1620221d56bf80a45dd450e2ea765d01b48e91be3fb7b0b9ab3463b0d0ccc82
+model_obj,/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/phy_dataset/29354/model.obj,622283,2fc96114b9967a5f5fca1be77b40a5cd4c41df24671ee6da9d60c7ee9bdbb53e
+model_tex_obj,/home/minsujo/Desktop/SH/PHYSx/staging/retrieval-29354-20260925T183908Z/phy_dataset/29354/model_tex.obj,1106789,e58a15b42169119b66da9db751e25ed00c0c57d41de3db83d022538617532633
+raw_output,/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt,80955063,3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c
+generated_mesh,/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj,30788505,42fdb2fa623efb17d60bb833f37bbbdf9c11829b6b25eb723723623b99c1d431
+property_output_checkpoint,/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.pt,1099495424,01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2

@@ -1,0 +1,17 @@
+{
+  "status": "official kinematic postprocess is not a completed result for this sample",
+  "child_mask_shape": [
+    381856
+  ],
+  "child_true_count": 6,
+  "line_207_parent_expression_error": "The size of tensor a (381856) must match the size of tensor b (6) at non-singleton dimension 0",
+  "line_211_row_selection_index": [
+    0,
+    0
+  ],
+  "line_211_row_selection_shape": [
+    2,
+    8
+  ],
+  "explanation": "kinematic_map[0] is a two-element integer row, not the N-element boolean group column"
+}

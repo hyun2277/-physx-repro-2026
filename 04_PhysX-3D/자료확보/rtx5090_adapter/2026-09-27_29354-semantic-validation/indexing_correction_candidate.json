@@ -1,0 +1,22 @@
+{
+  "status": "separate static correction candidate; not official output",
+  "change": "use kinematic_map[:, (group_ind-1)*2].bool() as the group selection mask",
+  "selected_vertex_count": 6,
+  "selected_parameter_shape": [
+    6,
+    8
+  ],
+  "group_mean_parameter": [
+    -0.2699503004550934,
+    0.05024992302060127,
+    -0.12747891247272491,
+    -0.00641614431515336,
+    0.00036412104964256287,
+    -0.22419928014278412,
+    -0.3653171956539154,
+    0.06578145176172256
+  ],
+  "group_mean_type_before_round": 0.8066339492797852,
+  "group_mean_type_rounded": 1,
+  "scientific_limit": "indexing correction does not validate articulation, physical units, or GT agreement"
+}

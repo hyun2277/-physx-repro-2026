@@ -1,0 +1,7 @@
+label,name,material,density_text,density_g_cm3,priority_rank,affordance_training_target
+0,tabletop_surface,Wood,0.75 g/cm^3,0.75,1,0.9
+1,tabletop_frame,Wood,0.75 g/cm^3,0.75,3,0.7
+2,leg,Wood,0.75 g/cm^3,0.75,5,0.5
+3,leg,Wood,0.75 g/cm^3,0.75,6,0.4
+4,leg,Wood,0.75 g/cm^3,0.75,7,0.30000000000000004
+5,leg,Wood,0.75 g/cm^3,0.75,8,0.19999999999999996
