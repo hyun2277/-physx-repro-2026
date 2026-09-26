@@ -22,7 +22,8 @@
     "unsafe_path_guard_mock": "PASS",
     "noisy_stdout_single_marker_parse": "PASS",
     "warning_stderr_preserved": "PASS",
-    "missing_duplicate_key_type_rejection": "PASS"
+    "missing_duplicate_key_type_rejection": "PASS",
+    "child_stderr_tail_summary": "PASS"
   },
   "failed_run_resume_audit": {
     "run_id": "20260926T204346Z-1023e34e2663",
@@ -33,6 +34,19 @@
     "stage_5_will_rerun_equivalence": true,
     "sampling_executed_during_fix": false,
     "decoder_executed_during_fix": false
+  },
+  "stage7_failure_audit": {
+    "innermost_exception": "RuntimeError: output itself exceeds the int32 boundary",
+    "observed_peak_nvidia_smi_mib": 15166,
+    "hard_limit_mib": 28000,
+    "latent_29354_schema": "PASS",
+    "latent_27281_schema": "PASS",
+    "schema_equal_except_row_count_and_values": true,
+    "stage_1_through_6_marker_and_output_hashes": "PASS",
+    "output_tiling_cpu_boundary_contract": "PASS",
+    "invalid_latent_schema_mock_rejected": "PASS",
+    "new_output_tiling_gpu_equivalence": "PENDING_STAGE_7_RESUME",
+    "gpu_or_decoder_executed_during_fix": false
   },
   "legacy_defaults": {
     "render_wrapper_default_object_id": "29354",

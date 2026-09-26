@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Decode the verified 29354 latent without repeating image sampling."""
+"""Decode one schema-validated cached latent without repeating image sampling."""
 
 import argparse
 import gc
@@ -25,6 +25,33 @@ def gpu_snapshot(label):
 def parameter_bytes(model):
     return sum(p.numel() * p.element_size() for p in model.parameters()) + sum(
         b.numel() * b.element_size() for b in model.buffers())
+
+
+def validate_cached_latent(cache):
+    required = {'slat_coords', 'slat_feats', 'phy_coords', 'phy_feats', 'cpu_rng', 'cuda_rng'}
+    if set(cache) != required:
+        raise RuntimeError(f'cached latent keys differ: {sorted(cache)}')
+    if not torch.equal(cache['slat_coords'], cache['phy_coords']):
+        raise RuntimeError('cached geometry/physics coordinates differ')
+    for name in ('slat_feats', 'phy_feats'):
+        if cache[name].ndim != 2 or cache[name].shape[1] != 8 or cache[name].dtype != torch.float32:
+            raise RuntimeError(f'unexpected cached latent: {name}')
+        if not torch.isfinite(cache[name]).all():
+            raise RuntimeError(f'nonfinite cached latent: {name}')
+    for name in ('slat_coords', 'phy_coords'):
+        if cache[name].ndim != 2 or cache[name].shape[1] != 4 or cache[name].dtype != torch.int32:
+            raise RuntimeError(f'unexpected cached coordinates: {name}')
+        if len(torch.unique(cache[name], dim=0)) != len(cache[name]):
+            raise RuntimeError(f'duplicate cached coordinates: {name}')
+    if len(cache['slat_feats']) == 0 or len(cache['slat_feats']) != len(cache['slat_coords']):
+        raise RuntimeError('cached latent row count is empty or inconsistent')
+    return {'rows': len(cache['slat_feats']), 'feature_channels': 8, 'coordinate_columns': 4}
+
+
+def record_failure(report, report_path, stage, exc):
+    report.update(status='failed', failure_stage=stage,
+                  reason=f'{type(exc).__name__}: {exc}', finished=time.time())
+    report_path.write_text(json.dumps(report, indent=2) + '\n')
 
 
 def main():
@@ -55,6 +82,7 @@ def main():
     from trellis import models
     from trellis.modules import sparse as sp
     from trellis.modules.sparse import conv as sparse_conv
+    import output_channel_tiled_spconv as output_adapter
 
     report['spconv_algo_actual'] = sparse_conv.SPCONV_ALGO
     report_path.write_text(json.dumps(report, indent=2) + '\n')
@@ -65,25 +93,20 @@ def main():
         report['reason'] = 'SPCONV_ALGO native selection required'
         report_path.write_text(json.dumps(report, indent=2) + '\n')
         raise RuntimeError('SPCONV_ALGO native selection required before decoder')
+    if os.environ.get('PHYSX_OUTPUT_TILE_ENABLE') != '1':
+        raise RuntimeError('PHYSX_OUTPUT_TILE_ENABLE=1 is required for cached decoder')
+    output_adapter.install()
+    try:
+        report['output_tiling_small_gpu_equivalence'] = output_adapter.validate_small_gpu()
+    except Exception as exc:
+        record_failure(report, report_path, 'output_tiling_small_gpu_equivalence', exc)
+        raise
     report['status'] = 'running'
     report_path.write_text(json.dumps(report, indent=2) + '\n')
 
     cache = torch.load(args.latent, map_location='cpu', weights_only=True)
-    required = {'slat_coords', 'slat_feats', 'phy_coords', 'phy_feats', 'cpu_rng', 'cuda_rng'}
-    if set(cache) != required:
-        raise RuntimeError(f'cached latent keys differ: {sorted(cache)}')
-    if not torch.equal(cache['slat_coords'], cache['phy_coords']):
-        raise RuntimeError('cached geometry/physics coordinates differ')
-    for name in ('slat_feats', 'phy_feats'):
-        if cache[name].ndim != 2 or cache[name].shape[1] != 8 or cache[name].dtype != torch.float32:
-            raise RuntimeError(f'unexpected cached latent: {name}')
-        if not torch.isfinite(cache[name]).all():
-            raise RuntimeError(f'nonfinite cached latent: {name}')
-    for name in ('slat_coords', 'phy_coords'):
-        if cache[name].ndim != 2 or cache[name].shape[1] != 4 or cache[name].dtype != torch.int32:
-            raise RuntimeError(f'unexpected cached coordinates: {name}')
-    if len(cache['slat_feats']) == 0 or len(cache['slat_feats']) != len(cache['slat_coords']):
-        raise RuntimeError('cached latent row count is empty or inconsistent')
+    report['latent_schema'] = validate_cached_latent(cache)
+    report_path.write_text(json.dumps(report, indent=2) + '\n')
 
     torch.cuda.reset_peak_memory_stats()
     report['memory'].append(gpu_snapshot('before_models'))
@@ -95,9 +118,13 @@ def main():
     physics_decoder.cuda()
     phy_latent = sp.SparseTensor(feats=cache['phy_feats'].cuda(), coords=cache['phy_coords'].cuda())
     report['memory'].append(gpu_snapshot('physics_decoder_loaded'))
-    with torch.inference_mode():
-        decoded_physics, physics_skip = physics_decoder(phy_latent)
-        torch.cuda.synchronize()
+    try:
+        with torch.inference_mode():
+            decoded_physics, physics_skip = physics_decoder(phy_latent)
+            torch.cuda.synchronize()
+    except Exception as exc:
+        record_failure(report, report_path, 'physics_decoder', exc)
+        raise
     report['memory'].append(gpu_snapshot('physics_decoder_complete'))
     if not torch.isfinite(decoded_physics.feats).all().item():
         raise RuntimeError('nonfinite decoded physics')
@@ -118,9 +145,13 @@ def main():
     gc.collect()
     torch.cuda.empty_cache()
     report['memory'].append(gpu_snapshot('mesh_decoder_loaded'))
-    with torch.inference_mode():
-        meshes = mesh_decoder(slat, decoded_physics, physics_skip)
-        torch.cuda.synchronize()
+    try:
+        with torch.inference_mode():
+            meshes = mesh_decoder(slat, decoded_physics, physics_skip)
+            torch.cuda.synchronize()
+    except Exception as exc:
+        record_failure(report, report_path, 'mesh_decoder', exc)
+        raise
     report['memory'].append(gpu_snapshot('mesh_decoder_complete'))
     if len(meshes) != 1 or not meshes[0].success:
         raise RuntimeError('mesh decoder did not produce one valid mesh')

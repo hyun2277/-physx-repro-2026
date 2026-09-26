@@ -173,7 +173,7 @@ class Runner:
     def child(self,directory,args,env=None,cwd=None,gpu=False,log_prefix=""):
         prefix=f"{log_prefix}." if log_prefix else ""
         write_json(directory/f"{prefix}command.json",{"argv":list(map(str,args)),"cwd":str(cwd or Path.cwd()),
-            "environment":{k:(env or os.environ).get(k) for k in ("CUDA_VISIBLE_DEVICES","CUDA_HOME","CUDACXX","CC","CXX","CUDAHOSTCXX","NVCC_CCBIN","SPCONV_ALGO","PHYSX_TILE_ENABLE","PYTHONPATH")}})
+            "environment":{k:(env or os.environ).get(k) for k in ("CUDA_VISIBLE_DEVICES","CUDA_HOME","CUDACXX","CC","CXX","CUDAHOSTCXX","NVCC_CCBIN","SPCONV_ALGO","PHYSX_TILE_ENABLE","PHYSX_OUTPUT_TILE_ENABLE","PYTHONPATH")}})
         out=open(directory/f"{prefix}stdout.log","w"); err=open(directory/f"{prefix}stderr.log","w")
         p=subprocess.Popen(list(map(str,args)),cwd=cwd,env=env,stdout=out,stderr=err,start_new_session=True)
         samples=[]; start=time.monotonic(); reason=None
@@ -213,7 +213,13 @@ class Runner:
         write_json(directory/f"{prefix}gpu_usage.json",{"physical_gpu_index":1,"samples":samples,"peak_nvidia_smi_mib":max((x["used_mib"] for x in samples if x["used_mib"] is not None),default=None)})
         self.result["child_exit_code"]=rc; self.save(); (directory/f"{prefix}child_exit_code.txt").write_text(f"{rc}\n")
         if reason: raise RuntimeError(reason)
-        if rc: raise subprocess.CalledProcessError(rc,args)
+        if rc:
+            stderr_path=directory/f"{prefix}stderr.log"
+            tail=stderr_path.read_text(errors="replace").splitlines()[-20:] if stderr_path.is_file() else []
+            summary="\n".join(tail)
+            (directory/f"{prefix}failure_stderr_tail.txt").write_text(summary+("\n" if summary else ""))
+            print(f"CHILD FAILED rc={rc} stderr_tail:\n{summary}",file=sys.stderr,flush=True)
+            raise subprocess.CalledProcessError(rc,args)
 
 def static_plan():
     return {"object":"27281","source_head_expected":HEAD,"physx_archive":zip_inventory(PHYSX_ZIP,PHYSX_MEMBERS),
@@ -251,10 +257,21 @@ def self_test():
             except (ValueError,KeyError,TypeError): pass
             else: raise RuntimeError("invalid marker mock was accepted")
         if mock.stderr!="RuntimeWarning: harmless mock warning\n": raise RuntimeError("stderr mock was not preserved")
+        import contextlib, io
+        failure_dir=base/"child_failure"; failure_dir.mkdir()
+        terminal=io.StringIO()
+        try:
+            with contextlib.redirect_stderr(terminal):
+                r.child(failure_dir,[sys.executable,"-c",'import sys;print("inner failure line",file=sys.stderr);raise SystemExit(7)'])
+        except subprocess.CalledProcessError as exc:
+            if exc.returncode!=7: raise
+        else: raise RuntimeError("failing child mock was accepted")
+        if "inner failure line" not in terminal.getvalue() or "inner failure line" not in (failure_dir/"failure_stderr_tail.txt").read_text():
+            raise RuntimeError("child stderr tail was not surfaced and preserved")
     return {"marker_hash_skip":"PASS","tamper_requires_explicit_resume":"PASS","unsafe_path_guard_mock":"PASS",
             "resume_attempt_log_isolated":"PASS",
             "noisy_stdout_single_marker_parse":"PASS","warning_stderr_preserved_mock":"PASS",
-            "missing_duplicate_key_type_rejection":"PASS"}
+            "missing_duplicate_key_type_rejection":"PASS","child_stderr_tail_summary":"PASS"}
 
 def execute(run,stage,resume):
     r=Runner(run,stage,resume); work=stage/"work"; renders=stage/"datasets/PhysXNet/renders_cond/27281_"
@@ -357,15 +374,17 @@ def execute(run,stage,resume):
             return [latent,sampling/"preprocessed.png",d/"sampling_report.json"],{"seed":1,"latent_sha256":sha(latent)}
         r.step(6,"sampling_only",sha(selected)+"seed=1"+HEAD+sha(ADAPTER/"sample_latents_only.py")+sha(MANIFEST),s6)
 
-        decoded=stage/"decoder"
         def s7(d):
             gpu=gpu_guard(); write_json(d/"gpu_preflight.json",gpu); latent=sampling/"sampled_latents.pt"
-            args=[PY,ADAPTER/"decode_cached_29354.py","--latent",latent,"--source",SRC,"--output",decoded,"--report",d/"decoder_report.json"]
-            r.child(d,args,env=env,cwd=SRC,gpu=True)
-            raw=decoded/"mesh_physics_raw.pt"; mesh=decoded/"mesh.obj"
+            decoder_output=stage/("decoder" if d.name.startswith("07_") else f"decoder-{d.name}")
+            args=[PY,ADAPTER/"decode_cached_29354.py","--latent",latent,"--source",SRC,"--output",decoder_output,"--report",d/"decoder_report.json"]
+            decoder_env={**env,"PHYSX_OUTPUT_TILE_ENABLE":"1"}
+            r.child(d,args,env=decoder_env,cwd=SRC,gpu=True)
+            raw=decoder_output/"mesh_physics_raw.pt"; mesh=decoder_output/"mesh.obj"
             if not raw.is_file() or not mesh.is_file(): raise RuntimeError("decoder outputs missing")
-            return [raw,mesh,d/"decoder_report.json"],{"latent_sha256":sha(latent)}
-        r.step(7,"cached_physics_mesh_decoder",sha(sampling/"sampled_latents.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/decoder_step0100000.pt")+sha(ADAPTER/"decode_cached_29354.py")+sha(ADAPTER/"channel_tiled_spconv.py"),s7)
+            return [raw,mesh,d/"decoder_report.json"],{"latent_sha256":sha(latent),"output_dir":str(decoder_output)}
+        decoder_marker=r.step(7,"cached_physics_mesh_decoder",sha(sampling/"sampled_latents.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt")+sha(SRC/"pretrain/diffusion/ckpts_new/decoder_step0100000.pt")+sha(ADAPTER/"decode_cached_29354.py")+sha(ADAPTER/"channel_tiled_spconv.py")+sha(ADAPTER/"output_channel_tiled_spconv.py"),s7)
+        decoded=Path(decoder_marker["detail"]["output_dir"])
 
         audit=stage/"articulation_audit"
         def s8(d):
