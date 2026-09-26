@@ -136,15 +136,20 @@ def run_one(config, resume=None):
       r.step(2,'official_merge_property',fingerprint(sha(work/f'physxnet/finaljson/{object_id}.json'),sha(SRC/'dataset_toolkits/merge_property.py'),sha(MANIFEST)),s2)
       def s3(d):
         env=os.environ.copy(); env.update(CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1')
-        r.child(d,[PY,SRC/'dataset_toolkits/retrieval_texture_example.py','--index','0','--range','1'],env=env,cwd=work)
-        root=work/f'phy_dataset/{object_id}'; obj=root/'model_tex.obj'; tex=work/f'shapenet/04379243/{shape}/images/{Path(smembers[2]).name}'
-        with open(d/'verification.log','w') as f: subprocess.run([PY,TOOLS/'verify_retrieval_29354_output.py',work,tex,object_id],check=True,stdout=f,stderr=subprocess.STDOUT,env=env)
+        root=work/f'phy_dataset/{object_id}'; obj=root/'model_tex.obj'; source_mesh=work/f'shapenet/04379243/{shape}/models/model_normalized.obj'
+        reused=None
+        if obj.is_file():
+            reused={'official_retrieval':'not re-run; existing output is verified on explicit resume','model_tex_sha256':sha(obj)}
+            write_json(d/'retrieval_reused.json',reused)
+        else:
+            r.child(d,[PY,SRC/'dataset_toolkits/retrieval_texture_example.py','--index','0','--range','1'],env=env,cwd=work)
+        with open(d/'verification.log','w') as f: subprocess.run([PY,TOOLS/'verify_retrieval_output.py',work,source_mesh,object_id,'--report',d/'verification.json'],check=True,stdout=f,stderr=subprocess.STDOUT,env=env)
         refs=[root/x.split(maxsplit=1)[1] for x in obj.read_text(errors='replace').splitlines() if x.startswith('mtllib ')]
         if len(refs)!=1 or not refs[0].is_file(): raise RuntimeError('OBJ->MTL reference invalid')
         texrefs=[refs[0].parent/x.split(maxsplit=1)[1] for x in refs[0].read_text(errors='replace').splitlines() if x.startswith('map_Kd ')]
         if not texrefs or not all(x.is_file() for x in texrefs): raise RuntimeError('MTL->texture reference invalid')
-        return [obj,*refs,*texrefs],{'gray_fallback':'not used (official retrieval verifier passed)'}
-      r.step(3,'official_texture_retrieval',fingerprint(sha(work/f'phy_dataset/{object_id}/model.obj'),sha(work/'finalindex.json'),sha(SRC/'dataset_toolkits/retrieval_texture_example.py'),*[sha(work/'shapenet'/x) for x in smembers]),s3)
+        return [obj,*refs,*texrefs,d/'verification.json',*([d/'retrieval_reused.json'] if reused else [])],{'gray_fallback':'not used (official retrieval verifier passed)','official_retrieval_reused':bool(reused)}
+      r.step(3,'official_texture_retrieval',fingerprint(sha(work/f'phy_dataset/{object_id}/model.obj'),sha(work/'finalindex.json'),sha(SRC/'dataset_toolkits/retrieval_texture_example.py'),sha(TOOLS/'verify_retrieval_output.py'),*[sha(work/'shapenet'/x) for x in smembers]),s3)
       def s4(d):
         if not BLENDER.is_file(): raise RuntimeError('portable Blender missing')
         data=stage/'datasets/PhysXNet'; data.mkdir(parents=True,exist_ok=True); meta=data/'metadata.csv'
@@ -209,14 +214,31 @@ def self_test():
     return {'cpu_latent_schema_mock':'PASS','N_x_64_estimator_mock':'PASS','missing_key_rejected':'PASS'}
 
 def main():
-  p=argparse.ArgumentParser();p.add_argument('--plan',action='store_true');p.add_argument('--self-test',action='store_true');p.add_argument('--candidate',choices=[x['object_id'] for x in CANDIDATES]);p.add_argument('--resume',type=Path)
+  p=argparse.ArgumentParser();p.add_argument('--plan',action='store_true');p.add_argument('--self-test',action='store_true');p.add_argument('--candidate',choices=[x['object_id'] for x in CANDIDATES]);p.add_argument('--resume',type=Path);p.add_argument('--resume-first',type=Path,help='resume the first candidate, then start remaining candidates once')
   a=p.parse_args()
   if a.plan: print(json.dumps(plan(),indent=2));return
   if a.self_test: print(json.dumps(self_test(),indent=2));return
   chosen=[x for x in CANDIDATES if a.candidate in (None,x['object_id'])]
+  if a.resume and a.resume_first: raise SystemExit('--resume and --resume-first are mutually exclusive')
   if a.resume and len(chosen)!=1: raise SystemExit('--resume requires --candidate')
+  if a.resume_first:
+    prior=json.loads((a.resume_first.resolve()/'result.json').read_text())
+    if prior.get('object_id') != chosen[0]['object_id']: raise SystemExit('--resume-first must name the first selected candidate')
   parent=ROOT/'logs/articulated-sampling-only';parent.mkdir(parents=True,exist_ok=True)
   with open(parent/'.runner.lock','w') as lock:
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-    for c in chosen: run_one(c,a.resume)
+    failures=[]
+    fatal_terms=('source HEAD mismatch','non-pyc tracked source changes','bad checkpoint manifest','checkpoint manifest missing','physical GPU index 1 unavailable','GPU 1 already has a compute process','GPU total memory does not preserve configured reserve','CUDA overlay is incomplete','existing CLIP cache missing')
+    for index,c in enumerate(chosen):
+      try:
+        run_one(c,a.resume if a.resume else (a.resume_first if index==0 else None))
+      except BaseException as exc:
+        # An object-local retrieval/render/sampling failure is recorded by run_one and does not hide the next candidate.
+        # Source/checkpoint/GPU/overlay preconditions are shared and fail closed for the whole batch.
+        text=str(exc); failures.append({'object_id':c['object_id'],'error':f'{type(exc).__name__}: {text}'})
+        if any(term in text for term in fatal_terms):
+          write_json(parent/'batch_result.json',{'status':'failed','reason':'shared precondition failure','failures':failures,'finished_utc':now()})
+          raise
+    write_json(parent/'batch_result.json',{'status':'success' if not failures else 'partial_failure','failures':failures,'finished_utc':now()})
+    if failures: raise SystemExit('one or more object-local stages failed; later candidates were attempted')
 if __name__=='__main__': main()

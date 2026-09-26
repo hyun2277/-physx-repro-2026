@@ -313,19 +313,22 @@ def execute(run,stage,resume):
         def s3(d):
             env=os.environ.copy(); env.update(CUDA_VISIBLE_DEVICES="",PYTHONDONTWRITEBYTECODE="1")
             args=[PY,SRC/"dataset_toolkits/retrieval_texture_example.py","--index","0","--range","1"]
-            r.child(d,args,env=env,cwd=work)
-            tex=work/f"shapenet/04379243/{SHAPE}/images/texture0.jpg"
-            verify=[PY,TOOLS/"verify_retrieval_29354_output.py",work,tex,OBJECT]
+            root=work/f"phy_dataset/{OBJECT}"; obj=root/"model_tex.obj"; reused=None
+            if obj.is_file():
+                reused={"official_retrieval":"not re-run; existing output is verified on explicit resume","model_tex_sha256":sha(obj)}
+                write_json(d/"retrieval_reused.json",reused)
+            else:
+                r.child(d,args,env=env,cwd=work)
+            verify=[PY,TOOLS/"verify_retrieval_output.py",work,work/f"shapenet/04379243/{SHAPE}/models/model_normalized.obj",OBJECT,"--report",d/"verification.json"]
             with open(d/"verification.log","w") as f: subprocess.run(verify,check=True,stdout=f,stderr=subprocess.STDOUT,env=env)
-            root=work/f"phy_dataset/{OBJECT}"; obj=root/"model_tex.obj"
             refs=[]
             for line in obj.read_text(errors="replace").splitlines():
                 if line.startswith("mtllib "): refs.append(root/line.split(maxsplit=1)[1])
             if len(refs)!=1 or not refs[0].is_file(): raise RuntimeError("OBJ->MTL reference invalid")
             texrefs=[refs[0].parent/x.split(maxsplit=1)[1] for x in refs[0].read_text(errors="replace").splitlines() if x.startswith("map_Kd ")]
             if not texrefs or not all(x.is_file() for x in texrefs): raise RuntimeError("MTL->texture reference invalid")
-            return [obj,*refs,*texrefs],{"gray_fallback":"not used (source color membership verifier passed)"}
-        r.step(3,"official_texture_retrieval",sha(work/f"phy_dataset/{OBJECT}/model.obj")+sha(work/"finalindex.json")+sha(work/f"shapenet/04379243/{SHAPE}/models/model_normalized.obj")+sha(work/f"shapenet/04379243/{SHAPE}/models/model_normalized.mtl")+sha(work/f"shapenet/04379243/{SHAPE}/images/texture0.jpg")+sha(SRC/"dataset_toolkits/retrieval_texture_example.py"),s3)
+            return [obj,*refs,*texrefs,d/"verification.json",*([d/"retrieval_reused.json"] if reused else [])],{"gray_fallback":"not used (generic verifier passed)","official_retrieval_reused":bool(reused)}
+        r.step(3,"official_texture_retrieval",sha(work/f"phy_dataset/{OBJECT}/model.obj")+sha(work/"finalindex.json")+sha(work/f"shapenet/04379243/{SHAPE}/models/model_normalized.obj")+sha(work/f"shapenet/04379243/{SHAPE}/models/model_normalized.mtl")+sha(work/f"shapenet/04379243/{SHAPE}/images/texture0.jpg")+sha(SRC/"dataset_toolkits/retrieval_texture_example.py")+sha(TOOLS/"verify_retrieval_output.py"),s3)
 
         def s4(d):
             if not BLENDER.is_file(): raise RuntimeError("portable Blender missing")
