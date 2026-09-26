@@ -1,0 +1,8 @@
+runner_pythonpath=source-first-preserve-existing
+static_trellis_resolution=PASS
+resolved_trellis=/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/trellis/__init__.py
+staging_example_ast=PASS
+diff_only_line=3
+real_import_trellis=NOT_RUN_TO_COMPLETION_WARP_GPU_CACHE_INIT_REQUIRED
+gpu_execution=skipped
+example_execution=skipped

@@ -17,6 +17,7 @@ RUN="$ROOT/logs/inference-29354-implicit-gemm/$RUN_ID"
 STAGE="$ROOT/staging/inference-29354-implicit-gemm-$RUN_ID"
 EXAMPLE_COPY="$STAGE/example.py"
 OUT="$ROOT/staging/inference-29354-implicit-output-$RUN_ID"
+SOURCE_PYTHONPATH="$SRC${PYTHONPATH:+:$PYTHONPATH}"
 mkdir -p "$RUN" "$STAGE" "$OUT"
 cp "$SRC/example.py" "$EXAMPLE_COPY"
 sed -i "s/os.environ\['SPCONV_ALGO'\] = 'native'/os.environ['SPCONV_ALGO'] = 'implicit_gemm'/" "$EXAMPLE_COPY"
@@ -32,6 +33,7 @@ abort() { echo "ABORT_REASON=$1" | tee "$RUN/abort_reason.txt"; echo 2 > "$RUN/e
   echo "transforms=$TRANSFORMS"
   echo "example_copy=$EXAMPLE_COPY"
   echo "output=$OUT"
+  echo "source_pythonpath=$SOURCE_PYTHONPATH"
   echo "input_sha256=$(sha256sum "$INPUT" 2>/dev/null | awk '{print $1}')"
   echo "transforms_sha256=$(sha256sum "$TRANSFORMS" 2>/dev/null | awk '{print $1}')"
   echo 'unstaged_tracked:'
@@ -97,10 +99,10 @@ if awk -F',' -v target="$GPU1_UUID" '{gsub(/[[:space:]]/,"",$2); if ($2==target)
 source "$CUDA_ENV" || abort cuda_environment_load_failed
 cuda_jit_prepare "$RUN" "$CUDA_TOOLKIT" /usr/bin/gcc-12 /usr/bin/g++-12 || abort cuda_overlay_prepare_failed
 cuda_jit_write_environment "$RUN/environment.log"
-printf '%q ' env CUDA_VISIBLE_DEVICES=1 CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDACXX" CC="$CC" CXX="$CXX" CUDAHOSTCXX="$CUDAHOSTCXX" NVCC_CCBIN="$NVCC_CCBIN" PATH="$PATH" HOME="$SRC" XDG_CACHE_HOME="$ROOT/cache" "$PY" "$EXAMPLE_COPY" --condpath "$INPUT" --savepath "$OUT" > "$RUN/example.command.txt"
+printf '%q ' env CUDA_VISIBLE_DEVICES=1 PYTHONPATH="$SOURCE_PYTHONPATH" CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDACXX" CC="$CC" CXX="$CXX" CUDAHOSTCXX="$CUDAHOSTCXX" NVCC_CCBIN="$NVCC_CCBIN" PATH="$PATH" HOME="$SRC" XDG_CACHE_HOME="$ROOT/cache" "$PY" "$EXAMPLE_COPY" --condpath "$INPUT" --savepath "$OUT" > "$RUN/example.command.txt"
 date -u +%Y-%m-%dT%H:%M:%SZ > "$RUN/start_utc.txt"
 set +e
-(cd "$SRC" && PYTHONUNBUFFERED=1 env CUDA_VISIBLE_DEVICES=1 CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDACXX" CC="$CC" CXX="$CXX" CUDAHOSTCXX="$CUDAHOSTCXX" NVCC_CCBIN="$NVCC_CCBIN" PATH="$PATH" HOME="$SRC" XDG_CACHE_HOME="$ROOT/cache" "$PY" "$EXAMPLE_COPY" --condpath "$INPUT" --savepath "$OUT") > "$RUN/example.stdout.log" 2> "$RUN/example.stderr.log" &
+(cd "$SRC" && PYTHONUNBUFFERED=1 env CUDA_VISIBLE_DEVICES=1 PYTHONPATH="$SOURCE_PYTHONPATH" CUDA_HOME="$CUDA_HOME" CUDACXX="$CUDACXX" CC="$CC" CXX="$CXX" CUDAHOSTCXX="$CUDAHOSTCXX" NVCC_CCBIN="$NVCC_CCBIN" PATH="$PATH" HOME="$SRC" XDG_CACHE_HOME="$ROOT/cache" "$PY" "$EXAMPLE_COPY" --condpath "$INPUT" --savepath "$OUT") > "$RUN/example.stdout.log" 2> "$RUN/example.stderr.log" &
 example_pid=$!
 (
   while kill -0 "$example_pid" 2>/dev/null; do
