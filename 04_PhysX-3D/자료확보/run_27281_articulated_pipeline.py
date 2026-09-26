@@ -22,6 +22,7 @@ CUDA_TOOLKIT = ROOT / "toolchains/cuda-12.8.1"
 HEAD = "4f54e750a309fe9cd9f20816916ecc0e8a9ae594"
 OBJECT = "27281"; SHAPE = "a7887db4982215cc5afc372fcbe94f4a"
 MAX_GPU_MIB = 28000; RESERVE_MIB = 4607; MAX_SECONDS = 7200
+RESULT_MARKER = "PHYSX_RESULT_JSON="
 
 PHYSX_MEMBERS = [f"version_1/finaljson/{OBJECT}.json"] + [f"version_1/partseg/{OBJECT}/objs/{i}.obj" for i in range(7)]
 SHAPE_MEMBERS = [f"04379243/{SHAPE}/models/model_normalized.obj",
@@ -36,6 +37,18 @@ def sha(path):
     return h.hexdigest()
 def write_json(path, data): path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n")
 def command_text(args): return " ".join(subprocess.list2cmdline([str(x)]) for x in args)
+
+def parse_result_marker(stdout, required):
+    """Parse one explicitly marked JSON object while preserving arbitrary other output."""
+    marked=[line[len(RESULT_MARKER):] for line in stdout.splitlines() if line.startswith(RESULT_MARKER)]
+    if len(marked)!=1: raise ValueError(f"expected exactly one {RESULT_MARKER} line, found {len(marked)}")
+    try: value=json.loads(marked[0])
+    except json.JSONDecodeError as exc: raise ValueError(f"invalid marked JSON: {exc}") from exc
+    if not isinstance(value,dict): raise TypeError("marked JSON must be an object")
+    for key,kind in required.items():
+        if key not in value: raise KeyError(f"marked JSON missing required key: {key}")
+        if not isinstance(value[key],kind): raise TypeError(f"marked JSON key {key} must be {kind.__name__}")
+    return value
 
 def source_guard():
     head=subprocess.check_output(["git","-C",str(SRC),"rev-parse","HEAD"],text=True).strip()
@@ -139,22 +152,29 @@ class Runner:
             print(f"[{now()}] SKIP verified {number}:{name}",flush=True); return json.loads((directory/"SUCCESS.json").read_text())
         if (directory/"exit_code.txt").is_file() and not self.resume:
             raise RuntimeError(f"stage {number}:{name} was attempted; use --resume {self.run}")
+        action_dir=directory
+        if (directory/"exit_code.txt").is_file() and self.resume:
+            attempt=2
+            while (directory/f"attempt_{attempt:02d}").exists(): attempt+=1
+            action_dir=directory/f"attempt_{attempt:02d}"; action_dir.mkdir()
         self.result["stage"]=f"{number}:{name}"; self.save(); print(f"[{now()}] START {number}:{name} log={directory}",flush=True)
-        (directory/"started_utc.txt").write_text(now()+"\n")
+        (action_dir/"started_utc.txt").write_text(now()+"\n")
         try:
-            output_paths,detail=action(directory)
-            marker={"status":"success","input_fingerprint":fingerprint,"outputs":self.outputs(output_paths),"detail":detail,"finished_utc":now()}
-            write_json(directory/"SUCCESS.json",marker); (directory/"exit_code.txt").write_text("0\n")
+            output_paths,detail=action(action_dir)
+            marker={"status":"success","input_fingerprint":fingerprint,"outputs":self.outputs(output_paths),"detail":detail,
+                    "attempt_log_dir":str(action_dir),"finished_utc":now()}
+            write_json(directory/"SUCCESS.json",marker); (action_dir/"exit_code.txt").write_text("0\n")
             return marker
         except BaseException as exc:
-            (directory/"exit_code.txt").write_text(str(getattr(exc,"returncode",1) or 1)+"\n")
-            (directory/"failure.json").write_text(json.dumps({"status":"failed","reason":f"{type(exc).__name__}: {exc}","finished_utc":now()},indent=2)+"\n")
+            (action_dir/"exit_code.txt").write_text(str(getattr(exc,"returncode",1) or 1)+"\n")
+            (action_dir/"failure.json").write_text(json.dumps({"status":"failed","reason":f"{type(exc).__name__}: {exc}","finished_utc":now()},indent=2)+"\n")
             raise
-        finally: (directory/"finished_utc.txt").write_text(now()+"\n")
-    def child(self,directory,args,env=None,cwd=None,gpu=False):
-        write_json(directory/"command.json",{"argv":list(map(str,args)),"cwd":str(cwd or Path.cwd()),
+        finally: (action_dir/"finished_utc.txt").write_text(now()+"\n")
+    def child(self,directory,args,env=None,cwd=None,gpu=False,log_prefix=""):
+        prefix=f"{log_prefix}." if log_prefix else ""
+        write_json(directory/f"{prefix}command.json",{"argv":list(map(str,args)),"cwd":str(cwd or Path.cwd()),
             "environment":{k:(env or os.environ).get(k) for k in ("CUDA_VISIBLE_DEVICES","CUDA_HOME","CUDACXX","CC","CXX","CUDAHOSTCXX","NVCC_CCBIN","SPCONV_ALGO","PHYSX_TILE_ENABLE","PYTHONPATH")}})
-        out=open(directory/"stdout.log","w"); err=open(directory/"stderr.log","w")
+        out=open(directory/f"{prefix}stdout.log","w"); err=open(directory/f"{prefix}stderr.log","w")
         p=subprocess.Popen(list(map(str,args)),cwd=cwd,env=env,stdout=out,stderr=err,start_new_session=True)
         samples=[]; start=time.monotonic(); reason=None
         try:
@@ -190,8 +210,8 @@ class Runner:
         except KeyboardInterrupt:
             os.killpg(p.pid,signal.SIGTERM); p.wait(); self.result.update(status="interrupted",reason="Ctrl+C",child_exit_code=p.returncode); self.save(); raise
         finally: out.close(); err.close()
-        write_json(directory/"gpu_usage.json",{"physical_gpu_index":1,"samples":samples,"peak_nvidia_smi_mib":max((x["used_mib"] for x in samples if x["used_mib"] is not None),default=None)})
-        self.result["child_exit_code"]=rc; self.save(); (directory/"child_exit_code.txt").write_text(f"{rc}\n")
+        write_json(directory/f"{prefix}gpu_usage.json",{"physical_gpu_index":1,"samples":samples,"peak_nvidia_smi_mib":max((x["used_mib"] for x in samples if x["used_mib"] is not None),default=None)})
+        self.result["child_exit_code"]=rc; self.save(); (directory/f"{prefix}child_exit_code.txt").write_text(f"{rc}\n")
         if reason: raise RuntimeError(reason)
         if rc: raise subprocess.CalledProcessError(rc,args)
 
@@ -215,9 +235,26 @@ def self_test():
         except RuntimeError as exc:
             if "--resume" not in str(exc): raise
         else: raise RuntimeError("tampered output did not require explicit resume")
+        original_exit=(run/"steps/01_mock/exit_code.txt").read_text()
+        r.resume=True; r.step(1,"mock",fp,action)
+        if not (run/"steps/01_mock/attempt_02/exit_code.txt").is_file() or (run/"steps/01_mock/exit_code.txt").read_text()!=original_exit:
+            raise RuntimeError("resume did not preserve original attempt logs")
         unsafe="../escape"
         if not (Path(unsafe).is_absolute() or ".." in Path(unsafe).parts): raise RuntimeError("unsafe member mock failed")
-    return {"marker_hash_skip":"PASS","tamper_requires_explicit_resume":"PASS","unsafe_path_guard_mock":"PASS"}
+        mock_code='import sys;print("warning-like stdout");print("[SPARSE] Backend: spconv, Attention: flash_attn");print(\'PHYSX_RESULT_JSON={"trellis":"/source/trellis/__init__.py","spconv":"/env/spconv/__init__.py","cumm":"/env/cumm/__init__.py","algo":"native"}\');print("trailing noise");print("RuntimeWarning: harmless mock warning",file=sys.stderr)'
+        mock=subprocess.run([sys.executable,"-c",mock_code],capture_output=True,text=True,check=True)
+        (base/"mock.stdout.log").write_text(mock.stdout); (base/"mock.stderr.log").write_text(mock.stderr)
+        parsed=parse_result_marker(mock.stdout,{"trellis":str,"spconv":str,"cumm":str,"algo":str})
+        if parsed["algo"]!="native": raise RuntimeError("noisy marker parse failed")
+        for invalid in ("noise only", RESULT_MARKER+'{}\n', RESULT_MARKER+'{"algo":"native"}\n'+RESULT_MARKER+'{"algo":"native"}\n', RESULT_MARKER+'{"trellis":1,"spconv":"x","cumm":"y","algo":"native"}\n'):
+            try: parse_result_marker(invalid,{"trellis":str,"spconv":str,"cumm":str,"algo":str})
+            except (ValueError,KeyError,TypeError): pass
+            else: raise RuntimeError("invalid marker mock was accepted")
+        if mock.stderr!="RuntimeWarning: harmless mock warning\n": raise RuntimeError("stderr mock was not preserved")
+    return {"marker_hash_skip":"PASS","tamper_requires_explicit_resume":"PASS","unsafe_path_guard_mock":"PASS",
+            "resume_attempt_log_isolated":"PASS",
+            "noisy_stdout_single_marker_parse":"PASS","warning_stderr_preserved_mock":"PASS",
+            "missing_duplicate_key_type_rejection":"PASS"}
 
 def execute(run,stage,resume):
     r=Runner(run,stage,resume); work=stage/"work"; renders=stage/"datasets/PhysXNet/renders_cond/27281_"
@@ -299,11 +336,14 @@ def execute(run,stage,resume):
         def s5(d):
             gpu=gpu_guard(); write_json(d/"gpu_preflight.json",gpu)
             for mode in ("cpu","cpu_spconv","boundary"):
-                r.child(d,[PY,ADAPTER/"validate_candidate.py",mode],env={**env,"PHYSX_TILE_ENABLE":"0"})
-            r.child(d,[PY,ADAPTER/"validate_candidate.py","gpu"],env={**env,"PHYSX_TILE_ENABLE":"0"},gpu=True)
-            import_check='import json,trellis,spconv,cumm;from trellis.modules.sparse import conv;print(json.dumps({"trellis":trellis.__file__,"spconv":spconv.__file__,"cumm":cumm.__file__,"algo":conv.SPCONV_ALGO}))'
-            actual=json.loads(subprocess.check_output([PY,"-c",import_check],env=env,text=True))
-            if actual["algo"]!="native" or not actual["trellis"].startswith(str(SRC)): raise RuntimeError(f"import/algo mismatch: {actual}")
+                r.child(d,[PY,ADAPTER/"validate_candidate.py",mode],env={**env,"PHYSX_TILE_ENABLE":"0"},log_prefix=f"validate_{mode}")
+            r.child(d,[PY,ADAPTER/"validate_candidate.py","gpu"],env={**env,"PHYSX_TILE_ENABLE":"0"},gpu=True,log_prefix="validate_gpu_equivalence")
+            import_check='import json,trellis,spconv,cumm;from trellis.modules.sparse import conv;print("PHYSX_RESULT_JSON="+json.dumps({"trellis":trellis.__file__,"spconv":spconv.__file__,"cumm":cumm.__file__,"algo":conv.SPCONV_ALGO},sort_keys=True))'
+            r.child(d,[PY,"-c",import_check],env=env,gpu=True,log_prefix="import_probe")
+            raw_stdout=(d/"import_probe.stdout.log").read_text()
+            actual=parse_result_marker(raw_stdout,{"trellis":str,"spconv":str,"cumm":str,"algo":str})
+            if actual["algo"]!="native" or not actual["trellis"].startswith(str(SRC)) or not actual["spconv"] or not actual["cumm"]:
+                raise RuntimeError(f"import/algo mismatch: {actual}")
             write_json(d/"imports.json",actual); return [d/"imports.json"],{"gpu":gpu,"equivalence":"passed"}
         r.step(5,"native_adapter_equivalence",sha(ADAPTER/"channel_tiled_spconv.py")+sha(ADAPTER/"sitecustomize.py")+sha(ADAPTER/"validate_candidate.py")+sha(selected),s5)
 

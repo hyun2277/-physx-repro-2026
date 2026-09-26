@@ -18,7 +18,21 @@
   "resume_mock": {
     "valid_marker_hash_skips_completed_stage": "PASS",
     "tampered_output_requires_explicit_resume": "PASS",
-    "unsafe_path_guard_mock": "PASS"
+    "resume_attempt_log_isolated": "PASS",
+    "unsafe_path_guard_mock": "PASS",
+    "noisy_stdout_single_marker_parse": "PASS",
+    "warning_stderr_preserved": "PASS",
+    "missing_duplicate_key_type_rejection": "PASS"
+  },
+  "failed_run_resume_audit": {
+    "run_id": "20260926T204346Z-1023e34e2663",
+    "stage_1_success_marker_and_output_hashes": "PASS",
+    "stage_2_success_marker_and_output_hashes": "PASS",
+    "stage_3_success_marker_and_output_hashes": "PASS",
+    "stage_4_success_marker_and_output_hashes": "PASS",
+    "stage_5_will_rerun_equivalence": true,
+    "sampling_executed_during_fix": false,
+    "decoder_executed_during_fix": false
   },
   "legacy_defaults": {
     "render_wrapper_default_object_id": "29354",
