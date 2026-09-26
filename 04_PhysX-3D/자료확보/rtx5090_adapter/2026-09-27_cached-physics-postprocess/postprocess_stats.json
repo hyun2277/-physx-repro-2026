@@ -1,0 +1,276 @@
+{
+  "scope": "CPU-only postprocess of existing cached decoder output; no GPU or decoder execution",
+  "inputs": {
+    "raw": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+      "bytes": 80955063,
+      "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+    },
+    "property_output_checkpoint": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.pt",
+      "bytes": 1099495424,
+      "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2"
+    }
+  },
+  "checkpoint_weight_shapes": {
+    "output_layer_lang.weight": [
+      3072,
+      16,
+      3,
+      3
+    ],
+    "output_layer_lang.bias": [
+      3072
+    ],
+    "output_layer_phy.weight": [
+      14,
+      16,
+      3,
+      3
+    ],
+    "output_layer_phy.bias": [
+      14
+    ]
+  },
+  "raw_split": {
+    "training_renderer_language": "channels 0:16",
+    "training_renderer_physics": "channels 16:32",
+    "official_example_language": "channels 16:32",
+    "official_example_physics": "channels 16:32",
+    "official_example_inputs_are_identical": true
+  },
+  "official_example_path": {
+    "language_head": {
+      "shape": [
+        381856,
+        3072
+      ],
+      "finite": true,
+      "min": -5.025421142578125,
+      "max": 4.663904666900635,
+      "mean": 0.0008049813822055383,
+      "std_population": 0.3273025779353665
+    },
+    "physics_normalized": {
+      "shape": [
+        381856,
+        14
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": -1.0455713272094727,
+      "max": 1.4968478679656982,
+      "mean": -0.5081686973571777,
+      "std_population": 0.5131769776344299
+    },
+    "physics_postprocessed_channels": {
+      "0": {
+        "name": "scale_cm",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 89.85319519042969,
+        "max": 111.81187438964844,
+        "mean": 99.78856658935547,
+        "std_population": 2.111534595489502
+      },
+      "1": {
+        "name": "affordance_normalized_target",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.2441151887178421,
+        "max": 0.6518603563308716,
+        "mean": 0.5750262141227722,
+        "std_population": 0.033132996410131454
+      },
+      "2": {
+        "name": "density_g_cm3",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": 0.6811288595199585,
+        "max": 6.49117374420166,
+        "mean": 1.464479923248291,
+        "std_population": 0.9955583810806274
+      },
+      "3": {
+        "name": "group_id",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.07841727882623672,
+        "max": 0.5162070393562317,
+        "mean": 0.025018421933054924,
+        "std_population": 0.033727411180734634
+      },
+      "4": {
+        "name": "parent_group_id",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.0433553457260132,
+        "max": -0.44903844594955444,
+        "mean": -0.983036458492279,
+        "std_population": 0.035378847271203995
+      },
+      "5": {
+        "name": "motion_direction_x",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.0216100215911865,
+        "max": -0.20775118470191956,
+        "mean": -0.937584638595581,
+        "std_population": 0.04985968768596649
+      },
+      "6": {
+        "name": "motion_direction_y",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.9795870184898376,
+        "max": 0.10503065586090088,
+        "mean": -0.8958805203437805,
+        "std_population": 0.0652889534831047
+      },
+      "7": {
+        "name": "motion_direction_z",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.9844880104064941,
+        "max": -0.05582388490438461,
+        "mean": -0.8950190544128418,
+        "std_population": 0.0546003058552742
+      },
+      "8": {
+        "name": "motion_position_x",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.9988925457000732,
+        "max": 0.03365567326545715,
+        "mean": -0.9158359169960022,
+        "std_population": 0.06107991561293602
+      },
+      "9": {
+        "name": "motion_position_y",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.0455713272094727,
+        "max": 0.06771288812160492,
+        "mean": -0.9127784967422485,
+        "std_population": 0.05988176167011261
+      },
+      "10": {
+        "name": "motion_position_z",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -1.021743655204773,
+        "max": -0.1897704005241394,
+        "mean": -0.9500610828399658,
+        "std_population": 0.05176592618227005
+      },
+      "11": {
+        "name": "motion_range_0",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.9681940078735352,
+        "max": -0.28757286071777344,
+        "mean": -0.9063779711723328,
+        "std_population": 0.04208918660879135
+      },
+      "12": {
+        "name": "motion_range_1",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.9671595692634583,
+        "max": 0.10526221990585327,
+        "mean": -0.8830145597457886,
+        "std_population": 0.06363622099161148
+      },
+      "13": {
+        "name": "movement_type_code",
+        "shape": [
+          381856
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "min": -0.15512946248054504,
+        "max": 0.8887077569961548,
+        "mean": 0.057762280106544495,
+        "std_population": 0.04940430447459221
+      }
+    },
+    "affordance_heat": {
+      "shape": [
+        381856
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.8115633726119995,
+      "std_population": 0.08125908672809601
+    },
+    "density_heat_named_material_by_example": {
+      "shape": [
+        381856
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.13482701778411865,
+      "std_population": 0.17135123908519745
+    },
+    "num_group": 2
+  },
+  "separate_correction_candidate": {
+    "language_input": "channels 0:16, following mesh_renderer.py training path",
+    "language_head": {
+      "shape": [
+        381856,
+        3072
+      ],
+      "finite": true,
+      "min": -4.03794527053833,
+      "max": 3.9092185497283936,
+      "mean": 0.00023643766482858862,
+      "std_population": 0.26289930588342064
+    },
+    "description_score_not_computed": "requires a chosen question/question_type and CLIP text embedding; candidate is not treated as official output"
+  },
+  "preview": "vertex x-z projection for confirmed physics-head affordance/density plus scale histogram"
+}
