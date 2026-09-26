@@ -1,0 +1,15 @@
+source_head=4f54e750a309fe9cd9f20816916ecc0e8a9ae594
+env=/home/minsujo/Desktop/SH/PHYSx/envs/physxgen-cu118-official
+log_dir=/home/minsujo/Desktop/SH/PHYSx/logs/official-cu118-env/20260926T165812Z
+python=3.10.21
+torch=2.4.0+cu118
+torchvision=0.19.0+cu118
+pytorch_cuda_runtime=11.8
+spconv-cu118=2.3.8
+cumm-cu118=0.7.11
+pip_check=pass
+nvidia_smi=failed_driver_communication
+torch_cuda_available=False
+torch_cuda_device_count=0
+small_spconv=not_run_driver_unavailable
+runners=not_prepared_gpu_preflight_blocked
