@@ -34,6 +34,7 @@ RESERVE_MIB = 4607
 HARD_LIMIT_MIB = 28000
 MODEL_OVERHEAD_MIB = 2048
 MAX_SECONDS = 3600
+REQUESTED_SPCONV_ALGO = 'native'
 
 
 def now():
@@ -120,6 +121,7 @@ def environment(run_dir, gpu_uuid):
     env = {k.decode(): v.decode() for item in raw.split(b'\0') if item
            for k, v in [item.split(b'=', 1)]}
     env.update(CUDA_VISIBLE_DEVICES=gpu_uuid, PHYSX_TILE_ENABLE='1',
+               SPCONV_ALGO=REQUESTED_SPCONV_ALGO,
                PYTHONPATH=f'{ADAPTER}:{SRC}' + (f':{os.environ["PYTHONPATH"]}' if os.environ.get('PYTHONPATH') else ''),
                HOME=str(run_dir / 'home'), XDG_CACHE_HOME=str(ROOT / 'cache'),
                TORCH_HOME=str(ROOT / 'cache/torch'), HF_HOME=str(ROOT / 'cache/huggingface'),
@@ -171,6 +173,13 @@ def main():
     def stage(name):
         result['stage'] = name; save()
         print(f'[{now()}] {name} | log={run_dir}', flush=True)
+    def sync_decoder_report():
+        decoder_report = run_dir / 'decoder_report.json'
+        if decoder_report.is_file() and decoder_report.stat().st_size:
+            child_report = json.loads(decoder_report.read_text())
+            result.setdefault('spconv_algo', {'requested': REQUESTED_SPCONV_ALGO})
+            result['spconv_algo']['actual'] = child_report.get('spconv_algo_actual', 'missing')
+            result['decoder_report'] = str(decoder_report)
     save()
     try:
         stage('1 source, checkpoints, cached latent')
@@ -200,6 +209,8 @@ def main():
         if expected_peak_mib >= safe_limit or gpu['free_mib'] < expected_peak_mib + RESERVE_MIB:
             raise RuntimeError('decoder expected peak does not fit safety reserve')
         env = environment(run_dir, gpu['uuid'])
+        result['spconv_algo'] = {'requested': REQUESTED_SPCONV_ALGO, 'actual': 'pending_child_import'}
+        save()
         stage('3 small original/tiled/reference CUDA equivalence')
         comparison_env = dict(env, PHYSX_TILE_ENABLE='0')
         with open(run_dir / 'gpu-comparison.stdout.log', 'w') as out, open(run_dir / 'gpu-comparison.stderr.log', 'w') as err:
@@ -217,6 +228,7 @@ def main():
         result['command'] = command; result['output'] = str(output); save()
         (run_dir / 'command.json').write_text(json.dumps({'argv': command,
             'CUDA_VISIBLE_DEVICES': gpu['uuid'], 'CUDA_HOME': env['CUDA_HOME'],
+            'SPCONV_ALGO': env['SPCONV_ALGO'],
             'hard_limit_mib': safe_limit, 'reserve_mib': gpu['total_mib'] - safe_limit,
             'max_seconds': MAX_SECONDS}, indent=2) + '\n')
         started = time.monotonic()
@@ -238,6 +250,7 @@ def main():
                         os.killpg(child.pid, signal.SIGTERM); raise RuntimeError('GPU memory safety limit reached')
                 time.sleep(3)
         result['child_exit_code'] = child.returncode
+        sync_decoder_report(); save()
         if child.returncode:
             raise RuntimeError(f'decoder child exited {child.returncode}')
         stage('5 raw mesh and physics reload')
@@ -254,6 +267,7 @@ def main():
             os.killpg(child.pid, signal.SIGTERM); child.wait(timeout=30)
             result['child_exit_code'] = child.returncode
     finally:
+        sync_decoder_report()
         save()
         print(f"status={result['status']} stage={result['stage']} child_rc={result['child_exit_code']} log={run_dir}", flush=True)
     if result['status'] == 'failed': raise SystemExit(1)

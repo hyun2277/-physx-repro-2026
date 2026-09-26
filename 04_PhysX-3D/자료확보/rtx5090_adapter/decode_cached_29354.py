@@ -42,6 +42,7 @@ def main():
     report = {
         'started': time.time(),
         'scope': 'cached latent -> physics decoder -> mesh decoder',
+        'spconv_algo_requested': os.environ.get('SPCONV_ALGO'),
         'not_loaded': [
             'image_cond_model', 'sparse_structure_decoder', 'sparse_structure_flow_model',
             'slat_flow_model', 'slat_flow_model_phy', 'slat_decoder_gs',
@@ -53,6 +54,19 @@ def main():
 
     from trellis import models
     from trellis.modules import sparse as sp
+    from trellis.modules.sparse import conv as sparse_conv
+
+    report['spconv_algo_actual'] = sparse_conv.SPCONV_ALGO
+    report_path.write_text(json.dumps(report, indent=2) + '\n')
+    print(json.dumps({'spconv_algo_requested': report['spconv_algo_requested'],
+                      'spconv_algo_actual': report['spconv_algo_actual']}), flush=True)
+    if report['spconv_algo_requested'] != 'native' or report['spconv_algo_actual'] != 'native':
+        report['status'] = 'failed_before_decoder'
+        report['reason'] = 'SPCONV_ALGO native selection required'
+        report_path.write_text(json.dumps(report, indent=2) + '\n')
+        raise RuntimeError('SPCONV_ALGO native selection required before decoder')
+    report['status'] = 'running'
+    report_path.write_text(json.dumps(report, indent=2) + '\n')
 
     cache = torch.load(args.latent, map_location='cpu', weights_only=True)
     required = {'slat_coords', 'slat_feats', 'phy_coords', 'phy_feats', 'cpu_rng', 'cuda_rng'}
@@ -126,6 +140,7 @@ def main():
         'vertex_physics_shape': None if tensors['vertex_physics'] is None else list(tensors['vertex_physics'].shape),
     }
     report['finished'] = time.time()
+    report['status'] = 'success'
     report_path.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({'decoder_complete': True, **report['mesh']}), flush=True)
 
