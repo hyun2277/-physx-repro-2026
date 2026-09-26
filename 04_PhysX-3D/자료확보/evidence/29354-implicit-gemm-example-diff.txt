@@ -1,0 +1,7 @@
+original_source_line=3: os.environ['SPCONV_ALGO'] = 'native'
+staged_copy_line=3: os.environ['SPCONV_ALGO'] = 'implicit_gemm'
+preflight_staging=/home/minsujo/Desktop/SH/PHYSx/staging/implicit-gemm-preflight-20260926T072710Z/example.py
+changed_lines=3
+source_modified=false
+gpu_execution=skipped
+example_execution=skipped
