@@ -1,0 +1,28 @@
+{
+  "date_local": "2026-09-27",
+  "scope": "static and CPU mock only",
+  "gpu_executed": false,
+  "blender_executed": false,
+  "model_inference_executed": false,
+  "syntax": {
+    "python_ast_files": 6,
+    "status": "PASS"
+  },
+  "archive_plan": {
+    "object_id": "27281",
+    "physxnet_selected_members": 8,
+    "shapenet_selected_members": 3,
+    "central_directory_paths_sizes_crc": "PASS",
+    "whole_archive_extraction": false
+  },
+  "resume_mock": {
+    "valid_marker_hash_skips_completed_stage": "PASS",
+    "tampered_output_requires_explicit_resume": "PASS",
+    "unsafe_path_guard_mock": "PASS"
+  },
+  "legacy_defaults": {
+    "render_wrapper_default_object_id": "29354",
+    "retrieval_verifier_default_object_id": "29354",
+    "cached_decoder_contract": "nonempty N x 8 float32 features and matching N x 4 int32 coordinates"
+  }
+}

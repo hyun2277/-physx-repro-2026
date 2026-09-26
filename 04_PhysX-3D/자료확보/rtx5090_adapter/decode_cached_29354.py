@@ -75,10 +75,15 @@ def main():
     if not torch.equal(cache['slat_coords'], cache['phy_coords']):
         raise RuntimeError('cached geometry/physics coordinates differ')
     for name in ('slat_feats', 'phy_feats'):
-        if cache[name].shape != (33886, 8) or cache[name].dtype != torch.float32:
+        if cache[name].ndim != 2 or cache[name].shape[1] != 8 or cache[name].dtype != torch.float32:
             raise RuntimeError(f'unexpected cached latent: {name}')
         if not torch.isfinite(cache[name]).all():
             raise RuntimeError(f'nonfinite cached latent: {name}')
+    for name in ('slat_coords', 'phy_coords'):
+        if cache[name].ndim != 2 or cache[name].shape[1] != 4 or cache[name].dtype != torch.int32:
+            raise RuntimeError(f'unexpected cached coordinates: {name}')
+    if len(cache['slat_feats']) == 0 or len(cache['slat_feats']) != len(cache['slat_coords']):
+        raise RuntimeError('cached latent row count is empty or inconsistent')
 
     torch.cuda.reset_peak_memory_stats()
     report['memory'].append(gpu_snapshot('before_models'))

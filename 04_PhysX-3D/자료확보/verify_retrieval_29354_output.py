@@ -21,8 +21,8 @@ def parse_obj(path: Path):
             faces.append([int(x.split("/")[0]) for x in line.split()[1:]])
     return np.asarray(vertices), faces, np.asarray(uvs)
 
-def main(stage: Path, source_texture: Path) -> None:
-    root = stage / "phy_dataset" / "29354"
+def main(stage: Path, source_texture: Path, object_id: str = "29354") -> None:
+    root = stage / "phy_dataset" / object_id
     inp, out = root / "model.obj", root / "model_tex.obj"
     if not out.is_file():
         raise SystemExit(f"missing {out}")
@@ -74,6 +74,6 @@ def main(stage: Path, source_texture: Path) -> None:
     print("gray_fallback=NOT_USED")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        raise SystemExit("usage: verify_retrieval_29354_output.py STAGE SOURCE_TEXTURE")
-    main(Path(sys.argv[1]), Path(sys.argv[2]))
+    if len(sys.argv) not in (3, 4):
+        raise SystemExit("usage: verify_retrieval_29354_output.py STAGE SOURCE_TEXTURE [OBJECT_ID]")
+    main(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3] if len(sys.argv) == 4 else "29354")
