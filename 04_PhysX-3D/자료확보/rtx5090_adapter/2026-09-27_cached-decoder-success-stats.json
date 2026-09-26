@@ -1,0 +1,95 @@
+{
+  "scope": "RTX 5090 환경 적응 29354 mesh·raw vertex physics decoder 성공",
+  "run_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/rtx5090-cached-decoder-29354/20260926T194524Z-d69f74359b60",
+  "result": {
+    "status": "success",
+    "stage": "5 raw mesh and physics reload",
+    "child_exit_code": 0,
+    "spconv_algo_requested": "native",
+    "spconv_algo_actual": "native"
+  },
+  "provenance": {
+    "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+    "adapter_commit": "69ff25a87583749e6e0e59876203959bd9b1d017",
+    "cached_latent": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/rtx5090-adapter-29354/20260926T192709Z-db921ba64aaa/sampled_latents.pt",
+      "bytes": 3261109,
+      "sha256": "a75c3d9807780eec308b383a6db406d31dab48e2a21388b70bdd6e41ab940744"
+    },
+    "mesh_decoder_checkpoint_sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+    "physics_decoder_checkpoint_sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4"
+  },
+  "adapter_large_operations": {
+    "call_count": 2,
+    "records_identical": true,
+    "N": 2168704,
+    "C": 512,
+    "O": 256,
+    "dtype": "float16",
+    "tile_channels": 256,
+    "indice_key": "res_256",
+    "coordinate_min": [0, 0, 80, 28],
+    "coordinate_max": [0, 255, 175, 227],
+    "duplicate_rows": 0
+  },
+  "gpu_memory_mib": {
+    "torch_peak_allocated": 17731.954,
+    "nvidia_smi_peak_observed": 20882,
+    "nvidia_smi_poll_interval_seconds": 3,
+    "final_snapshot_torch_reserved": 23378
+  },
+  "artifacts": {
+    "mesh_physics_raw.pt": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+      "bytes": 80955063,
+      "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+    },
+    "mesh.obj": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj",
+      "bytes": 30788505,
+      "sha256": "42fdb2fa623efb17d60bb833f37bbbdf9c11829b6b25eb723723623b99c1d431"
+    }
+  },
+  "tensors": {
+    "vertices": {
+      "shape": [381856, 3],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": -0.5005630850791931,
+      "max": 0.5004652142524719,
+      "mean": 0.021605972200632095,
+      "std": 0.23711007833480835
+    },
+    "faces": {
+      "shape": [763676, 3],
+      "dtype": "torch.int64",
+      "min": 0,
+      "max": 381855,
+      "indices_in_vertex_range": true
+    },
+    "vertex_attrs": {
+      "shape": [381856, 6],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": 0.27893221378326416,
+      "max": 0.9871144890785217,
+      "mean": 0.6856321692466736,
+      "std": 0.19700337946414948
+    },
+    "vertex_physics": {
+      "shape": [381856, 32],
+      "dtype": "torch.float32",
+      "finite": true,
+      "min": -2.4815118312835693,
+      "max": 2.3858134746551514,
+      "mean": -0.007717647589743137,
+      "std": 0.7988020777702332
+    }
+  },
+  "obj_reload": {
+    "reader_type": "Trimesh",
+    "vertex_count": 381856,
+    "face_count": 763676,
+    "matches_raw_tensor_counts": true
+  }
+}
