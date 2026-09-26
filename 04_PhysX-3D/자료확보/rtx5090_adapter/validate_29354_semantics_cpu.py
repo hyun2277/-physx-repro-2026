@@ -229,10 +229,13 @@ def main() -> None:
         "affordance_prediction_before_display_minmax": stats(physics_np[:, 1]),
         "direct_generated_vertex_to_gt_part_mapping": False,
         "mapping_policy": "no nearest-part, ICP, or arbitrary alignment was created",
-        "second_group_meaningful": second_group_meaningful,
+        "gt_sample_classification": "fixed",
+        "official_sample_classification": "articulated",
+        "official_sample_classification_false_positive": bool(gt["fixed_under_merge_property_rule"] and num_group > 1),
+        "meaningful_second_group_surface": second_group_meaningful,
         "meaningful_screen_rule": "a mesh surface region requires at minimum one triangle whose three vertices are group 1; this is a descriptive screen, not an official metric",
-        "false_articulation_candidate": bool(gt["fixed_under_merge_property_rule"] and num_group > 1 and second_group_meaningful),
-        "classification": "official max/round branch says articulated, but six threshold-crossing vertices do not form a meaningful second region",
+        "spatial_analysis": "six threshold-crossing vertices do not form a meaningful second surface region",
+        "outlier_cause": "unresolved",
     }
     (args.output / "official_code_result.json").write_text(json.dumps(prediction, indent=2, ensure_ascii=False) + "\n")
     official_indexing = {

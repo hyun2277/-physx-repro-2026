@@ -29,7 +29,7 @@ JSON의 `dimension`은 vector 문자열 `120*40*45`이고 단위는 annotation �
 
 Face와 area는 각 triangle의 세 vertex 중 다수 group으로 배정했다. group이 섞인 face는 30개다. group 1의 다수결 face 6개도 모두 group-1 vertex 두 개와 group-0 vertex 한 개로 이뤄져 homogeneous group-1 surface는 없다. group별 좌표 범위와 상위 component bbox는 [`official_code_result.json`](official_code_result.json)에 저장했다.
 
-GT는 fixed이고 공식 max/round 분기는 articulated로 가지만, 여섯 threshold-crossing vertex는 연결된 mesh surface 영역을 이루지 않는다. 따라서 이번 엄격한 검증에서는 **“29354 한 표본에서 false articulation 후보”로 분류하지 않는다.** 판정은 “공식 분기를 뒤집은 극소수 threshold outlier”다. 이는 전체 관절 정확도에 대한 결론이 아니다.
+GT는 fixed이고 공식 max/round 분류는 articulated이므로, **29354 표본 단위 공식 분류는 false positive다.** 이 분류 판정과 공간 분석을 구분한다. 공간적으로는 여섯 threshold-crossing vertex가 연결된 homogeneous mesh surface 영역을 이루지 않는다. 이상치가 생긴 원인은 미확정이며, 이는 전체 관절 정확도에 대한 결론이 아니다.
 
 ## scale, density, affordance 비교
 

@@ -1,0 +1,210 @@
+{
+  "method": "ZIP central-directory and selected compressed JSON/MTL reads only; no extraction",
+  "counts": {
+    "test_rows": 1000,
+    "articulated_test_rows": 249,
+    "articulated_rows_with_finalindex": 222,
+    "articulated_rows_in_04379243": 11,
+    "04379243_rows_with_mesh_mtl_and_resolved_texture": 9
+  },
+  "selected": {
+    "test_index_zero_based": 734,
+    "source_index_zero_based": 1734,
+    "test_row_one_based": 735,
+    "object_id": "27281",
+    "json_path_in_physxnet_zip": "version_1/finaljson/27281.json",
+    "group_count": 3,
+    "articulated_group_count": 2,
+    "part_obj_count": 7,
+    "part_reference_image_count": 7,
+    "parent_present": true,
+    "movement_type_present": true,
+    "direction_position_range_present": true,
+    "group_info_json": "{\"0\":[0,1,2,3,4],\"1\":[[5],\"0\",[0,0,1,0.03062901273369789,0.465852826833725,0.42775189876556396,0.0,1.0036100000000001],\"B\"],\"2\":[[6],\"0\",[0,1,0,0.4710177779197693,-0.21463541686534882,0.40525147318840027,0.0,1.0],\"C\"]}",
+    "parent_relations_json": "{\"1\":\"0\",\"2\":\"0\"}",
+    "movement_types_json": "{\"1\":\"B\",\"2\":\"C\"}",
+    "direction_position_range_json": "{\"1\":[0,0,1,0.03062901273369789,0.465852826833725,0.42775189876556396,0.0,1.0036100000000001],\"2\":[0,1,0,0.4710177779197693,-0.21463541686534882,0.40525147318840027,0.0,1.0]}",
+    "shapenet_mapping": "shapenet/04379243/a7887db4982215cc5afc372fcbe94f4a",
+    "shapenet_category_id": "04379243",
+    "shapenet_model_id": "a7887db4982215cc5afc372fcbe94f4a",
+    "local_04379243_mesh": true,
+    "local_04379243_mtl": true,
+    "local_04379243_texture_file_count": 1,
+    "local_04379243_mtl_texture_references_resolve": true,
+    "conditioning_image": "not_found; part reference PNGs are not conditioning renders",
+    "transforms_json": "not_found",
+    "currently_verifiable": "GT groups/parent/type/direction/position/range and raw asset linkage",
+    "currently_blocked": "prediction comparison, rendered maps, instantiation distance, paper 30-view metrics"
+  },
+  "selection_reason": "two nonfixed groups with explicit B translation and C rotation parameters, seven part OBJs, finalindex mapping, and locally verified OBJ/MTL/texture reference",
+  "group_info": {
+    "0": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "1": [
+      [
+        5
+      ],
+      "0",
+      [
+        0,
+        0,
+        1,
+        0.03062901273369789,
+        0.465852826833725,
+        0.42775189876556396,
+        0.0,
+        1.0036100000000001
+      ],
+      "B"
+    ],
+    "2": [
+      [
+        6
+      ],
+      "0",
+      [
+        0,
+        1,
+        0,
+        0.4710177779197693,
+        -0.21463541686534882,
+        0.40525147318840027,
+        0.0,
+        1.0
+      ],
+      "C"
+    ]
+  },
+  "group_field_interpretation": {
+    "0": "fixed part labels [0,1,2,3,4]",
+    "1": {
+      "child_parts": [
+        5
+      ],
+      "parent_group": "0",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "position": [
+        0.03062901273369789,
+        0.465852826833725,
+        0.42775189876556396
+      ],
+      "range": [
+        0.0,
+        1.0036100000000001
+      ],
+      "movement_type": "B (translation)"
+    },
+    "2": {
+      "child_parts": [
+        6
+      ],
+      "parent_group": "0",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "position": [
+        0.4710177779197693,
+        -0.21463541686534882,
+        0.40525147318840027
+      ],
+      "range": [
+        0.0,
+        1.0
+      ],
+      "movement_type": "C (rotation about axis)"
+    }
+  },
+  "part_obj_members": [
+    {
+      "path": "version_1/partseg/27281/objs/0.obj",
+      "uncompressed_bytes": 91857,
+      "compressed_bytes": 21140,
+      "crc32": "344014b0"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/1.obj",
+      "uncompressed_bytes": 83772,
+      "compressed_bytes": 16937,
+      "crc32": "c7644cb4"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/2.obj",
+      "uncompressed_bytes": 81608,
+      "compressed_bytes": 16646,
+      "crc32": "30340a24"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/3.obj",
+      "uncompressed_bytes": 75916,
+      "compressed_bytes": 18204,
+      "crc32": "d59897de"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/4.obj",
+      "uncompressed_bytes": 50257,
+      "compressed_bytes": 10673,
+      "crc32": "430f65c2"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/5.obj",
+      "uncompressed_bytes": 44473,
+      "compressed_bytes": 12512,
+      "crc32": "bf32e227"
+    },
+    {
+      "path": "version_1/partseg/27281/objs/6.obj",
+      "uncompressed_bytes": 90175,
+      "compressed_bytes": 22775,
+      "crc32": "846989dd"
+    }
+  ],
+  "shapenet_members": [
+    {
+      "path": "04379243/a7887db4982215cc5afc372fcbe94f4a/models/model_normalized.obj",
+      "uncompressed_bytes": 217304,
+      "compressed_bytes": 48671,
+      "crc32": "d2c834cb"
+    },
+    {
+      "path": "04379243/a7887db4982215cc5afc372fcbe94f4a/models/model_normalized.mtl",
+      "uncompressed_bytes": 450,
+      "compressed_bytes": 204,
+      "crc32": "6c2802b6"
+    },
+    {
+      "path": "04379243/a7887db4982215cc5afc372fcbe94f4a/images/texture0.jpg",
+      "uncompressed_bytes": 8600,
+      "compressed_bytes": 8518,
+      "crc32": "fd16b97a"
+    }
+  ],
+  "shape_mtl_texture_references": [
+    "../images/texture0.jpg"
+  ],
+  "existing_archive": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/04379243.zip",
+    "bytes": 1666983898,
+    "known_sha256_from_prior_record": "625701ed0a2de08cc28bce6fd4f3643c67ed573c6abcbba5f0cbbb5e810d0503"
+  },
+  "additional_download_required": false,
+  "additional_download_bytes": 0,
+  "object_7271_finalindex_mapping": null,
+  "conditioning": {
+    "part_reference_png_count_in_physxnet_zip": 7,
+    "conditioning_render_found": false,
+    "transforms_json_found": false,
+    "note": "part reference PNGs are annotation inputs, not official conditioning render/camera pairs"
+  },
+  "evaluation_boundary": "group structure can be checked; paper kinematic instantiation distance and prediction accuracy cannot be checked before a prediction and the missing evaluation contract"
+}

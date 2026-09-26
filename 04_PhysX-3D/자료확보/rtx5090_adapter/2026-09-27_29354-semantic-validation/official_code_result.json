@@ -316,8 +316,11 @@
   },
   "direct_generated_vertex_to_gt_part_mapping": false,
   "mapping_policy": "no nearest-part, ICP, or arbitrary alignment was created",
-  "second_group_meaningful": false,
+  "gt_sample_classification": "fixed",
+  "official_sample_classification": "articulated",
+  "official_sample_classification_false_positive": true,
+  "meaningful_second_group_surface": false,
   "meaningful_screen_rule": "a mesh surface region requires at minimum one triangle whose three vertices are group 1; this is a descriptive screen, not an official metric",
-  "false_articulation_candidate": false,
-  "classification": "official max/round branch says articulated, but six threshold-crossing vertices do not form a meaningful second region"
+  "spatial_analysis": "six threshold-crossing vertices do not form a meaningful second surface region",
+  "outlier_cause": "unresolved"
 }
