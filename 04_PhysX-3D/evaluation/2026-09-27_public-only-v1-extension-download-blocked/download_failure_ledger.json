@@ -1,0 +1,38 @@
+{
+  "protocol": "public-materials-independent-evaluation-v1",
+  "paper_equivalent": false,
+  "metadata_source": "Hugging Face ShapeNet/ShapeNetCore dataset_info(files_metadata=True) using existing approved login",
+  "disk_preflight": {
+    "free_before_bytes": 430185652224,
+    "required_free_bytes": 9768001187,
+    "passed": true
+  },
+  "archives": [
+    {
+      "category": "02933112",
+      "official_bytes": 432747631,
+      "official_sha256": "f36bea3c118cb4818e751c8a6bdc8fd9202ed0dca5ce873251b068bc9b5dc5cd",
+      "retained_part_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip.part",
+      "observed_part_bytes": 496396510,
+      "observed_part_sha256": "bb65a870882601f7a026f63222dcb95d6cfaa44947e2d57b86943e8a55f0acce",
+      "status": "download_blocked",
+      "reason": "retained .part exceeds official byte count; preserved without deletion or replacement",
+      "objects": ["48419", "38882"]
+    },
+    {
+      "category": "03636649",
+      "official_bytes": 745318964,
+      "official_sha256": "1ad7f8dc315d88cfd5bfdde7850e3b1880d88a15b2dd5ef2e16bfea86888adbb",
+      "retained_part_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip.part",
+      "observed_part_bytes": 1266679808,
+      "observed_part_sha256": "9e092d0573178a4067611952bc79d23c095fccfbd44bbd2cd73d0be57365a658",
+      "status": "download_blocked",
+      "reason": "retained .part exceeds official byte count; a header-only Range check also returned start 620756992 rather than the requested retained offset; preserved without deletion or replacement",
+      "objects": ["14567", "15821"]
+    }
+  ],
+  "unchanged_prior_failures": [
+    {"object_id": "23787", "status": "failed", "reason": "official texture retrieval output non-finite OBJ"},
+    {"object_id": "27281", "status": "excluded", "reason": "mesh decoder OOM under 28000 MiB hard limit and 4607 MiB reserve"}
+  ]
+}
