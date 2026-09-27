@@ -11,7 +11,9 @@
     "recorded_seed_1": "PASS",
     "same_seed_pair": "PASS",
     "reserve_guard": "PASS",
-    "unsafe_reserve_rejected": "PASS"
+    "unsafe_reserve_rejected": "PASS",
+    "marker_output_path_000": "PASS",
+    "marker_output_path_006": "PASS"
   },
   "runner_plan": {
     "frames": ["000", "006"],

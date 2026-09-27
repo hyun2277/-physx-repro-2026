@@ -59,6 +59,17 @@ def fingerprint(*values: object) -> str:
     return digest.hexdigest()
 
 
+def marker_output(marker: dict, filename: str) -> Path:
+    """Return one recorded output by basename, never by constructed step path."""
+    matches = [Path(row["path"]) for row in marker.get("outputs", []) if Path(row.get("path", "")).name == filename]
+    if len(matches) != 1:
+        raise RuntimeError(f"expected exactly one {filename} in step marker, found {len(matches)}")
+    path = matches[0]
+    if not path.is_file():
+        raise RuntimeError(f"recorded step output is missing: {path}")
+    return path
+
+
 def verify_marker(marker: Path) -> dict:
     data = json.loads(marker.read_text())
     if data.get("status") != "success":
@@ -181,8 +192,8 @@ def compare(frame_outputs: dict, output: Path, manifest: dict) -> None:
     })
 
 
-def execute(run: Path, stage: Path) -> None:
-    runner = common.Runner(run, stage)
+def execute(run: Path, stage: Path, resume: bool) -> None:
+    runner = common.Runner(run, stage, resume=resume)
     manifest = reused_conditioning_manifest()
     env = env_for(run)
     frame_outputs: dict[str, dict] = {}
@@ -216,14 +227,13 @@ def execute(run: Path, stage: Path) -> None:
             runner.step(3 if label == "000" else 8, f"sampling_{label}", fingerprint(sha(image), SEED, common.HEAD, sha(ADAPTER / "sample_latents_only.py")), sample_action)
 
             latent = sampling / "sampled_latents.pt"
-            gate_path = runner.run / "steps" / f"{4 if label == '000' else 8:02d}_decoder_gate_{label}" / "decoder_eligibility.json"
             def gate_action(directory: Path, latent=latent, label=label):
                 estimate = latent_schema_and_estimate(latent, directory / "decoder_eligibility.json")
                 if not estimate["decoder_eligible_under_current_policy"]:
                     raise RuntimeError(f"{label}: decoder prohibited by current reserve policy: {estimate}")
                 return [directory / "decoder_eligibility.json"], {"frame": label, "rows_N": estimate["rows_N"], "N_x_64": estimate["maximum_subdivision_points_N_x_64"]}
-            runner.step(4 if label == "000" else 9, f"decoder_gate_{label}", fingerprint(sha(latent), sha(Path(__file__).resolve()), HARD_LIMIT_MIB, RESERVE_MIB), gate_action)
-
+            gate_marker = runner.step(4 if label == "000" else 9, f"decoder_gate_{label}", fingerprint(sha(latent), sha(Path(__file__).resolve()), HARD_LIMIT_MIB, RESERVE_MIB), gate_action)
+            gate_path = marker_output(gate_marker, "decoder_eligibility.json")
             gate = json.loads(gate_path.read_text())
             def physics_action(directory: Path, latent=latent, physics_cache=physics_cache, gate=gate, label=label):
                 gpu = common.gpu_guard(); write_json(directory / "gpu_preflight.json", gpu); write_json(directory / "proactive_memory_guard.json", proactive_guard(gpu, gate))
@@ -282,13 +292,22 @@ def self_test() -> dict:
         pass
     else:
         raise RuntimeError("unsafe reserve mock accepted")
-    return {"reused_24_view_hashes":"PASS", "recorded_seed_1":"PASS", "same_seed_pair":"PASS", "reserve_guard":"PASS", "unsafe_reserve_rejected":"PASS"}
+    import tempfile
+    with tempfile.TemporaryDirectory(dir=ROOT / "logs") as tmp:
+        base = Path(tmp)
+        for label, directory_name in (("000", "04_decoder_gate_000"), ("006", "09_decoder_gate_006")):
+            output = base / directory_name / "decoder_eligibility.json"
+            output.parent.mkdir(); output.write_text(json.dumps({"frame": label}))
+            marker = {"outputs": [{"path": str(output)}]}
+            assert marker_output(marker, "decoder_eligibility.json") == output
+    return {"reused_24_view_hashes":"PASS", "recorded_seed_1":"PASS", "same_seed_pair":"PASS", "reserve_guard":"PASS", "unsafe_reserve_rejected":"PASS", "marker_output_path_000":"PASS", "marker_output_path_006":"PASS"}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--plan", action="store_true")
+    parser.add_argument("--resume", type=Path, help="resume a failed probe run without replacing verified outputs")
     args = parser.parse_args()
     if args.self_test:
         print(json.dumps(self_test(), indent=2)); return
@@ -298,8 +317,15 @@ def main() -> None:
     parent.mkdir(parents=True, exist_ok=True)
     with (parent / ".runner.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        rid = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:12]
-        execute(parent / rid, ROOT / f"staging/29806-viewpoint-probe-{rid}")
+        if args.resume:
+            run = args.resume.resolve()
+            prior = json.loads((run / "result.json").read_text())
+            if prior.get("status") not in ("failed", "interrupted", "not_run"):
+                raise SystemExit("--resume accepts only an unfinished probe run")
+            execute(run, Path(prior["staging_dir"]), True)
+        else:
+            rid = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:12]
+            execute(parent / rid, ROOT / f"staging/29806-viewpoint-probe-{rid}", False)
 
 
 if __name__ == "__main__":
