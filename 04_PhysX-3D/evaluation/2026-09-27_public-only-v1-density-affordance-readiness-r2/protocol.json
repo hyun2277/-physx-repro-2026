@@ -1,0 +1,27 @@
+{
+  "name": "public-only density/affordance map protocol draft",
+  "executable": false,
+  "paper_equivalent": false,
+  "psnr_computed": false,
+  "candidate_camera_manifest": {
+    "path": "camera_manifest.json",
+    "sha256": "42428a1eed4f55d09618018faff570f4f01da74ba7e5f8a2eeea12b95c27a62f",
+    "status": "draft only; not used for metrics"
+  },
+  "future_proposed_rules_if_prerequisites_are_supplied": {
+    "views": "the fixed 30 camera records in camera_manifest.json",
+    "alignment": "must be a single predeclared GT/pred transform; not supplied or invented here",
+    "map_resolution": 512,
+    "errors": "raw-unit MAE/RMSE over the intersection mask; record mask IoU and both coverages",
+    "psnr": "only after a fixed shared value range, masking rule, and map provenance are established",
+    "aggregation": "mean views within each successful sample, then mean samples; failed/blocked samples excluded"
+  },
+  "blocking_prerequisites": [
+    "metric-ready GT density/affordance maps from a valid official path",
+    "official or explicitly adopted generated-mesh to GT-part correspondence",
+    "paired numeric renderer and masks in one coordinate/camera convention",
+    "fixed shared range/normalization and aggregation rule for PSNR"
+  ],
+  "description_psnr": "blocked unchanged",
+  "kinematics_cov_mmd": "blocked unchanged"
+}

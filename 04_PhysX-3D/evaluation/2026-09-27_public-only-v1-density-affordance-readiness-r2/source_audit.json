@@ -1,0 +1,50 @@
+{
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "findings": [
+    {
+      "topic": "GT density",
+      "status": "confirmed",
+      "evidence": "merge_property.py:138-148 reads density.split()[0] and stores it as property index 2; inspected JSON strings use g/cm^3."
+    },
+    {
+      "topic": "GT affordance",
+      "status": "confirmed",
+      "evidence": "merge_property.py:138-148 reads priority_rank as integer and stores it as property index 1."
+    },
+    {
+      "topic": "training normalization",
+      "status": "confirmed",
+      "evidence": "structured_latent_vae_mesh.py:212-218 maps channel 1 to 1-rank/10 and channel 2 to (density-2.3)/2.8 under target mask."
+    },
+    {
+      "topic": "property head output",
+      "status": "confirmed",
+      "evidence": "config:property_output sets 14 physical channels; decoder_mesh.py:359-368 applies only a Conv2d output layer. The normalized semantic interpretation follows the training loss, not an output activation."
+    },
+    {
+      "topic": "example display",
+      "status": "confirmed",
+      "evidence": "example.py:179-192 applies the property head; :182-185 inverse-affines selected channels; :190-192 min-max normalizes density/material and affordance per object for display."
+    },
+    {
+      "topic": "GT numeric maps",
+      "status": "blocked",
+      "evidence": "example_render_gt_foreval.py:152-169 uses stale meshname instead of part; :172-181 passes MeshExtractResult to render_video_gt, whose render_utils.py:117-125 indexes gt[0:3]. No successful metric-ready GT rendering is established."
+    },
+    {
+      "topic": "mask/camera",
+      "status": "partial",
+      "evidence": "render_utils.py:117-125 specifies a 30-frame orbit, r=2/FOV=40/resolution=512 and returns mask/allphy_map. It is not established as the paper random unit-sphere condition, and no map scorer consumes it."
+    },
+    {
+      "topic": "PSNR",
+      "status": "blocked",
+      "evidence": "loss_utils.py:34-36 supplies max_val=1 default only; no official density/affordance caller fixes global range, mask policy, camera manifest, or view-to-test aggregation."
+    },
+    {
+      "topic": "generated-to-GT correspondence",
+      "status": "blocked",
+      "evidence": "current generated meshes/raw property arrays have no official vertex/face/part correspondence to PhysXNet parts; bbox/nearest/ICP would be a new unvalidated rule."
+    }
+  ]
+}

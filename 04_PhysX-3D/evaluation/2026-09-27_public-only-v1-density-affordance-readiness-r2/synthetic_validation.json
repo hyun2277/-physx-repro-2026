@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "identical_map": {
+    "metric_authority": "proposal",
+    "paper_equivalent": false,
+    "raw_unit_mae_intersection": 0.0,
+    "raw_unit_rmse_intersection": 0.0,
+    "intersection_pixels": 2,
+    "union_pixels": 2,
+    "mask_iou": 1.0,
+    "pred_coverage": 1.0,
+    "gt_coverage": 1.0,
+    "union_error": "not computed: unmatched pixels have no valid counterpart"
+  },
+  "different_map": {
+    "metric_authority": "proposal",
+    "paper_equivalent": false,
+    "raw_unit_mae_intersection": 0.5,
+    "raw_unit_rmse_intersection": 0.7071067811865476,
+    "intersection_pixels": 2,
+    "union_pixels": 2,
+    "mask_iou": 1.0,
+    "pred_coverage": 1.0,
+    "gt_coverage": 1.0,
+    "union_error": "not computed: unmatched pixels have no valid counterpart"
+  },
+  "intersection_union_fixture": {
+    "metric_authority": "proposal",
+    "paper_equivalent": false,
+    "raw_unit_mae_intersection": 1.0,
+    "raw_unit_rmse_intersection": 1.0,
+    "intersection_pixels": 1,
+    "union_pixels": 3,
+    "mask_iou": 0.3333333333333333,
+    "pred_coverage": 0.6666666666666666,
+    "gt_coverage": 0.6666666666666666,
+    "union_error": "not computed: unmatched pixels have no valid counterpart"
+  },
+  "rejected": {
+    "empty_intersection": "empty intersection mask",
+    "nonfinite": "map contains NaN or Inf"
+  },
+  "camera_manifest_sha256_reproducible": "42428a1eed4f55d09618018faff570f4f01da74ba7e5f8a2eeea12b95c27a62f",
+  "failed_sample_denominator_rule": "blocked/failed samples are excluded from numeric metric denominators"
+}

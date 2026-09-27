@@ -1,0 +1,26 @@
+[
+  {
+    "object_id": "23787",
+    "status": "failed",
+    "reason": "official texture retrieval output non-finite OBJ",
+    "numeric_denominator": false
+  },
+  {
+    "object_id": "27281",
+    "status": "excluded",
+    "reason": "mesh decoder OOM under retained 28000 MiB/4607 MiB policy",
+    "numeric_denominator": false
+  },
+  {
+    "object_id": "14567",
+    "status": "failed",
+    "reason": "verified source MTL has no map_Kd texture reference",
+    "numeric_denominator": false
+  },
+  {
+    "object_id": "11 artifact-complete samples",
+    "status": "map_metrics_blocked",
+    "reason": "metric-ready GT density/affordance maps from a valid official path; official or explicitly adopted generated-mesh to GT-part correspondence; paired numeric renderer and masks in one coordinate/camera convention; fixed shared range/normalization and aggregation rule for PSNR",
+    "numeric_denominator": false
+  }
+]

@@ -1,0 +1,5 @@
+topic,official_paper_condition,official_code_condition,public_only_action,unknown_or_missing
+density/affordance PSNR,PSNR maps,training normalization exists but evaluator absent,blocked; no PSNR,global range/mask/camera/aggregation
+GT map,metric-ready target,GT script saves arrays but has static call/part-loop defects,blocked,validated GT map provenance
+correspondence,not stated in public evaluator,none found,blocked,no generated-mesh to GT-part rule
+camera,30 random unit-sphere views,30 orbit and deterministic Hammersley helpers exist,candidate manifest only,seed/matrix/paper equivalence
