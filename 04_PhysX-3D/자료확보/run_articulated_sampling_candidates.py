@@ -47,14 +47,24 @@ def mapping(object_id):
     # identifier (21356) in addition to the usual 32-character identifiers.
     # Accept only those two archive-safe forms; ZIP member inventory still
     # proves the exact path before extraction.
-    m=re.fullmatch(r"shapenet/04379243/([0-9a-f]{31,32})", str(value))
-    if not m: raise RuntimeError(f"official finalindex lacks safe 04379243 mapping for {object_id}: {value!r}")
-    return value, m.group(1)
+    m=re.fullmatch(r"shapenet/([0-9]{8})/([0-9a-f]{31,32})", str(value))
+    if not m: raise RuntimeError(f"official finalindex lacks safe ShapeNet mapping for {object_id}: {value!r}")
+    return value, m.group(2)
 
-def texture_members(shape):
-    obj=f"04379243/{shape}/models/model_normalized.obj"
-    mtl=f"04379243/{shape}/models/model_normalized.mtl"
-    with zipfile.ZipFile(SHAPE_ZIP) as z:
+def mapping_category(official):
+    m=re.fullmatch(r"shapenet/([0-9]{8})/[0-9a-f]{31,32}", str(official))
+    if not m: raise RuntimeError(f"invalid official ShapeNet mapping: {official!r}")
+    return m.group(1)
+
+def shape_archive(category):
+    archive=ROOT/'data/shapenetcore/raw'/f'{category}.zip'
+    if not archive.is_file(): raise RuntimeError(f'verified ShapeNet category archive missing: {archive}')
+    return archive
+
+def texture_members(shape, category='04379243'):
+    obj=f"{category}/{shape}/models/model_normalized.obj"
+    mtl=f"{category}/{shape}/models/model_normalized.mtl"
+    with zipfile.ZipFile(shape_archive(category)) as z:
         text=z.read(mtl).decode('utf-8','replace')
         refs=[]
         for line in text.splitlines():
@@ -63,7 +73,7 @@ def texture_members(shape):
                 # The official ShapeNet archive keeps retrieval textures one directory up in images/.
                 # Reject any other MTL traversal rather than extracting an arbitrary archive member.
                 if not re.fullmatch(r"\.\./images/[^/]+", ref): raise RuntimeError(f"unsafe MTL texture ref: {ref}")
-                expected=f"04379243/{shape}/images/{Path(ref).name}"
+                expected=f"{category}/{shape}/images/{Path(ref).name}"
                 z.getinfo(expected); refs.append(expected)
     if not refs: raise RuntimeError(f"no map_Kd texture references in {mtl}")
     return [obj,mtl,*sorted(set(refs))]
@@ -113,7 +123,7 @@ def latent_schema_and_estimate(latent, output):
     write_json(output,report); return report
 
 def run_one(config, resume=None):
-    object_id=config['object_id']; official,shape=mapping(object_id); members=part_members(object_id); smembers=texture_members(shape)
+    object_id=config['object_id']; official,shape=mapping(object_id); category=mapping_category(official); sarchive=shape_archive(category); members=part_members(object_id); smembers=texture_members(shape,category)
     if resume:
         run=Path(resume).resolve(); prior=json.loads((run/'result.json').read_text()); stage=Path(prior['staging_dir'])
         if prior.get('status') not in ('failed','interrupted','not_run'): raise RuntimeError('resume only accepts an unfinished run')
@@ -125,7 +135,7 @@ def run_one(config, resume=None):
     try:
       guard={'source':common.source_guard(),'checkpoints':common.checkpoint_guard()}
       def s1(d):
-        a,ea=extract_members(PHYSX_ZIP,members,work,'physx'); b,eb=extract_members(SHAPE_ZIP,smembers,work,'shape')
+        a,ea=extract_members(PHYSX_ZIP,members,work,'physx'); b,eb=extract_members(sarchive,smembers,work,'shape')
         write_json(work/'finalindex.json',{object_id:official})
         write_json(d/'inventory.json',{'physx_central_directory':a,'shapenet_central_directory':b,'extracted':ea+eb,'source':guard['source'],'checkpoints':guard['checkpoints'],'mapping':official})
         outs=[Path(x['target']) for x in ea+eb]+[work/'finalindex.json',MANIFEST,SRC/'dataset_toolkits/merge_property.py',SRC/'dataset_toolkits/retrieval_texture_example.py',SRC/'dataset_toolkits/render_cond.py']+[Path(x['path']) for x in guard['checkpoints']]
@@ -140,7 +150,7 @@ def run_one(config, resume=None):
       r.step(2,'official_merge_property',fingerprint(sha(work/f'physxnet/finaljson/{object_id}.json'),sha(SRC/'dataset_toolkits/merge_property.py'),sha(MANIFEST)),s2)
       def s3(d):
         env=os.environ.copy(); env.update(CUDA_VISIBLE_DEVICES='',PYTHONDONTWRITEBYTECODE='1')
-        root=work/f'phy_dataset/{object_id}'; obj=root/'model_tex.obj'; source_mesh=work/f'shapenet/04379243/{shape}/models/model_normalized.obj'
+        root=work/f'phy_dataset/{object_id}'; obj=root/'model_tex.obj'; source_mesh=work/f'shapenet/{category}/{shape}/models/model_normalized.obj'
         reused=None
         if obj.is_file():
             reused={'official_retrieval':'not re-run; existing output is verified on explicit resume','model_tex_sha256':sha(obj)}
@@ -203,7 +213,7 @@ def plan():
     rows=[]
     for c in CANDIDATES:
         official,shape=mapping(c['object_id']); pm=part_members(c['object_id']); sm=texture_members(shape)
-        rows.append({**c,'finalindex':official,'part_obj_count':len(pm)-1,'texture_member_count':len(sm)-2,'physx_inventory':common.zip_inventory(PHYSX_ZIP,pm),'shapenet_inventory':common.zip_inventory(SHAPE_ZIP,sm)})
+        category=mapping_category(official); rows.append({**c,'finalindex':official,'part_obj_count':len(pm)-1,'texture_member_count':len(sm)-2,'physx_inventory':common.zip_inventory(PHYSX_ZIP,pm),'shapenet_inventory':common.zip_inventory(shape_archive(category),sm)})
     return {'scope':'sequential candidate preparation through sampling only; no decoder', 'candidates':rows,'policy':{'physical_gpu':1,'max_gpu_mib':MAX_GPU_MIB,'reserve_mib':RESERVE_MIB,'decoder':'never executed by this runner'},'subdivision_basis':'two mesh decoder SparseSubdivideBlock3d stages; SparseSubdivide factor=2^3 each, hence N*64'}
 
 def self_test():

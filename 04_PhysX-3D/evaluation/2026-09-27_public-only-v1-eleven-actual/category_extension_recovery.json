@@ -1,0 +1,58 @@
+{
+  "scope": "ShapeNet category extension recovery for public-only v1; not paper Table 2 reproduction",
+  "official_repository": "ShapeNet/ShapeNetCore",
+  "official_revision": "73b692a98ee796df2f64511e0cbd4a8af2c20b27",
+  "recovery_run_id": "20260927T111406Z-9dded638bbb1",
+  "prior_invalid_partials": [
+    {
+      "category": "02933112",
+      "original_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip.part",
+      "quarantine_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/quarantine/20260927T111406Z-9dded638bbb1/02933112.zip.part",
+      "bytes": 496396510,
+      "sha256": "bb65a870882601f7a026f63222dcb95d6cfaa44947e2d57b86943e8a55f0acce",
+      "created_utc": "2026-09-27T11:06:10.097959+00:00",
+      "modified_utc": "2026-09-27T11:06:10.097959+00:00",
+      "expected_bytes": 432747631,
+      "expected_sha256": "f36bea3c118cb4818e751c8a6bdc8fd9202ed0dca5ce873251b068bc9b5dc5cd",
+      "confirmed": "size exceeded official metadata and SHA256 mismatched; preserved by atomic rename",
+      "root_cause": "unconfirmed; the earlier direct HTTP Range path is not reused"
+    },
+    {
+      "category": "03636649",
+      "original_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip.part",
+      "quarantine_path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/quarantine/20260927T111406Z-9dded638bbb1/03636649.zip.part",
+      "bytes": 1490637928,
+      "sha256": "9e092d0573178a4067611952bc79d23c095fccfbd44bbd2cd73d0be57365a658",
+      "created_utc": "2026-09-27T11:08:22.689105+00:00",
+      "modified_utc": "2026-09-27T11:08:22.689105+00:00",
+      "expected_bytes": 745318964,
+      "expected_sha256": "1ad7f8dc315d88cfd5bfdde7850e3b1880d88a15b2dd5ef2e16bfea86888adbb",
+      "confirmed": "size exceeded official metadata and SHA256 mismatched; preserved by atomic rename",
+      "root_cause": "unconfirmed; a recorded direct Range response did not match the requested local offset, but that alone does not establish the server-side cause"
+    }
+  ],
+  "verified_archives": [
+    {
+      "category": "02933112",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+      "bytes": 432747631,
+      "sha256": "f36bea3c118cb4818e751c8a6bdc8fd9202ed0dca5ce873251b068bc9b5dc5cd",
+      "verification": "official bytes and SHA256 matched before final atomic rename"
+    },
+    {
+      "category": "03636649",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+      "bytes": 745318964,
+      "sha256": "1ad7f8dc315d88cfd5bfdde7850e3b1880d88a15b2dd5ef2e16bfea86888adbb",
+      "verification": "official bytes and SHA256 matched before final atomic rename"
+    }
+  ],
+  "objects": [
+    {"object_id": "48419", "category": "02933112", "source": "verified textured OBJ/MTL/image", "pipeline": "success", "metric": "included in 11-artifact public-only v1"},
+    {"object_id": "38882", "category": "02933112", "source": "verified textured OBJ/MTL/image", "pipeline": "success", "metric": "included in 11-artifact public-only v1"},
+    {"object_id": "14567", "category": "03636649", "source": "OBJ/MTL present but no map_Kd texture reference", "pipeline": "failed before retrieval/inference", "metric": "not included"},
+    {"object_id": "15821", "category": "03636649", "source": "verified textured OBJ/MTL/image", "pipeline": "success", "metric": "included in 11-artifact public-only v1"}
+  ],
+  "artifact_complete_total": 11,
+  "safety_policy": "No ZIP member search, extraction, rendering, or inference starts until both archives pass their official byte and SHA256 checks. Per-object source failures are retained and do not block independent later objects."
+}

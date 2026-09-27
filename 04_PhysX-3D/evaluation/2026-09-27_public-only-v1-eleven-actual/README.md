@@ -1,0 +1,5 @@
+# Public-only v1: eleven actual artifacts
+
+This is a public-materials independent evaluation condition, not PhysX-3D Table 2 or a paper-identical 1,000-test evaluation. Eleven of 1,000 rows have artifact-complete outputs. Geometry uses independent area-weighted barycentric PCG64 samples (seed 20260927, 8,192 points per mesh); CD is the sum of directional nearest-neighbour means and F-score uses Euclidean threshold 0.05. Raw coordinates and independently bbox-center/max-extent canonical geometry are separate conditions and are never averaged together.
+
+`eight_sample_report.json` contains the 11-item report despite its inherited filename, including per-artifact hashes, scale/group diagnostics, and overall plus fixed/B/C subgroup summaries. The failure ledger retains 23787, 27281, and 14567 outside numeric denominators. Appearance/density/affordance PSNR, description PSNR, and NAP COV/MMD remain blocked because paired maps/masks, official camera/range rules, question/part correspondence, PhysX-to-NAP conversion, and official aggregation rules are unavailable in public artifacts.

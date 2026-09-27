@@ -1,0 +1,37 @@
+{
+  "scope": "CPU-only/static validation; no download, Blender, GPU inference, sampling, or decoder was run for this validation",
+  "checks": [
+    {
+      "name": "python_syntax",
+      "status": "pass",
+      "files": [
+        "recover_shapenet_extension_archives.py",
+        "download_shapenet_extension_archives_parallel.py",
+        "run_public_only_v1_category_extension.py",
+        "run_articulated_sampling_candidates.py",
+        "verify_retrieval_output.py",
+        "run_public_only_v1_eleven_actual.py"
+      ]
+    },
+    {
+      "name": "candidate_sampler_cpu_mock",
+      "status": "pass",
+      "checks": ["latent schema", "N x 64 estimator", "missing latent key rejection"]
+    },
+    {
+      "name": "category_runner_plan",
+      "status": "pass",
+      "checks": ["four candidates", "requires both verified archives", "GPU 1", "seed 1", "28000 MiB limit", "4607 MiB reserve"]
+    },
+    {
+      "name": "eleven_artifact_result_validation",
+      "status": "pass",
+      "checks": ["11 geometry-success object IDs", "failure ledger has 23787, 27281, 14567", "both verified archive byte and SHA256 checks"]
+    },
+    {
+      "name": "pytest",
+      "status": "not_run",
+      "reason": "the specified physxgen environment has no pytest module; no package installation was performed"
+    }
+  ]
+}

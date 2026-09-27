@@ -62,7 +62,10 @@ def main(stage: Path, source_mesh: Path, object_id: str, report: Path|None):
         raise RuntimeError('official retrieval would use gray fallback: source visual is not textured UV')
     # finalindex is the formal connection the official code uses at line 121.
     index=json.loads((stage/'finalindex.json').read_text())
-    expected=f'shapenet/04379243/{source_mesh.parent.parent.name}'
+    # The source category is part of the formal finalindex mapping.  Earlier
+    # validation accidentally hard-coded the already-used 04379243 category.
+    # Derive the category from the archive-preserving staging path instead.
+    expected=f'shapenet/{source_mesh.parents[2].name}/{source_mesh.parent.parent.name}'
     if index.get(object_id)!=expected: raise RuntimeError(f'finalindex/source mismatch: {index.get(object_id)!r} != {expected!r}')
     # The retrieval exporter can repack/reencode one or many source JPEGs into a PNG atlas.
     # Provenance is validated by the exact official path/control-flow prerequisites, not byte equality.

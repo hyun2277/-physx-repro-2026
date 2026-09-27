@@ -1,0 +1,5 @@
+[
+  {"object_id":"23787","status":"failed","reason":"official texture retrieval output non-finite OBJ","numeric_denominator":false},
+  {"object_id":"27281","status":"excluded","reason":"mesh decoder OOM under 28000 MiB hard limit and 4607 MiB reserve","numeric_denominator":false},
+  {"object_id":"14567","status":"failed","reason":"verified ShapeNet source MTL has no map_Kd texture reference; no textured-UV retrieval prerequisite","numeric_denominator":false}
+]

@@ -1,0 +1,2008 @@
+{
+  "aggregate": {
+    "geometry_macro_mean_raw_cd_l1": 0.3489556701801141,
+    "geometry_micro_point_weighted_raw_cd_l1": 0.34895567018011403,
+    "note": "Proposal-only summaries. Equal 8192-per-mesh samples make geometry macro and this point-weighted micro equal here.",
+    "scale_l2_macro_mean_cm": 13.824770147150213,
+    "scale_l2_micro_mean_cm": 13.824770147150213
+  },
+  "consistency_checks": {
+    "24566_articulated_false_negative": true,
+    "29354_fixed_false_positive": true,
+    "29354_scale_error_cm_matches_prior_audit": true,
+    "29806_multi_joint_underprediction": true
+  },
+  "paper_equivalent": false,
+  "records": [
+    {
+      "item_key": "test-000001",
+      "metric": "articulation_diagnostic",
+      "object_id": "29354",
+      "occurrence": 1,
+      "source_index": 1001,
+      "status": "success",
+      "test_index": 1,
+      "value": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": true,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": false,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      }
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "scale_l2",
+      "object_id": "29354",
+      "occurrence": 1,
+      "source_index": 1001,
+      "status": "success",
+      "test_index": 1,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing official-code audit: predicted vertex mean",
+        "raw": 20.21143341064453,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "geometry",
+      "object_id": "29354",
+      "occurrence": 1,
+      "source_index": 1001,
+      "status": "success",
+      "test_index": 1,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.027545760855190813,
+          "cd_l1_pred_to_gt_mean": 0.09832928329153147,
+          "cd_l1_sum_raw": 0.1258750441467223,
+          "cd_l1_table_display_x1e3": 125.87504414672229,
+          "cd_l2_sum_raw": 0.01707046669634923,
+          "fscore_raw": 0.557520792666763,
+          "fscore_table_display_x1e2": 55.752079266676304,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.414306640625,
+          "pred_sample_count": 8192,
+          "recall": 0.85205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.19301161241776396,
+          "cd_l1_pred_to_gt_mean": 0.05625605579618361,
+          "cd_l1_sum_raw": 0.24926766821394758,
+          "cd_l1_table_display_x1e3": 249.2676682139476,
+          "cd_l2_sum_raw": 0.0638992581368189,
+          "fscore_raw": 0.3589307986221096,
+          "fscore_table_display_x1e2": 35.89307986221096,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.486328125,
+          "pred_sample_count": 8192,
+          "recall": 0.284423828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "appearance_psnr",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "density_psnr",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "affordance_psnr",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "description_psnr",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "kinematics_cov",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000001",
+      "metric": "kinematics_mmd",
+      "object_id": "29354",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1001,
+      "status": "blocked",
+      "test_index": 1
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "articulation_diagnostic",
+      "object_id": "21356",
+      "occurrence": 1,
+      "source_index": 1002,
+      "status": "success",
+      "test_index": 2,
+      "value": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "scale_l2",
+      "object_id": "21356",
+      "occurrence": 1,
+      "source_index": 1002,
+      "status": "success",
+      "test_index": 2,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 10.54486083984375,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "geometry",
+      "object_id": "21356",
+      "occurrence": 1,
+      "source_index": 1002,
+      "status": "success",
+      "test_index": 2,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.14963862509845846,
+          "cd_l1_pred_to_gt_mean": 0.16064342214088428,
+          "cd_l1_sum_raw": 0.3102820472393427,
+          "cd_l1_table_display_x1e3": 310.2820472393427,
+          "cd_l2_sum_raw": 0.07668309009731973,
+          "fscore_raw": 0.2458233940870242,
+          "fscore_table_display_x1e2": 24.58233940870242,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1995849609375,
+          "pred_sample_count": 8192,
+          "recall": 0.3199462890625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2057149543360097,
+          "cd_l1_pred_to_gt_mean": 0.12491377282375267,
+          "cd_l1_sum_raw": 0.3306287271597624,
+          "cd_l1_table_display_x1e3": 330.6287271597624,
+          "cd_l2_sum_raw": 0.08654398357814769,
+          "fscore_raw": 0.22762807614599895,
+          "fscore_table_display_x1e2": 22.762807614599893,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.25537109375,
+          "pred_sample_count": 8192,
+          "recall": 0.205322265625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "appearance_psnr",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "density_psnr",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "affordance_psnr",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "description_psnr",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "kinematics_cov",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000002",
+      "metric": "kinematics_mmd",
+      "object_id": "21356",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1002,
+      "status": "blocked",
+      "test_index": 2
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "articulation_diagnostic",
+      "object_id": "24566",
+      "occurrence": 1,
+      "source_index": 1014,
+      "status": "success",
+      "test_index": 14,
+      "value": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "scale_l2",
+      "object_id": "24566",
+      "occurrence": 1,
+      "source_index": 1014,
+      "status": "success",
+      "test_index": 14,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.331443786621094,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "geometry",
+      "object_id": "24566",
+      "occurrence": 1,
+      "source_index": 1014,
+      "status": "success",
+      "test_index": 14,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08127673690257398,
+          "cd_l1_pred_to_gt_mean": 0.1207172825925596,
+          "cd_l1_sum_raw": 0.20199401949513357,
+          "cd_l1_table_display_x1e3": 201.99401949513356,
+          "cd_l2_sum_raw": 0.030079994353231696,
+          "fscore_raw": 0.28669543204084325,
+          "fscore_table_display_x1e2": 28.669543204084324,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2181396484375,
+          "pred_sample_count": 8192,
+          "recall": 0.4180908203125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.11392517284313056,
+          "cd_l1_pred_to_gt_mean": 0.09176012994531749,
+          "cd_l1_sum_raw": 0.20568530278844804,
+          "cd_l1_table_display_x1e3": 205.68530278844804,
+          "cd_l2_sum_raw": 0.03641535643901281,
+          "fscore_raw": 0.3794555565887888,
+          "fscore_table_display_x1e2": 37.94555565887888,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.37939453125,
+          "pred_sample_count": 8192,
+          "recall": 0.3795166015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "appearance_psnr",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "density_psnr",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "affordance_psnr",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "description_psnr",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "kinematics_cov",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000014",
+      "metric": "kinematics_mmd",
+      "object_id": "24566",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1014,
+      "status": "blocked",
+      "test_index": 14
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "articulation_diagnostic",
+      "object_id": "27703",
+      "occurrence": 1,
+      "source_index": 1020,
+      "status": "success",
+      "test_index": 20,
+      "value": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "scale_l2",
+      "object_id": "27703",
+      "occurrence": 1,
+      "source_index": 1020,
+      "status": "success",
+      "test_index": 20,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.803573608398438,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "geometry",
+      "object_id": "27703",
+      "occurrence": 1,
+      "source_index": 1020,
+      "status": "success",
+      "test_index": 20,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08805901161060391,
+          "cd_l1_pred_to_gt_mean": 0.08913539175041452,
+          "cd_l1_sum_raw": 0.17719440336101844,
+          "cd_l1_table_display_x1e3": 177.19440336101843,
+          "cd_l2_sum_raw": 0.023473913798705406,
+          "fscore_raw": 0.3438283618880735,
+          "fscore_table_display_x1e2": 34.382836188807346,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3128662109375,
+          "pred_sample_count": 8192,
+          "recall": 0.381591796875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18158236994842383,
+          "cd_l1_pred_to_gt_mean": 0.12918090681987907,
+          "cd_l1_sum_raw": 0.3107632767683029,
+          "cd_l1_table_display_x1e3": 310.7632767683029,
+          "cd_l2_sum_raw": 0.06975755302553718,
+          "fscore_raw": 0.15782986995078072,
+          "fscore_table_display_x1e2": 15.78298699507807,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.24267578125,
+          "pred_sample_count": 8192,
+          "recall": 0.116943359375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "appearance_psnr",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "density_psnr",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "affordance_psnr",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "description_psnr",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "kinematics_cov",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000020",
+      "metric": "kinematics_mmd",
+      "object_id": "27703",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1020,
+      "status": "blocked",
+      "test_index": 20
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "articulation_diagnostic",
+      "object_id": "48419",
+      "occurrence": 1,
+      "source_index": 1021,
+      "status": "success",
+      "test_index": 21,
+      "value": {
+        "absolute_group_count_error": 3,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 4,
+        "gt_types": [
+          "B",
+          "B",
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "scale_l2",
+      "object_id": "48419",
+      "occurrence": 1,
+      "source_index": 1021,
+      "status": "success",
+      "test_index": 21,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 3.2145614624023438,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "geometry",
+      "object_id": "48419",
+      "occurrence": 1,
+      "source_index": 1021,
+      "status": "success",
+      "test_index": 21,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.10633682250966012,
+          "cd_l1_pred_to_gt_mean": 0.11493119310328886,
+          "cd_l1_sum_raw": 0.22126801561294898,
+          "cd_l1_table_display_x1e3": 221.26801561294897,
+          "cd_l2_sum_raw": 0.03891206713779724,
+          "fscore_raw": 0.34093864663504564,
+          "fscore_table_display_x1e2": 34.09386466350456,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3363037109375,
+          "pred_sample_count": 8192,
+          "recall": 0.345703125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18248615037790686,
+          "cd_l1_pred_to_gt_mean": 0.133328818826019,
+          "cd_l1_sum_raw": 0.3158149692039258,
+          "cd_l1_table_display_x1e3": 315.81496920392584,
+          "cd_l2_sum_raw": 0.06278164182461735,
+          "fscore_raw": 0.09610988097890671,
+          "fscore_table_display_x1e2": 9.61098809789067,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1287841796875,
+          "pred_sample_count": 8192,
+          "recall": 0.07666015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "appearance_psnr",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "density_psnr",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "affordance_psnr",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "description_psnr",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "kinematics_cov",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000021",
+      "metric": "kinematics_mmd",
+      "object_id": "48419",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1021,
+      "status": "blocked",
+      "test_index": 21
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "articulation_diagnostic",
+      "object_id": "15821",
+      "occurrence": 1,
+      "source_index": 1023,
+      "status": "success",
+      "test_index": 23,
+      "value": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "C"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "scale_l2",
+      "object_id": "15821",
+      "occurrence": 1,
+      "source_index": 1023,
+      "status": "success",
+      "test_index": 23,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 0.1915435791015625,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "geometry",
+      "object_id": "15821",
+      "occurrence": 1,
+      "source_index": 1023,
+      "status": "success",
+      "test_index": 23,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2959893386807456,
+          "cd_l1_pred_to_gt_mean": 0.27654897914615945,
+          "cd_l1_sum_raw": 0.572538317826905,
+          "cd_l1_table_display_x1e3": 572.538317826905,
+          "cd_l2_sum_raw": 0.1827570572284083,
+          "fscore_raw": 0.003307711693548387,
+          "fscore_table_display_x1e2": 0.3307711693548387,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.005126953125,
+          "pred_sample_count": 8192,
+          "recall": 0.00244140625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.1711446525488643,
+          "cd_l1_pred_to_gt_mean": 0.15395361498779153,
+          "cd_l1_sum_raw": 0.3250982675366558,
+          "cd_l1_table_display_x1e3": 325.09826753665584,
+          "cd_l2_sum_raw": 0.09273353909781315,
+          "fscore_raw": 0.1760557496427953,
+          "fscore_table_display_x1e2": 17.60557496427953,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.181396484375,
+          "pred_sample_count": 8192,
+          "recall": 0.1710205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "appearance_psnr",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "density_psnr",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "affordance_psnr",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "description_psnr",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "kinematics_cov",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000023",
+      "metric": "kinematics_mmd",
+      "object_id": "15821",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1023,
+      "status": "blocked",
+      "test_index": 23
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "articulation_diagnostic",
+      "object_id": "30719",
+      "occurrence": 1,
+      "source_index": 1029,
+      "status": "success",
+      "test_index": 29,
+      "value": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "scale_l2",
+      "object_id": "30719",
+      "occurrence": 1,
+      "source_index": 1029,
+      "status": "success",
+      "test_index": 29,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 21.8868408203125,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "geometry",
+      "object_id": "30719",
+      "occurrence": 1,
+      "source_index": 1029,
+      "status": "success",
+      "test_index": 29,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2747740071048985,
+          "cd_l1_pred_to_gt_mean": 0.2881869099170149,
+          "cd_l1_sum_raw": 0.5629609170219134,
+          "cd_l1_table_display_x1e3": 562.9609170219134,
+          "cd_l2_sum_raw": 0.19021198899875538,
+          "fscore_raw": 0.05832303965605749,
+          "fscore_table_display_x1e2": 5.83230396560575,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.05126953125,
+          "pred_sample_count": 8192,
+          "recall": 0.067626953125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.33558323881834257,
+          "cd_l1_pred_to_gt_mean": 0.29801531551714233,
+          "cd_l1_sum_raw": 0.633598554335485,
+          "cd_l1_table_display_x1e3": 633.5985543354849,
+          "cd_l2_sum_raw": 0.2523691257541343,
+          "fscore_raw": 0.07120719747340426,
+          "fscore_table_display_x1e2": 7.120719747340426,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0777587890625,
+          "pred_sample_count": 8192,
+          "recall": 0.065673828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "appearance_psnr",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "density_psnr",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "affordance_psnr",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "description_psnr",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "kinematics_cov",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000029",
+      "metric": "kinematics_mmd",
+      "object_id": "30719",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1029,
+      "status": "blocked",
+      "test_index": 29
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "articulation_diagnostic",
+      "object_id": "21314",
+      "occurrence": 1,
+      "source_index": 1030,
+      "status": "success",
+      "test_index": 30,
+      "value": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "scale_l2",
+      "object_id": "21314",
+      "occurrence": 1,
+      "source_index": 1030,
+      "status": "success",
+      "test_index": 30,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.552658081054688,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "geometry",
+      "object_id": "21314",
+      "occurrence": 1,
+      "source_index": 1030,
+      "status": "success",
+      "test_index": 30,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08163349527265579,
+          "cd_l1_pred_to_gt_mean": 0.07104803485021349,
+          "cd_l1_sum_raw": 0.15268153012286928,
+          "cd_l1_table_display_x1e3": 152.68153012286928,
+          "cd_l2_sum_raw": 0.019876008481647008,
+          "fscore_raw": 0.46211995764369235,
+          "fscore_table_display_x1e2": 46.211995764369235,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4862060546875,
+          "pred_sample_count": 8192,
+          "recall": 0.4403076171875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2586899264595347,
+          "cd_l1_pred_to_gt_mean": 0.11003260638744614,
+          "cd_l1_sum_raw": 0.36872253284698087,
+          "cd_l1_table_display_x1e3": 368.72253284698087,
+          "cd_l2_sum_raw": 0.10882393552780253,
+          "fscore_raw": 0.1712967143232871,
+          "fscore_table_display_x1e2": 17.12967143232871,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4063720703125,
+          "pred_sample_count": 8192,
+          "recall": 0.1085205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "appearance_psnr",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "density_psnr",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "affordance_psnr",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "description_psnr",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "kinematics_cov",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000030",
+      "metric": "kinematics_mmd",
+      "object_id": "21314",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1030,
+      "status": "blocked",
+      "test_index": 30
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "articulation_diagnostic",
+      "object_id": "38882",
+      "occurrence": 1,
+      "source_index": 1031,
+      "status": "success",
+      "test_index": 31,
+      "value": {
+        "absolute_group_count_error": 5,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 7,
+        "gt_types": [
+          "C",
+          "C",
+          "C",
+          "B",
+          "B",
+          "B"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": true,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": true,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      }
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "scale_l2",
+      "object_id": "38882",
+      "occurrence": 1,
+      "source_index": 1031,
+      "status": "success",
+      "test_index": 31,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.338470458984375,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "geometry",
+      "object_id": "38882",
+      "occurrence": 1,
+      "source_index": 1031,
+      "status": "success",
+      "test_index": 31,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.05572033373114279,
+          "cd_l1_pred_to_gt_mean": 0.11303058529409282,
+          "cd_l1_sum_raw": 0.16875091902523562,
+          "cd_l1_table_display_x1e3": 168.75091902523562,
+          "cd_l2_sum_raw": 0.023188015689027657,
+          "fscore_raw": 0.313741632014257,
+          "fscore_table_display_x1e2": 31.3741632014257,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2518310546875,
+          "pred_sample_count": 8192,
+          "recall": 0.416015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.255029549441905,
+          "cd_l1_pred_to_gt_mean": 0.11493534514246505,
+          "cd_l1_sum_raw": 0.36996489458437004,
+          "cd_l1_table_display_x1e3": 369.96489458437003,
+          "cd_l2_sum_raw": 0.10283921520404422,
+          "fscore_raw": 0.15522431481214513,
+          "fscore_table_display_x1e2": 15.522431481214513,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2257080078125,
+          "pred_sample_count": 8192,
+          "recall": 0.1182861328125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "appearance_psnr",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "density_psnr",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "affordance_psnr",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "description_psnr",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "kinematics_cov",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000031",
+      "metric": "kinematics_mmd",
+      "object_id": "38882",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1031,
+      "status": "blocked",
+      "test_index": 31
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "articulation_diagnostic",
+      "object_id": "32980",
+      "occurrence": 1,
+      "source_index": 1036,
+      "status": "success",
+      "test_index": 36,
+      "value": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      }
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "scale_l2",
+      "object_id": "32980",
+      "occurrence": 1,
+      "source_index": 1036,
+      "status": "success",
+      "test_index": 36,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 2.9520492553710938,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "geometry",
+      "object_id": "32980",
+      "occurrence": 1,
+      "source_index": 1036,
+      "status": "success",
+      "test_index": 36,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.04492325316817523,
+          "cd_l1_pred_to_gt_mean": 0.05716893304298134,
+          "cd_l1_sum_raw": 0.10209218621115657,
+          "cd_l1_table_display_x1e3": 102.09218621115656,
+          "cd_l2_sum_raw": 0.007748110457497527,
+          "fscore_raw": 0.526591546474359,
+          "fscore_table_display_x1e2": 52.6591546474359,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4661865234375,
+          "pred_sample_count": 8192,
+          "recall": 0.60498046875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2338137078934973,
+          "cd_l1_pred_to_gt_mean": 0.1447838564320207,
+          "cd_l1_sum_raw": 0.37859756432551805,
+          "cd_l1_table_display_x1e3": 378.597564325518,
+          "cd_l2_sum_raw": 0.09487603085175056,
+          "fscore_raw": 0.060908544631231396,
+          "fscore_table_display_x1e2": 6.090854463123139,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1236572265625,
+          "pred_sample_count": 8192,
+          "recall": 0.0404052734375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "appearance_psnr",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "density_psnr",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "affordance_psnr",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "description_psnr",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "kinematics_cov",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000036",
+      "metric": "kinematics_mmd",
+      "object_id": "32980",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1036,
+      "status": "blocked",
+      "test_index": 36
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "articulation_diagnostic",
+      "object_id": "29806",
+      "occurrence": 1,
+      "source_index": 1574,
+      "status": "success",
+      "test_index": 574,
+      "value": {
+        "absolute_group_count_error": 2,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 4,
+        "gt_types": [
+          "C",
+          "C",
+          "C"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": true
+            },
+            "meaningful": true,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": true,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      }
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "scale_l2",
+      "object_id": "29806",
+      "occurrence": 1,
+      "source_index": 1574,
+      "status": "success",
+      "test_index": 574,
+      "value": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 15.045036315917969,
+        "representation": "scalar",
+        "unit": "cm"
+      }
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "geometry",
+      "object_id": "29806",
+      "occurrence": 1,
+      "source_index": 1574,
+      "status": "success",
+      "test_index": 574,
+      "value": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.03456211001159079,
+          "cd_l1_pred_to_gt_mean": 0.03675438065834791,
+          "cd_l1_sum_raw": 0.0713164906699387,
+          "cd_l1_table_display_x1e3": 71.3164906699387,
+          "cd_l2_sum_raw": 0.00333271973328704,
+          "fscore_raw": 0.6895161621864585,
+          "fscore_table_display_x1e2": 68.95161621864585,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.7626953125,
+          "pred_sample_count": 8192,
+          "recall": 0.629150390625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2280492887207242,
+          "cd_l1_pred_to_gt_mean": 0.12232132549713404,
+          "cd_l1_sum_raw": 0.3503706142178582,
+          "cd_l1_table_display_x1e3": 350.3706142178582,
+          "cd_l2_sum_raw": 0.08428315797840816,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      }
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "appearance_psnr",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "no paired RGB renders, official 30-view cameras, masks, or range",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "density_psnr",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "affordance_psnr",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "no generated-vertex to GT-part mapping or paired numeric maps/masks/range",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "description_psnr",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "question/part correspondence and official literal/training slice disagreement unresolved",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "kinematics_cov",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    },
+    {
+      "item_key": "test-000574",
+      "metric": "kinematics_mmd",
+      "object_id": "29806",
+      "occurrence": 1,
+      "reason": "no official PhysX-to-NAP conversion, matching, or aggregation",
+      "source_index": 1574,
+      "status": "blocked",
+      "test_index": 574
+    }
+  ],
+  "summaries": {
+    "affordance_psnr": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "affordance_psnr",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "appearance_psnr": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "appearance_psnr",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "articulation_diagnostic": {
+      "blocked": 0,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [],
+      "failed": 0,
+      "metric": "articulation_diagnostic",
+      "success": 11,
+      "success_item_keys": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ]
+    },
+    "density_psnr": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "density_psnr",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "description_psnr": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "description_psnr",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "geometry": {
+      "blocked": 0,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [],
+      "failed": 0,
+      "metric": "geometry",
+      "success": 11,
+      "success_item_keys": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ]
+    },
+    "kinematics_cov": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "kinematics_cov",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "kinematics_mmd": {
+      "blocked": 11,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ],
+      "failed": 0,
+      "metric": "kinematics_mmd",
+      "success": 0,
+      "success_item_keys": []
+    },
+    "scale_l2": {
+      "blocked": 0,
+      "declared": 11,
+      "excluded_from_numeric_denominator": [],
+      "failed": 0,
+      "metric": "scale_l2",
+      "success": 11,
+      "success_item_keys": [
+        "test-000001",
+        "test-000002",
+        "test-000014",
+        "test-000020",
+        "test-000021",
+        "test-000023",
+        "test-000029",
+        "test-000030",
+        "test-000031",
+        "test-000036",
+        "test-000574"
+      ]
+    }
+  }
+}
