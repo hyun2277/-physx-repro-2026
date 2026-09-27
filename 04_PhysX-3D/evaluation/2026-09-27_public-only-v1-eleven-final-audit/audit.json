@@ -1,0 +1,881 @@
+{
+  "status": "pass",
+  "tolerance": {
+    "absolute": 1e-11,
+    "relative": 1e-10
+  },
+  "sampling": {
+    "seed": 20260927,
+    "points_per_mesh": 8192,
+    "method": "independent PCG64 area-weighted barycentric + cKDTree"
+  },
+  "artifacts": {
+    "29354": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/2026-09-27_29354-semantic-validation/official_code_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/finaljson/29354.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/phy_dataset/29354/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            381856,
+            8902
+          ],
+          "property_shape": [
+            381856,
+            6
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "21356": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/physxnet/finaljson/21356.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/phy_dataset/21356/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            363382,
+            49053
+          ],
+          "property_shape": [
+            363382,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "24566": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/physxnet/finaljson/24566.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/phy_dataset/24566/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            613164,
+            6613
+          ],
+          "property_shape": [
+            613164,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "27703": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/physxnet/finaljson/27703.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/phy_dataset/27703/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            418644,
+            22790
+          ],
+          "property_shape": [
+            418644,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "48419": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-48419-20260927T111917Z-0339ac9f4d2c/work/physxnet/finaljson/48419.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-48419-20260927T111917Z-0339ac9f4d2c/work/phy_dataset/48419/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            320436,
+            6090
+          ],
+          "property_shape": [
+            320436,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "15821": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15821-20260927T112047Z-93e8bb019216/work/physxnet/finaljson/15821.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15821-20260927T112047Z-93e8bb019216/work/phy_dataset/15821/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            89026,
+            1444
+          ],
+          "property_shape": [
+            89026,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "30719": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/physxnet/finaljson/30719.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/phy_dataset/30719/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            416530,
+            5540
+          ],
+          "property_shape": [
+            416530,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "21314": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/physxnet/finaljson/21314.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/phy_dataset/21314/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            178230,
+            19486
+          ],
+          "property_shape": [
+            178230,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "38882": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-38882-20260927T112001Z-34dce7c4a88d/work/physxnet/finaljson/38882.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-38882-20260927T112001Z-34dce7c4a88d/work/phy_dataset/38882/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            420492,
+            4789
+          ],
+          "property_shape": [
+            420492,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "32980": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/physxnet/finaljson/32980.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/phy_dataset/32980/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            175932,
+            9498
+          ],
+          "property_shape": [
+            175932,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    },
+    "29806": {
+      "status": "valid",
+      "checks": [
+        {
+          "kind": "audit",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/official_result.json",
+          "hash_match": true
+        },
+        {
+          "kind": "generated_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_json",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/physxnet/finaljson/29806.json",
+          "hash_match": true
+        },
+        {
+          "kind": "gt_mesh",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/phy_dataset/29806/model.obj",
+          "hash_match": true
+        },
+        {
+          "kind": "property",
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/vertex_physics_14ch.pt",
+          "hash_match": true
+        },
+        {
+          "kind": "semantic_load",
+          "mesh_vertices": [
+            180260,
+            12306
+          ],
+          "property_shape": [
+            180260,
+            14
+          ],
+          "finite": true
+        }
+      ]
+    }
+  },
+  "invalid_artifacts": [],
+  "sentinel_recalculation": {
+    "29354": {
+      "raw": {
+        "cd_l1_sum_raw": 0.24926766821394758,
+        "cd_l2_sum_raw": 0.0638992581368189,
+        "fscore_raw": 0.3589307986221096,
+        "precision": 0.486328125,
+        "recall": 0.284423828125,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "canonical": {
+        "cd_l1_sum_raw": 0.1258750441467223,
+        "cd_l2_sum_raw": 0.01707046669634923,
+        "fscore_raw": 0.557520792666763,
+        "precision": 0.414306640625,
+        "recall": 0.85205078125,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "checks": {
+        "raw_cd_l1": {
+          "computed": 0.24926766821394758,
+          "existing": 0.24926766821394758,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_cd_l2": {
+          "computed": 0.0638992581368189,
+          "existing": 0.0638992581368189,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_fscore": {
+          "computed": 0.3589307986221096,
+          "existing": 0.3589307986221096,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l1": {
+          "computed": 0.1258750441467223,
+          "existing": 0.1258750441467223,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l2": {
+          "computed": 0.01707046669634923,
+          "existing": 0.01707046669634923,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_fscore": {
+          "computed": 0.557520792666763,
+          "existing": 0.557520792666763,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "scale": {
+          "computed": 20.21143341064453,
+          "existing": 20.21143341064453,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "groups": {
+          "gt": 1,
+          "predicted": 2,
+          "existing_gt": 1,
+          "existing_predicted": 2,
+          "false_negative": false,
+          "underprediction": false,
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "24566": {
+      "raw": {
+        "cd_l1_sum_raw": 0.20568530278844804,
+        "cd_l2_sum_raw": 0.03641535643901281,
+        "fscore_raw": 0.3794555565887888,
+        "precision": 0.37939453125,
+        "recall": 0.3795166015625,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "canonical": {
+        "cd_l1_sum_raw": 0.20199401949513357,
+        "cd_l2_sum_raw": 0.030079994353231696,
+        "fscore_raw": 0.28669543204084325,
+        "precision": 0.2181396484375,
+        "recall": 0.4180908203125,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "checks": {
+        "raw_cd_l1": {
+          "computed": 0.20568530278844804,
+          "existing": 0.20568530278844804,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_cd_l2": {
+          "computed": 0.03641535643901281,
+          "existing": 0.03641535643901281,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_fscore": {
+          "computed": 0.3794555565887888,
+          "existing": 0.3794555565887888,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l1": {
+          "computed": 0.20199401949513357,
+          "existing": 0.20199401949513357,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l2": {
+          "computed": 0.030079994353231696,
+          "existing": 0.030079994353231696,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_fscore": {
+          "computed": 0.28669543204084325,
+          "existing": 0.28669543204084325,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "scale": {
+          "computed": 26.331443786621094,
+          "existing": 26.331443786621094,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "groups": {
+          "gt": 2,
+          "predicted": 1,
+          "existing_gt": 2,
+          "existing_predicted": 1,
+          "false_negative": true,
+          "underprediction": false,
+          "pass": true
+        }
+      },
+      "pass": true
+    },
+    "29806": {
+      "raw": {
+        "cd_l1_sum_raw": 0.3503706142178582,
+        "cd_l2_sum_raw": 0.08428315797840816,
+        "fscore_raw": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "canonical": {
+        "cd_l1_sum_raw": 0.0713164906699387,
+        "cd_l2_sum_raw": 0.00333271973328704,
+        "fscore_raw": 0.6895161621864585,
+        "precision": 0.7626953125,
+        "recall": 0.629150390625,
+        "pred_samples": 8192,
+        "gt_samples": 8192
+      },
+      "checks": {
+        "raw_cd_l1": {
+          "computed": 0.3503706142178582,
+          "existing": 0.3503706142178582,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_cd_l2": {
+          "computed": 0.08428315797840816,
+          "existing": 0.08428315797840816,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "raw_fscore": {
+          "computed": 0.0,
+          "existing": 0.0,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l1": {
+          "computed": 0.0713164906699387,
+          "existing": 0.0713164906699387,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_cd_l2": {
+          "computed": 0.00333271973328704,
+          "existing": 0.00333271973328704,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "can_fscore": {
+          "computed": 0.6895161621864585,
+          "existing": 0.6895161621864585,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "scale": {
+          "computed": 15.045036315917969,
+          "existing": 15.045036315917969,
+          "abs_delta": 0.0,
+          "pass": true
+        },
+        "groups": {
+          "gt": 4,
+          "predicted": 2,
+          "existing_gt": 4,
+          "existing_predicted": 2,
+          "false_negative": false,
+          "underprediction": true,
+          "pass": true
+        }
+      },
+      "pass": true
+    }
+  },
+  "aggregate": {
+    "overall": {
+      "raw_cd_l1": {
+        "n": 11,
+        "mean": 0.3489556701801141,
+        "median": 0.3306287271597624
+      },
+      "raw_cd_l2": {
+        "n": 11,
+        "mean": 0.09593843612891699,
+        "median": 0.08654398357814769
+      },
+      "raw_fscore": {
+        "n": 11,
+        "mean": 0.1686042457426771,
+        "median": 0.15782986995078072
+      },
+      "canonical_cd_l1": {
+        "n": 11,
+        "mean": 0.2424503537030168,
+        "median": 0.17719440336101844
+      },
+      "canonical_cd_l2": {
+        "n": 11,
+        "mean": 0.05575758478836602,
+        "median": 0.023473913798705406
+      },
+      "canonical_fscore": {
+        "n": 11,
+        "mean": 0.348036970635102,
+        "median": 0.34093864663504564
+      },
+      "scale_error_cm": {
+        "n": 11,
+        "mean": 13.824770147150213,
+        "median": 12.552658081054688
+      },
+      "group_count_absolute_error": {
+        "n": 11,
+        "mean": 1.1818181818181819,
+        "median": 1.0
+      }
+    },
+    "subgroups": {
+      "fixed": {
+        "raw_cd_l1": {
+          "n": 6,
+          "mean": 0.37859638727499945,
+          "median": 0.34967563000337165
+        },
+        "raw_cd_l2": {
+          "n": 6,
+          "mean": 0.11271164781236519,
+          "median": 0.09071000721494912
+        },
+        "raw_fscore": {
+          "n": 6,
+          "mean": 0.17463353352446867,
+          "median": 0.1645632921370339
+        },
+        "canonical_cd_l1": {
+          "n": 6,
+          "mean": 0.2385143546838371,
+          "median": 0.16493796674194386
+        },
+        "canonical_cd_l2": {
+          "n": 6,
+          "mean": 0.055843929755045714,
+          "median": 0.021674961140176207
+        },
+        "canonical_fscore": {
+          "n": 6,
+          "mean": 0.3657011820693283,
+          "median": 0.4029741597658829
+        },
+        "scale_error_cm": {
+          "n": 6,
+          "mean": 15.825236002604166,
+          "median": 16.38204574584961
+        },
+        "group_count_absolute_error": {
+          "n": 6,
+          "mean": 0.16666666666666666,
+          "median": 0.0
+        }
+      },
+      "B_translation": {
+        "raw_cd_l1": {
+          "n": 3,
+          "mean": 0.2971550555255813,
+          "median": 0.3158149692039258
+        },
+        "raw_cd_l2": {
+          "n": 3,
+          "mean": 0.0673454044892248,
+          "median": 0.06278164182461735
+        },
+        "raw_fscore": {
+          "n": 3,
+          "mean": 0.21026325079328023,
+          "median": 0.15522431481214513
+        },
+        "canonical_cd_l1": {
+          "n": 3,
+          "mean": 0.19733765137777273,
+          "median": 0.20199401949513357
+        },
+        "canonical_cd_l2": {
+          "n": 3,
+          "mean": 0.030726692393352198,
+          "median": 0.030079994353231696
+        },
+        "canonical_fscore": {
+          "n": 3,
+          "mean": 0.31379190356338194,
+          "median": 0.313741632014257
+        },
+        "scale_error_cm": {
+          "n": 3,
+          "mean": 13.961491902669271,
+          "median": 12.338470458984375
+        },
+        "group_count_absolute_error": {
+          "n": 3,
+          "mean": 3.0,
+          "median": 3.0
+        }
+      },
+      "C_rotation": {
+        "raw_cd_l1": {
+          "n": 2,
+          "mean": 0.337734440877257,
+          "median": 0.337734440877257
+        },
+        "raw_cd_l2": {
+          "n": 2,
+          "mean": 0.08850834853811065,
+          "median": 0.08850834853811065
+        },
+        "raw_fscore": {
+          "n": 2,
+          "mean": 0.08802787482139765,
+          "median": 0.08802787482139765
+        },
+        "canonical_cd_l1": {
+          "n": 2,
+          "mean": 0.32192740424842187,
+          "median": 0.32192740424842187
+        },
+        "canonical_cd_l2": {
+          "n": 2,
+          "mean": 0.09304488848084766,
+          "median": 0.09304488848084766
+        },
+        "canonical_fscore": {
+          "n": 2,
+          "mean": 0.34641193694000344,
+          "median": 0.34641193694000344
+        },
+        "scale_error_cm": {
+          "n": 2,
+          "mean": 7.618289947509766,
+          "median": 7.618289947509766
+        },
+        "group_count_absolute_error": {
+          "n": 2,
+          "mean": 1.5,
+          "median": 1.5
+        }
+      }
+    }
+  },
+  "aggregate_pass": true,
+  "test_order_duplicate_pass": true,
+  "excluded_failure_ledger": [
+    "23787",
+    "27281",
+    "14567"
+  ],
+  "raw_canonical_mixed": false
+}
