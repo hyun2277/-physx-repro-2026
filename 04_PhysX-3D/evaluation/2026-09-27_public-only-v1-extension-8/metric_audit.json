@@ -1,0 +1,73 @@
+{
+  "official_gt_static_findings": [
+    "example_render_gt_foreval.py:102-139 processes only group_info['1']",
+    "example_render_gt_foreval.py:152-155 loads stale meshname instead of current part",
+    "example_render_gt_foreval.py:161 calls unseeded np.random.randint inside the part loop",
+    "example_render_gt_foreval.py:163 overwrites des_index.npy each part; selected description_ind is not saved with its matching part"
+  ],
+  "rows": [
+    [
+      "appearance_psnr",
+      "paper: mean PSNR over 30 random unit-sphere views",
+      "code: render_video/render_multiview exist",
+      "proposal: no value",
+      "camera/seed/mask/range/GT RGB missing"
+    ],
+    [
+      "cd",
+      "paper: CD x10^-3",
+      "code: no evaluator",
+      "proposal: deterministic area samples; L1/L2 symmetric sums",
+      "paper sampling/alignment missing"
+    ],
+    [
+      "fscore",
+      "paper: threshold 0.05, x10^-2",
+      "code: no evaluator",
+      "proposal: directional hit F-score at 0.05",
+      "paper point/sampling convention missing"
+    ],
+    [
+      "scale_l2",
+      "paper: Euclidean distance",
+      "code: GT max dimension; example vertex mean",
+      "proposal: scalar L2 on those expressions",
+      "test aggregation/duplicates missing"
+    ],
+    [
+      "density_psnr",
+      "paper: PSNR",
+      "code: GT part density and display normalization",
+      "proposal: blocked",
+      "vertex-part mapping/map/mask/range missing"
+    ],
+    [
+      "affordance_psnr",
+      "paper: PSNR",
+      "code: GT rank and display normalization",
+      "proposal: blocked",
+      "vertex-part mapping/map/mask/range missing"
+    ],
+    [
+      "description_psnr",
+      "paper: cosine score-map PSNR",
+      "code: example slice/question path",
+      "proposal: blocked",
+      "question/part mapping and slice disagreement missing"
+    ],
+    [
+      "kinematics_cov",
+      "paper: Instantiation Distance COV",
+      "code: README links NAP",
+      "proposal: blocked",
+      "PhysX-to-NAP conversion/matching/aggregation missing"
+    ],
+    [
+      "kinematics_mmd",
+      "paper: Instantiation Distance MMD",
+      "code: README links NAP",
+      "proposal: blocked",
+      "PhysX-to-NAP conversion/matching/aggregation missing"
+    ]
+  ]
+}

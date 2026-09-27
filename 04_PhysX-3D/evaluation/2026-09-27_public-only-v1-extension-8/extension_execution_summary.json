@@ -1,0 +1,37 @@
+{
+  "protocol": "public-materials-independent-evaluation-v1",
+  "paper_equivalent": false,
+  "selected_ids": [
+    "21356",
+    "27703",
+    "30719",
+    "21314",
+    "32980",
+    "23787"
+  ],
+  "generated_artifact_ids": [
+    "29354",
+    "24566",
+    "29806",
+    "21356",
+    "27703",
+    "30719",
+    "21314",
+    "32980"
+  ],
+  "generated_artifact_count": 8,
+  "planned_total": 9,
+  "not_silently_excluded": [
+    {
+      "object_id": "23787",
+      "status": "failed",
+      "stage": "official_texture_retrieval",
+      "reason": "official retrieval output failed the object-independent finite-OBJ verifier; model_tex.obj contains non-finite data",
+      "sampling_or_decoder_retried": false,
+      "source_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/23787/20260927T093713Z-5770940f5def"
+    }
+  ],
+  "selection_batch": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension/20260927T091659Z-9a8c49d58c7f",
+  "memory_note": "All five decoded extension candidates passed their per-latent measured gate; no GPU memory gate rejection or OOM occurred. 27281 remains excluded by prior observed unsafe decoder memory evidence.",
+  "partnet_note": "PartNet was not used: JSON and part OBJ inputs came from the already present PhysXNet ZIP, and texture members came from the existing ShapeNet 04379243 ZIP."
+}

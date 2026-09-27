@@ -43,7 +43,11 @@ def part_members(object_id):
 
 def mapping(object_id):
     value=json.loads((SRC/'tools/finalindex.json').read_text()).get(object_id)
-    m=re.fullmatch(r"shapenet/04379243/([0-9a-f]{32})", str(value))
+    # finalindex contains one verified 31-character hexadecimal ShapeNet model
+    # identifier (21356) in addition to the usual 32-character identifiers.
+    # Accept only those two archive-safe forms; ZIP member inventory still
+    # proves the exact path before extraction.
+    m=re.fullmatch(r"shapenet/04379243/([0-9a-f]{31,32})", str(value))
     if not m: raise RuntimeError(f"official finalindex lacks safe 04379243 mapping for {object_id}: {value!r}")
     return value, m.group(1)
 
@@ -191,6 +195,9 @@ def run_one(config, resume=None):
     except BaseException as exc:
       r.result.update(status='failed',reason=f'{type(exc).__name__}: {exc}');r.save();print(f'FAILED object={object_id} stage={r.result["stage"]} log={run}',file=sys.stderr);raise
     print(f'SUCCESS object={object_id} sampling-only log={run} staging={stage}')
+    # Callers that orchestrate a decoder in a separate process need the exact
+    # timestamped locations; returning them does not change CLI behavior.
+    return {'object_id': object_id, 'run_dir': str(run), 'staging_dir': str(stage)}
 
 def plan():
     rows=[]
