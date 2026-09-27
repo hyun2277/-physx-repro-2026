@@ -1,0 +1,280 @@
+{
+  "proposal_only": true,
+  "rows": [
+    {
+      "object_id": "29354",
+      "scale_value_cm": 20.21143341064453,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/29354/scale.npy",
+      "scale_sha256": "deada59e8083e6da938a363cd86d7a5ecb0d0d132104393cc7a109a0b156527b",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/render-cond-29354-portable-20260925T185825Z/datasets/PhysXNet/renders_cond/29354_/000.png",
+      "condition_sha256": "2db40557423afe1f0e1ae4e85c72e702f25fee227931a564c92879c68f733e85",
+      "source_scale_expression": "existing official-code audit: predicted vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "24566",
+      "scale_value_cm": 26.331443786621094,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/24566/scale.npy",
+      "scale_sha256": "5e66e24b417b13acf86348f880b8e59c0e55f4532e19cc186e61fd6bc9c540cf",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/datasets/PhysXNet/renders_cond/24566_/000.png",
+      "condition_sha256": "2ded80c768b54702d9279028fed3c61441e63a159b34c45dfbdf37ccddd99230",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "29806",
+      "scale_value_cm": 15.045036315917969,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/29806/scale.npy",
+      "scale_sha256": "62845a11b9bef73efad414096b141d88b1d9dca7d408fd0fac5bd843f4df6cb1",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/000.png",
+      "condition_sha256": "ecc444a491dd490412acafcb93ab77b9b8ef03ded976b37e691da03e7c9cf6ea",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "21356",
+      "scale_value_cm": 10.54486083984375,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/21356/scale.npy",
+      "scale_sha256": "b183d9c885fb7de5d0ae8b6e0b0ed82b96436e731514ca593bf60bc80409905b",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/datasets/PhysXNet/renders_cond/21356_/000.png",
+      "condition_sha256": "894d1272bfd237a6c78c7542676815850106e501b5b64c02d8963ee404f0a859",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "27703",
+      "scale_value_cm": 26.803573608398438,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/27703/scale.npy",
+      "scale_sha256": "72abcbde3b5af48742d715dab3053541164f450ca8159d31a0c54b82451368ea",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/datasets/PhysXNet/renders_cond/27703_/000.png",
+      "condition_sha256": "67ea59036d7a7b2ffd2b20297424e6f8e0ceaa133ea5fade6300798565bfd0b4",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "30719",
+      "scale_value_cm": 21.8868408203125,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/30719/scale.npy",
+      "scale_sha256": "77f07ba4e1d997961399ee1a9e5aef8eba7e908a193534a701a05a8843d656b1",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/datasets/PhysXNet/renders_cond/30719_/000.png",
+      "condition_sha256": "9cafc3ce973dcb40230179095866e54ead4f0da7bf8fcf82b3095f620198e769",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "21314",
+      "scale_value_cm": 12.552658081054688,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/21314/scale.npy",
+      "scale_sha256": "103a603f6130c458dafda824171f6318b8778d3c7ff2384077a193a3df012df8",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/datasets/PhysXNet/renders_cond/21314_/000.png",
+      "condition_sha256": "535151f35376504a1b4edcfc263737cf64f7ee1136e2a584b8e7052f86078a1f",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "32980",
+      "scale_value_cm": 2.9520492553710938,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/32980/scale.npy",
+      "scale_sha256": "c0e6ac30503ca39e84528bbce316f3c30666be7c8f24553b58d2328303e40b27",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/datasets/PhysXNet/renders_cond/32980_/000.png",
+      "condition_sha256": "456b75927f354ec6df3097c3190c9e69f0abde6af5736909b9b9cc322cc7875f",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "48419",
+      "scale_value_cm": 3.2145614624023438,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/48419/scale.npy",
+      "scale_sha256": "1a094300a26cd19b43f90b78ba5ff0a999554b65e183eff523cec618dd069ef4",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-48419-20260927T111917Z-0339ac9f4d2c/datasets/PhysXNet/renders_cond/48419_/000.png",
+      "condition_sha256": "22012d5adfc29ad5f492846563566b01a7c72b9ee69a68467ab7fb57ddf31c1f",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "38882",
+      "scale_value_cm": 12.338470458984375,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/38882/scale.npy",
+      "scale_sha256": "7c84300ec588af6954d5e7a0b90e59c9b88fd7386cc8b5774c68d7f64545a0bf",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-38882-20260927T112001Z-34dce7c4a88d/datasets/PhysXNet/renders_cond/38882_/000.png",
+      "condition_sha256": "50f89ccf40fbe19583db004881e8aa173159a954c648cec1ed9c2ed355adf640",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "15821",
+      "scale_value_cm": 0.1915435791015625,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/15821/scale.npy",
+      "scale_sha256": "e6affe310cd2f4a8370311e61ca9d753cfc0504f0453936e64318992fbb293cd",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15821-20260927T112047Z-93e8bb019216/datasets/PhysXNet/renders_cond/15821_/000.png",
+      "condition_sha256": "664073da307fb6b460a4d1bbf71d9874e0ad4c0967c7618305ac5bd5f4813929",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "45443",
+      "scale_value_cm": 6.643798828125,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/45443/scale.npy",
+      "scale_sha256": "bb354dbe485ca41796431672c1b323a2542e840373579e08fd3fd1cf84b2db09",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45443-20260927T141055Z-b69de6546935/datasets/PhysXNet/renders_cond/45443_/000.png",
+      "condition_sha256": "a439aa7a6cd910d486336cab93638eba0e138f43c70fe19e0b8a5d6d0214809e",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "45645",
+      "scale_value_cm": 0.313690185546875,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/45645/scale.npy",
+      "scale_sha256": "3058cc96e1d1cbe27ed293f319401fc8611bb5f7e79dc1a48c23f135184cb46c",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45645-20260927T141510Z-565f6ccc031c/datasets/PhysXNet/renders_cond/45645_/000.png",
+      "condition_sha256": "4a0f3effb9a4a3fb407f26829613bc25d167c60dacf2dfa94effef0706601e5c",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "15896",
+      "scale_value_cm": 96.43376159667969,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/15896/scale.npy",
+      "scale_sha256": "3022dc9d27b64ad5d3abe26dd0eb348adf7ea60c92b9718aea12df25d7c505d7",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15896-20260927T141907Z-da1803861916/datasets/PhysXNet/renders_cond/15896_/000.png",
+      "condition_sha256": "753ec76cb8f95252467567e00140ffce474364790c5ccfaccc106ebe6b25bc0c",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "13737",
+      "scale_value_cm": 20.799091339111328,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/13737/scale.npy",
+      "scale_sha256": "64fbeb3b898c9c1d5f2e07624800b00ebcb52f7bfa84295af55c2a6990e790fc",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-13737-20260927T142245Z-230830abb8d3/datasets/PhysXNet/renders_cond/13737_/000.png",
+      "condition_sha256": "f8728c1aa0fd07262b2d962c1892f35344279f5f48b582d84d2bfef916cf0bc4",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "16693",
+      "scale_value_cm": 6.254322052001953,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/16693/scale.npy",
+      "scale_sha256": "912716d41dc136c5308e2b5edb740bbab9dda7410a3dc3e6181d66d34d937f00",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-16693-20260927T142622Z-eac4d784e10a/datasets/PhysXNet/renders_cond/16693_/000.png",
+      "condition_sha256": "7bea1d9d89cc05edb8a93d48696bc2b8444463c8a9a39087d55e0971f91538e3",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "19661",
+      "scale_value_cm": 12.995140075683594,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/19661/scale.npy",
+      "scale_sha256": "d020f21d3a4274164e9c7376d15d4efad7310871032dc439cfb45c0659cc0e57",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19661-20260927T122526Z-54a86e6c4f09/datasets/PhysXNet/renders_cond/19661_/000.png",
+      "condition_sha256": "0b86285750a26996bdd5ad131659170ad2bd15ce8a779fd6cf3c9d3aff15e77a",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "25862",
+      "scale_value_cm": 23.416976928710938,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/25862/scale.npy",
+      "scale_sha256": "36893f3ae36eb923e3e94078d943507d8d6a512369cb0cdceedd1fcdd6b21280",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25862-20260927T122901Z-9149461ee2a3/datasets/PhysXNet/renders_cond/25862_/000.png",
+      "condition_sha256": "9ba0cc92d8cb4db2dc526fb8b747aa5aff2f0b36ede6dadb19a9bc801ba20e3c",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "31114",
+      "scale_value_cm": 0.06031036376953125,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/31114/scale.npy",
+      "scale_sha256": "9f15eaeeb93a0c2b3794fcfa0fe935801559511da239b21b27ace2637870fb24",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-31114-20260927T123339Z-d2820a3cd135/datasets/PhysXNet/renders_cond/31114_/000.png",
+      "condition_sha256": "2c0322bf9fc7bcc90751c134adebc15c8a8813898a6cad3c0ffe87d3b05c7685",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "22738",
+      "scale_value_cm": 16.917388916015625,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/22738/scale.npy",
+      "scale_sha256": "d93e93558e37a40ba948bfb97c25135d33a8f9ed84678ab0646795a09ad09259",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-22738-20260927T123732Z-fafea3822b72/datasets/PhysXNet/renders_cond/22738_/000.png",
+      "condition_sha256": "3b2d98297e099de1ced68cf87539b2b0807960d19bb5d424514f196979207522",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "24163",
+      "scale_value_cm": 39.30143737792969,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/24163/scale.npy",
+      "scale_sha256": "7ebd9229588544a78a9ce7d1005af2accefbfb59587387998b6207fbeb103240",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24163-20260927T124118Z-98b365f21e48/datasets/PhysXNet/renders_cond/24163_/000.png",
+      "condition_sha256": "37c45b7c6c139a626fddbad310111d36ba5cb662f19348bfe8d088dd0abddfcf",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "27499",
+      "scale_value_cm": 10.549751281738281,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/27499/scale.npy",
+      "scale_sha256": "69bbc1278b781a54393298921a4e9a9529cebcbf6110b375b7b0d18b6613deb1",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27499-20260927T124529Z-ac778e0f577f/datasets/PhysXNet/renders_cond/27499_/000.png",
+      "condition_sha256": "f0a28cc5e494f91fcc53fe080ed04f8c50cfaae646171e6e483a77949ff478ba",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "25598",
+      "scale_value_cm": 13.35455322265625,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/25598/scale.npy",
+      "scale_sha256": "b15bc5d0238fc0bf11f9c87ac0bc99ba0dfe55f1e851e8474124cdf12885667d",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25598-20260927T124916Z-a09043344e69/datasets/PhysXNet/renders_cond/25598_/000.png",
+      "condition_sha256": "a65446205fb0e8b43126b5f960f214f1885fd73663728ef47efb0eb625e06cfd",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "19335",
+      "scale_value_cm": 6.308441162109375,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/19335/scale.npy",
+      "scale_sha256": "50305eabb3831cc0fbfbdd7f413133328139a8e499d66e741758df6c1fab2e55",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19335-20260927T125249Z-0cb2e79b5874/datasets/PhysXNet/renders_cond/19335_/000.png",
+      "condition_sha256": "92e5a1dcd4b9482d3264fd7c7005b32fa3ab6f0985aab5a8884845a805a44305",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    },
+    {
+      "object_id": "34676",
+      "scale_value_cm": 42.42515563964844,
+      "scale_dtype": "float64 scalar",
+      "scale_path": "/home/minsujo/Desktop/SH/PHYSx/staging/physx-bench-dqs-preparation-20260927/physx_result/outputs_physxgen_mobility/34676/scale.npy",
+      "scale_sha256": "2feaf8f9c1ea0ed48ad73ad97cd8e7d275c22d87c973eb951ae437fa588beeab",
+      "condition_path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-34676-20260927T125633Z-97831a19566c/datasets/PhysXNet/renders_cond/34676_/000.png",
+      "condition_sha256": "07e188564e6abfe55613bbd547fe9ea361996b894b42d21ced753224dfbd5f6a",
+      "source_scale_expression": "existing property-head channel 0 vertex mean",
+      "conversion": "proposed_conversion"
+    }
+  ]
+}
