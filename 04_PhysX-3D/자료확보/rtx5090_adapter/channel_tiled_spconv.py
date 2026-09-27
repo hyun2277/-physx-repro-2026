@@ -35,6 +35,14 @@ def _tiled_forward(self, sparse_input, add_input=None):
 
     limit = (INT32_MAX - 1) // (n * features.element_size())
     tile_channels = min(256, (limit // 32) * 32)
+    # An explicit production sensitivity probe may choose a smaller safe tile.
+    # Values outside the established multiple-of-32, int32-safe range fail closed.
+    requested = os.environ.get("PHYSX_TILE_CHANNELS")
+    if requested is not None:
+        requested_value = int(requested)
+        if requested_value < 32 or requested_value % 32 or requested_value > tile_channels:
+            raise RuntimeError("PHYSX_TILE_CHANNELS is not a safe multiple-of-32 tile")
+        tile_channels = requested_value
     if os.environ.get("PHYSX_TILE_TEST_FORCE") == "1":
         tile_channels = min(tile_channels, int(os.environ.get("PHYSX_TILE_TEST_CHANNELS", "32")))
     if tile_channels < 32:

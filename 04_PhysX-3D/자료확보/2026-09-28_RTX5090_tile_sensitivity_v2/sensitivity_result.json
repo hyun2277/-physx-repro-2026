@@ -1,0 +1,1324 @@
+{
+  "scope": "same input, seed=1, checkpoint, native spconv, overlay and memory policy; proposed public-only diagnostics, not paper Table 2",
+  "tile_configs": {
+    "baseline_a": 256,
+    "baseline_b_control": 256,
+    "tile_128": 128
+  },
+  "samples": {
+    "29354": {
+      "configs": {
+        "baseline_a": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_a/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_a/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_a/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "16d8223302adfb957954942407d846f3fadf629b012dc3d71fc1e6ebaff36335",
+            "raw": "de89f2bae098ebfb8317ec0cf15d2e5f286b473d0a1bf6d1ddcf043f2dfce347",
+            "mesh": "d2c6f392186a1849aaefbdac034d0f0ad6b71de1fd943ec482e804de0ce72e40"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                381954,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                763868,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                381954,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                381954,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 381954,
+            "faces": 763868
+          },
+          "scale_mean_cm": 99.78914642333984,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": false
+            }
+          }
+        },
+        "baseline_b_control": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_b_control/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_b_control/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/baseline_b_control/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "bc89f17037f65c4fb15a71f495c76dddbb6f6272cbe90a0aac37b57f2fbcdcc7",
+            "raw": "5a73072f6858831b51a73f6a17acbc3eafa9acb855f202ff03d0c319da881996",
+            "mesh": "ffa9585d10dbfa2f3605190a239b7696972353431a43d7104944e2d89561baa9"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                381974,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                763936,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                381974,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                381974,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 381974,
+            "faces": 763936
+          },
+          "scale_mean_cm": 99.78961944580078,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": false
+            }
+          }
+        },
+        "tile_128": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/tile_128/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/tile_128/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29354/tile_128/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "3eb700221499a73d8f7cd8cf6d53d4553d9af918a9877ba34bc65a05f3563b65",
+            "raw": "ed92e33efa6721118507a15793f9be6a90ecf03c86b1a926d4ade09fcba257c3",
+            "mesh": "0a63086728430a7c63c146cb82797fa0083a809250cdc131098154a8d0bea3a8"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                381880,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                763760,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                381880,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                381880,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 381880,
+            "faces": 763760
+          },
+          "scale_mean_cm": 98.74759674072266,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": false
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "control_256_repeat": {
+          "latent": {
+            "same_key_set": true,
+            "per_tensor": {
+              "slat_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  4
+                ],
+                "b_shape": [
+                  33886,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "slat_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  8
+                ],
+                "b_shape": [
+                  33886,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.012185454368591309,
+                "mean_abs": 0.0015650641871616244,
+                "relative_l2": 0.00030085857724770904,
+                "exact_equal": false
+              },
+              "phy_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  4
+                ],
+                "b_shape": [
+                  33886,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "phy_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  8
+                ],
+                "b_shape": [
+                  33886,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.1464378833770752,
+                "mean_abs": 0.0019703349098563194,
+                "relative_l2": 0.0012317465152591467,
+                "exact_equal": false
+              }
+            },
+            "within_a_coordinate_equal": true,
+            "within_b_coordinate_equal": true
+          },
+          "vertices": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              3
+            ],
+            "b_shape": [
+              381974,
+              3
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "vertex_physics_32ch": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              32
+            ],
+            "b_shape": [
+              381974,
+              32
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "property_head_14ch": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              14
+            ],
+            "b_shape": [
+              381974,
+              14
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          }
+        },
+        "tile_128_vs_256": {
+          "latent": {
+            "same_key_set": true,
+            "per_tensor": {
+              "slat_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  4
+                ],
+                "b_shape": [
+                  33886,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "slat_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  8
+                ],
+                "b_shape": [
+                  33886,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.012335777282714844,
+                "mean_abs": 0.001604571589268744,
+                "relative_l2": 0.0003070484381169081,
+                "exact_equal": false
+              },
+              "phy_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  4
+                ],
+                "b_shape": [
+                  33886,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "phy_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  33886,
+                  8
+                ],
+                "b_shape": [
+                  33886,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.3322024345397949,
+                "mean_abs": 0.0015742789255455136,
+                "relative_l2": 0.0012128395028412342,
+                "exact_equal": false
+              }
+            },
+            "within_a_coordinate_equal": true,
+            "within_b_coordinate_equal": true
+          },
+          "vertices": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              3
+            ],
+            "b_shape": [
+              381880,
+              3
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "vertex_physics_32ch": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              32
+            ],
+            "b_shape": [
+              381880,
+              32
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "property_head_14ch": {
+            "same_shape": false,
+            "a_shape": [
+              381954,
+              14
+            ],
+            "b_shape": [
+              381880,
+              14
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          }
+        }
+      },
+      "public_only_geometry": {
+        "baseline_a": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.24931224586754716,
+            "cd_l2_sum_raw": 0.06395365758570515,
+            "cd_l1_pred_to_gt_mean": 0.05626053152258765,
+            "cd_l1_gt_to_pred_mean": 0.19305171434495952,
+            "fscore_raw": 0.3617170270163831,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.4873046875,
+            "recall": 0.28759765625,
+            "cd_l1_table_display_x1e3": 249.31224586754715,
+            "fscore_table_display_x1e2": 36.17170270163831,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.12704940303654744,
+            "cd_l2_sum_raw": 0.01738401341059621,
+            "cd_l1_pred_to_gt_mean": 0.09946990037842332,
+            "cd_l1_gt_to_pred_mean": 0.027579502658124103,
+            "fscore_raw": 0.555662039949788,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.411376953125,
+            "recall": 0.8558349609375,
+            "cd_l1_table_display_x1e3": 127.04940303654743,
+            "fscore_table_display_x1e2": 55.5662039949788,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "baseline_b_control": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.2493017342266684,
+            "cd_l2_sum_raw": 0.0640385409048734,
+            "cd_l1_pred_to_gt_mean": 0.05603586625725993,
+            "cd_l1_gt_to_pred_mean": 0.19326586796940848,
+            "fscore_raw": 0.36241385077081695,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.4891357421875,
+            "recall": 0.287841796875,
+            "cd_l1_table_display_x1e3": 249.3017342266684,
+            "fscore_table_display_x1e2": 36.241385077081695,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.1264828244466927,
+            "cd_l2_sum_raw": 0.01724282750979761,
+            "cd_l1_pred_to_gt_mean": 0.09901893487679704,
+            "cd_l1_gt_to_pred_mean": 0.02746388956989567,
+            "fscore_raw": 0.557622162299356,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.413330078125,
+            "recall": 0.856689453125,
+            "cd_l1_table_display_x1e3": 126.4828244466927,
+            "fscore_table_display_x1e2": 55.7622162299356,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "tile_128": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.2492022450211953,
+            "cd_l2_sum_raw": 0.06402095405647759,
+            "cd_l1_pred_to_gt_mean": 0.05599037521066824,
+            "cd_l1_gt_to_pred_mean": 0.19321186981052707,
+            "fscore_raw": 0.3630598281225563,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.4932861328125,
+            "recall": 0.2872314453125,
+            "cd_l1_table_display_x1e3": 249.2022450211953,
+            "fscore_table_display_x1e2": 36.305982812255635,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.12600589277095686,
+            "cd_l2_sum_raw": 0.01711230101527731,
+            "cd_l1_pred_to_gt_mean": 0.09853977071462393,
+            "cd_l1_gt_to_pred_mean": 0.027466122056332927,
+            "fscore_raw": 0.5540753349290951,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.40966796875,
+            "recall": 0.855712890625,
+            "cd_l1_table_display_x1e3": 126.00589277095686,
+            "fscore_table_display_x1e2": 55.40753349290951,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        }
+      },
+      "between_generated_mesh_geometry": {
+        "control_256_repeat": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.020099047708046908,
+            "cd_l2_sum_raw": 0.00027733012159943755,
+            "cd_l1_pred_to_gt_mean": 0.010053007584421805,
+            "cd_l1_gt_to_pred_mean": 0.010046040123625102,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 20.099047708046907,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.020078408432511963,
+            "cd_l2_sum_raw": 0.000276760197604356,
+            "cd_l1_pred_to_gt_mean": 0.010042676110051212,
+            "cd_l1_gt_to_pred_mean": 0.010035732322460751,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 20.078408432511964,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "tile_128_vs_256": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.01898282855475597,
+            "cd_l2_sum_raw": 0.00024956720650488136,
+            "cd_l1_pred_to_gt_mean": 0.009532060148103785,
+            "cd_l1_gt_to_pred_mean": 0.009450768406652186,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 18.98282855475597,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.018963517708291324,
+            "cd_l2_sum_raw": 0.0002490555650670701,
+            "cd_l1_pred_to_gt_mean": 0.009522258131803416,
+            "cd_l1_gt_to_pred_mean": 0.009441259576487908,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 18.963517708291324,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        }
+      },
+      "control_relative_l2_vertex": Infinity,
+      "tile_relative_l2_vertex": Infinity,
+      "predeclared_numeric_bound": Infinity,
+      "judgement": "numerically_different_but_semantically_stable"
+    },
+    "29806": {
+      "configs": {
+        "baseline_a": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_a/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_a/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_a/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "e592f7b4869819472e7c369e685e4e5b8025fc1a7c888172a7891e0e140e3267",
+            "raw": "5759e201e272d39591145e9230ef58a6640fb77f4934a1849439f34902ac5a12",
+            "mesh": "4ca2010523d22e5922f8e0e07b13221fa95505117ab74a7fb0b29e81575186af"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                180276,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                360544,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                180276,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                180276,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 180276,
+            "faces": 360544
+          },
+          "scale_mean_cm": 105.0419921875,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": true
+            }
+          }
+        },
+        "baseline_b_control": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_b_control/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_b_control/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/baseline_b_control/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "46045e09039d96150ef97cf7853e0a2f9272f70109a2218eb3846aff10d9d9f7",
+            "raw": "01616099ac23124648cd6dfb34d77fc3def48666a836be5634b9d43d69ab1ebb",
+            "mesh": "63857980bae187ecf07e13a738beae12c6db44901c3601c9b86b7ddc11bb545e"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                180284,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                360560,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                180284,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                180284,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 180284,
+            "faces": 360560
+          },
+          "scale_mean_cm": 105.05020904541016,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": true
+            }
+          }
+        },
+        "tile_128": {
+          "paths": {
+            "latent": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/tile_128/sampling/sampled_latents.pt",
+            "raw": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/tile_128/mesh/mesh_physics_raw.pt",
+            "mesh": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-tile-sensitivity-20260927T151323Z-f125076c0d51/29806/tile_128/mesh/mesh.obj"
+          },
+          "sha256": {
+            "latent": "01736b00e6f83d5e75610274c670348618b07e34253d03e24987f1db04cc4f43",
+            "raw": "f6c76c82dbd8b29be6020e6a17dd123b419fd62cda61f64c3f1090de633e9f91",
+            "mesh": "bc0c0dd2cd06bc21d5e18b4dbdd1074232d742a00f452ab6a2f23d114cead79a"
+          },
+          "raw_schema": {
+            "vertices": {
+              "shape": [
+                180324,
+                3
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "faces": {
+              "shape": [
+                360640,
+                3
+              ],
+              "dtype": "torch.int64",
+              "finite": true
+            },
+            "vertex_attrs": {
+              "shape": [
+                180324,
+                6
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            },
+            "vertex_physics": {
+              "shape": [
+                180324,
+                32
+              ],
+              "dtype": "torch.float32",
+              "finite": true
+            }
+          },
+          "obj_reload": {
+            "vertices": 180324,
+            "faces": 360640
+          },
+          "scale_mean_cm": 105.04900360107422,
+          "official_group_diagnostic": {
+            "predicted_num_group": 2,
+            "moving_group_meaningful": {
+              "1": true
+            }
+          }
+        }
+      },
+      "comparisons": {
+        "control_256_repeat": {
+          "latent": {
+            "same_key_set": true,
+            "per_tensor": {
+              "slat_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  4
+                ],
+                "b_shape": [
+                  11216,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "slat_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  8
+                ],
+                "b_shape": [
+                  11216,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.16405296325683594,
+                "mean_abs": 0.00295397755689919,
+                "relative_l2": 0.0017271566903218627,
+                "exact_equal": false
+              },
+              "phy_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  4
+                ],
+                "b_shape": [
+                  11216,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "phy_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  8
+                ],
+                "b_shape": [
+                  11216,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.4614901542663574,
+                "mean_abs": 0.004447821527719498,
+                "relative_l2": 0.004664198961108923,
+                "exact_equal": false
+              }
+            },
+            "within_a_coordinate_equal": true,
+            "within_b_coordinate_equal": true
+          },
+          "vertices": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              3
+            ],
+            "b_shape": [
+              180284,
+              3
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "vertex_physics_32ch": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              32
+            ],
+            "b_shape": [
+              180284,
+              32
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "property_head_14ch": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              14
+            ],
+            "b_shape": [
+              180284,
+              14
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          }
+        },
+        "tile_128_vs_256": {
+          "latent": {
+            "same_key_set": true,
+            "per_tensor": {
+              "slat_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  4
+                ],
+                "b_shape": [
+                  11216,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "slat_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  8
+                ],
+                "b_shape": [
+                  11216,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 0.12967896461486816,
+                "mean_abs": 0.0025325706228613853,
+                "relative_l2": 0.0014709082897752523,
+                "exact_equal": false
+              },
+              "phy_coords": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  4
+                ],
+                "b_shape": [
+                  11216,
+                  4
+                ],
+                "a_dtype": "torch.int32",
+                "b_dtype": "torch.int32",
+                "finite": true,
+                "exact_equal": true,
+                "unequal_count": 0
+              },
+              "phy_feats": {
+                "same_shape": true,
+                "a_shape": [
+                  11216,
+                  8
+                ],
+                "b_shape": [
+                  11216,
+                  8
+                ],
+                "a_dtype": "torch.float32",
+                "b_dtype": "torch.float32",
+                "finite": true,
+                "max_abs": 1.0050323009490967,
+                "mean_abs": 0.005735552404075861,
+                "relative_l2": 0.0060693128034472466,
+                "exact_equal": false
+              }
+            },
+            "within_a_coordinate_equal": true,
+            "within_b_coordinate_equal": true
+          },
+          "vertices": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              3
+            ],
+            "b_shape": [
+              180324,
+              3
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "vertex_physics_32ch": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              32
+            ],
+            "b_shape": [
+              180324,
+              32
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          },
+          "property_head_14ch": {
+            "same_shape": false,
+            "a_shape": [
+              180276,
+              14
+            ],
+            "b_shape": [
+              180324,
+              14
+            ],
+            "a_dtype": "torch.float32",
+            "b_dtype": "torch.float32"
+          }
+        }
+      },
+      "public_only_geometry": {
+        "baseline_a": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.34903908686107377,
+            "cd_l2_sum_raw": 0.08412370818740808,
+            "cd_l1_pred_to_gt_mean": 0.12108965802399062,
+            "cd_l1_gt_to_pred_mean": 0.22794942883708316,
+            "fscore_raw": 0.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.0,
+            "recall": 0.0,
+            "cd_l1_table_display_x1e3": 349.03908686107377,
+            "fscore_table_display_x1e2": 0.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.07082654917917733,
+            "cd_l2_sum_raw": 0.0032970172688346535,
+            "cd_l1_pred_to_gt_mean": 0.03622611839277376,
+            "cd_l1_gt_to_pred_mean": 0.03460043078640357,
+            "fscore_raw": 0.6905945694547722,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.76806640625,
+            "recall": 0.6273193359375,
+            "cd_l1_table_display_x1e3": 70.82654917917732,
+            "fscore_table_display_x1e2": 69.05945694547721,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "baseline_b_control": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.3489455370036689,
+            "cd_l2_sum_raw": 0.08408986133629648,
+            "cd_l1_pred_to_gt_mean": 0.1211352836364765,
+            "cd_l1_gt_to_pred_mean": 0.22781025336719243,
+            "fscore_raw": 0.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.0,
+            "recall": 0.0,
+            "cd_l1_table_display_x1e3": 348.9455370036689,
+            "fscore_table_display_x1e2": 0.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.07108602626352287,
+            "cd_l2_sum_raw": 0.003311397894757424,
+            "cd_l1_pred_to_gt_mean": 0.03646665771654958,
+            "cd_l1_gt_to_pred_mean": 0.034619368546973284,
+            "fscore_raw": 0.6926638828533674,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.7720947265625,
+            "recall": 0.6280517578125,
+            "cd_l1_table_display_x1e3": 71.08602626352287,
+            "fscore_table_display_x1e2": 69.26638828533675,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "tile_128": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.34948906811441927,
+            "cd_l2_sum_raw": 0.08424328985856805,
+            "cd_l1_pred_to_gt_mean": 0.1215721069959074,
+            "cd_l1_gt_to_pred_mean": 0.22791696111851187,
+            "fscore_raw": 0.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.0,
+            "recall": 0.0,
+            "cd_l1_table_display_x1e3": 349.48906811441924,
+            "fscore_table_display_x1e2": 0.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.07088114155505848,
+            "cd_l2_sum_raw": 0.0032972470341211604,
+            "cd_l1_pred_to_gt_mean": 0.036249733447474855,
+            "cd_l1_gt_to_pred_mean": 0.034631408107583625,
+            "fscore_raw": 0.6914813537890864,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 0.770263671875,
+            "recall": 0.6273193359375,
+            "cd_l1_table_display_x1e3": 70.88114155505848,
+            "fscore_table_display_x1e2": 69.14813537890863,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        }
+      },
+      "between_generated_mesh_geometry": {
+        "control_256_repeat": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.012765763111678872,
+            "cd_l2_sum_raw": 0.00011898683101153496,
+            "cd_l1_pred_to_gt_mean": 0.006371286498909268,
+            "cd_l1_gt_to_pred_mean": 0.006394476612769604,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 12.765763111678872,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.012758256064228823,
+            "cd_l2_sum_raw": 0.00011880167571077077,
+            "cd_l1_pred_to_gt_mean": 0.006367539031607913,
+            "cd_l1_gt_to_pred_mean": 0.00639071703262091,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 12.758256064228823,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        },
+        "tile_128_vs_256": {
+          "raw": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.014031006244467622,
+            "cd_l2_sum_raw": 0.00013834770472973275,
+            "cd_l1_pred_to_gt_mean": 0.006988625277791309,
+            "cd_l1_gt_to_pred_mean": 0.007042380966676314,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 14.031006244467621,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          },
+          "canonical": {
+            "status": "success",
+            "paper_equivalent": false,
+            "authority": "proposal",
+            "sampling": {
+              "method": "area_weighted_barycentric_pcg64",
+              "seed": 20260928,
+              "count_per_mesh": 8192
+            },
+            "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred",
+            "cd_l1_sum_raw": 0.014021992111823568,
+            "cd_l2_sum_raw": 0.00013813288034908374,
+            "cd_l1_pred_to_gt_mean": 0.0069841456433835025,
+            "cd_l1_gt_to_pred_mean": 0.007037846468440065,
+            "fscore_raw": 1.0,
+            "fscore_threshold_euclidean": 0.05,
+            "precision": 1.0,
+            "recall": 1.0,
+            "cd_l1_table_display_x1e3": 14.021992111823568,
+            "fscore_table_display_x1e2": 100.0,
+            "pred_sample_count": 8192,
+            "gt_sample_count": 8192
+          }
+        }
+      },
+      "control_relative_l2_vertex": Infinity,
+      "tile_relative_l2_vertex": Infinity,
+      "predeclared_numeric_bound": Infinity,
+      "judgement": "numerically_different_but_semantically_stable"
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "run": "/home/minsujo/Desktop/SH/PHYSx/logs/rtx5090-tile-sensitivity/20260927T151323Z-f125076c0d51",
+  "run_result_sha256": "e359ac4f568b608997ae27370f84dec9284da482ed901a66e44e48de6427561e",
+  "comparison_sha256": "fdd2e5f0e62aa193c7df6db21e8354befdeb88ff9a0ce54951d6177bf0777e70",
+  "channel_tiled_native_trace": {
+    "29354": {
+      "baseline_a": [
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 256,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        },
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 256,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        }
+      ],
+      "baseline_b_control": [
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 256,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        },
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 256,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        }
+      ],
+      "tile_128": [
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 128,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        },
+        {
+          "adapter": "channel_tiled_subm",
+          "N": 2168704,
+          "C": 512,
+          "O": 256,
+          "dtype": "torch.float16",
+          "tile_channels": 128,
+          "indice_key": "res_256",
+          "coordinate_min": [
+            0,
+            0,
+            80,
+            28
+          ],
+          "coordinate_max": [
+            0,
+            255,
+            175,
+            227
+          ],
+          "duplicate_rows": 0
+        }
+      ]
+    },
+    "29806": {
+      "baseline_a": [],
+      "baseline_b_control": [],
+      "tile_128": []
+    }
+  },
+  "scope": "new tile-sensitivity outputs only; no prior 25-sample artifact was modified"
+}
