@@ -1,0 +1,455 @@
+{
+  "started_utc": "2026-09-27T12:25:23.249276+00:00",
+  "global_guard": {
+    "source": {
+      "head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+      "allowed_tracked_pyc": [
+        "trellis/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_elastic_mixin.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_structure_flow.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_structure_vae.cpython-310.pyc",
+        "trellis/models/__pycache__/structured_latent_flow.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/base.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_gs.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_mesh.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_rf.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/encoder.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/propertyencoder.cpython-310.pyc",
+        "trellis/modules/__pycache__/norm.cpython-310.pyc",
+        "trellis/modules/__pycache__/spatial.cpython-310.pyc",
+        "trellis/modules/__pycache__/utils.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/full_attn.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/modules.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/basic.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/linear.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/nonlinearity.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/norm.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/spatial.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/full_attn.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/modules.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/serialized_attn.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/windowed_attn.cpython-310.pyc",
+        "trellis/modules/sparse/conv/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/conv/__pycache__/conv_spconv.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/blocks.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/modulated.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/blocks.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/modulated.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/__init__.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/base.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/trellis_image_to_3d.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/trellis_text_to_3d.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/__init__.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/base.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/classifier_free_guidance_mixin.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/flow_euler.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/guidance_interval_mixin.cpython-310.pyc",
+        "trellis/renderers/__pycache__/__init__.cpython-310.pyc",
+        "trellis/renderers/__pycache__/gaussian_render.cpython-310.pyc",
+        "trellis/renderers/__pycache__/mesh_renderer.cpython-310.pyc",
+        "trellis/renderers/__pycache__/octree_renderer.cpython-310.pyc",
+        "trellis/renderers/__pycache__/sh_utils.cpython-310.pyc",
+        "trellis/representations/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/gaussian_model.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/general_utils.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/cube2mesh.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/utils_cube.cpython-310.pyc",
+        "trellis/representations/mesh/flexicubes/__pycache__/flexicubes.cpython-310.pyc",
+        "trellis/representations/mesh/flexicubes/__pycache__/tables.cpython-310.pyc",
+        "trellis/representations/octree/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/octree/__pycache__/octree_dfs.cpython-310.pyc",
+        "trellis/representations/radiance_field/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/radiance_field/__pycache__/strivec.cpython-310.pyc",
+        "trellis/utils/__pycache__/__init__.cpython-310.pyc",
+        "trellis/utils/__pycache__/elastic_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/postprocessing_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/random_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/render_utils.cpython-310.pyc"
+      ],
+      "other_tracked_changes": []
+    },
+    "checkpoints": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.json",
+        "sha256": "e97ba1703c94c4f88f5d68d91bf1fa3fc8b285ad98f339490e9ad1824e8be80c",
+        "bytes": 406
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.pt",
+        "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+        "bytes": 1281392840
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+        "sha256": "f9f9a5e21b61a5abdf18cbdd48dfb2f197eb7024421cad58141b6a048d5f6c99",
+        "bytes": 445
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+        "sha256": "40e9b76b5f4c6663f87539151eb6b40b209e9bb2b09ef5f18feb58e8372a7a60",
+        "bytes": 1619037489
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.json",
+        "sha256": "6acd171f28d4d113333d61613ecff8ed5f8d1e7e752615314802b57d7c67d4c6",
+        "bytes": 464
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.pt",
+        "sha256": "abf3356a382e13e85e18c282a0963e5d3633b6bee1f29e974258c04a1ff1ac9b",
+        "bytes": 2822875445
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.json",
+        "sha256": "9354eceecec5a7f3ec225c235357eb3d6703ef0e3a92d30bceadea9735fe8e16",
+        "bytes": 372
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt",
+        "sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4",
+        "bytes": 1099504133
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.json",
+        "sha256": "821da04043191037b444356986f83489eb6e758a96499aae36b2086113f339fa",
+        "bytes": 181
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.pt",
+        "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2",
+        "bytes": 1099495424
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/pipeline.json",
+        "sha256": "6a80728f55ffb644a57f1d80219bc0ef2e06c5ef4c6c3e2f44ef21feed7394ab",
+        "bytes": 2821
+      }
+    ],
+    "gpu": {
+      "index": 1,
+      "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+      "name": "NVIDIA GeForce RTX 5090",
+      "total_mib": 32607,
+      "free_mib": 32048,
+      "sampled_monitor_limit_mib": 28000,
+      "reserve_mib": 4607
+    },
+    "cuda_overlay": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-04379243-12-batch/20260927T122518Z-23af304228e1/cuda-home"
+  },
+  "protocol": "public-materials-independent-evaluation-v1",
+  "paper_equivalent": false,
+  "selection": [
+    {
+      "object_id": "19661",
+      "test_row": 37,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/1c90216659d7b97fec5d8105ca6b7dcc",
+      "part_obj_count": 2,
+      "texture_member_count": 2,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/19661.json",
+        "version_1/partseg/19661/objs/0.obj",
+        "version_1/partseg/19661/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/1c90216659d7b97fec5d8105ca6b7dcc/models/model_normalized.obj",
+        "04379243/1c90216659d7b97fec5d8105ca6b7dcc/models/model_normalized.mtl",
+        "04379243/1c90216659d7b97fec5d8105ca6b7dcc/images/texture0.jpg",
+        "04379243/1c90216659d7b97fec5d8105ca6b7dcc/images/texture1.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "25862",
+      "test_row": 51,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/8eb366f4f602219b490ad276cd2af3a4",
+      "part_obj_count": 2,
+      "texture_member_count": 3,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/25862.json",
+        "version_1/partseg/25862/objs/0.obj",
+        "version_1/partseg/25862/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/8eb366f4f602219b490ad276cd2af3a4/models/model_normalized.obj",
+        "04379243/8eb366f4f602219b490ad276cd2af3a4/models/model_normalized.mtl",
+        "04379243/8eb366f4f602219b490ad276cd2af3a4/images/texture0.jpg",
+        "04379243/8eb366f4f602219b490ad276cd2af3a4/images/texture1.jpg",
+        "04379243/8eb366f4f602219b490ad276cd2af3a4/images/texture2.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "27370",
+      "test_row": 52,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/a4d149a48607de3d92f4c88fd91c6b1b",
+      "part_obj_count": 2,
+      "texture_member_count": 5,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/27370.json",
+        "version_1/partseg/27370/objs/0.obj",
+        "version_1/partseg/27370/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/models/model_normalized.obj",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/models/model_normalized.mtl",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/images/texture0.jpg",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/images/texture1.jpg",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/images/texture2.jpg",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/images/texture3.jpg",
+        "04379243/a4d149a48607de3d92f4c88fd91c6b1b/images/texture4.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "31114",
+      "test_row": 56,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/edfc8ca3568153d7e8ee6c6df61c5951",
+      "part_obj_count": 2,
+      "texture_member_count": 2,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/31114.json",
+        "version_1/partseg/31114/objs/0.obj",
+        "version_1/partseg/31114/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/edfc8ca3568153d7e8ee6c6df61c5951/models/model_normalized.obj",
+        "04379243/edfc8ca3568153d7e8ee6c6df61c5951/models/model_normalized.mtl",
+        "04379243/edfc8ca3568153d7e8ee6c6df61c5951/images/texture0.jpg",
+        "04379243/edfc8ca3568153d7e8ee6c6df61c5951/images/texture1.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "22738",
+      "test_row": 79,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/532a4a4b8ce7b6feb9ac39a10cc48e08",
+      "part_obj_count": 2,
+      "texture_member_count": 3,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/22738.json",
+        "version_1/partseg/22738/objs/0.obj",
+        "version_1/partseg/22738/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/532a4a4b8ce7b6feb9ac39a10cc48e08/models/model_normalized.obj",
+        "04379243/532a4a4b8ce7b6feb9ac39a10cc48e08/models/model_normalized.mtl",
+        "04379243/532a4a4b8ce7b6feb9ac39a10cc48e08/images/texture0.jpg",
+        "04379243/532a4a4b8ce7b6feb9ac39a10cc48e08/images/texture1.jpg",
+        "04379243/532a4a4b8ce7b6feb9ac39a10cc48e08/images/texture2.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "24163",
+      "test_row": 99,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/817b41f37bc9f022812e3ecbeaae3980",
+      "part_obj_count": 2,
+      "texture_member_count": 2,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/24163.json",
+        "version_1/partseg/24163/objs/0.obj",
+        "version_1/partseg/24163/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/817b41f37bc9f022812e3ecbeaae3980/models/model_normalized.obj",
+        "04379243/817b41f37bc9f022812e3ecbeaae3980/models/model_normalized.mtl",
+        "04379243/817b41f37bc9f022812e3ecbeaae3980/images/texture0.jpg",
+        "04379243/817b41f37bc9f022812e3ecbeaae3980/images/texture1.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "27499",
+      "test_row": 105,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/ad38f4e8026d7858c3bd24f986301745",
+      "part_obj_count": 2,
+      "texture_member_count": 3,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/27499.json",
+        "version_1/partseg/27499/objs/0.obj",
+        "version_1/partseg/27499/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/ad38f4e8026d7858c3bd24f986301745/models/model_normalized.obj",
+        "04379243/ad38f4e8026d7858c3bd24f986301745/models/model_normalized.mtl",
+        "04379243/ad38f4e8026d7858c3bd24f986301745/images/texture0.jpg",
+        "04379243/ad38f4e8026d7858c3bd24f986301745/images/texture1.jpg",
+        "04379243/ad38f4e8026d7858c3bd24f986301745/images/texture2.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "25598",
+      "test_row": 110,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/8a47668d3584eef1e4317813b39d4fe",
+      "part_obj_count": 2,
+      "texture_member_count": 1,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/25598.json",
+        "version_1/partseg/25598/objs/0.obj",
+        "version_1/partseg/25598/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/8a47668d3584eef1e4317813b39d4fe/models/model_normalized.obj",
+        "04379243/8a47668d3584eef1e4317813b39d4fe/models/model_normalized.mtl",
+        "04379243/8a47668d3584eef1e4317813b39d4fe/images/texture0.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "19335",
+      "test_row": 115,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/161b5260bcc6f8fc9befe610bb4b9f25",
+      "part_obj_count": 2,
+      "texture_member_count": 1,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/19335.json",
+        "version_1/partseg/19335/objs/0.obj",
+        "version_1/partseg/19335/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/161b5260bcc6f8fc9befe610bb4b9f25/models/model_normalized.obj",
+        "04379243/161b5260bcc6f8fc9befe610bb4b9f25/models/model_normalized.mtl",
+        "04379243/161b5260bcc6f8fc9befe610bb4b9f25/images/texture0.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "34676",
+      "test_row": 129,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/fe7dd4f6b988123bd810b14a81e12eca",
+      "part_obj_count": 2,
+      "texture_member_count": 1,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/34676.json",
+        "version_1/partseg/34676/objs/0.obj",
+        "version_1/partseg/34676/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/fe7dd4f6b988123bd810b14a81e12eca/models/model_normalized.obj",
+        "04379243/fe7dd4f6b988123bd810b14a81e12eca/models/model_normalized.mtl",
+        "04379243/fe7dd4f6b988123bd810b14a81e12eca/images/texture0.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "26121",
+      "test_row": 133,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/956752510546d938788e70128ded264a",
+      "part_obj_count": 2,
+      "texture_member_count": 1,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/26121.json",
+        "version_1/partseg/26121/objs/0.obj",
+        "version_1/partseg/26121/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/956752510546d938788e70128ded264a/models/model_normalized.obj",
+        "04379243/956752510546d938788e70128ded264a/models/model_normalized.mtl",
+        "04379243/956752510546d938788e70128ded264a/images/texture0.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    },
+    {
+      "object_id": "18778",
+      "test_row": 135,
+      "tier": "fixed",
+      "group_count": 1,
+      "movement_types": [],
+      "mapping": "shapenet/04379243/ac1f8fe1e544b87fc798432661977bc1",
+      "part_obj_count": 2,
+      "texture_member_count": 2,
+      "physxnet_members_from_eligibility_audit": [
+        "version_1/finaljson/18778.json",
+        "version_1/partseg/18778/objs/0.obj",
+        "version_1/partseg/18778/objs/1.obj"
+      ],
+      "shapenet_members_from_eligibility_audit": [
+        "04379243/ac1f8fe1e544b87fc798432661977bc1/models/model_normalized.obj",
+        "04379243/ac1f8fe1e544b87fc798432661977bc1/models/model_normalized.mtl",
+        "04379243/ac1f8fe1e544b87fc798432661977bc1/images/texture0.jpg",
+        "04379243/ac1f8fe1e544b87fc798432661977bc1/images/texture1.jpg"
+      ],
+      "selection_reason": "NEEDS_CONDITIONING; eligibility audit directly recorded 04379243 OBJ/MTL/referenced texture members. run_one re-verifies current ZIP central-directory entries before extraction; selected among the smallest two-part fixed candidates."
+    }
+  ],
+  "excluded": {
+    "23787": "official texture retrieval output non-finite OBJ",
+    "27281": "preserved decoder-OOM ledger",
+    "14567": "MTL lacks map_Kd texture"
+  },
+  "selection_constraints": {
+    "baseline_artifacts_excluded": [
+      "15821",
+      "21314",
+      "21356",
+      "24566",
+      "27703",
+      "29354",
+      "29806",
+      "30719",
+      "32980",
+      "38882",
+      "48419"
+    ],
+    "target_new_artifact_complete": 9,
+    "available_remaining_tiers": {
+      "fixed": 222,
+      "B_translation": 0,
+      "C_rotation": 0,
+      "other_articulated": 5
+    },
+    "balance_note": "No eligible B/C row remains in current 04379243 NEEDS_CONDITIONING set; selected fixed rows are the only safe small candidates under the frozen exclusions."
+  },
+  "frozen_execution": {
+    "physical_gpu": 1,
+    "seed": 1,
+    "spconv_algo": "native",
+    "hard_limit_mib": 28000,
+    "reserve_mib": 4607,
+    "adapter": "existing channel/output tiling plus memory-bounded GroupNorm; not modified",
+    "per_object": "separate timestamped sampling and decoder children"
+  }
+}
