@@ -1,0 +1,10 @@
+{
+  "scope": "generated-output-only URDF/USD/Isaac pilot readiness",
+  "paper_equivalent": false,
+  "samples": {
+    "24566": {"status": "blocked", "reason": "generated official group count is one; no generated moving link or validated generated joint contract"},
+    "29806": {"status": "blocked", "reason": "generated group underprediction and no validated generated parent/type/axis/origin/range-to-URDF contract"}
+  },
+  "official_converter": {"path": "sources/physx-4f54e750a309/urdf_gen.py", "generated_input_supported": false, "gt_inputs": ["finaljson/group_info", "partseg per-part OBJ"]},
+  "isaac_sim": {"status": "not found in read-only checked PHYSx/home paths", "executed": false}
+}
