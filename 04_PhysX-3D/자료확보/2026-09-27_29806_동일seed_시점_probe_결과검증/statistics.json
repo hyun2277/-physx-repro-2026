@@ -1,0 +1,479 @@
+{
+  "status": "verified",
+  "scope": "two-input-view, same-seed qualitative probe; not paper evaluation or general performance evidence",
+  "shared_conditions_verified": {
+    "seed": 1,
+    "GPU": "physical index 1",
+    "spconv_algo": "native",
+    "same_environment": true,
+    "same_checkpoint_manifest": true,
+    "same_adapter": true
+  },
+  "gt": {
+    "groups": 4,
+    "structure": "fixed base group 0 plus three type-C rotation groups (1,2,3), each parent 0"
+  },
+  "frames": {
+    "000": {
+      "label": "000",
+      "input": {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/000.png",
+        "sha256": "ecc444a491dd490412acafcb93ab77b9b8ef03ded976b37e691da03e7c9cf6ea",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      "commands": {
+        "sampling": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/sample_latents_only.py",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--input",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/000.png",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/sampling",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/03_sampling_000/sampling_report.json",
+          "--seed",
+          "1"
+        ],
+        "physics": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/decode_cached_split.py",
+          "physics",
+          "--latent",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/sampling/sampled_latents.pt",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/physics/physics_cache.pt",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/05_physics_decoder_000/physics_report.json"
+        ],
+        "mesh": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/decode_cached_split.py",
+          "mesh",
+          "--latent",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/sampling/sampled_latents.pt",
+          "--physics-cache",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/physics/physics_cache.pt",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/mesh",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/06_mesh_decoder_000/mesh_report.json"
+        ]
+      },
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "CUDA_HOME": "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/cuda-home",
+        "CUDACXX": "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/cuda-home/bin/nvcc",
+        "CC": "/usr/bin/gcc-12",
+        "CXX": "/usr/bin/g++-12",
+        "CUDAHOSTCXX": "/usr/bin/g++-12",
+        "NVCC_CCBIN": "/usr/bin/g++-12",
+        "SPCONV_ALGO": "native",
+        "PHYSX_TILE_ENABLE": "1",
+        "PHYSX_OUTPUT_TILE_ENABLE": "1",
+        "PHYSX_STREAMING_GROUPNORM_ENABLE": "1",
+        "PHYSX_STREAMING_GROUPNORM_CHUNK_ROWS": "16384",
+        "PHYSX_GPU_RESERVE_MIB": "4607",
+        "PYTHONPATH": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter:/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309"
+      },
+      "success_marker_count": 5,
+      "artifacts": {
+        "raw": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/mesh/mesh_physics_raw.pt",
+          "sha256": "c9f41a44d50acb4b1250f4d9336cedacdc46018e048eb2a189753e7ed2368500",
+          "bytes": 38221175,
+          "shape": [
+            180278,
+            32
+          ],
+          "finite": true
+        },
+        "mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/mesh/mesh.obj",
+          "sha256": "b3575150ef4aa78e718ea91601688f36fb79e05bddb6138c782b40b64ce1cec2",
+          "bytes": 14208674,
+          "vertices": 180278,
+          "faces": 360548,
+          "obj_reloaded": true
+        },
+        "property_head": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_000/articulation_audit/vertex_physics_14ch.pt",
+          "sha256": "b0347b251084868af11b7c1c805a422529b69d24e45896f169ed379e6da7d808",
+          "bytes": 10097213,
+          "shape": [
+            180278,
+            14
+          ],
+          "finite": true
+        }
+      },
+      "gpu": {
+        "sampling_torch_peak_mib": 4588.798,
+        "physics_torch_peak_mib": 2234.963,
+        "mesh_torch_peak_mib": 12587.484,
+        "physics_nvidia_smi_peak_mib": 4298,
+        "mesh_nvidia_smi_peak_mib": 4576
+      },
+      "official_grouping": {
+        "num_group": 2,
+        "gt_num_group": 4,
+        "groups": {
+          "0": {
+            "vertex_count": 157269,
+            "vertex_fraction": 0.8723693406849421,
+            "majority_face_count": 314680,
+            "majority_face_fraction": 0.8727825421303127,
+            "majority_area": 2.2143800258636475,
+            "majority_area_fraction": 0.8758948445320129,
+            "homogeneous_face_count": 308080,
+            "homogeneous_area": 2.169322967529297,
+            "bbox_min": [
+              -0.5003938674926758,
+              -0.12814199924468994,
+              -0.1767907291650772
+            ],
+            "bbox_max": [
+              0.500427782535553,
+              0.13358323276042938,
+              0.17511308193206787
+            ],
+            "components": {
+              "count_including_isolated": 52,
+              "largest_vertices": 82982,
+              "largest_fraction": 0.5276437187239698,
+              "sizes_desc_top20": [
+                82982,
+                72970,
+                193,
+                160,
+                147,
+                118,
+                44,
+                44,
+                43,
+                38,
+                36,
+                35,
+                34,
+                32,
+                28,
+                23,
+                23,
+                22,
+                21,
+                19
+              ]
+            }
+          },
+          "1": {
+            "vertex_count": 23009,
+            "vertex_fraction": 0.12763065931505785,
+            "majority_face_count": 45868,
+            "majority_face_fraction": 0.12721745786968724,
+            "majority_area": 0.3137543201446533,
+            "majority_area_fraction": 0.1241050735116005,
+            "homogeneous_face_count": 39711,
+            "homogeneous_area": 0.27168136835098267,
+            "bbox_min": [
+              -0.5001290440559387,
+              -0.1281490921974182,
+              -0.1756620854139328
+            ],
+            "bbox_max": [
+              0.4999818801879883,
+              0.08403031527996063,
+              0.17426374554634094
+            ],
+            "components": {
+              "count_including_isolated": 125,
+              "largest_vertices": 7899,
+              "largest_fraction": 0.3433004476509192,
+              "sizes_desc_top20": [
+                7899,
+                4748,
+                3343,
+                1256,
+                836,
+                663,
+                423,
+                305,
+                250,
+                206,
+                181,
+                147,
+                142,
+                141,
+                133,
+                131,
+                118,
+                111,
+                102,
+                81
+              ]
+            }
+          }
+        },
+        "moving_majority_area_total": 0.3137543201446533
+      }
+    },
+    "006": {
+      "label": "006",
+      "input": {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/006.png",
+        "sha256": "89f691cce979ae2b7e86929c60541d69b1c37da7c77d7a521eca0a2b0cc7782b",
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      "commands": {
+        "sampling": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/sample_latents_only.py",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--input",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/006.png",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/sampling",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/08_sampling_006/sampling_report.json",
+          "--seed",
+          "1"
+        ],
+        "physics": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/decode_cached_split.py",
+          "physics",
+          "--latent",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/sampling/sampled_latents.pt",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/physics/physics_cache.pt",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/10_physics_decoder_006/physics_report.json"
+        ],
+        "mesh": [
+          "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python",
+          "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/decode_cached_split.py",
+          "mesh",
+          "--latent",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/sampling/sampled_latents.pt",
+          "--physics-cache",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/physics/physics_cache.pt",
+          "--source",
+          "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309",
+          "--output",
+          "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/mesh",
+          "--report",
+          "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/steps/11_mesh_decoder_006/mesh_report.json"
+        ]
+      },
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "CUDA_HOME": "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/cuda-home",
+        "CUDACXX": "/home/minsujo/Desktop/SH/PHYSx/logs/29806-viewpoint-probe/20260927T061911Z-4b32fcccb880/cuda-home/bin/nvcc",
+        "CC": "/usr/bin/gcc-12",
+        "CXX": "/usr/bin/g++-12",
+        "CUDAHOSTCXX": "/usr/bin/g++-12",
+        "NVCC_CCBIN": "/usr/bin/g++-12",
+        "SPCONV_ALGO": "native",
+        "PHYSX_TILE_ENABLE": "1",
+        "PHYSX_OUTPUT_TILE_ENABLE": "1",
+        "PHYSX_STREAMING_GROUPNORM_ENABLE": "1",
+        "PHYSX_STREAMING_GROUPNORM_CHUNK_ROWS": "16384",
+        "PHYSX_GPU_RESERVE_MIB": "4607",
+        "PYTHONPATH": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter:/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309"
+      },
+      "success_marker_count": 5,
+      "artifacts": {
+        "raw": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/mesh/mesh_physics_raw.pt",
+          "sha256": "70af4e57d04e4d9203ab03af0fff17b92fc828e97a6ec6697d56e785a48dfecc",
+          "bytes": 42835063,
+          "shape": [
+            202042,
+            32
+          ],
+          "finite": true
+        },
+        "mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/mesh/mesh.obj",
+          "sha256": "c1b548d855cf8117961d29dca9d7134549fbfd8ce5fcef445ee53837307bfd88",
+          "bytes": 16003942,
+          "vertices": 202042,
+          "faces": 404072,
+          "obj_reloaded": true
+        },
+        "property_head": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/29806-viewpoint-probe-20260927T061911Z-4b32fcccb880/frame_006/articulation_audit/vertex_physics_14ch.pt",
+          "sha256": "9bbd9873f27194e785349f0001d45d4c365144530242a4a0d603ee45870ba507",
+          "bytes": 11315965,
+          "shape": [
+            202042,
+            14
+          ],
+          "finite": true
+        }
+      },
+      "gpu": {
+        "sampling_torch_peak_mib": 4624.409,
+        "physics_torch_peak_mib": 2485.309,
+        "mesh_torch_peak_mib": 12929.34,
+        "physics_nvidia_smi_peak_mib": 4772,
+        "mesh_nvidia_smi_peak_mib": 4688
+      },
+      "official_grouping": {
+        "num_group": 3,
+        "gt_num_group": 4,
+        "groups": {
+          "0": {
+            "vertex_count": 164632,
+            "vertex_fraction": 0.8148404787123469,
+            "majority_face_count": 329268,
+            "majority_face_fraction": 0.8148745768080936,
+            "majority_area": 2.3338897228240967,
+            "majority_area_fraction": 0.8128775358200073,
+            "homogeneous_face_count": 323752,
+            "homogeneous_area": 2.2950186729431152,
+            "bbox_min": [
+              -0.5004259943962097,
+              -0.1529935747385025,
+              -0.20095853507518768
+            ],
+            "bbox_max": [
+              0.500164806842804,
+              0.14572541415691376,
+              0.20239819586277008
+            ],
+            "components": {
+              "count_including_isolated": 51,
+              "largest_vertices": 85763,
+              "largest_fraction": 0.5209376062976822,
+              "sizes_desc_top20": [
+                85763,
+                77508,
+                191,
+                146,
+                94,
+                91,
+                89,
+                81,
+                59,
+                58,
+                58,
+                53,
+                39,
+                38,
+                37,
+                31,
+                27,
+                23,
+                22,
+                21
+              ]
+            }
+          },
+          "1": {
+            "vertex_count": 37408,
+            "vertex_fraction": 0.1851496223557478,
+            "majority_face_count": 74802,
+            "majority_face_fraction": 0.18512047357896613,
+            "majority_area": 0.5372409224510193,
+            "majority_area_fraction": 0.18711727857589722,
+            "homogeneous_face_count": 69321,
+            "homogeneous_area": 0.49851706624031067,
+            "bbox_min": [
+              -0.5000805258750916,
+              -0.1511029154062271,
+              -0.20066866278648376
+            ],
+            "bbox_max": [
+              0.4985693395137787,
+              -0.06437588483095169,
+              0.1916326880455017
+            ],
+            "components": {
+              "count_including_isolated": 56,
+              "largest_vertices": 17593,
+              "largest_fraction": 0.4703004704875962,
+              "sizes_desc_top20": [
+                17593,
+                6979,
+                6414,
+                2742,
+                1155,
+                335,
+                325,
+                291,
+                252,
+                213,
+                146,
+                132,
+                126,
+                66,
+                54,
+                37,
+                35,
+                34,
+                33,
+                32
+              ]
+            }
+          },
+          "2": {
+            "vertex_count": 2,
+            "vertex_fraction": 9.898931905247424e-06,
+            "majority_face_count": 2,
+            "majority_face_fraction": 4.949612940268071e-06,
+            "majority_area": 1.4974328223615885e-05,
+            "majority_area_fraction": 5.215454166318523e-06,
+            "homogeneous_face_count": 0,
+            "homogeneous_area": 0.0,
+            "bbox_min": [
+              -0.13618570566177368,
+              -0.14550265669822693,
+              0.09959900379180908
+            ],
+            "bbox_max": [
+              -0.13612082600593567,
+              -0.14547906816005707,
+              0.10334811359643936
+            ],
+            "components": {
+              "count_including_isolated": 1,
+              "largest_vertices": 2,
+              "largest_fraction": 1.0,
+              "sizes_desc_top20": [
+                2
+              ]
+            }
+          }
+        },
+        "moving_majority_area_total": 0.5372558967792429
+      }
+    }
+  },
+  "observation": {
+    "006_num_group_is_closer_to_gt_4_than_000": true,
+    "000_num_group": 2,
+    "006_num_group": 3,
+    "moving_majority_area_ratio_006_over_000": 1.7123458141757104,
+    "interpretation": "006 has a larger and less fragmented principal moving group, but its extra group 2 has only two vertices/two majority faces. No predicted group is mapped to a particular GT door.",
+    "limits": [
+      "CUDA operations may be nondeterministic despite equal seed; byte/vertex identity is not claimed.",
+      "No generated-vertex to GT-part correspondence; parent/direction/position/range accuracy is not established.",
+      "One object and two views only; not a paper quantitative evaluation or general performance claim."
+    ]
+  },
+  "comparison_preview": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/2026-09-27_29806_동일seed_시점_probe_결과검증/29806_000_vs_006_input_and_official_groups.png"
+}
