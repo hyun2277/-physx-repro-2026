@@ -1,0 +1,58 @@
+{
+  "report": "PhysX-3D final integrated report on a maximum 2x RTX 5090 Linux environment",
+  "paper_table_2_equivalent": false,
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "public_only_v1": {
+    "artifact_complete": 25,
+    "tier_counts": {"fixed": 15, "B_translation": 5, "C_rotation": 5},
+    "overall_existing_aggregate": {
+      "raw_cd_l1": 0.3659106873519033,
+      "raw_cd_l2": 0.10742504902075067,
+      "raw_fscore": 0.16690028585893496,
+      "canonical_cd_l1": 0.24596562785554685,
+      "canonical_cd_l2": 0.05572366368542099,
+      "canonical_fscore": 0.34954333576416174,
+      "scale_absolute_error_cm": 17.913851623535155,
+      "group_count_absolute_error": 0.68
+    },
+    "excluded_or_failed": [
+      {"object_id": "23787", "reason": "official texture retrieval output has non-finite OBJ"},
+      {"object_id": "27370", "reason": "official texture retrieval output has non-finite OBJ"},
+      {"object_id": "14567", "reason": "MTL lacks map_Kd texture prerequisite"},
+      {"object_id": "27281", "reason": "mesh decoder OOM under fixed 28000 MiB limit and 4607 MiB reserve"}
+    ]
+  },
+  "physx_bench": {
+    "source_commit": "46fa1cd0b6883d4d14431d51c3326ef80a85ef64",
+    "tiny_smoke_test": "success (synthetic manifest/aggregation only)",
+    "dqs_manifest_rows_ready": 25,
+    "dqs_scale_schema": "proposed conversion: predicted vertex mean, finite positive float64 scalar in cm",
+    "official_vlm_status": "BLOCKED_BY_HARDWARE_OR_MODEL",
+    "official_vlm": "Qwen/Qwen3.5-122B-A10B",
+    "bf16_weight_lower_bound_gib": 227,
+    "available_gpu_memory": "2 x 32607 MiB"
+  },
+  "generated_only_urdf_usd_isaac": {
+    "status": "blocked",
+    "reason": "no validated generated-only parent/type/axis/origin/range, collision, mass/density/inertia contract; official urdf_gen.py reads GT JSON and GT part meshes"
+  },
+  "table_2_blockers": [
+    "complete evaluator/config",
+    "test conditioning-image manifest",
+    "30-view camera/transforms and masks",
+    "GT material/affordance/description maps and correspondence",
+    "generated-mesh to GT-part matching",
+    "kinematics/NAP transform, units, duplicate/failure aggregation rules"
+  ],
+  "author_issue": {
+    "number": 18,
+    "url": "https://github.com/ziangcao0312/PhysX-3D/issues/18",
+    "title": "Question about the released evaluation protocol and assets for PhysX-3D"
+  },
+  "reference_hashes": {
+    "public_only_v1_20_freeze": "f3587b9069abac5a5b6a7dd02d3789412d3bf036",
+    "public_only_25_aggregate": "3292f9f7ef0013fc280e01af137ca87c813b90eefbc73606fb306bde49289869",
+    "dqs_conversion_manifest": "b853b9e58ebbe7464dbf761b6121166371e6c4b7a0331a78f04795232c0000be",
+    "dqs_jsonl": "5392b12c088c5ef21cc45cb355e9e1425ac345138ae658294a11125f2b17e158"
+  }
+}
