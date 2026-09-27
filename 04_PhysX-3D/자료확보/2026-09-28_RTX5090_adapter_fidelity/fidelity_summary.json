@@ -1,0 +1,65 @@
+{
+  "judgement": "partially_verified",
+  "local_tested_cases": "locally_numerically_equivalent_on_tested_cases",
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "fidelity_run": "/home/minsujo/Desktop/SH/PHYSx/logs/rtx5090-adapter-fidelity/20260927T145928Z-e23ec5022a2b",
+  "policy": {
+    "cuda_visible_device": "physical GPU 1 UUID GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+    "spconv_algo": "native",
+    "hard_limit_mib": 28000,
+    "reserve_mib": 4607,
+    "tolerance": "max(4x original repeat error, 16x dtype epsilon x reference max-abs)"
+  },
+  "channel_tiled_native": {
+    "shape": [135544, 512, 256],
+    "dtype": "float16",
+    "original_repeat": {"max_abs": 0.0, "relative_l2": 0.0},
+    "adapter": {"max_abs": 3.0, "mean_abs": 0.03240547329187393, "relative_l2": 0.0008007577271200716, "cosine": 0.9999998211860657},
+    "pass": true
+  },
+  "output_channel_tiled_native": {
+    "shape": [135544, 512, 256],
+    "tiles": {"input_channels": 256, "output_channels": 96},
+    "dtype": "float16",
+    "original_repeat": {"max_abs": 0.0, "relative_l2": 0.0},
+    "adapter": {"max_abs": 3.0, "mean_abs": 0.03240547329187393, "relative_l2": 0.0008007577271200716, "cosine": 0.9999998211860657},
+    "pass": true,
+    "production_25_complete_trace": "not observed; forced bounded test only"
+  },
+  "memory_bounded_groupnorm": {
+    "shape": [131072, 256],
+    "groups": 32,
+    "batch_sizes": [50000, 81072],
+    "eps": 0.00001,
+    "checkpoint_affine_weight_bias": true,
+    "cases": [
+      {"dtype": "float16", "affine": false, "max_abs": 0.0009765625, "mean_abs": 2.8530507734103594e-08, "relative_l2": 2.352540377614787e-06, "pass": true},
+      {"dtype": "float16", "affine": true, "max_abs": 0.001953125, "mean_abs": 6.977882094361121e-08, "relative_l2": 6.5560434450162575e-06, "pass": true},
+      {"dtype": "float32", "affine": false, "max_abs": 4.76837158203125e-07, "mean_abs": 3.8144456482314126e-08, "relative_l2": 6.933367302508486e-08, "pass": true},
+      {"dtype": "float32", "affine": true, "max_abs": 9.5367431640625e-07, "mean_abs": 4.854740609516739e-08, "relative_l2": 9.363044739529869e-08, "pass": true}
+    ]
+  },
+  "child_process_split": {
+    "same_cached_latent_and_checkpoints": true,
+    "single_vs_split": {
+      "vertices_max_abs": 1.1920928955078125e-07,
+      "vertex_attrs_max_abs": 2.980232238769531e-07,
+      "vertex_physics_max_abs": 5.960464477539062e-07,
+      "faces_exact": true
+    },
+    "nvidia_smi_peak_mib": {"single": 21090, "physics_child": 17706, "mesh_child": 20034},
+    "pass": true
+  },
+  "unverified": [
+    "direct original comparison at the 2168704-row int32-overflowing production layer",
+    "output-channel tiling in a successful public-only-v1 artifact trace",
+    "complete layer-by-layer trace coverage for all 25 artifacts",
+    "training/backward, fused-add, non-Native, grouped, and fused-activation paths",
+    "paper Table 2 or full original CUDA 11.8 environment equivalence"
+  ],
+  "reference_hashes": {
+    "run_result": "de3af97dd4877224dd6cee89125a4c3552f0a56f1bdeb1ccffa09ed34e90b202",
+    "operation_metrics": "06e7f14f818d6c0cb67e584c58d4a93d4a0fc2051b2f967626ea5e9aedcba1ad",
+    "child_process_comparison": "29d194d81c8d8d1eeffbabd054493b6ebb73754089f0663ad3bd142af17ae97e"
+  }
+}
