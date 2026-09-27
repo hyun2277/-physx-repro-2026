@@ -1,0 +1,113 @@
+{
+  "object_id": "10163",
+  "conditioning_sha256": "1ab5c5ca9ec79bb22f0ce3a20943020de6bcbd57386d5b44f9624e53e4b19574",
+  "raw_sha256": "bcc117a8cd0de52f57b5152f738d574673c07f6c6cbc402968b35f42be361fb2",
+  "audit_sha256": "e6b2634bb4429dbff7efdf6236aaf080ef07c886b32069c3ab6ccf0d483356ad",
+  "gt_sha256": "e0152ed8324c1f0df6061430050c1088cb72ea0323ea2f354aa1f01ae480fdb2",
+  "mesh": {
+    "vertices": 378684,
+    "faces": 757320,
+    "finite": true
+  },
+  "gt_group_info": {
+    "0": [
+      1
+    ],
+    "1": [
+      [
+        0
+      ],
+      "0",
+      [
+        -1,
+        0,
+        0,
+        0.5859396457672119,
+        -0.1837833821773529,
+        -0.15396516025066376,
+        -0.5,
+        0.5
+      ],
+      "C"
+    ]
+  },
+  "predicted_num_group": 2,
+  "groups": {
+    "0": {
+      "vertex_count": 378679,
+      "vertex_fraction": 0.999986796379039,
+      "majority_face_count": 757312,
+      "majority_face_fraction": 0.99998943643374,
+      "majority_area": 4.746492385864258,
+      "majority_area_fraction": 0.9999923706054688,
+      "homogeneous_face_count": 757302,
+      "homogeneous_area": 4.746455669403076,
+      "bbox_min": [
+        -0.5006410479545593,
+        -0.372598260641098,
+        -0.3239501714706421
+      ],
+      "bbox_max": [
+        0.5004428029060364,
+        0.37024328112602234,
+        0.31958383321762085
+      ],
+      "components": {
+        "count_including_isolated": 24,
+        "largest_vertices": 329672,
+        "largest_fraction": 0.8705843207571584,
+        "sizes_desc_top20": [
+          329672,
+          21805,
+          16058,
+          7040,
+          3396,
+          148,
+          116,
+          104,
+          100,
+          60,
+          32,
+          20,
+          16,
+          16,
+          16,
+          12,
+          12,
+          8,
+          8,
+          8
+        ]
+      }
+    },
+    "1": {
+      "vertex_count": 5,
+      "vertex_fraction": 1.3203620961012348e-05,
+      "majority_face_count": 8,
+      "majority_face_fraction": 1.0563566259969365e-05,
+      "majority_area": 3.719372762134299e-05,
+      "majority_area_fraction": 7.835985343263019e-06,
+      "homogeneous_face_count": 3,
+      "homogeneous_area": 1.660772795730736e-05,
+      "bbox_min": [
+        0.36453598737716675,
+        -0.07283533364534378,
+        -0.27369603514671326
+      ],
+      "bbox_max": [
+        0.3691859841346741,
+        -0.06836684048175812,
+        -0.2729819118976593
+      ],
+      "components": {
+        "count_including_isolated": 1,
+        "largest_vertices": 5,
+        "largest_fraction": 1.0,
+        "sizes_desc_top20": [
+          5
+        ]
+      }
+    }
+  },
+  "scope": "CPU previews only; no simulation, joint parameter accuracy, or GT-to-generated correspondence claim"
+}
