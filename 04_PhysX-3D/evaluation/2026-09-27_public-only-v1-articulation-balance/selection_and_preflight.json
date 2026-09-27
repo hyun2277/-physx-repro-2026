@@ -1,0 +1,751 @@
+{
+  "started_utc": "2026-09-27T14:10:52.738343+00:00",
+  "plan": {
+    "scope": "public-only-v1 balance extension, not paper Table 2",
+    "frozen_policy": {
+      "gpu": 1,
+      "seed": 1,
+      "spconv": "native",
+      "hard_limit_mib": 28000,
+      "reserve_mib": 4607,
+      "adapter": "unchanged"
+    },
+    "archives": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+        "bytes": 432747631,
+        "sha256": "f36bea3c118cb4818e751c8a6bdc8fd9202ed0dca5ce873251b068bc9b5dc5cd",
+        "expected_bytes": 432747631,
+        "expected_sha256": "f36bea3c118cb4818e751c8a6bdc8fd9202ed0dca5ce873251b068bc9b5dc5cd"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+        "bytes": 745318964,
+        "sha256": "1ad7f8dc315d88cfd5bfdde7850e3b1880d88a15b2dd5ef2e16bfea86888adbb",
+        "expected_bytes": 745318964,
+        "expected_sha256": "1ad7f8dc315d88cfd5bfdde7850e3b1880d88a15b2dd5ef2e16bfea86888adbb"
+      }
+    ],
+    "candidates": [
+      {
+        "object_id": "45443",
+        "tier": "B_translation",
+        "purpose": "B translation balance",
+        "part_count": 3,
+        "mapping": "shapenet/02933112/22e77a41cc388839824662341ce2b233",
+        "category": "02933112",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/45443.json",
+            "bytes": 2271,
+            "compressed_bytes": 675,
+            "crc32": "3a7be703"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45443/objs/0.obj",
+            "bytes": 7889,
+            "compressed_bytes": 1562,
+            "crc32": "c51eb804"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45443/objs/1.obj",
+            "bytes": 39977,
+            "compressed_bytes": 8178,
+            "crc32": "36d82fd7"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45443/objs/2.obj",
+            "bytes": 7359,
+            "compressed_bytes": 1850,
+            "crc32": "502f48b6"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/models/model_normalized.obj",
+            "bytes": 106075,
+            "compressed_bytes": 20971,
+            "crc32": "857146dd"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/models/model_normalized.mtl",
+            "bytes": 707,
+            "compressed_bytes": 226,
+            "crc32": "d926b39e"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/images/texture0.jpg",
+            "bytes": 50142,
+            "compressed_bytes": 40625,
+            "crc32": "ff7f2c3c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/images/texture0.png",
+            "bytes": 5966,
+            "compressed_bytes": 5966,
+            "crc32": "dd8aaa9c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/images/texture1.jpg",
+            "bytes": 855233,
+            "compressed_bytes": 852704,
+            "crc32": "6ee241ec"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/22e77a41cc388839824662341ce2b233/images/texture2.jpg",
+            "bytes": 21429,
+            "compressed_bytes": 21149,
+            "crc32": "cdbba5be"
+          }
+        ]
+      },
+      {
+        "object_id": "45645",
+        "tier": "B_translation",
+        "purpose": "B translation balance",
+        "part_count": 7,
+        "mapping": "shapenet/02933112/2a3a3bf0878f1fa4c59350d819542ec7",
+        "category": "02933112",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/45645.json",
+            "bytes": 4657,
+            "compressed_bytes": 979,
+            "crc32": "e9d0e54c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/0.obj",
+            "bytes": 423,
+            "compressed_bytes": 153,
+            "crc32": "88c7e5b9"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/1.obj",
+            "bytes": 324,
+            "compressed_bytes": 133,
+            "crc32": "b5055f48"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/2.obj",
+            "bytes": 431,
+            "compressed_bytes": 157,
+            "crc32": "cba4a2c9"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/3.obj",
+            "bytes": 213,
+            "compressed_bytes": 115,
+            "crc32": "821f0f6d"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/4.obj",
+            "bytes": 5159,
+            "compressed_bytes": 1202,
+            "crc32": "77fba546"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/5.obj",
+            "bytes": 6596,
+            "compressed_bytes": 1322,
+            "crc32": "1e1583ab"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/45645/objs/6.obj",
+            "bytes": 2347,
+            "compressed_bytes": 522,
+            "crc32": "309c7f16"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/models/model_normalized.obj",
+            "bytes": 37215,
+            "compressed_bytes": 7728,
+            "crc32": "42bd9e6d"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/models/model_normalized.mtl",
+            "bytes": 722,
+            "compressed_bytes": 211,
+            "crc32": "af8e7814"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/images/texture0.jpg",
+            "bytes": 50142,
+            "compressed_bytes": 40625,
+            "crc32": "ff7f2c3c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/images/texture0.png",
+            "bytes": 5966,
+            "compressed_bytes": 5966,
+            "crc32": "dd8aaa9c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/images/texture1.jpg",
+            "bytes": 89995,
+            "compressed_bytes": 81045,
+            "crc32": "70bf8e20"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/images/texture2.jpg",
+            "bytes": 90049,
+            "compressed_bytes": 80771,
+            "crc32": "0dccad5b"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/2a3a3bf0878f1fa4c59350d819542ec7/images/texture3.jpg",
+            "bytes": 1806,
+            "compressed_bytes": 1315,
+            "crc32": "cea56eb2"
+          }
+        ]
+      },
+      {
+        "object_id": "46323",
+        "tier": "B_translation",
+        "purpose": "B translation backup",
+        "part_count": 5,
+        "mapping": "shapenet/02933112/54cbe81983534dc153b10fab8d9d7b30",
+        "category": "02933112",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/46323.json",
+            "bytes": 4342,
+            "compressed_bytes": 840,
+            "crc32": "cf9adfed"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/46323/objs/0.obj",
+            "bytes": 874204,
+            "compressed_bytes": 163521,
+            "crc32": "b668edfd"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/46323/objs/1.obj",
+            "bytes": 111313,
+            "compressed_bytes": 23337,
+            "crc32": "cf58e38d"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/46323/objs/2.obj",
+            "bytes": 125031,
+            "compressed_bytes": 25233,
+            "crc32": "b13dde07"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/46323/objs/3.obj",
+            "bytes": 13261,
+            "compressed_bytes": 3253,
+            "crc32": "8f5702c4"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/46323/objs/4.obj",
+            "bytes": 17003,
+            "compressed_bytes": 3811,
+            "crc32": "41e46b84"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/models/model_normalized.obj",
+            "bytes": 68724,
+            "compressed_bytes": 15534,
+            "crc32": "e5710afa"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/models/model_normalized.mtl",
+            "bytes": 735,
+            "compressed_bytes": 224,
+            "crc32": "40c55a20"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/images/texture0.jpg",
+            "bytes": 5785,
+            "compressed_bytes": 5583,
+            "crc32": "d55c8707"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/images/texture1.jpg",
+            "bytes": 10294,
+            "compressed_bytes": 10066,
+            "crc32": "a74d19eb"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/images/texture2.jpg",
+            "bytes": 7906,
+            "compressed_bytes": 7530,
+            "crc32": "01d41c86"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/02933112.zip",
+            "member": "02933112/54cbe81983534dc153b10fab8d9d7b30/images/texture3.jpg",
+            "bytes": 1806,
+            "compressed_bytes": 1315,
+            "crc32": "cea56eb2"
+          }
+        ]
+      },
+      {
+        "object_id": "15896",
+        "tier": "C_rotation",
+        "purpose": "C rotation balance",
+        "part_count": 2,
+        "mapping": "shapenet/03636649/8338a18d589c26d21c648623457982d0",
+        "category": "03636649",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/15896.json",
+            "bytes": 1739,
+            "compressed_bytes": 578,
+            "crc32": "2fbe11a7"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15896/objs/0.obj",
+            "bytes": 151945,
+            "compressed_bytes": 43132,
+            "crc32": "b2646384"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15896/objs/1.obj",
+            "bytes": 936416,
+            "compressed_bytes": 265317,
+            "crc32": "ba4e5ed4"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/8338a18d589c26d21c648623457982d0/models/model_normalized.obj",
+            "bytes": 413691,
+            "compressed_bytes": 69697,
+            "crc32": "1a22f2bc"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/8338a18d589c26d21c648623457982d0/models/model_normalized.mtl",
+            "bytes": 701,
+            "compressed_bytes": 253,
+            "crc32": "a942055e"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/8338a18d589c26d21c648623457982d0/images/texture0.jpg",
+            "bytes": 1806,
+            "compressed_bytes": 1315,
+            "crc32": "cea56eb2"
+          }
+        ]
+      },
+      {
+        "object_id": "13737",
+        "tier": "C_rotation",
+        "purpose": "C rotation balance",
+        "part_count": 4,
+        "mapping": "shapenet/03636649/2577723d02fd914eda113afcb6c5e140",
+        "category": "03636649",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/13737.json",
+            "bytes": 2793,
+            "compressed_bytes": 690,
+            "crc32": "a4413372"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/13737/objs/0.obj",
+            "bytes": 524522,
+            "compressed_bytes": 147591,
+            "crc32": "9cb5f18e"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/13737/objs/1.obj",
+            "bytes": 238181,
+            "compressed_bytes": 62185,
+            "crc32": "f10af95e"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/13737/objs/2.obj",
+            "bytes": 741518,
+            "compressed_bytes": 213989,
+            "crc32": "b7a25867"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/13737/objs/3.obj",
+            "bytes": 411020,
+            "compressed_bytes": 101275,
+            "crc32": "330347ff"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/2577723d02fd914eda113afcb6c5e140/models/model_normalized.obj",
+            "bytes": 1670810,
+            "compressed_bytes": 307934,
+            "crc32": "a8b4898a"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/2577723d02fd914eda113afcb6c5e140/models/model_normalized.mtl",
+            "bytes": 550,
+            "compressed_bytes": 203,
+            "crc32": "0671a6f6"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/2577723d02fd914eda113afcb6c5e140/images/texture0.jpg",
+            "bytes": 113273,
+            "compressed_bytes": 80979,
+            "crc32": "cb0fead1"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/2577723d02fd914eda113afcb6c5e140/images/texture1.jpg",
+            "bytes": 2251,
+            "compressed_bytes": 1096,
+            "crc32": "e50d3fbc"
+          }
+        ]
+      },
+      {
+        "object_id": "16693",
+        "tier": "C_rotation",
+        "purpose": "C rotation balance",
+        "part_count": 4,
+        "mapping": "shapenet/03636649/c4d62e5fe71fa71f1ba2f806cba87b47",
+        "category": "03636649",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/16693.json",
+            "bytes": 2866,
+            "compressed_bytes": 751,
+            "crc32": "d1ad0333"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/16693/objs/0.obj",
+            "bytes": 769451,
+            "compressed_bytes": 200842,
+            "crc32": "8011ea13"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/16693/objs/1.obj",
+            "bytes": 379313,
+            "compressed_bytes": 89059,
+            "crc32": "af59f5f6"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/16693/objs/2.obj",
+            "bytes": 2844,
+            "compressed_bytes": 759,
+            "crc32": "baf1d324"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/16693/objs/3.obj",
+            "bytes": 54057,
+            "compressed_bytes": 17959,
+            "crc32": "b2816ff0"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/c4d62e5fe71fa71f1ba2f806cba87b47/models/model_normalized.obj",
+            "bytes": 134679,
+            "compressed_bytes": 33442,
+            "crc32": "e97d0d0d"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/c4d62e5fe71fa71f1ba2f806cba87b47/models/model_normalized.mtl",
+            "bytes": 491,
+            "compressed_bytes": 208,
+            "crc32": "eb5ebff7"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/c4d62e5fe71fa71f1ba2f806cba87b47/images/texture0.png",
+            "bytes": 519072,
+            "compressed_bytes": 519072,
+            "crc32": "f2080c6c"
+          }
+        ]
+      },
+      {
+        "object_id": "15146",
+        "tier": "C_rotation",
+        "purpose": "C rotation backup",
+        "part_count": 4,
+        "mapping": "shapenet/03636649/4a868756ae6404a5c0bc57897eddf6f",
+        "category": "03636649",
+        "physx_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/finaljson/15146.json",
+            "bytes": 2792,
+            "compressed_bytes": 682,
+            "crc32": "25fef353"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15146/objs/0.obj",
+            "bytes": 680033,
+            "compressed_bytes": 196386,
+            "crc32": "11435d19"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15146/objs/1.obj",
+            "bytes": 190848,
+            "compressed_bytes": 47683,
+            "crc32": "21ec874c"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15146/objs/2.obj",
+            "bytes": 333719,
+            "compressed_bytes": 83798,
+            "crc32": "8893e6d6"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/physxnet-download/PhysXNet.zip",
+            "member": "version_1/partseg/15146/objs/3.obj",
+            "bytes": 5096,
+            "compressed_bytes": 1733,
+            "crc32": "e20a4c68"
+          }
+        ],
+        "shapenet_members": [
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/4a868756ae6404a5c0bc57897eddf6f/models/model_normalized.obj",
+            "bytes": 349469,
+            "compressed_bytes": 67119,
+            "crc32": "4c78c7b1"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/4a868756ae6404a5c0bc57897eddf6f/models/model_normalized.mtl",
+            "bytes": 822,
+            "compressed_bytes": 239,
+            "crc32": "6daaa386"
+          },
+          {
+            "archive": "/home/minsujo/Desktop/SH/PHYSx/data/shapenetcore/raw/03636649.zip",
+            "member": "03636649/4a868756ae6404a5c0bc57897eddf6f/images/texture0.jpg",
+            "bytes": 6047,
+            "compressed_bytes": 5802,
+            "crc32": "2f693d82"
+          }
+        ]
+      }
+    ],
+    "excluded": {
+      "23787": "non-finite retrieval output",
+      "27281": "decoder OOM under frozen policy",
+      "14567": "MTL lacks map_Kd texture",
+      "27370": "non-finite retrieval output"
+    },
+    "preflight_rejected": {
+      "15714": "03636649 MTL has no map_Kd texture",
+      "13348": "03636649 MTL has no map_Kd texture"
+    },
+    "quotas": {
+      "B_translation": 2,
+      "C_rotation": 3
+    }
+  },
+  "shared": {
+    "source": {
+      "head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+      "allowed_tracked_pyc": [
+        "trellis/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_elastic_mixin.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_structure_flow.cpython-310.pyc",
+        "trellis/models/__pycache__/sparse_structure_vae.cpython-310.pyc",
+        "trellis/models/__pycache__/structured_latent_flow.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/__init__.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/base.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_gs.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_mesh.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/decoder_rf.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/encoder.cpython-310.pyc",
+        "trellis/models/structured_latent_vae/__pycache__/propertyencoder.cpython-310.pyc",
+        "trellis/modules/__pycache__/norm.cpython-310.pyc",
+        "trellis/modules/__pycache__/spatial.cpython-310.pyc",
+        "trellis/modules/__pycache__/utils.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/full_attn.cpython-310.pyc",
+        "trellis/modules/attention/__pycache__/modules.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/basic.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/linear.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/nonlinearity.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/norm.cpython-310.pyc",
+        "trellis/modules/sparse/__pycache__/spatial.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/full_attn.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/modules.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/serialized_attn.cpython-310.pyc",
+        "trellis/modules/sparse/attention/__pycache__/windowed_attn.cpython-310.pyc",
+        "trellis/modules/sparse/conv/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/conv/__pycache__/conv_spconv.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/blocks.cpython-310.pyc",
+        "trellis/modules/sparse/transformer/__pycache__/modulated.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/__init__.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/blocks.cpython-310.pyc",
+        "trellis/modules/transformer/__pycache__/modulated.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/__init__.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/base.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/trellis_image_to_3d.cpython-310.pyc",
+        "trellis/pipelines/__pycache__/trellis_text_to_3d.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/__init__.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/base.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/classifier_free_guidance_mixin.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/flow_euler.cpython-310.pyc",
+        "trellis/pipelines/samplers/__pycache__/guidance_interval_mixin.cpython-310.pyc",
+        "trellis/renderers/__pycache__/__init__.cpython-310.pyc",
+        "trellis/renderers/__pycache__/gaussian_render.cpython-310.pyc",
+        "trellis/renderers/__pycache__/mesh_renderer.cpython-310.pyc",
+        "trellis/renderers/__pycache__/octree_renderer.cpython-310.pyc",
+        "trellis/renderers/__pycache__/sh_utils.cpython-310.pyc",
+        "trellis/representations/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/gaussian_model.cpython-310.pyc",
+        "trellis/representations/gaussian/__pycache__/general_utils.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/cube2mesh.cpython-310.pyc",
+        "trellis/representations/mesh/__pycache__/utils_cube.cpython-310.pyc",
+        "trellis/representations/mesh/flexicubes/__pycache__/flexicubes.cpython-310.pyc",
+        "trellis/representations/mesh/flexicubes/__pycache__/tables.cpython-310.pyc",
+        "trellis/representations/octree/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/octree/__pycache__/octree_dfs.cpython-310.pyc",
+        "trellis/representations/radiance_field/__pycache__/__init__.cpython-310.pyc",
+        "trellis/representations/radiance_field/__pycache__/strivec.cpython-310.pyc",
+        "trellis/utils/__pycache__/__init__.cpython-310.pyc",
+        "trellis/utils/__pycache__/elastic_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/postprocessing_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/random_utils.cpython-310.pyc",
+        "trellis/utils/__pycache__/render_utils.cpython-310.pyc"
+      ],
+      "other_tracked_changes": []
+    },
+    "checkpoints": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.json",
+        "sha256": "e97ba1703c94c4f88f5d68d91bf1fa3fc8b285ad98f339490e9ad1824e8be80c",
+        "bytes": 406
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/decoder_step0100000.pt",
+        "sha256": "1a460d8ea685f97c3d320b03aabd3c5ae55cf94ef4e3bd1136860521f1075dcd",
+        "bytes": 1281392840
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.json",
+        "sha256": "f9f9a5e21b61a5abdf18cbdd48dfb2f197eb7024421cad58141b6a048d5f6c99",
+        "bytes": 445
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_phy_step0700000.pt",
+        "sha256": "40e9b76b5f4c6663f87539151eb6b40b209e9bb2b09ef5f18feb58e8372a7a60",
+        "bytes": 1619037489
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.json",
+        "sha256": "6acd171f28d4d113333d61613ecff8ed5f8d1e7e752615314802b57d7c67d4c6",
+        "bytes": 464
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/denoiser_step0700000.pt",
+        "sha256": "abf3356a382e13e85e18c282a0963e5d3633b6bee1f29e974258c04a1ff1ac9b",
+        "bytes": 2822875445
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.json",
+        "sha256": "9354eceecec5a7f3ec225c235357eb3d6703ef0e3a92d30bceadea9735fe8e16",
+        "bytes": 372
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_decoder_step0100000.pt",
+        "sha256": "ab977e5c18afd73a60cee0a44a8c75bb93debabd041dbe1b914902f3dbab38d4",
+        "bytes": 1099504133
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.json",
+        "sha256": "821da04043191037b444356986f83489eb6e758a96499aae36b2086113f339fa",
+        "bytes": 181
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/ckpts_new/property_output_step0100000.pt",
+        "sha256": "01ecaed44d9511e2b2dd800c4235e629567cba21053cd3b55cdb22008c32bbf2",
+        "bytes": 1099495424
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/sources/physx-4f54e750a309/pretrain/diffusion/pipeline.json",
+        "sha256": "6a80728f55ffb644a57f1d80219bc0ef2e06c5ef4c6c3e2f44ef21feed7394ab",
+        "bytes": 2821
+      }
+    ],
+    "gpu": {
+      "index": 1,
+      "uuid": "GPU-843dced4-ee97-dbb8-36c9-343fe13b7647",
+      "name": "NVIDIA GeForce RTX 5090",
+      "total_mib": 32607,
+      "free_mib": 32048,
+      "sampled_monitor_limit_mib": 28000,
+      "reserve_mib": 4607
+    },
+    "cuda_overlay": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-articulation-balance/20260927T141010Z-9fc2566dec49/cuda-home"
+  }
+}

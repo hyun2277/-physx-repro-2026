@@ -1,0 +1,4639 @@
+{
+  "protocol": "public-materials-independent-evaluation-v1",
+  "paper_equivalent": false,
+  "geometry_definition": {
+    "sampling": "area-weighted barycentric PCG64",
+    "seed": 20260927,
+    "points_per_mesh": 8192,
+    "symmetric_cd_l1": "mean(pred→GT Euclidean NN) + mean(GT→pred Euclidean NN)",
+    "symmetric_cd_l2": "same directional sum using squared NN distance",
+    "fscore": "harmonic mean of directional hit fractions at Euclidean threshold 0.05",
+    "canonical": "independently subtract bbox center and divide each mesh by its maximum bbox extent; raw and canonical are never mixed"
+  },
+  "coverage": {
+    "artifact_complete": 25,
+    "metric_failed": 0,
+    "blocked_metric_rows": 150,
+    "test_rows_total": 1000,
+    "test_order_and_duplicate_policy": "the v1 manifest retains source test row and duplicate occurrence; this eight-item subset does not deduplicate."
+  },
+  "samples": [
+    {
+      "object_id": "29354",
+      "tier": "fixed",
+      "test_row": 1,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.027545760855190813,
+          "cd_l1_pred_to_gt_mean": 0.09832928329153147,
+          "cd_l1_sum_raw": 0.1258750441467223,
+          "cd_l1_table_display_x1e3": 125.87504414672229,
+          "cd_l2_sum_raw": 0.01707046669634923,
+          "fscore_raw": 0.557520792666763,
+          "fscore_table_display_x1e2": 55.752079266676304,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.414306640625,
+          "pred_sample_count": 8192,
+          "recall": 0.85205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.19301161241776396,
+          "cd_l1_pred_to_gt_mean": 0.05625605579618361,
+          "cd_l1_sum_raw": 0.24926766821394758,
+          "cd_l1_table_display_x1e3": 249.2676682139476,
+          "cd_l2_sum_raw": 0.0638992581368189,
+          "fscore_raw": 0.3589307986221096,
+          "fscore_table_display_x1e2": 35.89307986221096,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.486328125,
+          "pred_sample_count": 8192,
+          "recall": 0.284423828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing official-code audit: predicted vertex mean",
+        "raw": 20.21143341064453,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": true,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": false,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 381850,
+          "vertex_fraction": 0.9999842872705942,
+          "majority_assigned_face_count": 763670,
+          "majority_assigned_face_fraction": 0.9999921432649448,
+          "majority_assigned_surface_area": 4.999668598175049,
+          "majority_assigned_surface_area_fraction": 0.9999915361404419,
+          "homogeneous_face_count": 763646,
+          "homogeneous_surface_area": 4.999512672424316,
+          "coordinate_min": [
+            -0.5005630850791931,
+            -0.18009202182292938,
+            -0.3912946283817291
+          ],
+          "coordinate_max": [
+            0.5004652142524719,
+            0.18752513825893402,
+            0.38758352398872375
+          ],
+          "component_count_including_isolated_vertices": 27,
+          "largest_component_vertices": 190568,
+          "largest_component_fraction": 0.4990650779101741,
+          "component_sizes_top10": [
+            190568,
+            185544,
+            1364,
+            1338,
+            1338,
+            1332,
+            76,
+            68,
+            24,
+            20
+          ],
+          "components_top10": [
+            {
+              "vertex_count": 190568,
+              "coordinate_min": [
+                -0.4872303009033203,
+                -0.15794451534748077,
+                -0.1843709796667099
+              ],
+              "coordinate_max": [
+                0.4884447455406189,
+                0.15906378626823425,
+                0.3511109948158264
+              ]
+            },
+            {
+              "vertex_count": 185544,
+              "coordinate_min": [
+                -0.5005630850791931,
+                -0.18009202182292938,
+                -0.3912946283817291
+              ],
+              "coordinate_max": [
+                0.5004652142524719,
+                0.17920935153961182,
+                0.38758352398872375
+              ]
+            },
+            {
+              "vertex_count": 1364,
+              "coordinate_min": [
+                0.40456855297088623,
+                -0.1575576812028885,
+                -0.3757741451263428
+              ],
+              "coordinate_max": [
+                0.47003453969955444,
+                -0.10797955840826035,
+                -0.2169724404811859
+              ]
+            },
+            {
+              "vertex_count": 1338,
+              "coordinate_min": [
+                -0.47033101320266724,
+                0.10790105164051056,
+                -0.37560346722602844
+              ],
+              "coordinate_max": [
+                -0.4045974612236023,
+                0.15767556428909302,
+                -0.21696846187114716
+              ]
+            },
+            {
+              "vertex_count": 1338,
+              "coordinate_min": [
+                -0.47027361392974854,
+                -0.15770986676216125,
+                -0.3754269480705261
+              ],
+              "coordinate_max": [
+                -0.4045330286026001,
+                -0.10793748497962952,
+                -0.21691377460956573
+              ]
+            },
+            {
+              "vertex_count": 1332,
+              "coordinate_min": [
+                0.4046081304550171,
+                0.10786407440900803,
+                -0.37520885467529297
+              ],
+              "coordinate_max": [
+                0.47018325328826904,
+                0.15758752822875977,
+                -0.21691957116127014
+              ]
+            },
+            {
+              "vertex_count": 76,
+              "coordinate_min": [
+                -0.18468619883060455,
+                0.034271541982889175,
+                0.0006725545972585678
+              ],
+              "coordinate_max": [
+                -0.17946064472198486,
+                0.05261890962719917,
+                0.019407857209444046
+              ]
+            },
+            {
+              "vertex_count": 68,
+              "coordinate_min": [
+                -0.2620474696159363,
+                0.1846524477005005,
+                0.3521914482116699
+              ],
+              "coordinate_max": [
+                -0.22574806213378906,
+                0.18612025678157806,
+                0.3608851134777069
+              ]
+            },
+            {
+              "vertex_count": 24,
+              "coordinate_min": [
+                0.034550104290246964,
+                0.06943026930093765,
+                -0.1733161360025406
+              ],
+              "coordinate_max": [
+                0.04405511915683746,
+                0.07594846934080124,
+                -0.17222709953784943
+              ]
+            },
+            {
+              "vertex_count": 20,
+              "coordinate_min": [
+                -0.46967029571533203,
+                0.18549492955207825,
+                0.13542290031909943
+              ],
+              "coordinate_max": [
+                -0.45619770884513855,
+                0.18671803176403046,
+                0.13807813823223114
+              ]
+            }
+          ]
+        },
+        "1": {
+          "vertex_count": 6,
+          "vertex_fraction": 1.5712729405849327e-05,
+          "majority_assigned_face_count": 6,
+          "majority_assigned_face_fraction": 7.856735055180469e-06,
+          "majority_assigned_surface_area": 4.248279219609685e-05,
+          "majority_assigned_surface_area_fraction": 8.497049748257268e-06,
+          "homogeneous_face_count": 0,
+          "homogeneous_surface_area": 0.0,
+          "coordinate_min": [
+            -0.4308300018310547,
+            -0.14601227641105652,
+            0.021515535190701485
+          ],
+          "coordinate_max": [
+            0.43145835399627686,
+            0.13158315420150757,
+            0.25648289918899536
+          ],
+          "component_count_including_isolated_vertices": 3,
+          "largest_component_vertices": 3,
+          "largest_component_fraction": 0.5,
+          "component_sizes_top10": [
+            3,
+            2,
+            1
+          ],
+          "components_top10": [
+            {
+              "vertex_count": 3,
+              "coordinate_min": [
+                0.42755332589149475,
+                -0.13863703608512878,
+                0.14764370024204254
+              ],
+              "coordinate_max": [
+                0.43145835399627686,
+                -0.13667577505111694,
+                0.15065784752368927
+              ]
+            },
+            {
+              "vertex_count": 2,
+              "coordinate_min": [
+                -0.4308300018310547,
+                0.12983514368534088,
+                0.2561991214752197
+              ],
+              "coordinate_max": [
+                -0.42643988132476807,
+                0.13158315420150757,
+                0.25648289918899536
+              ]
+            },
+            {
+              "vertex_count": 1,
+              "coordinate_min": [
+                0.09565719962120056,
+                -0.14601227641105652,
+                0.021515535190701485
+              ],
+              "coordinate_max": [
+                0.09565719962120056,
+                -0.14601227641105652,
+                0.021515535190701485
+              ]
+            }
+          ]
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "24566",
+      "tier": "B_translation",
+      "test_row": 14,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08127673690257398,
+          "cd_l1_pred_to_gt_mean": 0.1207172825925596,
+          "cd_l1_sum_raw": 0.20199401949513357,
+          "cd_l1_table_display_x1e3": 201.99401949513356,
+          "cd_l2_sum_raw": 0.030079994353231696,
+          "fscore_raw": 0.28669543204084325,
+          "fscore_table_display_x1e2": 28.669543204084324,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2181396484375,
+          "pred_sample_count": 8192,
+          "recall": 0.4180908203125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.11392517284313056,
+          "cd_l1_pred_to_gt_mean": 0.09176012994531749,
+          "cd_l1_sum_raw": 0.20568530278844804,
+          "cd_l1_table_display_x1e3": 205.68530278844804,
+          "cd_l2_sum_raw": 0.03641535643901281,
+          "fscore_raw": 0.3794555565887888,
+          "fscore_table_display_x1e2": 37.94555565887888,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.37939453125,
+          "pred_sample_count": 8192,
+          "recall": 0.3795166015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.331443786621094,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 613164,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 1226344,
+          "majority_face_fraction": 1.0,
+          "majority_area": 8.61707592010498,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 1226344,
+          "homogeneous_area": 8.61707592010498,
+          "bbox_min": [
+            -0.44449615478515625,
+            -0.4361594021320343,
+            -0.5004220008850098
+          ],
+          "bbox_max": [
+            0.4446844756603241,
+            0.44016698002815247,
+            0.5001883506774902
+          ],
+          "components": {
+            "count_including_isolated": 3,
+            "largest_vertices": 346700,
+            "largest_fraction": 0.5654278463836755,
+            "sizes_desc_top20": [
+              346700,
+              258412,
+              8052
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "29806",
+      "tier": "C_rotation",
+      "test_row": 574,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.03456211001159079,
+          "cd_l1_pred_to_gt_mean": 0.03675438065834791,
+          "cd_l1_sum_raw": 0.0713164906699387,
+          "cd_l1_table_display_x1e3": 71.3164906699387,
+          "cd_l2_sum_raw": 0.00333271973328704,
+          "fscore_raw": 0.6895161621864585,
+          "fscore_table_display_x1e2": 68.95161621864585,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.7626953125,
+          "pred_sample_count": 8192,
+          "recall": 0.629150390625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2280492887207242,
+          "cd_l1_pred_to_gt_mean": 0.12232132549713404,
+          "cd_l1_sum_raw": 0.3503706142178582,
+          "cd_l1_table_display_x1e3": 350.3706142178582,
+          "cd_l2_sum_raw": 0.08428315797840816,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 15.045036315917969,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 2,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 4,
+        "gt_types": [
+          "C",
+          "C",
+          "C"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": true
+            },
+            "meaningful": true,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": true,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 157271,
+          "vertex_fraction": 0.8724675468767336,
+          "majority_face_count": 314678,
+          "majority_face_fraction": 0.8728641487661992,
+          "majority_area": 2.21486234664917,
+          "majority_area_fraction": 0.8760712146759033,
+          "homogeneous_face_count": 308122,
+          "homogeneous_area": 2.1701817512512207,
+          "bbox_min": [
+            -0.500397264957428,
+            -0.1281508207321167,
+            -0.17679032683372498
+          ],
+          "bbox_max": [
+            0.5004282593727112,
+            0.13358312845230103,
+            0.17511403560638428
+          ],
+          "components": {
+            "count_including_isolated": 51,
+            "largest_vertices": 83056,
+            "largest_fraction": 0.5281075341289876,
+            "sizes_desc_top20": [
+              83056,
+              72917,
+              194,
+              154,
+              147,
+              121,
+              44,
+              44,
+              44,
+              39,
+              38,
+              35,
+              33,
+              31,
+              28,
+              23,
+              22,
+              21,
+              20,
+              19
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 22989,
+          "vertex_fraction": 0.1275324531232664,
+          "majority_face_count": 45834,
+          "majority_face_fraction": 0.1271358512338008,
+          "majority_area": 0.3133133053779602,
+          "majority_area_fraction": 0.12392859160900116,
+          "homogeneous_face_count": 39707,
+          "homogeneous_area": 0.2715549170970917,
+          "bbox_min": [
+            -0.5001319050788879,
+            -0.12814828753471375,
+            -0.17566682398319244
+          ],
+          "bbox_max": [
+            0.4999781847000122,
+            0.0840315967798233,
+            0.17425964772701263
+          ],
+          "components": {
+            "count_including_isolated": 121,
+            "largest_vertices": 7909,
+            "largest_fraction": 0.34403410326677974,
+            "sizes_desc_top20": [
+              7909,
+              4756,
+              3344,
+              1244,
+              814,
+              663,
+              425,
+              315,
+              253,
+              196,
+              181,
+              147,
+              145,
+              144,
+              133,
+              129,
+              109,
+              102,
+              80,
+              71
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "21356",
+      "tier": "fixed",
+      "test_row": 2,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.14963862509845846,
+          "cd_l1_pred_to_gt_mean": 0.16064342214088428,
+          "cd_l1_sum_raw": 0.3102820472393427,
+          "cd_l1_table_display_x1e3": 310.2820472393427,
+          "cd_l2_sum_raw": 0.07668309009731973,
+          "fscore_raw": 0.2458233940870242,
+          "fscore_table_display_x1e2": 24.58233940870242,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1995849609375,
+          "pred_sample_count": 8192,
+          "recall": 0.3199462890625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2057149543360097,
+          "cd_l1_pred_to_gt_mean": 0.12491377282375267,
+          "cd_l1_sum_raw": 0.3306287271597624,
+          "cd_l1_table_display_x1e3": 330.6287271597624,
+          "cd_l2_sum_raw": 0.08654398357814769,
+          "fscore_raw": 0.22762807614599895,
+          "fscore_table_display_x1e2": 22.762807614599893,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.25537109375,
+          "pred_sample_count": 8192,
+          "recall": 0.205322265625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 10.54486083984375,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 363382,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 726672,
+          "majority_face_fraction": 1.0,
+          "majority_area": 4.838868141174316,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 726672,
+          "homogeneous_area": 4.838868141174316,
+          "bbox_min": [
+            -0.3669946789741516,
+            -0.4504947364330292,
+            -0.5003209114074707
+          ],
+          "bbox_max": [
+            0.3659486174583435,
+            0.44962814450263977,
+            0.49984055757522583
+          ],
+          "components": {
+            "count_including_isolated": 28,
+            "largest_vertices": 121824,
+            "largest_fraction": 0.33525050773015724,
+            "sizes_desc_top20": [
+              121824,
+              120570,
+              99618,
+              6826,
+              2658,
+              824,
+              824,
+              824,
+              824,
+              778,
+              730,
+              696,
+              610,
+              580,
+              572,
+              528,
+              520,
+              512,
+              510,
+              488
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "27703",
+      "tier": "fixed",
+      "test_row": 20,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08805901161060391,
+          "cd_l1_pred_to_gt_mean": 0.08913539175041452,
+          "cd_l1_sum_raw": 0.17719440336101844,
+          "cd_l1_table_display_x1e3": 177.19440336101843,
+          "cd_l2_sum_raw": 0.023473913798705406,
+          "fscore_raw": 0.3438283618880735,
+          "fscore_table_display_x1e2": 34.382836188807346,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3128662109375,
+          "pred_sample_count": 8192,
+          "recall": 0.381591796875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18158236994842383,
+          "cd_l1_pred_to_gt_mean": 0.12918090681987907,
+          "cd_l1_sum_raw": 0.3107632767683029,
+          "cd_l1_table_display_x1e3": 310.7632767683029,
+          "cd_l2_sum_raw": 0.06975755302553718,
+          "fscore_raw": 0.15782986995078072,
+          "fscore_table_display_x1e2": 15.78298699507807,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.24267578125,
+          "pred_sample_count": 8192,
+          "recall": 0.116943359375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.803573608398438,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 418644,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 837172,
+          "majority_face_fraction": 1.0,
+          "majority_area": 5.6759185791015625,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 837172,
+          "homogeneous_area": 5.6759185791015625,
+          "bbox_min": [
+            -0.5000250935554504,
+            -0.5001240372657776,
+            -0.36837297677993774
+          ],
+          "bbox_max": [
+            0.49980974197387695,
+            0.49985653162002563,
+            0.3751276433467865
+          ],
+          "components": {
+            "count_including_isolated": 32,
+            "largest_vertices": 239828,
+            "largest_fraction": 0.5728685947965336,
+            "sizes_desc_top20": [
+              239828,
+              119334,
+              46536,
+              2046,
+              2034,
+              2008,
+              2008,
+              640,
+              238,
+              234,
+              194,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "30719",
+      "tier": "fixed",
+      "test_row": 29,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2747740071048985,
+          "cd_l1_pred_to_gt_mean": 0.2881869099170149,
+          "cd_l1_sum_raw": 0.5629609170219134,
+          "cd_l1_table_display_x1e3": 562.9609170219134,
+          "cd_l2_sum_raw": 0.19021198899875538,
+          "fscore_raw": 0.05832303965605749,
+          "fscore_table_display_x1e2": 5.83230396560575,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.05126953125,
+          "pred_sample_count": 8192,
+          "recall": 0.067626953125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.33558323881834257,
+          "cd_l1_pred_to_gt_mean": 0.29801531551714233,
+          "cd_l1_sum_raw": 0.633598554335485,
+          "cd_l1_table_display_x1e3": 633.5985543354849,
+          "cd_l2_sum_raw": 0.2523691257541343,
+          "fscore_raw": 0.07120719747340426,
+          "fscore_table_display_x1e2": 7.120719747340426,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0777587890625,
+          "pred_sample_count": 8192,
+          "recall": 0.065673828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 21.8868408203125,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 416530,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 832896,
+          "majority_face_fraction": 1.0,
+          "majority_area": 5.577786445617676,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 832896,
+          "homogeneous_area": 5.577786445617676,
+          "bbox_min": [
+            -0.500925600528717,
+            -0.500732958316803,
+            -0.49725061655044556
+          ],
+          "bbox_max": [
+            0.5006489157676697,
+            0.5009751915931702,
+            0.5006405115127563
+          ],
+          "components": {
+            "count_including_isolated": 6,
+            "largest_vertices": 220160,
+            "largest_fraction": 0.5285573668163157,
+            "sizes_desc_top20": [
+              220160,
+              196322,
+              16,
+              16,
+              8,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "21314",
+      "tier": "fixed",
+      "test_row": 30,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08163349527265579,
+          "cd_l1_pred_to_gt_mean": 0.07104803485021349,
+          "cd_l1_sum_raw": 0.15268153012286928,
+          "cd_l1_table_display_x1e3": 152.68153012286928,
+          "cd_l2_sum_raw": 0.019876008481647008,
+          "fscore_raw": 0.46211995764369235,
+          "fscore_table_display_x1e2": 46.211995764369235,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4862060546875,
+          "pred_sample_count": 8192,
+          "recall": 0.4403076171875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2586899264595347,
+          "cd_l1_pred_to_gt_mean": 0.11003260638744614,
+          "cd_l1_sum_raw": 0.36872253284698087,
+          "cd_l1_table_display_x1e3": 368.72253284698087,
+          "cd_l2_sum_raw": 0.10882393552780253,
+          "fscore_raw": 0.1712967143232871,
+          "fscore_table_display_x1e2": 17.12967143232871,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4063720703125,
+          "pred_sample_count": 8192,
+          "recall": 0.1085205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.552658081054688,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 178230,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 356494,
+          "majority_face_fraction": 1.0,
+          "majority_area": 2.329261064529419,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 356494,
+          "homogeneous_area": 2.329261064529419,
+          "bbox_min": [
+            -0.5002885460853577,
+            -0.13993464410305023,
+            -0.21765637397766113
+          ],
+          "bbox_max": [
+            0.500483512878418,
+            0.12719979882240295,
+            0.21048930287361145
+          ],
+          "components": {
+            "count_including_isolated": 4,
+            "largest_vertices": 165584,
+            "largest_fraction": 0.9290467373618359,
+            "sizes_desc_top20": [
+              165584,
+              12528,
+              62,
+              56
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "32980",
+      "tier": "fixed",
+      "test_row": 36,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.04492325316817523,
+          "cd_l1_pred_to_gt_mean": 0.05716893304298134,
+          "cd_l1_sum_raw": 0.10209218621115657,
+          "cd_l1_table_display_x1e3": 102.09218621115656,
+          "cd_l2_sum_raw": 0.007748110457497527,
+          "fscore_raw": 0.526591546474359,
+          "fscore_table_display_x1e2": 52.6591546474359,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4661865234375,
+          "pred_sample_count": 8192,
+          "recall": 0.60498046875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2338137078934973,
+          "cd_l1_pred_to_gt_mean": 0.1447838564320207,
+          "cd_l1_sum_raw": 0.37859756432551805,
+          "cd_l1_table_display_x1e3": 378.597564325518,
+          "cd_l2_sum_raw": 0.09487603085175056,
+          "fscore_raw": 0.060908544631231396,
+          "fscore_table_display_x1e2": 6.090854463123139,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1236572265625,
+          "pred_sample_count": 8192,
+          "recall": 0.0404052734375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 2.9520492553710938,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 175932,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 351868,
+          "majority_face_fraction": 1.0,
+          "majority_area": 2.4149136543273926,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 351868,
+          "homogeneous_area": 2.4149136543273926,
+          "bbox_min": [
+            -0.49790671467781067,
+            -0.25080522894859314,
+            -0.22096531093120575
+          ],
+          "bbox_max": [
+            0.49792417883872986,
+            0.2508414387702942,
+            0.22644399106502533
+          ],
+          "components": {
+            "count_including_isolated": 10,
+            "largest_vertices": 127348,
+            "largest_fraction": 0.7238478503058,
+            "sizes_desc_top20": [
+              127348,
+              48388,
+              52,
+              46,
+              26,
+              20,
+              20,
+              12,
+              12,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "48419",
+      "tier": "B_translation",
+      "test_row": 21,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.10633682250966012,
+          "cd_l1_pred_to_gt_mean": 0.11493119310328886,
+          "cd_l1_sum_raw": 0.22126801561294898,
+          "cd_l1_table_display_x1e3": 221.26801561294897,
+          "cd_l2_sum_raw": 0.03891206713779724,
+          "fscore_raw": 0.34093864663504564,
+          "fscore_table_display_x1e2": 34.09386466350456,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3363037109375,
+          "pred_sample_count": 8192,
+          "recall": 0.345703125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18248615037790686,
+          "cd_l1_pred_to_gt_mean": 0.133328818826019,
+          "cd_l1_sum_raw": 0.3158149692039258,
+          "cd_l1_table_display_x1e3": 315.81496920392584,
+          "cd_l2_sum_raw": 0.06278164182461735,
+          "fscore_raw": 0.09610988097890671,
+          "fscore_table_display_x1e2": 9.61098809789067,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1287841796875,
+          "pred_sample_count": 8192,
+          "recall": 0.07666015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 3.2145614624023438,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 3,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 4,
+        "gt_types": [
+          "B",
+          "B",
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 320436,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 640840,
+          "majority_face_fraction": 1.0,
+          "majority_area": 4.420523643493652,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 640840,
+          "homogeneous_area": 4.420523643493652,
+          "bbox_min": [
+            -0.5005707144737244,
+            -0.2138858437538147,
+            -0.4348050057888031
+          ],
+          "bbox_max": [
+            0.49965140223503113,
+            0.21187569200992584,
+            0.4309242367744446
+          ],
+          "components": {
+            "count_including_isolated": 7,
+            "largest_vertices": 174314,
+            "largest_fraction": 0.5439900635384289,
+            "sizes_desc_top20": [
+              174314,
+              144424,
+              394,
+              394,
+              394,
+              364,
+              152
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "38882",
+      "tier": "B_translation",
+      "test_row": 31,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.05572033373114279,
+          "cd_l1_pred_to_gt_mean": 0.11303058529409282,
+          "cd_l1_sum_raw": 0.16875091902523562,
+          "cd_l1_table_display_x1e3": 168.75091902523562,
+          "cd_l2_sum_raw": 0.023188015689027657,
+          "fscore_raw": 0.313741632014257,
+          "fscore_table_display_x1e2": 31.3741632014257,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2518310546875,
+          "pred_sample_count": 8192,
+          "recall": 0.416015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.255029549441905,
+          "cd_l1_pred_to_gt_mean": 0.11493534514246505,
+          "cd_l1_sum_raw": 0.36996489458437004,
+          "cd_l1_table_display_x1e3": 369.96489458437003,
+          "cd_l2_sum_raw": 0.10283921520404422,
+          "fscore_raw": 0.15522431481214513,
+          "fscore_table_display_x1e2": 15.522431481214513,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2257080078125,
+          "pred_sample_count": 8192,
+          "recall": 0.1182861328125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.338470458984375,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 5,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 7,
+        "gt_types": [
+          "C",
+          "C",
+          "C",
+          "B",
+          "B",
+          "B"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": true,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": true,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 420480,
+          "vertex_fraction": 0.9999714620016552,
+          "majority_face_count": 841016,
+          "majority_face_fraction": 0.999980975753598,
+          "majority_area": 5.642383575439453,
+          "majority_area_fraction": 0.9999871253967285,
+          "homogeneous_face_count": 840983,
+          "homogeneous_area": 5.642204761505127,
+          "bbox_min": [
+            -0.4999401867389679,
+            -0.18708644807338715,
+            -0.44442227482795715
+          ],
+          "bbox_max": [
+            0.4998125731945038,
+            0.1856956034898758,
+            0.45036089420318604
+          ],
+          "components": {
+            "count_including_isolated": 1,
+            "largest_vertices": 420480,
+            "largest_fraction": 1.0,
+            "sizes_desc_top20": [
+              420480
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 12,
+          "vertex_fraction": 2.8537998344796096e-05,
+          "majority_face_count": 16,
+          "majority_face_fraction": 1.90242464020394e-05,
+          "majority_area": 7.28113082004711e-05,
+          "majority_area_fraction": 1.2904187315143645e-05,
+          "homogeneous_face_count": 6,
+          "homogeneous_area": 2.178306931455154e-05,
+          "bbox_min": [
+            0.15321195125579834,
+            -0.09232956171035767,
+            0.25868746638298035
+          ],
+          "bbox_max": [
+            0.46428003907203674,
+            0.1380160003900528,
+            0.339973509311676
+          ],
+          "components": {
+            "count_including_isolated": 4,
+            "largest_vertices": 8,
+            "largest_fraction": 0.6666666666666666,
+            "sizes_desc_top20": [
+              8,
+              2,
+              1,
+              1
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "15821",
+      "tier": "C_rotation",
+      "test_row": 23,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2959893386807456,
+          "cd_l1_pred_to_gt_mean": 0.27654897914615945,
+          "cd_l1_sum_raw": 0.572538317826905,
+          "cd_l1_table_display_x1e3": 572.538317826905,
+          "cd_l2_sum_raw": 0.1827570572284083,
+          "fscore_raw": 0.003307711693548387,
+          "fscore_table_display_x1e2": 0.3307711693548387,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.005126953125,
+          "pred_sample_count": 8192,
+          "recall": 0.00244140625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.1711446525488643,
+          "cd_l1_pred_to_gt_mean": 0.15395361498779153,
+          "cd_l1_sum_raw": 0.3250982675366558,
+          "cd_l1_table_display_x1e3": 325.09826753665584,
+          "cd_l2_sum_raw": 0.09273353909781315,
+          "fscore_raw": 0.1760557496427953,
+          "fscore_table_display_x1e2": 17.60557496427953,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.181396484375,
+          "pred_sample_count": 8192,
+          "recall": 0.1710205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 0.1915435791015625,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "C"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 89026,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 178036,
+          "majority_face_fraction": 1.0,
+          "majority_area": 0.983448326587677,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 178036,
+          "homogeneous_area": 0.983448326587677,
+          "bbox_min": [
+            -0.17843182384967804,
+            -0.17879575490951538,
+            -0.5007630586624146
+          ],
+          "bbox_max": [
+            0.1789066195487976,
+            0.17905262112617493,
+            0.500111997127533
+          ],
+          "components": {
+            "count_including_isolated": 5,
+            "largest_vertices": 72960,
+            "largest_fraction": 0.8195358659268079,
+            "sizes_desc_top20": [
+              72960,
+              12528,
+              2268,
+              1022,
+              248
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "45443",
+      "tier": "fixed",
+      "test_row": 141,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.10159294585418752,
+          "cd_l1_pred_to_gt_mean": 0.13733442130783735,
+          "cd_l1_sum_raw": 0.23892736716202487,
+          "cd_l1_table_display_x1e3": 238.92736716202486,
+          "cd_l2_sum_raw": 0.044046546138919354,
+          "fscore_raw": 0.31206610462526846,
+          "fscore_table_display_x1e2": 31.206610462526847,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2994384765625,
+          "pred_sample_count": 8192,
+          "recall": 0.3258056640625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.25196403274003304,
+          "cd_l1_pred_to_gt_mean": 0.09639128359820512,
+          "cd_l1_sum_raw": 0.34835531633823813,
+          "cd_l1_table_display_x1e3": 348.35531633823814,
+          "cd_l2_sum_raw": 0.09850041571935542,
+          "fscore_raw": 0.1772977181993392,
+          "fscore_table_display_x1e2": 17.72977181993392,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2874755859375,
+          "pred_sample_count": 8192,
+          "recall": 0.128173828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 6.643798828125,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "B"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 428400,
+          "vertex_fraction": 0.9993281827342962,
+          "majority_face_count": 856774,
+          "majority_face_fraction": 0.9994284141174714,
+          "majority_area": 5.918076038360596,
+          "majority_area_fraction": 0.999488890171051,
+          "homogeneous_face_count": 856284,
+          "homogeneous_area": 5.914929389953613,
+          "bbox_min": [
+            -0.49605196714401245,
+            -0.1844661980867386,
+            -0.435161292552948
+          ],
+          "bbox_max": [
+            0.5003567337989807,
+            0.18109317123889923,
+            0.4366360604763031
+          ],
+          "components": {
+            "count_including_isolated": 32,
+            "largest_vertices": 216553,
+            "largest_fraction": 0.5054925303454715,
+            "sizes_desc_top20": [
+              216553,
+              211131,
+              88,
+              76,
+              70,
+              64,
+              60,
+              40,
+              32,
+              20,
+              20,
+              20,
+              18,
+              16,
+              16,
+              16,
+              16,
+              12,
+              12,
+              12
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 288,
+          "vertex_fraction": 0.0006718172657037286,
+          "majority_face_count": 490,
+          "majority_face_fraction": 0.0005715858825286026,
+          "majority_area": 0.0030267154797911644,
+          "majority_area_fraction": 0.0005111743230372667,
+          "homogeneous_face_count": 231,
+          "homogeneous_area": 0.001399777363985777,
+          "bbox_min": [
+            -0.49283304810523987,
+            -0.17480775713920593,
+            -0.40443554520606995
+          ],
+          "bbox_max": [
+            0.49878767132759094,
+            -0.11671721190214157,
+            0.3848637044429779
+          ],
+          "components": {
+            "count_including_isolated": 43,
+            "largest_vertices": 37,
+            "largest_fraction": 0.1284722222222222,
+            "sizes_desc_top20": [
+              37,
+              30,
+              28,
+              22,
+              14,
+              12,
+              12,
+              10,
+              9,
+              8,
+              8,
+              7,
+              7,
+              6,
+              6,
+              6,
+              6,
+              5,
+              5,
+              4
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "45645",
+      "tier": "fixed",
+      "test_row": 130,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.09216998650315025,
+          "cd_l1_pred_to_gt_mean": 0.09795644739536256,
+          "cd_l1_sum_raw": 0.1901264338985128,
+          "cd_l1_table_display_x1e3": 190.1264338985128,
+          "cd_l2_sum_raw": 0.02826742359051146,
+          "fscore_raw": 0.3781090388793849,
+          "fscore_table_display_x1e2": 37.81090388793849,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3260498046875,
+          "pred_sample_count": 8192,
+          "recall": 0.449951171875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.28499607291287765,
+          "cd_l1_pred_to_gt_mean": 0.13478876836958026,
+          "cd_l1_sum_raw": 0.4197848412824579,
+          "cd_l1_table_display_x1e3": 419.7848412824579,
+          "cd_l2_sum_raw": 0.13141899034912854,
+          "fscore_raw": 0.1066890350759846,
+          "fscore_table_display_x1e2": 10.66890350759846,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.214111328125,
+          "pred_sample_count": 8192,
+          "recall": 0.071044921875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 0.313690185546875,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 2,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 3,
+        "gt_types": [
+          "C",
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 344108,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 688172,
+          "majority_face_fraction": 1.0,
+          "majority_area": 4.774038314819336,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 688172,
+          "homogeneous_area": 4.774038314819336,
+          "bbox_min": [
+            -0.21693073213100433,
+            -0.24178050458431244,
+            -0.5007642507553101
+          ],
+          "bbox_max": [
+            0.2185099720954895,
+            0.24754193425178528,
+            0.5005342960357666
+          ],
+          "components": {
+            "count_including_isolated": 19,
+            "largest_vertices": 343648,
+            "largest_fraction": 0.9986632103874366,
+            "sizes_desc_top20": [
+              343648,
+              82,
+              82,
+              48,
+              40,
+              28,
+              28,
+              24,
+              20,
+              20,
+              12,
+              12,
+              12,
+              12,
+              8,
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "15896",
+      "tier": "fixed",
+      "test_row": 799,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.11749841260208947,
+          "cd_l1_pred_to_gt_mean": 0.10567709912499454,
+          "cd_l1_sum_raw": 0.223175511727084,
+          "cd_l1_table_display_x1e3": 223.175511727084,
+          "cd_l2_sum_raw": 0.038633015430232204,
+          "fscore_raw": 0.3117196662431587,
+          "fscore_table_display_x1e2": 31.17196662431587,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3251953125,
+          "pred_sample_count": 8192,
+          "recall": 0.29931640625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.317327072652643,
+          "cd_l1_pred_to_gt_mean": 0.07524473407785054,
+          "cd_l1_sum_raw": 0.3925718067304935,
+          "cd_l1_table_display_x1e3": 392.5718067304935,
+          "cd_l2_sum_raw": 0.14510941228851135,
+          "fscore_raw": 0.15283857881597718,
+          "fscore_table_display_x1e2": 15.283857881597717,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3282470703125,
+          "pred_sample_count": 8192,
+          "recall": 0.099609375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 96.43376159667969,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "C"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": true,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 195039,
+          "vertex_fraction": 0.9998308316929134,
+          "majority_face_count": 390042,
+          "majority_face_fraction": 0.9998513201743143,
+          "majority_area": 1.9960825443267822,
+          "majority_area_fraction": 0.9998716711997986,
+          "homogeneous_face_count": 389991,
+          "homogeneous_area": 1.9958605766296387,
+          "bbox_min": [
+            -0.2539234459400177,
+            -0.25361719727516174,
+            -0.5000423789024353
+          ],
+          "bbox_max": [
+            0.25410738587379456,
+            0.25350189208984375,
+            0.500196099281311
+          ],
+          "components": {
+            "count_including_isolated": 12,
+            "largest_vertices": 111877,
+            "largest_fraction": 0.5736134824317188,
+            "sizes_desc_top20": [
+              111877,
+              82960,
+              60,
+              56,
+              26,
+              12,
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 33,
+          "vertex_fraction": 0.00016916830708661417,
+          "majority_face_count": 58,
+          "majority_face_fraction": 0.00014867982568572162,
+          "majority_area": 0.0002560084976721555,
+          "majority_area_fraction": 0.000128239014884457,
+          "homogeneous_face_count": 31,
+          "homogeneous_area": 0.00014201769954524934,
+          "bbox_min": [
+            -0.07849928736686707,
+            -0.12400268018245697,
+            0.05389996990561485
+          ],
+          "bbox_max": [
+            0.19914790987968445,
+            0.2320539653301239,
+            0.337297260761261
+          ],
+          "components": {
+            "count_including_isolated": 4,
+            "largest_vertices": 15,
+            "largest_fraction": 0.45454545454545453,
+            "sizes_desc_top20": [
+              15,
+              11,
+              6,
+              1
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "13737",
+      "tier": "fixed",
+      "test_row": 166,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.3052609026677222,
+          "cd_l1_pred_to_gt_mean": 0.315455244213364,
+          "cd_l1_sum_raw": 0.6207161468810862,
+          "cd_l1_table_display_x1e3": 620.7161468810862,
+          "cd_l2_sum_raw": 0.20711252002535124,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.38901258328372,
+          "cd_l1_pred_to_gt_mean": 0.32325304080208667,
+          "cd_l1_sum_raw": 0.7122656240858067,
+          "cd_l1_table_display_x1e3": 712.2656240858067,
+          "cd_l2_sum_raw": 0.28403916687530184,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 20.799091339111328,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "C"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 91082,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 182152,
+          "majority_face_fraction": 1.0,
+          "majority_area": 1.0107364654541016,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 182152,
+          "homogeneous_area": 1.0107364654541016,
+          "bbox_min": [
+            -0.5000299215316772,
+            -0.17686206102371216,
+            -0.43196719884872437
+          ],
+          "bbox_max": [
+            0.4981350302696228,
+            0.17688816785812378,
+            0.42991673946380615
+          ],
+          "components": {
+            "count_including_isolated": 6,
+            "largest_vertices": 38152,
+            "largest_fraction": 0.41887529918095784,
+            "sizes_desc_top20": [
+              38152,
+              32088,
+              14346,
+              4186,
+              2298,
+              12
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "16693",
+      "tier": "fixed",
+      "test_row": 586,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.14374406949704555,
+          "cd_l1_pred_to_gt_mean": 0.150318277892166,
+          "cd_l1_sum_raw": 0.29406234738921155,
+          "cd_l1_table_display_x1e3": 294.06234738921154,
+          "cd_l2_sum_raw": 0.0624334429328508,
+          "fscore_raw": 0.1687977597908447,
+          "fscore_table_display_x1e2": 16.879775979084467,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1854248046875,
+          "pred_sample_count": 8192,
+          "recall": 0.1549072265625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2417420111392803,
+          "cd_l1_pred_to_gt_mean": 0.14488845145098503,
+          "cd_l1_sum_raw": 0.38663046259026534,
+          "cd_l1_table_display_x1e3": 386.6304625902653,
+          "cd_l2_sum_raw": 0.11742530354808886,
+          "fscore_raw": 0.06980227591895724,
+          "fscore_table_display_x1e2": 6.980227591895724,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0731201171875,
+          "pred_sample_count": 8192,
+          "recall": 0.0667724609375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 6.254322052001953,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "C"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": true
+            },
+            "meaningful": true,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 24006,
+          "vertex_fraction": 0.4321823353616822,
+          "majority_face_count": 47946,
+          "majority_face_fraction": 0.43160377358490565,
+          "majority_area": 0.2635370194911957,
+          "majority_area_fraction": 0.4236064553260803,
+          "homogeneous_face_count": 47236,
+          "homogeneous_area": 0.2593812048435211,
+          "bbox_min": [
+            -0.1525612771511078,
+            -0.22126145660877228,
+            -0.5003319382667542
+          ],
+          "bbox_max": [
+            0.1524391919374466,
+            0.22948019206523895,
+            0.49831169843673706
+          ],
+          "components": {
+            "count_including_isolated": 33,
+            "largest_vertices": 22376,
+            "largest_fraction": 0.9321003082562692,
+            "sizes_desc_top20": [
+              22376,
+              993,
+              118,
+              112,
+              50,
+              46,
+              34,
+              31,
+              28,
+              25,
+              25,
+              22,
+              19,
+              17,
+              13,
+              12,
+              12,
+              10,
+              9,
+              8
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 31540,
+          "vertex_fraction": 0.5678176646383178,
+          "majority_face_count": 63142,
+          "majority_face_fraction": 0.5683962264150944,
+          "majority_area": 0.35858994722366333,
+          "majority_area_fraction": 0.5763934850692749,
+          "homogeneous_face_count": 62269,
+          "homogeneous_area": 0.35349544882774353,
+          "bbox_min": [
+            -0.15324905514717102,
+            -0.22396089136600494,
+            -0.0903262346982956
+          ],
+          "bbox_max": [
+            0.1534079909324646,
+            0.08056678622961044,
+            0.10917626321315765
+          ],
+          "components": {
+            "count_including_isolated": 2,
+            "largest_vertices": 31534,
+            "largest_fraction": 0.9998097653772987,
+            "sizes_desc_top20": [
+              31534,
+              6
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "19661",
+      "tier": "fixed",
+      "test_row": 37,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.07989338298267908,
+          "cd_l1_pred_to_gt_mean": 0.08521266489897943,
+          "cd_l1_sum_raw": 0.1651060478816585,
+          "cd_l1_table_display_x1e3": 165.1060478816585,
+          "cd_l2_sum_raw": 0.02372314628783781,
+          "fscore_raw": 0.4119494320073236,
+          "fscore_table_display_x1e2": 41.19494320073236,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.39697265625,
+          "pred_sample_count": 8192,
+          "recall": 0.4281005859375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2749240862022303,
+          "cd_l1_pred_to_gt_mean": 0.10184209811210722,
+          "cd_l1_sum_raw": 0.3767661843143375,
+          "cd_l1_table_display_x1e3": 376.7661843143375,
+          "cd_l2_sum_raw": 0.10996834759449577,
+          "fscore_raw": 0.11235579623970934,
+          "fscore_table_display_x1e2": 11.235579623970935,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2938232421875,
+          "pred_sample_count": 8192,
+          "recall": 0.0694580078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.995140075683594,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 138170,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 276300,
+          "majority_face_fraction": 1.0,
+          "majority_area": 1.9191104173660278,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 276300,
+          "homogeneous_area": 1.9191104173660278,
+          "bbox_min": [
+            -0.5002915859222412,
+            -0.27469533681869507,
+            -0.16291482746601105
+          ],
+          "bbox_max": [
+            0.4998683035373688,
+            0.2741311490535736,
+            0.1597835272550583
+          ],
+          "components": {
+            "count_including_isolated": 10,
+            "largest_vertices": 91526,
+            "largest_fraction": 0.6624158645147282,
+            "sizes_desc_top20": [
+              91526,
+              44716,
+              332,
+              330,
+              330,
+              328,
+              152,
+              152,
+              152,
+              152
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "25862",
+      "tier": "fixed",
+      "test_row": 51,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.11177027338521414,
+          "cd_l1_pred_to_gt_mean": 0.14117445621745964,
+          "cd_l1_sum_raw": 0.2529447296026738,
+          "cd_l1_table_display_x1e3": 252.94472960267376,
+          "cd_l2_sum_raw": 0.05031037284403565,
+          "fscore_raw": 0.2842309466863083,
+          "fscore_table_display_x1e2": 28.423094668630828,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2547607421875,
+          "pred_sample_count": 8192,
+          "recall": 0.3214111328125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.16520583387535992,
+          "cd_l1_pred_to_gt_mean": 0.07450237174170156,
+          "cd_l1_sum_raw": 0.23970820561706147,
+          "cd_l1_table_display_x1e3": 239.70820561706145,
+          "cd_l2_sum_raw": 0.0512589911636063,
+          "fscore_raw": 0.2515605381091045,
+          "fscore_table_display_x1e2": 25.15605381091045,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3841552734375,
+          "pred_sample_count": 8192,
+          "recall": 0.18701171875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 23.416976928710938,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 237810,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 475528,
+          "majority_face_fraction": 1.0,
+          "majority_area": 3.2012336254119873,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 475528,
+          "homogeneous_area": 3.2012336254119873,
+          "bbox_min": [
+            -0.4993169605731964,
+            -0.2025621235370636,
+            -0.390470951795578
+          ],
+          "bbox_max": [
+            0.49820712208747864,
+            0.2023928165435791,
+            0.3905927240848541
+          ],
+          "components": {
+            "count_including_isolated": 23,
+            "largest_vertices": 137940,
+            "largest_fraction": 0.5800428913838779,
+            "sizes_desc_top20": [
+              137940,
+              98278,
+              206,
+              204,
+              202,
+              202,
+              158,
+              156,
+              156,
+              156,
+              20,
+              16,
+              16,
+              12,
+              12,
+              12,
+              12,
+              12,
+              8,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "31114",
+      "tier": "fixed",
+      "test_row": 56,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.19519289014844726,
+          "cd_l1_pred_to_gt_mean": 0.21434583154304324,
+          "cd_l1_sum_raw": 0.4095387216914905,
+          "cd_l1_table_display_x1e3": 409.53872169149054,
+          "cd_l2_sum_raw": 0.12180970870468241,
+          "fscore_raw": 0.15494837181324572,
+          "fscore_table_display_x1e2": 15.494837181324572,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1258544921875,
+          "pred_sample_count": 8192,
+          "recall": 0.2015380859375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2653481293949247,
+          "cd_l1_pred_to_gt_mean": 0.20474280769122874,
+          "cd_l1_sum_raw": 0.47009093708615346,
+          "cd_l1_table_display_x1e3": 470.0909370861535,
+          "cd_l2_sum_raw": 0.15552363907636158,
+          "fscore_raw": 0.13165054002955492,
+          "fscore_table_display_x1e2": 13.165054002955491,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.131103515625,
+          "pred_sample_count": 8192,
+          "recall": 0.1322021484375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 0.06031036376953125,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 415598,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 831134,
+          "majority_face_fraction": 1.0,
+          "majority_area": 6.056140422821045,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 831134,
+          "homogeneous_area": 6.056140422821045,
+          "bbox_min": [
+            -0.49956050515174866,
+            -0.48451146483421326,
+            -0.2672902047634125
+          ],
+          "bbox_max": [
+            0.499959260225296,
+            0.4840216636657715,
+            0.2670946717262268
+          ],
+          "components": {
+            "count_including_isolated": 17,
+            "largest_vertices": 349348,
+            "largest_fraction": 0.840591148176844,
+            "sizes_desc_top20": [
+              349348,
+              65958,
+              40,
+              40,
+              36,
+              32,
+              30,
+              24,
+              16,
+              16,
+              12,
+              8,
+              8,
+              8,
+              8,
+              8,
+              6
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "22738",
+      "tier": "fixed",
+      "test_row": 79,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.036396238276903,
+          "cd_l1_pred_to_gt_mean": 0.03631929565964193,
+          "cd_l1_sum_raw": 0.07271553393654492,
+          "cd_l1_table_display_x1e3": 72.71553393654493,
+          "cd_l2_sum_raw": 0.006930583382513387,
+          "fscore_raw": 0.8180160812681808,
+          "fscore_table_display_x1e2": 81.80160812681808,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.83349609375,
+          "pred_sample_count": 8192,
+          "recall": 0.8031005859375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18666652345133267,
+          "cd_l1_pred_to_gt_mean": 0.09719365178594214,
+          "cd_l1_sum_raw": 0.2838601752372748,
+          "cd_l1_table_display_x1e3": 283.8601752372748,
+          "cd_l2_sum_raw": 0.0648183679685506,
+          "fscore_raw": 0.21477453775148606,
+          "fscore_table_display_x1e2": 21.477453775148604,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.385009765625,
+          "pred_sample_count": 8192,
+          "recall": 0.14892578125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 16.917388916015625,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 311038,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 622062,
+          "majority_face_fraction": 1.0,
+          "majority_area": 4.328655242919922,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 622062,
+          "homogeneous_area": 4.328655242919922,
+          "bbox_min": [
+            -0.499758780002594,
+            -0.2404615879058838,
+            -0.23322592675685883
+          ],
+          "bbox_max": [
+            0.4999568462371826,
+            0.24244938790798187,
+            0.2334417700767517
+          ],
+          "components": {
+            "count_including_isolated": 3,
+            "largest_vertices": 172784,
+            "largest_fraction": 0.5555076871636263,
+            "sizes_desc_top20": [
+              172784,
+              138246,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "24163",
+      "tier": "fixed",
+      "test_row": 99,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08992301752998458,
+          "cd_l1_pred_to_gt_mean": 0.0984213362957738,
+          "cd_l1_sum_raw": 0.18834435382575837,
+          "cd_l1_table_display_x1e3": 188.34435382575836,
+          "cd_l2_sum_raw": 0.02879262615051347,
+          "fscore_raw": 0.359519248035322,
+          "fscore_table_display_x1e2": 35.9519248035322,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3369140625,
+          "pred_sample_count": 8192,
+          "recall": 0.3853759765625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08004361407039955,
+          "cd_l1_pred_to_gt_mean": 0.058931464966143376,
+          "cd_l1_sum_raw": 0.13897507903654294,
+          "cd_l1_table_display_x1e3": 138.97507903654292,
+          "cd_l2_sum_raw": 0.021341062434973676,
+          "fscore_raw": 0.5935541854113111,
+          "fscore_table_display_x1e2": 59.35541854113111,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.5908203125,
+          "pred_sample_count": 8192,
+          "recall": 0.5963134765625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 39.30143737792969,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 666444,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 1332884,
+          "majority_face_fraction": 1.0,
+          "majority_area": 9.470572471618652,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 1332884,
+          "homogeneous_area": 9.470572471618652,
+          "bbox_min": [
+            -0.4993791878223419,
+            -0.49821409583091736,
+            -0.5007085204124451
+          ],
+          "bbox_max": [
+            0.49905574321746826,
+            0.5004533529281616,
+            0.5003374814987183
+          ],
+          "components": {
+            "count_including_isolated": 16,
+            "largest_vertices": 363896,
+            "largest_fraction": 0.5460263728085181,
+            "sizes_desc_top20": [
+              363896,
+              267228,
+              13628,
+              13590,
+              982,
+              958,
+              948,
+              910,
+              898,
+              896,
+              882,
+              780,
+              776,
+              48,
+              12,
+              12
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "27499",
+      "tier": "fixed",
+      "test_row": 105,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.16084034454299923,
+          "cd_l1_pred_to_gt_mean": 0.18145776910544717,
+          "cd_l1_sum_raw": 0.3422981136484464,
+          "cd_l1_table_display_x1e3": 342.2981136484464,
+          "cd_l2_sum_raw": 0.08213295320148112,
+          "fscore_raw": 0.14814153337555178,
+          "fscore_table_display_x1e2": 14.814153337555178,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1275634765625,
+          "pred_sample_count": 8192,
+          "recall": 0.1766357421875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.278101960620235,
+          "cd_l1_pred_to_gt_mean": 0.21934953792639159,
+          "cd_l1_sum_raw": 0.4974514985466266,
+          "cd_l1_table_display_x1e3": 497.4514985466266,
+          "cd_l2_sum_raw": 0.1665597777809042,
+          "fscore_raw": 0.11956482087645129,
+          "fscore_table_display_x1e2": 11.956482087645128,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1336669921875,
+          "pred_sample_count": 8192,
+          "recall": 0.108154296875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 10.549751281738281,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 275566,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 551156,
+          "majority_face_fraction": 1.0,
+          "majority_area": 3.929443359375,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 551156,
+          "homogeneous_area": 3.929443359375,
+          "bbox_min": [
+            -0.4987795948982239,
+            -0.4984552562236786,
+            -0.2396475374698639
+          ],
+          "bbox_max": [
+            0.4982144236564636,
+            0.4980023205280304,
+            0.24423669278621674
+          ],
+          "components": {
+            "count_including_isolated": 1,
+            "largest_vertices": 275566,
+            "largest_fraction": 1.0,
+            "sizes_desc_top20": [
+              275566
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "25598",
+      "tier": "fixed",
+      "test_row": 110,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.16606542243645467,
+          "cd_l1_pred_to_gt_mean": 0.14489092541200474,
+          "cd_l1_sum_raw": 0.3109563478484594,
+          "cd_l1_table_display_x1e3": 310.95634784845936,
+          "cd_l2_sum_raw": 0.06712607793092243,
+          "fscore_raw": 0.09818133408615075,
+          "fscore_table_display_x1e2": 9.818133408615074,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1029052734375,
+          "pred_sample_count": 8192,
+          "recall": 0.0938720703125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.16081645655724797,
+          "cd_l1_pred_to_gt_mean": 0.08015758952615468,
+          "cd_l1_sum_raw": 0.24097404608340264,
+          "cd_l1_table_display_x1e3": 240.97404608340264,
+          "cd_l2_sum_raw": 0.04857754560050906,
+          "fscore_raw": 0.22772830726113716,
+          "fscore_table_display_x1e2": 22.772830726113714,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3524169921875,
+          "pred_sample_count": 8192,
+          "recall": 0.168212890625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 13.35455322265625,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 102562,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 205120,
+          "majority_face_fraction": 1.0,
+          "majority_area": 1.44940185546875,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 205120,
+          "homogeneous_area": 1.44940185546875,
+          "bbox_min": [
+            -0.5003337860107422,
+            -0.25010982155799866,
+            -0.3115233778953552
+          ],
+          "bbox_max": [
+            0.5003567337989807,
+            0.2506507933139801,
+            0.31053614616394043
+          ],
+          "components": {
+            "count_including_isolated": 1,
+            "largest_vertices": 102562,
+            "largest_fraction": 1.0,
+            "sizes_desc_top20": [
+              102562
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "19335",
+      "tier": "fixed",
+      "test_row": 115,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.0664622262763017,
+          "cd_l1_pred_to_gt_mean": 0.061536904896066225,
+          "cd_l1_sum_raw": 0.12799913117236794,
+          "cd_l1_table_display_x1e3": 127.99913117236794,
+          "cd_l2_sum_raw": 0.01639488288731545,
+          "fscore_raw": 0.584437353286385,
+          "fscore_table_display_x1e2": 58.4437353286385,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.5665283203125,
+          "pred_sample_count": 8192,
+          "recall": 0.603515625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2870521308139808,
+          "cd_l1_pred_to_gt_mean": 0.15243905359022897,
+          "cd_l1_sum_raw": 0.43949118440420976,
+          "cd_l1_table_display_x1e3": 439.4911844042097,
+          "cd_l2_sum_raw": 0.15353642891391894,
+          "fscore_raw": 0.16004410961491342,
+          "fscore_table_display_x1e2": 16.00441096149134,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.257568359375,
+          "pred_sample_count": 8192,
+          "recall": 0.1160888671875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 6.308441162109375,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 294834,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 589504,
+          "majority_face_fraction": 1.0,
+          "majority_area": 3.542541980743408,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 589504,
+          "homogeneous_area": 3.542541980743408,
+          "bbox_min": [
+            -0.49985331296920776,
+            -0.4996784031391144,
+            -0.245065838098526
+          ],
+          "bbox_max": [
+            0.4999207556247711,
+            0.4998686611652374,
+            0.24546726047992706
+          ],
+          "components": {
+            "count_including_isolated": 57,
+            "largest_vertices": 226592,
+            "largest_fraction": 0.7685409416824383,
+            "sizes_desc_top20": [
+              226592,
+              35876,
+              27002,
+              366,
+              320,
+              296,
+              296,
+              296,
+              296,
+              288,
+              152,
+              152,
+              152,
+              152,
+              152,
+              108,
+              108,
+              104,
+              104,
+              104
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "34676",
+      "tier": "fixed",
+      "test_row": 129,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.013927525973550701,
+          "cd_l1_pred_to_gt_mean": 0.03134849301661692,
+          "cd_l1_sum_raw": 0.04527601899016762,
+          "cd_l1_table_display_x1e3": 45.27601899016762,
+          "cd_l2_sum_raw": 0.002044859956331756,
+          "fscore_raw": 0.8800598470207963,
+          "fscore_table_display_x1e2": 88.00598470207963,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.7880859375,
+          "pred_sample_count": 8192,
+          "recall": 0.996337890625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2148360859480255,
+          "cd_l1_pred_to_gt_mean": 0.1474933645154315,
+          "cd_l1_sum_raw": 0.362329450463457,
+          "cd_l1_table_display_x1e3": 362.32945046345696,
+          "cd_l2_sum_raw": 0.08222597878697374,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 42.42515563964844,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": true,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": true
+            },
+            "meaningful": true,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 149184,
+          "vertex_fraction": 0.6588759042849193,
+          "majority_face_count": 298308,
+          "majority_face_fraction": 0.6585514464342481,
+          "majority_area": 2.047927141189575,
+          "majority_area_fraction": 0.7040783166885376,
+          "homogeneous_face_count": 291185,
+          "homogeneous_area": 2.0033507347106934,
+          "bbox_min": [
+            -0.5005707740783691,
+            -0.1636032611131668,
+            -0.13655878603458405
+          ],
+          "bbox_max": [
+            0.5003637671470642,
+            0.1646253615617752,
+            0.1505761593580246
+          ],
+          "components": {
+            "count_including_isolated": 102,
+            "largest_vertices": 145377,
+            "largest_fraction": 0.9744811776061776,
+            "sizes_desc_top20": [
+              145377,
+              452,
+              338,
+              285,
+              232,
+              166,
+              156,
+              150,
+              141,
+              140,
+              139,
+              92,
+              91,
+              79,
+              71,
+              69,
+              66,
+              56,
+              52,
+              47
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 77238,
+          "vertex_fraction": 0.3411240957150807,
+          "majority_face_count": 154668,
+          "majority_face_fraction": 0.3414485535657518,
+          "majority_area": 0.8607369661331177,
+          "majority_area_fraction": 0.29592177271842957,
+          "homogeneous_face_count": 147335,
+          "homogeneous_area": 0.8151363134384155,
+          "bbox_min": [
+            -0.5003029108047485,
+            -0.16166219115257263,
+            -0.05663646385073662
+          ],
+          "bbox_max": [
+            0.49993187189102173,
+            0.11474943906068802,
+            0.15453431010246277
+          ],
+          "components": {
+            "count_including_isolated": 66,
+            "largest_vertices": 74774,
+            "largest_fraction": 0.9680986043139387,
+            "sizes_desc_top20": [
+              74774,
+              835,
+              152,
+              149,
+              102,
+              94,
+              64,
+              62,
+              62,
+              57,
+              56,
+              51,
+              49,
+              47,
+              45,
+              38,
+              37,
+              34,
+              33,
+              31
+            ]
+          }
+        }
+      },
+      "status": "success"
+    }
+  ],
+  "all_macro": {
+    "raw_cd_l1": {
+      "n": 25,
+      "mean": 0.3659106873519033,
+      "median": 0.362329450463457
+    },
+    "raw_cd_l2": {
+      "n": 25,
+      "mean": 0.10742504902075067,
+      "median": 0.09487603085175056
+    },
+    "raw_fscore": {
+      "n": 25,
+      "mean": 0.16690028585893496,
+      "median": 0.15522431481214513
+    },
+    "canonical_cd_l1": {
+      "n": 25,
+      "mean": 0.24596562785554685,
+      "median": 0.20199401949513357
+    },
+    "canonical_cd_l2": {
+      "n": 25,
+      "mean": 0.05572366368542099,
+      "median": 0.030079994353231696
+    },
+    "canonical_fscore": {
+      "n": 25,
+      "mean": 0.34954333576416174,
+      "median": 0.313741632014257
+    },
+    "scale_error_cm": {
+      "n": 25,
+      "mean": 17.913851623535155,
+      "median": 12.995140075683594
+    },
+    "group_count_absolute_error": {
+      "n": 25,
+      "mean": 0.68,
+      "median": 0.0
+    }
+  },
+  "subgroup_macro": {
+    "fixed": {
+      "raw_cd_l1": {
+        "n": 20,
+        "mean": 0.37904165677331625,
+        "median": 0.3727443585806592
+      },
+      "raw_cd_l2": {
+        "n": 20,
+        "mean": 0.11532866574874355,
+        "median": 0.10366217562357898
+      },
+      "raw_fscore": {
+        "n": 20,
+        "mean": 0.1682830822225369,
+        "median": 0.15533422438337896
+      },
+      "canonical_cd_l1": {
+        "n": 20,
+        "mean": 0.24566364668792548,
+        "median": 0.2066509728127984
+      },
+      "canonical_cd_l2": {
+        "n": 20,
+        "mean": 0.05574108689968864,
+        "median": 0.03371282079037284
+      },
+      "canonical_fscore": {
+        "n": 20,
+        "mean": 0.35521919047669454,
+        "median": 0.32794723325667097
+      },
+      "scale_error_cm": {
+        "n": 20,
+        "mean": 19.536261749267577,
+        "median": 13.174846649169922
+      },
+      "group_count_absolute_error": {
+        "n": 20,
+        "mean": 0.25,
+        "median": 0.0
+      }
+    },
+    "B_translation": {
+      "raw_cd_l1": {
+        "n": 3,
+        "mean": 0.2971550555255813,
+        "median": 0.3158149692039258
+      },
+      "raw_cd_l2": {
+        "n": 3,
+        "mean": 0.0673454044892248,
+        "median": 0.06278164182461735
+      },
+      "raw_fscore": {
+        "n": 3,
+        "mean": 0.21026325079328023,
+        "median": 0.15522431481214513
+      },
+      "canonical_cd_l1": {
+        "n": 3,
+        "mean": 0.19733765137777273,
+        "median": 0.20199401949513357
+      },
+      "canonical_cd_l2": {
+        "n": 3,
+        "mean": 0.030726692393352198,
+        "median": 0.030079994353231696
+      },
+      "canonical_fscore": {
+        "n": 3,
+        "mean": 0.31379190356338194,
+        "median": 0.313741632014257
+      },
+      "scale_error_cm": {
+        "n": 3,
+        "mean": 13.961491902669271,
+        "median": 12.338470458984375
+      },
+      "group_count_absolute_error": {
+        "n": 3,
+        "mean": 3.0,
+        "median": 3.0
+      }
+    },
+    "C_rotation": {
+      "raw_cd_l1": {
+        "n": 2,
+        "mean": 0.337734440877257,
+        "median": 0.337734440877257
+      },
+      "raw_cd_l2": {
+        "n": 2,
+        "mean": 0.08850834853811065,
+        "median": 0.08850834853811065
+      },
+      "raw_fscore": {
+        "n": 2,
+        "mean": 0.08802787482139765,
+        "median": 0.08802787482139765
+      },
+      "canonical_cd_l1": {
+        "n": 2,
+        "mean": 0.32192740424842187,
+        "median": 0.32192740424842187
+      },
+      "canonical_cd_l2": {
+        "n": 2,
+        "mean": 0.09304488848084766,
+        "median": 0.09304488848084766
+      },
+      "canonical_fscore": {
+        "n": 2,
+        "mean": 0.34641193694000344,
+        "median": 0.34641193694000344
+      },
+      "scale_error_cm": {
+        "n": 2,
+        "mean": 7.618289947509766,
+        "median": 7.618289947509766
+      },
+      "group_count_absolute_error": {
+        "n": 2,
+        "mean": 1.5,
+        "median": 1.5
+      }
+    }
+  },
+  "artifact_preflight": {
+    "29354": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/finaljson/29354.json",
+          "bytes": 3536,
+          "sha256": "cf687c21110697a6ed1fc25146a8b101d789ae82acfd1b11a7e309a5b15b3600"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/phy_dataset/29354/model.obj",
+          "bytes": 622283,
+          "sha256": "2fc96114b9967a5f5fca1be77b40a5cd4c41df24671ee6da9d60c7ee9bdbb53e"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj",
+          "bytes": 30788505,
+          "sha256": "42fdb2fa623efb17d60bb833f37bbbdf9c11829b6b25eb723723623b99c1d431"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "bytes": 80955063,
+          "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/자료확보/rtx5090_adapter/2026-09-27_29354-semantic-validation/official_code_result.json",
+          "bytes": 9046,
+          "sha256": "6eb53fe713f03f3a8a300f761eaa9f2a95242882e345dbf5321ee40c6a9af53d"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "bytes": 80955063,
+          "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+        }
+      },
+      "errors": []
+    },
+    "24566": {
+      "tier": "B_translation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/physxnet/finaljson/24566.json",
+          "bytes": 4647,
+          "sha256": "3cc62e444cd4717b5bc765b4f3eb3dd1c8c16608331b38a0c9261da0a4382885"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/phy_dataset/24566/model.obj",
+          "bytes": 476173,
+          "sha256": "1c81b6544c74048ddcb425c59fc57af6bb4d87e91af7a076275bf38a021fb332"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh.obj",
+          "bytes": 49815067,
+          "sha256": "9e184a51454bd711d75f682bb00cd85c4c5bc00a5bf6fd00d52b955da357f888"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 34338813,
+          "sha256": "c44969404aff729dc2150508afd4bb3c63145ca01ee1678a1c570ab60365ce5d"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/official_result.json",
+          "bytes": 3389,
+          "sha256": "64f5736919c06cbf610871dd4eb280e9ae67baed55c16d3e0e57e9e9c491cace"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh_physics_raw.pt",
+          "bytes": 129993591,
+          "sha256": "25f218fb73d8638b06eed2cbdb9d2b361fa3337834e31ee50361e4746186ebb5"
+        }
+      },
+      "errors": []
+    },
+    "29806": {
+      "tier": "C_rotation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/physxnet/finaljson/29806.json",
+          "bytes": 5386,
+          "sha256": "f098a70a07be7409c03e3b86b508e404ff87ff4144b26e3ade85a52f5195e34a"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/phy_dataset/29806/model.obj",
+          "bytes": 874793,
+          "sha256": "53612ab7c61c56a48797a3e991fa9a0d43e4791268c1b11a2d8faff6b06c4fb4"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh.obj",
+          "bytes": 14207179,
+          "sha256": "154e5d22cf222095c60f94217041c095bd2f36773101602e6b0b2b298c17b433"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 10096189,
+          "sha256": "c4289bdee079f1b7f46767ff733bbc52861019f63cf6ba45e1d9b039ce726fd7"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/official_result.json",
+          "bytes": 5031,
+          "sha256": "43b8176c311cb60d4e8b15d8c6a99b48bb386d47cc17d9d1b19c0e69e6ca21a4"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh_physics_raw.pt",
+          "bytes": 38217335,
+          "sha256": "789f1a4b2610d62f51c4df0cbee1ab71979a96d8ce9e43cffc284c7e200d38e2"
+        }
+      },
+      "errors": []
+    },
+    "21356": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/physxnet/finaljson/21356.json",
+          "bytes": 4411,
+          "sha256": "e1f4376f6b6e8b6fe858b95eba45e6c6bf77504367f1856c79fa808fed0eefb5"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/phy_dataset/21356/model.obj",
+          "bytes": 4756929,
+          "sha256": "41d5e714d1a9dad8aad60c6bb612884a573dfec63ebd14b21c19868b0b487feb"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/mesh/mesh.obj",
+          "bytes": 29221325,
+          "sha256": "b1d4e2bf9d365592da558f3ef9e38d6e5464cf14b47ce179b9920cdf07eb4b94"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 20351037,
+          "sha256": "91dc3e7cd89f1f4a4892639df5fbcb3f8ef92c2c6635f8a84fdf50b5697b54ad"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/official_result.json",
+          "bytes": 3653,
+          "sha256": "8207fc9d924122d988d5f96b200d70be6f8e099ea920c81f7fd89c12ea3765e4"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/mesh/mesh_physics_raw.pt",
+          "bytes": 77037239,
+          "sha256": "ae42a1ad6194b6f03797db0181fbfae51a14da1a9a5d309ce4b761ea85ef3753"
+        }
+      },
+      "errors": []
+    },
+    "27703": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/physxnet/finaljson/27703.json",
+          "bytes": 4953,
+          "sha256": "079ed9d35adca8bfd020f35fbad7d443d842be6ce38228ec403f39d19445bffd"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/phy_dataset/27703/model.obj",
+          "bytes": 1920675,
+          "sha256": "d823e4e07b3b89e0f1c55fbe05895589a3007779ef2ad014556a65de692865c1"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/mesh/mesh.obj",
+          "bytes": 33791213,
+          "sha256": "2b45fcd9ec2373e107a185a271dc41710bb1a09e0315d239bb8956e47dbe025e"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23445693,
+          "sha256": "4f8cbfef2db2b2a06acc0dcd873140f6fcdcc883a26fe197e58e1c444e0ff193"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/official_result.json",
+          "bytes": 3650,
+          "sha256": "d0b442049133df841726da9ae2f5c81d1bf266975f666a5364fa03b3452cf92e"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/mesh/mesh_physics_raw.pt",
+          "bytes": 88752119,
+          "sha256": "ff296356565bcfb908fd44a364ae2bb05a3a83f9cd88ef606cc2a949a3b70c94"
+        }
+      },
+      "errors": []
+    },
+    "30719": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/physxnet/finaljson/30719.json",
+          "bytes": 1899,
+          "sha256": "563b150ae93514fabbd66932e2ae55f78e9accd7d11467259de5bfef644a7afb"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/phy_dataset/30719/model.obj",
+          "bytes": 566349,
+          "sha256": "5862056c48819e8d33790067fb2f13d86a726943fb54922ba4d70d0632fe7c0e"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/mesh/mesh.obj",
+          "bytes": 33626761,
+          "sha256": "242c3981b2a811876818ab0273044327e162043cf4cf192722493a53318be7b3"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23327293,
+          "sha256": "bdc412ddad9281cffe9a4a05318cd7fa4dacb75cb68f2d517148ddc32896a417"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/official_result.json",
+          "bytes": 3419,
+          "sha256": "e60a5b878e4c9a1888b1b86ceadba5166d764751e79b2829cddc8599a8ab3807"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/mesh/mesh_physics_raw.pt",
+          "bytes": 88302839,
+          "sha256": "0738f15e3308bde5e0e769d8a4dc422972292408113ae125d8ec40a8ec8e5256"
+        }
+      },
+      "errors": []
+    },
+    "21314": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/physxnet/finaljson/21314.json",
+          "bytes": 1421,
+          "sha256": "f7cb4d7aee315d62a68e02475033b346d1a9d3fd61e4eec445da2eded7a3e0bf"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/phy_dataset/21314/model.obj",
+          "bytes": 1424998,
+          "sha256": "397b003a4c3cc6ece562fd32962444673d768911e0ffccec0eced4dad89e2f36"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/mesh/mesh.obj",
+          "bytes": 14010641,
+          "sha256": "7c03f10e60f1951886c85c5013d280b92f07b7a8402268493c6e977cdef99513"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 9982525,
+          "sha256": "4e57bf9263afa186818ccf2f10ca5250a1c3f42f0ac8cb8ed49c6d2b4395d242"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/official_result.json",
+          "bytes": 3406,
+          "sha256": "1b04a8687b79df8ab9231e2434fa90c1a56190d1325534073cea07f1359e8b4c"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/mesh/mesh_physics_raw.pt",
+          "bytes": 37788023,
+          "sha256": "c60b11fc537aa982655f739e27027ce8ed0c466d4297ebb9a8df0e1f58edd47a"
+        }
+      },
+      "errors": []
+    },
+    "32980": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/physxnet/finaljson/32980.json",
+          "bytes": 3847,
+          "sha256": "8fd00fbafd75b6ed2d63fe87a4118b08d88009ca366f6c5970abe2ecea1c1503"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/phy_dataset/32980/model.obj",
+          "bytes": 672931,
+          "sha256": "d1ad561969c5fdb8aaff4e145617a01b9603f7c91bcd30ccf92bfffa1e67f842"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/mesh/mesh.obj",
+          "bytes": 13808854,
+          "sha256": "702bd2a2a038cf8c21ab5a65b3d78e21a999aaf70c12111a058b671151303ea7"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 9853821,
+          "sha256": "54aee4624668fb4209968f308006ae3e9e1105a00114f6f3df43f99c00bf810b"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/official_result.json",
+          "bytes": 3489,
+          "sha256": "fe568b559ddc690b039a99162b12d77d8174b4db78fdd59c6bb96e7bae1b376f"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/mesh/mesh_physics_raw.pt",
+          "bytes": 37300087,
+          "sha256": "056148f48b23500d43c3fa7ce417f9ef2f5fcfeee32676a4e3e8db158f9a310b"
+        }
+      },
+      "errors": []
+    },
+    "48419": {
+      "tier": "B_translation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-48419-20260927T111917Z-0339ac9f4d2c/work/physxnet/finaljson/48419.json",
+          "bytes": 7515,
+          "sha256": "0e98c19753075fb6737ba3f0726e48f5e3d9172d25dc7b800ba0822ccb480896"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-48419-20260927T111917Z-0339ac9f4d2c/work/phy_dataset/48419/model.obj",
+          "bytes": 436911,
+          "sha256": "d15481f6d692dc74b2756aa532bdafb21a9a9dca013759bf295335223289c387"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/mesh/mesh.obj",
+          "bytes": 25720473,
+          "sha256": "3e2a02926e760f32b1a59261d9ed40b34cbef6e50f2cf357cecbc3225c947b25"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 17946045,
+          "sha256": "709c518c8047f340e031b08f4b598542b899c29ae56be18fab1c4b5fe8c1fb98"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/articulation_audit/official_result.json",
+          "bytes": 3448,
+          "sha256": "357ca388c4226e7046689a3dc2439699459708d7964527fce51d25d86ca1c345"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-48419-20260927T114428Z-bfc5923c4174/mesh/mesh_physics_raw.pt",
+          "bytes": 67934071,
+          "sha256": "87d3b22cf620f77c0254637adb64e5ff393d861b7346a39f3e0ad43a982768ba"
+        }
+      },
+      "errors": []
+    },
+    "38882": {
+      "tier": "B_translation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-38882-20260927T112001Z-34dce7c4a88d/work/physxnet/finaljson/38882.json",
+          "bytes": 6522,
+          "sha256": "d5272af752de72fc87c048722535d8e885b6a314222613e1f389a9d8311b1316"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-38882-20260927T112001Z-34dce7c4a88d/work/phy_dataset/38882/model.obj",
+          "bytes": 329074,
+          "sha256": "4f0fca351042dcad0987bb4eaeb183a7b953cfa01872067dad5502a8083c4d43"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/mesh/mesh.obj",
+          "bytes": 34023430,
+          "sha256": "40e2b4cb673455a37d8813de7b3527ff4efe3ff570fd98d7cf0aa8e9d7f37372"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23549181,
+          "sha256": "21f1e502c5d4fc1f50d350efa71021088366e7f0e4df18ed2a3cdd99caff25a8"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/articulation_audit/official_result.json",
+          "bytes": 4492,
+          "sha256": "91fe4c559bdf0fba720be0cd1a3150633297cf2bf6bcde23f88e9a02212d2234"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-38882-20260927T114821Z-1e706d7e43a6/mesh/mesh_physics_raw.pt",
+          "bytes": 89147895,
+          "sha256": "dde0f39e29cf09420f3a964748105f01a388d69f6ac7f0fe7384cace5296b53e"
+        }
+      },
+      "errors": []
+    },
+    "15821": {
+      "tier": "C_rotation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15821-20260927T112047Z-93e8bb019216/work/physxnet/finaljson/15821.json",
+          "bytes": 2308,
+          "sha256": "a1621338bd18ec6ac0e16c98ef04a16b84b2643f096818b2124c04c345783796"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15821-20260927T112047Z-93e8bb019216/work/phy_dataset/15821/model.obj",
+          "bytes": 137399,
+          "sha256": "0509fd403adcd1cb84bb153b26b78b7c0af69db2c75089cf7cc982ed77a8dff3"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/mesh/mesh.obj",
+          "bytes": 6783935,
+          "sha256": "17c4eb69443f833d0bc7dfcd0fa489ab832cdb0727666dc950d8f78410b24ecb"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 4987069,
+          "sha256": "328d874bfb2b1415e2d05b3f5491dc9c037d5d0f4c3c8f6328f434ec5bcf256b"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/articulation_audit/official_result.json",
+          "bytes": 3400,
+          "sha256": "846fe1fcf2f4c2f0f303753a50104c4f2dc3a0a9302a0681fb350b105c93ce46"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15821-20260927T115607Z-c1f86b590b49/mesh/mesh_physics_raw.pt",
+          "bytes": 18875511,
+          "sha256": "3a3be5125f60eed934f882e8246dd1f17812d60d38e614f390005e4b265f6d6e"
+        }
+      },
+      "errors": []
+    },
+    "45443": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45443-20260927T141055Z-b69de6546935/work/physxnet/finaljson/45443.json",
+          "bytes": 2271,
+          "sha256": "b3fa0557573c6329774be11397e6aa7a187532f23b87aa23550a5eb9656f01de"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45443-20260927T141055Z-b69de6546935/work/phy_dataset/45443/model.obj",
+          "bytes": 47287,
+          "sha256": "e3156284f32197acaef4757aad95ba11e5fec0dc6cb85374b9b6674732d84582"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45443-20260927T141352Z-0f261bcb04c7/mesh/mesh.obj",
+          "bytes": 34688776,
+          "sha256": "91359ffd9fc8f13ddcbd49ae4fc287b8c27d00f63997da5d1550aad33fe7399e"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45443-20260927T141352Z-0f261bcb04c7/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 24008189,
+          "sha256": "013870c978eba663aace7e40da8a7847a63c68fba0ca1af6cb207e340a27ee4a"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45443-20260927T141352Z-0f261bcb04c7/articulation_audit/official_result.json",
+          "bytes": 4990,
+          "sha256": "8620d866a70b7ce4de4197a6708ee56a2281e76ba25e94cffad0528898eb7265"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45443-20260927T141352Z-0f261bcb04c7/mesh/mesh_physics_raw.pt",
+          "bytes": 90881655,
+          "sha256": "ba525ef3b6a2ee02a15e4e915167d966d58a6c7be997197a908d751299e8b6a8"
+        }
+      },
+      "errors": []
+    },
+    "45645": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45645-20260927T141510Z-565f6ccc031c/work/physxnet/finaljson/45645.json",
+          "bytes": 4657,
+          "sha256": "defee3b89508262032ec08ddd065fc89fa48b91f4099aa0eeeb4d6d4104c8284"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-45645-20260927T141510Z-565f6ccc031c/work/phy_dataset/45645/model.obj",
+          "bytes": 14524,
+          "sha256": "a6b234e8371ad29922bf4670b60f907c3d03a7470cbf56ef295f1f1c54bf7eb7"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45645-20260927T141800Z-5ec57686b77f/mesh/mesh.obj",
+          "bytes": 27699102,
+          "sha256": "86b257889cd0ae4d1763c9585241eda57536e4490330839da9e4edcb0ac9bb9a"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45645-20260927T141800Z-5ec57686b77f/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 19271677,
+          "sha256": "c63e2abb70f9ec5c76557a9892878d0bd22a5a2a62923bbde8b7a90c278d96d2"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45645-20260927T141800Z-5ec57686b77f/articulation_audit/official_result.json",
+          "bytes": 3609,
+          "sha256": "936133c2d77564f5993c991cd23e0f4ac81ad4a896aa1c56947ec56c7cfed2a0"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-45645-20260927T141800Z-5ec57686b77f/mesh/mesh_physics_raw.pt",
+          "bytes": 72952247,
+          "sha256": "a6b17c89af66b53f8a4d02345b1c958df05f2bb93014cbb5922dd1855cdf9a77"
+        }
+      },
+      "errors": []
+    },
+    "15896": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15896-20260927T141907Z-da1803861916/work/physxnet/finaljson/15896.json",
+          "bytes": 1739,
+          "sha256": "e34fd205957800d130f1521794b00e7d2ae687e5b4f8664fb6fc68cf2bd4afc9"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-15896-20260927T141907Z-da1803861916/work/phy_dataset/15896/model.obj",
+          "bytes": 1104973,
+          "sha256": "7b0f33e8ad7d8721f10f2253953ae3cd9f4978c473d0abce4cfb959a7250b06b"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15896-20260927T142142Z-1b404defb213/mesh/mesh.obj",
+          "bytes": 15404219,
+          "sha256": "00d2d140fc3527187ef9f06973ace7f9f5e163c2ab30f91dbafbc37285dc3ca7"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15896-20260927T142142Z-1b404defb213/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 10925693,
+          "sha256": "3dba927bf76651737f0e7ee4c947dddce047fd4893d4ec2862c528d0721abea9"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15896-20260927T142142Z-1b404defb213/articulation_audit/official_result.json",
+          "bytes": 4667,
+          "sha256": "e9fcd3644bfdae77ab6b23a92ed0d524d645d833915bce71190deb9aec48503e"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-15896-20260927T142142Z-1b404defb213/mesh/mesh_physics_raw.pt",
+          "bytes": 41356663,
+          "sha256": "cec2031e698893e6314b431b90902932ba1e7d84bfddf7ddfc68df63ef564fa1"
+        }
+      },
+      "errors": []
+    },
+    "13737": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-13737-20260927T142245Z-230830abb8d3/work/physxnet/finaljson/13737.json",
+          "bytes": 2793,
+          "sha256": "c2980eb16a23f2ad1325b1fe0b97122067e3bcaa0092b5ee515bf0696a5ecdae"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-13737-20260927T142245Z-230830abb8d3/work/phy_dataset/13737/model.obj",
+          "bytes": 2050318,
+          "sha256": "c3bb497128523adff76a0f7a33b0072a30c2f8da5d2402a04c739cde05fd4694"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-13737-20260927T142524Z-117939690c5e/mesh/mesh.obj",
+          "bytes": 6933848,
+          "sha256": "b14dd151699752a32f3f903f6208dc258663c1fbfad12c488729b3e6b229150c"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-13737-20260927T142524Z-117939690c5e/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 5102205,
+          "sha256": "7a1707a44f8b845f585ca3c0c2d69a192ab937dc66ea6ed3ee401181b0e7f1c7"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-13737-20260927T142524Z-117939690c5e/articulation_audit/official_result.json",
+          "bytes": 3419,
+          "sha256": "a2ce048af4c19c0337f736f3c887452e64e211d1e41cb29e6e968ac3a25b9a3a"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-13737-20260927T142524Z-117939690c5e/mesh/mesh_physics_raw.pt",
+          "bytes": 19311543,
+          "sha256": "45273d9110f1dcd599f56a31a08d4c7d352fb54271683a94997135be0fc8c864"
+        }
+      },
+      "errors": []
+    },
+    "16693": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-16693-20260927T142622Z-eac4d784e10a/work/physxnet/finaljson/16693.json",
+          "bytes": 2866,
+          "sha256": "a3106d9cf0ff39abfd627e460480d5ac9beee161737e7bb5c91de18a6c3256ec"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-16693-20260927T142622Z-eac4d784e10a/work/phy_dataset/16693/model.obj",
+          "bytes": 1260018,
+          "sha256": "4cb66ec2f52d1c0b7d8bdfc3a4a57067e85815a36ce0d907dcae4ec8438f7243"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-16693-20260927T142853Z-794563e8ba87/mesh/mesh.obj",
+          "bytes": 4182877,
+          "sha256": "5abbb8df0f29b3df213030a85ae0dd170c070001ec9771a882e897386d3b73c0"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-16693-20260927T142853Z-794563e8ba87/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 3112189,
+          "sha256": "c36ab71cc11a81e5ff577735ff242656e9f160c06b8eb2f78ed14faf29b77371"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-16693-20260927T142853Z-794563e8ba87/articulation_audit/official_result.json",
+          "bytes": 4744,
+          "sha256": "f8c25fbe33603c66ecce7c95b43ace22204cfd198588c5998da648a589e1c4af"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-16693-20260927T142853Z-794563e8ba87/mesh/mesh_physics_raw.pt",
+          "bytes": 11778103,
+          "sha256": "aa4ae307cb19217dab0e1f554a4b697fc21529f45b367a84478ffaaa054b3a5a"
+        }
+      },
+      "errors": []
+    },
+    "19661": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19661-20260927T122526Z-54a86e6c4f09/work/physxnet/finaljson/19661.json",
+          "bytes": 1335,
+          "sha256": "cad013bd2941130d24e750128d052a86cf60989f376b8bbaff33608332e9944d"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19661-20260927T122526Z-54a86e6c4f09/work/phy_dataset/19661/model.obj",
+          "bytes": 842041,
+          "sha256": "8a7b12afc7756dbefb7179bcc92aaa4819195f46b2fa8758290bf4d362240935"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19661-20260927T122802Z-06336d055672/mesh/mesh.obj",
+          "bytes": 10670644,
+          "sha256": "a15da193d8cf32b85f0256e242c9c72f2e5c19e77f504f985bf1d189c703d33d"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19661-20260927T122802Z-06336d055672/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 7739133,
+          "sha256": "4c7527c5b2172887911d9e7bc90c8b782197d9984b5323512988523efeb6a92e"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19661-20260927T122802Z-06336d055672/articulation_audit/official_result.json",
+          "bytes": 3484,
+          "sha256": "205e3315b9e60213a7c416ad43a15f7c5bc6ceb36f7706e8f784f27c1df39a68"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19661-20260927T122802Z-06336d055672/mesh/mesh_physics_raw.pt",
+          "bytes": 29293495,
+          "sha256": "12f9120429624622025a86f76e8c6c1238916df77ee9a483cefe36d8be02da1d"
+        }
+      },
+      "errors": []
+    },
+    "25862": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25862-20260927T122901Z-9149461ee2a3/work/physxnet/finaljson/25862.json",
+          "bytes": 1351,
+          "sha256": "d41b6b6da84858cee32556743b4132d43eb74016986a3f1a5ee047825dad7886"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25862-20260927T122901Z-9149461ee2a3/work/phy_dataset/25862/model.obj",
+          "bytes": 1501718,
+          "sha256": "bc0f4f99dc9e59b78187e5fa04ba764140ed91fe03111e432586ffe182cc05c9"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25862-20260927T123143Z-acfc216c55ca/mesh/mesh.obj",
+          "bytes": 18858088,
+          "sha256": "87a4e38e12a6ae9d5c3eb0178032a9cf605d7b30dfe726c24d186809fa7c3ad1"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25862-20260927T123143Z-acfc216c55ca/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 13318973,
+          "sha256": "6f7b6d779711f71c0b9fc1ff35157f6f90a721bf67b60fb4c85559cbca03d8f9"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25862-20260927T123143Z-acfc216c55ca/articulation_audit/official_result.json",
+          "bytes": 3632,
+          "sha256": "7a083acf0ee21c92d5e33bf084ecb45ed5fbcb7d47c827403ff351e857cd5762"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25862-20260927T123143Z-acfc216c55ca/mesh/mesh_physics_raw.pt",
+          "bytes": 50415927,
+          "sha256": "2ecbbe1625ccbe6000e314826663acbf53e94eaae61c31326cbe32336af75463"
+        }
+      },
+      "errors": []
+    },
+    "31114": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-31114-20260927T123339Z-d2820a3cd135/work/physxnet/finaljson/31114.json",
+          "bytes": 1381,
+          "sha256": "8bed1a46eaaea52c209dd6c7c719d46dd929f1a26cc7f3c368992d043a6f730a"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-31114-20260927T123339Z-d2820a3cd135/work/phy_dataset/31114/model.obj",
+          "bytes": 1366317,
+          "sha256": "9b11c6eee109f0e36713ec762d42eab52b2a2b792139202715446b77767515c5"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-31114-20260927T123628Z-5672f496024f/mesh/mesh.obj",
+          "bytes": 33419961,
+          "sha256": "fa643a653168df4466522ffb76e5d7fc8fb99e5b386c7b8ecfd77c0f0ff39f3d"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-31114-20260927T123628Z-5672f496024f/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23275133,
+          "sha256": "6a0589c733b1b78c64d0a9655afa48fcf2e875c06f753e76108a5d69f7f903be"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-31114-20260927T123628Z-5672f496024f/articulation_audit/official_result.json",
+          "bytes": 3567,
+          "sha256": "a68e01737d83ae914f14baf25d263efb8f0bdebf78514a54eb78491bb3020a18"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-31114-20260927T123628Z-5672f496024f/mesh/mesh_physics_raw.pt",
+          "bytes": 88107703,
+          "sha256": "220ff66d5e305a1a2ce91ce922a4dad52a8377c1e41f825434eca472993ca337"
+        }
+      },
+      "errors": []
+    },
+    "22738": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-22738-20260927T123732Z-fafea3822b72/work/physxnet/finaljson/22738.json",
+          "bytes": 1365,
+          "sha256": "d47b4574fbbdbf829c605f9f47012aa9ef60c6a1e92c7499765e53387517167c"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-22738-20260927T123732Z-fafea3822b72/work/phy_dataset/22738/model.obj",
+          "bytes": 392447,
+          "sha256": "f66cdaed6fa11026e0f367ab4ec8e7dbb5d05241fba38ff279c32e9b5924c9d0"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-22738-20260927T124015Z-b67143e58a4e/mesh/mesh.obj",
+          "bytes": 24972620,
+          "sha256": "14c270dd78dcd03b518ba6443bd70d0ad2a4717f9fda410a961fde7eaad1c40f"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-22738-20260927T124015Z-b67143e58a4e/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 17419773,
+          "sha256": "5e9c17bd7f62b29c2e25839e6e42f82955efed292c4f981b69daeb8b07c29d0c"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-22738-20260927T124015Z-b67143e58a4e/articulation_audit/official_result.json",
+          "bytes": 3393,
+          "sha256": "30d4d82466f44a75552ff7f2a63c41c47de06cb5c7dcbb5dd48047b503b08425"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-22738-20260927T124015Z-b67143e58a4e/mesh/mesh_physics_raw.pt",
+          "bytes": 65942135,
+          "sha256": "ef30046d703a6f42df87f448447151c816d66702fd6df7172bc248abcaadb0ad"
+        }
+      },
+      "errors": []
+    },
+    "24163": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24163-20260927T124118Z-98b365f21e48/work/physxnet/finaljson/24163.json",
+          "bytes": 1361,
+          "sha256": "88b1cf5f95ebf76edd2fe203eb1e3425b52a8488225d90726a6e25ad1fa11043"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24163-20260927T124118Z-98b365f21e48/work/phy_dataset/24163/model.obj",
+          "bytes": 122409,
+          "sha256": "454eba17771a823bfbc520e6e4a57c4b9b5c7dc231738bf63c30a6789ef6ffee"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-24163-20260927T124420Z-df88f8f6da1e/mesh/mesh.obj",
+          "bytes": 54152982,
+          "sha256": "3ecbcf0b631f5892cdd16d6515c3dbe97f35c25f7844f546fc6f5f17bcbd2f5e"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-24163-20260927T124420Z-df88f8f6da1e/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 37322493,
+          "sha256": "51082ee60361c47dcaedac26f2fd15e393296b6dd1a090d686a22e174093d4ec"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-24163-20260927T124420Z-df88f8f6da1e/articulation_audit/official_result.json",
+          "bytes": 3590,
+          "sha256": "02d13848d88768389ab96d8f35a9e97559a14665cc7e4f569f4ebcc3b0a7c488"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-24163-20260927T124420Z-df88f8f6da1e/mesh/mesh_physics_raw.pt",
+          "bytes": 141288439,
+          "sha256": "403203970013f64ca0616ea0ca695eab98e39ab2b4243423d78815713bd2513e"
+        }
+      },
+      "errors": []
+    },
+    "27499": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27499-20260927T124529Z-ac778e0f577f/work/physxnet/finaljson/27499.json",
+          "bytes": 1327,
+          "sha256": "06f09d56e4041641327377a7945fc023159f326af3e7479401ffef711e0c0d65"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27499-20260927T124529Z-ac778e0f577f/work/phy_dataset/27499/model.obj",
+          "bytes": 817348,
+          "sha256": "6721e59cc686b282dd0a1e8898ee7930905c613c2641dc48f5e0d00979b58bb6"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27499-20260927T124813Z-6cff17e43fef/mesh/mesh.obj",
+          "bytes": 21946825,
+          "sha256": "342bb10678b8698b5652615515c596f49aee7847f4ed10cc7087b441d6c5479b"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27499-20260927T124813Z-6cff17e43fef/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 15433341,
+          "sha256": "b8b90bea8031eb4b1a2f6f6a7930baa52dcc5f18aeb2ec98423b131e377e36a1"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27499-20260927T124813Z-6cff17e43fef/articulation_audit/official_result.json",
+          "bytes": 3333,
+          "sha256": "1846ff4919109982bb6364e260541ea3d7da434a4b619013a7a2e64fafcd39a2"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27499-20260927T124813Z-6cff17e43fef/mesh/mesh_physics_raw.pt",
+          "bytes": 58422967,
+          "sha256": "9789a4a0380bad9944fb8e87e4e3750efb52499c7de48f6fe95bebb736edb42a"
+        }
+      },
+      "errors": []
+    },
+    "25598": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25598-20260927T124916Z-a09043344e69/work/physxnet/finaljson/25598.json",
+          "bytes": 1325,
+          "sha256": "bb7ad20752aa04ae1ba9869d6122d8eca3332e144b6a057707e42024bb6585f7"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25598-20260927T124916Z-a09043344e69/work/phy_dataset/25598/model.obj",
+          "bytes": 502515,
+          "sha256": "3016ce1f2243d505e58b6c3693c35f8232457f55000d4fcdbb3f3f7faaf652aa"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25598-20260927T125150Z-7cf59abd9103/mesh/mesh.obj",
+          "bytes": 7753293,
+          "sha256": "03d7f31857180db33993a8e3c0105420c2f2e9a90673a2d29b329e7929c88cab"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25598-20260927T125150Z-7cf59abd9103/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 5745085,
+          "sha256": "37e38ad0d94171761fb839f3a7df0945293b4e4ffc76f1d51c27e963039b652d"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25598-20260927T125150Z-7cf59abd9103/articulation_audit/official_result.json",
+          "bytes": 3339,
+          "sha256": "fd92b335dfc756f089eb3fbbe0dc75c68a1d4689680e6338a5a75d08006a128e"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25598-20260927T125150Z-7cf59abd9103/mesh/mesh_physics_raw.pt",
+          "bytes": 21745463,
+          "sha256": "6681290f581c9d4f68e5e012fa4ea581f31451406b7450130395ca0340d75ffb"
+        }
+      },
+      "errors": []
+    },
+    "19335": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19335-20260927T125249Z-0cb2e79b5874/work/physxnet/finaljson/19335.json",
+          "bytes": 1354,
+          "sha256": "7d295fdf70a9b5dbdc6dd32eba69f97ba9b794b0123cea0fd754a4f5a22168a5"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19335-20260927T125249Z-0cb2e79b5874/work/phy_dataset/19335/model.obj",
+          "bytes": 451203,
+          "sha256": "4be76ab00b8043f0fd7f143423720e9047570b0b2515942a65d0466b3fa26e23"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19335-20260927T125530Z-e449cfc20e80/mesh/mesh.obj",
+          "bytes": 23582170,
+          "sha256": "ca4c8737cf5a750287e109c70b534bff4c06c9721f8bbc5037c8f25cfd825c47"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19335-20260927T125530Z-e449cfc20e80/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 16512317,
+          "sha256": "c36220350131de06d6a79a6956d237a2c26fb9b146572488e9e303f5120a4a42"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19335-20260927T125530Z-e449cfc20e80/articulation_audit/official_result.json",
+          "bytes": 3643,
+          "sha256": "a05b40446c6d19cfae62af0e488ff81fcae4030e64e693cfc08788ef135ad8d1"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19335-20260927T125530Z-e449cfc20e80/mesh/mesh_physics_raw.pt",
+          "bytes": 62503287,
+          "sha256": "1120d4f23a023d9086fec9f8df72491124e4994aee5473e736c1bde5c29c5ff3"
+        }
+      },
+      "errors": []
+    },
+    "34676": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-34676-20260927T125633Z-97831a19566c/work/physxnet/finaljson/34676.json",
+          "bytes": 1365,
+          "sha256": "2a29b7b99149a6dc7e398bc25af369b36389c8da518cb7cd34619333dff32499"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-34676-20260927T125633Z-97831a19566c/work/phy_dataset/34676/model.obj",
+          "bytes": 1309444,
+          "sha256": "5f065503f35ad5e3f8f4f0b4842dbc5a5d6a568875fe146ff8e5f0f12e10131b"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-34676-20260927T125910Z-73bc09db5944/mesh/mesh.obj",
+          "bytes": 17987454,
+          "sha256": "baf6c4465b5cd82234f58ffc31b04a8ac40afd77bd61eefdaa8f36ff55d8f08e"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-34676-20260927T125910Z-73bc09db5944/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 12681277,
+          "sha256": "5901e142eef705d62ae1a37104508f929a09670e6fcfadb379e2af83c810e699"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-34676-20260927T125910Z-73bc09db5944/articulation_audit/official_result.json",
+          "bytes": 5019,
+          "sha256": "de3a49cf68fc1bed51af93d1ff9c36c0e138c4d80f1afeef73539f03eac848d0"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-34676-20260927T125910Z-73bc09db5944/mesh/mesh_physics_raw.pt",
+          "bytes": 48007095,
+          "sha256": "f8cbd491cccbd7e66c95c5312ac8b9b11f74fbdf7c45034e7bd3d0a7ff71c7bd"
+        }
+      },
+      "errors": []
+    }
+  },
+  "blocked_areas": {
+    "appearance_density_affordance_psnr": "no paired GT maps/masks, official 30-view camera manifest, normalization/range, or generated↔GT vertex/pixel correspondence",
+    "description_psnr": "official question/part correspondence unresolved and example literal slice disagrees with training path",
+    "nap_cov_mmd": "official PhysX-to-NAP conversion, group matching, coordinate/unit convention, and aggregation unavailable",
+    "paper_table2_aggregation": "test conditioning manifest, duplicate/failure denominator rule, and official evaluator config unavailable"
+  },
+  "failure_ledger": [
+    {
+      "object_id": "23787",
+      "status": "failed",
+      "included_in_numeric_denominator": false,
+      "reason": "official texture retrieval output non-finite OBJ"
+    },
+    {
+      "object_id": "27281",
+      "status": "excluded",
+      "included_in_numeric_denominator": false,
+      "reason": "mesh decoder OOM under preserved 28,000 MiB hard limit and 4,607 MiB reserve policy"
+    }
+  ]
+}

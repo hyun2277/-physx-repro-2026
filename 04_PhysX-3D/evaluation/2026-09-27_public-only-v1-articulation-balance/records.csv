@@ -1,0 +1,226 @@
+item_key,object_id,source_index,metric,status,reason_or_raw
+test-000001,29354,1001,articulation_diagnostic,success,""""""
+test-000001,29354,1001,scale_l2,success,20.21143341064453
+test-000001,29354,1001,geometry,success,""""""
+test-000001,29354,1001,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000001,29354,1001,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000001,29354,1001,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000001,29354,1001,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000001,29354,1001,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000001,29354,1001,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000002,21356,1002,articulation_diagnostic,success,""""""
+test-000002,21356,1002,scale_l2,success,10.54486083984375
+test-000002,21356,1002,geometry,success,""""""
+test-000002,21356,1002,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000002,21356,1002,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000002,21356,1002,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000002,21356,1002,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000002,21356,1002,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000002,21356,1002,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000014,24566,1014,articulation_diagnostic,success,""""""
+test-000014,24566,1014,scale_l2,success,26.331443786621094
+test-000014,24566,1014,geometry,success,""""""
+test-000014,24566,1014,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000014,24566,1014,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000014,24566,1014,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000014,24566,1014,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000014,24566,1014,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000014,24566,1014,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000020,27703,1020,articulation_diagnostic,success,""""""
+test-000020,27703,1020,scale_l2,success,26.803573608398438
+test-000020,27703,1020,geometry,success,""""""
+test-000020,27703,1020,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000020,27703,1020,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000020,27703,1020,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000020,27703,1020,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000020,27703,1020,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000020,27703,1020,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000021,48419,1021,articulation_diagnostic,success,""""""
+test-000021,48419,1021,scale_l2,success,3.2145614624023438
+test-000021,48419,1021,geometry,success,""""""
+test-000021,48419,1021,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000021,48419,1021,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000021,48419,1021,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000021,48419,1021,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000021,48419,1021,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000021,48419,1021,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000023,15821,1023,articulation_diagnostic,success,""""""
+test-000023,15821,1023,scale_l2,success,0.1915435791015625
+test-000023,15821,1023,geometry,success,""""""
+test-000023,15821,1023,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000023,15821,1023,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000023,15821,1023,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000023,15821,1023,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000023,15821,1023,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000023,15821,1023,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000029,30719,1029,articulation_diagnostic,success,""""""
+test-000029,30719,1029,scale_l2,success,21.8868408203125
+test-000029,30719,1029,geometry,success,""""""
+test-000029,30719,1029,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000029,30719,1029,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000029,30719,1029,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000029,30719,1029,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000029,30719,1029,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000029,30719,1029,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000030,21314,1030,articulation_diagnostic,success,""""""
+test-000030,21314,1030,scale_l2,success,12.552658081054688
+test-000030,21314,1030,geometry,success,""""""
+test-000030,21314,1030,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000030,21314,1030,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000030,21314,1030,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000030,21314,1030,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000030,21314,1030,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000030,21314,1030,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000031,38882,1031,articulation_diagnostic,success,""""""
+test-000031,38882,1031,scale_l2,success,12.338470458984375
+test-000031,38882,1031,geometry,success,""""""
+test-000031,38882,1031,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000031,38882,1031,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000031,38882,1031,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000031,38882,1031,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000031,38882,1031,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000031,38882,1031,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000036,32980,1036,articulation_diagnostic,success,""""""
+test-000036,32980,1036,scale_l2,success,2.9520492553710938
+test-000036,32980,1036,geometry,success,""""""
+test-000036,32980,1036,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000036,32980,1036,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000036,32980,1036,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000036,32980,1036,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000036,32980,1036,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000036,32980,1036,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000037,19661,1037,articulation_diagnostic,success,""""""
+test-000037,19661,1037,scale_l2,success,12.995140075683594
+test-000037,19661,1037,geometry,success,""""""
+test-000037,19661,1037,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000037,19661,1037,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000037,19661,1037,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000037,19661,1037,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000037,19661,1037,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000037,19661,1037,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000051,25862,1051,articulation_diagnostic,success,""""""
+test-000051,25862,1051,scale_l2,success,23.416976928710938
+test-000051,25862,1051,geometry,success,""""""
+test-000051,25862,1051,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000051,25862,1051,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000051,25862,1051,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000051,25862,1051,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000051,25862,1051,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000051,25862,1051,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000056,31114,1056,articulation_diagnostic,success,""""""
+test-000056,31114,1056,scale_l2,success,0.06031036376953125
+test-000056,31114,1056,geometry,success,""""""
+test-000056,31114,1056,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000056,31114,1056,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000056,31114,1056,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000056,31114,1056,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000056,31114,1056,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000056,31114,1056,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000079,22738,1079,articulation_diagnostic,success,""""""
+test-000079,22738,1079,scale_l2,success,16.917388916015625
+test-000079,22738,1079,geometry,success,""""""
+test-000079,22738,1079,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000079,22738,1079,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000079,22738,1079,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000079,22738,1079,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000079,22738,1079,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000079,22738,1079,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000099,24163,1099,articulation_diagnostic,success,""""""
+test-000099,24163,1099,scale_l2,success,39.30143737792969
+test-000099,24163,1099,geometry,success,""""""
+test-000099,24163,1099,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000099,24163,1099,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000099,24163,1099,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000099,24163,1099,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000099,24163,1099,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000099,24163,1099,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000105,27499,1105,articulation_diagnostic,success,""""""
+test-000105,27499,1105,scale_l2,success,10.549751281738281
+test-000105,27499,1105,geometry,success,""""""
+test-000105,27499,1105,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000105,27499,1105,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000105,27499,1105,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000105,27499,1105,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000105,27499,1105,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000105,27499,1105,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000110,25598,1110,articulation_diagnostic,success,""""""
+test-000110,25598,1110,scale_l2,success,13.35455322265625
+test-000110,25598,1110,geometry,success,""""""
+test-000110,25598,1110,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000110,25598,1110,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000110,25598,1110,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000110,25598,1110,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000110,25598,1110,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000110,25598,1110,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000115,19335,1115,articulation_diagnostic,success,""""""
+test-000115,19335,1115,scale_l2,success,6.308441162109375
+test-000115,19335,1115,geometry,success,""""""
+test-000115,19335,1115,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000115,19335,1115,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000115,19335,1115,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000115,19335,1115,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000115,19335,1115,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000115,19335,1115,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000129,34676,1129,articulation_diagnostic,success,""""""
+test-000129,34676,1129,scale_l2,success,42.42515563964844
+test-000129,34676,1129,geometry,success,""""""
+test-000129,34676,1129,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000129,34676,1129,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000129,34676,1129,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000129,34676,1129,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000129,34676,1129,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000129,34676,1129,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000130,45645,1130,articulation_diagnostic,success,""""""
+test-000130,45645,1130,scale_l2,success,0.313690185546875
+test-000130,45645,1130,geometry,success,""""""
+test-000130,45645,1130,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000130,45645,1130,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000130,45645,1130,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000130,45645,1130,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000130,45645,1130,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000130,45645,1130,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000141,45443,1141,articulation_diagnostic,success,""""""
+test-000141,45443,1141,scale_l2,success,6.643798828125
+test-000141,45443,1141,geometry,success,""""""
+test-000141,45443,1141,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000141,45443,1141,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000141,45443,1141,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000141,45443,1141,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000141,45443,1141,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000141,45443,1141,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000166,13737,1166,articulation_diagnostic,success,""""""
+test-000166,13737,1166,scale_l2,success,20.799091339111328
+test-000166,13737,1166,geometry,success,""""""
+test-000166,13737,1166,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000166,13737,1166,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000166,13737,1166,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000166,13737,1166,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000166,13737,1166,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000166,13737,1166,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000574,29806,1574,articulation_diagnostic,success,""""""
+test-000574,29806,1574,scale_l2,success,15.045036315917969
+test-000574,29806,1574,geometry,success,""""""
+test-000574,29806,1574,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000574,29806,1574,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000574,29806,1574,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000574,29806,1574,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000574,29806,1574,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000574,29806,1574,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000586,16693,1586,articulation_diagnostic,success,""""""
+test-000586,16693,1586,scale_l2,success,6.254322052001953
+test-000586,16693,1586,geometry,success,""""""
+test-000586,16693,1586,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000586,16693,1586,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000586,16693,1586,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000586,16693,1586,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000586,16693,1586,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000586,16693,1586,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000799,15896,1799,articulation_diagnostic,success,""""""
+test-000799,15896,1799,scale_l2,success,96.43376159667969
+test-000799,15896,1799,geometry,success,""""""
+test-000799,15896,1799,appearance_psnr,blocked,"no paired RGB renders, official 30-view cameras, masks, or range"
+test-000799,15896,1799,density_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000799,15896,1799,affordance_psnr,blocked,no generated-vertex to GT-part mapping or paired numeric maps/masks/range
+test-000799,15896,1799,description_psnr,blocked,question/part correspondence and official literal/training slice disagreement unresolved
+test-000799,15896,1799,kinematics_cov,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
+test-000799,15896,1799,kinematics_mmd,blocked,"no official PhysX-to-NAP conversion, matching, or aggregation"
