@@ -147,7 +147,7 @@ def main():
                      "texture_glb_and_videos": "not produced in this runner scope"})
     (out / "official_result.json").write_text(json.dumps(official, indent=2) + "\n")
     (out / "indexing_correction_candidate.json").write_text(json.dumps(candidate, indent=2) + "\n")
-    (out / "gt_annotation.json").write_text(json.dumps({"object": annotation.get("object_id", "27281"),
+    (out / "gt_annotation.json").write_text(json.dumps({"object": annotation.get("object_id", paths["gt"].stem),
         "group_count": gt_groups, "group_info": gt_info,
         "limits": "no nearest-part/ICP/manual matching; direction/position/range accuracy omitted until coordinate system and units are established"},
         indent=2, ensure_ascii=False) + "\n")

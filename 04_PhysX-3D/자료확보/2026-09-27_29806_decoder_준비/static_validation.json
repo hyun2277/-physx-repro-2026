@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "gpu_or_decoder_executed_by_codex": false,
+  "source_sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/29806/20260926T220010Z-ac2c1dfab94d",
+  "verified_success_stages": [1, 2, 3, 4, 5, 6],
+  "verified_output_counts": [28, 4, 4, 26, 1, 4],
+  "latent": {
+    "rows_N": 11216,
+    "maximum_subdivision_points_N_x_64": 717824,
+    "sha256": "28892598d421e93566b1053a9eff72704f6602a995709e848532090d883a2fff"
+  },
+  "gt_sha256": "f098a70a07be7409c03e3b86b508e404ff87ff4144b26e3ade85a52f5195e34a",
+  "gate_peak_with_uncertainty_mib": 11268.889,
+  "hard_limit_mib": 28000,
+  "reserve_mib": 4607,
+  "checks": {
+    "python_ast": "pass",
+    "all_stage_output_hashes": "pass",
+    "N_x_64": "pass",
+    "proactive_guard_safe_mock": "pass",
+    "proactive_guard_insufficient_free_memory_mock": "rejected",
+    "24566_wrapper_regression_self_test": "pass"
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guarded one-shot cached decoder runner for selected articulated sample 24566."""
+"""Guarded cached decoder implementation used by fixed-object wrappers."""
 from __future__ import annotations
 import argparse, fcntl, hashlib, json, os, subprocess, sys, uuid
 from datetime import datetime, timezone
@@ -15,7 +15,7 @@ SOURCE_STAGE = ROOT / "staging/articulated-sampling-24566-20260926T213719Z-83a85
 LATENT = SOURCE_STAGE / "sampling/sampled_latents.pt"
 GT = SOURCE_STAGE / "work/physxnet/finaljson/24566.json"
 EXPECTED_LATENT_SHA = "ac83737ad1f8c78f5dae1b8e054037d8acd9fbb6e9c9f0e5f27cc88e65f908a5"
-EXPECTED_N = 27089; EXPECTED_GATE_MIB = 17035.724
+EXPECTED_N = 27089; EXPECTED_N_X64 = 1733696; EXPECTED_GATE_MIB = 17035.724
 HARD_LIMIT_MIB = 28000; RESERVE_MIB = 4607
 
 
@@ -29,7 +29,7 @@ def fingerprint(*values):
 
 def verify_source_run():
     result=json.loads((SOURCE_RUN/"result.json").read_text())
-    if result.get("status")!="success" or result.get("object_id")!=OBJECT: raise RuntimeError("sampling result is not successful 24566")
+    if result.get("status")!="success" or result.get("object_id")!=OBJECT: raise RuntimeError(f"sampling result is not successful {OBJECT}")
     checked=[]
     for number in range(1,7):
         matches=list((SOURCE_RUN/"steps").glob(f"{number:02d}_*/SUCCESS.json"))
@@ -108,11 +108,11 @@ def execute(run, stage):
 
 
 def self_test():
-    assert EXPECTED_N*64==1733696
+    assert EXPECTED_N*64==EXPECTED_N_X64
     mock={"free_mib":32000,"total_mib":32607,"index":1,"uuid":"mock","name":"mock"}
     gate={"gate_peak_with_uncertainty_mib":EXPECTED_GATE_MIB}
     assert proactive_guard(mock,gate)["pass"]
-    try: proactive_guard({**mock,"free_mib":20000},gate)
+    try: proactive_guard({**mock,"free_mib":EXPECTED_GATE_MIB+RESERVE_MIB-1},gate)
     except RuntimeError: pass
     else: raise RuntimeError("unsafe memory mock accepted")
     return {"N_x_64":"PASS","proactive_guard_pass":"PASS","unsafe_free_memory_rejected":"PASS"}
@@ -122,11 +122,11 @@ def main():
     p=argparse.ArgumentParser();p.add_argument("--self-test",action="store_true");p.add_argument("--plan",action="store_true");a=p.parse_args()
     if a.self_test: print(json.dumps(self_test(),indent=2));return
     if a.plan: print(json.dumps({"object_id":OBJECT,"source_run":str(SOURCE_RUN),"latent":str(LATENT),"N":EXPECTED_N,"N_x_64":EXPECTED_N*64,"gate_peak_mib":EXPECTED_GATE_MIB,"steps":["verify stage 1-6 hashes","mandatory GPU equivalence","physics child","mesh child","CPU GT structure audit"]},indent=2));return
-    parent=ROOT/"logs/articulated-decoder/24566";parent.mkdir(parents=True,exist_ok=True)
+    parent=ROOT/f"logs/articulated-decoder/{OBJECT}";parent.mkdir(parents=True,exist_ok=True)
     with open(parent/".runner.lock","w") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         rid=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")+"-"+uuid.uuid4().hex[:12]
-        execute(parent/rid,ROOT/f"staging/articulated-decoder-24566-{rid}")
+        execute(parent/rid,ROOT/f"staging/articulated-decoder-{OBJECT}-{rid}")
 
 
 if __name__=="__main__": main()
