@@ -1,0 +1,14 @@
+[
+  {
+    "object_id": "23787",
+    "status": "failed",
+    "included_in_numeric_denominator": false,
+    "reason": "official texture retrieval output non-finite OBJ"
+  },
+  {
+    "object_id": "27281",
+    "status": "excluded",
+    "included_in_numeric_denominator": false,
+    "reason": "mesh decoder OOM under preserved 28,000 MiB hard limit and 4,607 MiB reserve policy"
+  }
+]
