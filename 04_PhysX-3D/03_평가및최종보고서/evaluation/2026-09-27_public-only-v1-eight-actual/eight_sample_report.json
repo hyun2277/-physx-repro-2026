@@ -1,0 +1,1731 @@
+{
+  "protocol": "public-materials-independent-evaluation-v1",
+  "paper_equivalent": false,
+  "geometry_definition": {
+    "sampling": "area-weighted barycentric PCG64",
+    "seed": 20260927,
+    "points_per_mesh": 8192,
+    "symmetric_cd_l1": "mean(pred→GT Euclidean NN) + mean(GT→pred Euclidean NN)",
+    "symmetric_cd_l2": "same directional sum using squared NN distance",
+    "fscore": "harmonic mean of directional hit fractions at Euclidean threshold 0.05",
+    "canonical": "independently subtract bbox center and divide each mesh by its maximum bbox extent; raw and canonical are never mixed"
+  },
+  "coverage": {
+    "artifact_complete": 8,
+    "metric_failed": 0,
+    "blocked_metric_rows": 48,
+    "test_rows_total": 1000,
+    "test_order_and_duplicate_policy": "the v1 manifest retains source test row and duplicate occurrence; this eight-item subset does not deduplicate."
+  },
+  "samples": [
+    {
+      "object_id": "29354",
+      "tier": "fixed",
+      "test_row": 1,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.027545760855190813,
+          "cd_l1_pred_to_gt_mean": 0.09832928329153147,
+          "cd_l1_sum_raw": 0.1258750441467223,
+          "cd_l1_table_display_x1e3": 125.87504414672229,
+          "cd_l2_sum_raw": 0.01707046669634923,
+          "fscore_raw": 0.557520792666763,
+          "fscore_table_display_x1e2": 55.752079266676304,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.414306640625,
+          "pred_sample_count": 8192,
+          "recall": 0.85205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.19301161241776396,
+          "cd_l1_pred_to_gt_mean": 0.05625605579618361,
+          "cd_l1_sum_raw": 0.24926766821394758,
+          "cd_l1_table_display_x1e3": 249.2676682139476,
+          "cd_l2_sum_raw": 0.0638992581368189,
+          "fscore_raw": 0.3589307986221096,
+          "fscore_table_display_x1e2": 35.89307986221096,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.486328125,
+          "pred_sample_count": 8192,
+          "recall": 0.284423828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing official-code audit: predicted vertex mean",
+        "raw": 20.21143341064453,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": true,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": false,
+              "largest_component_fraction": false,
+              "majority_area_fraction": false
+            },
+            "meaningful": false,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 381850,
+          "vertex_fraction": 0.9999842872705942,
+          "majority_assigned_face_count": 763670,
+          "majority_assigned_face_fraction": 0.9999921432649448,
+          "majority_assigned_surface_area": 4.999668598175049,
+          "majority_assigned_surface_area_fraction": 0.9999915361404419,
+          "homogeneous_face_count": 763646,
+          "homogeneous_surface_area": 4.999512672424316,
+          "coordinate_min": [
+            -0.5005630850791931,
+            -0.18009202182292938,
+            -0.3912946283817291
+          ],
+          "coordinate_max": [
+            0.5004652142524719,
+            0.18752513825893402,
+            0.38758352398872375
+          ],
+          "component_count_including_isolated_vertices": 27,
+          "largest_component_vertices": 190568,
+          "largest_component_fraction": 0.4990650779101741,
+          "component_sizes_top10": [
+            190568,
+            185544,
+            1364,
+            1338,
+            1338,
+            1332,
+            76,
+            68,
+            24,
+            20
+          ],
+          "components_top10": [
+            {
+              "vertex_count": 190568,
+              "coordinate_min": [
+                -0.4872303009033203,
+                -0.15794451534748077,
+                -0.1843709796667099
+              ],
+              "coordinate_max": [
+                0.4884447455406189,
+                0.15906378626823425,
+                0.3511109948158264
+              ]
+            },
+            {
+              "vertex_count": 185544,
+              "coordinate_min": [
+                -0.5005630850791931,
+                -0.18009202182292938,
+                -0.3912946283817291
+              ],
+              "coordinate_max": [
+                0.5004652142524719,
+                0.17920935153961182,
+                0.38758352398872375
+              ]
+            },
+            {
+              "vertex_count": 1364,
+              "coordinate_min": [
+                0.40456855297088623,
+                -0.1575576812028885,
+                -0.3757741451263428
+              ],
+              "coordinate_max": [
+                0.47003453969955444,
+                -0.10797955840826035,
+                -0.2169724404811859
+              ]
+            },
+            {
+              "vertex_count": 1338,
+              "coordinate_min": [
+                -0.47033101320266724,
+                0.10790105164051056,
+                -0.37560346722602844
+              ],
+              "coordinate_max": [
+                -0.4045974612236023,
+                0.15767556428909302,
+                -0.21696846187114716
+              ]
+            },
+            {
+              "vertex_count": 1338,
+              "coordinate_min": [
+                -0.47027361392974854,
+                -0.15770986676216125,
+                -0.3754269480705261
+              ],
+              "coordinate_max": [
+                -0.4045330286026001,
+                -0.10793748497962952,
+                -0.21691377460956573
+              ]
+            },
+            {
+              "vertex_count": 1332,
+              "coordinate_min": [
+                0.4046081304550171,
+                0.10786407440900803,
+                -0.37520885467529297
+              ],
+              "coordinate_max": [
+                0.47018325328826904,
+                0.15758752822875977,
+                -0.21691957116127014
+              ]
+            },
+            {
+              "vertex_count": 76,
+              "coordinate_min": [
+                -0.18468619883060455,
+                0.034271541982889175,
+                0.0006725545972585678
+              ],
+              "coordinate_max": [
+                -0.17946064472198486,
+                0.05261890962719917,
+                0.019407857209444046
+              ]
+            },
+            {
+              "vertex_count": 68,
+              "coordinate_min": [
+                -0.2620474696159363,
+                0.1846524477005005,
+                0.3521914482116699
+              ],
+              "coordinate_max": [
+                -0.22574806213378906,
+                0.18612025678157806,
+                0.3608851134777069
+              ]
+            },
+            {
+              "vertex_count": 24,
+              "coordinate_min": [
+                0.034550104290246964,
+                0.06943026930093765,
+                -0.1733161360025406
+              ],
+              "coordinate_max": [
+                0.04405511915683746,
+                0.07594846934080124,
+                -0.17222709953784943
+              ]
+            },
+            {
+              "vertex_count": 20,
+              "coordinate_min": [
+                -0.46967029571533203,
+                0.18549492955207825,
+                0.13542290031909943
+              ],
+              "coordinate_max": [
+                -0.45619770884513855,
+                0.18671803176403046,
+                0.13807813823223114
+              ]
+            }
+          ]
+        },
+        "1": {
+          "vertex_count": 6,
+          "vertex_fraction": 1.5712729405849327e-05,
+          "majority_assigned_face_count": 6,
+          "majority_assigned_face_fraction": 7.856735055180469e-06,
+          "majority_assigned_surface_area": 4.248279219609685e-05,
+          "majority_assigned_surface_area_fraction": 8.497049748257268e-06,
+          "homogeneous_face_count": 0,
+          "homogeneous_surface_area": 0.0,
+          "coordinate_min": [
+            -0.4308300018310547,
+            -0.14601227641105652,
+            0.021515535190701485
+          ],
+          "coordinate_max": [
+            0.43145835399627686,
+            0.13158315420150757,
+            0.25648289918899536
+          ],
+          "component_count_including_isolated_vertices": 3,
+          "largest_component_vertices": 3,
+          "largest_component_fraction": 0.5,
+          "component_sizes_top10": [
+            3,
+            2,
+            1
+          ],
+          "components_top10": [
+            {
+              "vertex_count": 3,
+              "coordinate_min": [
+                0.42755332589149475,
+                -0.13863703608512878,
+                0.14764370024204254
+              ],
+              "coordinate_max": [
+                0.43145835399627686,
+                -0.13667577505111694,
+                0.15065784752368927
+              ]
+            },
+            {
+              "vertex_count": 2,
+              "coordinate_min": [
+                -0.4308300018310547,
+                0.12983514368534088,
+                0.2561991214752197
+              ],
+              "coordinate_max": [
+                -0.42643988132476807,
+                0.13158315420150757,
+                0.25648289918899536
+              ]
+            },
+            {
+              "vertex_count": 1,
+              "coordinate_min": [
+                0.09565719962120056,
+                -0.14601227641105652,
+                0.021515535190701485
+              ],
+              "coordinate_max": [
+                0.09565719962120056,
+                -0.14601227641105652,
+                0.021515535190701485
+              ]
+            }
+          ]
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "24566",
+      "tier": "B_translation",
+      "test_row": 14,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08127673690257398,
+          "cd_l1_pred_to_gt_mean": 0.1207172825925596,
+          "cd_l1_sum_raw": 0.20199401949513357,
+          "cd_l1_table_display_x1e3": 201.99401949513356,
+          "cd_l2_sum_raw": 0.030079994353231696,
+          "fscore_raw": 0.28669543204084325,
+          "fscore_table_display_x1e2": 28.669543204084324,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.2181396484375,
+          "pred_sample_count": 8192,
+          "recall": 0.4180908203125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.11392517284313056,
+          "cd_l1_pred_to_gt_mean": 0.09176012994531749,
+          "cd_l1_sum_raw": 0.20568530278844804,
+          "cd_l1_table_display_x1e3": 205.68530278844804,
+          "cd_l2_sum_raw": 0.03641535643901281,
+          "fscore_raw": 0.3794555565887888,
+          "fscore_table_display_x1e2": 37.94555565887888,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.37939453125,
+          "pred_sample_count": 8192,
+          "recall": 0.3795166015625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.331443786621094,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 1,
+        "articulated_false_negative": true,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 2,
+        "gt_types": [
+          "B"
+        ],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 613164,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 1226344,
+          "majority_face_fraction": 1.0,
+          "majority_area": 8.61707592010498,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 1226344,
+          "homogeneous_area": 8.61707592010498,
+          "bbox_min": [
+            -0.44449615478515625,
+            -0.4361594021320343,
+            -0.5004220008850098
+          ],
+          "bbox_max": [
+            0.4446844756603241,
+            0.44016698002815247,
+            0.5001883506774902
+          ],
+          "components": {
+            "count_including_isolated": 3,
+            "largest_vertices": 346700,
+            "largest_fraction": 0.5654278463836755,
+            "sizes_desc_top20": [
+              346700,
+              258412,
+              8052
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "29806",
+      "tier": "C_rotation",
+      "test_row": 574,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.03456211001159079,
+          "cd_l1_pred_to_gt_mean": 0.03675438065834791,
+          "cd_l1_sum_raw": 0.0713164906699387,
+          "cd_l1_table_display_x1e3": 71.3164906699387,
+          "cd_l2_sum_raw": 0.00333271973328704,
+          "fscore_raw": 0.6895161621864585,
+          "fscore_table_display_x1e2": 68.95161621864585,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.7626953125,
+          "pred_sample_count": 8192,
+          "recall": 0.629150390625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2280492887207242,
+          "cd_l1_pred_to_gt_mean": 0.12232132549713404,
+          "cd_l1_sum_raw": 0.3503706142178582,
+          "cd_l1_table_display_x1e3": 350.3706142178582,
+          "cd_l2_sum_raw": 0.08428315797840816,
+          "fscore_raw": 0.0,
+          "fscore_table_display_x1e2": 0.0,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0,
+          "pred_sample_count": 8192,
+          "recall": 0.0,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 15.045036315917969,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 2,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 4,
+        "gt_types": [
+          "C",
+          "C",
+          "C"
+        ],
+        "moving_groups": {
+          "1": {
+            "checks": {
+              "homogeneous_faces": true,
+              "largest_component_fraction": true,
+              "majority_area_fraction": true
+            },
+            "meaningful": true,
+            "thresholds": {
+              "min_homogeneous_faces": 100,
+              "min_largest_component_fraction": 0.01,
+              "min_majority_area_fraction": 0.001
+            }
+          }
+        },
+        "multi_joint_underprediction": true,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 2
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 157271,
+          "vertex_fraction": 0.8724675468767336,
+          "majority_face_count": 314678,
+          "majority_face_fraction": 0.8728641487661992,
+          "majority_area": 2.21486234664917,
+          "majority_area_fraction": 0.8760712146759033,
+          "homogeneous_face_count": 308122,
+          "homogeneous_area": 2.1701817512512207,
+          "bbox_min": [
+            -0.500397264957428,
+            -0.1281508207321167,
+            -0.17679032683372498
+          ],
+          "bbox_max": [
+            0.5004282593727112,
+            0.13358312845230103,
+            0.17511403560638428
+          ],
+          "components": {
+            "count_including_isolated": 51,
+            "largest_vertices": 83056,
+            "largest_fraction": 0.5281075341289876,
+            "sizes_desc_top20": [
+              83056,
+              72917,
+              194,
+              154,
+              147,
+              121,
+              44,
+              44,
+              44,
+              39,
+              38,
+              35,
+              33,
+              31,
+              28,
+              23,
+              22,
+              21,
+              20,
+              19
+            ]
+          }
+        },
+        "1": {
+          "vertex_count": 22989,
+          "vertex_fraction": 0.1275324531232664,
+          "majority_face_count": 45834,
+          "majority_face_fraction": 0.1271358512338008,
+          "majority_area": 0.3133133053779602,
+          "majority_area_fraction": 0.12392859160900116,
+          "homogeneous_face_count": 39707,
+          "homogeneous_area": 0.2715549170970917,
+          "bbox_min": [
+            -0.5001319050788879,
+            -0.12814828753471375,
+            -0.17566682398319244
+          ],
+          "bbox_max": [
+            0.4999781847000122,
+            0.0840315967798233,
+            0.17425964772701263
+          ],
+          "components": {
+            "count_including_isolated": 121,
+            "largest_vertices": 7909,
+            "largest_fraction": 0.34403410326677974,
+            "sizes_desc_top20": [
+              7909,
+              4756,
+              3344,
+              1244,
+              814,
+              663,
+              425,
+              315,
+              253,
+              196,
+              181,
+              147,
+              145,
+              144,
+              133,
+              129,
+              109,
+              102,
+              80,
+              71
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "21356",
+      "tier": "fixed",
+      "test_row": 2,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.14963862509845846,
+          "cd_l1_pred_to_gt_mean": 0.16064342214088428,
+          "cd_l1_sum_raw": 0.3102820472393427,
+          "cd_l1_table_display_x1e3": 310.2820472393427,
+          "cd_l2_sum_raw": 0.07668309009731973,
+          "fscore_raw": 0.2458233940870242,
+          "fscore_table_display_x1e2": 24.58233940870242,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1995849609375,
+          "pred_sample_count": 8192,
+          "recall": 0.3199462890625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2057149543360097,
+          "cd_l1_pred_to_gt_mean": 0.12491377282375267,
+          "cd_l1_sum_raw": 0.3306287271597624,
+          "cd_l1_table_display_x1e3": 330.6287271597624,
+          "cd_l2_sum_raw": 0.08654398357814769,
+          "fscore_raw": 0.22762807614599895,
+          "fscore_table_display_x1e2": 22.762807614599893,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.25537109375,
+          "pred_sample_count": 8192,
+          "recall": 0.205322265625,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 10.54486083984375,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 363382,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 726672,
+          "majority_face_fraction": 1.0,
+          "majority_area": 4.838868141174316,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 726672,
+          "homogeneous_area": 4.838868141174316,
+          "bbox_min": [
+            -0.3669946789741516,
+            -0.4504947364330292,
+            -0.5003209114074707
+          ],
+          "bbox_max": [
+            0.3659486174583435,
+            0.44962814450263977,
+            0.49984055757522583
+          ],
+          "components": {
+            "count_including_isolated": 28,
+            "largest_vertices": 121824,
+            "largest_fraction": 0.33525050773015724,
+            "sizes_desc_top20": [
+              121824,
+              120570,
+              99618,
+              6826,
+              2658,
+              824,
+              824,
+              824,
+              824,
+              778,
+              730,
+              696,
+              610,
+              580,
+              572,
+              528,
+              520,
+              512,
+              510,
+              488
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "27703",
+      "tier": "fixed",
+      "test_row": 20,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08805901161060391,
+          "cd_l1_pred_to_gt_mean": 0.08913539175041452,
+          "cd_l1_sum_raw": 0.17719440336101844,
+          "cd_l1_table_display_x1e3": 177.19440336101843,
+          "cd_l2_sum_raw": 0.023473913798705406,
+          "fscore_raw": 0.3438283618880735,
+          "fscore_table_display_x1e2": 34.382836188807346,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.3128662109375,
+          "pred_sample_count": 8192,
+          "recall": 0.381591796875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.18158236994842383,
+          "cd_l1_pred_to_gt_mean": 0.12918090681987907,
+          "cd_l1_sum_raw": 0.3107632767683029,
+          "cd_l1_table_display_x1e3": 310.7632767683029,
+          "cd_l2_sum_raw": 0.06975755302553718,
+          "fscore_raw": 0.15782986995078072,
+          "fscore_table_display_x1e2": 15.78298699507807,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.24267578125,
+          "pred_sample_count": 8192,
+          "recall": 0.116943359375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 26.803573608398438,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 418644,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 837172,
+          "majority_face_fraction": 1.0,
+          "majority_area": 5.6759185791015625,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 837172,
+          "homogeneous_area": 5.6759185791015625,
+          "bbox_min": [
+            -0.5000250935554504,
+            -0.5001240372657776,
+            -0.36837297677993774
+          ],
+          "bbox_max": [
+            0.49980974197387695,
+            0.49985653162002563,
+            0.3751276433467865
+          ],
+          "components": {
+            "count_including_isolated": 32,
+            "largest_vertices": 239828,
+            "largest_fraction": 0.5728685947965336,
+            "sizes_desc_top20": [
+              239828,
+              119334,
+              46536,
+              2046,
+              2034,
+              2008,
+              2008,
+              640,
+              238,
+              234,
+              194,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184,
+              184
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "30719",
+      "tier": "fixed",
+      "test_row": 29,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2747740071048985,
+          "cd_l1_pred_to_gt_mean": 0.2881869099170149,
+          "cd_l1_sum_raw": 0.5629609170219134,
+          "cd_l1_table_display_x1e3": 562.9609170219134,
+          "cd_l2_sum_raw": 0.19021198899875538,
+          "fscore_raw": 0.05832303965605749,
+          "fscore_table_display_x1e2": 5.83230396560575,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.05126953125,
+          "pred_sample_count": 8192,
+          "recall": 0.067626953125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.33558323881834257,
+          "cd_l1_pred_to_gt_mean": 0.29801531551714233,
+          "cd_l1_sum_raw": 0.633598554335485,
+          "cd_l1_table_display_x1e3": 633.5985543354849,
+          "cd_l2_sum_raw": 0.2523691257541343,
+          "fscore_raw": 0.07120719747340426,
+          "fscore_table_display_x1e2": 7.120719747340426,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.0777587890625,
+          "pred_sample_count": 8192,
+          "recall": 0.065673828125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 21.8868408203125,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 416530,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 832896,
+          "majority_face_fraction": 1.0,
+          "majority_area": 5.577786445617676,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 832896,
+          "homogeneous_area": 5.577786445617676,
+          "bbox_min": [
+            -0.500925600528717,
+            -0.500732958316803,
+            -0.49725061655044556
+          ],
+          "bbox_max": [
+            0.5006489157676697,
+            0.5009751915931702,
+            0.5006405115127563
+          ],
+          "components": {
+            "count_including_isolated": 6,
+            "largest_vertices": 220160,
+            "largest_fraction": 0.5285573668163157,
+            "sizes_desc_top20": [
+              220160,
+              196322,
+              16,
+              16,
+              8,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "21314",
+      "tier": "fixed",
+      "test_row": 30,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.08163349527265579,
+          "cd_l1_pred_to_gt_mean": 0.07104803485021349,
+          "cd_l1_sum_raw": 0.15268153012286928,
+          "cd_l1_table_display_x1e3": 152.68153012286928,
+          "cd_l2_sum_raw": 0.019876008481647008,
+          "fscore_raw": 0.46211995764369235,
+          "fscore_table_display_x1e2": 46.211995764369235,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4862060546875,
+          "pred_sample_count": 8192,
+          "recall": 0.4403076171875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2586899264595347,
+          "cd_l1_pred_to_gt_mean": 0.11003260638744614,
+          "cd_l1_sum_raw": 0.36872253284698087,
+          "cd_l1_table_display_x1e3": 368.72253284698087,
+          "cd_l2_sum_raw": 0.10882393552780253,
+          "fscore_raw": 0.1712967143232871,
+          "fscore_table_display_x1e2": 17.12967143232871,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4063720703125,
+          "pred_sample_count": 8192,
+          "recall": 0.1085205078125,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 12.552658081054688,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 178230,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 356494,
+          "majority_face_fraction": 1.0,
+          "majority_area": 2.329261064529419,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 356494,
+          "homogeneous_area": 2.329261064529419,
+          "bbox_min": [
+            -0.5002885460853577,
+            -0.13993464410305023,
+            -0.21765637397766113
+          ],
+          "bbox_max": [
+            0.500483512878418,
+            0.12719979882240295,
+            0.21048930287361145
+          ],
+          "components": {
+            "count_including_isolated": 4,
+            "largest_vertices": 165584,
+            "largest_fraction": 0.9290467373618359,
+            "sizes_desc_top20": [
+              165584,
+              12528,
+              62,
+              56
+            ]
+          }
+        }
+      },
+      "status": "success"
+    },
+    {
+      "object_id": "32980",
+      "tier": "fixed",
+      "test_row": 36,
+      "geometry": {
+        "bbox_center_max_extent_canonical": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.04492325316817523,
+          "cd_l1_pred_to_gt_mean": 0.05716893304298134,
+          "cd_l1_sum_raw": 0.10209218621115657,
+          "cd_l1_table_display_x1e3": 102.09218621115656,
+          "cd_l2_sum_raw": 0.007748110457497527,
+          "fscore_raw": 0.526591546474359,
+          "fscore_table_display_x1e2": 52.6591546474359,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.4661865234375,
+          "pred_sample_count": 8192,
+          "recall": 0.60498046875,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        },
+        "raw_coordinate": {
+          "authority": "proposal",
+          "cd_l1_gt_to_pred_mean": 0.2338137078934973,
+          "cd_l1_pred_to_gt_mean": 0.1447838564320207,
+          "cd_l1_sum_raw": 0.37859756432551805,
+          "cd_l1_table_display_x1e3": 378.597564325518,
+          "cd_l2_sum_raw": 0.09487603085175056,
+          "fscore_raw": 0.060908544631231396,
+          "fscore_table_display_x1e2": 6.090854463123139,
+          "fscore_threshold_euclidean": 0.05,
+          "gt_sample_count": 8192,
+          "paper_equivalent": false,
+          "precision": 0.1236572265625,
+          "pred_sample_count": 8192,
+          "recall": 0.0404052734375,
+          "sampling": {
+            "count_per_mesh": 8192,
+            "method": "area_weighted_barycentric_pcg64",
+            "seed": 20260927
+          },
+          "status": "success",
+          "symmetric_definition": "directional_mean_pred_to_gt_plus_gt_to_pred"
+        }
+      },
+      "scale": {
+        "authority": "code_verified",
+        "gt_expression": "max JSON dimension, matching example_render_gt_foreval.py:141-145",
+        "input_unit": "cm",
+        "metric": "scale_l2",
+        "paper_equivalent": false,
+        "prediction_expression": "existing property-head channel 0 vertex mean",
+        "raw": 2.9520492553710938,
+        "representation": "scalar",
+        "unit": "cm"
+      },
+      "articulation": {
+        "absolute_group_count_error": 0,
+        "articulated_false_negative": false,
+        "direct_group_to_part_mapping": false,
+        "fixed_false_positive": false,
+        "gt_num_group": 1,
+        "gt_types": [],
+        "moving_groups": {},
+        "multi_joint_underprediction": false,
+        "parent_direction_position_range_evaluated": false,
+        "predicted_num_group": 1
+      },
+      "official_groups": {
+        "0": {
+          "vertex_count": 175932,
+          "vertex_fraction": 1.0,
+          "majority_face_count": 351868,
+          "majority_face_fraction": 1.0,
+          "majority_area": 2.4149136543273926,
+          "majority_area_fraction": 1.0,
+          "homogeneous_face_count": 351868,
+          "homogeneous_area": 2.4149136543273926,
+          "bbox_min": [
+            -0.49790671467781067,
+            -0.25080522894859314,
+            -0.22096531093120575
+          ],
+          "bbox_max": [
+            0.49792417883872986,
+            0.2508414387702942,
+            0.22644399106502533
+          ],
+          "components": {
+            "count_including_isolated": 10,
+            "largest_vertices": 127348,
+            "largest_fraction": 0.7238478503058,
+            "sizes_desc_top20": [
+              127348,
+              48388,
+              52,
+              46,
+              26,
+              20,
+              20,
+              12,
+              12,
+              8
+            ]
+          }
+        }
+      },
+      "status": "success"
+    }
+  ],
+  "all_macro": {
+    "raw_cd_l1": {
+      "n": 8,
+      "mean": 0.3534542800820379,
+      "median": 0.34049967068881026
+    },
+    "raw_cd_l2": {
+      "n": 8,
+      "mean": 0.09962105016145151,
+      "median": 0.08541357077827792
+    },
+    "raw_fscore": {
+      "n": 8,
+      "mean": 0.1784070947169501,
+      "median": 0.1645632921370339
+    },
+    "canonical_cd_l1": {
+      "n": 8,
+      "mean": 0.21304957978351188,
+      "median": 0.16493796674194386
+    },
+    "canonical_cd_l2": {
+      "n": 8,
+      "mean": 0.04605953657709913,
+      "median": 0.021674961140176207
+    },
+    "canonical_fscore": {
+      "n": 8,
+      "mean": 0.3963023358304089,
+      "median": 0.4029741597658829
+    },
+    "scale_error_cm": {
+      "n": 8,
+      "mean": 17.040987014770508,
+      "median": 17.62823486328125
+    },
+    "group_count_absolute_error": {
+      "n": 8,
+      "mean": 0.5,
+      "median": 0.0
+    }
+  },
+  "subgroup_macro": {
+    "fixed": {
+      "raw_cd_l1": {
+        "n": 6,
+        "mean": 0.37859638727499945,
+        "median": 0.34967563000337165
+      },
+      "raw_cd_l2": {
+        "n": 6,
+        "mean": 0.11271164781236519,
+        "median": 0.09071000721494912
+      },
+      "raw_fscore": {
+        "n": 6,
+        "mean": 0.17463353352446867,
+        "median": 0.1645632921370339
+      },
+      "canonical_cd_l1": {
+        "n": 6,
+        "mean": 0.2385143546838371,
+        "median": 0.16493796674194386
+      },
+      "canonical_cd_l2": {
+        "n": 6,
+        "mean": 0.055843929755045714,
+        "median": 0.021674961140176207
+      },
+      "canonical_fscore": {
+        "n": 6,
+        "mean": 0.3657011820693283,
+        "median": 0.4029741597658829
+      },
+      "scale_error_cm": {
+        "n": 6,
+        "mean": 15.825236002604166,
+        "median": 16.38204574584961
+      },
+      "group_count_absolute_error": {
+        "n": 6,
+        "mean": 0.16666666666666666,
+        "median": 0.0
+      }
+    },
+    "B_translation": {
+      "raw_cd_l1": {
+        "n": 1,
+        "mean": 0.20568530278844804,
+        "median": 0.20568530278844804
+      },
+      "raw_cd_l2": {
+        "n": 1,
+        "mean": 0.03641535643901281,
+        "median": 0.03641535643901281
+      },
+      "raw_fscore": {
+        "n": 1,
+        "mean": 0.3794555565887888,
+        "median": 0.3794555565887888
+      },
+      "canonical_cd_l1": {
+        "n": 1,
+        "mean": 0.20199401949513357,
+        "median": 0.20199401949513357
+      },
+      "canonical_cd_l2": {
+        "n": 1,
+        "mean": 0.030079994353231696,
+        "median": 0.030079994353231696
+      },
+      "canonical_fscore": {
+        "n": 1,
+        "mean": 0.28669543204084325,
+        "median": 0.28669543204084325
+      },
+      "scale_error_cm": {
+        "n": 1,
+        "mean": 26.331443786621094,
+        "median": 26.331443786621094
+      },
+      "group_count_absolute_error": {
+        "n": 1,
+        "mean": 1.0,
+        "median": 1.0
+      }
+    },
+    "C_rotation": {
+      "raw_cd_l1": {
+        "n": 1,
+        "mean": 0.3503706142178582,
+        "median": 0.3503706142178582
+      },
+      "raw_cd_l2": {
+        "n": 1,
+        "mean": 0.08428315797840816,
+        "median": 0.08428315797840816
+      },
+      "raw_fscore": {
+        "n": 1,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "canonical_cd_l1": {
+        "n": 1,
+        "mean": 0.0713164906699387,
+        "median": 0.0713164906699387
+      },
+      "canonical_cd_l2": {
+        "n": 1,
+        "mean": 0.00333271973328704,
+        "median": 0.00333271973328704
+      },
+      "canonical_fscore": {
+        "n": 1,
+        "mean": 0.6895161621864585,
+        "median": 0.6895161621864585
+      },
+      "scale_error_cm": {
+        "n": 1,
+        "mean": 15.045036315917969,
+        "median": 15.045036315917969
+      },
+      "group_count_absolute_error": {
+        "n": 1,
+        "mean": 2.0,
+        "median": 2.0
+      }
+    }
+  },
+  "artifact_preflight": {
+    "29354": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/finaljson/29354.json",
+          "bytes": 3536,
+          "sha256": "cf687c21110697a6ed1fc25146a8b101d789ae82acfd1b11a7e309a5b15b3600"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/phy_dataset/29354/model.obj",
+          "bytes": 622283,
+          "sha256": "2fc96114b9967a5f5fca1be77b40a5cd4c41df24671ee6da9d60c7ee9bdbb53e"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj",
+          "bytes": 30788505,
+          "sha256": "42fdb2fa623efb17d60bb833f37bbbdf9c11829b6b25eb723723623b99c1d431"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "bytes": 80955063,
+          "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/01_재현실행/자료확보/rtx5090_adapter/2026-09-27_29354-semantic-validation/official_code_result.json",
+          "bytes": 9046,
+          "sha256": "6eb53fe713f03f3a8a300f761eaa9f2a95242882e345dbf5321ee40c6a9af53d"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "bytes": 80955063,
+          "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c"
+        }
+      },
+      "errors": []
+    },
+    "24566": {
+      "tier": "B_translation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/physxnet/finaljson/24566.json",
+          "bytes": 4647,
+          "sha256": "3cc62e444cd4717b5bc765b4f3eb3dd1c8c16608331b38a0c9261da0a4382885"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/phy_dataset/24566/model.obj",
+          "bytes": 476173,
+          "sha256": "1c81b6544c74048ddcb425c59fc57af6bb4d87e91af7a076275bf38a021fb332"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh.obj",
+          "bytes": 49815067,
+          "sha256": "9e184a51454bd711d75f682bb00cd85c4c5bc00a5bf6fd00d52b955da357f888"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 34338813,
+          "sha256": "c44969404aff729dc2150508afd4bb3c63145ca01ee1678a1c570ab60365ce5d"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/official_result.json",
+          "bytes": 3389,
+          "sha256": "64f5736919c06cbf610871dd4eb280e9ae67baed55c16d3e0e57e9e9c491cace"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh_physics_raw.pt",
+          "bytes": 129993591,
+          "sha256": "25f218fb73d8638b06eed2cbdb9d2b361fa3337834e31ee50361e4746186ebb5"
+        }
+      },
+      "errors": []
+    },
+    "29806": {
+      "tier": "C_rotation",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/physxnet/finaljson/29806.json",
+          "bytes": 5386,
+          "sha256": "f098a70a07be7409c03e3b86b508e404ff87ff4144b26e3ade85a52f5195e34a"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/phy_dataset/29806/model.obj",
+          "bytes": 874793,
+          "sha256": "53612ab7c61c56a48797a3e991fa9a0d43e4791268c1b11a2d8faff6b06c4fb4"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh.obj",
+          "bytes": 14207179,
+          "sha256": "154e5d22cf222095c60f94217041c095bd2f36773101602e6b0b2b298c17b433"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 10096189,
+          "sha256": "c4289bdee079f1b7f46767ff733bbc52861019f63cf6ba45e1d9b039ce726fd7"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/official_result.json",
+          "bytes": 5031,
+          "sha256": "43b8176c311cb60d4e8b15d8c6a99b48bb386d47cc17d9d1b19c0e69e6ca21a4"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh_physics_raw.pt",
+          "bytes": 38217335,
+          "sha256": "789f1a4b2610d62f51c4df0cbee1ab71979a96d8ce9e43cffc284c7e200d38e2"
+        }
+      },
+      "errors": []
+    },
+    "21356": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/physxnet/finaljson/21356.json",
+          "bytes": 4411,
+          "sha256": "e1f4376f6b6e8b6fe858b95eba45e6c6bf77504367f1856c79fa808fed0eefb5"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21356-20260927T091739Z-a3a281fd06a9/work/phy_dataset/21356/model.obj",
+          "bytes": 4756929,
+          "sha256": "41d5e714d1a9dad8aad60c6bb612884a573dfec63ebd14b21c19868b0b487feb"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/mesh/mesh.obj",
+          "bytes": 29221325,
+          "sha256": "b1d4e2bf9d365592da558f3ef9e38d6e5464cf14b47ce179b9920cdf07eb4b94"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 20351037,
+          "sha256": "91dc3e7cd89f1f4a4892639df5fbcb3f8ef92c2c6635f8a84fdf50b5697b54ad"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/articulation_audit/official_result.json",
+          "bytes": 3653,
+          "sha256": "8207fc9d924122d988d5f96b200d70be6f8e099ea920c81f7fd89c12ea3765e4"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21356-20260927T092106Z-ffa272c5ba06/mesh/mesh_physics_raw.pt",
+          "bytes": 77037239,
+          "sha256": "ae42a1ad6194b6f03797db0181fbfae51a14da1a9a5d309ce4b761ea85ef3753"
+        }
+      },
+      "errors": []
+    },
+    "27703": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/physxnet/finaljson/27703.json",
+          "bytes": 4953,
+          "sha256": "079ed9d35adca8bfd020f35fbad7d443d842be6ce38228ec403f39d19445bffd"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27703-20260927T092210Z-6cfe9750da0b/work/phy_dataset/27703/model.obj",
+          "bytes": 1920675,
+          "sha256": "d823e4e07b3b89e0f1c55fbe05895589a3007779ef2ad014556a65de692865c1"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/mesh/mesh.obj",
+          "bytes": 33791213,
+          "sha256": "2b45fcd9ec2373e107a185a271dc41710bb1a09e0315d239bb8956e47dbe025e"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23445693,
+          "sha256": "4f8cbfef2db2b2a06acc0dcd873140f6fcdcc883a26fe197e58e1c444e0ff193"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/articulation_audit/official_result.json",
+          "bytes": 3650,
+          "sha256": "d0b442049133df841726da9ae2f5c81d1bf266975f666a5364fa03b3452cf92e"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27703-20260927T092515Z-2f14d516dff6/mesh/mesh_physics_raw.pt",
+          "bytes": 88752119,
+          "sha256": "ff296356565bcfb908fd44a364ae2bb05a3a83f9cd88ef606cc2a949a3b70c94"
+        }
+      },
+      "errors": []
+    },
+    "30719": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/physxnet/finaljson/30719.json",
+          "bytes": 1899,
+          "sha256": "563b150ae93514fabbd66932e2ae55f78e9accd7d11467259de5bfef644a7afb"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-30719-20260927T092619Z-0f8f04fa744c/work/phy_dataset/30719/model.obj",
+          "bytes": 566349,
+          "sha256": "5862056c48819e8d33790067fb2f13d86a726943fb54922ba4d70d0632fe7c0e"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/mesh/mesh.obj",
+          "bytes": 33626761,
+          "sha256": "242c3981b2a811876818ab0273044327e162043cf4cf192722493a53318be7b3"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 23327293,
+          "sha256": "bdc412ddad9281cffe9a4a05318cd7fa4dacb75cb68f2d517148ddc32896a417"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/articulation_audit/official_result.json",
+          "bytes": 3419,
+          "sha256": "e60a5b878e4c9a1888b1b86ceadba5166d764751e79b2829cddc8599a8ab3807"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-30719-20260927T092901Z-d538b15f6c99/mesh/mesh_physics_raw.pt",
+          "bytes": 88302839,
+          "sha256": "0738f15e3308bde5e0e769d8a4dc422972292408113ae125d8ec40a8ec8e5256"
+        }
+      },
+      "errors": []
+    },
+    "21314": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/physxnet/finaljson/21314.json",
+          "bytes": 1421,
+          "sha256": "f7cb4d7aee315d62a68e02475033b346d1a9d3fd61e4eec445da2eded7a3e0bf"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-21314-20260927T093004Z-979aaffdfc05/work/phy_dataset/21314/model.obj",
+          "bytes": 1424998,
+          "sha256": "397b003a4c3cc6ece562fd32962444673d768911e0ffccec0eced4dad89e2f36"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/mesh/mesh.obj",
+          "bytes": 14010641,
+          "sha256": "7c03f10e60f1951886c85c5013d280b92f07b7a8402268493c6e977cdef99513"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 9982525,
+          "sha256": "4e57bf9263afa186818ccf2f10ca5250a1c3f42f0ac8cb8ed49c6d2b4395d242"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/articulation_audit/official_result.json",
+          "bytes": 3406,
+          "sha256": "1b04a8687b79df8ab9231e2434fa90c1a56190d1325534073cea07f1359e8b4c"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-21314-20260927T093243Z-8f56ad081b93/mesh/mesh_physics_raw.pt",
+          "bytes": 37788023,
+          "sha256": "c60b11fc537aa982655f739e27027ce8ed0c466d4297ebb9a8df0e1f58edd47a"
+        }
+      },
+      "errors": []
+    },
+    "32980": {
+      "tier": "fixed",
+      "status": "success",
+      "artifacts": {
+        "gt_json": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/physxnet/finaljson/32980.json",
+          "bytes": 3847,
+          "sha256": "8fd00fbafd75b6ed2d63fe87a4118b08d88009ca366f6c5970abe2ecea1c1503"
+        },
+        "gt_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-32980-20260927T093342Z-974dd9c24a99/work/phy_dataset/32980/model.obj",
+          "bytes": 672931,
+          "sha256": "d1ad561969c5fdb8aaff4e145617a01b9603f7c91bcd30ccf92bfffa1e67f842"
+        },
+        "generated_mesh": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/mesh/mesh.obj",
+          "bytes": 13808854,
+          "sha256": "702bd2a2a038cf8c21ab5a65b3d78e21a999aaf70c12111a058b671151303ea7"
+        },
+        "property": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/vertex_physics_14ch.pt",
+          "bytes": 9853821,
+          "sha256": "54aee4624668fb4209968f308006ae3e9e1105a00114f6f3df43f99c00bf810b"
+        },
+        "audit": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/articulation_audit/official_result.json",
+          "bytes": 3489,
+          "sha256": "fe568b559ddc690b039a99162b12d77d8174b4db78fdd59c6bb96e7bae1b376f"
+        },
+        "raw_physics": {
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-32980-20260927T093615Z-1863e3e10709/mesh/mesh_physics_raw.pt",
+          "bytes": 37300087,
+          "sha256": "056148f48b23500d43c3fa7ce417f9ef2f5fcfeee32676a4e3e8db158f9a310b"
+        }
+      },
+      "errors": []
+    }
+  },
+  "blocked_areas": {
+    "appearance_density_affordance_psnr": "no paired GT maps/masks, official 30-view camera manifest, normalization/range, or generated↔GT vertex/pixel correspondence",
+    "description_psnr": "official question/part correspondence unresolved and example literal slice disagrees with training path",
+    "nap_cov_mmd": "official PhysX-to-NAP conversion, group matching, coordinate/unit convention, and aggregation unavailable",
+    "paper_table2_aggregation": "test conditioning manifest, duplicate/failure denominator rule, and official evaluator config unavailable"
+  },
+  "failure_ledger": [
+    {
+      "object_id": "23787",
+      "status": "failed",
+      "included_in_numeric_denominator": false,
+      "reason": "official texture retrieval output non-finite OBJ"
+    },
+    {
+      "object_id": "27281",
+      "status": "excluded",
+      "included_in_numeric_denominator": false,
+      "reason": "mesh decoder OOM under preserved 28,000 MiB hard limit and 4,607 MiB reserve policy"
+    }
+  ]
+}

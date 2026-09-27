@@ -1,0 +1,178 @@
+{
+  "status": "verified",
+  "object_id": "24566",
+  "stages": [
+    {
+      "stage": "01_reuse_sampling_and_memory_gate",
+      "exit_code": 0,
+      "child_exit_codes": {},
+      "outputs_verified": 4,
+      "success_sha256": "1303aac84a449368084247c6933c55c296842b53390c43e3d1549cc47ccde2aa",
+      "peak_nvidia_smi_mib": null
+    },
+    {
+      "stage": "02_mandatory_small_gpu_equivalence",
+      "exit_code": 0,
+      "child_exit_codes": {
+        "input_tiling.child_exit_code.txt": "0",
+        "output_norm.child_exit_code.txt": "0"
+      },
+      "outputs_verified": 2,
+      "success_sha256": "12b88b39ff94ae74fac5cfbf33745ac3b7bde9e80acb46a94b0f4e33ca02d636",
+      "peak_nvidia_smi_mib": null
+    },
+    {
+      "stage": "03_physics_decoder_child",
+      "exit_code": 0,
+      "child_exit_codes": {
+        "child_exit_code.txt": "0"
+      },
+      "outputs_verified": 2,
+      "success_sha256": "cbc8e63fce0c838ce5516a434fd7e57df40cba7e905dd8efb7cf7edde08e87e8",
+      "peak_nvidia_smi_mib": 9062
+    },
+    {
+      "stage": "04_mesh_decoder_child",
+      "exit_code": 0,
+      "child_exit_codes": {
+        "child_exit_code.txt": "0"
+      },
+      "outputs_verified": 3,
+      "success_sha256": "a81ec65c0d6e8f307ecc765cb3e0a75b9efbd2a2fb31be12b6db14e21a624bce",
+      "peak_nvidia_smi_mib": 19934
+    },
+    {
+      "stage": "05_cpu_gt_structure_audit",
+      "exit_code": 0,
+      "child_exit_codes": {
+        "child_exit_code.txt": "0"
+      },
+      "outputs_verified": 5,
+      "success_sha256": "881a44a56b03edb90937a8a0ce8fcab9fab837a26a3ce7efaddb4caa448c431c",
+      "peak_nvidia_smi_mib": null
+    }
+  ],
+  "artifacts": {
+    "raw": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh_physics_raw.pt",
+      "bytes": 129993591,
+      "sha256": "25f218fb73d8638b06eed2cbdb9d2b361fa3337834e31ee50361e4746186ebb5",
+      "vertex_physics_shape": [
+        613164,
+        32
+      ],
+      "vertex_attrs_shape": [
+        613164,
+        6
+      ]
+    },
+    "obj": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh.obj",
+      "bytes": 49815067,
+      "sha256": "9e184a51454bd711d75f682bb00cd85c4c5bc00a5bf6fd00d52b955da357f888",
+      "vertices": 613164,
+      "faces": 1226344,
+      "reloaded": true
+    },
+    "property_14ch": {
+      "shape": [
+        613164,
+        14
+      ],
+      "finite": true
+    }
+  },
+  "gpu": {
+    "input_tiling_nvidia_smi_peak_mib": 728,
+    "output_norm_nvidia_smi_peak_mib": 64,
+    "physics_torch_peak_mib": 4658.359,
+    "physics_nvidia_smi_peak_mib": 9062,
+    "mesh_torch_peak_mib": 16830.444,
+    "mesh_nvidia_smi_peak_mib": 19934,
+    "limit_mib": 28000,
+    "reserve_mib": 4607
+  },
+  "gt": {
+    "group_count": 2,
+    "fixed_group_0_parts": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7
+    ],
+    "moving_group_1_parts": [
+      6
+    ],
+    "parent": "0",
+    "type": "B",
+    "direction": [
+      0,
+      0,
+      1
+    ],
+    "position": [
+      -0.003332220483571291,
+      0.44708409905433655,
+      0.0038695018738508224
+    ],
+    "range": [
+      0.0,
+      0.8033520000000001
+    ]
+  },
+  "official_prediction": {
+    "formula": "round(max(group_id))+1",
+    "predicted_group_count": 1,
+    "gt_group_count": 2,
+    "classification": "false negative articulation",
+    "group_id_min": -0.03798111528158188,
+    "group_id_max": 0.27899226546287537,
+    "groups": {
+      "0": {
+        "vertices": 613164,
+        "vertex_fraction": 1.0,
+        "faces": 1226344,
+        "surface_area": 8.61707592010498,
+        "components": {
+          "count_including_isolated": 3,
+          "largest_vertices": 346700,
+          "largest_fraction": 0.5654278463836755,
+          "sizes_desc_top20": [
+            346700,
+            258412,
+            8052
+          ]
+        }
+      },
+      "1": {
+        "vertices": 0,
+        "vertex_fraction": 0.0,
+        "faces": 0,
+        "surface_area": 0.0,
+        "components": {
+          "count_including_isolated": 0
+        }
+      }
+    },
+    "moving_surface_region": false,
+    "official_indexing": []
+  },
+  "indexing_correction_candidate": {
+    "status": "separate indexing correction candidate; not official output",
+    "groups": []
+  },
+  "limits": [
+    "no direct GT-part to generated-vertex correspondence",
+    "parent/direction/position/range accuracy not established",
+    "scale/density/affordance/description not evaluated",
+    "24 conditioning views are not paper 30-view evaluation",
+    "not a paper-wide quantitative result"
+  ],
+  "previews": [
+    "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/01_재현실행/자료확보/2026-09-27_24566_decoder_결과검증/mesh_preview.png",
+    "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/01_재현실행/자료확보/2026-09-27_24566_decoder_결과검증/articulation_group_preview.png"
+  ]
+}

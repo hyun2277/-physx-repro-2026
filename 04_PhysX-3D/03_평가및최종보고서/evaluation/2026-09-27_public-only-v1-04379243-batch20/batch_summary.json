@@ -1,0 +1,451 @@
+{
+  "status": "goal_reached",
+  "paper_equivalent": false,
+  "baseline_artifact_complete": 11,
+  "new_artifact_complete": 9,
+  "artifact_complete_total": 20,
+  "finished_utc": "2026-09-27T13:00:09.747861+00:00",
+  "results": [
+    {
+      "object_id": "19661",
+      "sequence": 1,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/19661/20260927T122526Z-54a86e6c4f09",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19661-20260927T122526Z-54a86e6c4f09",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "11fc9a317e250d3323b50176ccfc6be8064cf17bb96dc528a860440d3837a590",
+        "rows_N": 7359,
+        "maximum_subdivision_points_N_x_64": 470976,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 8970.544,
+        "measurement_uncertainty_mib": 1024.0,
+        "gate_peak_with_uncertainty_mib": 9994.544,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            7359,
+            4
+          ],
+          "feature_shape": [
+            7359,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/19661/20260927T122802Z-06336d055672",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19661-20260927T122802Z-06336d055672"
+    },
+    {
+      "object_id": "25862",
+      "sequence": 2,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/25862/20260927T122901Z-9149461ee2a3",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25862-20260927T122901Z-9149461ee2a3",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "6f29002e1ddbfd2de88bbcaa44e61bdcd912ce1b18ec781a3547af55b5bb7e79",
+        "rows_N": 9912,
+        "maximum_subdivision_points_N_x_64": 634368,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 9813.756,
+        "measurement_uncertainty_mib": 1024.0,
+        "gate_peak_with_uncertainty_mib": 10837.756,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            9912,
+            4
+          ],
+          "feature_shape": [
+            9912,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/25862/20260927T123143Z-acfc216c55ca",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25862-20260927T123143Z-acfc216c55ca"
+    },
+    {
+      "object_id": "27370",
+      "sequence": 3,
+      "status": "failed",
+      "reason": "CalledProcessError: Command '[PosixPath('/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/bin/python'), PosixPath('/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/01_재현실행/자료확보/verify_retrieval_output.py'), PosixPath('/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27370-20260927T123245Z-bcf9b9baa441/work'), PosixPath('/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27370-20260927T123245Z-bcf9b9baa441/work/shapenet/04379243/a4d149a48607de3d92f4c88fd91c6b1b/models/model_normalized.obj'), '27370', '--report', PosixPath('/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/27370/20260927T123245Z-bcf9b9baa441/steps/03_official_texture_retrieval/verification.json')]' returned non-zero exit status 1."
+    },
+    {
+      "object_id": "31114",
+      "sequence": 4,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/31114/20260927T123339Z-d2820a3cd135",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-31114-20260927T123339Z-d2820a3cd135",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "fdb9724e6009a4bbad46a9f829f358f4be93e5180de56d3e58427d53e55c4237",
+        "rows_N": 15482,
+        "maximum_subdivision_points_N_x_64": 990848,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 11653.43,
+        "measurement_uncertainty_mib": 1165.343,
+        "gate_peak_with_uncertainty_mib": 12818.773,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            15482,
+            4
+          ],
+          "feature_shape": [
+            15482,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/31114/20260927T123628Z-5672f496024f",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-31114-20260927T123628Z-5672f496024f"
+    },
+    {
+      "object_id": "22738",
+      "sequence": 5,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/22738/20260927T123732Z-fafea3822b72",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-22738-20260927T123732Z-fafea3822b72",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "aed5cd4bc388d3c46a2a5fa746b18018c2859fd5e8cbb97851b650a10e064d9b",
+        "rows_N": 15469,
+        "maximum_subdivision_points_N_x_64": 990016,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 11649.137,
+        "measurement_uncertainty_mib": 1164.914,
+        "gate_peak_with_uncertainty_mib": 12814.05,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            15469,
+            4
+          ],
+          "feature_shape": [
+            15469,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/22738/20260927T124015Z-b67143e58a4e",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-22738-20260927T124015Z-b67143e58a4e"
+    },
+    {
+      "object_id": "24163",
+      "sequence": 6,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/24163/20260927T124118Z-98b365f21e48",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24163-20260927T124118Z-98b365f21e48",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "7b8658ac2126aa7435ce2d59b5fca459c175d0f23566f7de40861cb231abfdd6",
+        "rows_N": 29201,
+        "maximum_subdivision_points_N_x_64": 1868864,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 16184.579,
+        "measurement_uncertainty_mib": 1618.458,
+        "gate_peak_with_uncertainty_mib": 17803.037,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            29201,
+            4
+          ],
+          "feature_shape": [
+            29201,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/24163/20260927T124420Z-df88f8f6da1e",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-24163-20260927T124420Z-df88f8f6da1e"
+    },
+    {
+      "object_id": "27499",
+      "sequence": 7,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/27499/20260927T124529Z-ac778e0f577f",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-27499-20260927T124529Z-ac778e0f577f",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "68464bd75b0e20c78f46e6abe4ab1b06df16c8ac85cd79022bdf6e2559337ca5",
+        "rows_N": 16552,
+        "maximum_subdivision_points_N_x_64": 1059328,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 12006.833,
+        "measurement_uncertainty_mib": 1200.683,
+        "gate_peak_with_uncertainty_mib": 13207.516,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            16552,
+            4
+          ],
+          "feature_shape": [
+            16552,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/27499/20260927T124813Z-6cff17e43fef",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-27499-20260927T124813Z-6cff17e43fef"
+    },
+    {
+      "object_id": "25598",
+      "sequence": 8,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/25598/20260927T124916Z-a09043344e69",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-25598-20260927T124916Z-a09043344e69",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "409193ce401de54e59f057ac819b549ebbb3e33e657e2166a9c0aad92e3ac39f",
+        "rows_N": 5776,
+        "maximum_subdivision_points_N_x_64": 369664,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 8447.706,
+        "measurement_uncertainty_mib": 1024.0,
+        "gate_peak_with_uncertainty_mib": 9471.706,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            5776,
+            4
+          ],
+          "feature_shape": [
+            5776,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/25598/20260927T125150Z-7cf59abd9103",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-25598-20260927T125150Z-7cf59abd9103"
+    },
+    {
+      "object_id": "19335",
+      "sequence": 9,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/19335/20260927T125249Z-0cb2e79b5874",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-19335-20260927T125249Z-0cb2e79b5874",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "5fae9c03d20e98728de65bbf875d6fea88d319fa0a3cf0afb948514de0001038",
+        "rows_N": 17676,
+        "maximum_subdivision_points_N_x_64": 1131264,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 12378.071,
+        "measurement_uncertainty_mib": 1237.807,
+        "gate_peak_with_uncertainty_mib": 13615.878,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            17676,
+            4
+          ],
+          "feature_shape": [
+            17676,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/19335/20260927T125530Z-e449cfc20e80",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-19335-20260927T125530Z-e449cfc20e80"
+    },
+    {
+      "object_id": "34676",
+      "sequence": 10,
+      "status": "success",
+      "sampling_run": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/34676/20260927T125633Z-97831a19566c",
+      "sampling_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-34676-20260927T125633Z-97831a19566c",
+      "sampling_status": "success",
+      "decoder_gate": {
+        "status": "sampling_only_decoder_gate",
+        "latent_sha256": "05436284eac602725d09164225b473c537a475496bfe1177d3ccd0ece3c70192",
+        "rows_N": 14247,
+        "maximum_subdivision_points_N_x_64": 911808,
+        "evidence": {
+          "29354": {
+            "N": 33886,
+            "torch_max_allocated_mib": 17731.954
+          },
+          "27281": {
+            "N": 73024,
+            "torch_allocated_at_mesh_oom_mib": 30658.56
+          }
+        },
+        "linear_lower_bound_peak_mib": 11245.531,
+        "measurement_uncertainty_mib": 1124.553,
+        "gate_peak_with_uncertainty_mib": 12370.084,
+        "hard_limit_mib": 28000,
+        "reserve_mib": 4607,
+        "decoder_eligible_under_current_policy": true,
+        "decision": "candidate may be considered for a separate decoder runner only after review",
+        "schema": {
+          "coordinate_shape": [
+            14247,
+            4
+          ],
+          "feature_shape": [
+            14247,
+            8
+          ],
+          "coordinate_dtype": "torch.int32",
+          "feature_dtype": "torch.float32",
+          "finite": true,
+          "coordinate_equal": true
+        }
+      },
+      "decoder_run": "/home/minsujo/Desktop/SH/PHYSx/logs/public-only-v1-extension-decoder/34676/20260927T125910Z-73bc09db5944",
+      "decoder_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/public-only-v1-extension-decoder-34676-20260927T125910Z-73bc09db5944"
+    },
+    {
+      "object_id": "26121",
+      "sequence": 11,
+      "status": "not_started_goal_reached",
+      "reason": "baseline 11 plus 9 new successes reaches 20; no further candidate run"
+    },
+    {
+      "object_id": "18778",
+      "sequence": 12,
+      "status": "not_started_goal_reached",
+      "reason": "baseline 11 plus 9 new successes reaches 20; no further candidate run"
+    }
+  ]
+}

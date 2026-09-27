@@ -1,0 +1,128 @@
+{
+  "duplicate_policy": "preserve source rows; no benchmark aggregation",
+  "items": [
+    {
+      "files": {
+        "audit": {
+          "bytes": 9046,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/01_재현실행/자료확보/rtx5090_adapter/2026-09-27_29354-semantic-validation/official_code_result.json",
+          "sha256": "6eb53fe713f03f3a8a300f761eaa9f2a95242882e345dbf5321ee40c6a9af53d",
+          "status": "present"
+        },
+        "generated_mesh": {
+          "bytes": 30788505,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh.obj",
+          "sha256": "42fdb2fa623efb17d60bb833f37bbbdf9c11829b6b25eb723723623b99c1d431",
+          "status": "present"
+        },
+        "gt_json": {
+          "bytes": 3536,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/physxnet/finaljson/29354.json",
+          "sha256": "cf687c21110697a6ed1fc25146a8b101d789ae82acfd1b11a7e309a5b15b3600",
+          "status": "present"
+        },
+        "gt_mesh": {
+          "bytes": 622283,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/merge-29354-20260925T180423Z/phy_dataset/29354/model.obj",
+          "sha256": "2fc96114b9967a5f5fca1be77b40a5cd4c41df24671ee6da9d60c7ee9bdbb53e",
+          "status": "present"
+        },
+        "property": {
+          "bytes": 80955063,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/rtx5090-cached-decoder-29354-20260926T194524Z-d69f74359b60/mesh_physics_raw.pt",
+          "sha256": "3afd630e568fd11dbef25a7da420e058b918a8948a656dd570c709e61d16d74c",
+          "status": "present"
+        }
+      },
+      "item_key": "test-000001",
+      "object_id": "29354",
+      "occurrence": 1,
+      "source_index": 1001,
+      "status": "success",
+      "test_index": 1
+    },
+    {
+      "files": {
+        "audit": {
+          "bytes": 3389,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/official_result.json",
+          "sha256": "64f5736919c06cbf610871dd4eb280e9ae67baed55c16d3e0e57e9e9c491cace",
+          "status": "present"
+        },
+        "generated_mesh": {
+          "bytes": 49815067,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/mesh/mesh.obj",
+          "sha256": "9e184a51454bd711d75f682bb00cd85c4c5bc00a5bf6fd00d52b955da357f888",
+          "status": "present"
+        },
+        "gt_json": {
+          "bytes": 4647,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/physxnet/finaljson/24566.json",
+          "sha256": "3cc62e444cd4717b5bc765b4f3eb3dd1c8c16608331b38a0c9261da0a4382885",
+          "status": "present"
+        },
+        "gt_mesh": {
+          "bytes": 476173,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-24566-20260926T213719Z-83a8565c7136/work/phy_dataset/24566/model.obj",
+          "sha256": "1c81b6544c74048ddcb425c59fc57af6bb4d87e91af7a076275bf38a021fb332",
+          "status": "present"
+        },
+        "property": {
+          "bytes": 34338813,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-24566-20260926T221319Z-a9491be93452/articulation_audit/vertex_physics_14ch.pt",
+          "sha256": "c44969404aff729dc2150508afd4bb3c63145ca01ee1678a1c570ab60365ce5d",
+          "status": "present"
+        }
+      },
+      "item_key": "test-000014",
+      "object_id": "24566",
+      "occurrence": 1,
+      "source_index": 1014,
+      "status": "success",
+      "test_index": 14
+    },
+    {
+      "files": {
+        "audit": {
+          "bytes": 5031,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/official_result.json",
+          "sha256": "43b8176c311cb60d4e8b15d8c6a99b48bb386d47cc17d9d1b19c0e69e6ca21a4",
+          "status": "present"
+        },
+        "generated_mesh": {
+          "bytes": 14207179,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/mesh/mesh.obj",
+          "sha256": "154e5d22cf222095c60f94217041c095bd2f36773101602e6b0b2b298c17b433",
+          "status": "present"
+        },
+        "gt_json": {
+          "bytes": 5386,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/physxnet/finaljson/29806.json",
+          "sha256": "f098a70a07be7409c03e3b86b508e404ff87ff4144b26e3ade85a52f5195e34a",
+          "status": "present"
+        },
+        "gt_mesh": {
+          "bytes": 874793,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/work/phy_dataset/29806/model.obj",
+          "sha256": "53612ab7c61c56a48797a3e991fa9a0d43e4791268c1b11a2d8faff6b06c4fb4",
+          "status": "present"
+        },
+        "property": {
+          "bytes": 10096189,
+          "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-decoder-29806-20260927T050730Z-8271ccb5f82b/articulation_audit/vertex_physics_14ch.pt",
+          "sha256": "c4289bdee079f1b7f46767ff733bbc52861019f63cf6ba45e1d9b039ce726fd7",
+          "status": "present"
+        }
+      },
+      "item_key": "test-000574",
+      "object_id": "29806",
+      "occurrence": 1,
+      "source_index": 1574,
+      "status": "success",
+      "test_index": 574
+    }
+  ],
+  "official_source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "paper_equivalent": false,
+  "protocol": "public-materials-independent-evaluation-v1"
+}
