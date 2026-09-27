@@ -1,0 +1,21 @@
+{
+  "complete_artifact_hashes_present": true,
+  "complete_now_ids": [
+    "29354",
+    "24566",
+    "29806"
+  ],
+  "duplicate_occurrences_preserved": true,
+  "order_preserved": true,
+  "required_category_alignment": true,
+  "status": "success",
+  "status_counts": {
+    "COMPLETE_NOW": 3,
+    "MAPPING_UNRESOLVED": 40,
+    "NEEDS_CONDITIONING": 243,
+    "NEEDS_SHAPENET_FILE": 713,
+    "SOURCE_MISSING": 1
+  },
+  "test_rows": 1000,
+  "valid_statuses": true
+}

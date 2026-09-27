@@ -1,0 +1,11 @@
+priority,test_index,object_id,tier,group_count,motion_classes,status,reason
+1,2,21356,fixed,1,,NEEDS_CONDITIONING,no current conditioning transforms artifact
+2,20,27703,fixed,1,,NEEDS_CONDITIONING,no current conditioning transforms artifact
+3,29,30719,fixed,1,,NEEDS_CONDITIONING,no current conditioning transforms artifact
+4,30,21314,fixed,1,,NEEDS_CONDITIONING,no current conditioning transforms artifact
+5,734,27281,B_translation,3,B;C,NEEDS_CONDITIONING,no current conditioning transforms artifact
+6,21,48419,B_translation,4,B;B;B,NEEDS_SHAPENET_FILE,mapped ShapeNet OBJ+MTL+texture absent from current raw ZIP/minimal extraction
+7,31,38882,B_translation,7,C;C;C;B;B;B,NEEDS_SHAPENET_FILE,mapped ShapeNet OBJ+MTL+texture absent from current raw ZIP/minimal extraction
+8,599,23787,C_rotation,5,C;C;C;C,NEEDS_CONDITIONING,no current conditioning transforms artifact
+9,9,14567,C_rotation,3,D;C,NEEDS_SHAPENET_FILE,mapped ShapeNet OBJ+MTL+texture absent from current raw ZIP/minimal extraction
+10,23,15821,C_rotation,2,C,NEEDS_SHAPENET_FILE,mapped ShapeNet OBJ+MTL+texture absent from current raw ZIP/minimal extraction
