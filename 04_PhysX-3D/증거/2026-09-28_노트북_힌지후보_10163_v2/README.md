@@ -49,5 +49,23 @@ area fraction `7.835985e-06`, homogeneous face 3개뿐이다. 따라서 group �
 | `predicted_group_preview.png` | official group window preview; group 1 red | `a34ae38d5f42b157476f5e330a59b4925bb1c65eb35f16254243dd07e9bb36b7` |
 | `result_summary.json` | 입력·raw/audit/GT hash와 통계 | `94ce7b6c39241dc495b771b5802ab7ce07f7aa580bb3a66a5471e8e55e468b2c` |
 
+## 발표용 비교 영상
+
+`laptop_hinge_comparison.mp4`는 12 fps, 144 frames, 12.0 seconds의 H.264 MP4다.
+GitHub 일반 파일 제한보다 충분히 작다(99,540 bytes).
+
+1. 입력 conditioning image와 `GT: fixed base + 1 C-type rotation hinge`를 표시한다.
+2. **GT REFERENCE** 장면은 위 GT JSON의 axis `[-1, 0, 0]`, origin
+   `[0.5859396457672119, -0.1837833821773529, -0.15396516025066376]`, range
+   `[-0.5, 0.5]`로 screen part만 열고 닫는다. 이 animation은 model prediction이 아니다.
+3. generated mesh turntable에는 official predicted group window를 표시하고,
+   `Predicted groups = 2, but moving group = 5 vertices` 및
+   `Meaningful hinge surface not detected`를 고정 표시한다.
+
+| 파일 | 설명 | SHA256 |
+|---|---|---|
+| `laptop_hinge_comparison.mp4` | GT reference와 generated mesh/group 비교 영상 | `4299165aae7bf3e6b6d8d763ec32fada07e58bd9f703b2336bc5eabc439e437f` |
+| `laptop_hinge_comparison_poster.png` | generated comparison 장면 poster | `0d53075c02ee1247fade0a7cf85e1be30b956ff1b668c9a9dc5d348b3174713e` |
+
 대용량 mesh, latent, raw tensor, checkpoint, archive, staging 및 전체 로그는 Git에
 포함하지 않았다.
