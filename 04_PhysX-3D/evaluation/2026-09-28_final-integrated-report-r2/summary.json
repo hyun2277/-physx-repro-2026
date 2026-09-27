@@ -1,0 +1,32 @@
+{
+  "report": "PhysX-3D final integrated report r2",
+  "scope": "read-only consolidation; no new GPU, inference, render, download, training, or data modification",
+  "paper_table_2_equivalent": false,
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "public_only_v1": {
+    "artifact_complete": 25,
+    "class_counts": {"fixed": 15, "B_translation": 5, "C_rotation": 5},
+    "status": "independent proposed public-only evaluation, not paper Table 2"
+  },
+  "adapter": {
+    "fidelity_judgement": "partially_verified",
+    "tested_local_cases": "locally_numerically_equivalent_on_tested_cases",
+    "unverified": [
+      "original CUDA 11.8 full environment",
+      "direct original path at the int32-overflowing production layer",
+      "complete 25-artifact layer/branch trace coverage",
+      "paper Table 2 equivalence"
+    ],
+    "tile_sensitivity": {
+      "29354": "numerically_different_but_semantically_stable; 256/128 large adapter trace observed; same group count and non-meaningful moving screen",
+      "29806": "numerically_different_but_semantically_stable; same group count and similar moving surface; no int32-overflow channel-adapter trace"
+    },
+    "cuda_repeat_control": "same tile=256 repeats had small latent and mesh/topology differences; tile causality is not isolated beyond this control"
+  },
+  "blocked": {
+    "generated_only_urdf_usd_isaac": "generated joint/collision/mass-inertia contract absent; GT joint fields are not copied",
+    "official_dqs_vlm": "Qwen/Qwen3.5-122B-A10B BF16 weights about 227 GiB exceed two RTX 5090 aggregate memory before runtime overhead",
+    "paper_table_2": "public evaluator/config, conditioning/30-view camera/GT manifests, part mapping, NAP and aggregation protocol unresolved"
+  },
+  "author_issue": {"number": 18, "status": "posted", "url": "https://github.com/ziangcao0312/PhysX-3D/issues/18"}
+}

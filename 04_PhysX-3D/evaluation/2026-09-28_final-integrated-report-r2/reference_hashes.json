@@ -1,0 +1,26 @@
+{
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "prior_final_report": {
+    "commit_context": "pre-r2 report preserved without modification",
+    "README.md": "b201eb3ad179a2b36834a8d7e260dac1be193c9fd5db97d56712386cbcb85341",
+    "summary.json": "72a24c93a044b515c12bcce2764d427c733c02874ab2f0f1f94c45d74ba4e8fc",
+    "sample_inventory.csv": "7afdb51b416aad3c4b97667c12743ec60ebe4f624031ddb091348279a0b7f4e4"
+  },
+  "adapter_fidelity_suite": {
+    "commit": "527460dbb3c93a6da8c3d4675b1353d8d685da34",
+    "README.md": "3aa5131a372a135fd203bb017ee9d6b288e273ef8d3952bd37f83c8c82f4a768",
+    "fidelity_summary.json": "841d0769ef08b445e05ddf22f96c427fe822e22b0d39f22bb2c1a6e419ed5d35",
+    "run_result": "de3af97dd4877224dd6cee89125a4c3552f0a56f1bdeb1ccffa09ed34e90b202",
+    "operation_metrics": "06e7f14f818d6c0cb67e584c58d4a93d4a0fc2051b2f967626ea5e9aedcba1ad",
+    "child_process_comparison": "29d194d81c8d8d1eeffbabd054493b6ebb73754089f0663ad3bd142af17ae97e"
+  },
+  "tile_sensitivity_v2": {
+    "commit": "0e93c5845edb95d2896b822f6053dec6a5716173",
+    "README.md": "8404c7bad2ebee7341f8be967830c316cdec9900a21af491389796510eb24f1e",
+    "sensitivity_result.json": "fdd2e5f0e62aa193c7df6db21e8354befdeb88ff9a0ce54951d6177bf0777e70",
+    "hash_manifest.json": "d048a88d2e171ca7ef5c82a8a9be9a23fcdbc0e84b269bbaec965e70084ffc05"
+  },
+  "public_only_v1_25": "3292f9f7ef0013fc280e01af137ca87c813b90eefbc73606fb306bde49289869",
+  "dqs_conversion_manifest": "b853b9e58ebbe7464dbf761b6121166371e6c4b7a0331a78f04795232c0000be",
+  "dqs_jsonl": "5392b12c088c5ef21cc45cb355e9e1425ac345138ae658294a11125f2b17e158"
+}
