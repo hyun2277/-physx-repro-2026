@@ -1,0 +1,23 @@
+{
+  "scope": "CPU-only preparation validation; no GPU, Blender, sampling, or decoder execution",
+  "existing_seed_evidence": {
+    "source_sampling_log": "/home/minsujo/Desktop/SH/PHYSx/logs/articulated-sampling-only/29806/20260926T220010Z-ac2c1dfab94d/steps/06_sampling_only_and_decoder_gate",
+    "sampling_report_seed": 1,
+    "command_seed": 1,
+    "generator_state_before_sampling_recorded": false
+  },
+  "runner_self_test": {
+    "reused_24_view_hashes": "PASS",
+    "recorded_seed_1": "PASS",
+    "same_seed_pair": "PASS",
+    "reserve_guard": "PASS",
+    "unsafe_reserve_rejected": "PASS"
+  },
+  "runner_plan": {
+    "frames": ["000", "006"],
+    "seed": 1,
+    "sampled_monitor_limit_mib": 28000,
+    "reserve_mib": 4607,
+    "GPU_execution_performed_during_preparation": false
+  }
+}
