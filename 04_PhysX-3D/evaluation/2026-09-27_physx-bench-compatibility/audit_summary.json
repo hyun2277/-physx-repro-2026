@@ -1,0 +1,16 @@
+{
+  "physx_omni_commit": "46fa1cd0b6883d4d14431d51c3326ef80a85ef64",
+  "scope": "PhysX-3D public-only v1 25-artifact compatibility audit",
+  "paper_equivalent": false,
+  "tiny_smoke": {"status": "success", "vlm": false, "gpu": false, "downloads": false, "checks": ["RQS manifest", "aggregation", "strict denominator validation"]},
+  "metric_counts": {
+    "RQS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0},
+    "MCS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0},
+    "DQS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 25, "MISSING": 0, "INVALID": 0},
+    "APS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0},
+    "DCS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0},
+    "KPS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0},
+    "MPS": {"READY": 0, "DERIVABLE_WITH_EXPLICIT_CONVERSION": 0, "MISSING": 25, "INVALID": 0}
+  },
+  "dqs_pilot": {"possible": true, "condition_image": "existing selected 000.png per artifact", "scale": "existing generated scale expression", "required_conversion": "proposed, explicit scale artifact export; no VLM run"}
+}
