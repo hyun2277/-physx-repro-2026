@@ -3,6 +3,7 @@
   "experiences": {
     "isaac_minimal_usd_physx.kit": [
       "omni.kit.loop-isaac",
+      "omni.kit.usd.layers",
       "omni.physics.stageupdate",
       "omni.physx",
       "omni.usd"
@@ -10,6 +11,7 @@
     "isaac_minimal_urdf_importer.kit": [
       "isaacsim.asset.importer.urdf",
       "omni.kit.loop-isaac",
+      "omni.kit.usd.layers",
       "omni.physics.stageupdate",
       "omni.physx",
       "omni.usd"

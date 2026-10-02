@@ -13,6 +13,8 @@ for path in files:
     forbidden = [name for name in deps if "ml" in name.lower() or "ros" in name.lower()]
     if forbidden:
         raise SystemExit(f"forbidden explicit dependency in {path.name}: {forbidden}")
+    if "omni.kit.usd.layers" not in deps:
+        raise SystemExit(f"SimulationApp USD-layers dependency missing: {path.name}")
     if "renderer.multiGpu.enabled = false" not in text or "renderer.multiGpu.autoEnable = false" not in text:
         raise SystemExit(f"single-GPU renderer policy missing: {path.name}")
     result[path.name] = sorted(deps)

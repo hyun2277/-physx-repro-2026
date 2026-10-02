@@ -14,7 +14,10 @@
   },
   "minimal_official_configuration": {
     "mechanism": "official experience [dependencies] enablement of isaacsim.asset.importer.urdf",
-    "experiences": ["isaac_minimal_usd_physx.kit", "isaac_minimal_urdf_importer.kit"],
+    "experiences": [
+      "isaac_minimal_usd_physx.kit",
+      "isaac_minimal_urdf_importer.kit"
+    ],
     "explicit_ml_or_ros_dependencies": false,
     "installation_files_modified": false
   },
@@ -28,7 +31,12 @@
     "host_driver_interpretation": "not a host driver fault; general Linux terminal separately confirmed RTX 5090 x2 and driver 595.84"
   },
   "host_runner": {
-    "four_marker_steps": ["app", "stage", "importer_enable", "importer_api_config_only"],
+    "four_marker_steps": [
+      "app",
+      "stage",
+      "importer_enable",
+      "importer_api_config_only"
+    ],
     "urdf_conversion_called": false,
     "marker_missing_result_exit_code": 70
   },
@@ -40,5 +48,21 @@
     "iommu_warning_recorded": true,
     "bios_or_kernel_changed": false
   },
-  "not_run": ["URDF conversion", "USD conversion", "GT physics drive", "AI generated-output conversion"]
+  "not_run": [
+    "URDF conversion",
+    "USD conversion",
+    "GT physics drive",
+    "AI generated-output conversion"
+  ],
+  "host_minimal_experience_attempt": {
+    "observed_startup": [
+      "omni.physics",
+      "omni.physx",
+      "omni.usd"
+    ],
+    "first_failure": "SimulationApp initialization: from omni.kit.usd import layers -> ModuleNotFoundError: No module named omni.kit.usd",
+    "classification": "custom_experience_missing_usd_kit_layer_extension; not a CUDA failure",
+    "repair": "add omni.kit.usd.layers to both minimal experiences; let its declared direct dependencies resolve",
+    "reexecuted_after_repair": false
+  }
 }

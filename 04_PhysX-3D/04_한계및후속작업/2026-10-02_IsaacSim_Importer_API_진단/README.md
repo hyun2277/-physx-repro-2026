@@ -60,3 +60,11 @@ NVIDIA의 [URDF importer extension 문서](https://docs.isaacsim.omniverse.nvidi
 4. `URDFImporterConfig()` 생성까지의 public API 최소 호출
 
 각 marker가 없으면 process exit code가 0이어도 result exit code `70`으로 실패한다. URDF 경로를 주거나 `import_urdf()`를 호출하지 않는다. 로그는 `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/`, 임시 script는 `/home/minsujo/Desktop/SH/PHYSx/staging/isaac-sim-importer-diagnosis-*`에만 생성된다.
+
+## 2026-10-02 host minimal experience 보완
+
+host의 최소 runner는 `omni.physics`, `omni.physx`, `omni.usd` startup 뒤, `SimulationApp` 초기화의 `from omni.kit.usd import layers`에서 `ModuleNotFoundError: No module named 'omni.kit.usd'`로 실패했다. 이는 CUDA 오류가 아니라 custom experience의 USD Kit layer extension 누락이다.
+
+설치본을 읽어 확인한 실제 extension 이름은 `omni.kit.usd.layers` 2.7.2이다. 이 extension이 `omni.kit.usd.layers` Python module을 제공하여 `from omni.kit.usd import layers` namespace import를 충족한다. 그 직접 dependency(`omni.usd`, `omni.usd.libs`, `omni.client`, `omni.kit.commands`)는 extension manager가 해결한다. 두 minimal experience에 `"omni.kit.usd.layers" = {}`만 추가했다. `omni.isaac.ml_archive`, ML, ROS는 여전히 명시 dependency에 없다.
+
+이 보완은 host에서 아직 재실행하지 않았다. 다음 host runner는 app/stage/enable/API의 모든 marker가 있어야만 성공이며, URDF 변환이나 물리 구동을 호출하지 않는다.
