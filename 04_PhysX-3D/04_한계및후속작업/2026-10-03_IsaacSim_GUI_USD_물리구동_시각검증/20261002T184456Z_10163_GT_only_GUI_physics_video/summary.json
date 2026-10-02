@@ -1,0 +1,250 @@
+{
+  "status": "AUTOMATION_PASS_HUMAN_CHECK_REQUIRED",
+  "scope": "10163 GT-only controlled physics; not AI prediction",
+  "source_run": {
+    "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad",
+    "staging_dir": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad",
+    "exit_code": 0,
+    "physics_report_sha256": "8726d4564405fed549048bbb269abb07939604579ef9f91c66ce4fec2a8c9c88",
+    "video_validation_sha256": "cafd5f9162ee12e7a50e96c090bac076180c845862567305a77cda7b47fd747d"
+  },
+  "visual_route": "B_RELATIONSHIP_LINKED_CLONE",
+  "route_a": {
+    "attempted": true,
+    "config": {
+      "run_asset_transformer": false
+    },
+    "output": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad/route_a_non_instanceable_import/gt_10163/gt_10163.usda",
+    "sha256": "1fbe7a506da1ac46f159f005fbc98e6ee1a22c2abe25b7c366ca1818977e6512",
+    "status": "REJECTED_BY_INVARIANTS",
+    "counts": {
+      "mesh": 4,
+      "revolute": 1,
+      "articulation": 1,
+      "rigid": 3,
+      "collider": 2
+    },
+    "instance_proxy": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "physics": {
+    "pretest_records": 240,
+    "capture_records": 450,
+    "capture_manager_step_range": [
+      243,
+      693
+    ],
+    "targets_rad": [
+      0.0,
+      -0.6,
+      -1.2,
+      -0.6,
+      0.0
+    ],
+    "measured_position_min_rad": -1.1769026517868042,
+    "measured_position_max_rad": 0.041358575224876404,
+    "clone_xform_authoring_after_start": false,
+    "clone_time_sample_authoring_after_start": 0,
+    "rigid_body_pose_deltas": {
+      "l_1": {
+        "max_translation_m": 8.70617210853442e-05,
+        "max_rotation_rad": 0.000691197649872627
+      },
+      "abstract_1": {
+        "max_translation_m": 8.52278711098825e-05,
+        "max_rotation_rad": 1.1915299351337432
+      },
+      "l_0": {
+        "max_translation_m": 0.26906703556416434,
+        "max_rotation_rad": 1.1915299351337432
+      }
+    },
+    "finite": true
+  },
+  "video": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad/10163_gt_only_gpu0_gui_physics.mp4",
+    "bytes": 897661,
+    "sha256": "d78beb9540695885f6b1ad752181aeb9cf4d3fd588f7dcc18de24efbf8aa02a9",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "696"
+        }
+      ],
+      "format": {
+        "duration": "23.200000",
+        "bit_rate": "309538"
+      }
+    }
+  },
+  "representative_frames": [
+    {
+      "label": "start",
+      "timestamp_s": 0.5,
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad/validation_frames/start.png",
+      "sha256": "f9b02c3d1f62826ddef91fe1a0d8c688fd9a1387acfca5a6f46cd85e41ef6fd1",
+      "size": [
+        1920,
+        1080
+      ],
+      "rgb_mean": [
+        42.89463107638889,
+        40.78495177469136,
+        42.160409432870374
+      ],
+      "rgb_stddev": [
+        52.78557154911986,
+        52.67494517296907,
+        52.19556062912527
+      ],
+      "rgb_max": [
+        255,
+        255,
+        255
+      ],
+      "completely_black": false,
+      "nearest_physics_record": {
+        "wall_time_delta_s": 0.585614237934351,
+        "manager_step_after": 244,
+        "requested_target_rad": 0.0,
+        "measured_joint_position_rad": 0.038234829902648926,
+        "joint_velocity_rad_s": -0.08077705651521683
+      }
+    },
+    {
+      "label": "middle",
+      "timestamp_s": 11.6,
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad/validation_frames/middle.png",
+      "sha256": "6bd8326cd35d521a271d09c351a33d73c57b76b89bb0167ca38ae1fbea23f824",
+      "size": [
+        1920,
+        1080
+      ],
+      "rgb_mean": [
+        40.57416087962963,
+        38.43586805555555,
+        39.81790075231481
+      ],
+      "rgb_stddev": [
+        50.170907268263775,
+        48.75675308104241,
+        48.12623840068256
+      ],
+      "rgb_max": [
+        255,
+        255,
+        255
+      ],
+      "completely_black": false,
+      "nearest_physics_record": {
+        "wall_time_delta_s": -0.004044895991683006,
+        "manager_step_after": 480,
+        "requested_target_rad": -1.2,
+        "measured_joint_position_rad": -1.1745024919509888,
+        "joint_velocity_rad_s": -0.051934774965047836
+      }
+    },
+    {
+      "label": "end",
+      "timestamp_s": 22.7,
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T184456Z-10163-gpu0-e2e-a0bd07d6-a988-4670-bb29-1d8bab4263ad/validation_frames/end.png",
+      "sha256": "5cc8b4eae5c9395750dbf7e08ad7be25c0d3edecd4f66fee52539e029dc0de43",
+      "size": [
+        1920,
+        1080
+      ],
+      "rgb_mean": [
+        42.70162760416667,
+        41.14275270061729,
+        42.64754388503086
+      ],
+      "rgb_stddev": [
+        52.824151713921054,
+        53.01980630730367,
+        52.58549738106825
+      ],
+      "rgb_max": [
+        255,
+        255,
+        255
+      ],
+      "completely_black": false,
+      "nearest_physics_record": {
+        "wall_time_delta_s": -1.5844481033273041,
+        "manager_step_after": 693,
+        "requested_target_rad": 0.0,
+        "measured_joint_position_rad": 0.03816835209727287,
+        "joint_velocity_rad_s": -0.07777892798185349
+      }
+    }
+  ],
+  "frame_differences": [
+    {
+      "mean_abs_rgb": [
+        4.231096161265432,
+        4.903311149691358,
+        5.43894000771605
+      ],
+      "bbox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "viewport_region_mean_abs_rgb": [
+        5.403396848367905,
+        6.411009272659055,
+        7.023982285469261
+      ],
+      "viewport_region_bbox": [
+        0,
+        0,
+        1382,
+        1080
+      ]
+    },
+    {
+      "mean_abs_rgb": [
+        3.335477912808642,
+        3.9863146219135803,
+        4.081383101851852
+      ],
+      "bbox": [
+        10,
+        48,
+        1912,
+        1080
+      ],
+      "viewport_region_mean_abs_rgb": [
+        4.615621482553466,
+        5.520373050329635,
+        5.652381143806614
+      ],
+      "viewport_region_bbox": [
+        10,
+        48,
+        1382,
+        1080
+      ]
+    }
+  ],
+  "stored_mp4_frame_inspection": "PASS_START_MIDDLE_END_SHOW_ISAAC_GUI_LAPTOP_AND_DIFFERENT_HINGE_POSES",
+  "human_observation": "HUMAN_OBSERVED_DURING_RUN",
+  "human_saved_mp4_review": "PENDING",
+  "warning": {
+    "text": "Unexpected reference count of 2 for UsdStage '/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda' while being closed in UsdContext (this may indicate it is still resident in memory).",
+    "phase": "shutdown_after_success_marker_and_complete_outputs",
+    "invalidates_result": false,
+    "basis": "exit code 0, COMPLETE phase, complete report/video/validation; warning does not report simulation or capture failure"
+  }
+}
