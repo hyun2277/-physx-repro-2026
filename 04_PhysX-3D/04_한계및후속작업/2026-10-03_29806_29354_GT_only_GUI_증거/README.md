@@ -8,7 +8,9 @@
 2. 저장 MP4·수치 로그·문별 독립 움직임을 검증하기 전에는 `29354`를 실행하지 않는다.
 3. `29354`는 joint target 없이 180 passive step을 수행하며 모든 link의 translation 및 quaternion 부호 동치를 고려한 orientation drift를 계산한다.
 
-현재 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. GUI나 physics 성공은 아직 기록하지 않는다.
+현재 상태는 `29806_END_TO_END_RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. GUI나 physics 성공은 아직 기록하지 않는다.
+
+첫 shell gate `20261002T191945Z-...`가 확인한 것은 입력 hash, GPU 0 identity/free memory, compute process 부재, X11 접근뿐이다. 그 gate는 Isaac을 시작하지 않았으므로 composed joint/fixed-chain/mesh 대응을 확인한 것으로 확대하지 않는다. 새 runner가 Isaac composed stage에서 이 관계를 다시 계산해 `marker_structure_mapping.json`에 저장하며, mapping이 모호하거나 예상 schema 수가 다르면 physics 전에 종료한다.
 
 ## 고정 입력
 
@@ -23,13 +25,13 @@
 
 ## 실행
 
-29806만 먼저 실행한다.
+29806만 먼저 실행한다. 이 단일 명령은 구조·mapping gate가 통과한 경우에만 pretest와 capture로 진행한다.
 
 ```bash
-cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거/run_29806_gpu0_gui_gate.sh
+cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거/run_gui_29806_gpu0_end_to_end_physics_video.sh
 ```
 
-이 gate는 GPU 0 identity/process, X11, 입력 hash를 확인하고 기존 검증된 GPU 1 headless 실행의 원본 보고서와 이번 GUI 실행을 분리한다. 현재 버전은 구조·매핑 감사까지만 수행하며 physics/capture 실행기는 그 감사 산출물 검토 후 생성한다.
+runner는 joint `body0/body1`, fixed-joint graph와 모든 source Mesh의 최근접 rigid-body ancestor를 기록한다. 같은 fixed component에 속하는 endpoint를 합친 뒤 각 Mesh가 base component 또는 단 하나의 door `body1` component에 유일하게 속할 때만 body-local display clone을 만든다. 세 DOF의 runtime limit에서 10%/50%/90% 위치를 계산해 `gt_C_1`, `gt_C_2`, `gt_C_3` 순서로 하나씩 구동하고 나머지 DOF는 닫힘 쪽 10% 위치에 유지한다. `update_fabric=True`, Warp tensor target, GUI heartbeat/watchdog를 사용한다. 저장 영상 자동 검사는 비검정·비정지와 각 DOF 수치 변화까지만 판정하며 사람의 문별 시각 검토는 별도로 남긴다.
 
 ## 범위 제한
 
@@ -37,4 +39,3 @@ cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후
 - 기존 headless의 “초기화 3회”는 독립 reset 3회가 아니라 neutral target 60-step 구간 3회였다는 정정을 유지한다.
 - range 밖 target 요청이나 target readback만으로 mechanical limit 정확도를 주장하지 않는다.
 - 새 저장 영상을 사람이 끝까지 보기 전 `HUMAN_VIDEO_REVIEW=PASS`로 기록하지 않는다.
-

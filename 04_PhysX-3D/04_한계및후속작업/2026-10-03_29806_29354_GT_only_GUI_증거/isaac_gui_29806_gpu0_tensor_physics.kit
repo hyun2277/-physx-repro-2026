@@ -1,0 +1,67 @@
+[package]
+title = "29806 GT-only GPU0 GUI tensor physics"
+description = "GUI plus PhysX tensor control; excludes ML and ROS"
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+"omni.kit.mainwindow" = {}
+"omni.kit.uiapp" = {}
+"omni.kit.window.stage" = {}
+"omni.kit.window.property" = {}
+"omni.kit.window.toolbar" = {}
+"omni.kit.window.status_bar" = {}
+"omni.kit.window.title" = {}
+"omni.kit.window.console" = {}
+"omni.kit.property.bundle" = {}
+"omni.kit.selection" = {}
+"omni.kit.viewport.bundle" = {}
+"omni.kit.viewport.window" = {}
+"omni.kit.viewport.rtx" = {}
+"omni.kit.viewport.actions" = {}
+"omni.kit.viewport.utility" = {}
+"omni.kit.manipulator.camera" = {}
+"omni.kit.manipulator.prim" = {}
+"omni.kit.manipulator.selection" = {}
+"omni.kit.menu.common" = {}
+"omni.kit.menu.stage" = {}
+"omni.kit.renderer.core" = {}
+"omni.kit.renderer.capture" = {}
+"omni.hydra.engine.stats" = {}
+"omni.hydra.rtx" = {}
+"omni.physx" = {}
+"omni.physics.stageupdate" = {}
+"omni.physics.tensors" = {}
+"isaacsim.core.simulation_manager" = {}
+"isaacsim.asset.importer.urdf" = {}
+
+[settings]
+app.name = "PhysX-29806-GT-only-GUI-tensor-physics"
+app.version = "6.1.0"
+app.window.title = "GT-only physics control — not AI prediction | 29806"
+app.window.width = 1440
+app.window.height = 900
+app.window.hideUi = false
+app.gatherRenderResults = true
+vulkan = true
+asyncRendering = false
+asyncRenderingLowLatency = false
+renderer.enabled = "rtx"
+renderer.activeGpu = 0
+renderer.multiGpu.enabled = false
+renderer.multiGpu.autoEnable = false
+physics.cudaDevice = 0
+app.fastShutdown = false
+exts."omni.kit.renderer.core".present.enabled = false
+exts."isaacsim.core.simulation_manager".default_engine = "physx"
+exts."isaacsim.core.simulation_manager".enable_default_callbacks = true
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]
