@@ -6,6 +6,17 @@
 
 범위: PhysXNet GT-only 변환기·Isaac Sim 대조군. AI 자동 예측 성공 검증이 아니다.
 
+## 통합 영상 runner (2026-10-03)
+
+- GT URDF SHA256: `b3cdc38a849033c623411a049d049181c7a1cec13fbb22f3cf95de4d73ce8723`; GT USD SHA256: `72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b`.
+- importer 3.11.10에는 `make_instanceable` 필드가 없다. 공식 `run_asset_transformer=False` 직접 저장 경로(A)를 먼저 시도하고 schema·mesh·instance invariant가 맞을 때만 선택한다.
+- A가 거부될 때만 joint `body0/body1`과 fixed-joint chain으로 증명한 B linked clone을 사용한다. source proxy와 원본 자산은 수정·de-instance하지 않는다.
+- `gt_C_1` body0은 `/gt_10163/Geometry/world/l_1`, body1은 `/gt_10163/Geometry/world/l_1/abstract_1`이다. lid visual은 fixed joint chain으로 body1에 속한다. clone points는 시작 전에 body-local로 한 번 변환하며 이후 xform/keyframe을 author하지 않는다.
+- GPU 0 GUI와 실제 tensor target, `SimulationManager.step(update_fabric=True)`, measured state/body transform을 기록한다. 자동 검사 뒤에도 사람 확인 전 상태는 `AUTOMATION_PASS_HUMAN_CHECK_REQUIRED`이다.
+- Codex 환경에서는 GUI를 실행하지 않았다. 현재 새 physics 실행과 최종 MP4는 **미실행**이다.
+
+단일 진입점은 `run_gui_10163_gpu0_end_to_end_physics_video.sh`이다. unique log/staging, 15분 timeout, 실패 단계 출력, H.264 및 대표 프레임 검사를 포함한다.
+
 ## 교수님 질문과 현재 답
 
 | 질문 | 현재 답 |

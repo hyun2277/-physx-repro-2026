@@ -1,0 +1,49 @@
+{
+  "status": "STATIC_VALIDATION_PASS_HOST_GUI_EXECUTION_REQUIRED",
+  "baseline_commit": "938cfd9ac8e6c114cfae217255a47a5a776a1093",
+  "input_urdf": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163.urdf",
+    "bytes": 1846,
+    "sha256": "b3cdc38a849033c623411a049d049181c7a1cec13fbb22f3cf95de4d73ce8723"
+  },
+  "input_usd": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda",
+    "bytes": 730,
+    "sha256": "72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b"
+  },
+  "route_a": {
+    "api": "isaacsim.asset.importer.urdf 3.11.10",
+    "make_instanceable_field": false,
+    "official_direct_output_field": "run_asset_transformer",
+    "value": false,
+    "config_line": 97,
+    "converter_direct_save_lines": [
+      249,
+      251
+    ]
+  },
+  "route_b": {
+    "only_if_route_a_invariants_fail": true,
+    "body0": "/gt_10163/Geometry/world/l_1",
+    "body1": "/gt_10163/Geometry/world/l_1/abstract_1",
+    "mapping_evidence": "gt_C_1 body relationships plus fixed-joint connectivity",
+    "source_deinstancing": false,
+    "runtime_clone_xform_authoring": false
+  },
+  "checks": [
+    "python_py_compile",
+    "bash_n",
+    "input hashes",
+    "unique run dirs",
+    "gpu0 identity/no compute process",
+    "X11",
+    "15 minute timeout",
+    "physics measured state",
+    "body transforms",
+    "no clone xform/timeSample authoring",
+    "H264 nonblack/nonstatic frames",
+    "human review gate"
+  ],
+  "actual_gui_physics_executed_by_codex": false,
+  "video_created": false
+}

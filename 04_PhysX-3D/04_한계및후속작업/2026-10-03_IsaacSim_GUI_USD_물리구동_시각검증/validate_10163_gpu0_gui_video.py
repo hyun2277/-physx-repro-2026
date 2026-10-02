@@ -70,7 +70,10 @@ def main() -> int:
     for left, right in zip(images, images[1:]):
         difference = ImageChops.difference(left, right)
         stat = ImageStat.Stat(difference)
-        pair_differences.append({"mean_abs_rgb": list(stat.mean), "bbox": difference.getbbox()})
+        width, height = difference.size
+        viewport_region = difference.crop((0, 0, int(width * 0.72), height))
+        viewport_stat = ImageStat.Stat(viewport_region)
+        pair_differences.append({"mean_abs_rgb": list(stat.mean), "bbox": difference.getbbox(), "viewport_region_mean_abs_rgb": list(viewport_stat.mean), "viewport_region_bbox": viewport_region.getbbox()})
 
     records = report["capture"]["records"]
     positions = [float(row["position_rad"]) for row in records]
@@ -84,6 +87,7 @@ def main() -> int:
         and max(positions) - min(positions) >= 0.5
         and all(not row["completely_black"] for row in frame_rows)
         and all(row["bbox"] is not None for row in pair_differences)
+        and all(row["viewport_region_bbox"] is not None and max(row["viewport_region_mean_abs_rgb"]) > 0.25 for row in pair_differences)
     )
     result = {
         "status": "AUTOMATED_VIDEO_VALIDATION_PASS_HUMAN_VISUAL_REQUIRED" if automated_pass else "FAIL",
