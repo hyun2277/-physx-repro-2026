@@ -2,7 +2,7 @@
 
 ## A. 김승민 팀원 제공 초안의 검토 범위
 
-- Linux Codex가 실제 읽은 외부 제공 파일: `김승민_1002_검토-20261002T121816Z-1-001.zip` (10,239 bytes, SHA256 `a379b2597daa3f02220cd84e16ce0a2cb7a1776823bb118025e2a8248ac27bf2`; Git에 추가하지 않음). ZIP 내부 `README.md` SHA256은 `445d0d2c6122e3a16f799360a4e4d1c947d7cdf05d81e76b30ce33dc2bedf18d`, `case_table.csv` SHA256은 `6e8fd89c60c595f78a6648e8bd02d199cbacb424920706fc7cf82592a36da1e3`이다. Windows에서 확인한 `120931Z` 파일은 이 Linux 경로에 없어서 두 ZIP의 동일성은 미확인이다.
+- 외부 제공 원본: `김승민_1002_검토-20261002T120931Z-1-001.zip` (10,239 bytes, SHA256 `84b5d32ce61f1c0dbec904562384984797a38d64ba170bc1ce8fae8e245b88df`; Git에 추가하지 않음).
 - 읽은 파일은 ZIP 내부 `README.md`, `case_table.csv`뿐이다. `verify_and_commit.sh`는 실행하지 않았다.
 - 초안 작성일은 문서에 적힌 2026-10-02다. 초안의 `[G]`는 당시 GitHub main 문서에서 직접 대조한 항목, `[U]`는 실행 담당자 보고 또는 TODO 로그 대조 전 항목으로 구분되어 있다.
 - 본 기록은 초안 원문을 수정하거나 `[U]`를 김승민 본인의 `[G]`로 소급 변경하지 않는다. 아래 B절은 **Codex의 최신 Git·Linux 원본 보고서 후속 대조**다.
