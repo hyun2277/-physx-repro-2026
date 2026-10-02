@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-02",
+  "scope": "read-only installation readiness audit; Isaac Sim was not installed or run",
+  "requested_install_root": "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/",
+  "current_environment": {
+    "os": "Ubuntu 24.04.3 LTS",
+    "disk_free_bytes": 386058883072,
+    "gpu": "RTX 5090 reported previously from a general Linux terminal; current host recheck pending",
+    "codex_nvidia_smi": "failed to communicate with NVIDIA driver",
+    "isaac_sim_runtime": "not installed or discoverable",
+    "urdf_importer": "not inspectable without Isaac Sim runtime"
+  },
+  "readiness": "PENDING_HOST_PREFLIGHT",
+  "recommended_install_mode_after_approval": "standalone binary release in requested isolated install root; do not modify envs/physxgen",
+  "official_requirements_observed": {
+    "supported_os": ["Ubuntu 22.04", "Ubuntu 24.04"],
+    "free_space_minimum_gb": 50,
+    "download_and_extract_temporary_space_gb_approximately": 40,
+    "tested_linux_driver_documented": "595.58.03",
+    "rtx_5090_explicit_documentation_found": false
+  },
+  "execution_not_started": ["GT-only URDF", "USD import", "Isaac physics drive", "physics video"],
+  "prediction_boundary": {
+    "10163": "INTERPRETATION_BLOCKED",
+    "29806": "INTERPRETATION_BLOCKED",
+    "29354": "NO_DEPLOYABLE_JOINT_SPEC"
+  }
+}
