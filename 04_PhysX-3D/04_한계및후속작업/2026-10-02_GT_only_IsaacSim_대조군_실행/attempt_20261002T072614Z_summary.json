@@ -1,0 +1,18 @@
+{
+  "run_id": "20261002T072614Z-gt-only-control",
+  "scope": "GT-only converter/simulator control; no generated output used",
+  "source_head": "4f54e750a309fe9cd9f20816916ecc0e8a9ae594",
+  "urdf_usd_generation": "completed for 10163, 29806, 29354",
+  "physics_drive": "not_started",
+  "failure": {
+    "stage": "post-import physics-joint discovery",
+    "10163_expected_revolute": 1,
+    "29806_expected_revolute": 3,
+    "10163_observed_revolute": 0,
+    "29806_observed_revolute": 0,
+    "classification": "USD payload/Physics variant or stage traversal unresolved; not an AI model failure"
+  },
+  "fixed_control": {"29354_expected_revolute": 0, "observed_revolute": 0, "collider_and_fixed_base_audit": "not_completed"},
+  "not_run": ["joint drive", "contact test", "range tests", "physics video", "generated-output conversion"],
+  "gpu_policy": {"physical_gpu": 1, "multi_gpu": false, "p2p": "not enabled or tested", "iommu_config_changed": false}
+}
