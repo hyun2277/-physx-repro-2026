@@ -251,6 +251,73 @@
     "all_meshes_resolve_diagnostic_material": true,
     "source_usd_modified": false
   },
+  "clone_diagnostic_static_validation": {
+    "session_layer_only": true,
+    "clone_meshes": [
+      {
+        "path": "/__PhysXDiagnostic/CloneMesh_0",
+        "points": 13373,
+        "faces": 26600,
+        "triangles": 26600,
+        "world_bounds": {
+          "min": [
+            -0.7288389801979065,
+            -0.1966720074415207,
+            -0.3925580084323883
+          ],
+          "max": [
+            0.7098140120506287,
+            0.620510995388031,
+            -0.15289899706840515
+          ],
+          "size": [
+            1.4386529922485352,
+            0.8171830028295517,
+            0.23965901136398315
+          ]
+        },
+        "double_sided": true,
+        "visibility": "inherited",
+        "direct_material_binding_targets": [
+          "/__PhysXDiagnostic/Material"
+        ],
+        "computed_material": "/__PhysXDiagnostic/Material"
+      },
+      {
+        "path": "/__PhysXDiagnostic/CloneMesh_1",
+        "points": 10971,
+        "faces": 21424,
+        "triangles": 21424,
+        "world_bounds": {
+          "min": [
+            -0.729000985622406,
+            -0.2272379994392395,
+            -0.15663699805736542
+          ],
+          "max": [
+            0.7141780257225037,
+            -0.16802500188350677,
+            0.6639890074729919
+          ],
+          "size": [
+            1.4431790113449097,
+            0.05921299755573273,
+            0.8206260055303574
+          ]
+        },
+        "double_sided": true,
+        "visibility": "inherited",
+        "direct_material_binding_targets": [
+          "/__PhysXDiagnostic/Material"
+        ],
+        "computed_material": "/__PhysXDiagnostic/Material"
+      }
+    ],
+    "reference_cube": "/__PhysXDiagnostic/ReferenceCube",
+    "all_clones_have_direct_binding": true,
+    "all_clones_resolve_material": true,
+    "source_usd_modified": false
+  },
   "viewport_persistent_mesh_visibility": null,
   "renderer_enabled": false,
   "physics_steps": 0

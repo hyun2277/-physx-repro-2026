@@ -12,7 +12,7 @@ import omni.kit.app
 import omni.timeline
 import omni.usd
 from omni.kit.viewport.utility import frame_viewport_prims, get_active_viewport
-from pxr import Gf, Sdf, Usd, UsdGeom, UsdPhysics, UsdShade
+from pxr import Gf, Sdf, Usd, UsdGeom, UsdLux, UsdPhysics, UsdShade
 
 
 RUN_DIR = Path(os.environ["PHYSX_GUI_RUN_DIR"])
@@ -191,10 +191,13 @@ marker(
 # opaque UsdPreviewSurface above the instance proxies distinguishes a missing
 # or unusable authored material path from geometry/composition failures.
 diagnostic_mode = os.environ.get("PHYSX_GUI_DIAGNOSTIC_MATERIAL", "original")
-if diagnostic_mode not in {"original", "solid"}:
+if diagnostic_mode not in {"original", "solid", "clone"}:
     raise RuntimeError(f"unsupported PHYSX_GUI_DIAGNOSTIC_MATERIAL={diagnostic_mode!r}")
 diagnostic_binding = None
-if diagnostic_mode == "solid":
+clone_rows = []
+reference_cube_path = None
+frame_paths = [str(p.GetPath()) for p in meshes]
+if diagnostic_mode in {"solid", "clone"}:
     original_target = stage.GetEditTarget()
     stage.SetEditTarget(stage.GetSessionLayer())
     material = UsdShade.Material.Define(stage, "/__PhysXDiagnostic/Material")
@@ -204,23 +207,80 @@ if diagnostic_mode == "solid":
     shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0)
     shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
     material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
-    geometry_prim = stage.GetPrimAtPath("/gt_10163/Geometry")
-    if not geometry_prim.IsValid():
-        raise RuntimeError("cannot apply diagnostic material: /gt_10163/Geometry is missing")
-    UsdShade.MaterialBindingAPI.Apply(geometry_prim).Bind(material)
     diagnostic_binding = str(material.GetPath())
+    if diagnostic_mode == "solid":
+        geometry_prim = stage.GetPrimAtPath("/gt_10163/Geometry")
+        if not geometry_prim.IsValid():
+            raise RuntimeError("cannot apply diagnostic material: /gt_10163/Geometry is missing")
+        UsdShade.MaterialBindingAPI.Apply(geometry_prim).Bind(material)
+    else:
+        # Instance proxies cannot reliably accept direct opinions.  Copy the
+        # already composed source topology into ordinary session-layer meshes
+        # in world coordinates.  This is a presentation diagnostic only.
+        for index, source_prim in enumerate(meshes):
+            source_mesh = UsdGeom.Mesh(source_prim)
+            source_points = list(source_mesh.GetPointsAttr().Get() or [])
+            source_counts = list(source_mesh.GetFaceVertexCountsAttr().Get() or [])
+            source_indices = list(source_mesh.GetFaceVertexIndicesAttr().Get() or [])
+            source_world = xform_cache.GetLocalToWorldTransform(source_prim)
+            world_points = [
+                Gf.Vec3f(source_world.Transform(Gf.Vec3d(float(p[0]), float(p[1]), float(p[2]))))
+                for p in source_points
+            ]
+            clone_path = f"/__PhysXDiagnostic/CloneMesh_{index}"
+            clone = UsdGeom.Mesh.Define(stage, clone_path)
+            clone.CreatePointsAttr(world_points)
+            clone.CreateFaceVertexCountsAttr(source_counts)
+            clone.CreateFaceVertexIndicesAttr(source_indices)
+            clone.CreateOrientationAttr(UsdGeom.Tokens.rightHanded)
+            clone.CreateSubdivisionSchemeAttr(UsdGeom.Tokens.none)
+            clone.CreateDoubleSidedAttr(True)
+            clone.CreateVisibilityAttr(UsdGeom.Tokens.inherited)
+            clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(0.15, 0.65, 0.95)])
+            clone.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
+            UsdShade.MaterialBindingAPI.Apply(clone.GetPrim()).Bind(material)
+            direct_rel = clone.GetPrim().GetRelationship("material:binding")
+            computed = UsdShade.MaterialBindingAPI(clone.GetPrim()).ComputeBoundMaterial()[0]
+            clone_rows.append(
+                {
+                    "source_mesh": str(source_prim.GetPath()),
+                    "clone_mesh": clone_path,
+                    "point_count": len(world_points),
+                    "face_count": len(source_counts),
+                    "triangle_count": sum(max(0, int(n) - 2) for n in source_counts),
+                    "double_sided": bool(clone.GetDoubleSidedAttr().Get()),
+                    "visibility": str(UsdGeom.Imageable(clone.GetPrim()).ComputeVisibility()),
+                    "direct_material_binding_targets": [str(x) for x in direct_rel.GetTargets()],
+                    "computed_material": str(computed.GetPath()) if computed else None,
+                }
+            )
+        cube = UsdGeom.Cube.Define(stage, "/__PhysXDiagnostic/ReferenceCube")
+        cube.CreateSizeAttr(0.35)
+        cube.AddTranslateOp().Set(Gf.Vec3d(1.8, 0.2, 0.15))
+        cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0, 0.3, 0.08)])
+        reference_cube_path = str(cube.GetPath())
+        distant = UsdLux.DistantLight.Define(stage, "/__PhysXDiagnostic/KeyLight")
+        distant.CreateIntensityAttr(3000.0)
+        fill = UsdLux.SphereLight.Define(stage, "/__PhysXDiagnostic/FillLight")
+        fill.CreateIntensityAttr(30000.0)
+        fill.CreateRadiusAttr(0.5)
+        UsdGeom.Xformable(fill).AddTranslateOp().Set(Gf.Vec3d(2.0, -2.0, 3.0))
+        frame_paths = [row["clone_mesh"] for row in clone_rows] + [reference_cube_path]
     stage.SetEditTarget(original_target)
 marker(
     "material_diagnostic",
     {
         "status": "PASS",
         "mode": diagnostic_mode,
-        "session_layer_only": diagnostic_mode == "solid",
+        "session_layer_only": diagnostic_mode in {"solid", "clone"},
         "source_usd_modified": False,
         "binding_ancestor": "/gt_10163/Geometry" if diagnostic_binding else None,
         "material": diagnostic_binding,
         "diffuse_color": [0.15, 0.65, 0.95] if diagnostic_binding else None,
         "opacity": 1.0 if diagnostic_binding else None,
+        "authoring_path": "/gt_10163/Geometry" if diagnostic_mode == "solid" else "/__PhysXDiagnostic",
+        "clone_meshes": clone_rows,
+        "reference_cube": reference_cube_path,
     },
 )
 
@@ -240,17 +300,16 @@ marker(
 viewport = get_active_viewport()
 if viewport is None:
     raise RuntimeError("active viewport was not available")
-mesh_paths = [str(p.GetPath()) for p in meshes]
-if not frame_viewport_prims(viewport, prims=mesh_paths):
-    raise RuntimeError(f"failed to frame composed mesh prims: {mesh_paths}")
+if not frame_viewport_prims(viewport, prims=frame_paths):
+    raise RuntimeError(f"failed to frame diagnostic prims: {frame_paths}")
 context.get_selection().set_selected_prim_paths([str(joint_prim.GetPath())], True)
 marker(
     "viewport_framing",
     {
         "status": "PASS",
-        "method": "frame composed mesh prims; do not frame root extentsHint",
-        "mesh_paths": mesh_paths,
-        "lighting_changed": False,
+        "method": "frame diagnostic clones and reference cube" if diagnostic_mode == "clone" else "frame composed mesh prims; do not frame root extentsHint",
+        "mesh_paths": frame_paths,
+        "lighting_changed": diagnostic_mode == "clone",
         "asset_transforms_changed": False,
     },
 )

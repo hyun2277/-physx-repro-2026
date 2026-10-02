@@ -1,0 +1,31 @@
+{
+  "status": "C_OR_E_UNRESOLVED",
+  "run_log": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261002T173150Z-10163-gpu0-static-d367dbe9-7cb5-461b-8ade-06e8704551d8",
+  "session_authoring": {
+    "binding_prim": "/gt_10163/Geometry",
+    "binding_target": "/__PhysXDiagnostic/Material",
+    "source_usd_modified": false
+  },
+  "source_meshes": [
+    {
+      "path": "/gt_10163/Geometry/world/l_1/abstract_1/l_0/tn__0_",
+      "instance_proxy": true,
+      "direct_material_binding_relationship": false
+    },
+    {
+      "path": "/gt_10163/Geometry/world/l_1/tn__1_/tn__1_",
+      "instance_proxy": true,
+      "direct_material_binding_relationship": false
+    }
+  ],
+  "fabric_warning": "attribute material:binding not found for path /gt_10163/Geometry/world/l_1/abstract_1",
+  "human_observation": {
+    "cyan_surface_visible": false,
+    "black_background_visible": true,
+    "red_joint_guide_visible": true,
+    "stage_tree_joint_visible": true,
+    "stage_tree_diagnostic_prim_visible": true
+  },
+  "physics_steps": 0,
+  "conclusion": "The ancestor binding did not prove that the actual instance-proxy meshes received a renderer-visible binding; material and renderer-instance causes remain unresolved."
+}

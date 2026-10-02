@@ -159,6 +159,47 @@ diagnostic_bound_paths = []
 for mesh_prim in mesh_prims:
     bound = UsdShade.MaterialBindingAPI(mesh_prim).ComputeBoundMaterial()[0]
     diagnostic_bound_paths.append(str(bound.GetPath()) if bound else None)
+clone_validation = []
+for index, source_prim in enumerate(mesh_prims):
+    source_mesh = UsdGeom.Mesh(source_prim)
+    source_points = list(source_mesh.GetPointsAttr().Get() or [])
+    counts = list(source_mesh.GetFaceVertexCountsAttr().Get() or [])
+    indices = list(source_mesh.GetFaceVertexIndicesAttr().Get() or [])
+    source_world = xforms.GetLocalToWorldTransform(source_prim)
+    world_points = [
+        Gf.Vec3f(source_world.Transform(Gf.Vec3d(float(p[0]), float(p[1]), float(p[2]))))
+        for p in source_points
+    ]
+    clone = UsdGeom.Mesh.Define(stage, f"/__PhysXDiagnostic/CloneMesh_{index}")
+    clone.CreatePointsAttr(world_points)
+    clone.CreateFaceVertexCountsAttr(counts)
+    clone.CreateFaceVertexIndicesAttr(indices)
+    clone.CreateOrientationAttr(UsdGeom.Tokens.rightHanded)
+    clone.CreateSubdivisionSchemeAttr(UsdGeom.Tokens.none)
+    clone.CreateDoubleSidedAttr(True)
+    clone.CreateVisibilityAttr(UsdGeom.Tokens.inherited)
+    clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(0.15, 0.65, 0.95)])
+    clone.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
+    UsdShade.MaterialBindingAPI.Apply(clone.GetPrim()).Bind(diagnostic_material)
+    relation = clone.GetPrim().GetRelationship("material:binding")
+    computed = UsdShade.MaterialBindingAPI(clone.GetPrim()).ComputeBoundMaterial()[0]
+    clone_validation.append(
+        {
+            "path": str(clone.GetPath()),
+            "points": len(world_points),
+            "faces": len(counts),
+            "triangles": sum(max(0, int(n) - 2) for n in counts),
+            "world_bounds": bounds(world_points),
+            "double_sided": bool(clone.GetDoubleSidedAttr().Get()),
+            "visibility": str(UsdGeom.Imageable(clone.GetPrim()).ComputeVisibility()),
+            "direct_material_binding_targets": [str(x) for x in relation.GetTargets()],
+            "computed_material": str(computed.GetPath()) if computed else None,
+        }
+    )
+reference_cube = UsdGeom.Cube.Define(stage, "/__PhysXDiagnostic/ReferenceCube")
+reference_cube.CreateSizeAttr(0.35)
+reference_cube.AddTranslateOp().Set(Gf.Vec3d(1.8, 0.2, 0.15))
+reference_cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0, 0.3, 0.08)])
 stage.SetEditTarget(original_target)
 
 settings = carb.settings.get_settings()
@@ -174,6 +215,19 @@ result = {
         "resolved_on_meshes": diagnostic_bound_paths,
         "all_meshes_resolve_diagnostic_material": all(
             path == str(diagnostic_material.GetPath()) for path in diagnostic_bound_paths
+        ),
+        "source_usd_modified": False,
+    },
+    "clone_diagnostic_static_validation": {
+        "session_layer_only": True,
+        "clone_meshes": clone_validation,
+        "reference_cube": str(reference_cube.GetPath()),
+        "all_clones_have_direct_binding": all(
+            row["direct_material_binding_targets"] == [str(diagnostic_material.GetPath())]
+            for row in clone_validation
+        ),
+        "all_clones_resolve_material": all(
+            row["computed_material"] == str(diagnostic_material.GetPath()) for row in clone_validation
         ),
         "source_usd_modified": False,
     },

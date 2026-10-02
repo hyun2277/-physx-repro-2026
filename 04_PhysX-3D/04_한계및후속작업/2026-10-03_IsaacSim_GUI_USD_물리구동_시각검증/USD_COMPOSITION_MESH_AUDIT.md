@@ -19,7 +19,7 @@ geometry/physics variant 누락은 배제됐다. `gt_10163.usda`의 `Physics=phy
 
 두 Mesh는 active/loaded, visibility `inherited`, purpose `default`, `rightHanded`, subdivision `none`이다. points는 모두 유한하고 index는 범위 내이며 모든 face는 triangle이다. world transform은 identity(첫 Mesh translation은 `5e-11` 이하)이고 determinant는 1.0이다. authored extent와 points로 재계산한 bounds가 일치한다. 따라서 **A geometry invalid/empty**와 **B transform/bounds**는 배제한다. actual Mesh `F` 후에도 검은 화면이었으므로 **D camera framing**도 현재 증상의 주원인으로 보지 않는다.
 
-두 Mesh에는 material binding, displayColor, displayOpacity가 없다. 다만 opacity가 0으로 authored된 것은 아니며, 재질이 없는 Mesh는 일반적으로 default surface로 표시되므로 이 사실만으로 **C material/opacity**를 확정하지 않는다. GUI user config의 `scene/meshes/visible`은 `true`다. 현재 최종 분류는 **E other: valid material-free instance-proxy Mesh가 RTX viewport에서 표면으로 제출되지 않는 presentation 경로 문제, 세부 원인 미확정**이다. C와 E를 구분하기 위해 session layer에만 불투명 단색 `UsdPreviewSurface`를 바인딩하는 단일 진단을 준비했다.
+두 Mesh에는 material binding, displayColor, displayOpacity가 없다. GUI user config의 `scene/meshes/visible`은 `true`다. 첫 단색 실행은 session layer의 **`/gt_10163/Geometry` ancestor**에 `material:binding -> /__PhysXDiagnostic/Material`을 author했다. 사람 확인에서 청록색 표면은 보이지 않았고, Fabric은 `material:binding not found for path /gt_10163/Geometry/world/l_1/abstract_1`을 경고했다. 즉 instance proxy 실제 Mesh에 direct relationship이 제출됐다는 증거가 없다. 따라서 C를 배제하거나 E를 확정하지 않고 현재 상태를 **`C_OR_E_UNRESOLVED`**로 정정한다.
 
 ## 파일 연결과 해시
 
@@ -37,6 +37,8 @@ geometry/physics variant 누락은 배제됐다. `gt_10163.usda`의 `Physics=phy
 
 ## 수정
 
-원본 USD, variant, transform, geometry, lighting은 바꾸지 않는다. 다음 실행은 익명 session layer에만 `(0.15, 0.65, 0.95)`, opacity 1.0의 `UsdPreviewSurface`를 `/gt_10163/Geometry`에 inherited binding으로 적용한다. 원본 파일은 저장하지 않으며 marker에 session-only임을 기록한다. 단색에서만 보이면 C로 판정하고, 단색에서도 안 보이면 C를 배제하고 E renderer/instance presentation 진단을 계속한다.
+원본 USD, variant, transform, geometry는 바꾸지 않는다. 다음 실행은 composed instance proxy의 points·triangle topology와 world transform을 anonymous session layer의 일반 `UsdGeom.Mesh` 두 개로 복사한다. 복제본은 `doubleSided=true`, visibility `inherited`, direct `material:binding`, displayColor/opacity를 갖는다. 같은 stage에 주황색 reference cube와 조명을 둔다. renderer-free 정적 검산에서 복제 Mesh는 원본과 같은 13,373/10,971 points·26,600/21,424 triangles·bounds를 가지며, 두 direct binding과 computed binding이 모두 `/__PhysXDiagnostic/Material`로 resolve됐다.
+
+다음 사람 확인 판정은 (1) cube+복제 Mesh 둘 다 표시: 원본 instance/material presentation 문제, (2) cube만 표시: 복제 Mesh renderer 속성/topology 경로 문제, (3) 둘 다 미표시: GUI renderer/presentation 문제다.
 
 mesh prim이 없거나 visibility/extent/layer 검사가 실패하면 사람 확인 단계로 넘기지 않는다. 자동 검사가 통과해도 노트북 mesh와 `gt_C_1` guide가 같은 viewport에 실제로 보이기 전에는 `GUI_VISIBLE=PASS`로 기록하지 않는다.

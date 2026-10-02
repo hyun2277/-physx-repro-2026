@@ -109,8 +109,8 @@
 - 화면 확인 예정 항목: 노트북 GT 형상, GT Stage tree, `/gt_10163/Physics/gt_C_1`, joint의 body0/body1·axis·local origin·lower/upper limit, articulation root·rigid body·collider 구조다. 창 제목은 `GT-only reference — not AI prediction`으로 표시한다. 자동 marker가 통과해도 사람이 확인하기 전에는 `GUI_VISIBLE=PASS`가 아니다.
 - 정적 inspection script는 physics 관련 extension이 비활성인지와 timeline이 정지 상태인지 확인하고 `simulation_steps_requested=0`, PhysicsScene 생성 없음, SimulationManager/tensor 호출 없음 marker를 남긴다.
 - 첫 10163 사람 확인 결과는 **GUI/joint 구조 PASS, mesh visibility FAIL**이다. 노트북 mesh 대신 검은 배경과 붉은 joint/frame guide만 보였으므로 완전한 시각 검증 PASS가 아니다. 감사 결과와 해시는 [USD_COMPOSITION_MESH_AUDIT.md](USD_COMPOSITION_MESH_AUDIT.md)에 기록했다.
-- `Physics=physx` composition에는 geometry/physics layer와 collider proxy가 resolve됐다. 두 번째 사람 확인에서 actual `Mesh`를 선택하고 `F`를 눌러도 검은 배경과 축만 남았으므로 root `extentsHint` 단독 원인 설명은 철회했다. renderer-free 수치 감사에서 두 Mesh는 각각 13,373/10,971 points, 26,600/21,424 triangles, finite/valid topology, determinant 1.0으로 확인됐다. A geometry invalid, B transform/bounds, D camera framing은 배제했고, 현재는 **E renderer presentation 문제(세부 원인 미확정)**로 분류한다.
-- 두 Mesh에 material binding/displayColor/displayOpacity가 없어 C material 경로와 E renderer/instance 경로를 구분해야 한다. 다음 실행은 원본을 수정하지 않고 anonymous session layer에만 opaque cyan `UsdPreviewSurface`를 바인딩한다. 단색에서 보이면 C, 그래도 안 보이면 E를 계속 진단한다. physics와 영상 생성은 여전히 금지된다.
+- `Physics=physx` composition에는 geometry/physics layer와 collider proxy가 resolve됐다. actual `Mesh` framing에도 표면은 보이지 않았다. renderer-free 감사에서 두 Mesh는 13,373/10,971 points, 26,600/21,424 triangles, finite/valid topology, determinant 1.0으로 확인됐다. A geometry invalid, B transform/bounds, D camera framing은 배제했다.
+- ancestor session binding 실행에서 청록색은 보이지 않았고 Fabric이 instance hierarchy의 `material:binding` 누락을 경고했다. 따라서 현재 원인은 **`C_OR_E_UNRESOLVED`**다. 다음 runner는 일반 session-layer Mesh 복제본 두 개와 이전에 표시 성공한 형태의 reference cube를 같이 표시해 C/E를 분리한다. physics와 영상 생성은 여전히 금지된다.
 - 10163 GUI USD static loading: stage/joint 구조는 로드됐으나 사람이 actual Mesh를 frame해도 표면이 보이지 않아 **FAIL/BLOCKED**다. physics step은 0이며 영상은 생성하지 않았다.
 - 10163 스크린샷: Linux/Git 증거 파일은 아직 없다.
 - 29806·29354: 아직 실행하지 않음
