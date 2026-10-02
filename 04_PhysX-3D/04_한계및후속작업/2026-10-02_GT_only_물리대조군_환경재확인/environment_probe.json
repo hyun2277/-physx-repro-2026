@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-10-02",
+  "scope": "read-only environment recheck; no Isaac Sim installation, URDF/USD conversion, GPU computation, or physics simulation",
+  "git": {
+    "local_head_before_documentation": "79e78369273e342922aa8f17b79f3a6a4df3aab4",
+    "origin_main_after_fetch": "79e78369273e342922aa8f17b79f3a6a4df3aab4",
+    "remote_main_after_fetch": "79e78369273e342922aa8f17b79f3a6a4df3aab4"
+  },
+  "host": {
+    "os": "Ubuntu 24.04.3 LTS",
+    "disk_free_bytes_at_physx_root": 386058883072,
+    "nvidia_modules_listed": ["nvidia", "nvidia_modeset", "nvidia_drm", "nvidia_uvm"],
+    "nvidia_smi": {
+      "status": "UNAVAILABLE",
+      "message": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.",
+      "interpretation": "This session cannot establish NVIDIA driver user-space access. It does not identify or modify the system-level cause."
+    }
+  },
+  "isaac_runtime": {
+    "status": "NOT_INSTALLED_OR_NOT_DISCOVERABLE",
+    "searched_paths": [
+      "/home/minsujo/.local/share/ov/pkg",
+      "/home/minsujo/.local/share/ov",
+      "/home/minsujo/isaac-sim",
+      "/opt/isaac-sim",
+      "/opt/ov"
+    ],
+    "executables_not_found": [
+      "isaac-sim.sh",
+      "isaacsim.sh",
+      "isaac-sim.selector.sh",
+      "isaac-sim",
+      "omni",
+      "kit",
+      "usdcat",
+      "usdview"
+    ],
+    "physxgen_python_imports": {
+      "omni": null,
+      "isaacsim": null,
+      "pxr": "/home/minsujo/Desktop/SH/PHYSx/envs/physxgen/lib/python3.10/site-packages/pxr/__init__.py"
+    },
+    "urdf_importer_status": "UNAVAILABLE_WITHOUT_ISAAC_RUNTIME"
+  },
+  "gt_inputs": {
+    "hash_manifest": "../2026-10-02_GT_URDF_USD_IsaacSim_대조군_준비감사/gt_input_hashes.csv",
+    "files_checked": 19,
+    "sha256_matches": 19,
+    "sha256_failures": 0
+  },
+  "execution_disposition": {
+    "gt_only_urdf_creation": "NOT_STARTED",
+    "usd_import": "NOT_STARTED",
+    "isaac_physics_drive": "NOT_STARTED",
+    "physics_video": "NOT_STARTED",
+    "blockers": [
+      "Isaac Sim/Kit runtime and isaacsim.asset.importer.urdf are absent or undiscoverable.",
+      "nvidia-smi cannot communicate with the NVIDIA driver in this session, so GPU access cannot be preflighted."
+    ]
+  }
+}
