@@ -87,7 +87,8 @@
 
 ## 현재 상태
 
-- GUI 기본 cube: **미실행 — 사용자 화면 확인 대기**
+- 2026-10-02 GUI cube 최초 시도: **dependency solver 실패**. custom Kit에 설치된 extension을 찾을 `settings.app.exts.folders`가 없었다. `isaacsim.core.simulation_manager`를 registry에서 받지 못한 것이 아니라, 설치된 local extension `1.17.1`의 탐색 경로가 누락된 것이다. solver 종료 뒤 setup script가 실행되어 `omni.usd` import가 실패했으므로 후자는 2차 오류다. cube·USD·physics·GPU·renderer 결과는 미실행이다.
+- GUI 기본 cube 재시도: **사용자 화면 확인 대기**
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음
 - 29806·29354: 아직 실행하지 않음

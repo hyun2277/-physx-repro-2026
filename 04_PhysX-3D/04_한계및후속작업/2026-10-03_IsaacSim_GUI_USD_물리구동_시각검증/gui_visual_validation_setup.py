@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 
+import carb
 import omni.usd
 from pxr import Gf, Sdf, UsdGeom, UsdLux
 
@@ -32,12 +33,29 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def write_marker(payload: dict) -> None:
-    marker = RUN_DIR / "gui_setup_marker.json"
+def write_marker(name: str, payload: dict) -> None:
+    marker = RUN_DIR / f"marker_{name}.json"
     marker.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
-    print(f"PHYSX_GUI_SETUP_JSON={json.dumps(payload, ensure_ascii=False, sort_keys=True)}")
+    print(f"PHYSX_GUI_MARKER_{name.upper()}={json.dumps(payload, ensure_ascii=False, sort_keys=True)}")
 
 
+settings = carb.settings.get_settings()
+write_marker(
+    "app_startup",
+    {"status": "PASS", "mode": MODE, "script_started_after_dependency_resolution": True},
+)
+write_marker(
+    "omni_usd_import",
+    {"status": "PASS", "module": getattr(omni.usd, "__file__", None)},
+)
+write_marker(
+    "gui_mode",
+    {
+        "status": "PASS",
+        "headless_setting": settings.get("/app/window/hideUi"),
+        "expected_headless": False,
+    },
+)
 context = omni.usd.get_context()
 
 if MODE == "cube":
@@ -58,12 +76,18 @@ if MODE == "cube":
     context.get_selection().set_selected_prim_paths(["/World/VisibleCube"], True)
     stage_path = RUN_DIR / "cube_gui_stage.usda"
     stage.GetRootLayer().Export(str(stage_path))
+    cube_path = "/World/VisibleCube"
+    if not stage.GetPrimAtPath(cube_path).IsValid():
+        raise RuntimeError(f"stage did not contain {cube_path}")
+    write_marker("cube_created", {"status": "PASS", "prim": cube_path})
+    write_marker("cube_stage_lookup", {"status": "PASS", "prim": cube_path})
     write_marker(
+        "summary",
         {
-            "status": "READY_FOR_HUMAN_GUI_CHECK",
+            "status": "AUTOMATION_MARKERS_PASS_HUMAN_GUI_CHECK_REQUIRED",
             "mode": MODE,
             "stage": str(stage_path),
-            "expected_prims": ["/World/VisibleCube", "/World/Ground", "/World/KeyLight"],
+            "expected_prims": [cube_path, "/World/Ground", "/World/KeyLight"],
             "human_verified": False,
         }
     )
@@ -84,8 +108,13 @@ elif MODE == "10163":
         variant_sets.GetVariantSet("Physics").SetVariantSelection("physx")
     context.get_selection().set_selected_prim_paths([str(default_prim.GetPath())], True)
     write_marker(
+        "cube_stage_lookup",
+        {"status": "SKIPPED", "reason": "10163 mode does not create a cube"},
+    )
+    write_marker(
+        "summary",
         {
-            "status": "READY_FOR_HUMAN_GUI_CHECK",
+            "status": "AUTOMATION_MARKERS_PASS_HUMAN_GUI_CHECK_REQUIRED",
             "mode": MODE,
             "usd": str(USD_10163),
             "bytes": USD_10163.stat().st_size,

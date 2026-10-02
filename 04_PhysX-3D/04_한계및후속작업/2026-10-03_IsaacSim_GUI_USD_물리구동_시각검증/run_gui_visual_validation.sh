@@ -62,4 +62,31 @@ set +e
 RC=$?
 set -e
 printf '%s\n' "$RC" > "$LOG_DIR/exit_code.txt"
+
+if [[ "$MODE" == "cube" ]]; then
+  required_markers=(
+    marker_app_startup.json
+    marker_omni_usd_import.json
+    marker_gui_mode.json
+    marker_cube_created.json
+    marker_cube_stage_lookup.json
+    marker_summary.json
+  )
+  missing=0
+  for marker in "${required_markers[@]}"; do
+    if [[ ! -s "$LOG_DIR/$marker" ]]; then
+      echo "MISSING_AUTOMATION_MARKER=$marker" >&2
+      missing=1
+    fi
+  done
+  if ! grep -Fq '"headless_setting": false' "$LOG_DIR/marker_gui_mode.json"; then
+    echo "GUI_HEADLESS_FALSE_MARKER_MISSING" >&2
+    missing=1
+  fi
+  if [[ "$RC" -ne 0 || "$missing" -ne 0 ]]; then
+    printf '%s\n' "FAIL_AUTOMATION_MARKERS" > "$LOG_DIR/automation_status.txt"
+    exit 10
+  fi
+  printf '%s\n' "PASS_AUTOMATION_MARKERS_HUMAN_GUI_CHECK_REQUIRED" > "$LOG_DIR/automation_status.txt"
+fi
 exit "$RC"
