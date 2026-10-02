@@ -1,0 +1,97 @@
+{
+  "status": "BLOCKED_RGB_BLACK",
+  "scope": "Replicator cube/light/camera smoke only; 10163 USD and physics drive were not opened",
+  "kit": "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_GT_only_IsaacSim_물리구동_대조군/isaac_minimal_replicator_render_r11.kit",
+  "runner": "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_GT_only_IsaacSim_물리구동_대조군/run_replicator_rgb_smoke_r11.sh",
+  "script": "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_GT_only_IsaacSim_물리구동_대조군/smoke_replicator_rgb_r11.py",
+  "command": "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_GT_only_IsaacSim_물리구동_대조군/run_replicator_rgb_smoke_r11.sh",
+  "gpu_policy": "physical GPU 1 only; CUDA_VISIBLE_DEVICES unset for direct Isaac renderer GPU 1 selection; multi-GPU disabled",
+  "extensions": [
+    "omni.replicator.core",
+    "omni.kit.viewport.window",
+    "omni.hydra.engine.stats",
+    "omni.hydra.rtx",
+    "omni.physx",
+    "omni.physics.tensors"
+  ],
+  "ml_ros_policy": "omni.isaac.ml_archive and ROS are not declared by the r11 Kit",
+  "official_source_evidence": "Isaac Sim installed test: exts/isaacsim.replicator.examples/.../test_sdg_getting_started.py (new stage, BasicWriter, three step_async calls); installed omni.replicator.core extension.toml renderer test dependencies",
+  "r11_log": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1",
+  "pngs": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/annotator_rgb_00.png",
+      "bytes": 842,
+      "sha256": "e9c4a470ad900801f7de4f9402eb27af8a1cc00eac80d618ef16bac39fb27d33"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/annotator_rgb_01.png",
+      "bytes": 842,
+      "sha256": "e9c4a470ad900801f7de4f9402eb27af8a1cc00eac80d618ef16bac39fb27d33"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/annotator_rgb_02.png",
+      "bytes": 842,
+      "sha256": "e9c4a470ad900801f7de4f9402eb27af8a1cc00eac80d618ef16bac39fb27d33"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/writer/rgb_0000.png",
+      "bytes": 5626,
+      "sha256": "1f00301762b4d9182558fa70199e81ac94ff2ea030ad6fabe77adad1b4a1fd91"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/writer/rgb_0001.png",
+      "bytes": 5626,
+      "sha256": "1f00301762b4d9182558fa70199e81ac94ff2ea030ad6fabe77adad1b4a1fd91"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-replicator-rgb-smoke/20261002T120751Z-replicator-r11-direct-gpu1/out/writer/rgb_0002.png",
+      "bytes": 5626,
+      "sha256": "1f00301762b4d9182558fa70199e81ac94ff2ea030ad6fabe77adad1b4a1fd91"
+    }
+  ],
+  "rgb_stats": [
+    {
+      "frame": 0,
+      "width": 512,
+      "height": 512,
+      "mean_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "variance": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    {
+      "frame": 1,
+      "width": 512,
+      "height": 512,
+      "mean_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "variance": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    {
+      "frame": 2,
+      "width": 512,
+      "height": 512,
+      "mean_rgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "variance": 0.0,
+      "min": 0,
+      "max": 0
+    }
+  ],
+  "png_state": "PNG files were emitted, decoded, and are completely black; they are invalid smoke outputs",
+  "stderr_first_failure": "smoke_replicator_rgb_r11.py line 48: RuntimeError: black/constant RGB frames; there was no missing-extension or Python import traceback in r11",
+  "r8_separate_failure": "The official base-derived r8 Kit could not exclude its required omni.isaac.ml_archive; it loaded and reproduced libc10_cuda.so: undefined symbol cudaGetDriverEntryPointByVersion, version libcudart.so.12. r8 was not used for r11.",
+  "next_reproducible_diagnostic": "Do not open 10163 or create an MP4. Diagnose the Isaac 6.1 headless RTX render delegate/device path with NVIDIA-supported renderer diagnostics before retrying Replicator; preserve GPU 1-only policy and do not enable omni.isaac.ml_archive."
+}

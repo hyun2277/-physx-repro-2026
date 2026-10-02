@@ -1,0 +1,45 @@
+[package]
+title = "PhysX-3D minimal Replicator RGB render r11 warmup GPU1"
+version = "1.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+"omni.physx" = {}
+"omni.physics.physx" = {}
+"omni.physics.stageupdate" = {}
+"omni.physics.tensors" = {}
+"isaacsim.core.simulation_manager" = {}
+# Isaac Sim 6.1's installed omni.replicator.core config and its renderer test add these.
+"omni.replicator.core" = {}
+"omni.kit.viewport.window" = {}
+"omni.hydra.engine.stats" = {}
+"omni.hydra.rtx" = {}
+
+[settings]
+renderer.multiGpu.enabled = false
+renderer.multiGpu.autoEnable = false
+"/app/viewport/createCameraModelRep" = false
+"/rtx/post/aa/op" = 0
+"/omni/replicator/RTSubframes" = 1
+app.settings.fabricDefaultStageFrameHistoryCount = 3
+app.settings.fabricStageFrameHistoryCount = 3
+app.useFabricSceneDelegate = true
+app.asyncRendering = 0
+omni.replicator.asyncRendering = 0
+app.hydraEngine.waitIdle = 0
+renderer.skipWhileMinimized = 0
+"/rtx/raytracing/cached/enabled" = false
+"/rtx/raytracing/lightcache/spatialCache/enabled" = false
+
+[settings.app]
+fastShutdown = true
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]
