@@ -43,6 +43,8 @@ Host 기록은 X11 `DISPLAY=:0`을 사용했다. `xrandr --listproviders`에서 
 
 다음 최소 진단 후보는 X source provider인 physical GPU 0에서 **physics 없이 GUI cube presentation만** 한 번 검사하는 것이다. 이는 기존 GPU 1 전용 정책을 바꾸므로 사용자 확인 전 실행하지 않는다. GPU 0 GUI+physics, multi-GPU/P2P, Xorg·driver·IOMMU 변경은 제안하지 않는다. livestream/offscreen은 공식 대체 경로 후보지만 기존 Replicator black과 별개의 사전검증이 필요해 차순위다.
 
+2026-10-03 사용자가 이 GPU 0 cube-only 검사 1회를 승인했다. 별도 experience에서 physics extension과 physics device 설정을 제거하고 renderer active GPU 0만 지정했다. 실행 직전 UUID `GPU-ff124b39-8b48-7d2a-bf74-bf6a5c8f1716`, PCI `01:00.0`, memory 및 compute process를 재검사한다. 자동 marker와 renderer 오류 부재는 화면 가시성의 필요조건일 뿐이며, 조명된 cube·viewport·Stage tree를 사람이 확인하고 screenshot을 남기기 전에는 `GUI_VISIBLE=PASS`로 판정하지 않는다.
+
 ## 새 시도 기록 규칙
 
 각 시도는 가설 하나와 주요 변경 하나만 기록한다. GUI cube가 검으면 10163을 열지 않는다. 화면을 사람이 확인하지 않은 상태에서는 screenshot·viewport 성공을 주장하지 않는다.

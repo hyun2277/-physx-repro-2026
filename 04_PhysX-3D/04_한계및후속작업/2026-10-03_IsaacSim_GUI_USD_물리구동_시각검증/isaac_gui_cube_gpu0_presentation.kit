@@ -1,0 +1,65 @@
+[package]
+title = "Isaac Sim GPU 0 cube presentation gate"
+description = "GUI-only cube gate on the X11 source GPU; no PhysX or asset loading"
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+"omni.kit.mainwindow" = {}
+"omni.kit.uiapp" = {}
+"omni.kit.window.stage" = {}
+"omni.kit.window.property" = {}
+"omni.kit.window.toolbar" = {}
+"omni.kit.window.status_bar" = {}
+"omni.kit.window.title" = {}
+"omni.kit.window.console" = {}
+"omni.kit.property.bundle" = {}
+"omni.kit.selection" = {}
+"omni.kit.viewport.bundle" = {}
+"omni.kit.viewport.window" = {}
+"omni.kit.viewport.rtx" = {}
+"omni.kit.viewport.actions" = {}
+"omni.kit.manipulator.camera" = {}
+"omni.kit.manipulator.prim" = {}
+"omni.kit.manipulator.selection" = {}
+"omni.kit.menu.common" = {}
+"omni.kit.menu.stage" = {}
+"omni.kit.renderer.core" = {}
+"omni.kit.renderer.capture" = {}
+"omni.hydra.engine.stats" = {}
+"omni.hydra.rtx" = {}
+
+[settings]
+app.name = "PhysX-GPU0-Cube-Presentation-Gate"
+app.version = "6.1.0"
+app.window.title = "Isaac Sim 6.1 — GPU 0 cube presentation gate"
+app.window.width = 1440
+app.window.height = 900
+app.window.hideUi = false
+app.gatherRenderResults = true
+vulkan = true
+asyncRendering = false
+asyncRenderingLowLatency = false
+app.viewport.defaults.fillViewport = false
+app.viewport.defaultCamPos.x = 5
+app.viewport.defaultCamPos.y = 5
+app.viewport.defaultCamPos.z = 5
+renderer.enabled = "rtx"
+renderer.activeGpu = 0
+renderer.multiGpu.enabled = false
+renderer.multiGpu.autoEnable = false
+renderer.gpuEnumeration.glInterop.enabled = false
+app.fastShutdown = false
+exts."omni.kit.renderer.core".present.enabled = false
+exts."omni.kit.viewport.window".windowMenu.entryCount = 2
+exts."omni.kit.viewport.window".windowMenu.label = ""
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]

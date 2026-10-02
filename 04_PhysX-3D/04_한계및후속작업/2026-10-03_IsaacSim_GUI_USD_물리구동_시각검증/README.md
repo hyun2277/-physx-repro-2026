@@ -98,6 +98,9 @@
 - 현재 GPU 상태(읽기 전용 조회): GPU 0은 32,607 MiB 중 376 MiB 사용, GPU 1은 66 MiB 사용이었다. compute-process 목록은 비어 있었다.
 - 선택지 판정: GPU 1 GUI+physics는 현재 X surface present에서 차단됐다. GPU 0 GUI-only 검사는 X source provider 가설을 가장 적게 바꾸며 검증하지만 기존 GPU 1 전용 정책을 변경하므로 사용자 확인 전 실행하지 않는다. GPU 0 GUI+physics는 검증된 GPU 1 physics 경로까지 바꾸므로 우선하지 않는다. 공식 full GUI는 `omni.isaac.ml_archive` CUDA ABI 오류를 다시 불러오며, custom experience는 이미 공식 window/viewport 구성요소를 포함해도 같은 present 실패를 보였다. livestream/offscreen은 공식 대안 후보지만 기존 Replicator black 결과와 별도의 extension·capture 검증이 필요하다.
 - 가장 안전한 다음 한 단계: **사용자 승인 후 GPU 0에서 physics를 로드하지 않는 GUI cube-only presentation 검사 1회**. 이는 X source provider에서 swapchain이 만들어지는지만 분리 확인하며 GPU 1 physics 결과나 시스템 설정을 바꾸지 않는다. 승인 전에는 같은 GPU 1 cube 명령을 반복하지 않는다.
+- 2026-10-03 사용자 승인: GPU 0의 cube GUI presentation 1회만 승인됐다. 별도 `isaac_gui_cube_gpu0_presentation.kit`은 PhysX·tensors·simulation manager를 의존하지 않고 renderer active GPU 0, multi-GPU off로 고정한다. `run_gui_cube_gpu0_presentation.sh`는 직전 GPU 0 UUID/PCI/memory와 compute process를 검사하며 compute process가 있으면 Kit를 시작하지 않는다. app/USD/headless/cube marker와 swapchain/backbuffer 오류 부재가 모두 확인돼도 사람 화면 확인 전 상태는 `PASS_AUTOMATION_MARKERS_HUMAN_GUI_CHECK_REQUIRED`이며 `GUI_VISIBLE=PASS`가 아니다.
+- GPU 0 cube 전용 일반 Linux 명령: `cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_IsaacSim_GUI_USD_물리구동_시각검증/run_gui_cube_gpu0_presentation.sh`
+- 사람이 확인할 항목은 (1) 조명된 cube, (2) 정상 viewport, (3) Stage tree의 `/World/VisibleCube` 세 가지이며 screenshot을 출력된 `SCREENSHOT_DIR`에 저장한다. 이번 승인에는 10163·29806·29354, USD asset loading, physics가 포함되지 않는다.
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음
 - 29806·29354: 아직 실행하지 않음
