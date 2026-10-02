@@ -1,0 +1,46 @@
+{
+  "status": "AUTOMATED_DERIVATION_VALIDATION_PASS_HUMAN_VIDEO_REVIEW_PENDING",
+  "source": {
+    "path": "10163_gt_only_gpu0_gui_physics.mp4",
+    "sha256": "d78beb9540695885f6b1ad752181aeb9cf4d3fd588f7dcc18de24efbf8aa02a9",
+    "bytes": 897661,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "resolution": [1920, 1080],
+    "frame_rate": "30/1",
+    "duration_s": 23.2,
+    "frame_count": 696
+  },
+  "derived": {
+    "path": "10163_gt_only_gpu0_gui_physics_submission.mp4",
+    "sha256": "31cc659ad8e99993f67e5a05a59904ec9d093648ffc21ffdc197daf2f75e3140",
+    "bytes": 689831,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "resolution": [1280, 720],
+    "frame_rate": "30/1",
+    "duration_s": 23.2,
+    "frame_count": 696
+  },
+  "conversion": {
+    "source_frames_only": true,
+    "crop": {"x": 218, "y": 194, "width": 948, "height": 534},
+    "scale": [1280, 720],
+    "overlay": "GT-only physics control — not AI prediction",
+    "trim_applied": false,
+    "speed_change": false,
+    "frame_interpolation": false,
+    "transform_or_keyframe_motion": false,
+    "audio": false
+  },
+  "representative_frame_checks": {
+    "timestamps_s": [0.5, 11.6, 22.7],
+    "all_nonblack": true,
+    "start_to_middle_difference_bbox_nonempty": true,
+    "middle_to_end_difference_bbox_nonempty": true,
+    "laptop_base_and_lid_visible": true,
+    "desktop_and_background_terminal_excluded": true
+  },
+  "full_decode": "PASS",
+  "human_video_review": "PENDING"
+}
