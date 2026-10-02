@@ -1,0 +1,10 @@
+case_id,group,external_draft_status,final_status,isaac_run,verified_scope,manual_correction,manual_time,video_classification,evidence
+10163,automatic_prediction,[G] structure; [U] verdict/reason,INTERPRETATION_BLOCKED,not_run,group 1: 5 vertices; joint contract interpretation unresolved,미수행,N/A(해당 없음),normal 3D physics video 없음,joint_field_matrix.csv; joint-audit README
+10163,manual_correction,external draft says not performed,NOT_PERFORMED,not_run,GT fields not copied or manually completed,미수행,N/A(해당 없음),해당 없음,Suhyeon review README
+10163,GT_only_control,[U] in external draft; Codex follow-up verified,PASS,executed,GT converter/Isaac tensor drive only; 1 DOF; 5 targets/10 round trips/3 resets,미수행,N/A(해당 없음),state-trace graph; viewport INVALID_BLACK_CAPTURE,10163 summary; Linux per-step audit
+29806,automatic_prediction,[G] structure; [U] verdict/reason,INTERPRETATION_BLOCKED,not_run,006: 3 groups; one meaningful moving region; no deployable joint contract,미수행,N/A(해당 없음),normal 3D physics video 없음,joint_field_matrix.csv; joint-audit README
+29806,manual_correction,external draft says not performed,NOT_PERFORMED,not_run,GT fields not copied or manually completed,미수행,N/A(해당 없음),해당 없음,Suhyeon review README
+29806,GT_only_control,[U] in external draft; Codex follow-up verified,PASS,executed,GT converter/Isaac independent 3-DOF tensor drive,미수행,N/A(해당 없음),state-trace graph only,29806 summary; Linux per-step audit
+29354,automatic_prediction,[G] structure; [U] verdict,NO_DEPLOYABLE_JOINT_SPEC,not_run,no retained 14-channel property head; nonsemantic tiny false group,미수행,N/A(해당 없음),해당 없음,joint_field_matrix.csv; joint-audit README
+29354,manual_correction,external draft says not performed,NOT_PERFORMED,not_run,no manual asset or correction group made,미수행,N/A(해당 없음),해당 없음,Suhyeon review README
+29354,GT_only_control,[U] in external draft; Codex follow-up content verified,PASS,executed,"GT fixed passive control: DOF 0, 180 steps, no target",미수행,N/A(해당 없음),해당 없음,29354 summary; Linux audit MISSING_RECORD path/SHA
