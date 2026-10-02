@@ -1,0 +1,7 @@
+{
+  "status": "PASS_CPU_STATIC_SPEC",
+  "source_usd_sha256": "72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b",
+  "clone_count": 2,
+  "physics_steps_requested": 0,
+  "source_instance_deinstanced": false
+}

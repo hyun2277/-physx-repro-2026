@@ -1,0 +1,32 @@
+{
+  "status": "STATIC_SPEC_VERIFIED_SOURCE_AND_AUDIT_ONLY",
+  "source_usd_sha256": "72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b",
+  "gt_C_1": {
+    "body0": "/gt_10163/Geometry/world/l_1",
+    "body1": "/gt_10163/Geometry/world/l_1/abstract_1",
+    "axis": "X",
+    "limits_degrees": [-90.0, 90.0]
+  },
+  "fixed_component": {
+    "joint": "fixed_abs_1",
+    "body0": "/gt_10163/Geometry/world/l_1/abstract_1",
+    "body1": "/gt_10163/Geometry/world/l_1/abstract_1/l_0"
+  },
+  "clones": [
+    {
+      "source_mesh": "/gt_10163/Geometry/world/l_1/tn__1_/tn__1_",
+      "source_point_count": 10971,
+      "target_joint_side": "body0",
+      "target_rigid_body": "/gt_10163/Geometry/world/l_1",
+      "mapping_reason": "nearest rigid body is gt_C_1 body0"
+    },
+    {
+      "source_mesh": "/gt_10163/Geometry/world/l_1/abstract_1/l_0/tn__0_",
+      "source_point_count": 13373,
+      "target_joint_side": "body1",
+      "target_rigid_body": "/gt_10163/Geometry/world/l_1/abstract_1",
+      "mapping_reason": "nearest rigid l_0 is fixed to gt_C_1 body1 by fixed_abs_1"
+    }
+  ],
+  "clone_rule": "Copy source points into target-body local coordinates using inverse(target_body_initial_world) * source_mesh_initial_world. Author no clone xform properties. Source instance proxies and GT USD remain unmodified."
+}

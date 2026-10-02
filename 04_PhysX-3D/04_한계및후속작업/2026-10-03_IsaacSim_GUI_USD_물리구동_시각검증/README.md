@@ -110,13 +110,17 @@
 - 정적 inspection script는 physics 관련 extension이 비활성인지와 timeline이 정지 상태인지 확인하고 `simulation_steps_requested=0`, PhysicsScene 생성 없음, SimulationManager/tensor 호출 없음 marker를 남긴다.
 - 첫 10163 사람 확인 결과는 **GUI/joint 구조 PASS, mesh visibility FAIL**이다. 노트북 mesh 대신 검은 배경과 붉은 joint/frame guide만 보였으므로 완전한 시각 검증 PASS가 아니다. 감사 결과와 해시는 [USD_COMPOSITION_MESH_AUDIT.md](USD_COMPOSITION_MESH_AUDIT.md)에 기록했다.
 - `Physics=physx` composition에는 geometry/physics layer와 collider proxy가 resolve됐다. actual `Mesh` framing에도 표면은 보이지 않았다. renderer-free 감사에서 두 Mesh는 13,373/10,971 points, 26,600/21,424 triangles, finite/valid topology, determinant 1.0으로 확인됐다. A geometry invalid, B transform/bounds, D camera framing은 배제했다.
-- ancestor session binding 실행에서 청록색은 보이지 않았고 Fabric이 instance hierarchy의 `material:binding` 누락을 경고했다. 따라서 현재 원인은 **`C_OR_E_UNRESOLVED`**다. 다음 runner는 일반 session-layer Mesh 복제본 두 개와 이전에 표시 성공한 형태의 reference cube를 같이 표시해 C/E를 분리한다. physics와 영상 생성은 여전히 금지된다.
+- ancestor session binding 실행에서 청록색은 보이지 않았고 Fabric이 instance hierarchy의 `material:binding` 누락을 경고했다. 이후 일반 session-layer Mesh 복제본과 reference cube는 표시됐으므로, 비가시 원인은 원본 USD instance/material presentation 경로로 좁혀졌다. 원본 instance presentation 내부의 세부 원인은 미확정이며 physics와 영상 생성은 여전히 별도 게이트다.
 - clone-mesh 사람 확인: GPU 0 GUI, 주황색 `ReferenceCube`, 흰색 받침+세워진 화면 형태의 노트북 복제 Mesh, Stage tree의 `CloneMesh_0/1`·cube·조명이 보였다. 따라서 전역 GUI renderer 실패와 원본 topology 이상은 배제하고, 원인을 **원본 USD instance/material presentation 경로**로 좁혔다. 이 화면은 session-layer 정적 복제본이며 원본 USD 표시 성공이나 physics 실행 증거가 아니다.
 - 사람 확인 screenshot은 Windows `C:\Users\sh050\Desktop\physX\1003\10163_clone_mesh_visible_diagnostic.png`, 188,129 bytes, SHA256 `6784dcafd76968878ccc3a073e0bbe1a42a798f5713a8683d34ff8b5a66b546b`에 보존됐다. Linux/Git에 PNG가 있다고 기록하지 않는다.
 
 ## 10163 GPU 0 GUI physics runner 성공 게이트
 
-새 runner는 원본 USD SHA256·`Physics=physx`·`gt_C_1`·rigid body 3·collider 2를 재검사한다. instance root인 `l_0`는 원본 파일을 바꾸지 않고 anonymous session layer에서만 de-instance한 뒤, 복제 Mesh를 각 source Mesh의 가장 가까운 실제 rigid-body ancestor 하위에 body-local points로 한 번만 author한다. physics 시작 후 clone xform property가 생기거나 바뀌면 실패다. USD Drive target·keyframe·frame별 transform authoring은 사용하지 않는다.
+2026-10-02 GPU 0 tensor physics runner는 session de-instancing 직후 `source Mesh did not compose as editable geometry after session de-instancing`으로 중단됐다. 로그는 `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261002T175913Z-10163-gpu0-gui-physics-f28d7933-fc14-4003-b9cf-1d6e43ff46e6/child.stderr.log`에 있다. 이 상태는 **`VISUAL_LINK_SETUP_BLOCKED_BEFORE_PHYSICS`**다. PhysicsScene, physics step, tensor target, keyframe, 영상 캡처는 실행하지 않았다.
+
+de-instancing은 재시도하지 않는다. 새 정적 runner는 `gt_C_1`의 body0 `.../l_1`와 body1 `.../l_1/abstract_1`, 그리고 `fixed_abs_1`의 body1→`l_0` 고정 연결로 source Mesh를 link에 매핑한다. `tn__1_` source는 body0의 자식 clone, `tn__0_` source는 fixed component를 따라 body1의 자식 clone이 된다. 각 clone points는 source initial world pose를 target rigid-body local pose로 변환해, clone local xform을 author하지 않고 시작 pose를 재구성한다. 원본 instance proxy·GT USD는 수정하지 않는다.
+
+이 정적 GUI 확인이 사람 검토까지 통과하기 전에는 tensor physics 사전시험과 영상 생성은 계속 차단한다. 이후 physics runner도 clone xform property가 생기거나 바뀌면 실패하도록 유지하며, USD Drive target·keyframe·frame별 transform authoring은 사용하지 않는다.
 
 사전시험은 tensor target `0 → -0.6 → -1.2 → 0 rad`를 각 60 step 실행한다. step 증가, finite joint/link state, target readback, measured span 0.5 rad 이상, GT limit 내 상태, clone xform 미-authoring을 모두 통과해야만 화면 캡처를 시작한다. 캡처 구간은 `0 → -1.2 → 0 rad`, 각 90 physics step이며 `update_fabric=True`로 renderer와 동기화한다. 레코드는 joint position/velocity, tensor rigid-body transform, 각 clone이 상속한 body에서 계산된 world transform을 같이 남긴다.
 

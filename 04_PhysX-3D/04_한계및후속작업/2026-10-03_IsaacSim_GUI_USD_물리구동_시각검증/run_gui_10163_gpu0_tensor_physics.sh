@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "BLOCKED: the retired de-instancing visual-link setup failed before physics."
+echo "Run run_gui_10163_gpu0_linked_clone_static.sh and obtain human static-GUI confirmation first."
+echo "No Isaac app, PhysicsScene, tensor target, or video capture is started by this retired runner."
+exit 64
+
 ROOT="/home/minsujo/Desktop/SH/PHYSx"
 REPO="$ROOT/repro-records"
 RECORD_DIR="$REPO/04_PhysX-3D/04_한계및후속작업/2026-10-03_IsaacSim_GUI_USD_물리구동_시각검증"

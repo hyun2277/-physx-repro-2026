@@ -5,6 +5,7 @@
     "python_py_compile": "PASS",
     "bash_n": "PASS",
     "kit_required_gpu_settings_present": "PASS",
+    "linked_clone_mapping_cpu_static_spec": "PASS",
     "git_diff_check": "PASS",
     "video_validator_cpu_synthetic": {
       "status": "PASS",
@@ -22,5 +23,10 @@
     "10163 tensor articulation control",
     "viewport video capture"
   ],
+  "retired_before_physics": {
+    "status": "VISUAL_LINK_SETUP_BLOCKED_BEFORE_PHYSICS",
+    "error": "source Mesh did not compose as editable geometry after session de-instancing",
+    "replacement": "linked-clone static GUI gate with no source de-instancing"
+  },
   "interpretation": "The runner and validation gates are prepared. This record is not evidence that the 10163 GUI physics run succeeded."
 }

@@ -48,3 +48,11 @@ mesh prim이 없거나 visibility/extent/layer 검사가 실패하면 사람 확
 2026-10-03 사람 확인에서 GPU 0 Isaac GUI와 viewport, 주황색 `ReferenceCube`, 흰색 받침과 세워진 화면 형태의 `CloneMesh_0/1`, 조명이 함께 보였다. 이로써 전역 GUI renderer 실패와 원본 points/topology 이상은 배제했으며, 비가시 원인은 **원본 USD의 instance/material presentation 경로**로 좁혀졌다. 과거 `C_OR_E_UNRESOLVED`는 이 확인 전 단계의 판정이며, renderer 전체와 topology를 포함한 포괄적 미확정 상태로 유지하지 않는다. 원본 instance presentation 내부의 세부 원인은 아직 확정하지 않았다.
 
 이 화면은 session layer에 만든 정적 일반 Mesh 복제본이다. 원본 instance가 그대로 표시됐다는 증거도, physics가 실행됐다는 증거도 아니다. 사람 확인 screenshot은 Windows `C:\Users\sh050\Desktop\physX\1003\10163_clone_mesh_visible_diagnostic.png`, 188,129 bytes, SHA256 `6784dcafd76968878ccc3a073e0bbe1a42a798f5713a8683d34ff8b5a66b546b`에만 보존됐다. Linux/Git 파일로 기록하지 않는다.
+
+## linked-clone static gate
+
+기존 tensor GUI runner의 session de-instancing은 `source Mesh did not compose as editable geometry after session de-instancing`에서 **physics 전에** 중단됐다. source instance proxy를 de-instance하거나 수정하지 않는다.
+
+`gt_C_1`의 body0은 `/gt_10163/Geometry/world/l_1`, body1은 `/gt_10163/Geometry/world/l_1/abstract_1`이다. `fixed_abs_1`는 body1과 `/gt_10163/Geometry/world/l_1/abstract_1/l_0`를 고정 연결한다. 따라서 source `.../l_1/tn__1_/tn__1_`는 body0에, source `.../abstract_1/l_0/tn__0_`는 fixed component를 통해 body1에 연결한다. 새 static gate는 이 두 non-instance rigid body의 자식으로 clone Mesh를 author한다. clone points는 `target_body_world_inverse × source_mesh_world`로 계산하므로 시작 world pose가 source와 같으며, clone 자체에는 xform property를 author하지 않는다.
+
+이 mapping, direct material binding, initial pose reconstruction error, simulation step 0을 자동 marker로 남긴다. 사람 GUI에서 두 clone과 `gt_C_1`가 함께 확인되기 전에는 tensor physics 및 영상 생성으로 진행하지 않는다.
