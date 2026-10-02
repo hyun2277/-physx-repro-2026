@@ -1,0 +1,147 @@
+{
+  "scope": "29806 GT-only controlled-material Isaac Sim tensor articulation drive. This is a GT converter/simulator control, not AI-prediction evidence. Generated mesh, generated physics, and predicted joint fields were not read.",
+  "status": "PASS",
+  "input_usd": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/gt_29806.usda",
+  "input_usd_sha256": "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a",
+  "report_path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-tensor-drive-20261002T110246Z-29806-tensor-drive/physics_drive_report.json",
+  "report_sha256": "acc3989b87682d1534db13fd06aae6b190cf2df6fa362551e882bf518a518426",
+  "gpu_policy": "physical GPU 1 only via CUDA_VISIBLE_DEVICES=1; Isaac cuda:0; P2P/multi-GPU disabled; IOMMU warning retained.",
+  "preflight": {
+    "revolute": 3,
+    "revolute_paths": [
+      "/gt_29806/Physics/gt_C_1",
+      "/gt_29806/Physics/gt_C_2",
+      "/gt_29806/Physics/gt_C_3"
+    ],
+    "articulation_root": "/gt_29806/Geometry/world/l_0",
+    "rigid_bodies": 11,
+    "colliders": 8,
+    "dof_names": [
+      "gt_C_1",
+      "gt_C_2",
+      "gt_C_3"
+    ],
+    "dof_indices": [
+      0,
+      1,
+      2
+    ],
+    "limits_rad": {
+      "gt_C_1": [
+        -3.1415927410125732,
+        0.0
+      ],
+      "gt_C_2": [
+        -3.1415927410125732,
+        0.0
+      ],
+      "gt_C_3": [
+        -3.1415927410125732,
+        0.0
+      ]
+    }
+  },
+  "drive_settings_from_imported_usd": {
+    "gt_C_1": {
+      "stiffness": 1.7453292608261108,
+      "damping": 0.1745329201221466,
+      "max_force": 2000.0
+    },
+    "gt_C_2": {
+      "stiffness": 1.7453292608261108,
+      "damping": 0.1745329201221466,
+      "max_force": 2000.0
+    },
+    "gt_C_3": {
+      "stiffness": 1.7453292608261108,
+      "damping": 0.1745329201221466,
+      "max_force": 2000.0
+    }
+  },
+  "controlled_material_settings": "Session-layer-only controlled experimental override before physics initialization: every rigid body mass=1.0 kg, diagonal inertia=(0.1,0.1,0.1) kg*m^2, principal axes identity. Existing imported colliders and finite drive settings retained; no generated output used.",
+  "joint_results": {
+    "gt_C_1": {
+      "in_range_record_count": 2400,
+      "initialization_record_count": 180,
+      "out_of_range_record_count": 60,
+      "active_response_span_rad": 2.1734084486961365,
+      "all_dof_within_own_limit_plus_0.05": true,
+      "non_active_dof_max_delta_from_settled_neutral_rad": {
+        "gt_C_2": 0.00010752677917480469,
+        "gt_C_3": 0.00010752677917480469
+      },
+      "non_active_dof_within_follower_tolerance": true,
+      "root_link_max_translation_drift_m": 6.827312048119483e-06,
+      "root_within_drift_tolerance": true,
+      "out_of_range_final_position_rad": -0.11333687603473663,
+      "finite": true,
+      "in_range_targets_rad": [
+        -2.6703538298606873,
+        -2.120575100183487,
+        -1.5707963705062866,
+        -1.0210176408290863,
+        -0.471238911151886
+      ],
+      "out_of_range_requested_rad": 0.2,
+      "per_link_max_translation_drift_m": [
+        6.827312048119483e-06
+      ]
+    },
+    "gt_C_2": {
+      "in_range_record_count": 2400,
+      "initialization_record_count": 180,
+      "out_of_range_record_count": 60,
+      "active_response_span_rad": 2.1600251495838165,
+      "all_dof_within_own_limit_plus_0.05": true,
+      "non_active_dof_max_delta_from_settled_neutral_rad": {
+        "gt_C_1": 1.3589859008789062e-05,
+        "gt_C_3": 0.00010204315185546875
+      },
+      "non_active_dof_within_follower_tolerance": true,
+      "root_link_max_translation_drift_m": 1.1850261450661556e-05,
+      "root_within_drift_tolerance": true,
+      "out_of_range_final_position_rad": -0.11051629483699799,
+      "finite": true,
+      "in_range_targets_rad": [
+        -2.6703538298606873,
+        -2.120575100183487,
+        -1.5707963705062866,
+        -1.0210176408290863,
+        -0.471238911151886
+      ],
+      "out_of_range_requested_rad": 0.2,
+      "per_link_max_translation_drift_m": [
+        1.1850261450661556e-05
+      ]
+    },
+    "gt_C_3": {
+      "in_range_record_count": 2400,
+      "initialization_record_count": 180,
+      "out_of_range_record_count": 60,
+      "active_response_span_rad": 2.146523118019104,
+      "all_dof_within_own_limit_plus_0.05": true,
+      "non_active_dof_max_delta_from_settled_neutral_rad": {
+        "gt_C_1": 2.47955322265625e-05,
+        "gt_C_2": 3.063678741455078e-05
+      },
+      "non_active_dof_within_follower_tolerance": true,
+      "root_link_max_translation_drift_m": 1.739776339056086e-05,
+      "root_within_drift_tolerance": true,
+      "out_of_range_final_position_rad": -0.10842610895633698,
+      "finite": true,
+      "in_range_targets_rad": [
+        -2.6703538298606873,
+        -2.120575100183487,
+        -1.5707963705062866,
+        -1.0210176408290863,
+        -0.471238911151886
+      ],
+      "out_of_range_requested_rad": 0.2,
+      "per_link_max_translation_drift_m": [
+        1.739776339056086e-05
+      ]
+    }
+  },
+  "video": "29806_gt_only_physics_joint_state_trace.mp4",
+  "video_sha256": "ffda96f5147bd8f5e2c708264b2defd695c04ec222fbd1dc7c2aed1accdbacf0"
+}

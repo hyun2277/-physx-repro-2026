@@ -43,3 +43,9 @@ tensor `ArticulationView.set_dof_position_targets` 경로가 direct-GPU scene의
 경로인지 별도로 검증하는 것이며, 이 기록에서는 재시도하지 않는다. 같은 오류를 반복하지
 않도록 현재 USD `PhysicsDriveAPI` runner는 CUDA physics device에서 target authoring 전에
 명시적으로 중단하도록 보호했다.
+
+## 29806 Warp Tensor GT-only drive PASS (20261002T110246Z)
+
+GPU direct PhysX scene에서는 USD `PhysicsDriveAPI` target authoring이 불가하므로, 29806은 이전 실패한 USD target 경로를 재사용하지 않았다. registered `Physics=physx` stage의 initialized Warp `omni.physics.tensors` articulation view로만 position target을 요청했다. composed stage의 revolute 3개(`gt_C_1`~`gt_C_3`), articulation root 1개, rigid body 11개, collider 8개와 각 `[-π,0]` rad range를 사전 확인했다.
+
+세 문을 하나씩 분리해 각 5개 in-range target, 10회 왕복, 초기화 3회, 별도 out-of-range request로 시험했다. 세 trial 모두 finite state·range·active response·non-active DOF follower 기준·fixed root drift 기준을 통과했다. 이 결과는 GT-only 통제 물성 조건의 URDF/USD/Isaac Sim 대조군이며 AI 예측 성공이 아니다. 자세한 summary, logged-state trace MP4와 poster는 [20261002T110246Z_29806_GT_only_물리구동_결과](20261002T110246Z_29806_GT_only_물리구동_결과/README.md)에 있다.
