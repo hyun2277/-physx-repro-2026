@@ -1,59 +1,62 @@
-# Isaac Sim standalone importer API 진단
+# Isaac Sim URDF importer 최소 headless 진단
 
-## 목적과 범위
+## 결론
 
-이 기록은 Isaac Sim 6.1.0의 **기본 app**, **빈 USD stage**, **URDF importer enable/API**를 URDF 변환 없이 분리해 검사한다. GT URDF/USD 변환, GT 물리 구동, generated-output 변환은 실행하지 않았다.
+기존 host smoke에서 `isaacsim.asset.importer.urdf-3.11.10`, `omni.physics`, `omni.physx` startup은 확인됐지만, public importer API 성공은 확인되지 않았다. URDF 변환·USD 변환·GT 물리 구동은 실행하지 않았다.
 
-공식 Isaac Sim 6.1.0은 Kit SDK 110.3.0을 사용하며, 설치된 `python.sh`는 Python 3.12.13이다. 설치 bundle에는 `isaacsim.asset.importer.urdf` 3.11.10이 있다. NVIDIA의 [URDF importer 문서](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/py/source/extensions/isaacsim.asset.importer.urdf/docs/index.html)는 standalone에서 `--enable isaacsim.asset.importer.urdf` 또는 experience의 `[dependencies]`를 권장한다. [공식 standalone tutorial](https://docs.isaacsim.omniverse.nvidia.com/latest/importer_exporter/import_urdf.html)은 `./python.sh standalone_examples/api/isaacsim.asset.importer.urdf/urdf_import.py`를 제시하지만, 이 진단은 변환을 호출하지 않는다.
+기존 `SimulationApp`의 기본 경험이 `isaacsim.exp.base.python.kit`에서 `isaacsim.exp.base.kit`을 의존하고, 그 base 경험이 `omni.isaac.ml_archive`를 직접 시작한다는 것을 설치 파일에서 확인했다. 이 확장은 URDF importer의 runtime `[dependencies]`에는 없다. 따라서 importer만 검사할 때 base 경험을 쓰는 것은 불필요한 legacy ML Torch load를 포함한다.
 
-## 기존 importer smoke의 실제 오류 순서
+## 실제 오류와 분류
 
-### GPU 1이 열거된 2026-10-02T080000Z smoke
+### GPU 1 host smoke
 
-`active_gpu=1`, `multi_gpu=false`, `/renderer/multiGpu/enabled=false`, `CUDA_VISIBLE_DEVICES` unset으로 시작했다. Isaac 로그에서 GPU 1이 active로 표시되고 `isaacsim.asset.importer.urdf-3.11.10` startup도 표시됐다. 그 뒤 최초 importer-related library 오류는 다음과 같다.
+로그: `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-install-smoke/20261002T080000Z-single-gpu/`
+
+설정은 `active_gpu=1`, `multi_gpu=false`, `/renderer/multiGpu/enabled=false`, `CUDA_VISIBLE_DEVICES` unset이었다. GPU 1 활성화 및 다음 extension startup 후 첫 importer-related library diagnostic은 다음과 같다.
 
 ```text
+isaacsim.asset.importer.urdf-3.11.10 startup
+omni.physics ... startup
+omni.physx ... startup
 Import error: .../extsDeprecated/omni.isaac.ml_archive/pip_prebundle/torch/lib/libc10_cuda.so:
 undefined symbol: cudaGetDriverEntryPointByVersion, version libcudart.so.12
 ```
 
-이는 Python traceback이 아니라 Isaac의 extension import diagnostic이다. `omni.isaac.ml_archive`의 bundled `libc10_cuda.so`가 해당 CUDA runtime symbol을 찾지 못했다는 **library ABI 오류 관찰**까지는 확정된다. 이 오류가 URDF importer public API를 직접 차단하는지, host의 정상 GPU 환경에서 importer import 자체가 통과하는지는 아직 확정하지 않았다. launcher exit code 0과 extension startup만으로 API 성공을 주장하지 않는다.
+이것은 `omni.isaac.ml_archive` bundled `libc10_cuda.so`의 runtime ABI import 오류다. Python traceback은 없었다. 이 사실만으로 URDF importer API가 직접 실패했다고 단정하지 않는다. 기존 runner가 marker 없이 launcher exit code 0을 성공으로 볼 수 있었던 문제를 새 runner에서 고쳤다.
 
-### 현재 Codex 2026-10-02T090000Z 분리 진단
+### Codex 분리 smoke
 
-`01_basic_app`, `02_usd_stage`, `03_urdf_enable_api`는 모두 실제 Python marker 전에 다음 runtime device diagnostic이 먼저 발생했다.
+로그: `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/20261002T090000Z-minimal-importer-diagnosis/`
 
-```text
-Could not initialize NVML: NVML_ERROR_DRIVER_NOT_LOADED
-The chosen activeGpu index 1 is higher than the available GPUs.
-No device could be created.
-```
+기본 app, empty stage, importer enable/API 모두 Python marker 전에 `NVML_ERROR_DRIVER_NOT_LOADED`, `activeGpu index 1 is higher than available GPUs`를 먼저 기록했다. 이 세 결과는 `BLOCKED_BY_CODEX_GPU_ACCESS`다. 일반 Linux terminal에서 확인된 driver 595.84와 RTX 5090 두 장, GPU 1의 `physxgen` CUDA 사용 가능을 반박하지 않는다. Codex의 device 접근 제한을 host driver 장애로 기록하지 않는다.
 
-따라서 이 세 결과는 각각 `BLOCKED_BY_CODEX_GPU_ACCESS`이며, USD stage와 importer enable/API는 **도달하지 못했다**. 사용자가 일반 Linux terminal에서 확인한 RTX 5090 두 장, driver 595.84, GPU 1의 `physxgen` CUDA 성공과 모순되지 않는다. Codex 실행 환경의 NVML/GPU 접근 제한을 호스트 driver 장애로 기록하지 않는다.
+## 공식 권장 방식과 최소 experience
 
-## 단일 GPU 및 IOMMU 정책
+NVIDIA의 [URDF importer extension 문서](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/py/source/extensions/isaacsim.asset.importer.urdf/docs/index.html)는 다음 둘 중 하나로 extension을 활성화하도록 한다.
 
-- 설치/host checker 로그의 `IOMMU is enabled` 경고를 기록한다. BIOS·커널 설정은 변경하지 않는다.
-- 이후 host smoke와 GT 대조군은 물리 GPU 1만 사용한다: `active_gpu=1`, `physics_gpu=1`, `multi_gpu=false`, `/renderer/multiGpu/enabled=false`.
-- `CUDA_VISIBLE_DEVICES`는 Isaac이 CUDA/Omniverse enumeration 차이를 경고했으므로 사용하지 않는다.
-- P2P와 다중 GPU는 활성화하거나 시험하지 않는다.
-- GPU selection 근거는 NVIDIA [Setup Tips](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_faq.html)와 [SimulationApp API](https://docs.isaacsim.omniverse.nvidia.com/latest/py/source/extensions/isaacsim.simulation_app/docs/api.html)다.
+- application command line: `--enable isaacsim.asset.importer.urdf`
+- experience `.kit`의 `[dependencies]`: `"isaacsim.asset.importer.urdf" = {}`
 
-## 결과 구분
+새 `isaac_minimal_usd_physx.kit`와 `isaac_minimal_urdf_importer.kit`은 후자의 공식 방식만 사용한다. 설치 폴더 파일을 편집하지 않으며, 두 experience의 명시 dependency에는 `omni.isaac.ml_archive`, ML, ROS가 없다. importer의 설치본 runtime dependency인 `isaacsim.asset.importer.utils`, `isaacsim.asset.transformer.rules`, `isaacsim.core.experimental.utils`, `isaacsim.pip.newton`, `omni.usdex.libs`는 extension manager가 해결한다. `verify_minimal_experience.py`는 이 명시 dependency와 single-GPU renderer setting을 CPU에서 검사한다.
 
-| 검사 | 현재 Codex 결과 | host에서 확정된 결과 |
-|---|---|---|
-| Isaac 기본 실행 | GPU access 전에 차단 | compatibility checker `PASSED`; standalone Python marker는 재확인 필요 |
-| 빈 USD stage 생성 | 도달하지 못함 | 미확정 |
-| importer extension enable | 도달하지 못함 | bundle/startup 확인, enable API는 미확정 |
-| importer public API import | 도달하지 못함 | legacy ML ABI diagnostic 이후 미확정 |
+## GPU 1 및 IOMMU 정책
 
-## 재현 명령
+- `IOMMU is enabled` 경고는 기록만 한다. BIOS·커널·driver·CUDA는 변경하지 않는다.
+- host smoke는 물리 GPU 1만 사용한다: `active_gpu=1`, `physics_gpu=1`, `multi_gpu=false`, `/renderer/multiGpu/enabled=false`.
+- P2P와 다중 GPU는 활성화·시험하지 않는다.
+- `CUDA_VISIBLE_DEVICES`는 사용하지 않는다. Isaac의 CUDA/Omniverse device-order 경고를 피하고 physical GPU index를 고정한다. 설정 근거는 NVIDIA [Setup Tips](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_faq.html) 및 [SimulationApp API](https://docs.isaacsim.omniverse.nvidia.com/latest/py/source/extensions/isaacsim.simulation_app/docs/api.html)다.
 
-일반 Linux host terminal에서 다음 하나만 실행한다. URDF 파일·GT·AI 산출물을 읽거나 쓰지 않는다.
+## marker-gated host 재현 명령
 
 ```bash
 /home/minsujo/Desktop/SH/PHYSx/repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_IsaacSim_Importer_API_진단/run_host_single_gpu_importer_smoke.sh
 ```
 
-이 runner는 stdout marker가 없으면 launcher exit code가 0이어도 실패로 처리하고, 첫 실패 이후 뒤 단계를 실행하지 않는다. 로그와 staging은 `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/` 및 `/home/minsujo/Desktop/SH/PHYSx/staging/isaac-sim-importer-diagnosis-*` 아래에만 만든다.
+새 runner는 아래를 별도 process로 검사하고 raw stdout/stderr 및 process/result exit code를 각각 남긴다.
+
+1. minimal Kit Isaac app 실행
+2. minimal Kit empty USD stage 생성
+3. importer experience에서 `isaacsim.asset.importer.urdf` enable 확인
+4. `URDFImporterConfig()` 생성까지의 public API 최소 호출
+
+각 marker가 없으면 process exit code가 0이어도 result exit code `70`으로 실패한다. URDF 경로를 주거나 `import_urdf()`를 호출하지 않는다. 로그는 `/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/`, 임시 script는 `/home/minsujo/Desktop/SH/PHYSx/staging/isaac-sim-importer-diagnosis-*`에만 생성된다.

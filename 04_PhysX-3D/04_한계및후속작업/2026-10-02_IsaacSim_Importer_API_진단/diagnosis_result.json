@@ -5,10 +5,18 @@
     "python": "3.12.13",
     "urdf_importer_bundle_version": "3.11.10"
   },
-  "observed_importer_related_error": {
-    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-install-smoke/20261002T080000Z-single-gpu",
-    "first_importer_related_library_error": "omni.isaac.ml_archive bundled libc10_cuda.so: undefined symbol cudaGetDriverEntryPointByVersion, version libcudart.so.12",
-    "classification": "library_abi_error_observed; importer_public_api_causality_unconfirmed"
+  "root_cause_audit": {
+    "default_experience_chain": "SimulationApp default -> isaacsim.exp.base.python.kit -> isaacsim.exp.base.kit",
+    "default_base_direct_dependency": "omni.isaac.ml_archive at apps/isaacsim.exp.base.kit:59",
+    "urdf_importer_runtime_dependencies_include_ml_archive": false,
+    "observed_library_error": "omni.isaac.ml_archive bundled libc10_cuda.so: undefined symbol cudaGetDriverEntryPointByVersion, version libcudart.so.12",
+    "classification": "legacy_ml_library_abi_error_observed; importer_public_api_causality_unconfirmed"
+  },
+  "minimal_official_configuration": {
+    "mechanism": "official experience [dependencies] enablement of isaacsim.asset.importer.urdf",
+    "experiences": ["isaac_minimal_usd_physx.kit", "isaac_minimal_urdf_importer.kit"],
+    "explicit_ml_or_ros_dependencies": false,
+    "installation_files_modified": false
   },
   "codex_separated_smokes": {
     "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/20261002T090000Z-minimal-importer-diagnosis",
@@ -18,6 +26,11 @@
     "urdf_api": "NOT_REACHED",
     "first_runtime_diagnostic": "NVML_ERROR_DRIVER_NOT_LOADED; activeGpu 1 unavailable in Codex execution environment",
     "host_driver_interpretation": "not a host driver fault; general Linux terminal separately confirmed RTX 5090 x2 and driver 595.84"
+  },
+  "host_runner": {
+    "four_marker_steps": ["app", "stage", "importer_enable", "importer_api_config_only"],
+    "urdf_conversion_called": false,
+    "marker_missing_result_exit_code": 70
   },
   "policy": {
     "active_gpu": 1,

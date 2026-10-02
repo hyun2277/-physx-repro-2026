@@ -1,0 +1,30 @@
+[package]
+title = "PhysX-3D Isaac minimal URDF importer smoke"
+description = "Standalone smoke experience: USD, PhysX, and the official URDF importer only; excludes ML and ROS bundles."
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.physx" = {}
+"omni.physics.stageupdate" = {}
+"isaacsim.asset.importer.urdf" = {}
+
+[settings]
+renderer.multiGpu.enabled = false
+renderer.multiGpu.autoEnable = false
+
+[settings.app]
+name = "PhysX-3D Isaac minimal URDF importer smoke"
+version = "1.0.0"
+settings.persistent = false
+fastShutdown = true
+file.ignoreUnsavedStage = true
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]
