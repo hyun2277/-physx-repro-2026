@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo 'BLOCKED: 29806 static colored mapping gate requires human PASS before physics/capture.' >&2
+exit 13
+
 ROOT=/home/minsujo/Desktop/SH/PHYSx
 REPO="$ROOT/repro-records"
 DIR="$REPO/04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거"

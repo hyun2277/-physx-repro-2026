@@ -116,6 +116,7 @@ def main() -> int:
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--capture-size", required=True)
     parser.add_argument("--capture-offset", default="0,0")
+    parser.add_argument("--static-mapping-gate", action="store_true")
     args = parser.parse_args()
     args.run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -214,6 +215,7 @@ def main() -> int:
             left = str(one_target(fixed_joint, "physics:body0")); right = str(one_target(fixed_joint, "physics:body1"))
             fixed_graph.setdefault(left, []).append(right); fixed_graph.setdefault(right, []).append(left)
         rigid_body_paths = []
+        nearest_rigid_paths = []
         for source_prim in meshes:
             body = source_prim.GetParent()
             while body.IsValid() and not body.HasAPI(UsdPhysics.RigidBodyAPI):
@@ -221,6 +223,7 @@ def main() -> int:
             if not body.IsValid():
                 raise RuntimeError(f"no rigid-body ancestor for {source_prim.GetPath()}")
             nearest = str(body.GetPath())
+            nearest_rigid_paths.append(nearest)
             candidates = set()
             for relation in joint_bodies.values():
                 for side in ("body0", "body1"):
@@ -243,29 +246,32 @@ def main() -> int:
         # so both routes have identical presentation and runtime invariants.
         deinstanced_rigid_bodies = []
 
-        material = UsdShade.Material.Define(stage, "/__PhysXGuiDiagnostic/Material")
-        shader = UsdShade.Shader.Define(stage, "/__PhysXGuiDiagnostic/Material/PreviewSurface")
-        shader.CreateIdAttr("UsdPreviewSurface")
-        shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(0.12, 0.68, 0.92))
-        shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0)
-        shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
-        material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
+        colors = {None:(0.72,0.72,0.76), "gt_C_1":(0.88,0.20,0.18), "gt_C_2":(0.16,0.70,0.26), "gt_C_3":(0.15,0.35,0.92)}
+        materials = {}
+        for label,color in colors.items():
+            token = label or "BASE"
+            material = UsdShade.Material.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}")
+            shader = UsdShade.Shader.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}/PreviewSurface")
+            shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
+            material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface"); materials[label]=material
 
         xforms = UsdGeom.XformCache(Usd.TimeCode.Default())
         clone_prims = []
         clone_specs = []
-        for index, (source_prim, body_path) in enumerate(zip(meshes, rigid_body_paths)):
+        for index, (source_prim, nearest_path, body_path) in enumerate(zip(meshes, nearest_rigid_paths, rigid_body_paths)):
             body = stage.GetPrimAtPath(body_path)
             source_mesh = UsdGeom.Mesh(source_prim)
             source_world = xforms.GetLocalToWorldTransform(source_prim)
             body_world_inverse = xforms.GetLocalToWorldTransform(body).GetInverse()
-            body_local_points = []
+            body_local_points = []; source_world_points = []; reconstructed_world_points = []
             reconstruction_error = 0.0
             body_world = xforms.GetLocalToWorldTransform(body)
             for point in (source_mesh.GetPointsAttr().Get() or []):
                 world = source_world.Transform(Gf.Vec3d(float(point[0]), float(point[1]), float(point[2])))
                 local = body_world_inverse.Transform(world)
-                reconstruction_error = max(reconstruction_error, (body_world.Transform(local) - world).GetLength())
+                reconstructed = body_world.Transform(local)
+                reconstruction_error = max(reconstruction_error, (reconstructed - world).GetLength())
+                source_world_points.append(world); reconstructed_world_points.append(reconstructed)
                 body_local_points.append(Gf.Vec3f(local))
             if reconstruction_error > 1.0e-6:
                 raise RuntimeError(f"body-local round trip failed: {source_prim.GetPath()} error={reconstruction_error}")
@@ -280,27 +286,33 @@ def main() -> int:
             clone.CreateSubdivisionSchemeAttr(UsdGeom.Tokens.none)
             clone.CreateDoubleSidedAttr(True)
             clone.CreateVisibilityAttr(UsdGeom.Tokens.inherited)
-            clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(0.12, 0.68, 0.92)])
+            door_joint = next((Path(path).name for path,rel in joint_bodies.items() if rel["body1"] == str(body_path) or connected(fixed_graph, rel["body1"], str(body_path))), None)
+            clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*colors[door_joint])])
             clone.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
-            UsdShade.MaterialBindingAPI.Apply(clone.GetPrim()).Bind(material)
+            UsdShade.MaterialBindingAPI.Apply(clone.GetPrim()).Bind(materials[door_joint])
             direct_targets = [
                 str(path) for path in clone.GetPrim().GetRelationship("material:binding").GetTargets()
             ]
-            if direct_targets != [str(material.GetPath())]:
+            if direct_targets != [str(materials[door_joint].GetPath())]:
                 raise RuntimeError(f"clone material binding failed: {clone_path} -> {direct_targets}")
             clone_prims.append(clone.GetPrim())
             clone_specs.append(
                 {
                     "source_mesh": str(source_prim.GetPath()),
+                    "original_rigid_body_ancestor": nearest_path,
                     "presentation_mode": "relationship_derived_body_local_clone",
                     "clone_mesh": str(clone_path),
                     "rigid_body_parent": str(body.GetPath()),
+                    "component_label": door_joint or "BASE",
+                    "display_color_rgb": list(colors[door_joint]),
                     "points": len(body_local_points),
                     "triangles": sum(max(0, int(count) - 2) for count in counts),
                     "direct_material_binding_targets": direct_targets,
                     "double_sided": True,
                     "visibility": "inherited",
                     "initial_world_roundtrip_max_error_m": reconstruction_error,
+                    "source_world_bounds": {"min":[min(float(p[i]) for p in source_world_points) for i in range(3)],"max":[max(float(p[i]) for p in source_world_points) for i in range(3)]},
+                    "reconstructed_world_bounds": {"min":[min(float(p[i]) for p in reconstructed_world_points) for i in range(3)],"max":[max(float(p[i]) for p in reconstructed_world_points) for i in range(3)]},
                 }
             )
 
@@ -311,14 +323,16 @@ def main() -> int:
         fill_light.CreateRadiusAttr(0.5)
         UsdGeom.Xformable(fill_light).AddTranslateOp().Set(Gf.Vec3d(2.0, -2.0, 3.0))
 
-        for body in rigid:
-            mass = UsdPhysics.MassAPI.Apply(body)
-            mass.CreateMassAttr().Set(1.0)
-            mass.CreateDiagonalInertiaAttr().Set(Gf.Vec3f(0.1, 0.1, 0.1))
-            mass.CreatePrincipalAxesAttr().Set(Gf.Quatf(1.0, Gf.Vec3f(0.0, 0.0, 0.0)))
-        scene = PhysxScene("/World/GTOnlyRuntimePhysicsScene")
-        scene.set_gravity((0.0, 0.0, -9.81))
-        scene.set_dt(1.0 / 60.0)
+        scene = None
+        if not args.static_mapping_gate:
+            for body in rigid:
+                mass = UsdPhysics.MassAPI.Apply(body)
+                mass.CreateMassAttr().Set(1.0)
+                mass.CreateDiagonalInertiaAttr().Set(Gf.Vec3f(0.1, 0.1, 0.1))
+                mass.CreatePrincipalAxesAttr().Set(Gf.Quatf(1.0, Gf.Vec3f(0.0, 0.0, 0.0)))
+            scene = PhysxScene("/World/GTOnlyRuntimePhysicsScene")
+            scene.set_gravity((0.0, 0.0, -9.81))
+            scene.set_dt(1.0 / 60.0)
         clone_xforms_before = authored_clone_xforms(clone_prims)
         clone_time_samples_before = clone_time_samples(clone_prims)
         report["selected_visual_route"] = "RELATIONSHIP_DERIVED_BODY_LOCAL_CLONES"
@@ -329,8 +343,51 @@ def main() -> int:
         viewport = get_active_viewport()
         clone_paths = [str(prim.GetPath()) for prim in clone_prims]
         if viewport is None or not frame_viewport_prims(viewport, prims=clone_paths):
-            raise RuntimeError("failed to frame GUI diagnostic laptop meshes")
+            raise RuntimeError("failed to frame GUI diagnostic cabinet meshes")
+        if args.static_mapping_gate:
+            mins=[min(spec["source_world_bounds"]["min"][i] for spec in clone_specs) for i in range(3)]
+            maxs=[max(spec["source_world_bounds"]["max"][i] for spec in clone_specs) for i in range(3)]
+            center=Gf.Vec3d(*[(a+b)*0.5 for a,b in zip(mins,maxs)]); sizes=[b-a for a,b in zip(mins,maxs)]
+            up_token=str(UsdGeom.GetStageUpAxis(stage)); up_index={"X":0,"Y":1,"Z":2}[up_token.upper()]
+            candidates=[i for i in range(3) if i!=up_index]; front_index=min(candidates,key=lambda i:sizes[i])
+            distance=max(sizes)*2.2
+            eye_values=list(center); eye_values[front_index]+=distance
+            up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
+            camera=UsdGeom.Camera.Define(stage,"/__PhysXGuiDiagnostic/FrontCamera")
+            view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
+            UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse())
+            camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
+            viewport.set_active_camera(str(camera.GetPath()))
+            for _ in range(10): app.update()
+            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"eye":eye_values,"up_axis":up_token,"front_axis_index":front_index,"camera":str(camera.GetPath())}
         context.get_selection().set_selected_prim_paths([str(revolute[0].GetPath())], True)
+
+        joint_frames={}
+        for joint in revolute:
+            schema=UsdPhysics.RevoluteJoint(joint)
+            def value(name):
+                raw=joint.GetAttribute(name).Get()
+                if raw is None:return None
+                try:return [float(x) for x in raw]
+                except TypeError:
+                    try:return float(raw)
+                    except (TypeError,ValueError):return str(raw)
+            joint_frames[str(joint.GetPath())]={"body0":str(one_target(joint,"physics:body0")),"body1":str(one_target(joint,"physics:body1")),"axis":str(schema.GetAxisAttr().Get()),"local_pos0":value("physics:localPos0"),"local_pos1":value("physics:localPos1"),"local_rot0":value("physics:localRot0"),"local_rot1":value("physics:localRot1"),"lower_limit_degrees":value("physics:lowerLimit"),"upper_limit_degrees":value("physics:upperLimit")}
+        static_mapping = {
+            "status":"AUTOMATION_STATIC_MAPPING_READY_HUMAN_CHECK_REQUIRED",
+            "physics_started":False,"simulation_steps":0,"variant":variant.GetVariantSelection(),
+            "meters_per_unit":UsdGeom.GetStageMetersPerUnit(stage),"up_axis":str(UsdGeom.GetStageUpAxis(stage)),
+            "joint_relationships":joint_bodies,"joint_frames":joint_frames,"fixed_joint_graph":fixed_graph,"mesh_mapping":clone_specs,"camera":report.get("static_camera"),
+            "color_legend":{"BASE":list(colors[None]),"gt_C_1":list(colors["gt_C_1"]),"gt_C_2":list(colors["gt_C_2"]),"gt_C_3":list(colors["gt_C_3"])},
+        }
+        (args.run_dir / "static_mapping_gate.json").write_text(json.dumps(static_mapping,indent=2)+"\n")
+        if args.static_mapping_gate:
+            (args.run_dir / "runner_phase.txt").write_text("STATIC_MAPPING_HUMAN_REVIEW\n")
+            started=time.monotonic()
+            while time.monotonic()-started < 120.0:
+                app.update(); time.sleep(0.01)
+            print("STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED",flush=True)
+            return 0
 
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
         SimulationManager.initialize_physics()

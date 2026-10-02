@@ -1,0 +1,163 @@
+{
+  "status": "INVALID_VISUAL_MAPPING",
+  "physics_success_claimed": false,
+  "video_success_claimed": false,
+  "official_link_created": false,
+  "run_staging": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T192735Z-29806-gpu0-e2e-823f74a4-3bfb-499e-9084-1de9abddc5c9",
+  "input_usd_sha256": "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a",
+  "joint_relationships": {
+    "/gt_29806/Physics/gt_C_1": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_1"
+    },
+    "/gt_29806/Physics/gt_C_2": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_2"
+    },
+    "/gt_29806/Physics/gt_C_3": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_3"
+    }
+  },
+  "fixed_joint_graph": {
+    "/gt_29806": [
+      "/gt_29806/Geometry/world/l_0"
+    ],
+    "/gt_29806/Geometry/world/l_0": [
+      "/gt_29806",
+      "/gt_29806/Geometry/world/l_0/l_4"
+    ],
+    "/gt_29806/Geometry/world/l_0/l_4": [
+      "/gt_29806/Geometry/world/l_0",
+      "/gt_29806/Geometry/world/l_0/l_4/l_5"
+    ],
+    "/gt_29806/Geometry/world/l_0/l_4/l_5": [
+      "/gt_29806/Geometry/world/l_0/l_4",
+      "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6"
+    ],
+    "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6": [
+      "/gt_29806/Geometry/world/l_0/l_4/l_5",
+      "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/l_7"
+    ],
+    "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/l_7": [
+      "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_1": [
+      "/gt_29806/Geometry/world/l_0/abstract_1/l_1"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_1/l_1": [
+      "/gt_29806/Geometry/world/l_0/abstract_1"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_2": [
+      "/gt_29806/Geometry/world/l_0/abstract_2/l_2"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_2/l_2": [
+      "/gt_29806/Geometry/world/l_0/abstract_2"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_3": [
+      "/gt_29806/Geometry/world/l_0/abstract_3/l_3"
+    ],
+    "/gt_29806/Geometry/world/l_0/abstract_3/l_3": [
+      "/gt_29806/Geometry/world/l_0/abstract_3"
+    ]
+  },
+  "mesh_mapping_recorded_by_failed_run": [
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/l_7/tn__7_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0",
+      "door_joint": null,
+      "points": 2542,
+      "triangles": 4850,
+      "initial_world_roundtrip_max_error_m": 0.0
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/tn__6_/tn__6_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0",
+      "door_joint": null,
+      "points": 848,
+      "triangles": 1580,
+      "initial_world_roundtrip_max_error_m": 0.0
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/l_4/l_5/tn__5_/tn__5_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0",
+      "door_joint": null,
+      "points": 850,
+      "triangles": 1584,
+      "initial_world_roundtrip_max_error_m": 0.0
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/l_4/tn__4_/tn__4_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0",
+      "door_joint": null,
+      "points": 3222,
+      "triangles": 6189,
+      "initial_world_roundtrip_max_error_m": 0.0
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/abstract_1/l_1/tn__1_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0/abstract_1",
+      "door_joint": "gt_C_1",
+      "points": 940,
+      "triangles": 1759,
+      "initial_world_roundtrip_max_error_m": 5.551115123125783e-17
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/abstract_2/l_2/tn__2_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0/abstract_2",
+      "door_joint": "gt_C_2",
+      "points": 1122,
+      "triangles": 2112,
+      "initial_world_roundtrip_max_error_m": 5.551115123125783e-17
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/abstract_3/l_3/tn__3_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0/abstract_3",
+      "door_joint": "gt_C_3",
+      "points": 1122,
+      "triangles": 2112,
+      "initial_world_roundtrip_max_error_m": 0.0
+    },
+    {
+      "source_mesh": "/gt_29806/Geometry/world/l_0/tn__0_/tn__0_",
+      "original_rigid_body_ancestor": null,
+      "rigid_body_parent": "/gt_29806/Geometry/world/l_0",
+      "door_joint": null,
+      "points": 2327,
+      "triangles": 4422,
+      "initial_world_roundtrip_max_error_m": 0.0
+    }
+  ],
+  "limitation": "failed-run marker did not record original ancestor or source/reconstructed world bounds; those fields are null/missing and must be measured by the new static gate",
+  "video": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T192735Z-29806-gpu0-e2e-823f74a4-3bfb-499e-9084-1de9abddc5c9/29806_gt_only_gpu0_gui_physics.mp4",
+    "bytes": 1422587,
+    "sha256": "d6a2759f4dcd3f1061be8a774bd1201ea88bd99e6dcee58e5d1b81e0d5c768c9",
+    "automated_validator_status": "FAIL"
+  },
+  "representative_frames": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T192735Z-29806-gpu0-e2e-823f74a4-3bfb-499e-9084-1de9abddc5c9/validation_frames/end.png",
+      "bytes": 847650,
+      "sha256": "39718b3b1703e16792789e2622979eadc0e2c17aa54f9d848a1be727fc6968c1"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T192735Z-29806-gpu0-e2e-823f74a4-3bfb-499e-9084-1de9abddc5c9/validation_frames/middle.png",
+      "bytes": 853463,
+      "sha256": "7be979a6f576eba65239b5bf5c4f770edcc8525d93a0dcc6a3d2b74c083cd960"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T192735Z-29806-gpu0-e2e-823f74a4-3bfb-499e-9084-1de9abddc5c9/validation_frames/start.png",
+      "bytes": 863761,
+      "sha256": "8d66ac304acdafcc072531932000a93c57757a194f83faa2ffe8829e1fd93ed5"
+    }
+  ],
+  "human_observation": "cabinet doors were not visibly presented as three independent doors; one laptop-like panel appeared under a long body"
+}
