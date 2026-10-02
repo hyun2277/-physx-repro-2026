@@ -51,6 +51,10 @@ Host 기록은 X11 `DISPLAY=:0`을 사용했다. `xrandr --listproviders`에서 
 
 해결 범위는 GPU 0에서 기본 Isaac GUI·USD stage presentation이 가능하다는 점이다. GPU 1의 X surface present 실패 원인은 그대로 남아 있고, 10163·29806·29354 USD loading과 physics는 이번 실행에서 다루지 않았다.
 
+### 10163 GPU 0 static USD inspection 준비
+
+사용자는 GPU 0 GUI에 기존 10163 GT-only USD를 정적으로 여는 검사 1회를 승인했다. 별도 experience와 runner는 `Physics=physx` payload를 compose해 schema를 읽지만 PhysX·SimulationManager·tensor extension을 의존하지 않으며 timeline을 재생하지 않는다. 자동 검사는 입력 SHA256, joint `gt_C_1`, articulation root, rigid body, collider와 zero-step guard를 확인한다. 화면에서 노트북 형상과 joint Property를 사람이 확인하기 전에는 PASS로 판정하지 않는다. 29806·29354, AI output, physics simulation은 승인 범위 밖이다.
+
 ## 새 시도 기록 규칙
 
 각 시도는 가설 하나와 주요 변경 하나만 기록한다. GUI cube가 검으면 10163을 열지 않는다. 화면을 사람이 확인하지 않은 상태에서는 screenshot·viewport 성공을 주장하지 않는다.

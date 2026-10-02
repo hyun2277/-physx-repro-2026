@@ -104,6 +104,10 @@
 - 2026-10-03 GPU 0 cube 실행(`20261002T165125Z-cube-gpu0-6e7dd0e5-1047-45e2-ab41-2d2b174bc3f2`): **`GUI_VISIBLE=PASS`**. 자동 검사에서 GPU 0 UUID/PCI 일치, compute process 0, app startup, `omni.usd`, `headless=false`, cube 생성/lookup, window 생성과 swapchain/backbuffer 오류 0을 확인했다. 사용자는 실제 화면에서 렌더링된 cube, Stage tree의 `World/VisibleCube`, Property panel의 Prim Path `/World/VisibleCube`, Stage tree의 `KeyLight`와 `DistantLight`를 직접 확인했다.
 - 사람 확인 screenshot은 Windows 로컬 `C:\Users\sh050\Desktop\physX\1003\아이작심1.PNG`에만 보관됐다. Linux `SCREENSHOT_DIR`에는 파일이 없으며 Git 증거 파일이나 Linux hash 검증 대상으로 기록하지 않는다.
 - 이 PASS가 입증하는 범위는 **GPU 0에서 Isaac Sim GUI와 기본 USD stage가 정상 표시됨**까지다. 10163·29806·29354 USD loading, 관절, physics simulation은 모두 미실행이다.
+- 다음 승인 범위는 GPU 0에서 10163 GT-only USD를 정적으로 여는 GUI 검사 1회다. 입력은 `/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda`(730 bytes, SHA256 `72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b`)다. `Physics=physx` variant를 선택해 authored schema를 표시하지만 physics extension·PhysicsScene·SimulationManager·tensor control을 로드하거나 호출하지 않는다.
+- 준비 시점 GPU 0은 32,607 MiB 중 382 MiB 사용, 31,727 MiB free였고 compute process는 없었다. 실제 runner가 시작 직전에 동일 UUID/PCI, memory, compute process를 다시 검사한다.
+- 화면 확인 예정 항목: 노트북 GT 형상, GT Stage tree, `/gt_10163/Physics/gt_C_1`, joint의 body0/body1·axis·local origin·lower/upper limit, articulation root·rigid body·collider 구조다. 창 제목은 `GT-only reference — not AI prediction`으로 표시한다. 자동 marker가 통과해도 사람이 확인하기 전에는 `GUI_VISIBLE=PASS`가 아니다.
+- 정적 inspection script는 physics 관련 extension이 비활성인지와 timeline이 정지 상태인지 확인하고 `simulation_steps_requested=0`, PhysicsScene 생성 없음, SimulationManager/tensor 호출 없음 marker를 남긴다.
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음
 - 29806·29354: 아직 실행하지 않음
