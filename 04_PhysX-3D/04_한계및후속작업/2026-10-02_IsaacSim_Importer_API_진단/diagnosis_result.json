@@ -1,0 +1,31 @@
+{
+  "isaac_install": {
+    "product_version": "6.1.0",
+    "kit_sdk": "110.3.0",
+    "python": "3.12.13",
+    "urdf_importer_bundle_version": "3.11.10"
+  },
+  "observed_importer_related_error": {
+    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-install-smoke/20261002T080000Z-single-gpu",
+    "first_importer_related_library_error": "omni.isaac.ml_archive bundled libc10_cuda.so: undefined symbol cudaGetDriverEntryPointByVersion, version libcudart.so.12",
+    "classification": "library_abi_error_observed; importer_public_api_causality_unconfirmed"
+  },
+  "codex_separated_smokes": {
+    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-importer-diagnosis/20261002T090000Z-minimal-importer-diagnosis",
+    "basic_app": "BLOCKED_BY_CODEX_GPU_ACCESS_BEFORE_MARKER",
+    "usd_stage": "NOT_REACHED",
+    "urdf_enable": "NOT_REACHED",
+    "urdf_api": "NOT_REACHED",
+    "first_runtime_diagnostic": "NVML_ERROR_DRIVER_NOT_LOADED; activeGpu 1 unavailable in Codex execution environment",
+    "host_driver_interpretation": "not a host driver fault; general Linux terminal separately confirmed RTX 5090 x2 and driver 595.84"
+  },
+  "policy": {
+    "active_gpu": 1,
+    "physics_gpu": 1,
+    "multi_gpu": false,
+    "p2p": "not enabled or tested",
+    "iommu_warning_recorded": true,
+    "bios_or_kernel_changed": false
+  },
+  "not_run": ["URDF conversion", "USD conversion", "GT physics drive", "AI generated-output conversion"]
+}
