@@ -16,6 +16,7 @@
 | 2026-10-03 | 2,400 step 설명 | record 산식이 불명확 | 코드·Linux report phase로 확정 | 8 targets × 30 steps × 10 cycles로 기록 | 일치 | 설명 완료 | 미기록 | 미기록 |
 | 2026-10-03 | 29354 drift 검사 범위 | 전체 link drift처럼 읽힐 수 있음 | 코드 배열 접근으로 확정 | 첫 link translation만 검사했다고 정정 | 전체 link translation/orientation 재측정 필요 | 미해결 | 미기록 | 미기록 |
 | 2026-10-03 | session-layer 재현성 | 원본 USD와 runtime PhysicsScene/물성 설정이 분리됨 | 기존 runner로 확인 | 새 실행에서 원본 hash와 override manifest 분리 예정 | 미실행 | 진행 예정 | 0 | 0 |
+| 2026-10-03 | 10163 Mesh 표면 비가시 | actual Mesh 선택+`F`에서도 검은 화면·축만 표시 | topology/finite/transform/bounds는 정상. root `extentsHint` 단독 원인은 배제. material-free instance proxy의 renderer presentation 세부 원인은 미확정 | renderer-free 수치 감사 후 anonymous session layer opaque material 진단 준비 | 단색 GUI 사람 확인 미실행 | 미해결(E; C/E 구분 대기) | 미기록 | static audit 1.2초 |
 | 2026-10-02 | GUI GPU Foundation device | GUI cube 재시도에서 `Failed to create any GPU devices` | 로그로 증상 확정; GPU/driver/IOMMU 단일 원인은 미확정 | `CUDA_VISIBLE_DEVICES=1` 제거, physical GPU 1 index를 명시 | 재실행 대기 | 진행 예정 | 0 | 0 |
 | 2026-10-02 | GUI renderer surface/backbuffer | `Failed to find a graphics and/or presenting queue` → `createSwapchain failed` → 반복 `backbuffers are not initialized` | GPU 1 Vulkan/RTX 선택과 GPU Foundation은 성공했으나 현재 X11 surface에 present queue를 만들지 못함. 물리 모니터는 GPU 1, X source provider는 GPU 0인 PRIME topology 확인. GPU별 queue-family present bit는 도구 부재로 미확정 | official base의 viewport/window/capture 설정을 보완했으나 동일 실패. 추가 설정 변경 없이 topology 감사로 전환 | 세 번째 cube도 재실패; 10163 미실행 | GPU 1 GUI 미해결 | 사용자 실행·관찰 시간 미기록 | 약 70초 후 Ctrl+C |
 

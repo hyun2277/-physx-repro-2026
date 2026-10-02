@@ -1,0 +1,257 @@
+{
+  "status": "PASS_STATIC_AUDIT",
+  "input_usd": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda",
+    "bytes": 730,
+    "sha256": "72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b"
+  },
+  "physics_variant": "physx",
+  "mesh_count": 2,
+  "meshes": [
+    {
+      "path": "/gt_10163/Geometry/world/l_1/abstract_1/l_0/tn__0_",
+      "active": true,
+      "loaded": true,
+      "instance_proxy": true,
+      "visibility_authored": "inherited",
+      "visibility_computed": "inherited",
+      "purpose_authored": "default",
+      "purpose_computed": "default",
+      "point_count": 13373,
+      "face_count": 26600,
+      "face_vertex_index_count": 79800,
+      "triangle_equivalent_count": 26600,
+      "points_finite": true,
+      "topology_valid": true,
+      "local_bounds_from_points": {
+        "min": [
+          -0.7288389801979065,
+          -0.1966720074415207,
+          -0.3925580084323883
+        ],
+        "max": [
+          0.7098140120506287,
+          0.620510995388031,
+          -0.15289899706840515
+        ],
+        "size": [
+          1.4386529922485352,
+          0.8171830028295517,
+          0.23965901136398315
+        ]
+      },
+      "world_bounds_from_transformed_points": {
+        "min": [
+          -0.7288389802306946,
+          -0.19667200741887358,
+          -0.3925580083830521
+        ],
+        "max": [
+          0.7098140120178406,
+          0.6205109954106781,
+          -0.15289899701906892
+        ],
+        "size": [
+          1.4386529922485352,
+          0.8171830028295517,
+          0.23965901136398318
+        ]
+      },
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -3.2788105563952286e-11,
+          2.264710641242118e-11,
+          4.9336229546170784e-11,
+          1.0
+        ]
+      ],
+      "linear_transform_determinant": 1.0,
+      "extent_authored": [
+        [
+          -0.7288389801979065,
+          -0.1966720074415207,
+          -0.3925580084323883
+        ],
+        [
+          0.7098140120506287,
+          0.620510995388031,
+          -0.15289899706840515
+        ]
+      ],
+      "extents_hint": [],
+      "orientation": "rightHanded",
+      "subdivision_scheme": "none",
+      "material_binding": null,
+      "material_relationship": null,
+      "display_color": [],
+      "display_color_interpolation": "constant",
+      "display_opacity": [],
+      "display_opacity_interpolation": "constant",
+      "references_metadata": null,
+      "payload_metadata": null,
+      "resolved_prim_stack_layers": [
+        {
+          "identifier": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/instances.usda",
+          "real_path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/instances.usda",
+          "exists": true,
+          "bytes": 830,
+          "sha256": "14af4e275ba55c4cdaca687ad44a1b96465bc8168ce847061503558b8593b063"
+        },
+        {
+          "identifier": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/geometries.usd",
+          "real_path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/geometries.usd",
+          "exists": true,
+          "bytes": 336727,
+          "sha256": "d3ab97b83f089bcb75a8def7d766fe0e03adcd89b72fc46a30f0955b3d8c160f"
+        }
+      ]
+    },
+    {
+      "path": "/gt_10163/Geometry/world/l_1/tn__1_/tn__1_",
+      "active": true,
+      "loaded": true,
+      "instance_proxy": true,
+      "visibility_authored": "inherited",
+      "visibility_computed": "inherited",
+      "purpose_authored": "default",
+      "purpose_computed": "default",
+      "point_count": 10971,
+      "face_count": 21424,
+      "face_vertex_index_count": 64272,
+      "triangle_equivalent_count": 21424,
+      "points_finite": true,
+      "topology_valid": true,
+      "local_bounds_from_points": {
+        "min": [
+          -0.729000985622406,
+          -0.2272379994392395,
+          -0.15663699805736542
+        ],
+        "max": [
+          0.7141780257225037,
+          -0.16802500188350677,
+          0.6639890074729919
+        ],
+        "size": [
+          1.4431790113449097,
+          0.05921299755573273,
+          0.8206260055303574
+        ]
+      },
+      "world_bounds_from_transformed_points": {
+        "min": [
+          -0.729000985622406,
+          -0.2272379994392395,
+          -0.15663699805736542
+        ],
+        "max": [
+          0.7141780257225037,
+          -0.16802500188350677,
+          0.6639890074729919
+        ],
+        "size": [
+          1.4431790113449097,
+          0.05921299755573273,
+          0.8206260055303574
+        ]
+      },
+      "world_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "linear_transform_determinant": 1.0,
+      "extent_authored": [
+        [
+          -0.729000985622406,
+          -0.2272379994392395,
+          -0.15663699805736542
+        ],
+        [
+          0.7141780257225037,
+          -0.16802500188350677,
+          0.6639890074729919
+        ]
+      ],
+      "extents_hint": [],
+      "orientation": "rightHanded",
+      "subdivision_scheme": "none",
+      "material_binding": null,
+      "material_relationship": null,
+      "display_color": [],
+      "display_color_interpolation": "constant",
+      "display_opacity": [],
+      "display_opacity_interpolation": "constant",
+      "references_metadata": null,
+      "payload_metadata": null,
+      "resolved_prim_stack_layers": [
+        {
+          "identifier": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/instances.usda",
+          "real_path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/instances.usda",
+          "exists": true,
+          "bytes": 830,
+          "sha256": "14af4e275ba55c4cdaca687ad44a1b96465bc8168ce847061503558b8593b063"
+        },
+        {
+          "identifier": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/geometries.usd",
+          "real_path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/payloads/geometries.usd",
+          "exists": true,
+          "bytes": 336727,
+          "sha256": "d3ab97b83f089bcb75a8def7d766fe0e03adcd89b72fc46a30f0955b3d8c160f"
+        }
+      ]
+    }
+  ],
+  "solid_diagnostic_static_validation": {
+    "session_layer_only": true,
+    "material": "/__PhysXDiagnostic/Material",
+    "resolved_on_meshes": [
+      "/__PhysXDiagnostic/Material",
+      "/__PhysXDiagnostic/Material"
+    ],
+    "all_meshes_resolve_diagnostic_material": true,
+    "source_usd_modified": false
+  },
+  "viewport_persistent_mesh_visibility": null,
+  "renderer_enabled": false,
+  "physics_steps": 0
+}

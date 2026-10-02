@@ -1,0 +1,24 @@
+[package]
+title = "10163 composed USD mesh audit"
+description = "Renderer-free, zero-physics static USD composition audit"
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+
+[settings]
+app.name = "PhysX-10163-composed-mesh-audit"
+app.version = "6.1.0"
+app.window.hideUi = true
+renderer.enabled = false
+app.fastShutdown = false
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]

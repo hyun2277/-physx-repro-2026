@@ -109,9 +109,10 @@
 - 화면 확인 예정 항목: 노트북 GT 형상, GT Stage tree, `/gt_10163/Physics/gt_C_1`, joint의 body0/body1·axis·local origin·lower/upper limit, articulation root·rigid body·collider 구조다. 창 제목은 `GT-only reference — not AI prediction`으로 표시한다. 자동 marker가 통과해도 사람이 확인하기 전에는 `GUI_VISIBLE=PASS`가 아니다.
 - 정적 inspection script는 physics 관련 extension이 비활성인지와 timeline이 정지 상태인지 확인하고 `simulation_steps_requested=0`, PhysicsScene 생성 없음, SimulationManager/tensor 호출 없음 marker를 남긴다.
 - 첫 10163 사람 확인 결과는 **GUI/joint 구조 PASS, mesh visibility FAIL**이다. 노트북 mesh 대신 검은 배경과 붉은 joint/frame guide만 보였으므로 완전한 시각 검증 PASS가 아니다. 감사 결과와 해시는 [USD_COMPOSITION_MESH_AUDIT.md](USD_COMPOSITION_MESH_AUDIT.md)에 기록했다.
-- `Physics=physx` composition에는 geometry/physics layer와 collider proxy가 resolve됐다. 가장 강한 원인 후보는 root framing에 사용한 `extentsHint`에 ±`3.4028235e38` sentinel이 포함된 점이다. 다음 runner는 원본 variant·transform·material·lighting을 바꾸지 않고 composed mesh prim의 유효 bounds만 frame하며, mesh 속성과 layer hash marker가 모두 있어야 사람 확인 단계로 넘긴다. 실제 형상이 보이기 전에는 framing 원인을 최종 확정하거나 renderer/material 문제를 완전히 배제하지 않는다.
-- 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
-- 10163 스크린샷: 아직 없음
+- `Physics=physx` composition에는 geometry/physics layer와 collider proxy가 resolve됐다. 두 번째 사람 확인에서 actual `Mesh`를 선택하고 `F`를 눌러도 검은 배경과 축만 남았으므로 root `extentsHint` 단독 원인 설명은 철회했다. renderer-free 수치 감사에서 두 Mesh는 각각 13,373/10,971 points, 26,600/21,424 triangles, finite/valid topology, determinant 1.0으로 확인됐다. A geometry invalid, B transform/bounds, D camera framing은 배제했고, 현재는 **E renderer presentation 문제(세부 원인 미확정)**로 분류한다.
+- 두 Mesh에 material binding/displayColor/displayOpacity가 없어 C material 경로와 E renderer/instance 경로를 구분해야 한다. 다음 실행은 원본을 수정하지 않고 anonymous session layer에만 opaque cyan `UsdPreviewSurface`를 바인딩한다. 단색에서 보이면 C, 그래도 안 보이면 E를 계속 진단한다. physics와 영상 생성은 여전히 금지된다.
+- 10163 GUI USD static loading: stage/joint 구조는 로드됐으나 사람이 actual Mesh를 frame해도 표면이 보이지 않아 **FAIL/BLOCKED**다. physics step은 0이며 영상은 생성하지 않았다.
+- 10163 스크린샷: Linux/Git 증거 파일은 아직 없다.
 - 29806·29354: 아직 실행하지 않음
 
 GPU 0 cube gate는 완료됐다. 별도 지시 없이 10163 단계로 넘어가지 않는다.

@@ -12,7 +12,7 @@ import omni.kit.app
 import omni.timeline
 import omni.usd
 from omni.kit.viewport.utility import frame_viewport_prims, get_active_viewport
-from pxr import Usd, UsdGeom, UsdPhysics, UsdShade
+from pxr import Gf, Sdf, Usd, UsdGeom, UsdPhysics, UsdShade
 
 
 RUN_DIR = Path(os.environ["PHYSX_GUI_RUN_DIR"])
@@ -186,6 +186,54 @@ marker(
     },
 )
 
+# Optional presentation-only diagnostic.  It is authored exclusively in the
+# anonymous session layer and never saved into the source USD.  Binding one
+# opaque UsdPreviewSurface above the instance proxies distinguishes a missing
+# or unusable authored material path from geometry/composition failures.
+diagnostic_mode = os.environ.get("PHYSX_GUI_DIAGNOSTIC_MATERIAL", "original")
+if diagnostic_mode not in {"original", "solid"}:
+    raise RuntimeError(f"unsupported PHYSX_GUI_DIAGNOSTIC_MATERIAL={diagnostic_mode!r}")
+diagnostic_binding = None
+if diagnostic_mode == "solid":
+    original_target = stage.GetEditTarget()
+    stage.SetEditTarget(stage.GetSessionLayer())
+    material = UsdShade.Material.Define(stage, "/__PhysXDiagnostic/Material")
+    shader = UsdShade.Shader.Define(stage, "/__PhysXDiagnostic/Material/PreviewSurface")
+    shader.CreateIdAttr("UsdPreviewSurface")
+    shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(0.15, 0.65, 0.95))
+    shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0)
+    shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
+    material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
+    geometry_prim = stage.GetPrimAtPath("/gt_10163/Geometry")
+    if not geometry_prim.IsValid():
+        raise RuntimeError("cannot apply diagnostic material: /gt_10163/Geometry is missing")
+    UsdShade.MaterialBindingAPI.Apply(geometry_prim).Bind(material)
+    diagnostic_binding = str(material.GetPath())
+    stage.SetEditTarget(original_target)
+marker(
+    "material_diagnostic",
+    {
+        "status": "PASS",
+        "mode": diagnostic_mode,
+        "session_layer_only": diagnostic_mode == "solid",
+        "source_usd_modified": False,
+        "binding_ancestor": "/gt_10163/Geometry" if diagnostic_binding else None,
+        "material": diagnostic_binding,
+        "diffuse_color": [0.15, 0.65, 0.95] if diagnostic_binding else None,
+        "opacity": 1.0 if diagnostic_binding else None,
+    },
+)
+
+mesh_visibility_path = "/persistent/app/viewport/Viewport/Viewport0/scene/meshes/visible"
+marker(
+    "viewport_mesh_visibility",
+    {
+        "status": "PASS",
+        "setting_path": mesh_visibility_path,
+        "visible": settings.get(mesh_visibility_path),
+    },
+)
+
 # The imported root has FLT_MAX sentinel entries in extentsHint. Framing the
 # root therefore produced an unusably distant camera. Frame only composed mesh
 # prims using their authored extents, then select the joint for its properties.
@@ -236,5 +284,6 @@ marker(
         "human_verified": False,
         "selected_prim": str(joint_prim.GetPath()),
         "physics_steps": 0,
+        "material_diagnostic_mode": diagnostic_mode,
     },
 )
