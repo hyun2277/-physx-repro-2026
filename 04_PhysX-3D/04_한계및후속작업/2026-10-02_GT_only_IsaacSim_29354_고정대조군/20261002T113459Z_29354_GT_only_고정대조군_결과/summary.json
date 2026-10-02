@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "29354 GT-only fixed passive PhysX control; not AI prediction; no joint target used.",
+  "variant": "physics",
+  "preflight": {
+    "revolute": 0,
+    "prismatic": 0,
+    "fixed_joints": 6,
+    "articulation_roots": 1,
+    "rigid_bodies": 6,
+    "colliders": 6,
+    "dof": 0
+  },
+  "passive_steps": 180,
+  "finite": true,
+  "max_observed_link_translation_drift_m": 1.0280995564419422e-07,
+  "anomaly": "none observed"
+}

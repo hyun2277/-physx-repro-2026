@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+R=/home/minsujo/Desktop/SH/PHYSx;P="$R/repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_GT_only_IsaacSim_29354_고정대조군";U="$R/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29354/gt_29354/gt_29354.usda";I="$R/tools/isaac-sim";X="$(date -u +%Y%m%dT%H%M%SZ)-29354-fixed";L="$R/logs/gt-only-isaac-fixed/$X";S="$R/staging/gt-only-isaac-fixed-$X";mkdir -p "$L" "$S";UUID="$(nvidia-smi --query-gpu=index,uuid --format=csv,noheader,nounits|awk -F, '$1~/^1$/{gsub(/^ +| +$/,"",$2);print $2}')";if nvidia-smi --query-compute-apps=gpu_uuid,pid --format=csv,noheader,nounits|awk -F, -v u="$UUID" '$1~u{f=1}END{exit !f}';then exit 1;fi
+set +e;CUDA_VISIBLE_DEVICES=1 "$I/python.sh" --no-ros-env "$P/run_29354_gt_only_fixed_passive.py" --root "$R" --usd "$U" --out "$S/report.json" >"$L/stdout.log" 2>"$L/stderr.log";r=$?;set -e;echo $r >"$L/exit_code.txt";[ $r = 0 ]&&rg -q GT_FIXED_29354=PASS "$L/stdout.log"
