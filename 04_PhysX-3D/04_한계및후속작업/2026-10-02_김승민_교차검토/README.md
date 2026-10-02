@@ -55,4 +55,4 @@ GT-only PASS는 **GT 변환기·Isaac Sim 물리 제어 대조군 PASS**일 뿐 
 - 수현 검토 기록과의 관계: 자동 예측군 `INTERPRETATION_BLOCKED`/`NO_DEPLOYABLE_JOINT_SPEC`, GT-only와 자동 예측군 분리, 수동 보정 미수행은 대조 범위에서 불일치 발견 못 함. 29354의 Git 기반 per-step path/SHA256는 두 기록 모두 `MISSING_RECORD`이다.
 - 여전히 미확인: generated-output의 공개 joint coordinate frame·unit·denormalization·group-to-link contract, AI 예측군 Isaac 실행, 정상 3D mesh physics 영상, contact-force 정확도, 사람의 과거 관절 명세 조사 능동 작업시간.
 
-수현 검토 README의 김승민 체크박스는 변경하지 않았다. 이 외부 초안에는 김승민의 직접 검토 범위와 `[U]` 한계가 남아 있으며, 이 후속 대조는 Codex가 수행한 별도 범위이기 때문이다.
+수현 검토 README의 김승민 체크박스는 2026-10-02 직접 검토 완료 사실에 따라 완료 처리됐다. 초안의 `[G]`·`[U]` 표기와 TODO는 원문 근거 수준으로 보존하며, Codex의 후속 Git·Linux 대조는 별도 보완 범위다.
