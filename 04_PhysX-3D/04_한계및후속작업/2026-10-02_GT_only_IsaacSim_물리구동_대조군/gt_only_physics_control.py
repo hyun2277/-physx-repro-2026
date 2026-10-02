@@ -1,0 +1,122 @@
+"""Drive existing GT-only USD variants; it never converts URDF or uses predictions."""
+import argparse, hashlib, json, math
+from pathlib import Path
+from isaacsim import SimulationApp
+
+print("GT_ONLY_PHYSICS_SCRIPT_IMPORTED", flush=True)
+
+CASES = {"10163": ("physx", 1), "29806": ("physx", 3), "29354": ("physics", 0)}
+FRAMES, RESETS, ROUND_TRIPS = 30, 3, 10
+FOLLOWER_TOLERANCE_DEG, RANGE_TOLERANCE_DEG = 1.0, 2.0
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as source:
+        for data in iter(lambda: source.read(1 << 20), b""): digest.update(data)
+    return digest.hexdigest()
+
+def finite(value):
+    try: return all(math.isfinite(float(x)) for x in value)
+    except TypeError: return value is not None and math.isfinite(float(value))
+
+def update(app, n):
+    for _ in range(n): app.update()
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--root", type=Path, required=True)
+    p.add_argument("--input-stage", type=Path, required=True)
+    p.add_argument("--stage", type=Path, required=True)
+    a = p.parse_args(); a.stage.mkdir(parents=True, exist_ok=True)
+    exp = a.root / "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_IsaacSim_Importer_API_진단/isaac_minimal_urdf_importer.kit"
+    app = SimulationApp({"headless":True, "active_gpu":1, "physics_gpu":1, "multi_gpu":False,
+                         "extra_args":["--/renderer/multiGpu/enabled=false","--/renderer/multiGpu/autoEnable=false"]}, experience=str(exp))
+    print("GT_ONLY_PHYSICS_APP_READY", flush=True)
+    try:
+        import omni.timeline, omni.usd
+        from pxr import Gf, PhysxSchema, Usd, UsdPhysics
+        report = {"scope":"GT-only converter/simulator control; not an AI prediction result",
+          "settings":{"gpu":1,"multi_gpu":False,"frames_per_target":FRAMES,"resets":RESETS,"round_trips":ROUND_TRIPS,
+          "follower_tolerance_deg":FOLLOWER_TOLERANCE_DEG,"range_tolerance_deg":RANGE_TOLERANCE_DEG,
+          "mass_inertia_friction":"controlled experimental settings from existing importer output; no generated-output property used",
+          "drive_source":"existing importer USD position/force drive with finite authored stiffness, damping, effort"},
+          "cases":{}}
+        timeline = omni.timeline.get_timeline_interface()
+        for oid, (choice, expected) in CASES.items():
+            print(f"GT_ONLY_PHYSICS_CASE_START={oid}", flush=True)
+            usd = a.input_stage / oid / f"gt_{oid}" / f"gt_{oid}.usda"
+            ctx = omni.usd.get_context(); ctx.open_stage(str(usd)); update(app, 2)
+            print(f"GT_ONLY_PHYSICS_STAGE_OPENED={oid}", flush=True)
+            stage = ctx.get_stage(); root = stage.GetDefaultPrim()
+            variants = root.GetVariantSets().GetVariantSet("Physics")
+            if not variants.IsValid() or choice not in variants.GetVariantNames(): raise RuntimeError(f"{oid}: missing Physics={choice}")
+            variants.SetVariantSelection(choice); update(app, 2)
+            print(f"GT_ONLY_PHYSICS_VARIANT_SELECTED={oid}:{choice}", flush=True)
+            UsdPhysics.Scene.Define(stage, "/GTOnlyControlPhysicsScene").CreateGravityMagnitudeAttr().Set(9.81)
+            pred = Usd.TraverseInstanceProxies(Usd.PrimDefaultPredicate)
+            prims = list(Usd.PrimRange(stage.GetPseudoRoot(), pred))
+            print(f"GT_ONLY_PHYSICS_TRAVERSED={oid}", flush=True)
+            revolute = [x for x in prims if x.IsA(UsdPhysics.RevoluteJoint)]
+            generic = [x for x in prims if x.IsA(UsdPhysics.Joint)]
+            art = [x for x in prims if x.HasAPI(UsdPhysics.ArticulationRootAPI)]
+            rigid = [x for x in prims if x.HasAPI(UsdPhysics.RigidBodyAPI)]
+            collider = [x for x in prims if x.HasAPI(UsdPhysics.CollisionAPI)]
+            print(f"GT_ONLY_PHYSICS_COUNTS={oid}:rev={len(revolute)},art={len(art)},rigid={len(rigid)},collider={len(collider)}", flush=True)
+            preflight_ok = len(revolute) == expected and bool(art) and bool(rigid) and bool(collider)
+            print(f"GT_ONLY_PHYSICS_PREFLIGHT={oid}:{preflight_ok}", flush=True)
+            if not preflight_ok:
+                raise RuntimeError(f"{oid}: stage preflight rev={len(revolute)} expected={expected} art={len(art)} rigid={len(rigid)} collider={len(collider)}")
+            print(f"GT_ONLY_PHYSICS_PRE_CASE={oid}", flush=True)
+            case = {"usd":str(usd),"usd_sha256":sha256(usd),"variant":choice,
+              "preflight":{"revolute":len(revolute),"generic_joints":len(generic),"articulation_roots":len(art),"rigid_bodies":len(rigid),
+              "colliders_including_instance_proxies":len(collider),"contact":"No intentional contact pair; collider API presence recorded only."}}
+            print(f"GT_ONLY_PHYSICS_CASE_READY={oid}", flush=True)
+            if not revolute:
+                timeline.play(); update(app, FRAMES * 3); timeline.stop(); update(app, 1)
+                case["fixed_control"]={"no_revolute_joint":True,"physics_frames":FRAMES*3}
+                report["cases"][oid]=case; continue
+            trials = {}
+            for joint in revolute:
+                print(f"GT_ONLY_PHYSICS_JOINT_START={oid}:{joint.GetName()}", flush=True)
+                name = joint.GetName(); drive = UsdPhysics.DriveAPI.Get(joint,"angular")
+                print(f"GT_ONLY_PHYSICS_DRIVE_READY={oid}:{name}", flush=True)
+                state = PhysxSchema.JointStateAPI.Apply(joint,"angular")
+                print(f"GT_ONLY_PHYSICS_DRIVE_STATE_READY={oid}:{name}", flush=True)
+                lo, hi = UsdPhysics.RevoluteJoint(joint).GetLowerLimitAttr().Get(), UsdPhysics.RevoluteJoint(joint).GetUpperLimitAttr().Get()
+                stiffness, damping, effort = drive.GetStiffnessAttr().Get(), drive.GetDampingAttr().Get(), drive.GetMaxForceAttr().Get()
+                if not all(finite(x) for x in (lo,hi,stiffness,damping,effort)) or hi <= lo: raise RuntimeError(f"{oid}/{name}: invalid finite drive")
+                resets=[]
+                for _ in range(RESETS):
+                    drive.GetTargetPositionAttr().Set(0.0); timeline.play(); update(app,FRAMES); timeline.stop(); update(app,1)
+                    resets.append({"position_deg":state.GetPositionAttr().Get(),"velocity_deg_s":state.GetVelocityAttr().Get()})
+                target5=[lo+(hi-lo)*i/4 for i in range(5)]
+                commands=(target5+target5[-2::-1])*ROUND_TRIPS
+                samples=[]
+                for target in commands:
+                    drive.GetTargetPositionAttr().Set(target); timeline.play(); update(app,FRAMES); timeline.stop(); update(app,1)
+                    pos,vel=state.GetPositionAttr().Get(),state.GetVelocityAttr().Get()
+                    other={x.GetName():PhysxSchema.JointStateAPI.Apply(x,"angular").GetPositionAttr().Get() for x in revolute if x != joint}
+                    if not finite(pos) or not finite(vel) or not all(finite(v) for v in other.values()): raise RuntimeError(f"{oid}/{name}: non-finite state")
+                    samples.append({"target_deg":target,"position_deg":pos,"velocity_deg_s":vel,"other_joint_positions_deg":other})
+                outside=hi+abs(hi-lo)*.1; drive.GetTargetPositionAttr().Set(outside); timeline.play(); update(app,FRAMES); timeline.stop(); update(app,1)
+                outside_pos=state.GetPositionAttr().Get()
+                if not finite(outside_pos): raise RuntimeError(f"{oid}/{name}: non-finite out-of-range state")
+                follower=max((abs(float(v)) for row in samples for v in row["other_joint_positions_deg"].values()),default=0.0)
+                trials[name]={"path":str(joint.GetPath()),"axis":str(UsdPhysics.RevoluteJoint(joint).GetAxisAttr().Get()),
+                    "limits_deg":[lo,hi],"drive":{"stiffness":stiffness,"damping":damping,"max_force":effort},
+                    "initializations":resets,"in_range_targets_deg":target5,"round_trips":ROUND_TRIPS,"samples":samples,
+                    "out_of_range":{"target_deg":outside,"position_deg":outside_pos,"within_limit_plus_tolerance":outside_pos<=hi+RANGE_TOLERANCE_DEG},
+                    "other_joint_max_abs_position_deg":follower,"other_joint_within_tolerance":follower<=FOLLOWER_TOLERANCE_DEG}
+            case["joint_trials"]=trials; report["cases"][oid]=case
+        (a.stage/"physics_drive_report.json").write_text(json.dumps(report,indent=2,default=str)+"\n")
+        print("GT_ONLY_PHYSICS_CONTROL=PASS")
+    finally: app.close()
+
+if __name__ == "__main__":
+    import traceback
+    print("GT_ONLY_PHYSICS_MAIN_ENTERED", flush=True)
+    try:
+        raise SystemExit(main())
+    except BaseException:
+        traceback.print_exc()
+        raise

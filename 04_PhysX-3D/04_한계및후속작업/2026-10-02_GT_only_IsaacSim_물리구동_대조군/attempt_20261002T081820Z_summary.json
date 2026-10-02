@@ -1,0 +1,10 @@
+{
+  "run_id": "20261002T081820Z-gt-only-physics-control",
+  "status": "blocked_before_valid_physics_drive",
+  "failure_stage": "timeline physics registration",
+  "evidence_log": "/home/minsujo/Desktop/SH/PHYSx/logs/gt-only-isaac-physics-control/20261002T081820Z-gt-only-physics-control/child.stdout.log",
+  "direct_message": "No simulation registered, please make sure to register a simulation.",
+  "preflight_10163": {"physics_variant": "physx", "revolute_joint_count": 1, "articulation_root_count": 1, "rigid_body_count": 3, "collider_count_including_instance_proxies": 2},
+  "not_completed": ["valid 10163 drive trial", "29806 drive trial", "29354 fixed control", "contact/drive state assessment", "physics video"],
+  "interpretation": "Isaac stage-registration issue; not GT joint failure and not AI prediction evidence."
+}
