@@ -37,6 +37,19 @@ nvidia-smi --query-gpu=index,uuid,pci.bus_id,name,memory.total,memory.free \
   --format=csv,noheader > "$LOG_DIR/nvidia_smi_inventory.csv"
 nvidia-smi > "$LOG_DIR/nvidia_smi_full.txt"
 {
+  printf 'DISPLAY=%s\n' "${DISPLAY-<unset>}"
+  printf 'WAYLAND_DISPLAY=%s\n' "${WAYLAND_DISPLAY-<unset>}"
+  printf 'XDG_SESSION_TYPE=%s\n' "${XDG_SESSION_TYPE-<unset>}"
+  printf 'XAUTHORITY=%s\n' "${XAUTHORITY-<unset>}"
+} > "$LOG_DIR/display_environment.txt"
+if command -v xrandr >/dev/null 2>&1; then
+  xrandr --listproviders > "$LOG_DIR/xrandr_providers.txt" 2>&1 || true
+  xrandr --query > "$LOG_DIR/xrandr_query.txt" 2>&1 || true
+fi
+if command -v vulkaninfo >/dev/null 2>&1; then
+  vulkaninfo --summary > "$LOG_DIR/vulkaninfo_summary.txt" 2>&1 || true
+fi
+{
   printf 'CUDA_VISIBLE_DEVICES=%s\n' "${CUDA_VISIBLE_DEVICES-<unset>}"
   printf 'NVIDIA_VISIBLE_DEVICES=%s\n' "${NVIDIA_VISIBLE_DEVICES-<unset>}"
   printf 'renderer.activeGpu=1\n'
@@ -101,8 +114,19 @@ if [[ "$MODE" == "cube" ]]; then
     echo "GUI_HEADLESS_FALSE_MARKER_MISSING" >&2
     missing=1
   fi
+  kit_log_path="$(awk -F'Logging to file: ' '/Logging to file:/{print $2; exit}' "$LOG_DIR/stdout.log")"
+  if [[ -n "$kit_log_path" ]]; then
+    printf '%s\n' "$kit_log_path" > "$LOG_DIR/kit_log_path.txt"
+    if [[ -f "$kit_log_path" ]] && rg -q 'Failed to find a graphics and/or presenting queue|createSwapchain failed|backbuffers are not initialized|Failed to initialize graphics environment' "$kit_log_path"; then
+      echo "RENDERER_SURFACE_FAILURE" >&2
+      missing=1
+    fi
+  else
+    echo "KIT_LOG_PATH_MISSING" >&2
+    missing=1
+  fi
   if [[ "$RC" -ne 0 || "$missing" -ne 0 ]]; then
-    printf '%s\n' "FAIL_AUTOMATION_MARKERS" > "$LOG_DIR/automation_status.txt"
+    printf '%s\n' "FAIL_AUTOMATION_OR_RENDERER_SURFACE" > "$LOG_DIR/automation_status.txt"
     exit 10
   fi
   printf '%s\n' "PASS_AUTOMATION_MARKERS_HUMAN_GUI_CHECK_REQUIRED" > "$LOG_DIR/automation_status.txt"
