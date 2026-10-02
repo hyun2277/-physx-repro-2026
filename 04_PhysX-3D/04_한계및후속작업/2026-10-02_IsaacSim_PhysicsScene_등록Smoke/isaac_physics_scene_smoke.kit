@@ -1,0 +1,33 @@
+[package]
+title = "PhysX-3D Isaac PhysX scene registration smoke"
+description = "Standalone USD/PhysX-only smoke for a session-layer PhysicsScene and SimulationManager; excludes ML and ROS bundles."
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop-isaac" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+"omni.physx" = {}
+"omni.physics.stageupdate" = {}
+"isaacsim.core.simulation_manager" = {}
+
+[settings]
+renderer.multiGpu.enabled = false
+renderer.multiGpu.autoEnable = false
+exts."isaacsim.core.simulation_manager".default_engine = "physx"
+exts."isaacsim.core.simulation_manager".enable_default_callbacks = true
+
+[settings.app]
+name = "PhysX-3D Isaac PhysX scene registration smoke"
+version = "1.0.0"
+settings.persistent = false
+fastShutdown = true
+file.ignoreUnsavedStage = true
+
+[settings.app.exts]
+folders = [
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsUser",
+  "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extsDeprecated"
+]

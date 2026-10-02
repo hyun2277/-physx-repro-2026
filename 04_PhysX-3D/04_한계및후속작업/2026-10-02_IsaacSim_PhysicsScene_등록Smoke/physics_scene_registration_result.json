@@ -1,0 +1,21 @@
+{
+  "run_id": "20261002T082639Z-physics-scene-registration",
+  "status": "PASS",
+  "scope": "Runtime/session-layer PhysicsScene registration and one no-drive PhysicsManager step only.",
+  "input_usd": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda",
+  "input_usd_sha256": "72cee88ff5ac563e89c34e4028a9a3fe3d8b839d40f88fed4ef048e3f4fab23b",
+  "physics_variant": "physx",
+  "preexisting_physics_scene_paths": [],
+  "runtime_scene_path": "/World/GTOnlyRuntimePhysicsScene",
+  "runtime_scene_layer": "anonymous USD session layer; not saved to the input USD",
+  "physical_gpu": 1,
+  "cuda_visible_devices": "1",
+  "physics_device_in_process": "cuda:0",
+  "available_engine": "physx active",
+  "physics_steps_before_manual_step": 2,
+  "physics_steps_after_manual_step": 5,
+  "physics_step_advanced": true,
+  "no_simulation_registered_in_passing_kit_log": true,
+  "post_stop_counter": 0,
+  "next_action": "Prepared only: execute the 10163 GT-only drive runner, which repeats this preflight before sending any drive command."
+}

@@ -27,13 +27,15 @@ def main():
     p.add_argument("--root", type=Path, required=True)
     p.add_argument("--input-stage", type=Path, required=True)
     p.add_argument("--stage", type=Path, required=True)
+    p.add_argument("--case", choices=sorted(CASES), help="Run one GT control case only.")
     a = p.parse_args(); a.stage.mkdir(parents=True, exist_ok=True)
-    exp = a.root / "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_IsaacSim_Importer_API_진단/isaac_minimal_urdf_importer.kit"
-    app = SimulationApp({"headless":True, "active_gpu":1, "physics_gpu":1, "multi_gpu":False,
+    exp = a.root / "repro-records/04_PhysX-3D/04_한계및후속작업/2026-10-02_IsaacSim_PhysicsScene_등록Smoke/isaac_physics_scene_smoke.kit"
+    app = SimulationApp({"headless":True, "active_cuda_gpus":[0], "physics_gpu":0, "multi_gpu":False,
                          "extra_args":["--/renderer/multiGpu/enabled=false","--/renderer/multiGpu/autoEnable=false"]}, experience=str(exp))
     print("GT_ONLY_PHYSICS_APP_READY", flush=True)
     try:
         import omni.timeline, omni.usd
+        from isaacsim.core.simulation_manager import PhysxScene, SimulationManager
         from pxr import Gf, PhysxSchema, Usd, UsdPhysics
         report = {"scope":"GT-only converter/simulator control; not an AI prediction result",
           "settings":{"gpu":1,"multi_gpu":False,"frames_per_target":FRAMES,"resets":RESETS,"round_trips":ROUND_TRIPS,
@@ -42,7 +44,8 @@ def main():
           "drive_source":"existing importer USD position/force drive with finite authored stiffness, damping, effort"},
           "cases":{}}
         timeline = omni.timeline.get_timeline_interface()
-        for oid, (choice, expected) in CASES.items():
+        selected_cases = {a.case: CASES[a.case]} if a.case else CASES
+        for oid, (choice, expected) in selected_cases.items():
             print(f"GT_ONLY_PHYSICS_CASE_START={oid}", flush=True)
             usd = a.input_stage / oid / f"gt_{oid}" / f"gt_{oid}.usda"
             ctx = omni.usd.get_context(); ctx.open_stage(str(usd)); update(app, 2)
@@ -52,7 +55,22 @@ def main():
             if not variants.IsValid() or choice not in variants.GetVariantNames(): raise RuntimeError(f"{oid}: missing Physics={choice}")
             variants.SetVariantSelection(choice); update(app, 2)
             print(f"GT_ONLY_PHYSICS_VARIANT_SELECTED={oid}:{choice}", flush=True)
-            UsdPhysics.Scene.Define(stage, "/GTOnlyControlPhysicsScene").CreateGravityMagnitudeAttr().Set(9.81)
+            old_target = stage.GetEditTarget()
+            stage.SetEditTarget(Usd.EditTarget(stage.GetSessionLayer()))
+            runtime_scene = PhysxScene("/World/GTOnlyRuntimePhysicsScene")
+            runtime_scene.set_gravity((0.0, 0.0, -9.81))
+            runtime_scene.set_dt(1.0 / 60.0)
+            stage.SetEditTarget(old_target)
+            update(app, 1)
+            SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
+            SimulationManager.initialize_physics()
+            physics_steps_before = SimulationManager.get_num_physics_steps()
+            SimulationManager.step(steps=1, update_fabric=False)
+            update(app, 1)
+            physics_steps_after = SimulationManager.get_num_physics_steps()
+            if physics_steps_after <= physics_steps_before:
+                raise RuntimeError(f"{oid}: runtime PhysicsScene did not advance manager step counter")
+            print(f"GT_ONLY_PHYSICS_RUNTIME_SCENE_READY={oid}:{physics_steps_before}->{physics_steps_after}", flush=True)
             pred = Usd.TraverseInstanceProxies(Usd.PrimDefaultPredicate)
             prims = list(Usd.PrimRange(stage.GetPseudoRoot(), pred))
             print(f"GT_ONLY_PHYSICS_TRAVERSED={oid}", flush=True)
@@ -70,6 +88,7 @@ def main():
             case = {"usd":str(usd),"usd_sha256":sha256(usd),"variant":choice,
               "preflight":{"revolute":len(revolute),"generic_joints":len(generic),"articulation_roots":len(art),"rigid_bodies":len(rigid),
               "colliders_including_instance_proxies":len(collider),"contact":"No intentional contact pair; collider API presence recorded only."}}
+            case["runtime_physics_scene"]={"path":runtime_scene.path,"layer":"session (not saved to imported USD)","step_counter_before":physics_steps_before,"step_counter_after":physics_steps_after}
             print(f"GT_ONLY_PHYSICS_CASE_READY={oid}", flush=True)
             if not revolute:
                 timeline.play(); update(app, FRAMES * 3); timeline.stop(); update(app, 1)
