@@ -12,7 +12,7 @@ import omni.kit.app
 import omni.timeline
 import omni.usd
 from omni.kit.viewport.utility import frame_viewport_prims, get_active_viewport
-from pxr import Usd, UsdPhysics
+from pxr import Usd, UsdGeom, UsdPhysics, UsdShade
 
 
 RUN_DIR = Path(os.environ["PHYSX_GUI_RUN_DIR"])
@@ -85,12 +85,15 @@ revolute = [p for p in prims if p.IsA(UsdPhysics.RevoluteJoint)]
 articulation = [p for p in prims if p.HasAPI(UsdPhysics.ArticulationRootAPI)]
 rigid = [p for p in prims if p.HasAPI(UsdPhysics.RigidBodyAPI)]
 colliders = [p for p in prims if p.HasAPI(UsdPhysics.CollisionAPI)]
+meshes = [p for p in prims if p.IsA(UsdGeom.Mesh)]
 if len(revolute) != 1 or revolute[0].GetName() != "gt_C_1":
     raise RuntimeError(f"expected one gt_C_1 revolute joint, got {[str(p.GetPath()) for p in revolute]}")
 if not articulation or not rigid or not colliders:
     raise RuntimeError(
         f"missing static structure: articulation={len(articulation)} rigid={len(rigid)} collider={len(colliders)}"
     )
+if not meshes:
+    raise RuntimeError("composed Physics=physx stage has no mesh prim")
 
 joint_prim = revolute[0]
 joint = UsdPhysics.RevoluteJoint(joint_prim)
@@ -123,13 +126,86 @@ marker(
     },
 )
 
-# Frame the GT geometry first, then select the joint so Stage/Property panels
-# expose its authored fields without writing transforms or starting a timeline.
+xform_cache = UsdGeom.XformCache(Usd.TimeCode.Default())
+mesh_rows = []
+for mesh_prim in meshes:
+    imageable = UsdGeom.Imageable(mesh_prim)
+    boundable = UsdGeom.Boundable(mesh_prim)
+    extent = boundable.GetExtentAttr().Get() or []
+    material = UsdShade.MaterialBindingAPI(mesh_prim).ComputeBoundMaterial()[0]
+    mesh_rows.append(
+        {
+            "path": str(mesh_prim.GetPath()),
+            "active": bool(mesh_prim.IsActive()),
+            "loaded": bool(mesh_prim.IsLoaded()),
+            "instance_proxy": bool(mesh_prim.IsInstanceProxy()),
+            "visibility": str(imageable.ComputeVisibility()),
+            "purpose": str(imageable.ComputePurpose()),
+            "local_extent": [[float(x) for x in point] for point in extent],
+            "world_transform": [[float(x) for x in row] for row in xform_cache.GetLocalToWorldTransform(mesh_prim)],
+            "material_path": str(material.GetPath()) if material else None,
+            "prim_stack_layers": [spec.layer.identifier for spec in mesh_prim.GetPrimStack()],
+        }
+    )
+
+bbox_cache = UsdGeom.BBoxCache(
+    Usd.TimeCode.Default(),
+    [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy],
+    useExtentsHint=False,
+    ignoreVisibility=False,
+)
+world_range = bbox_cache.ComputeWorldBound(root).ComputeAlignedRange()
+used_layers = []
+for layer in stage.GetUsedLayers():
+    layer_path = Path(layer.realPath) if layer.realPath else None
+    used_layers.append(
+        {
+            "identifier": layer.identifier,
+            "real_path": str(layer_path) if layer_path else None,
+            "exists": bool(layer_path and layer_path.is_file()),
+            "bytes": layer_path.stat().st_size if layer_path and layer_path.is_file() else None,
+            "sha256": digest(layer_path) if layer_path and layer_path.is_file() else None,
+        }
+    )
+root_extents_hint = UsdGeom.ModelAPI(root).GetExtentsHint() or []
+marker(
+    "mesh_composition_audit",
+    {
+        "status": "PASS",
+        "mesh_count": len(mesh_rows),
+        "meshes": mesh_rows,
+        "used_layers": used_layers,
+        "world_bound_without_extents_hint": {
+            "min": [float(x) for x in world_range.GetMin()],
+            "max": [float(x) for x in world_range.GetMax()],
+        },
+        "root_extents_hint": [[float(x) for x in point] for point in root_extents_hint],
+        "root_extents_hint_contains_nonphysical_sentinel": any(
+            abs(float(x)) > 1.0e30 for point in root_extents_hint for x in point
+        ),
+    },
+)
+
+# The imported root has FLT_MAX sentinel entries in extentsHint. Framing the
+# root therefore produced an unusably distant camera. Frame only composed mesh
+# prims using their authored extents, then select the joint for its properties.
 viewport = get_active_viewport()
 if viewport is None:
     raise RuntimeError("active viewport was not available")
-frame_viewport_prims(viewport, prims=[str(root.GetPath())])
+mesh_paths = [str(p.GetPath()) for p in meshes]
+if not frame_viewport_prims(viewport, prims=mesh_paths):
+    raise RuntimeError(f"failed to frame composed mesh prims: {mesh_paths}")
 context.get_selection().set_selected_prim_paths([str(joint_prim.GetPath())], True)
+marker(
+    "viewport_framing",
+    {
+        "status": "PASS",
+        "method": "frame composed mesh prims; do not frame root extentsHint",
+        "mesh_paths": mesh_paths,
+        "lighting_changed": False,
+        "asset_transforms_changed": False,
+    },
+)
 
 app = omni.kit.app.get_app()
 ext_manager = app.get_extension_manager()

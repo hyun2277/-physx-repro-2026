@@ -70,7 +70,7 @@ RC=$?
 set -e
 printf '%s\n' "$RC" > "$LOG_DIR/exit_code.txt"
 
-required_markers=(marker_gpu0_preflight.json marker_app_startup.json marker_omni_usd_import.json marker_gui_mode.json marker_usd_verified.json marker_stage_open.json marker_physics_variant.json marker_joint_structure.json marker_schema_counts.json marker_physics_steps.json marker_summary.json)
+required_markers=(marker_gpu0_preflight.json marker_app_startup.json marker_omni_usd_import.json marker_gui_mode.json marker_usd_verified.json marker_stage_open.json marker_physics_variant.json marker_joint_structure.json marker_schema_counts.json marker_mesh_composition_audit.json marker_viewport_framing.json marker_physics_steps.json marker_summary.json)
 failed=0
 for marker in "${required_markers[@]}"; do
   [[ -s "$LOG_DIR/$marker" ]] || { echo "MISSING_AUTOMATION_MARKER=$marker" >&2; failed=1; }
