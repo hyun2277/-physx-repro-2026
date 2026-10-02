@@ -31,7 +31,7 @@
 cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거/run_gui_29806_gpu0_static_mapping_gate.sh
 ```
 
-static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 원래 rigid-body ancestor, target component, source/reconstructed world bounds와 round-trip 오차를 기록한다. base는 회색, `gt_C_1/2/3` 문 component는 각각 빨강/초록/파랑으로 표시한다. `PhysicsScene`, timeline, tensor와 capture는 시작하지 않으며 simulation step은 0이다. 사람 확인에서 수납장 base와 서로 다른 위치의 세 문이 동시에 보일 때만 이후 physics runner 차단을 해제한다.
+static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 원래 rigid-body ancestor, target component, source와 **실제 author된 clone** world bounds 및 vertex 오차를 기록한다. base는 회색, `gt_C_1/2/3` 문 component는 각각 빨강/초록/파랑으로 표시한다. ±X/±Y/±Z 여섯 GUI 화면과 contact sheet를 만든다. `PhysicsScene`, timeline, tensor는 시작하지 않으며 simulation step은 0이다. 사람 확인에서 수납장 base와 서로 다른 위치의 세 문이 동시에 보일 때만 이후 physics runner 차단을 해제한다.
 
 ## 범위 제한
 

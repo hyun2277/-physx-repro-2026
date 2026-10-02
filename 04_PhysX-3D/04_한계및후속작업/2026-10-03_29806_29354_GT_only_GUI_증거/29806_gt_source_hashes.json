@@ -1,0 +1,56 @@
+{
+  "object_id": 29806,
+  "scope": "GT-only inputs and imported USD payloads; no generated output",
+  "files": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806.urdf",
+      "bytes": 6601,
+      "sha256": "99ee19188ec969488e63ae2504f3ecf04f7de73071e523ec9e4f231fb68855c6"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/gt_29806.usda",
+      "bytes": 730,
+      "sha256": "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/Physics/mujoco.usda",
+      "bytes": 2628,
+      "sha256": "e02dc280975e9fe425d7eb14ffec648dab430647cd713e4e9ad83913c9ccd8c7"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/Physics/physics.usda",
+      "bytes": 11954,
+      "sha256": "e222282d731a0dbf69b826d36f1001bcbc7a9c0d1e3f16f467b589952ea219da"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/Physics/physx.usda",
+      "bytes": 657,
+      "sha256": "307ee723bad47cdea22db8380c9ba1aeaabde15e379dc145d51eae41853454cf"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/base.usda",
+      "bytes": 7867,
+      "sha256": "f8486bb99ec29ebf2b5596ff6cd670c999ad595ff063b3ffe0c8730cc1752884"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/geometries.usd",
+      "bytes": 174904,
+      "sha256": "08be4c006da6fdb04453ea24b27378613c5198efaba0f336d25c7919b9055a27"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/instances.usda",
+      "bytes": 2612,
+      "sha256": "5ccd82af872f1b79c6921408cfe8fd9a34ff17af1d27aa1585bd249d19930545"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/payloads/robot.usda",
+      "bytes": 4472,
+      "sha256": "77d29acf138eba6d832324398fbbbf503c771b54201776115d5ba050b3113a59"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/articulated-sampling-29806-20260926T220010Z-ac2c1dfab94d/datasets/PhysXNet/renders_cond/29806_/006.png",
+      "bytes": 523798,
+      "sha256": "89f691cce979ae2b7e86929c60541d69b1c37da7c77d7a521eca0a2b0cc7782b"
+    }
+  ]
+}

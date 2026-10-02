@@ -295,6 +295,14 @@ def main() -> int:
             ]
             if direct_targets != [str(materials[door_joint].GetPath())]:
                 raise RuntimeError(f"clone material binding failed: {clone_path} -> {direct_targets}")
+            # Re-read the authored prim from the composed stage.  This is
+            # deliberately independent of the pre-authoring round-trip above.
+            authored_mesh=UsdGeom.Mesh(stage.GetPrimAtPath(clone_path)); authored_points=list(authored_mesh.GetPointsAttr().Get() or [])
+            authored_world=UsdGeom.XformCache(Usd.TimeCode.Default()).GetLocalToWorldTransform(authored_mesh.GetPrim())
+            actual_world_points=[authored_world.Transform(Gf.Vec3d(float(p[0]),float(p[1]),float(p[2]))) for p in authored_points]
+            if len(actual_world_points)!=len(source_world_points): raise RuntimeError(f"authored clone point count mismatch {clone_path}")
+            actual_vertex_error=max((a-b).GetLength() for a,b in zip(actual_world_points,source_world_points))
+            if actual_vertex_error>1e-6: raise RuntimeError(f"actual authored clone mismatch {clone_path}: {actual_vertex_error}")
             clone_prims.append(clone.GetPrim())
             clone_specs.append(
                 {
@@ -313,6 +321,10 @@ def main() -> int:
                     "initial_world_roundtrip_max_error_m": reconstruction_error,
                     "source_world_bounds": {"min":[min(float(p[i]) for p in source_world_points) for i in range(3)],"max":[max(float(p[i]) for p in source_world_points) for i in range(3)]},
                     "reconstructed_world_bounds": {"min":[min(float(p[i]) for p in reconstructed_world_points) for i in range(3)],"max":[max(float(p[i]) for p in reconstructed_world_points) for i in range(3)]},
+                    "actual_authored_clone_world_bounds": {"min":[min(float(p[i]) for p in actual_world_points) for i in range(3)],"max":[max(float(p[i]) for p in actual_world_points) for i in range(3)]},
+                    "actual_authored_clone_vertex_max_error_stage_units":actual_vertex_error,
+                    "actual_authored_clone_vertex_max_error_m":actual_vertex_error*UsdGeom.GetStageMetersPerUnit(stage),
+                    "clone_parent_is_instance_proxy":body.IsInstanceProxy(),
                 }
             )
 
@@ -348,18 +360,28 @@ def main() -> int:
             mins=[min(spec["source_world_bounds"]["min"][i] for spec in clone_specs) for i in range(3)]
             maxs=[max(spec["source_world_bounds"]["max"][i] for spec in clone_specs) for i in range(3)]
             center=Gf.Vec3d(*[(a+b)*0.5 for a,b in zip(mins,maxs)]); sizes=[b-a for a,b in zip(mins,maxs)]
-            up_token=str(UsdGeom.GetStageUpAxis(stage)); up_index={"X":0,"Y":1,"Z":2}[up_token.upper()]
-            candidates=[i for i in range(3) if i!=up_index]; front_index=min(candidates,key=lambda i:sizes[i])
+            up_token=str(UsdGeom.GetStageUpAxis(stage)); front_index=min(range(3),key=lambda i:sizes[i])
             distance=max(sizes)*2.2
-            eye_values=list(center); eye_values[front_index]+=distance
-            up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
-            camera=UsdGeom.Camera.Define(stage,"/__PhysXGuiDiagnostic/FrontCamera")
-            view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
-            UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse())
-            camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
-            viewport.set_active_camera(str(camera.GetPath()))
-            for _ in range(10): app.update()
-            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"eye":eye_values,"up_axis":up_token,"front_axis_index":front_index,"camera":str(camera.GetPath())}
+            cube=UsdGeom.Cube.Define(stage,"/__PhysXGuiDiagnostic/ReferenceCube"); cube.CreateSizeAttr(max(sizes)*0.08); cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0,0.55,0.05)])
+            UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+max(sizes)*0.12,maxs[1],maxs[2]))
+            camera_rows=[]; axes=("X","Y","Z")
+            for axis_index,axis_name in enumerate(axes):
+                for sign,label in ((1,"plus"),(-1,"minus")):
+                    eye_values=list(center); eye_values[axis_index]+=sign*distance
+                    up_index=1 if axis_index==2 else 2
+                    up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
+                    camera=UsdGeom.Camera.Define(stage,f"/__PhysXGuiDiagnostic/Camera_{label}_{axis_name}")
+                    view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
+                    UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse()); camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
+                    viewport.set_active_camera(str(camera.GetPath()))
+                    for _ in range(20): app.update()
+                    capture_path=args.run_dir/f"static_view_{label}_{axis_name}.png"
+                    subprocess.run(["ffmpeg","-y","-f","x11grab","-video_size",args.capture_size,"-i",f"{os.environ['DISPLAY']}+{args.capture_offset}","-frames:v","1",str(capture_path)],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+                    camera_rows.append({"label":f"{label}_{axis_name}","axis_index":axis_index,"sign":sign,"eye":eye_values,"target":list(center),"screen_up":up_values,"camera":str(camera.GetPath()),"capture":str(capture_path),"capture_bytes":capture_path.stat().st_size})
+            preferred=next(row for row in camera_rows if row["axis_index"]==front_index and row["sign"]==1)
+            viewport.set_active_camera(preferred["camera"])
+            for _ in range(20): app.update()
+            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"stage_up_axis":up_token,"thin_axis_index":front_index,"selection_basis":"smallest aggregate source/clone extent; stage up is not excluded because doors may lie in a plane normal to it","preferred":preferred,"candidates":camera_rows,"reference_cube":"/__PhysXGuiDiagnostic/ReferenceCube"}
         context.get_selection().set_selected_prim_paths([str(revolute[0].GetPath())], True)
 
         joint_frames={}

@@ -8,5 +8,7 @@
 | 2026-10-03 | 29806 | 첫 shell gate | `STRUCTURE_GATE_PASS_PHYSICS_NOT_STARTED`라는 이름과 달리 Isaac composed stage는 열지 않음 | 범위를 입력/GPU/X11 gate로 정정. 새 runner 내부에 실제 composed mapping gate 추가 |
 | 2026-10-03 | 29806 | 첫 GUI physics/capture | 사람 화면에서 길쭉한 base와 한 판만 뚜렷하며 세 문 독립 구조가 식별되지 않음. 자동 validator도 `FAIL` | `INVALID_VISUAL_MAPPING`; MP4 SHA `d6a2759f...`는 staging에만 격리, 공식 링크/GIF 금지 |
 | 2026-10-03 | 29806 | mapping 기록 감사 | body 관계와 Mesh component는 분리됐으나 모든 clone이 같은 색이고 marker에 원래 ancestor 및 world bounds 비교가 없음 | 물리 없는 회색 base + 빨강/초록/파랑 door static gate로 교체 |
+| 2026-10-03 | 29806 | 색상 static gate | 화면에 가느다란 수평선만 보임 | JSON에서 문들이 XY 면이고 Z가 최소 두께인데 camera가 +Y였음을 확인. up-axis Z를 view 후보에서 제외한 규칙이 원인. ±X/±Y/±Z capture gate로 교체 |
+| 2026-10-03 | 29806 | 색상 static gate 종료 | stdout 완료 marker와 JSON은 존재하지만 wrapper exit code 2 | 새 gate는 rc 2를 단독 성공으로 보지 않고 완료 marker+JSON+6 PNG+contact-sheet validator가 모두 있을 때만 자동 준비 상태로 인정 |
 
 실행 오류는 같은 명령을 반복하지 않고 `LOG_DIR`, 최초 예외, physics 시작 전/후 여부를 새 행으로 기록한다.

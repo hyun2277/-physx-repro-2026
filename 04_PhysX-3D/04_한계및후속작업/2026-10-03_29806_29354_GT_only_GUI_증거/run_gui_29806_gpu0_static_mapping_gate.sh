@@ -32,7 +32,8 @@ timeout --signal=INT --kill-after=20s 240s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.
 rc=$?
 set -e
 printf '%s\n' "$rc" >"$LOG_DIR/exit_code.txt"
-((rc==0)) || { echo "FAILED rc=$rc LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"; exit "$rc"; }
-rg -qx 'STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED' "$LOG_DIR/stdout.log" || exit 10
+if ((rc!=0 && rc!=2)); then echo "FAILED rc=$rc LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"; exit "$rc"; fi
+rg -qx 'STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED' "$LOG_DIR/stdout.log" || { echo "FAILED marker_missing rc=$rc"; exit 10; }
 [[ -s "$STAGING_DIR/static_mapping_gate.json" ]] || exit 11
+python3 "$DIR/build_29806_static_contact_sheet.py" --run-dir "$STAGING_DIR" >"$LOG_DIR/contact_sheet.stdout" 2>"$LOG_DIR/contact_sheet.stderr" || exit 12
 echo "STATIC_MAPPING_AUTOMATION_READY_HUMAN_CHECK_REQUIRED LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"

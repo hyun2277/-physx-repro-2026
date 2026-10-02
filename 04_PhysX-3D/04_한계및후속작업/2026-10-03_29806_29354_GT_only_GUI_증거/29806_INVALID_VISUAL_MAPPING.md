@@ -15,3 +15,11 @@
 - 전체 bounds에서 도출한 정면 camera
 
 사람이 base와 서로 다른 위치의 문 세 개를 동시에 확인하기 전에는 physics runner의 차단을 해제하지 않는다.
+
+## 20261002T193617Z static gate 재감사
+
+실제 JSON은 `metersPerUnit=1`, `upAxis=Z`를 기록했다. 세 문 bounds는 X 방향으로 서로 다른 구간을 차지하지만 Z 두께는 각각 약 `0.0291`, `0.00560`, `0.00580 m`에 불과했다. 기존 camera 규칙은 Z를 up-axis라는 이유로 view 후보에서 제외하고 +Y를 선택했다. 이 시점은 문의 XY 넓은 면을 정면으로 보지 못하며, 사용자가 본 가느다란 수평선과 일치한다. 이는 camera 선택 오류로 **확정**한다.
+
+기존 conditioning `006.png`도 가로로 긴 본체 앞면에 세 패널이 나란히 있는 형상을 보여 준다. 이 이미지는 camera 선택을 검산하는 참고 자료이며 Mesh나 joint mapping을 바꾸는 근거로 사용하지 않는다.
+
+계산된 source와 reconstructed bounds는 모든 Mesh에서 일치했고 기록된 최대 round-trip 오차는 `5.551115123125783e-17 m`였다. 다만 이 기록은 clone authoring 전에 계산된 값이었다. 새 gate는 author된 clone prim을 stage에서 다시 읽어 모든 점과 world bounds를 source와 비교하며, ±X/±Y/±Z 실제 GUI 화면 여섯 장과 contact sheet를 만든다. 자동 검사는 비검정까지만 담당하고 component 가시성은 사람 확인 전까지 pending이다.
