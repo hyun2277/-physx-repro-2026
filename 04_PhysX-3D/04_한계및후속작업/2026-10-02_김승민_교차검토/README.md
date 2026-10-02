@@ -2,7 +2,7 @@
 
 ## A. 김승민 팀원 제공 초안의 검토 범위
 
-- 외부 제공 파일: `김승민_1002_검토-20261002T121816Z-1-001.zip` (Git에 추가하지 않음).
+- Linux Codex가 실제 읽은 외부 제공 파일: `김승민_1002_검토-20261002T121816Z-1-001.zip` (10,239 bytes, SHA256 `a379b2597daa3f02220cd84e16ce0a2cb7a1776823bb118025e2a8248ac27bf2`; Git에 추가하지 않음). ZIP 내부 `README.md` SHA256은 `445d0d2c6122e3a16f799360a4e4d1c947d7cdf05d81e76b30ce33dc2bedf18d`, `case_table.csv` SHA256은 `6e8fd89c60c595f78a6648e8bd02d199cbacb424920706fc7cf82592a36da1e3`이다. Windows에서 확인한 `120931Z` 파일은 이 Linux 경로에 없어서 두 ZIP의 동일성은 미확인이다.
 - 읽은 파일은 ZIP 내부 `README.md`, `case_table.csv`뿐이다. `verify_and_commit.sh`는 실행하지 않았다.
 - 초안 작성일은 문서에 적힌 2026-10-02다. 초안의 `[G]`는 당시 GitHub main 문서에서 직접 대조한 항목, `[U]`는 실행 담당자 보고 또는 TODO 로그 대조 전 항목으로 구분되어 있다.
 - 본 기록은 초안 원문을 수정하거나 `[U]`를 김승민 본인의 `[G]`로 소급 변경하지 않는다. 아래 B절은 **Codex의 최신 Git·Linux 원본 보고서 후속 대조**다.
@@ -20,7 +20,7 @@
 | 29354 GT-only fixed passive control | `20261002T113459Z_29354_GT_only_고정대조군_결과/README.md`, `summary.json`, Linux 보고서 대조 | passive 180 steps, DOF 0, finite, 최대 drift `1.0280995564419422e-07 m`가 실제 report와 내용 일치. Git summary/README에는 report 절대 경로·SHA256이 없음. | PASS 내용은 **후속 내용 대조됨**; Git 기록 기반 경로·해시는 `MISSING_RECORD`으로 남김. |
 | 생성 결과 관절 명세 | `2026-09-29_생성결과_관절명세_감사/README.md`, `joint_field_matrix.csv` | 10163·29806은 `INTERPRETATION_BLOCKED`; 29354는 `NO_DEPLOYABLE_JOINT_SPEC`. parent/axis/origin/limit을 GT로 채우지 않았다. | 초안의 `[U]` 판정·구체 이유는 최신 Git으로 대조됨. |
 | GT converter의 입력 | 같은 관절 명세 감사의 `urdf_gen.py` 추적 | `finaljson/group_info/partseg` GT를 읽는 GT 대조군 도구다. generated output 자동 변환기가 아니다. | 초안의 `[G]`와 대조 범위에서 불일치 발견 못 함. |
-| 10163 viewport/Replicator RGB | `RENDER_RECOVERY_BLOCKED.md`, commit `02e40bd079f8ad1258beefc48d0c5731c60ac021`의 Replicator 차단 기록 | 기존 viewport MP4는 `INVALID_BLACK_CAPTURE`. Replicator PNG 3장도 RGB 평균·분산·최대가 모두 0인 완전 검정이라 `BLOCKED_RGB_BLACK`. 정상 3D physics 영상 없음. | 초안의 `[U]` 영상 한계는 후속 Git 대조로 확인됨. state-trace는 logged physics state 그래프이며 3D mesh 영상이 아님. |
+| 10163 viewport/Replicator RGB | `RENDER_RECOVERY_BLOCKED.md`, commit `02e40bd079f8ad1258beefc48d0c5731c60ac021`의 Replicator 차단 기록 | 기존 viewport MP4는 `INVALID_BLACK_CAPTURE`. Replicator에서 annotator PNG 3장과 BasicWriter PNG 3장, 총 6장이 생성됐다. annotator 3장의 기록된 RGB 통계는 평균·분산·최댓값이 모두 0이었으며, 전체 smoke 결과는 `BLOCKED_RGB_BLACK`이다. BasicWriter 3장의 별도 RGB 통계는 계산하지 않았다. 정상 3D physics 영상 없음. | 초안의 `[U]` 영상 한계는 후속 Git 대조로 확인됨. state-trace는 logged physics state 그래프이며 3D mesh 영상이 아님. |
 | 사람 시간·수동 보정 | 수현 판정표 README | 수동 보정은 `미수행`; 보정 시간은 `N/A(해당 없음)`. 과거 관절 명세 조사 사람 시간은 `미기록/확인 불가`; Codex 시간을 사람 시간으로 환산하지 않음. | 초안의 `0분`을 바로잡음. |
 
 원본 per-step 파일 대조의 상세 경로·bytes·expected/actual SHA256은 [Linux per-step 대조 기록](../2026-10-02_교수님피드백_판정표_수현검토/Linux_per_step_보고서_실파일대조.md)에 있다. 29354의 `MISSING_RECORD`은 Git의 summary/README에 기대 경로·해시가 없다는 뜻이며, 실제 발견한 파일의 해시를 Git 기대값으로 추정한 것이 아니다.
