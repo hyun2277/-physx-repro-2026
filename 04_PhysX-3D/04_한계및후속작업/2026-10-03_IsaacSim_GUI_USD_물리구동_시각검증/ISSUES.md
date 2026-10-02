@@ -17,7 +17,7 @@
 | 2026-10-03 | 29354 drift 검사 범위 | 전체 link drift처럼 읽힐 수 있음 | 코드 배열 접근으로 확정 | 첫 link translation만 검사했다고 정정 | 전체 link translation/orientation 재측정 필요 | 미해결 | 미기록 | 미기록 |
 | 2026-10-03 | session-layer 재현성 | 원본 USD와 runtime PhysicsScene/물성 설정이 분리됨 | 기존 runner로 확인 | 새 실행에서 원본 hash와 override manifest 분리 예정 | 미실행 | 진행 예정 | 0 | 0 |
 | 2026-10-02 | GUI GPU Foundation device | GUI cube 재시도에서 `Failed to create any GPU devices` | 로그로 증상 확정; GPU/driver/IOMMU 단일 원인은 미확정 | `CUDA_VISIBLE_DEVICES=1` 제거, physical GPU 1 index를 명시 | 재실행 대기 | 진행 예정 | 0 | 0 |
-| 2026-10-02 | GUI renderer surface/backbuffer | `Failed to find a graphics and/or presenting queue` → `createSwapchain failed` → 반복 `backbuffers are not initialized` | window surface presentation 실패는 확정; DISPLAY/Xorg/Wayland mapping 원인은 미확정 | official base의 viewport/window/capture 설정 보완, host display diagnostics 추가 | 재실행 대기 | 진행 예정 | 0 | 0 |
+| 2026-10-02 | GUI renderer surface/backbuffer | `Failed to find a graphics and/or presenting queue` → `createSwapchain failed` → 반복 `backbuffers are not initialized` | GPU 1 Vulkan/RTX 선택과 GPU Foundation은 성공했으나 현재 X11 surface에 present queue를 만들지 못함. 물리 모니터는 GPU 1, X source provider는 GPU 0인 PRIME topology 확인. GPU별 queue-family present bit는 도구 부재로 미확정 | official base의 viewport/window/capture 설정을 보완했으나 동일 실패. 추가 설정 변경 없이 topology 감사로 전환 | 세 번째 cube도 재실패; 10163 미실행 | GPU 1 GUI 미해결 | 사용자 실행·관찰 시간 미기록 | 약 70초 후 Ctrl+C |
 
 ### GUI GPU Foundation 진단 근거
 
@@ -30,6 +30,18 @@
 `20261002T162753Z-cube-2abb8501-74b6-45da-b56e-16360ceaed8e`의 Kit log는 `Created window: width=1440,height=900`까지 도달했다. 이어 `Failed to find a graphics and/or presenting queue`, `GPU ... cannot present rendered content`, `createSwapchain failed`, `Failed to initialize graphics environment`가 발생했다. 이후 backbuffer 오류는 원인이 아니라 swapchain 생성 실패의 후속 증상이다. GPU 1은 `Display Attached: Yes`, `Display Active: Enabled`로 열거되고 PhysX는 device 1을 선택했다. 이 사실만으로 현재 DISPLAY/Xorg 또는 Wayland surface가 GPU 1과 호환된다고 결론 내릴 수는 없다.
 
 새 runner는 `DISPLAY`, `WAYLAND_DISPLAY`, `XDG_SESSION_TYPE`, `XAUTHORITY`, `xrandr --listproviders`, `xrandr --query`, 가능하면 `vulkaninfo --summary`를 실행별 log에 보존한다. `createSwapchain` 또는 backbuffer 오류가 있으면 automation marker가 있어도 `FAIL_AUTOMATION_OR_RENDERER_SURFACE`로 판정한다.
+
+### 세 번째 cube와 display topology 감사
+
+`20261002T163957Z-cube-c57d2e3b-7949-40a0-b3a7-7f8aa7310799`에서도 같은 presentation chain이 실패했다. 이번에는 GPU 1(`GPU-843dced4-ee97-dbb8-36c9-343fe13b7647`, PCI `02:00.0`)이 Vulkan/RTX active이고 PhysX CUDA device 1인 점이 Kit log로 확인됐다. 따라서 이전 CUDA visibility mask에 따른 GPU Foundation 실패와 구분한다.
+
+Host 기록은 X11 `DISPLAY=:0`을 사용했다. `xrandr --listproviders`에서 `NVIDIA-0`은 source, `NVIDIA-G0`은 sink였고 실제 output은 `HDMI-1-0 connected primary`였다. `nvidia-smi -q`는 GPU 1을 `Display Attached: Yes`, `Display Active: Enabled`, GPU 0을 `No/Disabled`로 기록했다. 물리 모니터 출력은 GPU 1이 소유하지만 X root/source provider는 GPU 0 계열인 PRIME/offload 구조다. Kit는 GPU 1에서 graphics device를 만들었으나 이 X surface에 대한 presenting queue를 얻지 못했다.
+
+`vulkaninfo`와 `glxinfo`가 host에 없어 각 GPU의 queue-family `presentSupport`와 OpenGL UUID는 직접 확인하지 못했다. 두 GPU 모두 Kit가 Vulkan RTX 장치로 열거했으므로 graphics-capable인 점은 확인됐지만, GPU 1은 현재 X surface에서 present 실패, GPU 0은 이번 실행에서 inactive라 present 상태가 미검증이다. 최신 읽기 전용 조회에서 GPU 0 메모리는 376/32,607 MiB, GPU 1은 66/32,607 MiB였고 compute process는 없었다.
+
+공식 `isaac-sim.sh --no-ros-env`는 `apps/isaacsim.exp.full.kit`을 열지만 이 설치에서는 base dependency의 `omni.isaac.ml_archive`가 기존 CUDA ABI 오류를 일으킨다. custom Kit는 ML/ROS를 제외하고 공식 base의 window/viewport/renderer 구성을 반영했는데도 동일 present 실패가 발생했으므로, extension 누락만을 현재 원인으로 보지 않는다.
+
+다음 최소 진단 후보는 X source provider인 physical GPU 0에서 **physics 없이 GUI cube presentation만** 한 번 검사하는 것이다. 이는 기존 GPU 1 전용 정책을 바꾸므로 사용자 확인 전 실행하지 않는다. GPU 0 GUI+physics, multi-GPU/P2P, Xorg·driver·IOMMU 변경은 제안하지 않는다. livestream/offscreen은 공식 대체 경로 후보지만 기존 Replicator black과 별개의 사전검증이 필요해 차순위다.
 
 ## 새 시도 기록 규칙
 

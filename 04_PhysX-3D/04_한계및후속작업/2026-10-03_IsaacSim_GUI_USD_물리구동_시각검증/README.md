@@ -74,7 +74,7 @@
 
 ## GPU와 GUI 확인 정책
 
-일반 Linux host의 물리 GPU 1만 사용한다. `CUDA_VISIBLE_DEVICES=1`로 한 장만 노출한 뒤 Kit 내부 renderer/physics index는 `0`으로 지정한다. CUDA logical index와 Vulkan physical GPU가 같다고 추정하지 않고, 실행 전 `nvidia-smi`의 GPU 1 UUID/PCI bus ID와 Kit 로그의 renderer 장치를 대조한다. P2P와 multi-GPU는 사용하지 않는다. IOMMU 경고는 기록만 하고 BIOS·커널 설정을 변경하지 않는다.
+일반 Linux host의 물리 GPU 1만 사용한다. GUI 진단에서는 CUDA visibility mask를 해제하고 Kit의 physical renderer/physics index `1`을 명시해 Vulkan과 CUDA의 실제 UUID·PCI bus를 대조한다. CUDA logical index와 Vulkan physical GPU가 같다고 추정하지 않는다. P2P와 multi-GPU는 사용하지 않는다. IOMMU 경고는 기록만 하고 BIOS·커널 설정을 변경하지 않는다.
 
 ## 시간 기록
 
@@ -92,7 +92,12 @@
 - 최소 수정: `CUDA_VISIBLE_DEVICES`/`NVIDIA_VISIBLE_DEVICES`를 runner에서 해제하고, multi-GPU는 계속 끈 채 Kit의 physical `renderer.activeGpu=1`, `physics.cudaDevice=1`로 GPU 1(PCI `00000000:02:00.0`, UUID `GPU-843dced4-ee97-dbb8-36c9-343fe13b7647`)만 선택한다. 다음 실행에서 Kit log의 UUID/PCI와 실행 전 inventory를 다시 대조한다.
 - 2026-10-02 cube 두 번째 재시도: **renderer surface/backbuffer 실패**. GPU Foundation 단계와 `omni.usd`/cube marker는 통과했지만, `Created window` 뒤 `Failed to find a graphics and/or presenting queue`와 `createSwapchain failed`가 발생했고, 이어서 `backbuffers are not initialized`가 반복됐다. GPU 1은 display-attached/active로 열거되었고 PhysX는 CUDA device 1을 선택했다. 그러나 현재 GUI window surface에 GPU 1이 present할 queue를 찾지 못했다. 이는 기존 Vulkan–CUDA matching 실패와 별개이며, DISPLAY/Xorg·Wayland session과 GPU 1의 presentation mapping이 아직 미확정이다. 정상 cube viewport는 나타나지 않았으므로 cube·USD·physics 성공으로 처리하지 않는다.
 - 다음 최소 수정: official base Kit의 `omni.kit.viewport.window`, `omni.kit.renderer.capture`, viewport/window/app renderer settings를 custom Kit에 보완했다. GPU 1 physical index, multi-GPU off, P2P off 정책은 유지한다. runner는 DISPLAY/Wayland/Xorg provider·Vulkan summary를 기록하고, Kit log에 presenting queue/swapchain/backbuffer 오류가 있으면 exit 0이나 setup marker와 무관하게 실패 처리한다.
-- GUI 기본 cube 재시도: **사용자 화면 확인 대기**
+- 2026-10-02 cube 세 번째 재시도(`20261002T163957Z-cube-c57d2e3b-7949-40a0-b3a7-7f8aa7310799`): **renderer surface/backbuffer 재실패**. official base의 window/viewport 설정을 보완한 뒤에도 `Failed to find a graphics and/or presenting queue` → `createSwapchain failed` → 반복 `backbuffers are not initialized`가 발생했다. 자동 marker는 생성됐지만 정상 viewport/cube는 나타나지 않았고 사용자가 `Ctrl+C`로 중단했다. 이는 이전 GPU Foundation CUDA–Vulkan matching 오류가 해결된 뒤 발생한 별도 window presentation 실패다.
+- display topology 감사: `DISPLAY=:0`, `XDG_SESSION_TYPE=x11`, `XAUTHORITY=/run/user/1000/gdm/Xauthority`였다. `xrandr`는 `NVIDIA-0`을 X11 `Source Output` provider, `NVIDIA-G0`을 `Sink Output` provider로 열거했고, 실제 1920×1080 출력은 `HDMI-1-0`이었다. `nvidia-smi -q`와 PCI/DRM 대조에서 물리 모니터 연결·active GPU는 GPU 1(`GPU-843dced4-ee97-dbb8-36c9-343fe13b7647`, PCI `02:00.0`)이고 GPU 0은 display attached/active가 아니었다. 반면 X11 root/source provider는 GPU 0 계열이다. 따라서 물리 출력 소유 GPU와 X screen의 source GPU가 갈린 PRIME/offload topology가 확인됐다.
+- renderer 감사: Kit는 physical GPU 1을 Vulkan/RTX active(`Yes: 0`)로 선택하고 PhysX CUDA device 1도 선택했다. GPU Foundation과 graphics device 열거는 성공했지만, 해당 GPU로 현재 X11 window surface에 present할 queue를 찾지 못했다. `vulkaninfo`와 `glxinfo`가 설치되어 있지 않아 GPU별 queue-family present bit 및 OpenGL renderer UUID는 직접 측정하지 못했다. GPU 0은 이 실행에서 inactive였으므로 Vulkan present 가능 여부도 미검증이다.
+- 현재 GPU 상태(읽기 전용 조회): GPU 0은 32,607 MiB 중 376 MiB 사용, GPU 1은 66 MiB 사용이었다. compute-process 목록은 비어 있었다.
+- 선택지 판정: GPU 1 GUI+physics는 현재 X surface present에서 차단됐다. GPU 0 GUI-only 검사는 X source provider 가설을 가장 적게 바꾸며 검증하지만 기존 GPU 1 전용 정책을 변경하므로 사용자 확인 전 실행하지 않는다. GPU 0 GUI+physics는 검증된 GPU 1 physics 경로까지 바꾸므로 우선하지 않는다. 공식 full GUI는 `omni.isaac.ml_archive` CUDA ABI 오류를 다시 불러오며, custom experience는 이미 공식 window/viewport 구성요소를 포함해도 같은 present 실패를 보였다. livestream/offscreen은 공식 대안 후보지만 기존 Replicator black 결과와 별도의 extension·capture 검증이 필요하다.
+- 가장 안전한 다음 한 단계: **사용자 승인 후 GPU 0에서 physics를 로드하지 않는 GUI cube-only presentation 검사 1회**. 이는 X source provider에서 swapchain이 만들어지는지만 분리 확인하며 GPU 1 physics 결과나 시스템 설정을 바꾸지 않는다. 승인 전에는 같은 GPU 1 cube 명령을 반복하지 않는다.
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음
 - 29806·29354: 아직 실행하지 않음
