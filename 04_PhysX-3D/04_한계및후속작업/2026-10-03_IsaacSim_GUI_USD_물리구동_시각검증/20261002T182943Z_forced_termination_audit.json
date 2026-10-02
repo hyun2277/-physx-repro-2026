@@ -1,0 +1,14 @@
+{
+  "status": "INCOMPLETE_FORCED_TERMINATION_NOT_A_VIDEO_PASS",
+  "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261002T182943Z-10163-gpu0-e2e-59d074c7-4568-49e8-9c0c-d21551ed3c81",
+  "staging_dir": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261002T182943Z-10163-gpu0-e2e-59d074c7-4568-49e8-9c0c-d21551ed3c81",
+  "terminal_confirmed": ["GPU 0 Vulkan renderer startup", "GUI extension startup", "Simulation App Startup Complete", "app ready"],
+  "partial_files": [
+    {"name": "marker_pretest_pass.json", "bytes": 893, "sha256": "57e525f3d312c3b6f3b2de98c2cfee41eac2492411fee4c0f50ea21c9675583a", "meaning": "partial internal pretest record only"},
+    {"name": "route_a_non_instanceable_import/gt_10163/gt_10163.usda", "bytes": 3683764, "sha256": "cd908abf421ed42903dc5684eaefde0de22092de6c25dc257d04fd29a5a87908", "meaning": "staged direct importer output"},
+    {"name": "ffmpeg.stderr.log", "bytes": 1858, "sha256": "71db0bde7660a558114103f582ab8c5a5eec713f6fb7881b46452fae8880fe0f", "meaning": "ffmpeg banner only; no completed capture"}
+  ],
+  "absent": ["physics_gui_report.json", "MP4", "video_validation.json", "success/failure completion marker", "screenshots"],
+  "human_observation": "GUI title and Base/Lid surfaces were visible; perceived hinge-like motion is not sufficient because the run was force-terminated.",
+  "final_use": false
+}

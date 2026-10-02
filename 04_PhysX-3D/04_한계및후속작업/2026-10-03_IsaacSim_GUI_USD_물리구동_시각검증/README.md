@@ -17,6 +17,12 @@
 
 단일 진입점은 `run_gui_10163_gpu0_end_to_end_physics_video.sh`이다. unique log/staging, 15분 timeout, 실패 단계 출력, H.264 및 대표 프레임 검사를 포함한다.
 
+### 2026-10-02T18:29:43Z 강제 종료 감사와 비동기 개정
+
+최초 통합 실행은 GUI 응답 저하로 사용자가 강제 종료했다. terminal에는 app startup까지만 보였고 완결 report·MP4·검증 JSON·완료 marker가 없다. staging의 `marker_pretest_pass.json`은 240개 부분 record와 finite measured span을 기록하지만, 완결되지 않은 내부 부분 산출물이므로 physics/영상 PASS로 사용하지 않는다. 세부 해시는 `20261002T182943Z_forced_termination_audit.json`에 있다.
+
+개정 runner는 설치된 Isaac Sim 예제와 같은 `omni.kit.app.get_app().next_update_async()`를 사용하는 상태 머신으로 바뀌었다. 한 update마다 physics step 하나만 수행하고 외부 shell watchdog이 `gui_heartbeat.json`을 1초마다 감시한다. static GUI update 3초를 먼저 통과해야 physics를 시작하며 heartbeat가 5초 넘게 멈추면 자동 중단한다. ffmpeg는 별도 process이고 capture 실패가 발생해도 physics sequence와 그 기록은 끝까지 보존한 뒤 실패로 판정한다.
+
 ## 교수님 질문과 현재 답
 
 | 질문 | 현재 답 |

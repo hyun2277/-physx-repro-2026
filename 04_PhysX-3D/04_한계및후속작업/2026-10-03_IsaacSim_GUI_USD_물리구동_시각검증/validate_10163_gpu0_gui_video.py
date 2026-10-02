@@ -76,6 +76,17 @@ def main() -> int:
         pair_differences.append({"mean_abs_rgb": list(stat.mean), "bbox": difference.getbbox(), "viewport_region_mean_abs_rgb": list(viewport_stat.mean), "viewport_region_bbox": viewport_region.getbbox()})
 
     records = report["capture"]["records"]
+    video_start = float(report["capture"]["video_start_monotonic"])
+    for frame in frame_rows:
+        wanted = video_start + float(frame["timestamp_s"])
+        nearest = min(records, key=lambda row: abs(float(row["wall_monotonic_s"]) - wanted))
+        frame["nearest_physics_record"] = {
+            "wall_time_delta_s": float(nearest["wall_monotonic_s"]) - wanted,
+            "manager_step_after": nearest["manager_steps"][1],
+            "requested_target_rad": nearest["requested_target_rad"],
+            "measured_joint_position_rad": nearest["position_rad"],
+            "joint_velocity_rad_s": nearest["velocity_rad_s"],
+        }
     positions = [float(row["position_rad"]) for row in records]
     stream = probe["streams"][0]
     automated_pass = (

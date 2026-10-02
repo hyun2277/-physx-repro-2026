@@ -8,6 +8,7 @@ keyframe is authored after simulation begins.
 from __future__ import annotations
 
 import argparse
+import asyncio
 import hashlib
 import json
 import math
@@ -409,7 +410,7 @@ def main() -> int:
             },
         }
 
-        def command_target(phase, target, steps, destination, wall_delay=0.0):
+        async def command_target(phase, target, steps, destination):
             current = articulation.get_dof_position_targets()
             values = nested_values(current)
             values[0][dof_index] = target
@@ -423,7 +424,7 @@ def main() -> int:
             for local_step in range(steps):
                 before = SimulationManager.get_num_physics_steps()
                 SimulationManager.step(steps=1, update_fabric=True)
-                app.update()
+                await omni.kit.app.get_app().next_update_async()
                 after = SimulationManager.get_num_physics_steps()
                 positions = articulation.get_dof_positions()
                 velocities = articulation.get_dof_velocities()
@@ -454,13 +455,35 @@ def main() -> int:
                         ),
                     }
                 )
-                if wall_delay:
-                    time.sleep(wall_delay)
+        heartbeat_path = args.run_dir / "gui_heartbeat.json"
+        update_count = 0
+        def run_responsive(coroutine, phase, minimum_wall_s=0.0, pace_s=0.005):
+            nonlocal update_count
+            task = asyncio.ensure_future(coroutine)
+            started = time.monotonic(); last_heartbeat = 0.0
+            while not task.done() or time.monotonic() - started < minimum_wall_s:
+                app.update(); update_count += 1
+                now = time.monotonic()
+                if now - last_heartbeat >= 1.0:
+                    heartbeat_path.write_text(json.dumps({"phase": phase, "wall_monotonic_s": now, "elapsed_s": now-started, "update_callback_count": update_count, "physics_step_count": SimulationManager.get_num_physics_steps()}) + "\n")
+                    last_heartbeat = now
+                time.sleep(pace_s)
+            return task.result()
 
-        for target in PRETEST_TARGETS:
-            command_target(
-                "pretest_closed_mid_open_closed", target, STEPS_PER_PRETEST_TARGET, report["pretest"]["records"]
-            )
+        async def idle_updates(seconds):
+            deadline = time.monotonic() + seconds
+            while time.monotonic() < deadline:
+                await omni.kit.app.get_app().next_update_async()
+
+        async def drive_sequence(phase, targets, steps, destination):
+            for target in targets:
+                await command_target(phase, target, steps, destination)
+
+        (args.run_dir / "runner_phase.txt").write_text("STATIC_PREFLIGHT\n")
+        run_responsive(idle_updates(3.0), "STATIC_PREFLIGHT", minimum_wall_s=3.0, pace_s=0.01)
+        (args.run_dir / "marker_static_gui_responsive.json").write_text(json.dumps({"status":"PASS", "minimum_wall_s":3.0, "update_callback_count":update_count})+"\n")
+        (args.run_dir / "runner_phase.txt").write_text("PHYSICS_PRETEST\n")
+        run_responsive(drive_sequence("pretest_closed_mid_open_closed", PRETEST_TARGETS, STEPS_PER_PRETEST_TARGET, report["pretest"]["records"]), "PHYSICS_PRETEST", pace_s=0.01)
         pretest_positions = [record["position_rad"] for record in report["pretest"]["records"]]
         clone_xforms_after_pretest = authored_clone_xforms(clone_prims)
         clone_time_samples_after_pretest = clone_time_samples(clone_prims)
@@ -509,39 +532,44 @@ def main() -> int:
         ]
         report["capture"]["ffmpeg_command"] = ffmpeg_command
         report["capture"]["video"] = str(video_path)
+        video_start_monotonic = time.monotonic()
         ffmpeg_process = subprocess.Popen(
             ffmpeg_command,
             stdout=(args.run_dir / "ffmpeg.stdout.log").open("wb"),
             stderr=(args.run_dir / "ffmpeg.stderr.log").open("wb"),
         )
-        for _ in range(90):
-            app.update(); time.sleep(1.0 / 30.0)
+        run_responsive(idle_updates(1.0), "CAPTURE_STATIC_START", minimum_wall_s=1.0, pace_s=0.01)
+        capture_process_error = None
         if ffmpeg_process.poll() is not None:
-            raise RuntimeError(f"ffmpeg exited before capture: {ffmpeg_process.returncode}")
+            capture_process_error = f"ffmpeg exited before capture: {ffmpeg_process.returncode}"
+            ffmpeg_process = None
         capture_start_step = SimulationManager.get_num_physics_steps()
         capture_wall_start = time.monotonic()
-        for target in (0.0, -0.6, -1.2, -0.6, 0.0):
-            command_target(
-                "capture_closed_open_closed", target, STEPS_PER_CAPTURE_TARGET,
-                report["capture"]["records"], wall_delay=1.0 / 30.0,
-            )
+        (args.run_dir / "runner_phase.txt").write_text("PHYSICS_CAPTURE\n")
+        run_responsive(drive_sequence("capture_closed_mid_open_mid_closed", CAPTURE_TARGETS, STEPS_PER_CAPTURE_TARGET, report["capture"]["records"]), "PHYSICS_CAPTURE", pace_s=1.0/30.0)
         capture_end_step = SimulationManager.get_num_physics_steps()
-        for _ in range(60):
-            app.update(); time.sleep(1.0 / 30.0)
-        ffmpeg_process.send_signal(signal.SIGINT)
-        ffmpeg_rc = ffmpeg_process.wait(timeout=20)
-        ffmpeg_process = None
-        if ffmpeg_rc not in (0, 255) or not video_path.is_file() or video_path.stat().st_size == 0:
-            raise RuntimeError(f"ffmpeg capture failed rc={ffmpeg_rc}")
+        run_responsive(idle_updates(2.0), "CAPTURE_STATIC_END", minimum_wall_s=2.0, pace_s=0.01)
+        ffmpeg_rc = None
+        if ffmpeg_process is not None:
+            ffmpeg_process.send_signal(signal.SIGINT)
+            ffmpeg_rc = ffmpeg_process.wait(timeout=20)
+            ffmpeg_process = None
+            if ffmpeg_rc not in (0, 255) or not video_path.is_file() or video_path.stat().st_size == 0:
+                capture_process_error = f"ffmpeg capture failed rc={ffmpeg_rc}"
         report["capture"].update(
             {
                 "simulation_step_range": [capture_start_step, capture_end_step],
                 "record_count": len(report["capture"]["records"]), "capture_wall_start_monotonic": capture_wall_start,
-                "video_bytes": video_path.stat().st_size,
-                "video_sha256": digest(video_path),
+                "video_start_monotonic": video_start_monotonic,
+                "video_bytes": video_path.stat().st_size if video_path.is_file() else 0,
+                "video_sha256": digest(video_path) if video_path.is_file() else None,
+                "capture_process_error": capture_process_error,
             }
         )
+        if capture_process_error:
+            raise RuntimeError(capture_process_error + "; physics sequence completed and was preserved")
         report["status"] = "AUTOMATED_PRETEST_AND_CAPTURE_COMPLETE_HUMAN_VIEWPORT_REVIEW_REQUIRED"
+        (args.run_dir / "runner_phase.txt").write_text("COMPLETE\n")
         (args.run_dir / "physics_gui_report.json").write_text(json.dumps(report, indent=2) + "\n")
         print("GT_GUI_TENSOR_PHYSICS_CAPTURE=AUTOMATED_PASS_HUMAN_REVIEW_REQUIRED", flush=True)
         return 0
