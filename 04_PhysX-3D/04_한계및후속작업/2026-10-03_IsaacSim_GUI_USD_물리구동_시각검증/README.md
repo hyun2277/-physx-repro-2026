@@ -88,6 +88,8 @@
 ## 현재 상태
 
 - 2026-10-02 GUI cube 최초 시도: **dependency solver 실패**. custom Kit에 설치된 extension을 찾을 `settings.app.exts.folders`가 없었다. `isaacsim.core.simulation_manager`를 registry에서 받지 못한 것이 아니라, 설치된 local extension `1.17.1`의 탐색 경로가 누락된 것이다. solver 종료 뒤 setup script가 실행되어 `omni.usd` import가 실패했으므로 후자는 2차 오류다. cube·USD·physics·GPU·renderer 결과는 미실행이다.
+- 2026-10-02 cube 재시도: **GPU Foundation device 생성 실패**. Kit는 Vulkan으로 RTX 5090 두 장을 열거했지만 모두 CUDA match 없음으로 건너뛰었다. 명령의 `CUDA_VISIBLE_DEVICES=1`은 CUDA를 한 장만 보이게 하고, Vulkan은 physical GPU 0·1을 열거했다. 따라서 renderer 설정의 `activeGpu=0`은 Foundation settings와 호환되지 않았다. 이 기록은 GPU 1·driver·IOMMU의 개별 장애를 확정하지 않는다. cube·USD·physics는 시작되지 않았다.
+- 최소 수정: `CUDA_VISIBLE_DEVICES`/`NVIDIA_VISIBLE_DEVICES`를 runner에서 해제하고, multi-GPU는 계속 끈 채 Kit의 physical `renderer.activeGpu=1`, `physics.cudaDevice=1`로 GPU 1(PCI `00000000:02:00.0`, UUID `GPU-843dced4-ee97-dbb8-36c9-343fe13b7647`)만 선택한다. 다음 실행에서 Kit log의 UUID/PCI와 실행 전 inventory를 다시 대조한다.
 - GUI 기본 cube 재시도: **사용자 화면 확인 대기**
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음

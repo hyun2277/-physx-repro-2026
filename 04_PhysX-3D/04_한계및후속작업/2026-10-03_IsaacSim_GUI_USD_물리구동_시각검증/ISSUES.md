@@ -16,8 +16,14 @@
 | 2026-10-03 | 2,400 step 설명 | record 산식이 불명확 | 코드·Linux report phase로 확정 | 8 targets × 30 steps × 10 cycles로 기록 | 일치 | 설명 완료 | 미기록 | 미기록 |
 | 2026-10-03 | 29354 drift 검사 범위 | 전체 link drift처럼 읽힐 수 있음 | 코드 배열 접근으로 확정 | 첫 link translation만 검사했다고 정정 | 전체 link translation/orientation 재측정 필요 | 미해결 | 미기록 | 미기록 |
 | 2026-10-03 | session-layer 재현성 | 원본 USD와 runtime PhysicsScene/물성 설정이 분리됨 | 기존 runner로 확인 | 새 실행에서 원본 hash와 override manifest 분리 예정 | 미실행 | 진행 예정 | 0 | 0 |
+| 2026-10-02 | GUI GPU Foundation device | GUI cube 재시도에서 `Failed to create any GPU devices` | 로그로 증상 확정; GPU/driver/IOMMU 단일 원인은 미확정 | `CUDA_VISIBLE_DEVICES=1` 제거, physical GPU 1 index를 명시 | 재실행 대기 | 진행 예정 | 0 | 0 |
+
+### GUI GPU Foundation 진단 근거
+
+`20261002T162120Z-cube-c35b9940-3d26-44ab-98c8-70c65fc2980c`의 Kit log는 Vulkan API와 RTX 5090 두 장을 열거했다. GPU 0은 UUID prefix `ff124b39`, PCI bus `1`; GPU 1은 UUID prefix `843dced4`, PCI bus `2`였다. command에는 `CUDA_VISIBLE_DEVICES=1`, `renderer.activeGpu=0`, `physics.cudaDevice=0`가 있었다. RTX는 `CUDA_VISIBLE_DEVICES environment variable is set`, `matching CUDA device could not be found`, `activeGpu 0 is not compatible`를 순서대로 남겼으며 active device column은 비어 있었다.
+
+설치된 공식 GUI path는 `tools/isaac-sim/isaac-sim.sh --no-ros-env`이며 `apps/isaacsim.exp.full.kit`을 연다. full experience는 base experience를 통해 `omni.isaac.ml_archive`를 의존하므로 기존 ABI 오류 경로를 다시 불러온다. 이번 custom Kit는 설치된 `omni.usd`, viewport, renderer, PhysX extension만 직접 선언하고 ML/ROS는 포함하지 않는다. GPU 1만 선택하되 renderer가 CUDA와 physical Vulkan device를 매칭할 수 있게 visibility masking은 사용하지 않는다.
 
 ## 새 시도 기록 규칙
 
 각 시도는 가설 하나와 주요 변경 하나만 기록한다. GUI cube가 검으면 10163을 열지 않는다. 화면을 사람이 확인하지 않은 상태에서는 screenshot·viewport 성공을 주장하지 않는다.
-

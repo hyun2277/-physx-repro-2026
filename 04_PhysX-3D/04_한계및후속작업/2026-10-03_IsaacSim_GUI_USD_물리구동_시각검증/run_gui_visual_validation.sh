@@ -36,16 +36,34 @@ echo "Human check is mandatory; this runner does not mark the GUI visible."
 nvidia-smi --query-gpu=index,uuid,pci.bus_id,name,memory.total,memory.free \
   --format=csv,noheader > "$LOG_DIR/nvidia_smi_inventory.csv"
 nvidia-smi > "$LOG_DIR/nvidia_smi_full.txt"
+{
+  printf 'CUDA_VISIBLE_DEVICES=%s\n' "${CUDA_VISIBLE_DEVICES-<unset>}"
+  printf 'NVIDIA_VISIBLE_DEVICES=%s\n' "${NVIDIA_VISIBLE_DEVICES-<unset>}"
+  printf 'renderer.activeGpu=1\n'
+  printf 'physics.cudaDevice=1\n'
+  printf 'renderer.multiGpu.enabled=false\n'
+} > "$LOG_DIR/gpu_selection_before_unset.txt"
 
-export CUDA_VISIBLE_DEVICES=1
+# Isaac Sim 6.1's Vulkan RTX device matcher needs the CUDA physical-device
+# enumeration to remain visible. Restrict the *selected* renderer/physics
+# device to physical GPU 1 below; do not enable multi-GPU.
+unset CUDA_VISIBLE_DEVICES
+unset NVIDIA_VISIBLE_DEVICES
+{
+  printf 'CUDA_VISIBLE_DEVICES=%s\n' "${CUDA_VISIBLE_DEVICES-<unset>}"
+  printf 'NVIDIA_VISIBLE_DEVICES=%s\n' "${NVIDIA_VISIBLE_DEVICES-<unset>}"
+  printf 'renderer.activeGpu=1\n'
+  printf 'physics.cudaDevice=1\n'
+  printf 'renderer.multiGpu.enabled=false\n'
+} > "$LOG_DIR/gpu_selection_effective.txt"
 export PHYSX_GUI_MODE="$MODE"
 export PHYSX_GUI_RUN_DIR="$LOG_DIR"
 
 printf '%q ' "$KIT" "$EXPERIENCE" --exec "$SETUP_SCRIPT" \
   --/renderer/multiGpu/enabled=false \
   --/renderer/multiGpu/autoEnable=false \
-  --/renderer/activeGpu=0 \
-  --/physics/cudaDevice=0 \
+  --/renderer/activeGpu=1 \
+  --/physics/cudaDevice=1 \
   --/app/window/hideUi=false \
   > "$LOG_DIR/command.txt"
 printf '\n' >> "$LOG_DIR/command.txt"
@@ -54,8 +72,8 @@ set +e
 "$KIT" "$EXPERIENCE" --exec "$SETUP_SCRIPT" \
   --/renderer/multiGpu/enabled=false \
   --/renderer/multiGpu/autoEnable=false \
-  --/renderer/activeGpu=0 \
-  --/physics/cudaDevice=0 \
+  --/renderer/activeGpu=1 \
+  --/physics/cudaDevice=1 \
   --/app/window/hideUi=false \
   > >(tee "$LOG_DIR/stdout.log") \
   2> >(tee "$LOG_DIR/stderr.log" >&2)

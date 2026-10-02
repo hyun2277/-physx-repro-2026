@@ -43,8 +43,10 @@ app.viewport.defaults.fillViewport = true
 renderer.enabled = "rtx"
 renderer.multiGpu.enabled = false
 renderer.multiGpu.autoEnable = false
-renderer.activeGpu = 0
-physics.cudaDevice = 0
+# Keep both CUDA devices visible so Vulkan can match physical devices, then
+# select physical GPU 1 explicitly. Multi-GPU remains disabled.
+renderer.activeGpu = 1
+physics.cudaDevice = 1
 physics.enableGPUDynamics = true
 physics.disableContactProcessing = false
 app.fastShutdown = false
