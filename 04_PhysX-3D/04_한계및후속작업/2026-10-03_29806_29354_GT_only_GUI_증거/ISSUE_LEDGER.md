@@ -12,3 +12,4 @@
 | 2026-10-03 | 29806 | 색상 static gate 종료 | stdout 완료 marker와 JSON은 존재하지만 wrapper exit code 2 | 새 gate는 rc 2를 단독 성공으로 보지 않고 완료 marker+JSON+6 PNG+contact-sheet validator가 모두 있을 때만 자동 준비 상태로 인정 |
 
 실행 오류는 같은 명령을 반복하지 않고 `LOG_DIR`, 최초 예외, physics 시작 전/후 여부를 새 행으로 기록한다.
+| 2026-10-03 | 29806 | six-view static gate | +X 화면 뒤 GUI 응답 없음, shell rc=124; staging 파일 0개, 완료 marker 없음 | 동기식 첫 ffmpeg 호출에서 event loop가 막힌 강한 코드순서 근거. GPU/mesh 실패로 단정하지 않음. Popen+app.update+camera별 15초 watchdog으로 수정 |
