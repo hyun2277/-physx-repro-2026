@@ -1,0 +1,36 @@
+{
+  "record_date": "2026-10-02",
+  "scope": "isolated Isaac Sim standalone installation only; no PhysX-3D conversion or simulation",
+  "install_root": "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim",
+  "version_file": "6.1.0-rc.26+release.49347.2d230af4.gl",
+  "official_release": {
+    "product_version": "6.1.0",
+    "download_url": "https://downloads.isaacsim.nvidia.com/isaac-sim-standalone-6.1.0-linux-x86_64.zip",
+    "download_doc": "https://docs.isaacsim.omniverse.nvidia.com/latest/installation/download.html",
+    "official_md5": "b471383a51f259e0af22541f05c34b0e"
+  },
+  "verified_archive": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/downloads/isaac-sim-standalone-6.1.0-linux-x86_64.zip",
+    "bytes": 13344634770,
+    "md5": "b471383a51f259e0af22541f05c34b0e",
+    "sha256": "959e746b0b7046404739afe068b6b2c2fbac6fe095351a4cda792496f459647f"
+  },
+  "preserved_invalid_partial": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/downloads/quarantine-20261002T063000Z/isaac-sim-standalone-6.1.0-linux-x86_64.zip.part.invalid",
+    "bytes": 13515437970,
+    "sha256": "3ef386f5be69ec778f8edff79960d325b2968b5e9fbd24db9b8971bcc2f9c4e2",
+    "status": "preserved; not used for installation"
+  },
+  "space": {
+    "pre_install_free_bytes": 386031525888,
+    "post_install_free_bytes": 321459396608,
+    "installed_tree_bytes": 62844182364
+  },
+  "isolation": {
+    "physxgen_modified": false,
+    "physx3d_source_modified": false,
+    "checkpoints_or_existing_artifacts_modified": false,
+    "post_install_sh_executed": false,
+    "system_cuda_or_driver_modified": false
+  }
+}

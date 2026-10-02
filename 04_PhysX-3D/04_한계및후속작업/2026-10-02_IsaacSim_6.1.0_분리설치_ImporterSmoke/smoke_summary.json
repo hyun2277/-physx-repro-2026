@@ -1,0 +1,36 @@
+{
+  "record_date": "2026-10-02",
+  "host_evidence": {
+    "general_linux_terminal": "User-confirmed: GPU 0 and GPU 1 are RTX 5090; driver 595.84; GPU 1 works with envs/physxgen torch CUDA.",
+    "codex_gpu_failure_interpretation": "Execution-environment access limitation, not evidence of a host driver fault."
+  },
+  "compatibility_checker": {
+    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-install-smoke/20261002T073000Z",
+    "result": "PASSED",
+    "driver": "595.84",
+    "caveat": "CUDA_VISIBLE_DEVICES=1 was set and Isaac warned that CUDA and Omniverse enumeration can differ; this is not the final GPU-selection method."
+  },
+  "single_gpu_importer_smoke": {
+    "log_directory": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-sim-install-smoke/20261002T080000Z-single-gpu",
+    "configuration": {
+      "active_gpu": 1,
+      "multi_gpu": false,
+      "renderer_multi_gpu": false,
+      "cuda_visible_devices": "unset",
+      "p2p": "not enabled or tested"
+    },
+    "iommu": {
+      "log_warning": "IOMMU is enabled.",
+      "bios_or_kernel_changed": false
+    },
+    "urdf_importer_bundle": {
+      "extension": "isaacsim.asset.importer.urdf",
+      "version": "3.11.10",
+      "bundle_present": true
+    },
+    "status": "BLOCKED_BEFORE_DIRECT_IMPORTER_API_CONFIRMATION",
+    "blocking_error": "omni.isaac.ml_archive bundled libc10_cuda.so: undefined symbol cudaGetDriverEntryPointByVersion, version libcudart.so.12",
+    "interpretation": "This is an Isaac bundled legacy-extension/CUDA-runtime ABI issue observed during smoke. It is not recorded as a PhysX-3D model failure or as a host driver failure. Exit code 0 is insufficient for a successful importer API claim."
+  },
+  "not_run": ["URDF generation", "USD import", "GT-only physics drive", "generated-output conversion", "P2P", "multi-GPU execution"]
+}
