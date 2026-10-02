@@ -19,3 +19,27 @@
 ## 다음 최소 조치
 
 `No simulation registered`의 원인을 Isaac의 physics-scene lifecycle과 current composed payload stage로 한정해 점검해야 한다. scene registration이 명시적으로 확인되기 전에는 이 runner를 재실행하거나 drive/contact/영상 시험을 하지 않는다.
+
+## 10163 runtime PhysicsScene 등록 후 drive 시도 (20261002T083648Z)
+
+PhysicsScene registration smoke가 통과한 뒤 10163만 다시 실행했다. runtime/session-layer
+`/World/GTOnlyRuntimePhysicsScene`을 Isaac Sim 6.1.0 `SimulationManager`에 등록하고
+step counter가 `2 -> 3`으로 증가했다. 이어 composed `Physics=physx` stage에서 revolute
+joint 1개, articulation root 1개, rigid body 3개, collider 2개를 확인했다. 따라서 이번
+시도에서는 이전의 `No simulation registered`가 재발하지 않았다.
+
+그러나 첫 초기화 target과 이어지는 range 내 command에서 PhysX가
+`PxArticulationJointReducedCoordinate::setDriveTarget(): ... illegal ...
+PxSceneFlag::eENABLE_DIRECT_GPU_API`를 기록했다. GPU direct API가 활성화된 scene에서
+USD `PhysicsDriveAPI:angular` target을 author하는 현재 control 방식이 허용되지 않는다는
+명시적 엔진 오류다. drive target은 PhysX에 적용되지 않았으므로 joint position/velocity,
+rigid-body transform, contact 상태, range 밖 clamp, 5 target/10 왕복/3 초기화의 유효한
+결과는 없다. 이 실행은 **GT 관절 실패나 AI 예측 실패가 아니라, GPU PhysX control API
+호환성 실패**로 기록한다.
+
+영상은 만들지 않았다. 실제 drive state가 없는데 transform animation으로 대체하면 안 되기
+때문이다. 29806·29354·자동 예측군은 실행하지 않았다. 다음 조치는 설치된 Isaac 6.1
+tensor `ArticulationView.set_dof_position_targets` 경로가 direct-GPU scene의 공식 control
+경로인지 별도로 검증하는 것이며, 이 기록에서는 재시도하지 않는다. 같은 오류를 반복하지
+않도록 현재 USD `PhysicsDriveAPI` runner는 CUDA physics device에서 target authoring 전에
+명시적으로 중단하도록 보호했다.

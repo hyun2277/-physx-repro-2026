@@ -1,0 +1,36 @@
+{
+  "run_id": "20261002T083648Z-gt-only-physics-10163",
+  "case": "10163",
+  "scope": "GT-only USD composed Physics=physx control attempt; not an AI prediction result",
+  "status": "FAIL",
+  "input_usd": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/10163/gt_10163/gt_10163.usda",
+  "physics_world_preflight": {
+    "runtime_session_physics_scene": "/World/GTOnlyRuntimePhysicsScene",
+    "simulation_manager_step_counter": [
+      2,
+      3
+    ],
+    "no_simulation_registered_recurred": false,
+    "revolute_joints": 1,
+    "articulation_roots": 1,
+    "rigid_bodies": 3,
+    "colliders": 2
+  },
+  "first_failing_operation": "USD PhysicsDriveAPI angular target authoring while PhysX direct GPU API is enabled",
+  "engine_error": "PxArticulationJointReducedCoordinate::setDriveTarget(): it is illegal to call this method if PxSceneFlag::eENABLE_DIRECT_GPU_API is enabled",
+  "conclusion": "No valid GT joint-drive measurement was produced. This is a control-API compatibility failure, not a GT joint or AI prediction failure.",
+  "not_executed_or_not_valid": [
+    "five in-range target measurement",
+    "ten round trips",
+    "three initialization measurements",
+    "out-of-range behavior measurement",
+    "rigid-body/contact state audit",
+    "physics video",
+    "29806, 29354, and generated-output assets"
+  ],
+  "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/gt-only-isaac-physics-control/20261002T083648Z-gt-only-physics-10163",
+  "engine_error_occurrences_in_child_stderr": 167,
+  "child_exit_code_observed": 0,
+  "runner_success_marker_present": false,
+  "interpretation": "Isaac/Kit returned child exit code 0 despite PhysX engine errors; the required PASS marker and physics_drive_report were absent, so the runner correctly treats the attempt as failed."
+}
