@@ -45,6 +45,12 @@ Host 기록은 X11 `DISPLAY=:0`을 사용했다. `xrandr --listproviders`에서 
 
 2026-10-03 사용자가 이 GPU 0 cube-only 검사 1회를 승인했다. 별도 experience에서 physics extension과 physics device 설정을 제거하고 renderer active GPU 0만 지정했다. 실행 직전 UUID `GPU-ff124b39-8b48-7d2a-bf74-bf6a5c8f1716`, PCI `01:00.0`, memory 및 compute process를 재검사한다. 자동 marker와 renderer 오류 부재는 화면 가시성의 필요조건일 뿐이며, 조명된 cube·viewport·Stage tree를 사람이 확인하고 screenshot을 남기기 전에는 `GUI_VISIBLE=PASS`로 판정하지 않는다.
 
+### GPU 0 cube GUI 사람 확인
+
+`20261002T165125Z-cube-gpu0-6e7dd0e5-1047-45e2-ab41-2d2b174bc3f2`는 exit code 0, 모든 자동 marker, window 생성, swapchain/backbuffer 오류 0을 기록했다. 사용자가 viewport의 렌더링된 cube, Stage tree의 `World/VisibleCube`, Property panel의 `/World/VisibleCube`, `KeyLight`와 `DistantLight`를 직접 확인했으므로 이 실행은 `GUI_VISIBLE=PASS`다. screenshot 원본은 Windows 로컬 `C:\Users\sh050\Desktop\physX\1003\아이작심1.PNG`에만 있으며 Linux 또는 Git에 있다고 주장하지 않는다.
+
+해결 범위는 GPU 0에서 기본 Isaac GUI·USD stage presentation이 가능하다는 점이다. GPU 1의 X surface present 실패 원인은 그대로 남아 있고, 10163·29806·29354 USD loading과 physics는 이번 실행에서 다루지 않았다.
+
 ## 새 시도 기록 규칙
 
 각 시도는 가설 하나와 주요 변경 하나만 기록한다. GUI cube가 검으면 10163을 열지 않는다. 화면을 사람이 확인하지 않은 상태에서는 screenshot·viewport 성공을 주장하지 않는다.

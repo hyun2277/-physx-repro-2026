@@ -101,8 +101,11 @@
 - 2026-10-03 사용자 승인: GPU 0의 cube GUI presentation 1회만 승인됐다. 별도 `isaac_gui_cube_gpu0_presentation.kit`은 PhysX·tensors·simulation manager를 의존하지 않고 renderer active GPU 0, multi-GPU off로 고정한다. `run_gui_cube_gpu0_presentation.sh`는 직전 GPU 0 UUID/PCI/memory와 compute process를 검사하며 compute process가 있으면 Kit를 시작하지 않는다. app/USD/headless/cube marker와 swapchain/backbuffer 오류 부재가 모두 확인돼도 사람 화면 확인 전 상태는 `PASS_AUTOMATION_MARKERS_HUMAN_GUI_CHECK_REQUIRED`이며 `GUI_VISIBLE=PASS`가 아니다.
 - GPU 0 cube 전용 일반 Linux 명령: `cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_IsaacSim_GUI_USD_물리구동_시각검증/run_gui_cube_gpu0_presentation.sh`
 - 사람이 확인할 항목은 (1) 조명된 cube, (2) 정상 viewport, (3) Stage tree의 `/World/VisibleCube` 세 가지이며 screenshot을 출력된 `SCREENSHOT_DIR`에 저장한다. 이번 승인에는 10163·29806·29354, USD asset loading, physics가 포함되지 않는다.
+- 2026-10-03 GPU 0 cube 실행(`20261002T165125Z-cube-gpu0-6e7dd0e5-1047-45e2-ab41-2d2b174bc3f2`): **`GUI_VISIBLE=PASS`**. 자동 검사에서 GPU 0 UUID/PCI 일치, compute process 0, app startup, `omni.usd`, `headless=false`, cube 생성/lookup, window 생성과 swapchain/backbuffer 오류 0을 확인했다. 사용자는 실제 화면에서 렌더링된 cube, Stage tree의 `World/VisibleCube`, Property panel의 Prim Path `/World/VisibleCube`, Stage tree의 `KeyLight`와 `DistantLight`를 직접 확인했다.
+- 사람 확인 screenshot은 Windows 로컬 `C:\Users\sh050\Desktop\physX\1003\아이작심1.PNG`에만 보관됐다. Linux `SCREENSHOT_DIR`에는 파일이 없으며 Git 증거 파일이나 Linux hash 검증 대상으로 기록하지 않는다.
+- 이 PASS가 입증하는 범위는 **GPU 0에서 Isaac Sim GUI와 기본 USD stage가 정상 표시됨**까지다. 10163·29806·29354 USD loading, 관절, physics simulation은 모두 미실행이다.
 - 10163 GUI USD loading: **미실행 — cube 통과 전 실행 금지**
 - 10163 스크린샷: 아직 없음
 - 29806·29354: 아직 실행하지 않음
 
-일반 Linux 실행 명령은 `run_gui_visual_validation.sh cube`이며, cube 확인 뒤 별도 지시 없이 10163 단계로 넘어가지 않는다.
+GPU 0 cube gate는 완료됐다. 별도 지시 없이 10163 단계로 넘어가지 않는다.
