@@ -42,3 +42,9 @@ geometry/physics variant 누락은 배제됐다. `gt_10163.usda`의 `Physics=phy
 다음 사람 확인 판정은 (1) cube+복제 Mesh 둘 다 표시: 원본 instance/material presentation 문제, (2) cube만 표시: 복제 Mesh renderer 속성/topology 경로 문제, (3) 둘 다 미표시: GUI renderer/presentation 문제다.
 
 mesh prim이 없거나 visibility/extent/layer 검사가 실패하면 사람 확인 단계로 넘기지 않는다. 자동 검사가 통과해도 노트북 mesh와 `gt_C_1` guide가 같은 viewport에 실제로 보이기 전에는 `GUI_VISIBLE=PASS`로 기록하지 않는다.
+
+## clone-mesh 사람 확인 후 판정 갱신
+
+2026-10-03 사람 확인에서 GPU 0 Isaac GUI와 viewport, 주황색 `ReferenceCube`, 흰색 받침과 세워진 화면 형태의 `CloneMesh_0/1`, 조명이 함께 보였다. 이로써 전역 GUI renderer 실패와 원본 points/topology 이상은 배제했으며, 비가시 원인은 **원본 USD의 instance/material presentation 경로**로 좁혀졌다. 과거 `C_OR_E_UNRESOLVED`는 이 확인 전 단계의 판정이며, renderer 전체와 topology를 포함한 포괄적 미확정 상태로 유지하지 않는다. 원본 instance presentation 내부의 세부 원인은 아직 확정하지 않았다.
+
+이 화면은 session layer에 만든 정적 일반 Mesh 복제본이다. 원본 instance가 그대로 표시됐다는 증거도, physics가 실행됐다는 증거도 아니다. 사람 확인 screenshot은 Windows `C:\Users\sh050\Desktop\physX\1003\10163_clone_mesh_visible_diagnostic.png`, 188,129 bytes, SHA256 `6784dcafd76968878ccc3a073e0bbe1a42a798f5713a8683d34ff8b5a66b546b`에만 보존됐다. Linux/Git 파일로 기록하지 않는다.

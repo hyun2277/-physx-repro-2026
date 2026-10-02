@@ -1,0 +1,26 @@
+{
+  "status": "PASS_STATIC_AND_CPU_MOCK_ONLY",
+  "date": "2026-10-03",
+  "checks": {
+    "python_py_compile": "PASS",
+    "bash_n": "PASS",
+    "kit_required_gpu_settings_present": "PASS",
+    "git_diff_check": "PASS",
+    "video_validator_cpu_synthetic": {
+      "status": "PASS",
+      "video": "ffmpeg testsrc2 320x240, 30 fps, 3 seconds",
+      "frames_checked": 3,
+      "required_codec": "h264/yuv420p",
+      "joint_records": 270,
+      "joint_position_span_rad": 1.2,
+      "result": "AUTOMATED_VIDEO_VALIDATION_PASS_HUMAN_VISUAL_REQUIRED"
+    }
+  },
+  "not_run": [
+    "Isaac Sim GUI physics",
+    "GPU 0 PhysicsScene",
+    "10163 tensor articulation control",
+    "viewport video capture"
+  ],
+  "interpretation": "The runner and validation gates are prepared. This record is not evidence that the 10163 GUI physics run succeeded."
+}
