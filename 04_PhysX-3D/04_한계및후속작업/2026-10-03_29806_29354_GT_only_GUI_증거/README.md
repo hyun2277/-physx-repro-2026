@@ -31,7 +31,7 @@
 cd /home/minsujo/Desktop/SH/PHYSx/repro-records && ./04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거/run_gui_29806_gpu0_static_mapping_gate.sh
 ```
 
-static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 원래 rigid-body ancestor, target component, source와 **실제 author된 clone** world bounds 및 vertex 오차를 기록한다. base는 회색, `gt_C_1/2/3` 문 component는 각각 빨강/초록/파랑으로 표시한다. ±X/±Y/±Z 여섯 GUI 화면과 contact sheet를 만든다. `PhysicsScene`, timeline, tensor는 시작하지 않으며 simulation step은 0이다. 사람 확인에서 수납장 base와 서로 다른 위치의 세 문이 동시에 보일 때만 이후 physics runner 차단을 해제한다.
+static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 원래 rigid-body ancestor, target component, source와 **실제 author된 clone** world bounds 및 vertex 오차를 기록한다. base는 회색, `gt_C_1/2/3` 문 component는 각각 빨강/초록/파랑으로 표시한다. stage bounds의 최소 두께 축인 Z 정면에서 보이는 단일 GUI 화면을 30초간 유지한다. 이 gate에서 외부 X11 capture를 시작하지 않는다. `PhysicsScene`, timeline, tensor는 시작하지 않으며 simulation step은 0이다. 사람 확인에서 수납장 base와 서로 다른 위치의 세 문이 동시에 보일 때만 이후 physics runner 차단을 해제한다.
 
 ## 범위 제한
 
@@ -39,3 +39,7 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 - 기존 headless의 “초기화 3회”는 독립 reset 3회가 아니라 neutral target 60-step 구간 3회였다는 정정을 유지한다.
 - range 밖 target 요청이나 target readback만으로 mechanical limit 정확도를 주장하지 않는다.
 - 새 저장 영상을 사람이 끝까지 보기 전 `HUMAN_VIDEO_REVIEW=PASS`로 기록하지 않는다.
+
+### 19:58 timeout 감사
+
+`20261002T195815Z-...` 재시도는 `app ready` 뒤 첫 `plus_X` capture를 `CAPTURE_RUNNING`으로 표시한 상태에서 240초 wrapper timeout으로 종료됐다. PNG, contact sheet, `static_mapping_gate.json`, 완료 marker는 없다. `ffmpeg_plus_X.stderr`는 1,858 bytes의 build banner만 남겨 X11 input open이나 frame output을 확인할 수 없다. 이는 GPU·mesh·USD 실패로 판정하지 않는다. 코드 순서와 파일 상태는 in-process GUI update와 external X11 capture가 같이 정지한 경로를 가리키지만, traceback과 대응 Kit log가 없어 내부 blocking call은 미확정이다. 세부 기록은 `29806_static_gate_timeout_1958_audit.json`에 분리했다.

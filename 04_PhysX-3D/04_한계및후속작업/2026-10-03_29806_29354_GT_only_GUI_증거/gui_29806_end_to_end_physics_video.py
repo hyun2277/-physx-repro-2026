@@ -364,40 +364,19 @@ def main() -> int:
             distance=max(sizes)*2.2
             cube=UsdGeom.Cube.Define(stage,"/__PhysXGuiDiagnostic/ReferenceCube"); cube.CreateSizeAttr(max(sizes)*0.08); cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0,0.55,0.05)])
             UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+max(sizes)*0.12,maxs[1],maxs[2]))
-            camera_rows=[]; axes=("X","Y","Z"); progress_path=args.run_dir/"static_capture_progress.json"
+            progress_path=args.run_dir/"static_capture_progress.json"
             def save_progress(status, current=None, error=None):
-                progress_path.write_text(json.dumps({"status":status,"current_camera":current,"completed_cameras":[row["label"] for row in camera_rows],"physics_started":False,"simulation_steps":0,"error":error},indent=2)+"\n")
-            def responsive_capture(command, capture_path, label):
-                save_progress("CAPTURE_RUNNING",label)
-                process=subprocess.Popen(command,stdout=(args.run_dir/f"ffmpeg_{label}.stdout").open("wb"),stderr=(args.run_dir/f"ffmpeg_{label}.stderr").open("wb"))
-                deadline=time.monotonic()+15.0; updates=0
-                while process.poll() is None:
-                    app.update(); updates+=1; time.sleep(0.01)
-                    if time.monotonic()>deadline:
-                        process.kill(); process.wait(timeout=5); save_progress("CAPTURE_TIMEOUT",label,f"ffmpeg exceeded 15 seconds after {updates} GUI updates"); raise RuntimeError(f"static capture timeout camera={label}")
-                if process.returncode!=0 or not capture_path.is_file() or capture_path.stat().st_size==0:
-                    save_progress("CAPTURE_FAILED",label,f"rc={process.returncode} exists={capture_path.exists()}"); raise RuntimeError(f"static capture failed camera={label} rc={process.returncode}")
-                return updates
+                progress_path.write_text(json.dumps({"status":status,"current_camera":current,"physics_started":False,"simulation_steps":0,"external_capture_started":False,"error":error},indent=2)+"\n")
             save_progress("CAMERA_SETUP")
-            for axis_index,axis_name in enumerate(axes):
-                for sign,label in ((1,"plus"),(-1,"minus")):
-                    eye_values=list(center); eye_values[axis_index]+=sign*distance
-                    up_index=1 if axis_index==2 else 2
-                    up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
-                    camera=UsdGeom.Camera.Define(stage,f"/__PhysXGuiDiagnostic/Camera_{label}_{axis_name}")
-                    view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
-                    UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse()); camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
-                    viewport.set_active_camera(str(camera.GetPath()))
-                    for _ in range(20): app.update()
-                    capture_path=args.run_dir/f"static_view_{label}_{axis_name}.png"
-                    camera_label=f"{label}_{axis_name}"
-                    capture_updates=responsive_capture(["ffmpeg","-y","-f","x11grab","-draw_mouse","0","-video_size",args.capture_size,"-i",f"{os.environ['DISPLAY']}+{args.capture_offset}","-frames:v","1",str(capture_path)],capture_path,camera_label)
-                    camera_rows.append({"label":camera_label,"axis_index":axis_index,"sign":sign,"eye":eye_values,"target":list(center),"screen_up":up_values,"camera":str(camera.GetPath()),"capture":str(capture_path),"capture_bytes":capture_path.stat().st_size,"gui_updates_while_capturing":capture_updates})
-                    save_progress("CAPTURE_COMPLETED",camera_label)
-            preferred=next(row for row in camera_rows if row["axis_index"]==front_index and row["sign"]==1)
-            viewport.set_active_camera(preferred["camera"])
+            eye_values=list(center); eye_values[front_index]+=distance
+            up_index=1 if front_index==2 else 2; up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
+            camera=UsdGeom.Camera.Define(stage,"/__PhysXGuiDiagnostic/Camera_front")
+            view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
+            UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse()); camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
+            viewport.set_active_camera(str(camera.GetPath()))
             for _ in range(20): app.update()
-            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"stage_up_axis":up_token,"thin_axis_index":front_index,"selection_basis":"smallest aggregate source/clone extent; stage up is not excluded because doors may lie in a plane normal to it","preferred":preferred,"candidates":camera_rows,"reference_cube":"/__PhysXGuiDiagnostic/ReferenceCube"}
+            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"stage_up_axis":up_token,"thin_axis_index":front_index,"selection_basis":"smallest aggregate source/clone extent; stage up is not excluded because doors may lie in a plane normal to it","eye":eye_values,"target":list(center),"screen_up":up_values,"camera":str(camera.GetPath()),"reference_cube":"/__PhysXGuiDiagnostic/ReferenceCube","external_capture_started":False}
+            save_progress("FRONT_GUI_READY", "front")
         context.get_selection().set_selected_prim_paths([str(revolute[0].GetPath())], True)
 
         joint_frames={}

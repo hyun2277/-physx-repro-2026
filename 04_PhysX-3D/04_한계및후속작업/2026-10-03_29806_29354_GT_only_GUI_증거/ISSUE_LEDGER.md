@@ -13,3 +13,5 @@
 
 실행 오류는 같은 명령을 반복하지 않고 `LOG_DIR`, 최초 예외, physics 시작 전/후 여부를 새 행으로 기록한다.
 | 2026-10-03 | 29806 | six-view static gate | +X 화면 뒤 GUI 응답 없음, shell rc=124; staging 파일 0개, 완료 marker 없음 | 동기식 첫 ffmpeg 호출에서 event loop가 막힌 강한 코드순서 근거. GPU/mesh 실패로 단정하지 않음. Popen+app.update+camera별 15초 watchdog으로 수정 |
+| 2026-10-03 | 29806 | 19:58 six-view static gate | `app ready` 후 `plus_X` CAPTURE_RUNNING에서 240초 timeout. PNG 0, contact sheet/JSON/완료 marker 없음. ffmpeg stderr는 banner만 1,858 bytes, stdout 0 bytes | Popen 수정도 해결하지 못함. external capture가 입력을 열지 못한 동안 `app.update()` 호출도 복귀하지 않은 것으로 추론. 대응 Kit log/traceback이 없어 내부 호출은 미확정. GPU/mesh/USD 실패 판정 안 함 |
+| 2026-10-03 | 29806 | static gate 재설계 | 복잡한 6-view X11 자동 capture를 static runner에서 제거 | Z-thin-axis 정면 단일 GUI와 relationship/bounds JSON만 제공. physics 0 step, external capture 0건. 사람이 회색 base+빨강/초록/파랑 3문을 확인하기 전까지 physics 차단 유지 |

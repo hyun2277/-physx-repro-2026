@@ -28,12 +28,15 @@ unset CUDA_VISIBLE_DEVICES NVIDIA_VISIBLE_DEVICES
 cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --static-mapping-gate)
 printf '%q ' "${cmd[@]}" >"$LOG_DIR/command.txt"; printf '\n' >>"$LOG_DIR/command.txt"
 set +e
-timeout --signal=INT --kill-after=20s 240s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.log") 2> >(tee "$LOG_DIR/stderr.log" >&2)
+timeout --signal=INT --kill-after=20s 120s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.log") 2> >(tee "$LOG_DIR/stderr.log" >&2)
 rc=$?
 set -e
 printf '%s\n' "$rc" >"$LOG_DIR/exit_code.txt"
-if ((rc!=0 && rc!=2)); then echo "FAILED rc=$rc LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"; exit "$rc"; fi
+if ((rc!=0 && rc!=2)); then
+  echo "FAILED rc=$rc LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"
+  [[ ! -f "$STAGING_DIR/static_capture_progress.json" ]] || { echo 'LAST_PROGRESS:'; cat "$STAGING_DIR/static_capture_progress.json"; }
+  exit "$rc"
+fi
 rg -qx 'STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED' "$LOG_DIR/stdout.log" || { echo "FAILED marker_missing rc=$rc"; exit 10; }
 [[ -s "$STAGING_DIR/static_mapping_gate.json" ]] || exit 11
-python3 "$DIR/build_29806_static_contact_sheet.py" --run-dir "$STAGING_DIR" >"$LOG_DIR/contact_sheet.stdout" 2>"$LOG_DIR/contact_sheet.stderr" || exit 12
 echo "STATIC_MAPPING_AUTOMATION_READY_HUMAN_CHECK_REQUIRED LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"
