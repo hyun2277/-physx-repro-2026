@@ -53,3 +53,13 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 새 gate는 원본 Mesh와 실제 author된 clone을 모두 감사하고, direct/computed material이 같은지 검사한다. ±X/±Y/±Z와 두 사선 후보의 projected door 면적, 문 중심 분리, edge-on 여부, base depth 가림 위험, clipping 여백을 수치 비교해 한 시점을 선택한다. 기존 bounds로 계산한 예상 선택은 `minus_Z`이나 실제 실행 report의 선택값을 기준으로 한다. 외부 X11 capture는 호출하지 않는다. GUI는 45초 유지하며 1초 heartbeat와 개별 `app.update()` 5초 watchdog을 기록한다.
 
 현재 판정은 `RUNNER_PREPARED_HUMAN_CHECK_REQUIRED`이다. 사람이 수납장 형태와 회색 base, 서로 다른 위치의 빨강·초록·파랑 문, 작은 주황 cube를 확인하기 전까지 physics shell의 exit 13 차단을 유지한다.
+
+## 11:31 내부 viewport pixel gate
+
+이전 `20261003T111210Z-...` 실행은 수치 gate와 정상 종료까지 통과했지만, 사람 화면에서 진단 geometry가 하나도 보이지 않아 `HUMAN_CHECK_FAIL_NO_RENDERED_DIAGNOSTIC_GEOMETRY`이다. 활성 camera는 `/__PhysXGuiDiagnostic/Camera_front`이고 후보 label은 `minus_Z`로 같은 camera를 가리킨다.
+
+수정 runner는 설치된 Kit 110의 `omni.kit.viewport.utility.capture_viewport_to_file`과 `next_viewport_frame_async`를 사용해 **활성 Viewport/Viewport0**의 단일 프레임을 내부 캡처한다. 외부 X11/ffmpeg capture는 사용하지 않는다. world-space 일반 Mesh clone 8개에 extent, default purpose, inherited visibility, double-sided, direct PreviewSurface와 emissive 색상을 명시했다. 같은 session layer/frustum에 주황 reference cube, magenta cube, cyan thin cube를 두었다. viewport axis/grid/selection guide는 USD joint를 바꾸지 않고 Kit per-viewport setting으로 숨겼다.
+
+실행 `20261003T113111Z-...`은 1280×720 PNG(70,419 bytes, SHA256 `867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd`)를 만들었다. 최대 4-connected component 기준 pixel 수는 base 4,587, C1 red 48,975, C2 green 60,248, C3 blue 60,272, reference orange 1,695, control magenta 855, control cyan 236이다. 문 중심 최소 거리는 223.057 px이며 모두 별도 bbox이다. non-black 비율은 0.193507이다. source↔실제 author clone 최대 vertex 오차는 `4.928568641186635e-11 m`이다.
+
+자동 상태는 `AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED`이다. PhysicsScene, tensor, timeline을 시작하지 않았고 physics step은 0이다. 이 실행의 저장 PNG에서는 회색 수납장 frame, 서로 다른 빨강·초록·파랑 문, 주황 reference cube, 두 control이 확인되지만, 실제 GUI 사람 확인은 아직 별도 `PENDING`이다. 이전 검은 화면의 단일 확정 원인은 분리하지 못했다. 새 경로는 world-space clone, 명시적 렌더 속성, emissive direct material, render warmup/internal capture를 함께 바꿨기 때문이다.

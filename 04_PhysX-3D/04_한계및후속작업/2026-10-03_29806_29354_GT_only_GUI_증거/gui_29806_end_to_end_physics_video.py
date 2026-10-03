@@ -170,8 +170,10 @@ def main() -> int:
             with marker_path.open("a") as stream: stream.write(json.dumps(record,sort_keys=True)+"\n")
             print(f"STATIC_GATE_MARKER_{name}="+json.dumps(record,sort_keys=True),flush=True)
         if args.static_mapping_gate:
-            carb.settings.get_settings().set("/app/window/title", "GT-only static mapping gate — physics not started | 29806")
-            marker("APP_READY",headless=False)
+            settings=carb.settings.get_settings()
+            settings.set("/app/window/title", "GT-only static mapping gate — physics not started | 29806")
+            settings.set("/persistent/app/usd/muteUsdDiagnostics", False)
+            marker("APP_READY",headless=False,usd_diagnostics_muted=False)
         actual_hash = digest(args.input_usd)
         if actual_hash != INPUT_SHA256:
             raise RuntimeError(f"input USD hash mismatch: {actual_hash}")
@@ -262,7 +264,7 @@ def main() -> int:
             token = label or "BASE"
             material = UsdShade.Material.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}")
             shader = UsdShade.Shader.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}/PreviewSurface")
-            shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
+            shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("emissiveColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
             material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface"); materials[label]=material
 
         xforms = UsdGeom.XformCache(Usd.TimeCode.Default())
@@ -287,15 +289,22 @@ def main() -> int:
                 raise RuntimeError(f"body-local round trip failed: {source_prim.GetPath()} error={reconstruction_error}")
             counts = list(source_mesh.GetFaceVertexCountsAttr().Get() or [])
             indices = list(source_mesh.GetFaceVertexIndicesAttr().Get() or [])
-            clone_path = body.GetPath().AppendChild(f"__GuiDiagnosticMesh_{index}")
+            if args.static_mapping_gate:
+                clone_path = Sdf.Path("/__PhysXGuiStatic").AppendChild(f"CloneMesh_{index}")
+                authored_clone_points = [Gf.Vec3f(point) for point in source_world_points]
+            else:
+                clone_path = body.GetPath().AppendChild(f"__GuiDiagnosticMesh_{index}")
+                authored_clone_points = body_local_points
             clone = UsdGeom.Mesh.Define(stage, clone_path)
-            clone.CreatePointsAttr(body_local_points)
+            clone.CreatePointsAttr(authored_clone_points)
             clone.CreateFaceVertexCountsAttr(counts)
             clone.CreateFaceVertexIndicesAttr(indices)
             clone.CreateOrientationAttr(UsdGeom.Tokens.rightHanded)
             clone.CreateSubdivisionSchemeAttr(UsdGeom.Tokens.none)
             clone.CreateDoubleSidedAttr(True)
             clone.CreateVisibilityAttr(UsdGeom.Tokens.inherited)
+            clone.CreatePurposeAttr(UsdGeom.Tokens.default_)
+            clone.CreateExtentAttr([Gf.Vec3f(*[min(float(p[i]) for p in authored_clone_points) for i in range(3)]),Gf.Vec3f(*[max(float(p[i]) for p in authored_clone_points) for i in range(3)])])
             door_joint = next((Path(path).name for path,rel in joint_bodies.items() if rel["body1"] == str(body_path) or connected(fixed_graph, rel["body1"], str(body_path))), None)
             clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*colors[door_joint])])
             clone.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
@@ -329,6 +338,9 @@ def main() -> int:
                     "triangles": sum(max(0, int(count) - 2) for count in counts),
                     "direct_material_binding_targets": direct_targets,
                     "computed_material_target": computed_target,
+                    "shader_surface_connected": bool(materials[door_joint].GetSurfaceOutput().HasConnectedSource()),
+                    "shader_diffuse_color": list(colors[door_joint]),
+                    "shader_emissive_color": list(colors[door_joint]),
                     "display_color": list(colors[door_joint]),
                     "display_opacity": 1.0,
                     "double_sided": True,
@@ -347,7 +359,8 @@ def main() -> int:
                     "source_world_transform_determinant": float(source_world.GetDeterminant()),
                     "source_world_transform_finite": all(math.isfinite(v) for row in matrix_values(source_world) for v in row),
                     "target_body_world_transform": matrix_values(body_world),
-                    "clone_parent_prim": str(body.GetPath()),
+                    "clone_parent_prim": str(clone.GetPrim().GetParent().GetPath()),
+                    "visual_authoring_space": "world" if args.static_mapping_gate else "rigid_body_local",
                     "clone_local_transform": matrix_values(Gf.Matrix4d(1.0)),
                     "clone_world_transform": matrix_values(authored_world),
                     "clone_world_transform_determinant": float(authored_world.GetDeterminant()),
@@ -390,6 +403,12 @@ def main() -> int:
             app.update()
 
         viewport = get_active_viewport()
+        if viewport is not None:
+            # Installed Kit 110 per-viewport settings. Hide presentation guides
+            # without changing any USD joint or physics relationship.
+            settings.set(f"/persistent/app/viewport/{viewport.id}/guide/axis/visible", False)
+            settings.set(f"/persistent/app/viewport/{viewport.id}/guide/grid/visible", False)
+            settings.set(f"/persistent/app/viewport/{viewport.id}/guide/selection/visible", False)
         clone_paths = [str(prim.GetPath()) for prim in clone_prims]
         if viewport is None or not frame_viewport_prims(viewport, prims=clone_paths):
             raise RuntimeError("failed to frame GUI diagnostic cabinet meshes")
@@ -399,10 +418,18 @@ def main() -> int:
             center=[(a+b)*0.5 for a,b in zip(mins,maxs)]; sizes=[b-a for a,b in zip(mins,maxs)]
             asset_scale=max(sizes); distance=asset_scale*3.2
             cube_size=asset_scale*0.055
-            cube=UsdGeom.Cube.Define(stage,"/__PhysXGuiDiagnostic/ReferenceCube")
-            cube.CreateSizeAttr(cube_size); cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0,0.55,0.05)])
-            cube.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
-            UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+asset_scale*0.10,center[1],mins[2]-cube_size))
+            def diagnostic_material(name,color):
+                material=UsdShade.Material.Define(stage,f"/__PhysXGuiStatic/Material_{name}")
+                shader=UsdShade.Shader.Define(stage,f"/__PhysXGuiStatic/Material_{name}/PreviewSurface")
+                shader.CreateIdAttr("UsdPreviewSurface");shader.CreateInput("diffuseColor",Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color));shader.CreateInput("emissiveColor",Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color));shader.CreateInput("opacity",Sdf.ValueTypeNames.Float).Set(1.0);shader.CreateOutput("surface",Sdf.ValueTypeNames.Token);material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(),"surface");return material
+            def control_cube(path,size,position,color,material):
+                item=UsdGeom.Cube.Define(stage,path);item.CreateSizeAttr(size);item.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*color)]);item.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0]);item.CreateDoubleSidedAttr(True);UsdGeom.Xformable(item).AddTranslateOp().Set(Gf.Vec3d(*position));UsdShade.MaterialBindingAPI.Apply(item.GetPrim()).Bind(material);return item
+            orange=(1.0,0.45,0.02);magenta=(1.0,0.02,0.85);cyan=(0.02,0.95,1.0)
+            cube=control_cube("/__PhysXGuiStatic/ReferenceCube",cube_size,[maxs[0]+asset_scale*0.10,center[1],mins[2]-cube_size],orange,diagnostic_material("ORANGE",orange))
+            control_a=control_cube("/__PhysXGuiStatic/ControlCube",cube_size*0.65,[maxs[0]+asset_scale*0.10,mins[1]-asset_scale*0.08,mins[2]-cube_size],magenta,diagnostic_material("MAGENTA",magenta))
+            control_b=control_cube("/__PhysXGuiStatic/ControlThinCube",cube_size*0.65,[maxs[0]+asset_scale*0.10,maxs[1]+asset_scale*0.08,mins[2]-cube_size],cyan,diagnostic_material("CYAN",cyan))
+            control_b.CreateExtentAttr([Gf.Vec3f(-cube_size*0.325,-cube_size*0.08,-cube_size*0.325),Gf.Vec3f(cube_size*0.325,cube_size*0.08,cube_size*0.325)])
+            UsdGeom.Xformable(control_b).AddScaleOp().Set(Gf.Vec3f(1.0,0.25,1.0))
             progress_path=args.run_dir/"static_capture_progress.json"
             heartbeat_path=args.run_dir/"gui_heartbeat.json"
             def save_progress(status, current=None, error=None, **extra):
@@ -454,10 +481,10 @@ def main() -> int:
             for _ in range(20): app.update()
             sentinel=3.0e38
             sentinel_extent_present=any(abs(v)>=sentinel for spec in clone_specs for key in ("source_world_bounds","actual_authored_clone_world_bounds") for side in ("min","max") for v in spec[key][side])
-            report["static_camera"]={"asset_bounds":{"min":mins,"max":maxs,"size":sizes},"center":center,"stage_up_axis":str(UsdGeom.GetStageUpAxis(stage)),"selection_basis":"numeric perspective projection of authored clone bounds; maximize door area/separation and penalize edge-on/base occlusion","preferred":preferred,"candidates":camera_candidates,"focal_length_mm":35.0,"clipping_range":[max(0.01,distance-asset_scale*2),distance+asset_scale*2],"reference_cube":{"path":"/__PhysXGuiDiagnostic/ReferenceCube","size":cube_size},"sentinel_extent_present":sentinel_extent_present,"external_capture_started":False}
+            report["static_camera"]={"asset_bounds":{"min":mins,"max":maxs,"size":sizes},"center":center,"stage_up_axis":str(UsdGeom.GetStageUpAxis(stage)),"selection_basis":"numeric perspective projection of authored clone bounds; maximize door area/separation and penalize edge-on/base occlusion","preferred":preferred,"candidates":camera_candidates,"focal_length_mm":35.0,"clipping_range":[max(0.01,distance-asset_scale*2),distance+asset_scale*2],"reference_cube":{"path":"/__PhysXGuiStatic/ReferenceCube","size":cube_size},"control_geometry":["/__PhysXGuiStatic/ControlCube","/__PhysXGuiStatic/ControlThinCube"],"sentinel_extent_present":sentinel_extent_present,"external_capture_started":False}
             save_progress("CAMERA_ACTIVE_GUI_READY",preferred["label"],camera_path=str(camera.GetPath()),physics_steps=0)
             marker("CAMERA_ACTIVE",camera=str(camera.GetPath()),candidate=preferred["label"],eye=preferred["eye"],target=preferred["target"])
-        context.get_selection().set_selected_prim_paths([str(revolute[0].GetPath())], True)
+        context.get_selection().set_selected_prim_paths([], True)
 
         joint_frames={}
         for joint in revolute:
@@ -480,9 +507,56 @@ def main() -> int:
         }
         (args.run_dir / "static_mapping_gate.json").write_text(json.dumps(static_mapping,indent=2)+"\n")
         if args.static_mapping_gate:
+            session_path=args.run_dir/"static_mapping_session_layer.usda"
+            if not session.Export(str(session_path)): raise RuntimeError("session layer export failed")
+            (args.run_dir / "runner_phase.txt").write_text("STATIC_RENDER_PIXEL_CAPTURE\n")
+            from omni.kit.viewport.utility import capture_viewport_to_file, next_viewport_frame_async
+            capture_path=args.run_dir/"viewport_render_pixel_gate.png"
+            async def capture_active_viewport():
+                for _ in range(30): await next_viewport_frame_async(viewport)
+                capture=capture_viewport_to_file(viewport,file_path=str(capture_path),is_hdr=False)
+                return await asyncio.wait_for(capture.wait_for_result(completion_frames=30),timeout=15.0)
+            capture_task=asyncio.ensure_future(capture_active_viewport());capture_started=time.monotonic();capture_updates=0
+            while not capture_task.done():
+                before=time.monotonic();app.update();after=time.monotonic();capture_updates+=1
+                if after-before>5.0 or after-capture_started>15.0:
+                    capture_task.cancel();raise RuntimeError(f"internal viewport capture watchdog failed elapsed={after-capture_started:.3f}s update={after-before:.3f}s")
+                time.sleep(0.01)
+            if not capture_task.result() or not capture_path.is_file() or capture_path.stat().st_size==0: raise RuntimeError("internal viewport capture did not create PNG")
+            marker("INTERNAL_VIEWPORT_CAPTURE_CREATED",path=str(capture_path),bytes=capture_path.stat().st_size,viewport_id=str(viewport.id),camera=str(viewport.camera_path),capture_updates=capture_updates)
+            from PIL import Image
+            import numpy as np
+            from scipy import ndimage
+            image=Image.open(capture_path).convert("RGB");rgb=np.asarray(image);hsv=np.asarray(image.convert("HSV"));h=hsv[:,:,0];sat=hsv[:,:,1];val=hsv[:,:,2]
+            masks={
+                "BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),
+                "gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),
+                "gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),
+                "gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50),
+                "REFERENCE_ORANGE":(h>=12)&(h<=38)&(sat>=90)&(val>=60),
+                "CONTROL_MAGENTA":(h>=205)&(h<=242)&(sat>=90)&(val>=60),
+                "CONTROL_CYAN":(h>=115)&(h<=140)&(sat>=90)&(val>=60),
+            }
+            pixel_rows={}
+            for name,raw_mask in masks.items():
+                labels,component_count=ndimage.label(raw_mask)
+                sizes=np.bincount(labels.ravel())
+                if sizes.size: sizes[0]=0
+                largest_label=int(sizes.argmax()) if sizes.size and sizes.max()>0 else 0
+                mask=labels==largest_label if largest_label else np.zeros_like(raw_mask,dtype=bool)
+                ys,xs=np.where(mask);count=int(mask.sum())
+                pixel_rows[name]={"raw_pixel_count":int(raw_mask.sum()),"connected_component_count":int(component_count),"pixel_count":count,"bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if count else None,"center_xy":[float(xs.mean()),float(ys.mean())] if count else None,"screen_fraction":count/float(mask.size),"mean_rgb":[float(x) for x in rgb[mask].mean(axis=0)] if count else None,"selection":"largest_4_connected_component"}
+            required=("BASE_GRAY","gt_C_1_RED","gt_C_2_GREEN","gt_C_3_BLUE","REFERENCE_ORANGE","CONTROL_MAGENTA","CONTROL_CYAN")
+            minimum_pixels=30;missing=[name for name in required if pixel_rows[name]["pixel_count"]<minimum_pixels]
+            door_centers=[pixel_rows[name]["center_xy"] for name in ("gt_C_1_RED","gt_C_2_GREEN","gt_C_3_BLUE") if pixel_rows[name]["center_xy"]]
+            min_door_center_distance=min((math.dist(a,b) for i,a in enumerate(door_centers) for b in door_centers[i+1:]),default=0.0)
+            pixel_report={"status":"AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED" if not missing and min_door_center_distance>=10.0 else "RENDER_PIXEL_GATE_FAIL","capture_path":str(capture_path),"capture_sha256":digest(capture_path),"width":image.width,"height":image.height,"nonblack_pixel_ratio":float((rgb.max(axis=2)>10).mean()),"minimum_pixels":minimum_pixels,"components":pixel_rows,"missing_or_too_small":missing,"door_center_min_distance_pixels":min_door_center_distance,"active_viewport_id":str(viewport.id),"active_camera":str(viewport.camera_path),"physics_steps":0}
+            (args.run_dir/"render_pixel_gate.json").write_text(json.dumps(pixel_report,indent=2)+"\n")
+            marker("RENDER_PIXEL_GATE",status=pixel_report["status"],missing=missing,door_center_min_distance_pixels=min_door_center_distance)
+            if pixel_report["status"]!="AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED": raise RuntimeError(f"render pixel gate failed: missing={missing} door_center_distance={min_door_center_distance}")
             (args.run_dir / "runner_phase.txt").write_text("STATIC_MAPPING_HUMAN_REVIEW\n")
             started=time.monotonic(); last_heartbeat=started; update_count=0; heartbeat_count=0
-            save_progress("HUMAN_REVIEW_WINDOW", report["static_camera"]["preferred"]["label"])
+            save_progress("HUMAN_REVIEW_WINDOW", report["static_camera"]["preferred"]["label"],internal_capture=str(capture_path))
             marker("GUI_SHOWN_HUMAN_CHECK_REQUIRED",duration_s=45.0,camera=report["static_camera"]["preferred"]["label"])
             while time.monotonic()-started < 45.0:
                 before=time.monotonic(); app.update(); after=time.monotonic(); update_count+=1

@@ -1,0 +1,238 @@
+{
+  "status": "AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED",
+  "human_gui_check": "PENDING_FOR_THIS_RUN",
+  "scope": "GT-only static mapping gate; not AI prediction; no physics",
+  "run": {
+    "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261003T113111Z-29806-gpu0-static-mapping-d98d513e-7a0f-4353-9d6f-a8664c9f8c45",
+    "staging_dir": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T113111Z-29806-gpu0-static-mapping-d98d513e-7a0f-4353-9d6f-a8664c9f8c45"
+  },
+  "active_camera": "/__PhysXGuiDiagnostic/Camera_front",
+  "camera_candidate": "minus_Z",
+  "capture": {
+    "absolute_path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T113111Z-29806-gpu0-static-mapping-d98d513e-7a0f-4353-9d6f-a8664c9f8c45/viewport_render_pixel_gate.png",
+    "bytes": 70419,
+    "sha256": "867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd",
+    "width": 1280,
+    "height": 720,
+    "nonblack_pixel_ratio": 0.19350694444444444
+  },
+  "components": {
+    "BASE_GRAY": {
+      "raw_pixel_count": 5047,
+      "connected_component_count": 7,
+      "pixel_count": 4587,
+      "bbox_xyxy": [
+        300,
+        230,
+        986,
+        485
+      ],
+      "center_xy": [
+        680.9668628733377,
+        273.5116633965555
+      ],
+      "screen_fraction": 0.004977213541666667,
+      "mean_rgb": [
+        195.40854589056028,
+        198.6692827556137,
+        196.41835622411162
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "gt_C_1_RED": {
+      "raw_pixel_count": 48975,
+      "connected_component_count": 1,
+      "pixel_count": 48975,
+      "bbox_xyxy": [
+        293,
+        231,
+        494,
+        481
+      ],
+      "center_xy": [
+        393.91603879530373,
+        359.0699948953548
+      ],
+      "screen_fraction": 0.053141276041666664,
+      "mean_rgb": [
+        227.93864216436958,
+        148.9855232261358,
+        141.02039816232772
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "gt_C_2_GREEN": {
+      "raw_pixel_count": 60248,
+      "connected_component_count": 1,
+      "pixel_count": 60248,
+      "bbox_xyxy": [
+        496,
+        234,
+        738,
+        481
+      ],
+      "center_xy": [
+        616.9678661532333,
+        357.49193334218563
+      ],
+      "screen_fraction": 0.0653732638888889,
+      "mean_rgb": [
+        131.93493559952196,
+        219.9557827645731,
+        167.10647656353737
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "gt_C_3_BLUE": {
+      "raw_pixel_count": 60272,
+      "connected_component_count": 1,
+      "pixel_count": 60272,
+      "bbox_xyxy": [
+        739,
+        233,
+        981,
+        481
+      ],
+      "center_xy": [
+        860.4374004512875,
+        357.0381935226971
+      ],
+      "screen_fraction": 0.06539930555555555,
+      "mean_rgb": [
+        127.09087138306344,
+        186.9938279798248,
+        228.95442328112557
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "REFERENCE_ORANGE": {
+      "raw_pixel_count": 1695,
+      "connected_component_count": 1,
+      "pixel_count": 1695,
+      "bbox_xyxy": [
+        191,
+        340,
+        237,
+        379
+      ],
+      "center_xy": [
+        211.905604719764,
+        359.60825958702065
+      ],
+      "screen_fraction": 0.0018391927083333333,
+      "mean_rgb": [
+        231.28672566371682,
+        200.52271386430678,
+        34.63834808259587
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "CONTROL_MAGENTA": {
+      "raw_pixel_count": 855,
+      "connected_component_count": 1,
+      "pixel_count": 855,
+      "bbox_xyxy": [
+        199,
+        535,
+        229,
+        562
+      ],
+      "center_xy": [
+        214.01754385964912,
+        548.5134502923977
+      ],
+      "screen_fraction": 0.000927734375,
+      "mean_rgb": [
+        227.86783625730993,
+        28.676023391812866,
+        222.70877192982456
+      ],
+      "selection": "largest_4_connected_component"
+    },
+    "CONTROL_CYAN": {
+      "raw_pixel_count": 463,
+      "connected_component_count": 4,
+      "pixel_count": 236,
+      "bbox_xyxy": [
+        199,
+        166,
+        229,
+        175
+      ],
+      "center_xy": [
+        214.3728813559322,
+        169.67796610169492
+      ],
+      "screen_fraction": 0.0002560763888888889,
+      "mean_rgb": [
+        36.16101694915254,
+        209.16525423728814,
+        210.6228813559322
+      ],
+      "selection": "largest_4_connected_component"
+    }
+  },
+  "door_center_min_distance_pixels": 223.05740957425562,
+  "controls": {
+    "control_cube": "CONTROL_MAGENTA",
+    "control_thin_cube": "CONTROL_CYAN",
+    "reference_cube": "REFERENCE_ORANGE"
+  },
+  "joint_relationships": {
+    "/gt_29806/Physics/gt_C_1": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_1"
+    },
+    "/gt_29806/Physics/gt_C_2": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_2"
+    },
+    "/gt_29806/Physics/gt_C_3": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_3"
+    }
+  },
+  "mapping_invariants": {
+    "mesh_count": 8,
+    "component_counts": {
+      "BASE": 5,
+      "gt_C_1": 1,
+      "gt_C_2": 1,
+      "gt_C_3": 1
+    },
+    "duplicate_source_meshes": false,
+    "missing_door_components": [],
+    "max_actual_clone_vertex_error_m": 4.928568641186635e-11
+  },
+  "physics": {
+    "steps": 0,
+    "timeline_started": false,
+    "tensor_started": false
+  },
+  "prior_human_failure": {
+    "run_id": "20261003T111210Z-29806-gpu0-static-mapping-b11aa0a7-3648-4903-ac39-200407749a55",
+    "status": "HUMAN_CHECK_FAIL_NO_RENDERED_DIAGNOSTIC_GEOMETRY"
+  },
+  "cause_assessment": {
+    "confirmed": "The revised same-viewport internal capture renders controls, reference cube, base, and three door clones. The prior run did not test rendered pixels.",
+    "not_isolated": "The prior no-geometry screen cannot be assigned to one cause because the revised route changed world-space clone authoring, explicit extent/purpose/double-sided attributes, emissive direct materials, render warmup/internal capture, and viewport guide settings together."
+  },
+  "files": {
+    "render_pixel_gate.json": {
+      "bytes": 4189,
+      "sha256": "56daf97a8d4f47a93fa250d6431f92696f8b92332b10c7846ad5f40cb8420015"
+    },
+    "static_mapping_gate.json": {
+      "bytes": 85585,
+      "sha256": "c90ff2aeefac1e0eaab4c3cf4a8c80003ff0b90018bb0dc99c5d8360daf6c86a"
+    },
+    "static_mapping_session_layer.usda": {
+      "bytes": 912680,
+      "sha256": "9235027bf7ee047e437962fd67f1307dd4aaafd90ed5a0a578a843619dcd9a54"
+    },
+    "viewport_render_pixel_gate.png": {
+      "bytes": 70419,
+      "sha256": "867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd"
+    }
+  }
+}

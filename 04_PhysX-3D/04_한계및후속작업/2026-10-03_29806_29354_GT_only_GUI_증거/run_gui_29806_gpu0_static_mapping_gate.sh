@@ -40,9 +40,12 @@ fi
 rg -qx 'STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED' "$LOG_DIR/stdout.log" || { echo "FAILED marker_missing rc=$rc"; exit 10; }
 [[ -s "$STAGING_DIR/static_mapping_gate.json" ]] || exit 11
 [[ -s "$STAGING_DIR/static_gate_markers.jsonl" && -s "$STAGING_DIR/gui_heartbeat.json" ]] || exit 12
-python3 - "$STAGING_DIR/static_mapping_gate.json" <<'PY_VALIDATE' || exit 13
+[[ -s "$STAGING_DIR/viewport_render_pixel_gate.png" && -s "$STAGING_DIR/render_pixel_gate.json" && -s "$STAGING_DIR/static_mapping_session_layer.usda" ]] || exit 13
+python3 - "$STAGING_DIR/static_mapping_gate.json" "$STAGING_DIR/render_pixel_gate.json" <<'PY_VALIDATE' || exit 14
 import json,sys
-r=json.load(open(sys.argv[1]))
+r=json.load(open(sys.argv[1]));pixels=json.load(open(sys.argv[2]))
+assert pixels["status"] == "AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED"
+assert pixels["physics_steps"] == 0
 assert r["physics_started"] is False and r["simulation_steps"] == 0
 m=r["mapping_invariants"]
 assert m["component_counts"] == {"BASE":5,"gt_C_1":1,"gt_C_2":1,"gt_C_3":1}
@@ -52,6 +55,6 @@ for row in r["mesh_mapping"]:
     assert row["direct_material_binding_targets"] == [row["computed_material_target"]]
 c=r["camera"]["preferred"]
 assert c["edge_on_door_count"] == 0 and c["base_occlusion_risk_count"] == 0
-print(json.dumps({"status":"STATIC_NUMERIC_GATE_PASS_HUMAN_CHECK_REQUIRED","camera":c["label"],"max_clone_error_m":m["max_actual_clone_vertex_error_m"]},sort_keys=True))
+print(json.dumps({"status":"AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED","camera":c["label"],"max_clone_error_m":m["max_actual_clone_vertex_error_m"],"capture":pixels["capture_path"],"capture_sha256":pixels["capture_sha256"]},sort_keys=True))
 PY_VALIDATE
 echo "STATIC_MAPPING_AUTOMATION_READY_HUMAN_CHECK_REQUIRED LOG_DIR=$LOG_DIR STAGING_DIR=$STAGING_DIR"
