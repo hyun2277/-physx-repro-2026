@@ -155,6 +155,7 @@ def main() -> int:
     }
     ffmpeg_process = None
     try:
+        import carb
         import omni.kit.app
         import omni.timeline
         import omni.usd
@@ -163,6 +164,14 @@ def main() -> int:
         from omni.kit.viewport.utility import frame_viewport_prims, get_active_viewport
         from pxr import Gf, Sdf, Usd, UsdGeom, UsdLux, UsdPhysics, UsdShade
 
+        marker_path=args.run_dir/"static_gate_markers.jsonl"
+        def marker(name, **values):
+            record={"marker":name,"wall_time":time.time(),"physics_steps":0};record.update(values)
+            with marker_path.open("a") as stream: stream.write(json.dumps(record,sort_keys=True)+"\n")
+            print(f"STATIC_GATE_MARKER_{name}="+json.dumps(record,sort_keys=True),flush=True)
+        if args.static_mapping_gate:
+            carb.settings.get_settings().set("/app/window/title", "GT-only static mapping gate — physics not started | 29806")
+            marker("APP_READY",headless=False)
         actual_hash = digest(args.input_usd)
         if actual_hash != INPUT_SHA256:
             raise RuntimeError(f"input USD hash mismatch: {actual_hash}")
@@ -184,6 +193,7 @@ def main() -> int:
             app.update()
         stage = context.get_stage()
         root = stage.GetDefaultPrim()
+        if args.static_mapping_gate: marker("STAGE_LOADED",stage=str(selected_usd),default_prim=str(root.GetPath()))
         variant = root.GetVariantSet("Physics")
         if variant.IsValid() and "physx" in variant.GetVariantNames():
             variant.SetVariantSelection("physx")
@@ -289,12 +299,14 @@ def main() -> int:
             door_joint = next((Path(path).name for path,rel in joint_bodies.items() if rel["body1"] == str(body_path) or connected(fixed_graph, rel["body1"], str(body_path))), None)
             clone.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*colors[door_joint])])
             clone.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
-            UsdShade.MaterialBindingAPI.Apply(clone.GetPrim()).Bind(materials[door_joint])
-            direct_targets = [
-                str(path) for path in clone.GetPrim().GetRelationship("material:binding").GetTargets()
-            ]
-            if direct_targets != [str(materials[door_joint].GetPath())]:
-                raise RuntimeError(f"clone material binding failed: {clone_path} -> {direct_targets}")
+            binding_api = UsdShade.MaterialBindingAPI.Apply(clone.GetPrim())
+            binding_api.Bind(materials[door_joint])
+            direct_targets = [str(path) for path in clone.GetPrim().GetRelationship("material:binding").GetTargets()]
+            computed_material, _ = binding_api.ComputeBoundMaterial()
+            computed_target = str(computed_material.GetPath()) if computed_material else None
+            expected_material = str(materials[door_joint].GetPath())
+            if direct_targets != [expected_material] or computed_target != expected_material:
+                raise RuntimeError(f"clone material binding failed: {clone_path} direct={direct_targets} computed={computed_target}")
             # Re-read the authored prim from the composed stage.  This is
             # deliberately independent of the pre-authoring round-trip above.
             authored_mesh=UsdGeom.Mesh(stage.GetPrimAtPath(clone_path)); authored_points=list(authored_mesh.GetPointsAttr().Get() or [])
@@ -316,8 +328,31 @@ def main() -> int:
                     "points": len(body_local_points),
                     "triangles": sum(max(0, int(count) - 2) for count in counts),
                     "direct_material_binding_targets": direct_targets,
+                    "computed_material_target": computed_target,
+                    "display_color": list(colors[door_joint]),
+                    "display_opacity": 1.0,
                     "double_sided": True,
                     "visibility": "inherited",
+                    "purpose": str(UsdGeom.Imageable(source_prim).GetPurposeAttr().Get() or UsdGeom.Tokens.default_),
+                    "source_active": source_prim.IsActive(),
+                    "source_loaded": source_prim.IsLoaded(),
+                    "source_visibility": str(UsdGeom.Imageable(source_prim).ComputeVisibility()),
+                    "source_instance_proxy": source_prim.IsInstanceProxy(),
+                    "source_local_xform_ops": {name:str(source_prim.GetAttribute(name).Get()) for name in source_prim.GetPropertyNames() if name=="xformOpOrder" or name.startswith("xformOp:")},
+                    "source_orientation": str(source_mesh.GetOrientationAttr().Get()),
+                    "source_subdivision_scheme": str(source_mesh.GetSubdivisionSchemeAttr().Get()),
+                    "source_extent": [[float(v) for v in row] for row in (source_mesh.GetExtentAttr().Get() or [])],
+                    "source_local_bounds": {"min":[min(float(p[i]) for p in (source_mesh.GetPointsAttr().Get() or [])) for i in range(3)],"max":[max(float(p[i]) for p in (source_mesh.GetPointsAttr().Get() or [])) for i in range(3)]},
+                    "source_world_transform": matrix_values(source_world),
+                    "source_world_transform_determinant": float(source_world.GetDeterminant()),
+                    "source_world_transform_finite": all(math.isfinite(v) for row in matrix_values(source_world) for v in row),
+                    "target_body_world_transform": matrix_values(body_world),
+                    "clone_parent_prim": str(body.GetPath()),
+                    "clone_local_transform": matrix_values(Gf.Matrix4d(1.0)),
+                    "clone_world_transform": matrix_values(authored_world),
+                    "clone_world_transform_determinant": float(authored_world.GetDeterminant()),
+                    "clone_world_transform_finite": all(math.isfinite(v) for row in matrix_values(authored_world) for v in row),
+                    "source_clone_world_bounds_max_error_m": max(abs(float(a)-float(b))*UsdGeom.GetStageMetersPerUnit(stage) for key in ("min","max") for a,b in zip({"min":[min(float(p[i]) for p in source_world_points) for i in range(3)],"max":[max(float(p[i]) for p in source_world_points) for i in range(3)]}[key],{"min":[min(float(p[i]) for p in actual_world_points) for i in range(3)],"max":[max(float(p[i]) for p in actual_world_points) for i in range(3)]}[key])),
                     "initial_world_roundtrip_max_error_m": reconstruction_error,
                     "source_world_bounds": {"min":[min(float(p[i]) for p in source_world_points) for i in range(3)],"max":[max(float(p[i]) for p in source_world_points) for i in range(3)]},
                     "reconstructed_world_bounds": {"min":[min(float(p[i]) for p in reconstructed_world_points) for i in range(3)],"max":[max(float(p[i]) for p in reconstructed_world_points) for i in range(3)]},
@@ -328,6 +363,8 @@ def main() -> int:
                 }
             )
 
+        if args.static_mapping_gate:
+            marker("CLONES_AND_MATERIALS_RESOLVED",clone_count=len(clone_specs),components=[spec["component_label"] for spec in clone_specs])
         key_light = UsdLux.DistantLight.Define(stage, "/__PhysXGuiDiagnostic/KeyLight")
         key_light.CreateIntensityAttr(3000.0)
         fill_light = UsdLux.SphereLight.Define(stage, "/__PhysXGuiDiagnostic/FillLight")
@@ -359,24 +396,67 @@ def main() -> int:
         if args.static_mapping_gate:
             mins=[min(spec["source_world_bounds"]["min"][i] for spec in clone_specs) for i in range(3)]
             maxs=[max(spec["source_world_bounds"]["max"][i] for spec in clone_specs) for i in range(3)]
-            center=Gf.Vec3d(*[(a+b)*0.5 for a,b in zip(mins,maxs)]); sizes=[b-a for a,b in zip(mins,maxs)]
-            up_token=str(UsdGeom.GetStageUpAxis(stage)); front_index=min(range(3),key=lambda i:sizes[i])
-            distance=max(sizes)*2.2
-            cube=UsdGeom.Cube.Define(stage,"/__PhysXGuiDiagnostic/ReferenceCube"); cube.CreateSizeAttr(max(sizes)*0.08); cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0,0.55,0.05)])
-            UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+max(sizes)*0.12,maxs[1],maxs[2]))
+            center=[(a+b)*0.5 for a,b in zip(mins,maxs)]; sizes=[b-a for a,b in zip(mins,maxs)]
+            asset_scale=max(sizes); distance=asset_scale*3.2
+            cube_size=asset_scale*0.055
+            cube=UsdGeom.Cube.Define(stage,"/__PhysXGuiDiagnostic/ReferenceCube")
+            cube.CreateSizeAttr(cube_size); cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(1.0,0.55,0.05)])
+            cube.CreateDisplayOpacityPrimvar(UsdGeom.Tokens.constant).Set([1.0])
+            UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+asset_scale*0.10,center[1],mins[2]-cube_size))
             progress_path=args.run_dir/"static_capture_progress.json"
-            def save_progress(status, current=None, error=None):
-                progress_path.write_text(json.dumps({"status":status,"current_camera":current,"physics_started":False,"simulation_steps":0,"external_capture_started":False,"error":error},indent=2)+"\n")
-            save_progress("CAMERA_SETUP")
-            eye_values=list(center); eye_values[front_index]+=distance
-            up_index=1 if front_index==2 else 2; up_values=[0.0,0.0,0.0]; up_values[up_index]=1.0
+            heartbeat_path=args.run_dir/"gui_heartbeat.json"
+            def save_progress(status, current=None, error=None, **extra):
+                payload={"status":status,"current_camera":current,"physics_started":False,"simulation_steps":0,"external_capture_started":False,"error":error};payload.update(extra)
+                progress_path.write_text(json.dumps(payload,indent=2)+"\n")
+            save_progress("SOURCE_AND_CLONE_AUDIT_COMPLETE")
+
+            def corners(bounds):
+                lo,hi=bounds["min"],bounds["max"]
+                return [[x,y,z] for x in (lo[0],hi[0]) for y in (lo[1],hi[1]) for z in (lo[2],hi[2])]
+            def norm(v):
+                n=math.sqrt(sum(x*x for x in v));return [x/n for x in v]
+            def dot(a,b):return sum(x*y for x,y in zip(a,b))
+            def cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
+            directions={"plus_X":[1,0,0],"minus_X":[-1,0,0],"plus_Y":[0,1,0],"minus_Y":[0,-1,0],"plus_Z":[0,0,1],"minus_Z":[0,0,-1],"diag_minusZ_plusX":[0.28,-0.12,-1],"diag_minusZ_minusX":[-0.28,-0.12,-1]}
+            camera_candidates=[]
+            for label,raw_direction in directions.items():
+                direction=norm(raw_direction); eye=[center[i]+direction[i]*distance for i in range(3)]; forward=norm([center[i]-eye[i] for i in range(3)])
+                up_hint=[0,1,0] if abs(forward[2])>0.85 else [0,0,1]
+                right=norm(cross(forward,up_hint)); screen_up=norm(cross(right,forward))
+                rows=[]
+                for spec in clone_specs:
+                    projected=[]; depths=[]
+                    for point in corners(spec["actual_authored_clone_world_bounds"]):
+                        relative=[point[i]-eye[i] for i in range(3)]; depth=dot(relative,forward);depths.append(depth)
+                        projected.append([dot(relative,right)/depth,dot(relative,screen_up)/depth])
+                    rect=[min(p[0] for p in projected),max(p[0] for p in projected),min(p[1] for p in projected),max(p[1] for p in projected)]
+                    rows.append({"component":spec["component_label"],"clone":spec["clone_mesh"],"rect":rect,"projected_width":rect[1]-rect[0],"projected_height":rect[3]-rect[2],"depth_min":min(depths),"depth_max":max(depths)})
+                doors=[row for row in rows if row["component"].startswith("gt_C_")]; bases=[row for row in rows if row["component"]=="BASE"]
+                blockers=0
+                for door in doors:
+                    dc=(door["depth_min"]+door["depth_max"])*0.5
+                    for base in bases:
+                        overlap=max(0,min(door["rect"][1],base["rect"][1])-max(door["rect"][0],base["rect"][0]))*max(0,min(door["rect"][3],base["rect"][3])-max(door["rect"][2],base["rect"][2]))
+                        door_area=max(1e-15,door["projected_width"]*door["projected_height"])
+                        if overlap/door_area>0.5 and base["depth_min"]<dc: blockers+=1
+                centers2=[[0.5*(d["rect"][0]+d["rect"][1]),0.5*(d["rect"][2]+d["rect"][3])] for d in doors]
+                separation=min(math.dist(a,b) for i,a in enumerate(centers2) for b in centers2[i+1:])
+                door_area=sum(d["projected_width"]*d["projected_height"] for d in doors)
+                edge_on=sum(1 for d in doors if min(d["projected_width"],d["projected_height"])/max(d["projected_width"],d["projected_height"])<0.02)
+                margin=max(max(abs(v) for v in row["rect"]) for row in rows)
+                score=door_area+separation*0.5-blockers*10-edge_on*5-margin*0.01
+                camera_candidates.append({"label":label,"eye":eye,"target":center,"screen_up":screen_up,"forward":forward,"component_projections":rows,"door_center_min_separation":separation,"door_projected_area_sum":door_area,"edge_on_door_count":edge_on,"base_occlusion_risk_count":blockers,"max_tangent_extent":margin,"score":score})
+            preferred=max(camera_candidates,key=lambda row:row["score"])
             camera=UsdGeom.Camera.Define(stage,"/__PhysXGuiDiagnostic/Camera_front")
-            view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*eye_values),center,Gf.Vec3d(*up_values))
-            UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse()); camera.CreateFocalLengthAttr(45.0); camera.CreateClippingRangeAttr(Gf.Vec2f(0.01,max(1000.0,distance*10)))
+            view=Gf.Matrix4d(1.0); view.SetLookAt(Gf.Vec3d(*preferred["eye"]),Gf.Vec3d(*preferred["target"]),Gf.Vec3d(*preferred["screen_up"]))
+            UsdGeom.Xformable(camera).AddTransformOp().Set(view.GetInverse()); camera.CreateFocalLengthAttr(35.0); camera.CreateClippingRangeAttr(Gf.Vec2f(max(0.01,distance-asset_scale*2),distance+asset_scale*2))
             viewport.set_active_camera(str(camera.GetPath()))
             for _ in range(20): app.update()
-            report["static_camera"]={"bounds":{"min":mins,"max":maxs,"size":sizes},"center":list(center),"stage_up_axis":up_token,"thin_axis_index":front_index,"selection_basis":"smallest aggregate source/clone extent; stage up is not excluded because doors may lie in a plane normal to it","eye":eye_values,"target":list(center),"screen_up":up_values,"camera":str(camera.GetPath()),"reference_cube":"/__PhysXGuiDiagnostic/ReferenceCube","external_capture_started":False}
-            save_progress("FRONT_GUI_READY", "front")
+            sentinel=3.0e38
+            sentinel_extent_present=any(abs(v)>=sentinel for spec in clone_specs for key in ("source_world_bounds","actual_authored_clone_world_bounds") for side in ("min","max") for v in spec[key][side])
+            report["static_camera"]={"asset_bounds":{"min":mins,"max":maxs,"size":sizes},"center":center,"stage_up_axis":str(UsdGeom.GetStageUpAxis(stage)),"selection_basis":"numeric perspective projection of authored clone bounds; maximize door area/separation and penalize edge-on/base occlusion","preferred":preferred,"candidates":camera_candidates,"focal_length_mm":35.0,"clipping_range":[max(0.01,distance-asset_scale*2),distance+asset_scale*2],"reference_cube":{"path":"/__PhysXGuiDiagnostic/ReferenceCube","size":cube_size},"sentinel_extent_present":sentinel_extent_present,"external_capture_started":False}
+            save_progress("CAMERA_ACTIVE_GUI_READY",preferred["label"],camera_path=str(camera.GetPath()),physics_steps=0)
+            marker("CAMERA_ACTIVE",camera=str(camera.GetPath()),candidate=preferred["label"],eye=preferred["eye"],target=preferred["target"])
         context.get_selection().set_selected_prim_paths([str(revolute[0].GetPath())], True)
 
         joint_frames={}
@@ -395,16 +475,23 @@ def main() -> int:
             "physics_started":False,"simulation_steps":0,"variant":variant.GetVariantSelection(),
             "meters_per_unit":UsdGeom.GetStageMetersPerUnit(stage),"up_axis":str(UsdGeom.GetStageUpAxis(stage)),
             "joint_relationships":joint_bodies,"joint_frames":joint_frames,"fixed_joint_graph":fixed_graph,"mesh_mapping":clone_specs,"camera":report.get("static_camera"),
+            "mapping_invariants":{"mesh_count":len(clone_specs),"component_counts":{label:sum(1 for spec in clone_specs if spec["component_label"]==label) for label in ("BASE","gt_C_1","gt_C_2","gt_C_3")},"duplicate_source_meshes":len({spec["source_mesh"] for spec in clone_specs})!=len(clone_specs),"missing_door_components":[label for label in ("gt_C_1","gt_C_2","gt_C_3") if not any(spec["component_label"]==label for spec in clone_specs)],"max_actual_clone_vertex_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)},
             "color_legend":{"BASE":list(colors[None]),"gt_C_1":list(colors["gt_C_1"]),"gt_C_2":list(colors["gt_C_2"]),"gt_C_3":list(colors["gt_C_3"])},
         }
         (args.run_dir / "static_mapping_gate.json").write_text(json.dumps(static_mapping,indent=2)+"\n")
         if args.static_mapping_gate:
             (args.run_dir / "runner_phase.txt").write_text("STATIC_MAPPING_HUMAN_REVIEW\n")
-            started=time.monotonic()
-            save_progress("HUMAN_REVIEW_WINDOW")
-            while time.monotonic()-started < 30.0:
-                app.update(); time.sleep(0.01)
-            save_progress("COMPLETE")
+            started=time.monotonic(); last_heartbeat=started; update_count=0; heartbeat_count=0
+            save_progress("HUMAN_REVIEW_WINDOW", report["static_camera"]["preferred"]["label"])
+            marker("GUI_SHOWN_HUMAN_CHECK_REQUIRED",duration_s=45.0,camera=report["static_camera"]["preferred"]["label"])
+            while time.monotonic()-started < 45.0:
+                before=time.monotonic(); app.update(); after=time.monotonic(); update_count+=1
+                if after-before>5.0: raise RuntimeError(f"GUI update watchdog exceeded 5 seconds: {after-before:.3f}s")
+                if after-last_heartbeat>=1.0:
+                    heartbeat_count+=1; last_heartbeat=after
+                    heartbeat_path.write_text(json.dumps({"status":"RESPONSIVE","elapsed_s":after-started,"update_count":update_count,"heartbeat_count":heartbeat_count,"physics_steps":0},indent=2)+"\n")
+                time.sleep(0.01)
+            save_progress("COMPLETE_HUMAN_CHECK_REQUIRED", report["static_camera"]["preferred"]["label"],update_count=update_count,heartbeat_count=heartbeat_count)
             print("STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED",flush=True)
             return 0
 

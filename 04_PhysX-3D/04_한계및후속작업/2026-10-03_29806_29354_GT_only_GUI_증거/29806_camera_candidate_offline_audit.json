@@ -1,0 +1,248 @@
+{
+  "source_run": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T105740Z-29806-gpu0-static-mapping-d60b9f9f-dc38-4cf4-a20c-b71993b102a1/static_mapping_gate.json",
+  "status": "OFFLINE_NUMERIC_CAMERA_AUDIT_NOT_VISUAL_PASS",
+  "asset_bounds": {
+    "min": [
+      -0.9211239814758301,
+      -0.33876100182533264,
+      -0.22841200234000855
+    ],
+    "max": [
+      0.8871350288391113,
+      0.33665600419044495,
+      0.23893199861049652
+    ]
+  },
+  "candidates": [
+    {
+      "label": "plus_X",
+      "eye": [
+        5.7694343566894535,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "door_projected_area_sum": 0.0024808526139459305,
+      "door_center_min_separation": 0.002532595449908147,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 3,
+      "max_tangent_extent": 0.06916536654536178,
+      "score": -29.996944503326553
+    },
+    {
+      "label": "minus_X",
+      "eye": [
+        -5.803423309326172,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "door_projected_area_sum": 0.002250800088395245,
+      "door_center_min_separation": 0.00482810159352283,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 3,
+      "max_tangent_extent": 0.06916771894636975,
+      "score": -29.99602682630431
+    },
+    {
+      "label": "plus_Y",
+      "eye": [
+        -0.016994476318359375,
+        5.785376334190369,
+        0.0052599981352439845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "door_projected_area_sum": 0.0022709771580647882,
+      "door_center_min_separation": 0.10287577292033585,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 3,
+      "max_tangent_extent": 0.16592414288361707,
+      "score": -29.947950377810603
+    },
+    {
+      "label": "minus_Y",
+      "eye": [
+        -0.016994476318359375,
+        -5.787481331825257,
+        0.0052599981352439845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "door_projected_area_sum": 0.0022539817056971517,
+      "door_center_min_separation": 0.10249625584560877,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 3,
+      "max_tangent_extent": 0.1659051088734935,
+      "score": -29.948156941460233
+    },
+    {
+      "label": "plus_Z",
+      "eye": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        5.791688831143057
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "door_projected_area_sum": 0.03226494110598559,
+      "door_center_min_separation": 0.09680031770554569,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 3,
+      "max_tangent_extent": 0.1627967092442552,
+      "score": -29.920962867133685
+    },
+    {
+      "label": "minus_Z",
+      "eye": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        -5.7811688348725685
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "door_projected_area_sum": 0.03776851881182697,
+      "door_center_min_separation": 0.10438607805128991,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 0,
+      "max_tangent_extent": 0.16281428334384962,
+      "score": 0.08833341500403342
+    },
+    {
+      "label": "diag_minusZ_plusX",
+      "eye": [
+        1.532886345309546,
+        -0.6652871366579747,
+        -5.530028650535845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        0.030951307118320073,
+        0.9933895713213202,
+        -0.11054038256542881
+      ],
+      "door_projected_area_sum": 0.037691554123283046,
+      "door_center_min_separation": 0.10408833963687099,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 1,
+      "max_tangent_extent": 0.1629040533067173,
+      "score": -9.91189331659135
+    },
+    {
+      "label": "diag_minusZ_minusX",
+      "eye": [
+        -1.5668752979462648,
+        -0.6652871366579747,
+        -5.530028650535845
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "screen_up": [
+        -0.030951307118320073,
+        0.9933895713213202,
+        -0.11054038256542881
+      ],
+      "door_projected_area_sum": 0.037688410058744404,
+      "door_center_min_separation": 0.09663766041548352,
+      "edge_on_door_count": 0,
+      "base_occlusion_risk_count": 1,
+      "max_tangent_extent": 0.16294034074990293,
+      "score": -9.915622163141013
+    }
+  ],
+  "selected_by_current_scoring": {
+    "label": "minus_Z",
+    "eye": [
+      -0.016994476318359375,
+      -0.0010524988174438477,
+      -5.7811688348725685
+    ],
+    "target": [
+      -0.016994476318359375,
+      -0.0010524988174438477,
+      0.0052599981352439845
+    ],
+    "screen_up": [
+      0.0,
+      1.0,
+      -0.0
+    ],
+    "door_projected_area_sum": 0.03776851881182697,
+    "door_center_min_separation": 0.10438607805128991,
+    "edge_on_door_count": 0,
+    "base_occlusion_risk_count": 0,
+    "max_tangent_extent": 0.16281428334384962,
+    "score": 0.08833341500403342
+  },
+  "mapping_summary": {
+    "counts": {
+      "BASE": 5,
+      "gt_C_1": 1,
+      "gt_C_2": 1,
+      "gt_C_3": 1
+    },
+    "max_clone_vertex_error_m": 4.213932221073044e-08,
+    "duplicate_sources": false
+  },
+  "limitations": [
+    "AABB projection is a preflight screen, not pixel visibility evidence.",
+    "Human GUI confirmation remains required."
+  ]
+}
