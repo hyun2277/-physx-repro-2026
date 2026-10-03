@@ -25,10 +25,6 @@ from isaacsim import SimulationApp
 
 INPUT_SHA256 = "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
 URDF_SHA256 = "99ee19188ec969488e63ae2504f3ecf04f7de73071e523ec9e4f231fb68855c6"
-# Fractions of each runtime-reported GT range: closed, middle, open, middle, closed.
-TARGET_FRACTIONS = (0.08, 0.25, 0.42, 0.25, 0.08)
-STEPS_PER_PRETEST_TARGET = 60
-STEPS_PER_CAPTURE_TARGET = 90
 MAX_INACTIVE_DOF_DRIFT_RAD = 0.02
 MAX_ROOT_TRANSLATION_DRIFT_M = 0.001
 MAX_ROOT_ORIENTATION_DRIFT_RAD = 0.01
@@ -595,41 +591,46 @@ def main() -> int:
         from PIL import Image
         import numpy as np
         from scipy import ndimage
-        prephysics_png=args.run_dir/"prephysics_linked_clone_pixel_gate.png"
-        async def capture_prephysics():
+        async def capture_viewport_png(path):
             for _ in range(30): await next_viewport_frame_async(viewport)
-            handle=capture_viewport_to_file(viewport,file_path=str(prephysics_png),is_hdr=False)
+            handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
             return await asyncio.wait_for(handle.wait_for_result(completion_frames=30),timeout=15.0)
-        capture_task=asyncio.ensure_future(capture_prephysics());capture_started=time.monotonic()
-        while not capture_task.done():
-            before=time.monotonic();app.update();after=time.monotonic()
-            if after-before>5.0 or after-capture_started>15.0:
-                capture_task.cancel();raise RuntimeError("prephysics internal viewport capture watchdog failed")
-            time.sleep(0.01)
-        if not capture_task.result() or not prephysics_png.is_file() or prephysics_png.stat().st_size==0:
-            raise RuntimeError("prephysics internal viewport capture missing")
-        image=Image.open(prephysics_png).convert("RGB");rgb=np.asarray(image);hsv=np.asarray(image.convert("HSV"));h,sat,val=hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]
-        masks={"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
-        components={}
-        for name,raw in masks.items():
-            labels,n=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
-            ys,xs=np.where(chosen);count=int(chosen.sum());components[name]={"pixel_count":count,"bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if count else None,"center_xy":[float(xs.mean()),float(ys.mean())] if count else None}
-        required=list(masks);missing=[name for name in required if components[name]["pixel_count"]<30]
-        door_centers=[components[name]["center_xy"] for name in ("gt_C_1_RED","gt_C_2_GREEN","gt_C_3_BLUE") if components[name]["center_xy"]]
-        min_center=min((math.dist(a,b) for i,a in enumerate(door_centers) for b in door_centers[i+1:]),default=0.0)
-        prephysics_gate={"status":"PASS" if not missing and min_center>=10 else "FAIL","physics_steps":0,"capture_path":str(prephysics_png),"capture_sha256":digest(prephysics_png),"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"components":components,"missing":missing,"door_center_min_distance_pixels":min_center,"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)}
+        masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
+        def capture_pixel_gate(label,relative_step,baseline=None):
+            path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path));started=time.monotonic()
+            while not task.done():
+                before=time.monotonic();app.update();after=time.monotonic()
+                if after-before>5.0 or after-started>15.0:task.cancel();raise RuntimeError(f"visual continuity capture watchdog failed: {label}")
+                time.sleep(0.01)
+            if not task.result() or not path.is_file() or path.stat().st_size==0:raise RuntimeError(f"visual continuity capture missing: {label}")
+            image=Image.open(path).convert("RGB");hsv=np.asarray(image.convert("HSV"));masks=masks_factory(hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]);components={}
+            for name,raw in masks.items():
+                labels,_=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
+                ys,xs=np.where(chosen);count=int(chosen.sum());components[name]={"pixel_count":count,"bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if count else None,"center_xy":[float(xs.mean()),float(ys.mean())] if count else None}
+            missing=[name for name,row in components.items() if row["pixel_count"]<30];continuity={}
+            if baseline:
+                for name,row in components.items():
+                    prior=baseline[name];ratio=row["pixel_count"]/max(1,prior["pixel_count"]);shift=math.dist(row["center_xy"],prior["center_xy"]) if row["center_xy"] and prior["center_xy"] else float("inf")
+                    continuity[name]={"pixel_ratio_to_prephysics":ratio,"center_shift_px":shift,"pass":ratio>=0.20 and shift<=40.0}
+            status="PASS" if not missing and all(x["pass"] for x in continuity.values()) else "FAIL"
+            result={"label":label,"status":status,"relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"components":components,"missing":missing,"continuity":continuity}
+            if status!="PASS":raise RuntimeError(f"VISUAL_CONTINUITY_GATE_FAIL {result}")
+            return result
+        prephysics_gate=capture_pixel_gate("prephysics",None)
+        prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
-        if prephysics_gate["status"]!="PASS":raise RuntimeError(f"prephysics linked-clone pixel gate failed {prephysics_gate}")
         report["prephysics_pixel_gate"]=prephysics_gate
         stage.SetEditTarget(original_target)
 
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
         SimulationManager.initialize_physics()
-        first_step = SimulationManager.get_num_physics_steps()
-        SimulationManager.step(steps=1, update_fabric=True)
-        app.update()
-        if SimulationManager.get_num_physics_steps() <= first_step:
-            raise RuntimeError("PhysicsScene did not advance")
+        continuity=[capture_pixel_gate("after_initialize",0,prephysics_gate["components"])]
+        for relative_step in range(1,11):
+            before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);app.update()
+            if SimulationManager.get_num_physics_steps()<=before:raise RuntimeError("PhysicsScene did not advance")
+            if relative_step in (1,2,5,10):continuity.append(capture_pixel_gate(f"step_{relative_step}",relative_step,prephysics_gate["components"]))
+        (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"PASS","captures":continuity},indent=2)+"\n")
+        report["visual_continuity_gate"]={"status":"PASS","captures":continuity}
         view = SimulationManager.get_physics_simulation_view()
         articulation = view.create_articulation_view([str(articulations[0].GetPath())])
         if articulation.count != 1 or articulation.max_dofs != 3:
@@ -659,8 +660,9 @@ def main() -> int:
             spec["link_index"] = link_indices[body_name]
             spec["door_joint"] = next((Path(path).name for path,rel in joint_bodies.items() if rel["body1"] == spec["rigid_body_parent"] or connected(fixed_graph, rel["body1"], spec["rigid_body_parent"])), None)
 
-        neutral = {name: limits[name][1] - 0.10*(limits[name][1]-limits[name][0]) for name in dof_names}
-        sequences = {name: [limits[name][1]-(limits[name][1]-limits[name][0])*f for f in TARGET_FRACTIONS] for name in dof_names}
+        closed = {name: limits[name][1] - 0.08*(limits[name][1]-limits[name][0]) for name in dof_names}
+        opened = {name: limits[name][1] - 0.42*(limits[name][1]-limits[name][0]) for name in dof_names}
+        joint_authored_properties={str(joint.GetPath()):{name:str(joint.GetAttribute(name).Get()) for name in joint.GetPropertyNames() if any(token in name.lower() for token in ("drive","stiffness","damping","effort","velocity","limit"))} for joint in revolute}
         report["preflight"] = {
             "variant": variant.GetVariantSelection() if variant.IsValid() else None,
             "revolute_joints": sorted(str(j.GetPath()) for j in revolute),
@@ -669,8 +671,8 @@ def main() -> int:
             "rigid_body_count": len(rigid), "collider_count": len(colliders),
             "dof_names": dof_names, "dof_indices": dof_indices,
             "link_names":link_names,"root_link_name":root_link_name,"root_link_index":root_link_index,
-            "joint_limits_rad": limits, "target_sequences_rad": sequences,
-            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_inactive_dof_drift_rad":MAX_INACTIVE_DOF_DRIFT_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD},
+            "joint_limits_rad": limits, "closed_targets_rad":closed,"open_targets_rad":opened,"target_derivation":{"closed":"upper - 0.08*(upper-lower)","open":"upper - 0.42*(upper-lower)"},"authored_drive_and_limit_properties":joint_authored_properties,
+            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_inactive_dof_drift_rad":MAX_INACTIVE_DOF_DRIFT_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"settle_position_error_rad":0.03,"settle_velocity_rad_s":0.05,"settle_consecutive_steps":30,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":0.20,"visual_continuity_max_center_shift_px":40.0,"minimum_wall_duration_fraction":0.90},
             "runtime_physics_scene": scene.path, "clone_meshes": clone_specs,
             "source_instance_proxies_modified": False,
             "clone_xforms_before_simulation": clone_xforms_before,
@@ -678,20 +680,6 @@ def main() -> int:
             "controlled_material_settings": {"mass_kg":1.0,"diagonal_inertia_kg_m2":[0.1,0.1,0.1],"principal_axes":[1.0,0.0,0.0,0.0],"source":"session-layer controlled experimental setting"},
         }
 
-        async def command_target(phase, active_name, target, steps, destination):
-            current = articulation.get_dof_position_targets(); values = nested_values(current)
-            for name,index in dof_indices.items(): values[0][index] = target if name == active_name else neutral[name]
-            targets = wp.array(values, dtype=wp.float32, device=current.device)
-            articulation.set_dof_position_targets(targets, wp.array([0], dtype=wp.uint32, device=targets.device))
-            readback_all = nested_values(articulation.get_dof_position_targets())[0]
-            if abs(float(readback_all[dof_indices[active_name]])-target) > 1e-5: raise RuntimeError("target readback mismatch")
-            for local_step in range(steps):
-                before=SimulationManager.get_num_physics_steps(); SimulationManager.step(steps=1,update_fabric=True)
-                await omni.kit.app.get_app().next_update_async(); after=SimulationManager.get_num_physics_steps()
-                positions=articulation.get_dof_positions(); velocities=articulation.get_dof_velocities(); links=articulation.get_link_transforms()
-                if after<=before or not all(finite_array(x) for x in (positions,velocities,links)): raise RuntimeError("non-finite state or physics step did not advance")
-                link_values=nested_values(links)[0]; pos=nested_values(positions)[0]; vel=nested_values(velocities)[0]
-                destination.append({"phase":phase,"active_joint":active_name,"wall_monotonic_s":time.monotonic(),"requested_target_rad":target,"target_readback_rad":float(readback_all[dof_indices[active_name]]),"local_step":local_step,"manager_steps":[before,after],"positions_rad":{n:float(pos[i]) for n,i in dof_indices.items()},"velocities_rad_s":{n:float(vel[i]) for n,i in dof_indices.items()},"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}})
         heartbeat_path = args.run_dir / "gui_heartbeat.json"
         update_count = 0
         def run_responsive(coroutine, phase, minimum_wall_s=0.0, pace_s=0.005):
@@ -704,7 +692,6 @@ def main() -> int:
                 if now - last_heartbeat >= 1.0:
                     heartbeat_path.write_text(json.dumps({"phase": phase, "wall_monotonic_s": now, "elapsed_s": now-started, "update_callback_count": update_count, "physics_step_count": SimulationManager.get_num_physics_steps()}) + "\n")
                     last_heartbeat = now
-                time.sleep(pace_s)
             return task.result()
 
         async def idle_updates(seconds):
@@ -712,38 +699,72 @@ def main() -> int:
             while time.monotonic() < deadline:
                 await omni.kit.app.get_app().next_update_async()
 
-        async def drive_all(phase, steps, destination):
-            for name in sorted(dof_names):
-                for target in sequences[name]:
-                    await command_target(phase, name, target, steps, destination)
+        SIM_HZ=60.0;POSITION_SETTLE_RAD=0.03;VELOCITY_SETTLE_RAD_S=0.05;SETTLE_CONSECUTIVE_STEPS=30
+        schedule={"simulation_hz":SIM_HZ,"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_s":3.0},"per_door_s":12.0,"three_doors_s":36.0,"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_s":39.0,"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
+        report["schedule"]=schedule
+
+        def target_array(target_vector):
+            current=articulation.get_dof_position_targets();values=nested_values(current)
+            for name,index in dof_indices.items():values[0][index]=float(target_vector[name])
+            targets=wp.array(values,dtype=wp.float32,device=current.device);articulation.set_dof_position_targets(targets,wp.array([0],dtype=wp.uint32,device=targets.device))
+            return {name:float(nested_values(articulation.get_dof_position_targets())[0][index]) for name,index in dof_indices.items()}
+
+        async def paced_segment(active_name,segment,start_targets,end_targets,steps,destination,sequence_start):
+            segment_start=time.monotonic()
+            for local_step in range(steps):
+                u=(local_step+1)/steps;smooth=u*u*(3.0-2.0*u)
+                vector={name:float(start_targets[name]+(end_targets[name]-start_targets[name])*smooth) for name in dof_names}
+                readback=target_array(vector)
+                if any(abs(readback[name]-vector[name])>1e-5 for name in dof_names):raise RuntimeError("full target vector readback mismatch")
+                before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);after=SimulationManager.get_num_physics_steps()
+                deadline=segment_start+(local_step+1)/SIM_HZ
+                while time.monotonic()<deadline:await omni.kit.app.get_app().next_update_async()
+                positions=articulation.get_dof_positions();velocities=articulation.get_dof_velocities();links=articulation.get_link_transforms()
+                if after<=before or not all(finite_array(x) for x in (positions,velocities,links)):raise RuntimeError("non-finite state or physics step did not advance")
+                link_values=nested_values(links)[0];pos=nested_values(positions)[0];vel=nested_values(velocities)[0]
+                destination.append({"phase":"capture","segment":segment,"active_joint":active_name,"wall_monotonic_s":time.monotonic(),"sequence_wall_elapsed_s":time.monotonic()-sequence_start,"segment_wall_elapsed_s":time.monotonic()-segment_start,"planned_segment_elapsed_s":(local_step+1)/SIM_HZ,"target_vector_rad":vector,"target_readback_vector_rad":readback,"requested_target_rad":vector.get(active_name),"target_readback_rad":readback.get(active_name),"local_step":local_step,"manager_steps":[before,after],"positions_rad":{n:float(pos[i]) for n,i in dof_indices.items()},"velocities_rad_s":{n:float(vel[i]) for n,i in dof_indices.items()},"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}})
+            actual=time.monotonic()-segment_start;planned=steps/SIM_HZ
+            if actual<planned*0.90:raise RuntimeError(f"wall-time segment too short {segment}: {actual} < {planned*0.90}")
+            return {"segment":segment,"planned_s":planned,"actual_s":actual}
+
+        async def establish_closed():
+            positions=nested_values(articulation.get_dof_positions())[0];initial={name:float(positions[index]) for name,index in dof_indices.items()};sink=[];start=time.monotonic()
+            await paced_segment("ALL","initial_close_ramp",initial,closed,60,sink,start)
+            consecutive=0
+            for local_step in range(180):
+                target_array(closed);before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);after=SimulationManager.get_num_physics_steps()
+                deadline=start+1.0+(local_step+1)/SIM_HZ
+                while time.monotonic()<deadline:await omni.kit.app.get_app().next_update_async()
+                pos=nested_values(articulation.get_dof_positions())[0];vel=nested_values(articulation.get_dof_velocities())[0]
+                stable=all(abs(float(pos[i])-closed[name])<=POSITION_SETTLE_RAD and abs(float(vel[i]))<=VELOCITY_SETTLE_RAD_S for name,i in dof_indices.items())
+                consecutive=consecutive+1 if stable else 0
+                if consecutive>=SETTLE_CONSECUTIVE_STEPS:return {"status":"PASS","steps":local_step+1,"wall_s":time.monotonic()-start,"position_error_rad":{name:abs(float(pos[i])-closed[name]) for name,i in dof_indices.items()},"velocity_rad_s":{name:float(vel[i]) for name,i in dof_indices.items()}}
+            raise RuntimeError("closed settle timeout")
+
+        async def drive_scheduled(destination):
+            sequence_start=time.monotonic();phase_times=[]
+            for active in sorted(dof_names):
+                baseline_pos=nested_values(articulation.get_dof_positions())[0]
+                baseline={name:float(baseline_pos[index]) for name,index in dof_indices.items()}
+                hold_closed=dict(closed);open_vector=dict(closed);open_vector[active]=opened[active]
+                phase_times.append(await paced_segment(active,"closed_hold",hold_closed,hold_closed,90,destination,sequence_start))
+                phase_times.append(await paced_segment(active,"opening_smoothstep",hold_closed,open_vector,180,destination,sequence_start))
+                phase_times.append(await paced_segment(active,"open_hold",open_vector,open_vector,90,destination,sequence_start))
+                phase_times.append(await paced_segment(active,"closing_smoothstep",open_vector,hold_closed,180,destination,sequence_start))
+                phase_times.append(await paced_segment(active,"closed_settle",hold_closed,hold_closed,180,destination,sequence_start))
+                settled=destination[-SETTLE_CONSECUTIVE_STEPS:]
+                if not all(all(abs(row["positions_rad"][name]-closed[name])<=POSITION_SETTLE_RAD and abs(row["velocities_rad_s"][name])<=VELOCITY_SETTLE_RAD_S for name in dof_names) for row in settled):raise RuntimeError(f"per-door closed settle failed: {active}")
+                # Drift baseline belongs to this active-door interval only and
+                # is captured after the preceding door has settled closed.
+                for row in destination[-720:]:row["inactive_baseline_rad"]={name:baseline[name] for name in dof_names if name!=active}
+            return {"sequence_wall_s":time.monotonic()-sequence_start,"phase_times":phase_times}
 
         (args.run_dir / "runner_phase.txt").write_text("STATIC_PREFLIGHT\n")
         run_responsive(idle_updates(3.0), "STATIC_PREFLIGHT", minimum_wall_s=3.0, pace_s=0.01)
         (args.run_dir / "marker_structure_mapping.json").write_text(json.dumps(report["preflight"],indent=2)+"\n")
-        (args.run_dir / "runner_phase.txt").write_text("PHYSICS_PRETEST\n")
-        run_responsive(drive_all("pretest_each_door", 30, report["pretest"]["records"]), "PHYSICS_PRETEST", pace_s=0.01)
-        rows=report["pretest"]["records"]
-        checks={"record_count":len(rows),"joint_spans_rad":{},"nonactive_max_drift_rad":{},"door_body_rotation_span_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{}}
-        for active in sorted(dof_names):
-            subset=[r for r in rows if r["active_joint"]==active]
-            checks["joint_spans_rad"][active]=max(r["positions_rad"][active] for r in subset)-min(r["positions_rad"][active] for r in subset)
-            checks["nonactive_max_drift_rad"][active]=max(abs(r["positions_rad"][other]-neutral[other]) for r in subset for other in dof_names if other!=active)
-            body1=joint_bodies[next(p for p in joint_bodies if Path(p).name==active)]["body1"]
-            link=Path(body1).name; idx=link_indices[link]; first=subset[0]["rigid_body_link_transforms_xyzw"][idx]
-            checks["door_body_rotation_span_rad"][active]=max(pose_delta(first,r["rigid_body_link_transforms_xyzw"][idx])[1] for r in subset)
-            root_first=subset[0]["rigid_body_link_transforms_xyzw"][root_link_index]
-            root_deltas=[pose_delta(root_first,r["rigid_body_link_transforms_xyzw"][root_link_index]) for r in subset]
-            checks["root_translation_drift_m"][active]=max(x[0] for x in root_deltas)
-            checks["root_orientation_drift_rad"][active]=max(x[1] for x in root_deltas)
-        clone_after=authored_clone_xforms(clone_prims); samples_after=clone_time_samples(clone_prims)
-        checks["clone_xform_authoring_after_start"]=clone_after!=clone_xforms_before
-        checks["clone_time_sample_authoring_after_start"]=samples_after-clone_time_samples_before
-        if min(checks["joint_spans_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD or min(checks["door_body_rotation_span_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"door response invariant failed {checks}")
-        if max(checks["nonactive_max_drift_rad"].values())>MAX_INACTIVE_DOF_DRIFT_RAD: raise RuntimeError(f"inactive DOF drift failed {checks}")
-        if max(checks["root_translation_drift_m"].values())>MAX_ROOT_TRANSLATION_DRIFT_M or max(checks["root_orientation_drift_rad"].values())>MAX_ROOT_ORIENTATION_DRIFT_RAD: raise RuntimeError(f"root drift failed {checks}")
-        if checks["clone_xform_authoring_after_start"] or checks["clone_time_sample_authoring_after_start"]: raise RuntimeError("visual transform/keyframe authored after start")
-        report["pretest"]["checks"]=checks
-        (args.run_dir / "marker_pretest_pass.json").write_text(json.dumps(checks,indent=2)+"\n")
+        (args.run_dir / "runner_phase.txt").write_text("CLOSED_SETTLE_PREFLIGHT\n")
+        report["pretest"]["closed_settle"]=run_responsive(establish_closed(),"CLOSED_SETTLE_PREFLIGHT",pace_s=0.0)
+        (args.run_dir / "marker_pretest_pass.json").write_text(json.dumps({"status":"PASS","scope":"visual continuity plus closed settle; no fast door sweep", "closed_settle":report["pretest"]["closed_settle"]},indent=2)+"\n")
 
         display = os.environ.get("DISPLAY")
         if not display:
@@ -771,7 +792,7 @@ def main() -> int:
         capture_start_step = SimulationManager.get_num_physics_steps()
         capture_wall_start = time.monotonic()
         (args.run_dir / "runner_phase.txt").write_text("PHYSICS_CAPTURE\n")
-        run_responsive(drive_all("capture_each_door_closed_mid_open_mid_closed", 60, report["capture"]["records"]), "PHYSICS_CAPTURE", pace_s=1.0/30.0)
+        report["capture"]["schedule_result"]=run_responsive(drive_scheduled(report["capture"]["records"]),"PHYSICS_CAPTURE",pace_s=0.0)
         capture_end_step = SimulationManager.get_num_physics_steps()
         run_responsive(idle_updates(2.0), "CAPTURE_STATIC_END", minimum_wall_s=2.0, pace_s=0.01)
         ffmpeg_rc = None
@@ -792,11 +813,13 @@ def main() -> int:
             }
         )
         capture_rows=report["capture"]["records"]
-        capture_checks={"joint_spans_rad":{},"nonactive_max_drift_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{},"finite":True,"expected_record_count":3*len(TARGET_FRACTIONS)*STEPS_PER_CAPTURE_TARGET}
+        capture_checks={"joint_spans_rad":{},"door_body_rotation_span_rad":{},"nonactive_max_drift_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{},"finite":True,"expected_record_count":3*720,"minimum_sequence_wall_s":schedule["three_doors_s"]*0.90}
         for active in sorted(dof_names):
             subset=[r for r in capture_rows if r["active_joint"]==active]
             capture_checks["joint_spans_rad"][active]=max(r["positions_rad"][active] for r in subset)-min(r["positions_rad"][active] for r in subset)
-            capture_checks["nonactive_max_drift_rad"][active]=max(abs(r["positions_rad"][other]-neutral[other]) for r in subset for other in dof_names if other!=active)
+            capture_checks["nonactive_max_drift_rad"][active]=max(abs(r["positions_rad"][other]-r["inactive_baseline_rad"][other]) for r in subset for other in dof_names if other!=active)
+            body1=joint_bodies[next(p for p in joint_bodies if Path(p).name==active)]["body1"];body_index=link_indices[Path(body1).name];body_first=subset[0]["rigid_body_link_transforms_xyzw"][body_index]
+            capture_checks["door_body_rotation_span_rad"][active]=max(pose_delta(body_first,r["rigid_body_link_transforms_xyzw"][body_index])[1] for r in subset)
             root_first=subset[0]["rigid_body_link_transforms_xyzw"][root_link_index]
             root_deltas=[pose_delta(root_first,r["rigid_body_link_transforms_xyzw"][root_link_index]) for r in subset]
             capture_checks["root_translation_drift_m"][active]=max(x[0] for x in root_deltas);capture_checks["root_orientation_drift_rad"][active]=max(x[1] for x in root_deltas)
@@ -807,9 +830,11 @@ def main() -> int:
             for row in capture_rows: stream.write(json.dumps(row,separators=(",",":"))+"\n")
         if len(capture_rows)!=capture_checks["expected_record_count"]: raise RuntimeError(f"capture record count mismatch {capture_checks}")
         if min(capture_checks["joint_spans_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"capture active response failed {capture_checks}")
+        if min(capture_checks["door_body_rotation_span_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"capture door body response failed {capture_checks}")
         if max(capture_checks["nonactive_max_drift_rad"].values())>MAX_INACTIVE_DOF_DRIFT_RAD: raise RuntimeError(f"capture inactive drift failed {capture_checks}")
         if max(capture_checks["root_translation_drift_m"].values())>MAX_ROOT_TRANSLATION_DRIFT_M or max(capture_checks["root_orientation_drift_rad"].values())>MAX_ROOT_ORIENTATION_DRIFT_RAD: raise RuntimeError(f"capture root drift failed {capture_checks}")
         if capture_checks["clone_xform_authoring_after_start"] or capture_checks["clone_time_sample_authoring_after_start"]: raise RuntimeError(f"capture visual authoring invariant failed {capture_checks}")
+        if report["capture"]["schedule_result"]["sequence_wall_s"]<capture_checks["minimum_sequence_wall_s"]: raise RuntimeError(f"capture wall schedule too short {report['capture']['schedule_result']}")
         if capture_process_error:
             raise RuntimeError(capture_process_error + "; physics sequence completed and was preserved")
         report["status"] = "AUTOMATED_PRETEST_AND_CAPTURE_COMPLETE_HUMAN_VIEWPORT_REVIEW_REQUIRED"

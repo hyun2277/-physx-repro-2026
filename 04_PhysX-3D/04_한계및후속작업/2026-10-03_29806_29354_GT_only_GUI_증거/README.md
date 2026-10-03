@@ -69,3 +69,13 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 사용자는 `20261003T113111Z-...` GPU 0 GUI에서 회색 수납장 base, 서로 다른 위치의 넓은 빨강·초록·파랑 문, 별도 위치의 reference/control geometry를 직접 확인했다. 거대한 흰 면, 선만 보이는 자산, 본체 아래의 노트북형 판은 없었다. 따라서 정적 범위의 판정은 `STATIC_MAPPING_AUTOMATION_AND_HUMAN_PASS`이다. 이 확인은 physics step 0인 body↔door **정적 시각 매핑**에만 적용하며 물리 구동 또는 영상 성공을 뜻하지 않는다.
 
 물리 runner는 같은 GT USD와 relationship-derived mapping으로 body-local linked clone을 만들고, physics 초기화 전에 3/4 camera의 내부 viewport PNG에서 base와 세 문을 다시 검출한다. 실제 GT limits의 8%를 닫힘, 25%를 중간, 42%를 보수적 열린 목표로 사용한다. 사전 고정 임계값은 active span ≥0.50 rad, 비구동 DOF drift ≤0.02 rad, root translation ≤0.001 m, root orientation ≤0.01 rad이다. `update_fabric=True`와 Warp tensor target만 사용하며 실행 시작 뒤 clone xform/timeSample을 author하지 않는다. 실제 호스트 실행 전 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다.
+
+## 첫 GUI physics 실행 실패와 수정된 시간축
+
+실행 `20261003T120142Z-...`은 `INVALID_FAST_VISUAL_AND_INACTIVE_DOF_DRIFT`이다. pre-physics linked-clone PNG는 PASS했지만 Physics/Fabric 초기화 뒤의 pixel 표본과 영상은 생성되지 않았다. 450개 pretest record는 manager step 3→453, record wall time 9.079초였고, 이후 inactive drift 검사에서 중단됐다. `physics_records.jsonl`, MP4, ffmpeg 로그, 대표 프레임, video validation, 성공 marker는 생성되지 않았다. 따라서 사람이 본 시작 시 문 사라짐의 정확한 step·wall time은 이 실행 자료만으로 확정할 수 없다.
+
+기존 drift 식은 검증된 settle baseline 없이 비구동 joint 위치를 명목 closed target과 비교했고, 이전 관절의 복귀/settling 영향을 섞었다. 수정 runner는 모든 관절이 position error ≤0.03 rad, velocity ≤0.05 rad/s를 30 step 연속 만족한 뒤 실측 baseline을 잡는다. 이후 매 physics step마다 active joint의 smoothstep target과 두 inactive joint의 closed target을 포함한 3-DOF target vector 전체를 다시 보낸다. 비구동 drift는 해당 active-door 구간에서 실측 baseline 대비로만 계산하며 임계값 0.02 rad는 유지한다.
+
+문별 wall-clock schedule은 닫힘 1.5초, 열기 smoothstep 3초, 열린 hold 1.5초, 닫기 smoothstep 3초, 닫힘 settle 3초로 총 12초다. 세 문 36초와 녹화 시작/끝 1초/2초를 합친 예상 영상은 39초다. physics는 60 step/s에 맞춰 `next_update_async`로 pacing하며 각 segment 실제 시간이 계획의 90%보다 짧으면 실패한다. 초기 linked clone pixel gate 뒤 Physics 초기화 직후와 relative step 1·2·5·10에서 같은 viewport를 다시 캡처하며, component pixel ratio 20% 미만 또는 중심 이동 40 px 초과 시 `VISUAL_CONTINUITY_GATE_FAIL`로 구동 전에 중단한다.
+
+현재 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. 29354는 계속 미실행이다.

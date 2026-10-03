@@ -1,0 +1,187 @@
+{
+  "status": "INVALID_FAST_VISUAL_AND_INACTIVE_DOF_DRIFT",
+  "official_result_promoted": false,
+  "physics_records_embedded_in_summary": 450,
+  "record_wall_range_s": [
+    2714330.708512387,
+    2714339.787796799
+  ],
+  "record_elapsed_s": 9.079284412320703,
+  "manager_step_range": [
+    3,
+    453
+  ],
+  "failed_phase": "PHYSICS_PRETEST",
+  "error": {
+    "type": "RuntimeError",
+    "message": "inactive DOF drift failed {'record_count': 450, 'joint_spans_rad': {'gt_C_1': 1.302175534889102, 'gt_C_2': 1.0521098673343658, 'gt_C_3': 1.0470099747180939}, 'nonactive_max_drift_rad': {'gt_C_1': 0.29064082354307175, 'gt_C_2': 0.046493083238601685, 'gt_C_3': 0.039206624031066895}, 'door_body_rotation_span_rad': {'gt_C_1': 1.3021973619879017, 'gt_C_2': 0.9926011798861905, 'gt_C_3': 0.9871535176406476}, 'root_translation_drift_m': {'gt_C_1': 3.9745080992257815e-05, 'gt_C_2': 1.1744048419615605e-05, 'gt_C_3': 1.750641039396604e-05}, 'root_orientation_drift_rad': {'gt_C_1': 0.0006907370536058739, 'gt_C_2': 0.0009765642395587193, 'gt_C_3': 0.0006905895331768506}, 'clone_xform_authoring_after_start': False, 'clone_time_sample_authoring_after_start': 0}"
+  },
+  "prephysics_pixel_gate": {
+    "status": "PASS",
+    "physics_steps": 0,
+    "capture_path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/prephysics_linked_clone_pixel_gate.png",
+    "capture_sha256": "cf493c0f63636cd9f852511a5b7cd5435315bd4cdabd56b566860110788e3f7a",
+    "camera": {
+      "path": "/__PhysXGuiDiagnostic/Camera_physics",
+      "eye": [
+        0.742474308013916,
+        0.1797734022140503,
+        -5.7811688348725685
+      ],
+      "target": [
+        -0.016994476318359375,
+        -0.0010524988174438477,
+        0.0052599981352439845
+      ],
+      "selection": "minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"
+    },
+    "components": {
+      "BASE_GRAY": {
+        "pixel_count": 9529,
+        "bbox_xyxy": [
+          302,
+          233,
+          984,
+          494
+        ],
+        "center_xy": [
+          641.6405708888656,
+          391.220799664183
+        ]
+      },
+      "gt_C_1_RED": {
+        "pixel_count": 48949,
+        "bbox_xyxy": [
+          302,
+          233,
+          507,
+          486
+        ],
+        "center_xy": [
+          407.06972563280146,
+          361.9228584853623
+        ]
+      },
+      "gt_C_2_GREEN": {
+        "pixel_count": 58910,
+        "bbox_xyxy": [
+          508,
+          237,
+          748,
+          484
+        ],
+        "center_xy": [
+          627.6475980308945,
+          359.4971142420642
+        ]
+      },
+      "gt_C_3_BLUE": {
+        "pixel_count": 49961,
+        "bbox_xyxy": [
+          763,
+          237,
+          980,
+          481
+        ],
+        "center_xy": [
+          873.2505554332379,
+          360.55733472108244
+        ]
+      }
+    },
+    "missing": [],
+    "door_center_min_distance_pixels": 220.59121022108593,
+    "linked_clone_max_roundtrip_error_m": 4.213932221073044e-08
+  },
+  "files": {
+    "physics_records_jsonl": {
+      "status": "MISSING"
+    },
+    "summary_json": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/physics_gui_report.json",
+      "bytes": 4248093,
+      "sha256": "57484c19a43e34811f37d8fa4219225e6ea2073dfa825e22706d2c3c84273e16"
+    },
+    "prephysics_gate_json": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/prephysics_pixel_gate.json",
+      "bytes": 1723,
+      "sha256": "3b99b2a6de09620cead5344a6f232e2787244a5030802bab2d1681a9bc6e913c"
+    },
+    "linked_clone_report": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/marker_structure_mapping.json",
+      "bytes": 45065,
+      "sha256": "4d2bc575913e831e6c9310e894dd73e000bbcdb90f4cab979cb63852d9ab7a63"
+    },
+    "video_mp4": {
+      "status": "MISSING"
+    },
+    "ffmpeg_stderr": {
+      "status": "MISSING"
+    },
+    "heartbeat": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/gui_heartbeat.json",
+      "bytes": 156,
+      "sha256": "a34636eff4c1e7b1adce10fc32bdb8743b136ea49a65e68a1479e438d4258912"
+    },
+    "progress_marker": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/runner_phase.txt",
+      "bytes": 16,
+      "sha256": "c4566b00f083e5c362d22d4ebbb1ead37ab092e32d221ae14f663dbd904c21d2"
+    },
+    "success_marker": {
+      "status": "MISSING"
+    },
+    "representative_frame": {
+      "status": "MISSING"
+    },
+    "video_validation": {
+      "status": "MISSING"
+    },
+    "runner_stdout": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/stdout.log",
+      "bytes": 15337,
+      "sha256": "a5ef2e0023087517ff575915f930f0a04cf2539c9d05e56bc6d2a0ed09d8182f"
+    },
+    "runner_stderr": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0/stderr.log",
+      "bytes": 1858,
+      "sha256": "e0f2ca5e9adf9d99642ebae9ca65d79cdbc7892af3261454313094dde5749545"
+    },
+    "kit_log": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/kit/logs/Kit/PhysX-29806-GT-only-GUI-tensor-physics/6.1/kit_20261003_210142.log",
+      "bytes": 898920,
+      "sha256": "8c08e6bae98d9088b6109838686f5890007fcd7f3b6572ea5a8314a9ceceb63c"
+    }
+  },
+  "visual_disappearance": {
+    "human_observation": "Doors disappeared at startup, reappeared, then moved too fast.",
+    "exact_step_or_wall_time": "UNDETERMINED",
+    "reason": "No recorder, post-initialize pixel samples, or representative frames were created; only the visible pre-physics PNG exists.",
+    "remaining_candidates": [
+      "Physics/Fabric initialization and first update synchronization",
+      "linked-clone parent rigid-body initial pose transition",
+      "Hydra resynchronization after initialization"
+    ]
+  },
+  "drift_metric_audit": {
+    "old_formula": "abs(inactive measured position - nominal closed target) across an active interval that began before a verified settled baseline",
+    "error": "The metric mixed initial/previous-door settling error with unintended inactive motion, and target vectors were set once per target block rather than every physics step.",
+    "replacement": "After all joints meet position/velocity settle criteria, record the measured inactive baseline; send all three targets every step; compute inactive drift only within the subsequent active-door interval against that measured baseline."
+  },
+  "warnings": {
+    "ill_formed_sdf_path": "Occurs immediately after stage open; no caller stack identifies a repository call. It preceded a passing pre-physics pixel gate and is not assigned as the failure cause.",
+    "unexpected_reference_count": "Occurs during failure shutdown while Python USD handles remain live; no evidence it caused the inactive-drift exception."
+  },
+  "physics_steps_completed_before_failure": 450,
+  "capture_started": false,
+  "video_created": false,
+  "29354": "BLOCKED_NOT_RUN"
+}

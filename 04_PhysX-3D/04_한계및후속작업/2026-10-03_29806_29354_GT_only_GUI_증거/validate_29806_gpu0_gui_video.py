@@ -49,6 +49,7 @@ def main() -> int:
         )
     )
     duration = float(probe["format"]["duration"])
+    full_decode=subprocess.run(["ffmpeg","-v","error","-i",str(video),"-f","null","-"],stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
     frame_dir = args.run_dir / "validation_frames"
     frame_dir.mkdir(exist_ok=True)
     records = report["capture"]["records"]
@@ -118,12 +119,22 @@ def main() -> int:
         center_delta=math.dist(base["center_xy"],opened["center_xy"]) if base["center_xy"] and opened["center_xy"] else 0.0
         area_change=abs(opened["pixel_count"]-base["pixel_count"])/max(1,base["pixel_count"])
         pixel_motion[joint]={"start":base,"opened":opened,"center_delta_px":center_delta,"relative_area_change":area_change,"motion_detected":center_delta>=3.0 or area_change>=0.05}
+    pixel_stability={};stability_colors={"BASE":"BASE_GRAY",**color_name}
+    for active in color_name:
+        row={}
+        for label,color in stability_colors.items():
+            if label==active:continue
+            base=frame_by_label["start"]["color_components"][color];current=frame_by_label[active]["color_components"][color]
+            center_delta=math.dist(base["center_xy"],current["center_xy"]) if base["center_xy"] and current["center_xy"] else float("inf")
+            area_change=abs(current["pixel_count"]-base["pixel_count"])/max(1,base["pixel_count"])
+            row[label]={"center_delta_px":center_delta,"relative_area_change":area_change,"stable":center_delta<=12.0 and area_change<=0.15}
+        pixel_stability[active]=row
     stream = probe["streams"][0]
     automated_pass = (
         report["status"] == "AUTOMATED_PRETEST_AND_CAPTURE_COMPLETE_HUMAN_VIEWPORT_REVIEW_REQUIRED"
         and stream.get("codec_name") == "h264"
         and stream.get("pix_fmt") == "yuv420p"
-        and len(records) == 3 * 5 * 90
+        and len(records) == 3 * 720
         and all(all(math.isfinite(value) for value in values) for values in positions.values())
         and all(max(values) - min(values) >= 0.5 for values in positions.values())
         and all(not row["completely_black"] for row in frame_rows)
@@ -131,6 +142,8 @@ def main() -> int:
         and all(row["viewport_region_bbox"] is not None and max(row["viewport_region_mean_abs_rgb"]) > 0.25 for row in pair_differences)
         and all(row["motion_detected"] for row in pixel_motion.values())
         and all(frame_by_label[j]["color_components"][c]["pixel_count"]>=30 for j,c in color_name.items())
+        and all(item["stable"] for row in pixel_stability.values() for item in row.values())
+        and full_decode.returncode==0
     )
     derived={}
     if automated_pass:
@@ -164,6 +177,9 @@ def main() -> int:
             "per_joint_records": {name:len(values) for name,values in positions.items()},
         },
         "per_door_pixel_motion":pixel_motion,
+        "inactive_doors_and_base_pixel_stability":pixel_stability,
+        "pixel_stability_thresholds":{"maximum_center_delta_px":12.0,"maximum_relative_area_change":0.15},
+        "full_video_decode":{"returncode":full_decode.returncode,"stderr":full_decode.stderr},
         "derived_outputs":derived,
         "human_review_required": [
             "cabinet base and all three door meshes are visible",
