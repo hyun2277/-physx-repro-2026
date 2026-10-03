@@ -25,10 +25,15 @@ from isaacsim import SimulationApp
 
 INPUT_SHA256 = "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
 URDF_SHA256 = "99ee19188ec969488e63ae2504f3ecf04f7de73071e523ec9e4f231fb68855c6"
-MAX_INACTIVE_DOF_DRIFT_RAD = 0.02
-MAX_ROOT_TRANSLATION_DRIFT_M = 0.001
-MAX_ROOT_ORIENTATION_DRIFT_RAD = 0.01
+MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD = 0.01
+MAX_INACTIVE_EXCURSION_RAD = 0.002
+MAX_ROOT_TRANSLATION_DRIFT_M = 0.0001
+MAX_ROOT_ORIENTATION_DRIFT_RAD = 0.002
 MIN_ACTIVE_RESPONSE_SPAN_RAD = 0.50
+POSITION_SETTLE_RAD = MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD
+VELOCITY_SETTLE_RAD_S = 0.05
+SETTLE_CONSECUTIVE_STEPS = 30
+SETTLE_TIMEOUT_STEPS = 300
 
 
 def digest(path: Path) -> str:
@@ -672,7 +677,7 @@ def main() -> int:
             "dof_names": dof_names, "dof_indices": dof_indices,
             "link_names":link_names,"root_link_name":root_link_name,"root_link_index":root_link_index,
             "joint_limits_rad": limits, "closed_targets_rad":closed,"open_targets_rad":opened,"target_derivation":{"closed":"upper - 0.08*(upper-lower)","open":"upper - 0.42*(upper-lower)"},"authored_drive_and_limit_properties":joint_authored_properties,
-            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_inactive_dof_drift_rad":MAX_INACTIVE_DOF_DRIFT_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"settle_position_error_rad":0.03,"settle_velocity_rad_s":0.05,"settle_consecutive_steps":30,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":0.20,"visual_continuity_max_center_shift_px":40.0,"minimum_wall_duration_fraction":0.90},
+            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"maximum_inactive_excursion_from_settled_baseline_rad":MAX_INACTIVE_EXCURSION_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"root_threshold_scope":"conservative GUI smoke operating criteria; not an equivalence claim to previous headless values","previous_failed_run_root_observations":{"translation_max_m":3.9745080992257815e-05,"orientation_max_rad":0.0009765642395587193},"settle_position_error_rad":POSITION_SETTLE_RAD,"settle_velocity_rad_s":VELOCITY_SETTLE_RAD_S,"settle_consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"settle_timeout_steps":SETTLE_TIMEOUT_STEPS,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":0.20,"visual_continuity_max_center_shift_px":40.0,"minimum_wall_duration_fraction":0.90},
             "runtime_physics_scene": scene.path, "clone_meshes": clone_specs,
             "source_instance_proxies_modified": False,
             "clone_xforms_before_simulation": clone_xforms_before,
@@ -699,8 +704,8 @@ def main() -> int:
             while time.monotonic() < deadline:
                 await omni.kit.app.get_app().next_update_async()
 
-        SIM_HZ=60.0;POSITION_SETTLE_RAD=0.03;VELOCITY_SETTLE_RAD_S=0.05;SETTLE_CONSECUTIVE_STEPS=30
-        schedule={"simulation_hz":SIM_HZ,"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_s":3.0},"per_door_s":12.0,"three_doors_s":36.0,"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_s":39.0,"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
+        SIM_HZ=60.0
+        schedule={"simulation_hz":SIM_HZ,"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_min_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"closed_settle_timeout_s":SETTLE_TIMEOUT_STEPS/SIM_HZ},"per_door_min_s":9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"per_door_max_s":9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ,"three_doors_min_s":3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),"three_doors_max_s":3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ),"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_range_s":[3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
         report["schedule"]=schedule
 
         def target_array(target_vector):
@@ -709,7 +714,7 @@ def main() -> int:
             targets=wp.array(values,dtype=wp.float32,device=current.device);articulation.set_dof_position_targets(targets,wp.array([0],dtype=wp.uint32,device=targets.device))
             return {name:float(nested_values(articulation.get_dof_position_targets())[0][index]) for name,index in dof_indices.items()}
 
-        async def paced_segment(active_name,segment,start_targets,end_targets,steps,destination,sequence_start):
+        async def paced_segment(active_name,segment,start_targets,end_targets,steps,destination,sequence_start,inactive_baseline=None):
             segment_start=time.monotonic()
             for local_step in range(steps):
                 u=(local_step+1)/steps;smooth=u*u*(3.0-2.0*u)
@@ -722,42 +727,48 @@ def main() -> int:
                 positions=articulation.get_dof_positions();velocities=articulation.get_dof_velocities();links=articulation.get_link_transforms()
                 if after<=before or not all(finite_array(x) for x in (positions,velocities,links)):raise RuntimeError("non-finite state or physics step did not advance")
                 link_values=nested_values(links)[0];pos=nested_values(positions)[0];vel=nested_values(velocities)[0]
-                destination.append({"phase":"capture","segment":segment,"active_joint":active_name,"wall_monotonic_s":time.monotonic(),"sequence_wall_elapsed_s":time.monotonic()-sequence_start,"segment_wall_elapsed_s":time.monotonic()-segment_start,"planned_segment_elapsed_s":(local_step+1)/SIM_HZ,"target_vector_rad":vector,"target_readback_vector_rad":readback,"requested_target_rad":vector.get(active_name),"target_readback_rad":readback.get(active_name),"local_step":local_step,"manager_steps":[before,after],"positions_rad":{n:float(pos[i]) for n,i in dof_indices.items()},"velocities_rad_s":{n:float(vel[i]) for n,i in dof_indices.items()},"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}})
+                destination.append({"phase":"capture","segment":segment,"metric_scope":"inactive_excursion" if segment in ("opening_smoothstep","open_hold","closing_smoothstep") else "excluded_from_inactive_excursion","active_joint":active_name,"wall_monotonic_s":time.monotonic(),"sequence_wall_elapsed_s":time.monotonic()-sequence_start,"segment_wall_elapsed_s":time.monotonic()-segment_start,"planned_segment_elapsed_s":(local_step+1)/SIM_HZ,"target_vector_rad":vector,"target_readback_vector_rad":readback,"requested_target_rad":vector.get(active_name),"target_readback_rad":readback.get(active_name),"inactive_baseline_rad":inactive_baseline or {},"local_step":local_step,"manager_steps":[before,after],"positions_rad":{n:float(pos[i]) for n,i in dof_indices.items()},"velocities_rad_s":{n:float(vel[i]) for n,i in dof_indices.items()},"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}})
             actual=time.monotonic()-segment_start;planned=steps/SIM_HZ
             if actual<planned*0.90:raise RuntimeError(f"wall-time segment too short {segment}: {actual} < {planned*0.90}")
             return {"segment":segment,"planned_s":planned,"actual_s":actual}
 
+        async def settle_closed(label,destination,sequence_start):
+            settle_start=time.monotonic();consecutive=0;maximum_velocity={name:0.0 for name in dof_names}
+            for local_step in range(SETTLE_TIMEOUT_STEPS):
+                readback=target_array(closed);before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);after=SimulationManager.get_num_physics_steps()
+                deadline=settle_start+(local_step+1)/SIM_HZ
+                while time.monotonic()<deadline:await omni.kit.app.get_app().next_update_async()
+                positions=articulation.get_dof_positions();velocities=articulation.get_dof_velocities();links=articulation.get_link_transforms()
+                if after<=before or not all(finite_array(x) for x in (positions,velocities,links)):raise RuntimeError("non-finite settle state or physics step did not advance")
+                pos=nested_values(positions)[0];vel=nested_values(velocities)[0];link_values=nested_values(links)[0]
+                measured={name:float(pos[index]) for name,index in dof_indices.items()};velocity={name:float(vel[index]) for name,index in dof_indices.items()};errors={name:abs(measured[name]-closed[name]) for name in dof_names}
+                maximum_velocity={name:max(maximum_velocity[name],abs(velocity[name])) for name in dof_names}
+                stable=all(errors[name]<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD and abs(velocity[name])<=VELOCITY_SETTLE_RAD_S for name in dof_names)
+                consecutive=consecutive+1 if stable else 0
+                destination.append({"phase":"capture","segment":"closed_settle","settle_label":label,"metric_scope":"excluded_from_inactive_excursion","active_joint":label,"wall_monotonic_s":time.monotonic(),"sequence_wall_elapsed_s":time.monotonic()-sequence_start,"segment_wall_elapsed_s":time.monotonic()-settle_start,"planned_segment_elapsed_s":None,"target_vector_rad":dict(closed),"target_readback_vector_rad":readback,"requested_target_rad":closed.get(label),"target_readback_rad":readback.get(label),"inactive_baseline_rad":{},"local_step":local_step,"manager_steps":[before,after],"positions_rad":measured,"velocities_rad_s":velocity,"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}})
+                if consecutive>=SETTLE_CONSECUTIVE_STEPS:
+                    return {"status":"PASS","label":label,"closed_target_rad":dict(closed),"settle_completed_measured_rad":measured,"closed_target_absolute_error_rad":errors,"settled_baseline_rad":dict(measured),"maximum_velocity_during_settle_rad_s":maximum_velocity,"settle_steps":local_step+1,"settle_wall_s":time.monotonic()-settle_start,"consecutive_stable_steps":consecutive,"thresholds":{"absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"velocity_rad_s":VELOCITY_SETTLE_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"timeout_steps":SETTLE_TIMEOUT_STEPS}}
+            raise RuntimeError(f"closed settle timeout {label}: errors={errors} velocities={velocity}")
+
         async def establish_closed():
             positions=nested_values(articulation.get_dof_positions())[0];initial={name:float(positions[index]) for name,index in dof_indices.items()};sink=[];start=time.monotonic()
             await paced_segment("ALL","initial_close_ramp",initial,closed,60,sink,start)
-            consecutive=0
-            for local_step in range(180):
-                target_array(closed);before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);after=SimulationManager.get_num_physics_steps()
-                deadline=start+1.0+(local_step+1)/SIM_HZ
-                while time.monotonic()<deadline:await omni.kit.app.get_app().next_update_async()
-                pos=nested_values(articulation.get_dof_positions())[0];vel=nested_values(articulation.get_dof_velocities())[0]
-                stable=all(abs(float(pos[i])-closed[name])<=POSITION_SETTLE_RAD and abs(float(vel[i]))<=VELOCITY_SETTLE_RAD_S for name,i in dof_indices.items())
-                consecutive=consecutive+1 if stable else 0
-                if consecutive>=SETTLE_CONSECUTIVE_STEPS:return {"status":"PASS","steps":local_step+1,"wall_s":time.monotonic()-start,"position_error_rad":{name:abs(float(pos[i])-closed[name]) for name,i in dof_indices.items()},"velocity_rad_s":{name:float(vel[i]) for name,i in dof_indices.items()}}
-            raise RuntimeError("closed settle timeout")
+            result=await settle_closed("initial",sink,start)
+            result["initial_close_ramp_s"]=1.0
+            return result
 
-        async def drive_scheduled(destination):
-            sequence_start=time.monotonic();phase_times=[]
+        async def drive_scheduled(destination,initial_settle):
+            sequence_start=time.monotonic();phase_times=[];settle_results=[];baseline=dict(initial_settle["settled_baseline_rad"])
             for active in sorted(dof_names):
-                baseline_pos=nested_values(articulation.get_dof_positions())[0]
-                baseline={name:float(baseline_pos[index]) for name,index in dof_indices.items()}
+                pre_errors={name:abs(baseline[name]-closed[name]) for name in dof_names}
+                if any(value>MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD for value in pre_errors.values()):raise RuntimeError(f"pre-door closed target absolute error failed {active}: {pre_errors}")
                 hold_closed=dict(closed);open_vector=dict(closed);open_vector[active]=opened[active]
-                phase_times.append(await paced_segment(active,"closed_hold",hold_closed,hold_closed,90,destination,sequence_start))
-                phase_times.append(await paced_segment(active,"opening_smoothstep",hold_closed,open_vector,180,destination,sequence_start))
-                phase_times.append(await paced_segment(active,"open_hold",open_vector,open_vector,90,destination,sequence_start))
-                phase_times.append(await paced_segment(active,"closing_smoothstep",open_vector,hold_closed,180,destination,sequence_start))
-                phase_times.append(await paced_segment(active,"closed_settle",hold_closed,hold_closed,180,destination,sequence_start))
-                settled=destination[-SETTLE_CONSECUTIVE_STEPS:]
-                if not all(all(abs(row["positions_rad"][name]-closed[name])<=POSITION_SETTLE_RAD and abs(row["velocities_rad_s"][name])<=VELOCITY_SETTLE_RAD_S for name in dof_names) for row in settled):raise RuntimeError(f"per-door closed settle failed: {active}")
-                # Drift baseline belongs to this active-door interval only and
-                # is captured after the preceding door has settled closed.
-                for row in destination[-720:]:row["inactive_baseline_rad"]={name:baseline[name] for name in dof_names if name!=active}
-            return {"sequence_wall_s":time.monotonic()-sequence_start,"phase_times":phase_times}
+                phase_times.append(await paced_segment(active,"closed_hold",hold_closed,hold_closed,90,destination,sequence_start,baseline))
+                phase_times.append(await paced_segment(active,"opening_smoothstep",hold_closed,open_vector,180,destination,sequence_start,baseline))
+                phase_times.append(await paced_segment(active,"open_hold",open_vector,open_vector,90,destination,sequence_start,baseline))
+                phase_times.append(await paced_segment(active,"closing_smoothstep",open_vector,hold_closed,180,destination,sequence_start,baseline))
+                settled=await settle_closed(active,destination,sequence_start);settle_results.append(settled);baseline=dict(settled["settled_baseline_rad"])
+            return {"sequence_wall_s":time.monotonic()-sequence_start,"phase_times":phase_times,"settle_results":settle_results}
 
         (args.run_dir / "runner_phase.txt").write_text("STATIC_PREFLIGHT\n")
         run_responsive(idle_updates(3.0), "STATIC_PREFLIGHT", minimum_wall_s=3.0, pace_s=0.01)
@@ -792,7 +803,7 @@ def main() -> int:
         capture_start_step = SimulationManager.get_num_physics_steps()
         capture_wall_start = time.monotonic()
         (args.run_dir / "runner_phase.txt").write_text("PHYSICS_CAPTURE\n")
-        report["capture"]["schedule_result"]=run_responsive(drive_scheduled(report["capture"]["records"]),"PHYSICS_CAPTURE",pace_s=0.0)
+        report["capture"]["schedule_result"]=run_responsive(drive_scheduled(report["capture"]["records"],report["pretest"]["closed_settle"]),"PHYSICS_CAPTURE",pace_s=0.0)
         capture_end_step = SimulationManager.get_num_physics_steps()
         run_responsive(idle_updates(2.0), "CAPTURE_STATIC_END", minimum_wall_s=2.0, pace_s=0.01)
         ffmpeg_rc = None
@@ -813,25 +824,34 @@ def main() -> int:
             }
         )
         capture_rows=report["capture"]["records"]
-        capture_checks={"joint_spans_rad":{},"door_body_rotation_span_rad":{},"nonactive_max_drift_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{},"finite":True,"expected_record_count":3*720,"minimum_sequence_wall_s":schedule["three_doors_s"]*0.90}
+        capture_checks={"joint_spans_rad":{},"door_body_rotation_span_rad":{},"closed_target_absolute_error_rad":{},"settled_baseline_rad":{},"inactive_excursion_from_settled_baseline_rad":{},"maximum_velocity_rad_s":{},"settle_wall_s":{},"settle_steps":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{},"finite":True,"record_count_range":[3*(540+SETTLE_CONSECUTIVE_STEPS),3*(540+SETTLE_TIMEOUT_STEPS)],"minimum_sequence_wall_s":schedule["three_doors_min_s"]*0.90}
+        settle_by_joint={row["label"]:row for row in report["capture"]["schedule_result"]["settle_results"]}
         for active in sorted(dof_names):
             subset=[r for r in capture_rows if r["active_joint"]==active]
             capture_checks["joint_spans_rad"][active]=max(r["positions_rad"][active] for r in subset)-min(r["positions_rad"][active] for r in subset)
-            capture_checks["nonactive_max_drift_rad"][active]=max(abs(r["positions_rad"][other]-r["inactive_baseline_rad"][other]) for r in subset for other in dof_names if other!=active)
+            capture_checks["closed_target_absolute_error_rad"][active]=settle_by_joint[active]["closed_target_absolute_error_rad"][active]
+            capture_checks["settled_baseline_rad"][active]=settle_by_joint[active]["settled_baseline_rad"][active]
+            inactive_rows=[r for r in capture_rows if r["metric_scope"]=="inactive_excursion" and r["active_joint"]!=active and active in r["inactive_baseline_rad"]]
+            capture_checks["inactive_excursion_from_settled_baseline_rad"][active]=max(abs(r["positions_rad"][active]-r["inactive_baseline_rad"][active]) for r in inactive_rows)
+            capture_checks["maximum_velocity_rad_s"][active]=max(abs(r["velocities_rad_s"][active]) for r in capture_rows)
+            capture_checks["settle_wall_s"][active]=settle_by_joint[active]["settle_wall_s"]
+            capture_checks["settle_steps"][active]=settle_by_joint[active]["settle_steps"]
             body1=joint_bodies[next(p for p in joint_bodies if Path(p).name==active)]["body1"];body_index=link_indices[Path(body1).name];body_first=subset[0]["rigid_body_link_transforms_xyzw"][body_index]
             capture_checks["door_body_rotation_span_rad"][active]=max(pose_delta(body_first,r["rigid_body_link_transforms_xyzw"][body_index])[1] for r in subset)
             root_first=subset[0]["rigid_body_link_transforms_xyzw"][root_link_index]
             root_deltas=[pose_delta(root_first,r["rigid_body_link_transforms_xyzw"][root_link_index]) for r in subset]
             capture_checks["root_translation_drift_m"][active]=max(x[0] for x in root_deltas);capture_checks["root_orientation_drift_rad"][active]=max(x[1] for x in root_deltas)
+        capture_checks["per_door_metrics"]={active:{"closed_target_rad":closed[active],"settle_completed_measured_position_rad":settle_by_joint[active]["settle_completed_measured_rad"][active],"closed_target_absolute_error_rad":capture_checks["closed_target_absolute_error_rad"][active],"closed_target_absolute_error_pass":capture_checks["closed_target_absolute_error_rad"][active]<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"settled_baseline_rad":capture_checks["settled_baseline_rad"][active],"inactive_excursion_from_settled_baseline_rad":capture_checks["inactive_excursion_from_settled_baseline_rad"][active],"inactive_excursion_pass":capture_checks["inactive_excursion_from_settled_baseline_rad"][active]<=MAX_INACTIVE_EXCURSION_RAD,"maximum_velocity_rad_s":capture_checks["maximum_velocity_rad_s"][active],"settle_wall_s":capture_checks["settle_wall_s"][active],"settle_steps":capture_checks["settle_steps"][active],"settle_pass":settle_by_joint[active]["status"]=="PASS"} for active in sorted(dof_names)}
         capture_checks["clone_xform_authoring_after_start"]=authored_clone_xforms(clone_prims)!=clone_xforms_before
         capture_checks["clone_time_sample_authoring_after_start"]=clone_time_samples(clone_prims)-clone_time_samples_before
         report["capture"]["checks"]=capture_checks
         with (args.run_dir/"physics_records.jsonl").open("w") as stream:
             for row in capture_rows: stream.write(json.dumps(row,separators=(",",":"))+"\n")
-        if len(capture_rows)!=capture_checks["expected_record_count"]: raise RuntimeError(f"capture record count mismatch {capture_checks}")
+        if not capture_checks["record_count_range"][0]<=len(capture_rows)<=capture_checks["record_count_range"][1]: raise RuntimeError(f"capture record count outside adaptive settle range {capture_checks}")
         if min(capture_checks["joint_spans_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"capture active response failed {capture_checks}")
         if min(capture_checks["door_body_rotation_span_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"capture door body response failed {capture_checks}")
-        if max(capture_checks["nonactive_max_drift_rad"].values())>MAX_INACTIVE_DOF_DRIFT_RAD: raise RuntimeError(f"capture inactive drift failed {capture_checks}")
+        if max(capture_checks["closed_target_absolute_error_rad"].values())>MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD: raise RuntimeError(f"capture closed target absolute error failed {capture_checks}")
+        if max(capture_checks["inactive_excursion_from_settled_baseline_rad"].values())>MAX_INACTIVE_EXCURSION_RAD: raise RuntimeError(f"capture inactive excursion failed {capture_checks}")
         if max(capture_checks["root_translation_drift_m"].values())>MAX_ROOT_TRANSLATION_DRIFT_M or max(capture_checks["root_orientation_drift_rad"].values())>MAX_ROOT_ORIENTATION_DRIFT_RAD: raise RuntimeError(f"capture root drift failed {capture_checks}")
         if capture_checks["clone_xform_authoring_after_start"] or capture_checks["clone_time_sample_authoring_after_start"]: raise RuntimeError(f"capture visual authoring invariant failed {capture_checks}")
         if report["capture"]["schedule_result"]["sequence_wall_s"]<capture_checks["minimum_sequence_wall_s"]: raise RuntimeError(f"capture wall schedule too short {report['capture']['schedule_result']}")

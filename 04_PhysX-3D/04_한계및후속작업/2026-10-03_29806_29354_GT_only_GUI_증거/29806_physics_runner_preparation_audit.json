@@ -40,17 +40,20 @@
     "exact_disappearance_step": "UNDETERMINED_NO_POST_INITIALIZE_FRAME_OR_VIDEO",
     "audit_file": "29806_failed_e2e_120142_audit.json"
   },
-  "fixed_schedule_and_thresholds": {
+  "adaptive_schedule_and_thresholds": {
     "simulation_hz": 60,
-    "per_door_seconds": 12,
-    "three_doors_seconds": 36,
-    "expected_video_seconds": 39,
-    "records": 2160,
+    "per_door_seconds_range": [9.5, 14.0],
+    "three_doors_seconds_range": [28.5, 42.0],
+    "expected_video_seconds_range": [31.5, 45.0],
+    "records_range": [1710, 2520],
     "trajectory": "smoothstep",
     "minimum_active_span_rad": 0.5,
-    "maximum_inactive_drift_rad": 0.02,
-    "maximum_root_translation_m": 0.001,
-    "maximum_root_orientation_rad": 0.01,
+    "maximum_closed_target_absolute_error_rad": 0.01,
+    "maximum_inactive_excursion_from_settled_baseline_rad": 0.002,
+    "maximum_root_translation_m": 0.0001,
+    "maximum_root_orientation_rad": 0.002,
+    "settle_consecutive_steps": 30,
+    "settle_timeout_steps": 300,
     "minimum_wall_duration_fraction": 0.9
   },
   "prepared_checks": {
@@ -66,7 +69,7 @@
     "clone_xform_timesample_gate": "PRESENT",
     "per_door_numeric_and_pixel_validator": "PRESENT",
     "submission_mp4_and_gif_pipeline": "PRESENT"
-    ,"logic_unit_test": "PASS schedule_s=39.0 physics_records=2160 corrected_drift_metric=true visual_validator_mock=true"
+    ,"logic_unit_test": "PASS wall_range_s=31.5..45.0 records=1710..2520 absolute_error_fail=true inactive_mask=true excursion_pass_fail=true visual_validator_mock=true"
   },
   "actual_execution": {
     "physics": "NOT_RUN",
@@ -75,20 +78,20 @@
   },
   "files": {
     "gui_29806_end_to_end_physics_video.py": {
-      "bytes": 65934,
-      "sha256": "0b1f31dbb74c424e03b7580f7fc7a06363629c82df3cf561a88a5f09c08aba18"
+      "bytes": 71256,
+      "sha256": "8e9cd8fca333b6ce7c97a30dcfbe0d2f4914d8514a6666f77b7a943f493b37b2"
     },
     "validate_29806_gpu0_gui_video.py": {
-      "bytes": 12036,
-      "sha256": "3be5b0b88d12a8c0fa54f39d1a8cf407b7134d3d9efaafb60339f68b6805f3cf"
+      "bytes": 12271,
+      "sha256": "df6e8409ee20660f7f1a0e5cdc10037af31bafcb57e8cef2cbe668d8dd966413"
     },
     "run_gui_29806_gpu0_end_to_end_physics_video.sh": {
       "bytes": 4965,
       "sha256": "e9d8e3ba93b92635ae6bbf876bbb6de2af01613910e560a7a4a5bc8a1f475d24"
     },
     "test_29806_runner_logic.py": {
-      "bytes": 1858,
-      "sha256": "d79fb7f1ea9a50fcd146fc1a8c64f90605eb86599da37eeb5f89d30264a02424"
+      "bytes": 3391,
+      "sha256": "8f61ea33078c35c4184f6cd7c724e76472b9e0323b70a966903d78282ccfbdf1"
     },
     "29806_static_mapping_human_pass.json": {
       "bytes": 745,

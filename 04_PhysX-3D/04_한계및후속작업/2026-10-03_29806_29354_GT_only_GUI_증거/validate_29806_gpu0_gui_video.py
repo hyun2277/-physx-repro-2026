@@ -134,7 +134,9 @@ def main() -> int:
         report["status"] == "AUTOMATED_PRETEST_AND_CAPTURE_COMPLETE_HUMAN_VIEWPORT_REVIEW_REQUIRED"
         and stream.get("codec_name") == "h264"
         and stream.get("pix_fmt") == "yuv420p"
-        and len(records) == 3 * 720
+        and 3 * (540 + 30) <= len(records) <= 3 * (540 + 300)
+        and max(report["capture"]["checks"]["closed_target_absolute_error_rad"].values()) <= 0.01
+        and max(report["capture"]["checks"]["inactive_excursion_from_settled_baseline_rad"].values()) <= 0.002
         and all(all(math.isfinite(value) for value in values) for values in positions.values())
         and all(max(values) - min(values) >= 0.5 for values in positions.values())
         and all(not row["completely_black"] for row in frame_rows)
