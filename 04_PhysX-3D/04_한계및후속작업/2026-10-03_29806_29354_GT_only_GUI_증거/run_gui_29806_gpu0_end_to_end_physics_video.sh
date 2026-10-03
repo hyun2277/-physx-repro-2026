@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo 'BLOCKED: 29806 static colored mapping gate requires human PASS before physics/capture.' >&2
-exit 13
-
 ROOT=/home/minsujo/Desktop/SH/PHYSx
 REPO="$ROOT/repro-records"
 DIR="$REPO/04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거"
@@ -12,9 +9,17 @@ URDF="$ROOT/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806
 USD="$ROOT/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/gt_29806.usda"
 UUID=GPU-ff124b39-8b48-7d2a-bf74-bf6a5c8f1716
 BUS=00000000:01:00.0
+HUMAN_GATE="$DIR/29806_static_mapping_human_pass.json"
 
 fail(){ printf 'FAILED stage=%s LOG_DIR=%s STAGING_DIR=%s\n' "$1" "${LOG_DIR:-not-created}" "${STAGING_DIR:-not-created}" >&2; exit "${2:-1}"; }
 [[ -n "${DISPLAY:-}" ]] || fail display_preflight 3
+python3 - "$HUMAN_GATE" <<'PY_GATE' || fail static_human_gate 13
+import json,sys
+r=json.load(open(sys.argv[1]))
+assert r["status"]=="STATIC_MAPPING_AUTOMATION_AND_HUMAN_PASS"
+assert r["capture_sha256"]=="867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd"
+assert r["physics_steps"]==0
+PY_GATE
 command -v ffmpeg >/dev/null && command -v ffprobe >/dev/null && command -v xrandr >/dev/null || fail capture_tools 4
 [[ "$(sha256sum "$USD"|awk '{print $1}')" == 5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a ]] || fail usd_hash 5
 [[ "$(sha256sum "$URDF"|awk '{print $1}')" == 99ee19188ec969488e63ae2504f3ecf04f7de73071e523ec9e4f231fb68855c6 ]] || fail urdf_hash 6
@@ -74,5 +79,5 @@ printf '%s\n' "$rc" >"$LOG_DIR/exit_code.txt"
 ((rc==0)) || fail isaac_child "$rc"
 rg -qx 'GT_GUI_TENSOR_PHYSICS_CAPTURE=AUTOMATED_PASS_HUMAN_REVIEW_REQUIRED' "$LOG_DIR/stdout.log" || fail success_marker 11
 python3 "$DIR/validate_29806_gpu0_gui_video.py" --run-dir "$STAGING_DIR" >"$LOG_DIR/validation.stdout" 2>"$LOG_DIR/validation.stderr" || fail video_validation 12
-sha256sum "$STAGING_DIR"/*.mp4 "$STAGING_DIR"/validation_frames/*.png >"$STAGING_DIR/SHA256SUMS.txt"
-printf 'AUTOMATION_PASS_HUMAN_CHECK_REQUIRED LOG_DIR=%s STAGING_DIR=%s\n' "$LOG_DIR" "$STAGING_DIR"
+sha256sum "$STAGING_DIR"/*.mp4 "$STAGING_DIR"/*.gif "$STAGING_DIR"/validation_frames/*.png >"$STAGING_DIR/SHA256SUMS.txt"
+printf 'AUTOMATION_PASS_HUMAN_VIDEO_REVIEW_REQUIRED LOG_DIR=%s STAGING_DIR=%s\n' "$LOG_DIR" "$STAGING_DIR"

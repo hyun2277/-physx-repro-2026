@@ -63,3 +63,9 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 실행 `20261003T113111Z-...`은 1280×720 PNG(70,419 bytes, SHA256 `867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd`)를 만들었다. 최대 4-connected component 기준 pixel 수는 base 4,587, C1 red 48,975, C2 green 60,248, C3 blue 60,272, reference orange 1,695, control magenta 855, control cyan 236이다. 문 중심 최소 거리는 223.057 px이며 모두 별도 bbox이다. non-black 비율은 0.193507이다. source↔실제 author clone 최대 vertex 오차는 `4.928568641186635e-11 m`이다.
 
 자동 상태는 `AUTOMATION_RENDER_PIXEL_GATE_PASS_HUMAN_CHECK_REQUIRED`이다. PhysicsScene, tensor, timeline을 시작하지 않았고 physics step은 0이다. 이 실행의 저장 PNG에서는 회색 수납장 frame, 서로 다른 빨강·초록·파랑 문, 주황 reference cube, 두 control이 확인되지만, 실제 GUI 사람 확인은 아직 별도 `PENDING`이다. 이전 검은 화면의 단일 확정 원인은 분리하지 못했다. 새 경로는 world-space clone, 명시적 렌더 속성, emissive direct material, render warmup/internal capture를 함께 바꿨기 때문이다.
+
+## 정적 gate 사람 확인 완료와 물리 runner 준비
+
+사용자는 `20261003T113111Z-...` GPU 0 GUI에서 회색 수납장 base, 서로 다른 위치의 넓은 빨강·초록·파랑 문, 별도 위치의 reference/control geometry를 직접 확인했다. 거대한 흰 면, 선만 보이는 자산, 본체 아래의 노트북형 판은 없었다. 따라서 정적 범위의 판정은 `STATIC_MAPPING_AUTOMATION_AND_HUMAN_PASS`이다. 이 확인은 physics step 0인 body↔door **정적 시각 매핑**에만 적용하며 물리 구동 또는 영상 성공을 뜻하지 않는다.
+
+물리 runner는 같은 GT USD와 relationship-derived mapping으로 body-local linked clone을 만들고, physics 초기화 전에 3/4 camera의 내부 viewport PNG에서 base와 세 문을 다시 검출한다. 실제 GT limits의 8%를 닫힘, 25%를 중간, 42%를 보수적 열린 목표로 사용한다. 사전 고정 임계값은 active span ≥0.50 rad, 비구동 DOF drift ≤0.02 rad, root translation ≤0.001 m, root orientation ≤0.01 rad이다. `update_fabric=True`와 Warp tensor target만 사용하며 실행 시작 뒤 clone xform/timeSample을 author하지 않는다. 실제 호스트 실행 전 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다.

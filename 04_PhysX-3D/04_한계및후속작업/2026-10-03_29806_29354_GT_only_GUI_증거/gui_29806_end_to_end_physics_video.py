@@ -26,9 +26,13 @@ from isaacsim import SimulationApp
 INPUT_SHA256 = "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
 URDF_SHA256 = "99ee19188ec969488e63ae2504f3ecf04f7de73071e523ec9e4f231fb68855c6"
 # Fractions of each runtime-reported GT range: closed, middle, open, middle, closed.
-TARGET_FRACTIONS = (0.10, 0.50, 0.90, 0.50, 0.10)
+TARGET_FRACTIONS = (0.08, 0.25, 0.42, 0.25, 0.08)
 STEPS_PER_PRETEST_TARGET = 60
 STEPS_PER_CAPTURE_TARGET = 90
+MAX_INACTIVE_DOF_DRIFT_RAD = 0.02
+MAX_ROOT_TRANSLATION_DRIFT_M = 0.001
+MAX_ROOT_ORIENTATION_DRIFT_RAD = 0.01
+MIN_ACTIVE_RESPONSE_SPAN_RAD = 0.50
 
 
 def digest(path: Path) -> str:
@@ -163,6 +167,7 @@ def main() -> int:
         from isaacsim.core.simulation_manager import PhysxScene, SimulationManager
         from omni.kit.viewport.utility import frame_viewport_prims, get_active_viewport
         from pxr import Gf, Sdf, Usd, UsdGeom, UsdLux, UsdPhysics, UsdShade
+        settings=carb.settings.get_settings()
 
         marker_path=args.run_dir/"static_gate_markers.jsonl"
         def marker(name, **values):
@@ -170,10 +175,11 @@ def main() -> int:
             with marker_path.open("a") as stream: stream.write(json.dumps(record,sort_keys=True)+"\n")
             print(f"STATIC_GATE_MARKER_{name}="+json.dumps(record,sort_keys=True),flush=True)
         if args.static_mapping_gate:
-            settings=carb.settings.get_settings()
             settings.set("/app/window/title", "GT-only static mapping gate — physics not started | 29806")
             settings.set("/persistent/app/usd/muteUsdDiagnostics", False)
             marker("APP_READY",headless=False,usd_diagnostics_muted=False)
+        else:
+            settings.set("/app/window/title", "GT-only physics control — not AI prediction | 29806")
         actual_hash = digest(args.input_usd)
         if actual_hash != INPUT_SHA256:
             raise RuntimeError(f"input USD hash mismatch: {actual_hash}")
@@ -332,6 +338,7 @@ def main() -> int:
                     "presentation_mode": "relationship_derived_body_local_clone",
                     "clone_mesh": str(clone_path),
                     "rigid_body_parent": str(body.GetPath()),
+                    "target_rigid_body": str(body.GetPath()),
                     "component_label": door_joint or "BASE",
                     "display_color_rgb": list(colors[door_joint]),
                     "points": len(body_local_points),
@@ -412,11 +419,11 @@ def main() -> int:
         clone_paths = [str(prim.GetPath()) for prim in clone_prims]
         if viewport is None or not frame_viewport_prims(viewport, prims=clone_paths):
             raise RuntimeError("failed to frame GUI diagnostic cabinet meshes")
+        mins=[min(spec["source_world_bounds"]["min"][i] for spec in clone_specs) for i in range(3)]
+        maxs=[max(spec["source_world_bounds"]["max"][i] for spec in clone_specs) for i in range(3)]
+        center=[(a+b)*0.5 for a,b in zip(mins,maxs)]; sizes=[b-a for a,b in zip(mins,maxs)]
+        asset_scale=max(sizes); distance=asset_scale*3.2
         if args.static_mapping_gate:
-            mins=[min(spec["source_world_bounds"]["min"][i] for spec in clone_specs) for i in range(3)]
-            maxs=[max(spec["source_world_bounds"]["max"][i] for spec in clone_specs) for i in range(3)]
-            center=[(a+b)*0.5 for a,b in zip(mins,maxs)]; sizes=[b-a for a,b in zip(mins,maxs)]
-            asset_scale=max(sizes); distance=asset_scale*3.2
             cube_size=asset_scale*0.055
             def diagnostic_material(name,color):
                 material=UsdShade.Material.Define(stage,f"/__PhysXGuiStatic/Material_{name}")
@@ -569,6 +576,53 @@ def main() -> int:
             print("STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED",flush=True)
             return 0
 
+        # The physics camera is a slight 3/4 view derived from the verified
+        # minus-Z mapping view.  It preserves all three door panels while
+        # exposing depth change around their Y axes.
+        stage.SetEditTarget(Usd.EditTarget(session))
+        camera=UsdGeom.Camera.Define(stage,"/__PhysXGuiDiagnostic/Camera_physics")
+        eye=[center[0]+asset_scale*0.42,center[1]+asset_scale*0.10,center[2]-distance]
+        view_matrix=Gf.Matrix4d(1.0);view_matrix.SetLookAt(Gf.Vec3d(*eye),Gf.Vec3d(*center),Gf.Vec3d(0.0,1.0,0.0))
+        UsdGeom.Xformable(camera).AddTransformOp().Set(view_matrix.GetInverse())
+        camera.CreateFocalLengthAttr(35.0);camera.CreateClippingRangeAttr(Gf.Vec2f(max(0.01,distance-asset_scale*2),distance+asset_scale*2))
+        viewport.set_active_camera(str(camera.GetPath()))
+        context.get_selection().set_selected_prim_paths([],True)
+        for _ in range(30): app.update()
+
+        # Pre-physics rendered-pixel gate: this validates the body-local linked
+        # clones, not the world-space clones used by the approved static gate.
+        from omni.kit.viewport.utility import capture_viewport_to_file, next_viewport_frame_async
+        from PIL import Image
+        import numpy as np
+        from scipy import ndimage
+        prephysics_png=args.run_dir/"prephysics_linked_clone_pixel_gate.png"
+        async def capture_prephysics():
+            for _ in range(30): await next_viewport_frame_async(viewport)
+            handle=capture_viewport_to_file(viewport,file_path=str(prephysics_png),is_hdr=False)
+            return await asyncio.wait_for(handle.wait_for_result(completion_frames=30),timeout=15.0)
+        capture_task=asyncio.ensure_future(capture_prephysics());capture_started=time.monotonic()
+        while not capture_task.done():
+            before=time.monotonic();app.update();after=time.monotonic()
+            if after-before>5.0 or after-capture_started>15.0:
+                capture_task.cancel();raise RuntimeError("prephysics internal viewport capture watchdog failed")
+            time.sleep(0.01)
+        if not capture_task.result() or not prephysics_png.is_file() or prephysics_png.stat().st_size==0:
+            raise RuntimeError("prephysics internal viewport capture missing")
+        image=Image.open(prephysics_png).convert("RGB");rgb=np.asarray(image);hsv=np.asarray(image.convert("HSV"));h,sat,val=hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]
+        masks={"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
+        components={}
+        for name,raw in masks.items():
+            labels,n=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
+            ys,xs=np.where(chosen);count=int(chosen.sum());components[name]={"pixel_count":count,"bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if count else None,"center_xy":[float(xs.mean()),float(ys.mean())] if count else None}
+        required=list(masks);missing=[name for name in required if components[name]["pixel_count"]<30]
+        door_centers=[components[name]["center_xy"] for name in ("gt_C_1_RED","gt_C_2_GREEN","gt_C_3_BLUE") if components[name]["center_xy"]]
+        min_center=min((math.dist(a,b) for i,a in enumerate(door_centers) for b in door_centers[i+1:]),default=0.0)
+        prephysics_gate={"status":"PASS" if not missing and min_center>=10 else "FAIL","physics_steps":0,"capture_path":str(prephysics_png),"capture_sha256":digest(prephysics_png),"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"components":components,"missing":missing,"door_center_min_distance_pixels":min_center,"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)}
+        (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
+        if prephysics_gate["status"]!="PASS":raise RuntimeError(f"prephysics linked-clone pixel gate failed {prephysics_gate}")
+        report["prephysics_pixel_gate"]=prephysics_gate
+        stage.SetEditTarget(original_target)
+
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
         SimulationManager.initialize_physics()
         first_step = SimulationManager.get_num_physics_steps()
@@ -587,6 +641,11 @@ def main() -> int:
         dof_indices = {name: int(meta.dof_indices[name]) for name in dof_names}
         link_names = list(meta.link_names)
         link_indices = {name: int(meta.link_indices[name]) for name in link_names}
+        common_body0={value["body0"] for value in joint_bodies.values()}
+        if len(common_body0)!=1: raise RuntimeError(f"joints do not share one fixed body0: {common_body0}")
+        root_link_name=Path(next(iter(common_body0))).name
+        if root_link_name not in link_indices: raise RuntimeError(f"root link {root_link_name} absent from {link_names}")
+        root_link_index=link_indices[root_link_name]
         raw_limits = nested_values(articulation.get_dof_limits())[0]
         limits = {name: [float(raw_limits[index][0]), float(raw_limits[index][1])] for name,index in dof_indices.items()}
         for name, (lower, upper) in limits.items():
@@ -609,7 +668,9 @@ def main() -> int:
             "articulation_root": str(articulations[0].GetPath()),
             "rigid_body_count": len(rigid), "collider_count": len(colliders),
             "dof_names": dof_names, "dof_indices": dof_indices,
+            "link_names":link_names,"root_link_name":root_link_name,"root_link_index":root_link_index,
             "joint_limits_rad": limits, "target_sequences_rad": sequences,
+            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_inactive_dof_drift_rad":MAX_INACTIVE_DOF_DRIFT_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD},
             "runtime_physics_scene": scene.path, "clone_meshes": clone_specs,
             "source_instance_proxies_modified": False,
             "clone_xforms_before_simulation": clone_xforms_before,
@@ -662,7 +723,7 @@ def main() -> int:
         (args.run_dir / "runner_phase.txt").write_text("PHYSICS_PRETEST\n")
         run_responsive(drive_all("pretest_each_door", 30, report["pretest"]["records"]), "PHYSICS_PRETEST", pace_s=0.01)
         rows=report["pretest"]["records"]
-        checks={"record_count":len(rows),"joint_spans_rad":{},"nonactive_max_drift_rad":{},"door_body_rotation_span_rad":{}}
+        checks={"record_count":len(rows),"joint_spans_rad":{},"nonactive_max_drift_rad":{},"door_body_rotation_span_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{}}
         for active in sorted(dof_names):
             subset=[r for r in rows if r["active_joint"]==active]
             checks["joint_spans_rad"][active]=max(r["positions_rad"][active] for r in subset)-min(r["positions_rad"][active] for r in subset)
@@ -670,10 +731,16 @@ def main() -> int:
             body1=joint_bodies[next(p for p in joint_bodies if Path(p).name==active)]["body1"]
             link=Path(body1).name; idx=link_indices[link]; first=subset[0]["rigid_body_link_transforms_xyzw"][idx]
             checks["door_body_rotation_span_rad"][active]=max(pose_delta(first,r["rigid_body_link_transforms_xyzw"][idx])[1] for r in subset)
+            root_first=subset[0]["rigid_body_link_transforms_xyzw"][root_link_index]
+            root_deltas=[pose_delta(root_first,r["rigid_body_link_transforms_xyzw"][root_link_index]) for r in subset]
+            checks["root_translation_drift_m"][active]=max(x[0] for x in root_deltas)
+            checks["root_orientation_drift_rad"][active]=max(x[1] for x in root_deltas)
         clone_after=authored_clone_xforms(clone_prims); samples_after=clone_time_samples(clone_prims)
         checks["clone_xform_authoring_after_start"]=clone_after!=clone_xforms_before
         checks["clone_time_sample_authoring_after_start"]=samples_after-clone_time_samples_before
-        if min(checks["joint_spans_rad"].values())<0.5 or min(checks["door_body_rotation_span_rad"].values())<0.5: raise RuntimeError(f"door response invariant failed {checks}")
+        if min(checks["joint_spans_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD or min(checks["door_body_rotation_span_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"door response invariant failed {checks}")
+        if max(checks["nonactive_max_drift_rad"].values())>MAX_INACTIVE_DOF_DRIFT_RAD: raise RuntimeError(f"inactive DOF drift failed {checks}")
+        if max(checks["root_translation_drift_m"].values())>MAX_ROOT_TRANSLATION_DRIFT_M or max(checks["root_orientation_drift_rad"].values())>MAX_ROOT_ORIENTATION_DRIFT_RAD: raise RuntimeError(f"root drift failed {checks}")
         if checks["clone_xform_authoring_after_start"] or checks["clone_time_sample_authoring_after_start"]: raise RuntimeError("visual transform/keyframe authored after start")
         report["pretest"]["checks"]=checks
         (args.run_dir / "marker_pretest_pass.json").write_text(json.dumps(checks,indent=2)+"\n")
@@ -724,6 +791,25 @@ def main() -> int:
                 "capture_process_error": capture_process_error,
             }
         )
+        capture_rows=report["capture"]["records"]
+        capture_checks={"joint_spans_rad":{},"nonactive_max_drift_rad":{},"root_translation_drift_m":{},"root_orientation_drift_rad":{},"finite":True,"expected_record_count":3*len(TARGET_FRACTIONS)*STEPS_PER_CAPTURE_TARGET}
+        for active in sorted(dof_names):
+            subset=[r for r in capture_rows if r["active_joint"]==active]
+            capture_checks["joint_spans_rad"][active]=max(r["positions_rad"][active] for r in subset)-min(r["positions_rad"][active] for r in subset)
+            capture_checks["nonactive_max_drift_rad"][active]=max(abs(r["positions_rad"][other]-neutral[other]) for r in subset for other in dof_names if other!=active)
+            root_first=subset[0]["rigid_body_link_transforms_xyzw"][root_link_index]
+            root_deltas=[pose_delta(root_first,r["rigid_body_link_transforms_xyzw"][root_link_index]) for r in subset]
+            capture_checks["root_translation_drift_m"][active]=max(x[0] for x in root_deltas);capture_checks["root_orientation_drift_rad"][active]=max(x[1] for x in root_deltas)
+        capture_checks["clone_xform_authoring_after_start"]=authored_clone_xforms(clone_prims)!=clone_xforms_before
+        capture_checks["clone_time_sample_authoring_after_start"]=clone_time_samples(clone_prims)-clone_time_samples_before
+        report["capture"]["checks"]=capture_checks
+        with (args.run_dir/"physics_records.jsonl").open("w") as stream:
+            for row in capture_rows: stream.write(json.dumps(row,separators=(",",":"))+"\n")
+        if len(capture_rows)!=capture_checks["expected_record_count"]: raise RuntimeError(f"capture record count mismatch {capture_checks}")
+        if min(capture_checks["joint_spans_rad"].values())<MIN_ACTIVE_RESPONSE_SPAN_RAD: raise RuntimeError(f"capture active response failed {capture_checks}")
+        if max(capture_checks["nonactive_max_drift_rad"].values())>MAX_INACTIVE_DOF_DRIFT_RAD: raise RuntimeError(f"capture inactive drift failed {capture_checks}")
+        if max(capture_checks["root_translation_drift_m"].values())>MAX_ROOT_TRANSLATION_DRIFT_M or max(capture_checks["root_orientation_drift_rad"].values())>MAX_ROOT_ORIENTATION_DRIFT_RAD: raise RuntimeError(f"capture root drift failed {capture_checks}")
+        if capture_checks["clone_xform_authoring_after_start"] or capture_checks["clone_time_sample_authoring_after_start"]: raise RuntimeError(f"capture visual authoring invariant failed {capture_checks}")
         if capture_process_error:
             raise RuntimeError(capture_process_error + "; physics sequence completed and was preserved")
         report["status"] = "AUTOMATED_PRETEST_AND_CAPTURE_COMPLETE_HUMAN_VIEWPORT_REVIEW_REQUIRED"

@@ -1,0 +1,15 @@
+{
+  "status": "STATIC_MAPPING_AUTOMATION_AND_HUMAN_PASS",
+  "recorded_date": "2026-10-03",
+  "basis": "User directly observed the GPU 0 Isaac GUI static mapping gate after the automated render-pixel gate passed.",
+  "capture_sha256": "867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd",
+  "capture_resolution": [1280, 720],
+  "physics_steps": 0,
+  "observed": [
+    "gray base visible as a cabinet",
+    "red gt_C_1, green gt_C_2, and blue gt_C_3 doors visible as separate broad panels",
+    "reference and control geometry visible at separate locations",
+    "no giant white plane, line-only asset, or laptop-like detached plate"
+  ],
+  "scope_limit": "Static GT-only visual mapping only; no physics or video success implied."
+}
