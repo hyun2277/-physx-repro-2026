@@ -35,8 +35,14 @@ VELOCITY_SETTLE_RAD_S = 0.05
 SETTLE_CONSECUTIVE_STEPS = 30
 SETTLE_TIMEOUT_STEPS = 300
 RECOVERY_TIMEOUT_STEPS = 300
-RECOVERY_PIXEL_RATIO = 0.20
-RECOVERY_CENTER_SHIFT_PX = 40.0
+TRANSIENT_PIXEL_RATIO = 0.20
+TRANSIENT_CENTER_SHIFT_PX = 40.0
+FINAL_DOOR_PIXEL_RATIO = 0.70
+FINAL_BASE_PIXEL_RATIO = 0.80
+FINAL_DOOR_BBOX_IOU = 0.65
+FINAL_JOINT_VELOCITY_RAD_S = 0.01
+FINAL_MAX_PAIRWISE_DOOR_BBOX_IOU = 0.10
+FINAL_MIN_DOOR_CENTER_SEPARATION_PX = 10.0
 
 
 def digest(path: Path) -> str:
@@ -68,6 +74,20 @@ def pose_delta(a, b):
     dot = abs(sum(float(a[3 + i]) * float(b[3 + i]) for i in range(4)))
     angle = 2.0 * math.acos(max(-1.0, min(1.0, dot)))
     return translation, angle
+
+
+def bbox_iou(a, b):
+    if not a or not b:
+        return 0.0
+    left=max(a[0],b[0]);top=max(a[1],b[1]);right=min(a[2],b[2]);bottom=min(a[3],b[3])
+    intersection=max(0,right-left+1)*max(0,bottom-top+1)
+    area_a=max(0,a[2]-a[0]+1)*max(0,a[3]-a[1]+1)
+    area_b=max(0,b[2]-b[0]+1)*max(0,b[3]-b[1]+1)
+    return intersection/max(1,area_a+area_b-intersection)
+
+
+def bbox_diagonal(bbox):
+    return math.hypot(bbox[2]-bbox[0]+1,bbox[3]-bbox[1]+1) if bbox else 0.0
 
 
 def matrix_values(value):
@@ -601,13 +621,13 @@ def main() -> int:
         from PIL import Image
         import numpy as np
         from scipy import ndimage
-        async def capture_viewport_png(path):
-            for _ in range(30): await next_viewport_frame_async(viewport)
+        async def capture_viewport_png(path, fast=False):
+            for _ in range(1 if fast else 30): await next_viewport_frame_async(viewport)
             handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
-            return await asyncio.wait_for(handle.wait_for_result(completion_frames=30),timeout=15.0)
+            return await asyncio.wait_for(handle.wait_for_result(completion_frames=1 if fast else 30),timeout=15.0)
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
-        def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True):
-            path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path));started=time.monotonic()
+        def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False):
+            path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path,fast=fast));started=time.monotonic()
             last_capture_heartbeat=0.0
             while not task.done():
                 before=time.monotonic();app.update();after=time.monotonic()
@@ -621,13 +641,27 @@ def main() -> int:
             for name,raw in masks.items():
                 labels,_=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
                 ys,xs=np.where(chosen);count=int(chosen.sum());components[name]={"pixel_count":count,"bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if count else None,"center_xy":[float(xs.mean()),float(ys.mean())] if count else None}
-            missing=[name for name,row in components.items() if row["pixel_count"]<30];continuity={}
+            missing=[name for name,row in components.items() if row["pixel_count"]<30];continuity={};final_recovery=None
             if baseline:
                 for name,row in components.items():
                     prior=baseline[name];ratio=row["pixel_count"]/max(1,prior["pixel_count"]);shift=math.dist(row["center_xy"],prior["center_xy"]) if row["center_xy"] and prior["center_xy"] else float("inf")
-                    continuity[name]={"pixel_ratio_to_prephysics":ratio,"center_shift_px":shift,"pass":ratio>=0.20 and shift<=40.0}
-            status="PASS" if not missing and all(x["pass"] for x in continuity.values()) else "FAIL"
-            result={"label":label,"status":status,"relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"components":components,"missing":missing,"continuity":continuity}
+                    continuity[name]={"pixel_ratio_to_prephysics":ratio,"center_shift_px":shift,"bbox_iou_to_prephysics":bbox_iou(row["bbox_xyxy"],prior["bbox_xyxy"]),"transient_monitor_pass":ratio>=TRANSIENT_PIXEL_RATIO and shift<=TRANSIENT_CENTER_SHIFT_PX}
+                doors=("gt_C_1_RED","gt_C_2_GREEN","gt_C_3_BLUE")
+                door_checks={}
+                for name in doors:
+                    prior=baseline[name];metric=continuity[name];center_limit=max(10.0,0.05*bbox_diagonal(prior["bbox_xyxy"]))
+                    door_checks[name]={"pixel_ratio":metric["pixel_ratio_to_prephysics"],"bbox_iou":metric["bbox_iou_to_prephysics"],"center_shift_px":metric["center_shift_px"],"center_shift_limit_px":center_limit,"pass":components[name]["pixel_count"]>=30 and metric["pixel_ratio_to_prephysics"]>=FINAL_DOOR_PIXEL_RATIO and metric["bbox_iou_to_prephysics"]>=FINAL_DOOR_BBOX_IOU and metric["center_shift_px"]<=center_limit}
+                pairwise=[]
+                for index,left in enumerate(doors):
+                    for right in doors[index+1:]:
+                        distance=math.dist(components[left]["center_xy"],components[right]["center_xy"]) if components[left]["center_xy"] and components[right]["center_xy"] else 0.0
+                        overlap=bbox_iou(components[left]["bbox_xyxy"],components[right]["bbox_xyxy"])
+                        pairwise.append({"left":left,"right":right,"center_distance_px":distance,"bbox_iou":overlap,"separated":distance>=FINAL_MIN_DOOR_CENTER_SEPARATION_PX,"not_merged":overlap<=FINAL_MAX_PAIRWISE_DOOR_BBOX_IOU})
+                base_ratio=continuity["BASE_GRAY"]["pixel_ratio_to_prephysics"]
+                final_recovery={"door_checks":door_checks,"base_pixel_ratio":base_ratio,"base_pass":components["BASE_GRAY"]["pixel_count"]>=30 and base_ratio>=FINAL_BASE_PIXEL_RATIO,"pairwise_doors":pairwise}
+                final_recovery["pass"]=all(row["pass"] for row in door_checks.values()) and final_recovery["base_pass"] and all(row["separated"] and row["not_merged"] for row in pairwise)
+            status="PASS" if not missing and all(x["transient_monitor_pass"] for x in continuity.values()) else "FAIL"
+            result={"label":label,"status":status,"status_scope":"TRANSIENT_MONITOR_ONLY" if baseline else "STATIC_BASELINE","relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"components":components,"missing":missing,"continuity":continuity,"final_recovery_visual_gate":final_recovery}
             if status!="PASS" and raise_on_fail:raise RuntimeError(f"VISUAL_CONTINUITY_GATE_FAIL {result}")
             return result
         prephysics_gate=capture_pixel_gate("prephysics",None)
@@ -732,7 +766,7 @@ def main() -> int:
             "dof_names": dof_names, "dof_indices": dof_indices,
             "link_names":link_names,"root_link_name":root_link_name,"root_link_index":root_link_index,
             "joint_limits_rad": limits, "closed_targets_rad":closed,"open_targets_rad":opened,"target_derivation":{"closed":"0 rad: URDF origin + identity USD local rotations + authored body/localPos0 equality + upper limit 0 + tensor radians","open":"upper - 0.42*(upper-lower)"},"authored_drive_and_limit_properties":joint_authored_properties,
-            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"maximum_inactive_excursion_from_settled_baseline_rad":MAX_INACTIVE_EXCURSION_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"root_threshold_scope":"conservative GUI smoke operating criteria; not an equivalence claim to previous headless values","previous_failed_run_root_observations":{"translation_max_m":3.9745080992257815e-05,"orientation_max_rad":0.0009765642395587193},"settle_position_error_rad":POSITION_SETTLE_RAD,"settle_velocity_rad_s":VELOCITY_SETTLE_RAD_S,"settle_consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"settle_timeout_steps":SETTLE_TIMEOUT_STEPS,"recovery_timeout_steps":RECOVERY_TIMEOUT_STEPS,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":RECOVERY_PIXEL_RATIO,"visual_continuity_max_center_shift_px":RECOVERY_CENTER_SHIFT_PX,"minimum_wall_duration_fraction":0.90},
+            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"maximum_inactive_excursion_from_settled_baseline_rad":MAX_INACTIVE_EXCURSION_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"root_threshold_scope":"conservative GUI smoke operating criteria; not an equivalence claim to previous headless values","previous_failed_run_root_observations":{"translation_max_m":3.9745080992257815e-05,"orientation_max_rad":0.0009765642395587193},"settle_position_error_rad":POSITION_SETTLE_RAD,"settle_velocity_rad_s":VELOCITY_SETTLE_RAD_S,"settle_consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"settle_timeout_steps":SETTLE_TIMEOUT_STEPS,"recovery_timeout_steps":RECOVERY_TIMEOUT_STEPS,"visual_component_min_pixels":30,"transient_monitor":{"pixel_ratio":TRANSIENT_PIXEL_RATIO,"center_shift_px":TRANSIENT_CENTER_SHIFT_PX,"allows_recorder_start":False},"final_recovery":{"door_pixel_ratio":FINAL_DOOR_PIXEL_RATIO,"base_pixel_ratio":FINAL_BASE_PIXEL_RATIO,"door_bbox_iou":FINAL_DOOR_BBOX_IOU,"door_center_shift":"max(10 px, 5% static bbox diagonal)","minimum_door_center_separation_px":FINAL_MIN_DOOR_CENTER_SEPARATION_PX,"maximum_pairwise_door_bbox_iou":FINAL_MAX_PAIRWISE_DOOR_BBOX_IOU,"joint_velocity_rad_s":FINAL_JOINT_VELOCITY_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS},"minimum_wall_duration_fraction":0.90},
             "runtime_physics_scene": scene.path, "clone_meshes": clone_specs,
             "source_instance_proxies_modified": False,
             "clone_xforms_before_simulation": clone_xforms_before,
@@ -760,7 +794,7 @@ def main() -> int:
                 await omni.kit.app.get_app().next_update_async()
 
         SIM_HZ=60.0
-        schedule={"simulation_hz":SIM_HZ,"initialization_recovery":{"minimum_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"maximum_s":RECOVERY_TIMEOUT_STEPS/SIM_HZ,"post_recovery_closed_hold_s":1.5,"recorder_starts_after_recovery":True},"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_min_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"closed_settle_timeout_s":SETTLE_TIMEOUT_STEPS/SIM_HZ},"per_door_min_s":9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"per_door_max_s":9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ,"three_doors_min_s":3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),"three_doors_max_s":3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ),"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_range_s":[3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"expected_after_initialize_to_video_complete_s":[SETTLE_CONSECUTIVE_STEPS/SIM_HZ+1.5+3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),RECOVERY_TIMEOUT_STEPS/SIM_HZ+1.5+3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
+        schedule={"simulation_hz":SIM_HZ,"initialization_recovery":{"physics_step_range_s":[SETTLE_CONSECUTIVE_STEPS/SIM_HZ,RECOVERY_TIMEOUT_STEPS/SIM_HZ],"render_sample_each_step":True,"estimated_wall_s_at_30_render_samples_per_s":[SETTLE_CONSECUTIVE_STEPS/30.0,RECOVERY_TIMEOUT_STEPS/30.0],"actual_wall_time_is_host_renderer_dependent":True,"post_recovery_closed_hold_s":1.5,"post_hold_internal_pixel_gate":True,"recorder_starts_after_recovery":True},"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_min_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"closed_settle_timeout_s":SETTLE_TIMEOUT_STEPS/SIM_HZ},"per_door_min_s":9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"per_door_max_s":9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ,"three_doors_min_s":3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),"three_doors_max_s":3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ),"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_range_s":[3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"estimated_after_initialize_to_video_complete_s_at_30_render_samples_per_s":[SETTLE_CONSECUTIVE_STEPS/30.0+1.5+3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),RECOVERY_TIMEOUT_STEPS/30.0+1.5+3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
         report["schedule"]=schedule
 
         def target_array(target_vector):
@@ -840,24 +874,30 @@ def main() -> int:
                     raise RuntimeError(f"INITIALIZATION_RECOVERY_FAIL body escaped asset bounds: {max_link_distance}")
                 if root_translation>MAX_ROOT_TRANSLATION_DRIFT_M or root_orientation>MAX_ROOT_ORIENTATION_DRIFT_RAD:
                     raise RuntimeError(f"INITIALIZATION_RECOVERY_FAIL root drift: {root_translation}/{root_orientation}")
-                stable=all(errors[name]<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD and abs(velocity[name])<=VELOCITY_SETTLE_RAD_S for name in dof_names)
-                consecutive=consecutive+1 if stable else 0
-                row={"recovery_step":local_step,"manager_steps":[before,after],"wall_elapsed_s":time.monotonic()-start,"target_vector_rad":dict(closed),"target_readback_vector_rad":readback,"positions_rad":measured,"velocities_rad_s":velocity,"closed_target_absolute_error_rad":errors,"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"maximum_link_distance_from_root_m":max_link_distance,"finite":True,"consecutive_numeric_stable_steps":consecutive,"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}}
-                records.append(row)
-                gate=None
+                # A real viewport sample is required for every candidate step;
+                # the final counter therefore represents 30 consecutive physics
+                # and rendered-image states, not 30 tensor-only states.
+                gate=capture_pixel_gate(f"recovery_monitor_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False,fast=True)
                 if local_step in checkpoint_steps:
-                    gate=capture_pixel_gate(f"recovery_step_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False)
                     captures.append(gate)
+                final_visual=gate["final_recovery_visual_gate"] or {"pass":False}
+                clone_authoring_ok=authored_clone_xforms(clone_prims)==clone_xforms_before and clone_time_samples(clone_prims)==clone_time_samples_before
+                body_clone_correspondence_ok=all(
+                    spec["link_index"]<len(link_values)
+                    and str(stage.GetPrimAtPath(spec["clone_mesh"]).GetParent().GetPath())==spec["rigid_body_parent"]
+                    and spec["actual_authored_clone_vertex_max_error_m"]<=1.0e-6
+                    and all(math.isfinite(v) for row in transform7_matrix(link_values[spec["link_index"]],Gf) for v in row)
+                    for spec in clone_specs
+                )
+                final_step_pass=all(errors[name]<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD and abs(velocity[name])<=FINAL_JOINT_VELOCITY_RAD_S for name in dof_names) and final_visual["pass"] and clone_authoring_ok and body_clone_correspondence_ok
+                consecutive=consecutive+1 if final_step_pass else 0
+                row={"recovery_step":local_step,"manager_steps":[before,after],"wall_elapsed_s":time.monotonic()-start,"target_vector_rad":dict(closed),"target_readback_vector_rad":readback,"positions_rad":measured,"velocities_rad_s":velocity,"closed_target_absolute_error_rad":errors,"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"maximum_link_distance_from_root_m":max_link_distance,"finite":True,"constraint_explosion_proxy_pass":max_link_distance<=asset_scale*4.0 and root_translation<=MAX_ROOT_TRANSLATION_DRIFT_M and root_orientation<=MAX_ROOT_ORIENTATION_DRIFT_RAD,"contact_impulse_measurement":"NOT_AVAILABLE_IN_THIS_RUNNER; no-constraint-explosion uses finite/root/body-bounds proxies","transient_monitor_pass":gate["status"]=="PASS","final_visual_pass":final_visual["pass"],"final_step_pass":final_step_pass,"consecutive_final_stable_steps":consecutive,"body_clone_correspondence_ok":body_clone_correspondence_ok,"clone_authoring_ok":clone_authoring_ok,"pixel_metrics":gate,"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}}
+                records.append(row)
                 if consecutive>=SETTLE_CONSECUTIVE_STEPS:
-                    gate=gate or capture_pixel_gate(f"recovery_stable_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False)
-                    if gate not in captures: captures.append(gate)
-                    pixels_ok=gate["status"]=="PASS"
-                    if pixels_ok:
-                        status="INITIALIZATION_RECOVERY_PASS"
-                        stable_result={"step":local_step,"manager_step":after,"measured_rad":measured,"velocity_rad_s":velocity,"closed_target_absolute_error_rad":errors,"settled_baseline_rad":dict(measured),"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"pixel_gate":gate}
-                        break
-                    consecutive=0
-            result={"status":status,"closed_targets_rad":dict(closed),"closed_target_evidence":report["preflight"]["target_derivation"]["closed"],"records":records,"captures":captures,"stable_result":stable_result,"thresholds":{"timeout_steps":RECOVERY_TIMEOUT_STEPS,"closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"velocity_rad_s":VELOCITY_SETTLE_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"pixel_ratio_to_static_baseline":RECOVERY_PIXEL_RATIO,"pixel_center_shift_px":RECOVERY_CENTER_SHIFT_PX,"root_translation_m":MAX_ROOT_TRANSLATION_DRIFT_M,"root_orientation_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"body_escape_distance_m":asset_scale*4.0},"video_recorder_started":False,"active_door_schedule_started":False,"clone_xform_authored_after_start":authored_clone_xforms(clone_prims)!=clone_xforms_before,"clone_time_samples_added":clone_time_samples(clone_prims)-clone_time_samples_before}
+                    status="INITIALIZATION_RECOVERY_PASS"
+                    stable_result={"step":local_step,"manager_step":after,"measured_rad":measured,"velocity_rad_s":velocity,"closed_target_absolute_error_rad":errors,"settled_baseline_rad":dict(measured),"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"pixel_gate":gate,"consecutive_final_stable_steps":consecutive}
+                    break
+            result={"status":status,"closed_targets_rad":dict(closed),"closed_target_evidence":report["preflight"]["target_derivation"]["closed"],"records":records,"checkpoint_captures":captures,"stable_result":stable_result,"thresholds":{"timeout_steps":RECOVERY_TIMEOUT_STEPS,"closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"final_joint_velocity_rad_s":FINAL_JOINT_VELOCITY_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"transient_monitor":{"pixel_ratio":TRANSIENT_PIXEL_RATIO,"center_shift_px":TRANSIENT_CENTER_SHIFT_PX,"allows_pass":False},"final_visual":{"door_pixel_ratio":FINAL_DOOR_PIXEL_RATIO,"base_pixel_ratio":FINAL_BASE_PIXEL_RATIO,"door_bbox_iou":FINAL_DOOR_BBOX_IOU,"center_shift":"max(10 px, static bbox diagonal * 0.05)","minimum_door_center_separation_px":FINAL_MIN_DOOR_CENTER_SEPARATION_PX,"maximum_pairwise_door_bbox_iou":FINAL_MAX_PAIRWISE_DOOR_BBOX_IOU},"root_translation_m":MAX_ROOT_TRANSLATION_DRIFT_M,"root_orientation_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"body_escape_distance_m":asset_scale*4.0},"video_recorder_started":False,"active_door_schedule_started":False,"clone_xform_authored_after_start":authored_clone_xforms(clone_prims)!=clone_xforms_before,"clone_time_samples_added":clone_time_samples(clone_prims)-clone_time_samples_before}
             recovery_path.write_text(json.dumps(result,indent=2)+"\n")
             if status!="INITIALIZATION_RECOVERY_PASS":
                 (args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_RECOVERY_FAIL\n")
@@ -896,7 +936,15 @@ def main() -> int:
             # continuing to send the complete closed vector. Recorder starts later.
             hold_sink=[];hold_start=time.monotonic()
             run_responsive(paced_segment("ALL","recovery_closed_hold",closed,closed,90,hold_sink,hold_start,recovery["stable_result"]["settled_baseline_rad"]),"RECOVERY_CLOSED_HOLD",pace_s=0.0)
-            report["initialization_recovery"]["post_recovery_closed_hold"]={"planned_s":1.5,"records":len(hold_sink)}
+            post_hold_gate=capture_pixel_gate("post_recovery_closed_hold",recovery["stable_result"]["step"]+90,prephysics_gate["components"],raise_on_fail=False)
+            post_hold_positions=nested_values(articulation.get_dof_positions())[0];post_hold_velocities=nested_values(articulation.get_dof_velocities())[0]
+            post_hold_numeric=all(abs(float(post_hold_positions[dof_indices[name]])-closed[name])<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD and abs(float(post_hold_velocities[dof_indices[name]]))<=FINAL_JOINT_VELOCITY_RAD_S for name in dof_names)
+            post_hold_pass=post_hold_numeric and bool(post_hold_gate["final_recovery_visual_gate"] and post_hold_gate["final_recovery_visual_gate"]["pass"])
+            report["initialization_recovery"]["post_recovery_closed_hold"]={"planned_s":1.5,"actual_s":time.monotonic()-hold_start,"records":len(hold_sink),"numeric_pass":post_hold_numeric,"pixel_gate":post_hold_gate,"pass":post_hold_pass}
+            (args.run_dir/"initialization_recovery_report.json").write_text(json.dumps(report["initialization_recovery"],indent=2)+"\n")
+            if not post_hold_pass:
+                (args.run_dir/"runner_phase.txt").write_text("POST_RECOVERY_HOLD_GATE_FAIL\n")
+                raise RuntimeError("POST_RECOVERY_HOLD_GATE_FAIL: recorder and active schedule were not started")
         else:
             (args.run_dir / "runner_phase.txt").write_text("CLOSED_SETTLE_PREFLIGHT\n")
             report["pretest"]["closed_settle"]=run_responsive(establish_closed(),"CLOSED_SETTLE_PREFLIGHT",pace_s=0.0)

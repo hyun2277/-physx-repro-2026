@@ -372,11 +372,28 @@
       31.5,
       45.0
     ],
-    "after_initialize_to_video_complete_range_s": [
-      33.5,
-      51.5
+    "host_startup_not_included": true,
+    "transient_monitor": {
+      "pixel_ratio": 0.2,
+      "center_shift_px": 40.0,
+      "allows_final_pass": false
+    },
+    "final_recovery": {
+      "closed_target_absolute_error_rad": 0.01,
+      "absolute_joint_velocity_rad_s": 0.01,
+      "door_pixel_ratio": 0.7,
+      "base_pixel_ratio": 0.8,
+      "door_bbox_iou": 0.65,
+      "door_center_shift_px": "max(10, static bbox diagonal*0.05)",
+      "consecutive_steps": 30,
+      "post_recovery_hold_s": 1.5,
+      "post_hold_pixel_recheck": true
+    },
+    "estimated_after_initialize_to_video_complete_s_at_30_render_samples_per_s": [
+      34.0,
+      56.5
     ],
-    "host_startup_not_included": true
+    "wall_time_note": "one internal rendered pixel sample per recovery physics step; actual host renderer rate is measured, not assumed"
   },
   "29354": "BLOCKED_UNTIL_29806_SAVED_VIDEO_HUMAN_REVIEW",
   "joint_frames": {

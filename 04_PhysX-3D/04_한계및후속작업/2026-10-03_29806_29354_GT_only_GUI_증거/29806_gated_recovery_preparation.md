@@ -23,12 +23,16 @@ closed target은 세 관절 모두 0 rad로 고정했다. URDF origin, USD body 
 
 `run_gui_29806_gpu0_gated_recovery_end_to_end.sh`는 after-init pixel FAIL을 숨기지 않고 audit PNG/JSON에 남긴다. 이후 세 DOF의 0 rad target 전체 vector를 매 step 보내며 최대 300 step recovery를 수행한다. 1/2/5/10/30/60/120/180/240/300 및 최초 안정 지점에서 tensor/body/clone/pixel 상태를 남긴다.
 
-Recovery는 각 DOF absolute error ≤0.01 rad, |velocity|≤0.05 rad/s 30 step 연속, pixel baseline ratio ≥0.20, center shift ≤40 px, root translation ≤1e-4 m, orientation ≤0.002 rad, finite state, body escape 없음, clone xform/timeSample author 0을 모두 만족해야 통과한다. 300 step 안에 못 맞추면 `INITIALIZATION_RECOVERY_FAIL`로 recorder와 active schedule 전에 종료한다.
+Recovery의 20% pixel ratio·40px center shift는 transient 관찰 계속 여부만 나타내며 최종 PASS를 허용하지 않는다. 최종 PASS는 각 DOF absolute error ≤0.01 rad와 |velocity|≤0.01 rad/s, 문 pixel ratio ≥0.70, base ratio ≥0.80, 문 bbox IoU ≥0.65, center shift ≤max(10px, static bbox diagonal 5%), 문 중심 분리와 비병합, root/finite/body-clone/authoring 조건을 30 physics step 연속 만족해야 한다. 300 step 안에 못 맞추면 `INITIALIZATION_RECOVERY_FAIL`로 recorder와 active schedule 전에 종료한다.
 
-통과하면 닫힘 화면을 실제 1.5초 더 유지하고 recorder를 시작한다. 각 문은 닫힘 1.5초, smoothstep 열기 3초, 열린 상태 1.5초, smoothstep 닫기 3초, 0.5~5초 조건부 settle 순으로 구동된다. 영상은 31.5~45초, initialize 이후 recovery·hold를 포함한 완료 구간은 33.5~51.5초로 예상한다(Isaac startup/preflight 제외). inactive excursion ≤0.002 rad 및 closed absolute error ≤0.01 rad 기준은 유지한다.
+통과하면 닫힘 화면을 실제 1.5초 더 유지하고 동일한 엄격 pixel gate를 다시 통과한 뒤에만 recorder를 시작한다. 각 문은 닫힘 1.5초, smoothstep 열기 3초, 열린 상태 1.5초, smoothstep 닫기 3초, 0.5~5초 조건부 settle 순으로 구동된다. 영상은 31.5~45초다. Recovery는 매 physics step 내부 렌더 표본을 요구하므로 30fps 렌더 표본을 가정한 initialize 이후 완료 예상은 34~56.5초이며 실제 host renderer 속도를 별도로 기록한다(Isaac startup/preflight 제외). inactive excursion ≤0.002 rad 및 closed absolute error ≤0.01 rad 기준은 유지한다.
 
 ## 경고
 
 Kit log의 `Ill-formed SdfPath <>`와 shutdown의 `Unexpected reference count of 2`는 원문과 위치를 보존했다. 저장소 코드에서 빈 `Sdf.Path()` authoring 호출은 발견하지 못했고, 두 경고와 red transient의 직접 인과는 확인되지 않았다.
 
 현재 판정은 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. 29354는 29806 저장 영상 전체의 사람 검토 전까지 차단한다.
+
+## 정적 baseline 반복성 검산
+
+[정적 baseline 변동 JSON](29806_static_baseline_variation.json)의 두 정상 분리 캡처에서 문 pixel count 변동은 0~0.03%, bbox IoU는 1.0, center shift는 0.01~0.04px였다. 회색 base 색상 분할은 4,587↔10,460px로 크게 변했으므로 base의 0.80 기준은 다른 실행의 절대 픽셀이 아니라 같은 실행 prephysics baseline에만 적용한다. 문 최종 기준은 정상 정적 변동보다 충분히 여유가 있으면서 transient 0.20 기준과 분리된다.

@@ -1,0 +1,171 @@
+{
+  "scope": "two repeated static captures with all three doors separately detected; no physics",
+  "sources": [
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T113111Z-29806-gpu0-static-mapping-d98d513e-7a0f-4353-9d6f-a8664c9f8c45/render_pixel_gate.json",
+      "bytes": 4189,
+      "sha256": "56daf97a8d4f47a93fa250d6431f92696f8b92332b10c7846ad5f40cb8420015",
+      "capture_sha256": "867aefac19ee66c1e0034518c6996fd82b1f66962ac93618fa83c00697aaf1fd"
+    },
+    {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261003T113754Z-29806-gpu0-static-mapping-5a270d53-3b43-4e89-b0cf-18811c7dedd1/render_pixel_gate.json",
+      "bytes": 4155,
+      "sha256": "b7d1431b87f52188bd31f21f83ef48078ef71504858d7305c69399bafbfab107",
+      "capture_sha256": "7ebe74d62c6f3aac76fa3fcfda0f8c8c093d042b45e3108530864d847b8dee03"
+    }
+  ],
+  "component_variation": {
+    "BASE_GRAY": {
+      "pixel_counts": [
+        4587,
+        10460
+      ],
+      "pixel_ratio_min_over_max": 0.43852772466539197,
+      "bbox_iou": 0.9746841055198404,
+      "center_shift_px": 120.73249548285143,
+      "bboxes": [
+        [
+          300,
+          230,
+          986,
+          485
+        ],
+        [
+          293,
+          230,
+          986,
+          489
+        ]
+      ],
+      "centers": [
+        [
+          680.9668628733377,
+          273.5116633965555
+        ],
+        [
+          645.8843212237093,
+          389.0346080305927
+        ]
+      ]
+    },
+    "gt_C_1_RED": {
+      "pixel_counts": [
+        48975,
+        48975
+      ],
+      "pixel_ratio_min_over_max": 1.0,
+      "bbox_iou": 1.0,
+      "center_shift_px": 0.01008438136067179,
+      "bboxes": [
+        [
+          293,
+          231,
+          494,
+          481
+        ],
+        [
+          293,
+          231,
+          494,
+          481
+        ]
+      ],
+      "centers": [
+        [
+          393.91603879530373,
+          359.0699948953548
+        ],
+        [
+          393.9144869831547,
+          359.06003062787136
+        ]
+      ]
+    },
+    "gt_C_2_GREEN": {
+      "pixel_counts": [
+        60248,
+        60260
+      ],
+      "pixel_ratio_min_over_max": 0.999800862927315,
+      "bbox_iou": 1.0,
+      "center_shift_px": 0.025416070531916905,
+      "bboxes": [
+        [
+          496,
+          234,
+          738,
+          481
+        ],
+        [
+          496,
+          234,
+          738,
+          481
+        ]
+      ],
+      "centers": [
+        [
+          616.9678661532333,
+          357.49193334218563
+        ],
+        [
+          616.9919681380684,
+          357.5
+        ]
+      ]
+    },
+    "gt_C_3_BLUE": {
+      "pixel_counts": [
+        60272,
+        60255
+      ],
+      "pixel_ratio_min_over_max": 0.9997179453145739,
+      "bbox_iou": 1.0,
+      "center_shift_px": 0.03557280887551996,
+      "bboxes": [
+        [
+          739,
+          233,
+          981,
+          481
+        ],
+        [
+          739,
+          233,
+          981,
+          481
+        ]
+      ],
+      "centers": [
+        [
+          860.4374004512875,
+          357.0381935226971
+        ],
+        [
+          860.4546178740353,
+          357.0693220479628
+        ]
+      ]
+    }
+  },
+  "excluded_capture": {
+    "path": ".../20261003T112646Z.../render_pixel_gate.json",
+    "reason": "classifier/component extraction merged broad color regions; gt_C_3 only 1130 px, so not a normal separated-door baseline"
+  },
+  "fixed_thresholds": {
+    "transient_monitor": {
+      "pixel_ratio": 0.2,
+      "center_shift_px": 40.0,
+      "allows_final_pass": false
+    },
+    "final_recovery": {
+      "door_pixel_ratio": 0.7,
+      "base_pixel_ratio": 0.8,
+      "door_bbox_iou": 0.65,
+      "door_center_shift_px": "max(10, static bbox diagonal*0.05)",
+      "joint_velocity_rad_s": 0.01,
+      "consecutive_steps": 30
+    }
+  },
+  "interpretation": "Door repeat variation was <=0.03% in pixel count, <=0.04 px center, and bbox IoU 1.0. Base color segmentation varied substantially, so final base ratio is always relative to the same run prephysics image, not cross-run absolute pixels."
+}

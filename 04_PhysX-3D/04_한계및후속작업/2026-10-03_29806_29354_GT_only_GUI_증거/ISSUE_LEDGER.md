@@ -2,6 +2,7 @@
 
 | 시각 | 사례 | 단계 | 증상/상태 | 판정 |
 |---|---|---|---|---|
+| 2026-10-05 | 29806 | recovery 최종 gate 강화 | transient 20%/40px를 PASS 기준에서 분리. 문 70%, base 80%, IoU 0.65, 동적 center 한계, velocity 0.01 rad/s 등을 30 step 연속 만족하고 1.5초 hold 뒤 재검사해야 recorder 허용 | host physics 미실행, `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED` |
 | 2026-10-05 | 29806 | initialization manager step 2와 gated recovery | `initialize_physics()`에서 0→2, authored USD transform delta 0, finite tensor state이나 red 48,950→0 px. 원인은 runtime/Fabric presentation·occlusion·constraint/collision correction 후보이며 미확정. closed=0 전체 target 최대 300-step recovery 후에만 recorder/schedule 시작 | `INITIALIZATION_DIAGNOSTIC_CONFIRMED_FAIL_AT_MANAGER_STEP_2`; 새 runner는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`, 29354 차단 |
 | 2026-10-03 | 공통 | 준비 | 기존 사용자 untracked 파일 다수 확인 | 건드리지 않고 새 폴더만 사용 |
 | 2026-10-03 | 29806 | 입력 gate | USD SHA256과 기존 Git 기록 일치 | 입력 확인 완료, GUI/physics 미실행 |

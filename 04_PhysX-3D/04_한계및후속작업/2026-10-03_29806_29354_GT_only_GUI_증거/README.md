@@ -6,7 +6,7 @@
 
 Initialization-only 실행은 `SimulationManager.initialize_physics()`에서 manager step이 0→2가 된 직후 red door pixel이 사라진 것을 확인했다. authored USD의 root/body/linked-clone transform은 전후 동일했고 tensor 상태는 유한한 작은 각도·속도였다. 큰 body snap이나 collision 폭발은 확인되지 않았으며 runtime/Fabric presentation, occlusion, constraint/collision correction은 후보로 남는다. 상세 수치와 네 실행 비교는 [준비 감사](29806_gated_recovery_preparation.md) 및 [JSON](29806_gated_recovery_preparation_audit.json)에 기록했다.
 
-새 `run_gui_29806_gpu0_gated_recovery_end_to_end.sh`는 세 관절의 근거 있는 closed target 0 rad를 매 step 보내는 최대 300-step recovery를 먼저 수행한다. 수치·pixel·root·finite 조건이 모두 통과한 경우에만 1.5초 닫힘 유지 후 느린 세 문 구동과 녹화를 시작한다. Host 실행 전 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이며 29354는 계속 차단한다.
+새 `run_gui_29806_gpu0_gated_recovery_end_to_end.sh`는 세 관절의 근거 있는 closed target 0 rad를 매 step 보내는 최대 300-step recovery를 먼저 수행한다. 20% pixel/40px 기준은 transient 관찰용일 뿐이다. recorder gate는 문 70%, base 80%, bbox IoU 0.65, 동적 center 한계, 속도 0.01 rad/s 등 모든 최종 조건을 30 step 연속 만족하고 1.5초 hold 뒤 다시 pixel gate를 통과해야 열린다. Host 실행 전 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이며 29354는 계속 차단한다.
 
 ## 순차 gate
 
@@ -82,7 +82,7 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 
 기존 drift 식은 검증된 settle baseline 없이 비구동 joint 위치를 명목 closed target과 비교했고, 이전 관절의 복귀/settling 영향을 섞었다. 보완 runner는 두 지표를 분리한다. `closed_target_absolute_error_rad`는 다음 문 구동 전에 문별 measured position과 closed target의 절대오차를 검사하며 기준은 `≤0.01 rad`이다. 이를 통과한 실측값만 baseline으로 삼고, 다른 문이 실제 opening/open-hold/closing 구간일 때만 `inactive_excursion_from_settled_baseline_rad`를 계산하며 기준은 `≤0.002 rad`이다. 자기 active 및 자기 settle 구간은 제외한다. 매 physics step에는 세 DOF target vector 전체를 다시 보낸다.
 
-문별 고정 wall-clock 구간은 닫힘 1.5초, 열기 smoothstep 3초, 열린 hold 1.5초, 닫기 smoothstep 3초다. 이후 settle은 절대오차 `≤0.01 rad`와 속도 `≤0.05 rad/s`를 30 step 연속 만족해야 끝나며 최대 300 step(5초)에서 timeout된다. 따라서 시작/끝 정적 구간을 포함한 예상 영상 범위는 약 `31.5–45.0초`이고 결과 summary에는 실제 문별 settle step·시간·measured position·절대오차·baseline·최대 속도와 비구동 excursion 원값을 남긴다. root 기준은 translation `≤1e-4 m`, orientation `≤0.002 rad`인 보수적 GUI smoke 운영 기준이며, 이전 headless 결과와 동등 정확도를 뜻하지 않는다. 초기 linked clone pixel gate 뒤 Physics 초기화 직후와 relative step 1·2·5·10에서 같은 viewport를 다시 캡처하며, component pixel ratio 20% 미만 또는 중심 이동 40 px 초과 시 `VISUAL_CONTINUITY_GATE_FAIL`로 구동 전에 중단한다.
+문별 고정 wall-clock 구간은 닫힘 1.5초, 열기 smoothstep 3초, 열린 hold 1.5초, 닫기 smoothstep 3초다. 이후 settle은 절대오차 `≤0.01 rad`와 속도 `≤0.05 rad/s`를 30 step 연속 만족해야 끝나며 최대 300 step(5초)에서 timeout된다. 따라서 시작/끝 정적 구간을 포함한 예상 영상 범위는 약 `31.5–45.0초`이고 결과 summary에는 실제 문별 settle step·시간·measured position·절대오차·baseline·최대 속도와 비구동 excursion 원값을 남긴다. root 기준은 translation `≤1e-4 m`, orientation `≤0.002 rad`인 보수적 GUI smoke 운영 기준이며, 이전 headless 결과와 동등 정확도를 뜻하지 않는다. 초기 linked clone pixel gate 뒤 Physics 초기화 transient는 보존한다. 20%/40px 기준은 관찰 상태로만 기록하며, recovery의 엄격 수치·시각 조건을 30 step 연속 만족하고 1.5초 hold 후 재검사하기 전에는 recorder와 active 구동을 시작하지 않는다.
 
 현재 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. 29354는 계속 미실행이다.
 
