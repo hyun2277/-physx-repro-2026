@@ -47,7 +47,7 @@ git -C "$REPO" rev-parse HEAD >"$LOG_DIR/repository_head.txt"
 sha256sum "$DIR/gui_29806_end_to_end_physics_video.py" "$0" >"$LOG_DIR/runner_hashes.txt"
 
 unset CUDA_VISIBLE_DEVICES NVIDIA_VISIBLE_DEVICES
-cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --initialization-isolation-diagnostic)
+cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --initialization-isolation-diagnostic --diffuse-only-material-diagnostic)
 printf '%q ' "${cmd[@]}" >"$LOG_DIR/command.txt"; printf '\n' >>"$LOG_DIR/command.txt"
 set +e
 timeout --signal=INT --kill-after=30s 300s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.log") 2> >(tee "$LOG_DIR/stderr.log" >&2) &

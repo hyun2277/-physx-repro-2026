@@ -33,3 +33,11 @@
 | 2026-10-05 | 29806 | initialization isolation 두 번째 host 실행 | manager step 2 뒤 첫 차등 capture future가 반환됐지만 즉시 파일 검사에서 부재 예외. 동일 요청 경로 PNG는 예외/report 기록 약 36 ms 뒤 262,683 bytes로 생성됨. source/clone 차등과 closed step 1·2·5·10 미실행 | `CAPTURE_COMPLETION_RACE_CONFIRMED_DIAGNOSTIC_INCOMPLETE`; renderer flush + stable size 2회 + PNG decode 비동기 대기, per-capture marker, 실패 격리 후 진단 계속하도록 수정. visual root cause 미확정, active schedule/recorder/29354 차단 |
 | 2026-10-05 | 29806 | initialization isolation 완주 | 모든 capture는 성공했으나 source-only/additive 모든 phase에서 clone 8개 composed visibility가 `inherited`; 화면도 동일 red-black/green-striped/blue-solid. closed step 2만 일시 pixel PASS 후 5/10에서 재실패 | visibility author edit target이 session layer가 아니어서 isolation이 적용되지 않은 제어 결함. session edit target 명시 및 Set/composed visibility 기록 추가. z-fighting은 강한 후보이나 유효 차등 전 미확정; active schedule/recorder/29354 차단 |
 | 2026-10-05 | 29806 | valid source/clone isolation `231747Z` | session visibility author 성공: source-only clone 0, selected door 1, base 5, all 8. source-only 검정, red-only 검정, green-only 줄무늬, blue-only 단색, base-only 윤곽 | source+clone z-fighting 배제. 10163과 같은 body-local linked-clone 원리는 이미 사용 중. 차이는 문별 emissive material과 3문/8 mesh Fabric population; exact 10163 diffuse-only material isolation phase 추가. active/recorder/29354 차단 |
+
+## 2026-10-05 — 29806 post-Fabric cyan material isolation invalid as a causal test
+
+- 증상: C1/C2/C3 cyan 화면 모두 검정. `primvars:displayColor:indices not found` 경고 발생.
+- 확인: cyan 전용 검출도 0 pixel. geometry/body mapping은 변경되지 않았으나 material binding과 displayColor를 Fabric 뒤 동적으로 다시 author했다.
+- 판정: indices 부재 자체는 10163 성공 clone에도 동일하므로 치명 원인으로 확정할 수 없다. post-Fabric primvar/material mutation과 renderer population이 섞여 cyan 재질 인과 시험은 불완전하다.
+- 수정: 10163과 같은 diffuse-only material을 초기 stage author 때 적용하는 bounded mode와 initialize 직후/tensor view 전 capture를 추가했다. 동적 cyan loop는 해당 mode에서 제외한다.
+- 상태: `DISPLAY_BOUNDARY_DIAGNOSTIC_PREPARED_HOST_EXECUTION_REQUIRED`; active motion/recorder/29354 미실행.

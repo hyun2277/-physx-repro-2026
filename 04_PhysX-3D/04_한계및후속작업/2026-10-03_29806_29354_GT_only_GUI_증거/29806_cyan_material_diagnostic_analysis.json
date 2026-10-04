@@ -1,0 +1,130 @@
+{
+  "run_id": "isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672",
+  "status": "DIAGNOSTIC_COMPLETED_VISUAL_FAIL",
+  "active_schedule_started": false,
+  "recorder_started": false,
+  "case_29354_executed": false,
+  "cyan_interpretation": "INVALID_AS_MATERIAL_CAUSAL_TEST_POST_FABRIC_DYNAMIC_REBIND_AND_PRIMVAR_WARNING",
+  "frames": [
+    {
+      "phase": "prephysics",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_prephysics.png",
+      "bytes": 105941,
+      "sha256": "ad697fffc675c0dda028d9ecad7f4b9d7fffe06240c0e434b65661ab3c490139",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 108800,
+      "nonblack_pixels": 167870
+    },
+    {
+      "phase": "after_initialize_full_1",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_after_initialize_full_1.png",
+      "bytes": 256044,
+      "sha256": "88c2bc1ab8bfb835c256ff38504893e58999aef0dfd1a4271d25500de30b2d92",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 69622,
+      "nonblack_pixels": 107951
+    },
+    {
+      "phase": "isolation_source_only",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_source_only.png",
+      "bytes": 37090,
+      "sha256": "2c7dd290cf046b72ac30624b8b1fdb74915c4bccfbc2e527a809d9bb0655c41a",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 0,
+      "nonblack_pixels": 4
+    },
+    {
+      "phase": "isolation_source_plus_red",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_source_plus_red.png",
+      "bytes": 37049,
+      "sha256": "e416527ee0bab79fe1b887a87081995682ee94015d96cf7261b5ef52862da26e",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 0,
+      "nonblack_pixels": 2
+    },
+    {
+      "phase": "isolation_source_plus_green",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_source_plus_green.png",
+      "bytes": 214970,
+      "sha256": "1db5dff3f49399ac7f5677a2cc9787c40c32fe19b9e14c0a8bbe2397da1f4481",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 17498,
+      "nonblack_pixels": 48503
+    },
+    {
+      "phase": "isolation_source_plus_blue",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_source_plus_blue.png",
+      "bytes": 71682,
+      "sha256": "8b944b8ccf9777c55579dd2f7586f349bedbe8f86ee4de3d114099228ba24404",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 50055,
+      "nonblack_pixels": 52224
+    },
+    {
+      "phase": "isolation_10163_material_gt_C_1",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_10163_material_gt_C_1.png",
+      "bytes": 37082,
+      "sha256": "956fea8909682c0d41df69289ade6afd6c442d8a5b44e9dfb9355393dc19c57a",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 0,
+      "nonblack_pixels": 5
+    },
+    {
+      "phase": "isolation_10163_material_gt_C_2",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_10163_material_gt_C_2.png",
+      "bytes": 37041,
+      "sha256": "ccd4b4be6bf5c1a2c468f26e85270aecfb6f65f0b2a3f3a903ee1ab96fad8fd2",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 0,
+      "nonblack_pixels": 3
+    },
+    {
+      "phase": "isolation_10163_material_gt_C_3",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_10163_material_gt_C_3.png",
+      "bytes": 37051,
+      "sha256": "8d929586d52527b75e702d34e1547d087a9b117273cb6e16498d3f80ee4153a6",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 0,
+      "nonblack_pixels": 1
+    },
+    {
+      "phase": "isolation_restored_full",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T233441Z-29806-gpu0-initialization-isolation-diagnostic-9a4db633-453e-41c0-a1fe-79267a607672/visual_continuity_isolation_restored_full.png",
+      "bytes": 65702,
+      "sha256": "c6c84606d381c28bd7b2b1ca05c4981965dcad6f8aa32922bad2ee6eab57a971",
+      "resolution": [
+        1280,
+        720
+      ],
+      "cyan_pixels": 10452,
+      "nonblack_pixels": 27406
+    }
+  ]
+}

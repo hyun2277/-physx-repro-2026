@@ -147,6 +147,7 @@ def main() -> int:
     parser.add_argument("--static-mapping-gate", action="store_true")
     parser.add_argument("--initialization-diagnostic", action="store_true")
     parser.add_argument("--initialization-isolation-diagnostic", action="store_true")
+    parser.add_argument("--diffuse-only-material-diagnostic", action="store_true")
     parser.add_argument("--gated-recovery-end-to-end", action="store_true")
     args = parser.parse_args()
     args.run_dir.mkdir(parents=True, exist_ok=True)
@@ -297,7 +298,10 @@ def main() -> int:
             token = label or "BASE"
             material = UsdShade.Material.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}")
             shader = UsdShade.Shader.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}/PreviewSurface")
-            shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("emissiveColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
+            shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color))
+            if not args.diffuse_only_material_diagnostic:
+                shader.CreateInput("emissiveColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color))
+            shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
             material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface"); materials[label]=material
         # Exact material pattern used by the successful 10163 route-B runner:
         # diffuse + opacity, no emissive input.  Isolation phases bind this
@@ -747,6 +751,10 @@ def main() -> int:
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
         SimulationManager.initialize_physics()
         diagnostic_marker("PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS",manager_step_observed=SimulationManager.get_num_physics_steps())
+        if args.diffuse_only_material_diagnostic:
+            before_tensor_gate=capture_pixel_gate("after_initialize_before_tensor",0,prephysics_gate["components"],raise_on_fail=False)
+            report["initialization_diagnostic"]["after_initialize_before_tensor"]={"usd":usd_snapshot("after_initialize_before_tensor",before_tensor_gate),"tensor":"NOT_CREATED_YET"}
+            diagnostic_marker("AFTER_INITIALIZE_BEFORE_TENSOR_CAPTURED",pixel_status=before_tensor_gate["status"])
         view = SimulationManager.get_physics_simulation_view()
         articulation = view.create_articulation_view([str(articulations[0].GetPath())])
         if articulation.count != 1 or articulation.max_dofs != 3:
@@ -922,7 +930,7 @@ def main() -> int:
                 atomic_json(out,result)
             # Reuse the proven 10163 diffuse-only material on each door geometry
             # separately.  Geometry, body parent, points and physics stay fixed.
-            for component in ("gt_C_1","gt_C_2","gt_C_3"):
+            for component in (() if args.diffuse_only_material_diagnostic else ("gt_C_1","gt_C_2","gt_C_3")):
                 visibility_authoring=set_clone_visibility({component})
                 selected=[(spec,prim) for spec,prim in zip(clone_specs,clone_prims) if spec["component_label"]==component]
                 if len(selected)!=1:raise RuntimeError(f"material isolation requires one clone for {component}: {len(selected)}")

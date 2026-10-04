@@ -150,3 +150,7 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 10163 성공 commit `991286cf...`의 script SHA256은 `bf023671...`이며 현재 저장 runner와 동일하다. 10163과 29806 모두 relationship-derived body-local regular Mesh clone을 실제 rigid body 자식으로 만들고, identity local xform, tensor target, `update_fabric=True`, per-step UI update, xform/keyframe/timeSample 0을 사용한다. 즉 성공한 노트북의 핵심 연결 방식은 이미 수납장에도 적용돼 있다. 뚜렷한 차이는 10163의 단일 diffuse-only cyan material과 29806의 문별 diffuse+emissive material, 그리고 2 mesh/1 DOF와 8 mesh/3 DOF 구조다.
 
 다음 최소 진단은 각 door geometry와 parent를 고정한 채 10163의 diffuse-only cyan material을 red/green/blue에 각각 단독 적용한다. 이 단계도 active target과 recorder가 없는 initialization isolation이다. 결과에 따라 material 문제와 geometry/Fabric population을 분리하며, 그 전에는 느린 개폐 영상을 시작하지 않는다. 상세 비교는 `29806_vs_10163_visual_route_comparison.md`, 원시 판정은 `29806_initialization_isolation_231747_analysis.json`, 화면은 contact sheet에 있다.
+
+### 2026-10-05 — 29806 cyan/Fabric 경계 재감사
+
+최신 isolation 진단의 cyan 세 화면은 cyan 전용 검사에서도 모두 검정이었다. 그러나 재질과 displayColor primvar를 Fabric 활성화 뒤 동적으로 다시 author한 시험이며 같은 경로에서 `primvars:displayColor:indices not found` 경고가 발생했으므로, cyan 재질 자체의 실패로 확정하지 않는다. 상세 근거는 [29806_CYAN_FABRIC_감사.md](./29806_CYAN_FABRIC_감사.md)에 기록했다. 다음 bounded 진단은 10163 성공 방식과 같은 diffuse-only 재질을 처음부터 사용하고 initialize 직후/tensor view 전 경계를 추가한다. active-door schedule, recorder, 29354는 계속 미실행이다.
