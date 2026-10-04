@@ -1,0 +1,690 @@
+{
+  "status": "DIAGNOSTIC_COMPLETED_VISUAL_FAIL_ANALYZED",
+  "run": "isaac-gui-usd-visual-validation-20261004T225612Z-29806-gpu0-initialization-isolation-diagnostic-a06921b3-8b33-4421-985e-a82fe2a2e077",
+  "input_commit": "ef390af06eb0011402642c699091392718718292",
+  "completion": {
+    "manager_step_start": 2,
+    "manager_step_end": 12,
+    "capture_failures": 0,
+    "active_schedule_started": false,
+    "recorder_started": false
+  },
+  "key_findings": {
+    "all_capture_files_valid": true,
+    "isolation_visibility_experiment_valid": false,
+    "reason": "All 8 clone prims remained composed visibility inherited in every source-only/additive phase; edit target was not the session layer that owns diagnostic clones. Images therefore do not isolate source from clones.",
+    "source_clone_numeric_overlap": "recorded linked clone/source vertex error ~4.93e-11 m; source and clone visibility inherited",
+    "render_observation": "After initialize red region is black/absent and green shows horizontal interference; step 2 temporarily shows three solid colors, steps 5 and 10 regress.",
+    "z_fighting_status": "STRONG_CANDIDATE_NOT_CONFIRMED_BY_INVALID_DIFFERENTIAL",
+    "body_explosion_status": "NOT_SUPPORTED: tensor rotations and translations change smoothly and remain finite; collision/contact not measured, so collision is not fully excluded.",
+    "step2_meaning": "single rendered frame transient; not recovery PASS and not 30-step stability"
+  },
+  "closed_steps": [
+    {
+      "step": 1,
+      "manager_step": 3,
+      "image": "visual_continuity_isolation_closed_recovery_1.png",
+      "image_sha256": "ed3a3875a6c002d09c38fceb6f8acb78b4660cea54717797a8fa76f6abb0815a",
+      "positions_rad": {
+        "gt_C_1": -0.003982852678745985,
+        "gt_C_2": -0.006565408315509558,
+        "gt_C_3": -0.008860007859766483
+      },
+      "velocities_rad_s": {
+        "gt_C_1": -0.048443906009197235,
+        "gt_C_2": -0.09020671993494034,
+        "gt_C_3": -0.14065273106098175
+      },
+      "components": {
+        "BASE_GRAY": {
+          "pixel_count": 5454,
+          "bbox_xyxy": [
+            302,
+            266,
+            981,
+            494
+          ],
+          "center_xy": [
+            612.051705170517,
+            477.74257425742576
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.8258631132646881,
+            "center_shift_px": 58.25638172126505,
+            "bbox_iou_to_prephysics": 0.8836982305605684,
+            "transient_monitor_pass": false
+          }
+        },
+        "gt_C_1_RED": {
+          "pixel_count": 0,
+          "bbox_xyxy": null,
+          "center_xy": null,
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.0,
+            "center_shift_px": Infinity,
+            "bbox_iou_to_prephysics": 0.0,
+            "transient_monitor_pass": false
+          }
+        },
+        "gt_C_2_GREEN": {
+          "pixel_count": 43852,
+          "bbox_xyxy": [
+            546,
+            250,
+            747,
+            475
+          ],
+          "center_xy": [
+            646.0925385387211,
+            361.48084465930856
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.7423608877452557,
+            "center_shift_px": 18.833581636318804,
+            "bbox_iou_to_prephysics": 0.7607525537835991,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_3_BLUE": {
+          "pixel_count": 56746,
+          "bbox_xyxy": [
+            748,
+            237,
+            981,
+            481
+          ],
+          "center_xy": [
+            863.8661579670813,
+            358.58171501074963
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 1.1362152854253849,
+            "center_shift_px": 9.467858753838392,
+            "bbox_iou_to_prephysics": 0.9316239316239316,
+            "transient_monitor_pass": true
+          }
+        }
+      },
+      "pixel_gate_status": "FAIL"
+    },
+    {
+      "step": 2,
+      "manager_step": 4,
+      "image": "visual_continuity_isolation_closed_recovery_2.png",
+      "image_sha256": "159fd46358fb46a7ca9a2e4a13b6f84651bec0ac51e334b9045d40186740206e",
+      "positions_rad": {
+        "gt_C_1": -0.005371800623834133,
+        "gt_C_2": -0.008982266299426556,
+        "gt_C_3": -0.012378457002341747
+      },
+      "velocities_rad_s": {
+        "gt_C_1": -0.03947298973798752,
+        "gt_C_2": -0.07788320630788803,
+        "gt_C_3": -0.1300841122865677
+      },
+      "components": {
+        "BASE_GRAY": {
+          "pixel_count": 6228,
+          "bbox_xyxy": [
+            302,
+            237,
+            984,
+            494
+          ],
+          "center_xy": [
+            657.7691072575466,
+            463.6982980089916
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.9430648092065415,
+            "center_shift_px": 10.473353349161766,
+            "bbox_iou_to_prephysics": 1.0,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_1_RED": {
+          "pixel_count": 48730,
+          "bbox_xyxy": [
+            304,
+            236,
+            507,
+            486
+          ],
+          "center_xy": [
+            407.8333880566386,
+            361.98233121280526
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.9925452175329966,
+            "center_shift_px": 0.807896272066094,
+            "bbox_iou_to_prephysics": 0.9824628727119229,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_2_GREEN": {
+          "pixel_count": 59126,
+          "bbox_xyxy": [
+            508,
+            236,
+            747,
+            484
+          ],
+          "center_xy": [
+            627.3390724892603,
+            359.3845516354903
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 1.0009310829340963,
+            "center_shift_px": 0.04572372041084549,
+            "bbox_iou_to_prephysics": 0.995850622406639,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_3_BLUE": {
+          "pixel_count": 56522,
+          "bbox_xyxy": [
+            748,
+            237,
+            981,
+            481
+          ],
+          "center_xy": [
+            864.2856232971233,
+            358.43080570397365
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 1.131730172396532,
+            "center_shift_px": 9.090996935898197,
+            "bbox_iou_to_prephysics": 0.9316239316239316,
+            "transient_monitor_pass": true
+          }
+        }
+      },
+      "pixel_gate_status": "PASS"
+    },
+    {
+      "step": 5,
+      "manager_step": 7,
+      "image": "visual_continuity_isolation_closed_recovery_5.png",
+      "image_sha256": "03ed6caeb09fa7a9efa27d6d76b4847b6872ad75503f25253efd2f00f56f8a2b",
+      "positions_rad": {
+        "gt_C_1": -0.008473618887364864,
+        "gt_C_2": -0.01454936619848013,
+        "gt_C_3": -0.020929448306560516
+      },
+      "velocities_rad_s": {
+        "gt_C_1": -0.007172151003032923,
+        "gt_C_2": -0.024036254733800888,
+        "gt_C_3": -0.059367887675762177
+      },
+      "components": {
+        "BASE_GRAY": {
+          "pixel_count": 6084,
+          "bbox_xyxy": [
+            303,
+            237,
+            984,
+            494
+          ],
+          "center_xy": [
+            653.4769888231426,
+            464.57955292570676
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.9212598425196851,
+            "center_shift_px": 14.796021684714248,
+            "bbox_iou_to_prephysics": 0.9985358711566618,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_1_RED": {
+          "pixel_count": 0,
+          "bbox_xyxy": null,
+          "center_xy": null,
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.0,
+            "center_shift_px": Infinity,
+            "bbox_iou_to_prephysics": 0.0,
+            "transient_monitor_pass": false
+          }
+        },
+        "gt_C_2_GREEN": {
+          "pixel_count": 43691,
+          "bbox_xyxy": [
+            546,
+            250,
+            748,
+            475
+          ],
+          "center_xy": [
+            646.4046142226088,
+            361.8469021079856
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.7396353540654467,
+            "center_shift_px": 19.18768124292575,
+            "bbox_iou_to_prephysics": 0.7645186555350031,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_3_BLUE": {
+          "pixel_count": 50170,
+          "bbox_xyxy": [
+            762,
+            237,
+            981,
+            481
+          ],
+          "center_xy": [
+            873.7664341239785,
+            360.7418377516444
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 1.004545181506918,
+            "center_shift_px": 0.6716313381348722,
+            "bbox_iou_to_prephysics": 0.990909090909091,
+            "transient_monitor_pass": true
+          }
+        }
+      },
+      "pixel_gate_status": "FAIL"
+    },
+    {
+      "step": 10,
+      "manager_step": 12,
+      "image": "visual_continuity_isolation_closed_recovery_10.png",
+      "image_sha256": "13fc4459b3bbada6cab046163b66c2cfbbd2175c7807103bc6a9ae9cc9531f05",
+      "positions_rad": {
+        "gt_C_1": -0.010827927850186825,
+        "gt_C_2": -0.018819496035575867,
+        "gt_C_3": -0.027758631855249405
+      },
+      "velocities_rad_s": {
+        "gt_C_1": 0.023990483954548836,
+        "gt_C_2": 0.03359872102737427,
+        "gt_C_3": 0.032769158482551575
+      },
+      "components": {
+        "BASE_GRAY": {
+          "pixel_count": 5935,
+          "bbox_xyxy": [
+            302,
+            238,
+            984,
+            494
+          ],
+          "center_xy": [
+            645.9319292333614,
+            468.1450716090986
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.8986977589339794,
+            "center_shift_px": 23.113929923737896,
+            "bbox_iou_to_prephysics": 0.9961240310077519,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_1_RED": {
+          "pixel_count": 7,
+          "bbox_xyxy": [
+            353,
+            486,
+            359,
+            486
+          ],
+          "center_xy": [
+            356.0,
+            486.0
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.00014257780674596708,
+            "center_shift_px": 134.525958751239,
+            "bbox_iou_to_prephysics": 0.00013431060286273457,
+            "transient_monitor_pass": false
+          }
+        },
+        "gt_C_2_GREEN": {
+          "pixel_count": 44399,
+          "bbox_xyxy": [
+            546,
+            250,
+            748,
+            475
+          ],
+          "center_xy": [
+            646.4632311538548,
+            361.4049415527377
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.7516209307443584,
+            "center_shift_px": 19.193735964591287,
+            "bbox_iou_to_prephysics": 0.7645186555350031,
+            "transient_monitor_pass": true
+          }
+        },
+        "gt_C_3_BLUE": {
+          "pixel_count": 17,
+          "bbox_xyxy": [
+            936,
+            473,
+            946,
+            475
+          ],
+          "center_xy": [
+            941.7647058823529,
+            473.52941176470586
+          ],
+          "continuity": {
+            "pixel_ratio_to_prephysics": 0.00034038804236829985,
+            "center_shift_px": 132.2221634646236,
+            "bbox_iou_to_prephysics": 0.000617861823628534,
+            "transient_monitor_pass": false
+          }
+        }
+      },
+      "pixel_gate_status": "FAIL"
+    }
+  ],
+  "files": [
+    {
+      "relative_path": "after_initialize_tensor_state.json",
+      "bytes": 2883,
+      "sha256": "9335482a3ee787bd86ec3d54bcd7eb4638598c51bdd6c1086cba78671fc45152"
+    },
+    {
+      "relative_path": "capture_markers/after_initialize_full_1.request.json",
+      "bytes": 339,
+      "sha256": "693580abc29c84001d0cca2c342088d0093bec427183afd21bcda6a00788dd8b"
+    },
+    {
+      "relative_path": "capture_markers/after_initialize_full_1.result.json",
+      "bytes": 627,
+      "sha256": "9861ea4303e94ea9c27e3dc16ec5fc9ba5138a607352deaeb14d63f42af07078"
+    },
+    {
+      "relative_path": "capture_markers/after_initialize_full_2.request.json",
+      "bytes": 340,
+      "sha256": "1f4d1b286db56b2e7d5a744d23191a643ac1d1af41bee550603ecde926626f49"
+    },
+    {
+      "relative_path": "capture_markers/after_initialize_full_2.result.json",
+      "bytes": 628,
+      "sha256": "757fbcacee6fd53dc09d44ed9df6fc8f5ad1698aac687fe48bd4502e7db08a6a"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_1.request.json",
+      "bytes": 348,
+      "sha256": "f37832e132407e47eb6ccdcda313222449712c57ff8122e4aabd4d86023d45d8"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_1.result.json",
+      "bytes": 636,
+      "sha256": "0e2bbcf200696ff57c85569cad52ea8d5bf7e0814b13c4845c86ccdb55818650"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_10.request.json",
+      "bytes": 348,
+      "sha256": "033464fc718eb9201f336ea04aaaa9e7d2e48cfa89fbd6f7f265719a560be2c9"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_10.result.json",
+      "bytes": 636,
+      "sha256": "7d2674dcc6b890c5824b6ff019703d08b58fc7d64f7dfbdd67a4052d8210dae7"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_2.request.json",
+      "bytes": 348,
+      "sha256": "4acc041716b9af79d73cc6e25beb9de6b54c22180244304633f757146a5a8fc3"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_2.result.json",
+      "bytes": 635,
+      "sha256": "8832a95d3c6a5d72fdf06a65c5bde7fc2795efd98d3fd889e0ac1c67b959dd8c"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_5.request.json",
+      "bytes": 348,
+      "sha256": "1587e7445d8c4024a4ab659287251ea3a7c8e8a1983a83180cb01dde59835c89"
+    },
+    {
+      "relative_path": "capture_markers/isolation_closed_recovery_5.result.json",
+      "bytes": 635,
+      "sha256": "1d200a360c5eb36e4f0cfd67753618eb7bbb5fd4f82b0c01d8911ba48c245f72"
+    },
+    {
+      "relative_path": "capture_markers/isolation_restored_full.request.json",
+      "bytes": 340,
+      "sha256": "cfc1d273ce9c0aad045b0e6a163016bf49b03e9d815527562515f65c8505214e"
+    },
+    {
+      "relative_path": "capture_markers/isolation_restored_full.result.json",
+      "bytes": 627,
+      "sha256": "3a234d4ecf5826d9e7713bbf8d410022f4745f2f577e944e3eccccd8da72e010"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_only.request.json",
+      "bytes": 336,
+      "sha256": "e6b0308ed2e05ffbb7f5057b61cee0009a8e51001095ef6aa4de7f8265303115"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_only.result.json",
+      "bytes": 624,
+      "sha256": "dcbf1be7f3e7bad3bca1a17499ffc989d0034a9eb0e69f21fec8ee3586246252"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_only_repeat.request.json",
+      "bytes": 349,
+      "sha256": "dd88ebd81d32f9e3660d02fa0ca271c0c92491a79365047a62b742795bd47b18"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_only_repeat.result.json",
+      "bytes": 637,
+      "sha256": "2f4cda57f4ac8b3a8b083ef04820ff17a96ccebbd1c95d81b19c6c45f6c484d9"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_all.request.json",
+      "bytes": 344,
+      "sha256": "f5693bd407decd2e0ee0dd7cf93795c9612d84f0e4454a536ef5992714df5025"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_all.result.json",
+      "bytes": 632,
+      "sha256": "35f509a897232a657aabb4063c38763e4fd0a30fa8ca6f6a9c0e5610239a6feb"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_base.request.json",
+      "bytes": 346,
+      "sha256": "0b4ffacb6bf18b487e57dcbfd9faeb68714ad2f2edb3db1394198bf1f42851a4"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_base.result.json",
+      "bytes": 634,
+      "sha256": "99d42f4b4082faebe05807b0ba664ecb941098c247c193cdd2912530f2ac6865"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_blue.request.json",
+      "bytes": 346,
+      "sha256": "92e1cae03f17ad04efbd551d93051654eca3b5a210a13fa2450d218df0f24b72"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_blue.result.json",
+      "bytes": 634,
+      "sha256": "56538a083cf8a6f884fd0ab3c1ece298248c03d51dfcd4e27c18a6e039c3f67d"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_green.request.json",
+      "bytes": 348,
+      "sha256": "02331a105bea8a0a4bb12fbb04d651d4579b9cafa96637fcf5a94fad1d2de6ba"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_green.result.json",
+      "bytes": 636,
+      "sha256": "4affd4d81238c68389dd597aba54214bdd37c531294c459c8e8c3e63f9908cc2"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_red.request.json",
+      "bytes": 343,
+      "sha256": "01f033d51261be150c237803319a517a7df24603889b8df0ec0cd788b30505fb"
+    },
+    {
+      "relative_path": "capture_markers/isolation_source_plus_red.result.json",
+      "bytes": 631,
+      "sha256": "d43caed8af4b7b23fbce2b1990857278a865772fd849d3f93059c2c521b5cc42"
+    },
+    {
+      "relative_path": "capture_markers/prephysics_smoke_1.request.json",
+      "bytes": 330,
+      "sha256": "d42cfcad2e462d328799983039a7412a5e10ce610411d1d34d2e5f6d6b1d54a0"
+    },
+    {
+      "relative_path": "capture_markers/prephysics_smoke_1.result.json",
+      "bytes": 618,
+      "sha256": "4e3336b4fa8ec0bb2e22033a7c84a9079282e5e3e19413acf9eaed5899f8e502"
+    },
+    {
+      "relative_path": "capture_markers/prephysics_smoke_2.request.json",
+      "bytes": 330,
+      "sha256": "519daa9eb45d7abcf614aad227e5f5bb65d350a6028bc9edb938f2b6db6dbdbf"
+    },
+    {
+      "relative_path": "capture_markers/prephysics_smoke_2.result.json",
+      "bytes": 618,
+      "sha256": "c9162828d83d19cf2ba56d17ac4f73b1aa8d209825b6e57598058bfa83103ac7"
+    },
+    {
+      "relative_path": "gui_heartbeat.json",
+      "bytes": 176,
+      "sha256": "267516584ed18b18dcd3452920927f6e9f871c59924b14bed975cb1e226a4091"
+    },
+    {
+      "relative_path": "initialization_diagnostic_markers.jsonl",
+      "bytes": 3719,
+      "sha256": "0eec2475636836f50dd7c5dadb149a676056852b9263b99885a203049ecd7b44"
+    },
+    {
+      "relative_path": "initialization_isolation_diagnostic.json",
+      "bytes": 679447,
+      "sha256": "41eff2e10197b6366b3e7293ac0535f7e0e2fb3c882ae937db1dab292a3cd01d"
+    },
+    {
+      "relative_path": "initialization_isolation_diagnostic_complete.json",
+      "bytes": 180,
+      "sha256": "d2073693b865601908333adb03f73cc9e392702ae975d455fadb56e3f65ef61b"
+    },
+    {
+      "relative_path": "physics_gui_report.json",
+      "bytes": 863758,
+      "sha256": "04f09150d52838bf963d7562f34e48fb94853bdfcf6dc82e55f0462e187995cf"
+    },
+    {
+      "relative_path": "prephysics_pixel_gate.json",
+      "bytes": 1866,
+      "sha256": "736818102d4e151c1f2daf8ac0d9cf39abe9e8cb06adcb2070664ad1bb0a2d7a"
+    },
+    {
+      "relative_path": "static_mapping_gate.json",
+      "bytes": 43879,
+      "sha256": "8d6533c82d64c8efe6cea81bca76c0131c4ee1c8460196b97f10d7b1fa6b6291"
+    },
+    {
+      "relative_path": "visual_continuity_after_initialize.png",
+      "bytes": 258162,
+      "sha256": "7908f72ea16ae32cb7bb35eaad8323a1cce84a7da0edcab25582bc42486c3968"
+    },
+    {
+      "relative_path": "visual_continuity_after_initialize_full_1.png",
+      "bytes": 252124,
+      "sha256": "0b29d50502955e4637b20052852036829921bbd0fc8dba50a1798667329412fa"
+    },
+    {
+      "relative_path": "visual_continuity_after_initialize_full_2.png",
+      "bytes": 254778,
+      "sha256": "9d5faee6aa26818619db0928833883c79d58924c96286a57a1296c590a48bd79"
+    },
+    {
+      "relative_path": "visual_continuity_gate.json",
+      "bytes": 4197,
+      "sha256": "5ee7cca4fb17cf565df96ebe29d3719e84651dc2beffd60f4b183cabd8b20063"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_closed_recovery_1.png",
+      "bytes": 234737,
+      "sha256": "ed3a3875a6c002d09c38fceb6f8acb78b4660cea54717797a8fa76f6abb0815a"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_closed_recovery_10.png",
+      "bytes": 238742,
+      "sha256": "13fc4459b3bbada6cab046163b66c2cfbbd2175c7807103bc6a9ae9cc9531f05"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_closed_recovery_2.png",
+      "bytes": 95010,
+      "sha256": "159fd46358fb46a7ca9a2e4a13b6f84651bec0ac51e334b9045d40186740206e"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_closed_recovery_5.png",
+      "bytes": 265538,
+      "sha256": "03ed6caeb09fa7a9efa27d6d76b4847b6872ad75503f25253efd2f00f56f8a2b"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_restored_full.png",
+      "bytes": 256176,
+      "sha256": "d6c970fd83d76be7558871c042ab09b9126a4651c7507e8213e442cbb63ac7b5"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_only.png",
+      "bytes": 259338,
+      "sha256": "dbb413a76ef3fd3af2faa58ad2dac8f047dd204f33522d54b72800d3878d6d2a"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_only_repeat.png",
+      "bytes": 256370,
+      "sha256": "04955a14d53acb9c582a059edea7709205b8bf23842a848a469377275753878c"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_plus_all.png",
+      "bytes": 258780,
+      "sha256": "29dfaafd001d24cc017c07e0eab69d09451f39c01ffb8e8453a703f2aa688c18"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_plus_base.png",
+      "bytes": 254469,
+      "sha256": "985c5d74254bfb4a29ccfdb96f9e7889811932e7e2394bf2d4735d5f3b853f07"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_plus_blue.png",
+      "bytes": 258220,
+      "sha256": "6f66bda4744d761201231f39f0d39e7aa2685bd8818c2cdc3a447793a2b53329"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_plus_green.png",
+      "bytes": 257436,
+      "sha256": "7eb401ebbf6a26d457ae6fe40704022f5d96dd6b60cf2ca0bd730e573ed894b3"
+    },
+    {
+      "relative_path": "visual_continuity_isolation_source_plus_red.png",
+      "bytes": 251161,
+      "sha256": "da98cebc702970817ca314d96177d384921b8f6b4bde1cc1b2a26173a5ace99c"
+    },
+    {
+      "relative_path": "visual_continuity_prephysics.png",
+      "bytes": 99534,
+      "sha256": "2e4743561aa06729189453b83e6ae2d8f1352590ed7a94748467e9bd3f213c8d"
+    },
+    {
+      "relative_path": "visual_continuity_prephysics_smoke_1.png",
+      "bytes": 101581,
+      "sha256": "a78620e7a550facb2099502bc8cbe1d33f1e47c52aa1f21532f9f6b9ccc01616"
+    },
+    {
+      "relative_path": "visual_continuity_prephysics_smoke_2.png",
+      "bytes": 103505,
+      "sha256": "92058bc9accff9a475b857ffde4c1a02459c0974d51c6aefbeb3282e2592fe89"
+    }
+  ],
+  "contact_sheet": {
+    "path": "04_PhysX-3D/04_\ud55c\uacc4\ubc0f\ud6c4\uc18d\uc791\uc5c5/2026-10-03_29806_29354_GT_only_GUI_\uc99d\uac70/29806_initialization_isolation_225612_contact_sheet.jpg",
+    "bytes": 229376,
+    "sha256": "786eaece52a988b8e5f478268c8a977aa7e67e370a7c8fcd9983e0b75984e4bb"
+  }
+}

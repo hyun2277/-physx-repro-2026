@@ -892,22 +892,30 @@ def main() -> int:
             await capture("after_initialize_full_1",prephysics_gate["components"])
             await capture("after_initialize_full_2",prephysics_gate["components"])
             original_visibility={str(p.GetPath()):p.GetAttribute("visibility").Get() for p in clone_prims}
-            modes=[("source_only",set()),("source_plus_red",{"gt_C_1"}),("source_plus_green",{"gt_C_2"}),("source_plus_blue",{"gt_C_3"}),("source_plus_base",{"BASE"}),("source_plus_all",{"BASE","gt_C_1","gt_C_2","gt_C_3"})]
-            for mode,visible_labels in modes:
+            isolation_edit_target_before=stage.GetEditTarget()
+            stage.SetEditTarget(Usd.EditTarget(session))
+            def set_clone_visibility(visible_labels):
+                authored=[]
                 with Sdf.ChangeBlock():
                     for spec,prim in zip(clone_specs,clone_prims):
-                        UsdGeom.Imageable(prim).GetVisibilityAttr().Set(UsdGeom.Tokens.inherited if spec["component_label"] in visible_labels else UsdGeom.Tokens.invisible)
+                        requested=UsdGeom.Tokens.inherited if spec["component_label"] in visible_labels else UsdGeom.Tokens.invisible
+                        success=bool(UsdGeom.Imageable(prim).GetVisibilityAttr().Set(requested))
+                        authored.append({"clone":spec["clone_mesh"],"component":spec["component_label"],"requested":str(requested),"set_success":success})
+                return authored
+            modes=[("source_only",set()),("source_plus_red",{"gt_C_1"}),("source_plus_green",{"gt_C_2"}),("source_plus_blue",{"gt_C_3"}),("source_plus_base",{"BASE"}),("source_plus_all",{"BASE","gt_C_1","gt_C_2","gt_C_3"})]
+            for mode,visible_labels in modes:
+                visibility_authoring=set_clone_visibility(visible_labels)
                 for _ in range(3):await omni.kit.app.get_app().next_update_async()
                 gate=await capture("isolation_"+mode,None)
-                result["isolation"].append({"mode":mode,"visible_clone_components":sorted(visible_labels),"source_instance_proxies_edited":False,"capture":gate})
+                composed={spec["clone_mesh"]:str(UsdGeom.Imageable(prim).ComputeVisibility()) for spec,prim in zip(clone_specs,clone_prims)}
+                result["isolation"].append({"mode":mode,"requested_visible_clone_components":sorted(visible_labels),"visibility_authoring":visibility_authoring,"composed_clone_visibility":composed,"visibility_edit_layer":session.identifier,"source_instance_proxies_edited":False,"capture":gate})
                 atomic_json(out,result)
             # Repeat source-only after all additive modes. This distinguishes a
             # stable differential from stale-frame or phase-order artifacts.
-            with Sdf.ChangeBlock():
-                for prim in clone_prims:UsdGeom.Imageable(prim).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
+            repeat_authoring=set_clone_visibility(set())
             for _ in range(3):await omni.kit.app.get_app().next_update_async()
             repeated_source=await capture("isolation_source_only_repeat",None)
-            result["isolation"].append({"mode":"source_only_repeat","visible_clone_components":[],"source_instance_proxies_edited":False,"capture":repeated_source})
+            result["isolation"].append({"mode":"source_only_repeat","requested_visible_clone_components":[],"visibility_authoring":repeat_authoring,"composed_clone_visibility":{spec["clone_mesh"]:str(UsdGeom.Imageable(prim).ComputeVisibility()) for spec,prim in zip(clone_specs,clone_prims)},"visibility_edit_layer":session.identifier,"source_instance_proxies_edited":False,"capture":repeated_source})
             atomic_json(out,result)
             with Sdf.ChangeBlock():
                 for prim in clone_prims:
@@ -915,6 +923,7 @@ def main() -> int:
                     prim.GetAttribute("visibility").Set(value or UsdGeom.Tokens.inherited)
             for _ in range(3):await omni.kit.app.get_app().next_update_async()
             await capture("isolation_restored_full",prephysics_gate["components"])
+            stage.SetEditTarget(isolation_edit_target_before)
             # Limited closed-target recovery diagnosis. All three targets are sent
             # each step; no active door target and no submission recording exists.
             checkpoints={1,2,5,10}

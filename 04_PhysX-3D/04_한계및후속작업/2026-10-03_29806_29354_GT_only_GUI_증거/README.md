@@ -130,3 +130,15 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 | `20261004T223124Z-...` | `f9374cf`, script SHA `c1edf99e...` | manager 2, tensor/Fabric | nonthrowing pixel FAIL 후 첫 차등 capture에서 encoder 완료 전 파일 검사 | active/recorder 미진입 | wrapper 11, 약 10.24 s |
 
 과거 빠른 실행은 tensor 구동 반응의 존재만 보여 주며 승인 영상이 아니다. 최신 세 진단은 active schedule 전에 끝났으므로 “관절이 더 이상 작동하지 않는다”는 결론을 지지하지 않는다. 반복 조기 종료의 직접 원인은 서로 다른 runner 제어 흐름 결함이었고, 초기화 후 빨간 문 소실과 초록 줄무늬의 근본 원인은 차등 자료가 완성되지 않아 아직 미확정이다.
+
+## 2026-10-05 initialization isolation 완주 실행 분석
+
+실행 `20261004T225612Z-...`은 capture 16개를 모두 `CAPTURE_OK`로 저장하고 manager step 2→12, closed target step 1·2·5·10까지 완료했다. active-door schedule, recorder, MP4/GIF, 29354는 실행하지 않았다. 전체 PNG contact sheet는 `29806_initialization_isolation_225612_contact_sheet.jpg`, 원시 수치와 파일 manifest는 `29806_initialization_isolation_225612_analysis.json`에 기록했다.
+
+실제 화면은 prephysics에서 세 색 문이 정상이고, initialize 뒤 빨간 영역이 검게 비며 초록 영역에 수평 간섭무늬가 생긴다. closed step 2 한 프레임에서는 세 색 면이 다시 나타났지만 step 5에서 red가 다시 0 px, step 10에서는 red 7 px·blue 17 px로 퇴행했다. tensor joint 위치는 step 2에서도 C1/C2/C3 `-0.00537/-0.00898/-0.01238 rad`, 속도 `-0.0395/-0.0779/-0.1301 rad/s`여서 closed absolute error와 velocity strict 조건을 만족하지 않으며, 단일 frame일 뿐 30-step 연속 안정도 아니다. 따라서 step 2 `pixel PASS`는 recovery PASS가 아니다.
+
+이번 차등 실험에는 별도 제어 결함이 확인됐다. `source_only`, 각 `source+door`, `source+base`, `source+all`, 반복 source-only에서 report가 기록한 clone 8개의 composed visibility가 모두 `inherited`였고 이미지도 같은 red-black/green-striped/blue-solid 구성을 유지했다. visibility author 시 stage edit target이 diagnostic clone을 소유한 session layer가 아니어서 변경이 적용되지 않았다. 따라서 source-only/additive 라벨은 실제 렌더 격리를 의미하지 않으며, 이 자료만으로 z-fighting을 확정할 수 없다.
+
+그럼에도 source와 clone이 모두 `inherited`, topology가 같고 source↔clone 오차가 약 `4.93e-11 m`인 반면 Fabric 전환 뒤 간섭무늬와 frame별 면 우세가 바뀌는 현상은 coplanar 중복을 강하게 지지한다. tensor body pose는 유한하고 step별로 매끄럽게 변하며 큰 body 폭발은 지지하지 않는다. contact/constraint 값을 직접 저장하지 않았으므로 collision은 완전히 배제하지 않는다. 빨간 문 material/occlusion/Fabric population 역시 유효한 source-only/clone-additive 결과 전에는 확정하지 않는다.
+
+수정 진단은 visibility author 동안 session layer를 명시하고 각 `Set()` 반환값, 요청값, composed visibility, edit-layer identifier를 저장한다. source instance proxy는 수정하지 않는다. 이 최소 재진단이 source-only에서 줄무늬 소멸, source+green에서 재발을 보일 때만 coplanar source/clone z-fighting으로 확정한다. 현재 판정은 `DIAGNOSTIC_COMPLETE_VISIBILITY_ISOLATION_INVALID`이며 느린 개폐 runner와 29354는 계속 차단한다.
