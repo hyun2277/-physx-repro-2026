@@ -1,0 +1,461 @@
+{
+  "scope": "GT-only converter/Isaac control; not AI prediction",
+  "status": "RUNNER_PREPARED_HOST_EXECUTION_REQUIRED",
+  "four_runs": [
+    {
+      "phase": "A static mapping",
+      "physics_steps": 0,
+      "result": "STATIC_MAPPING_AUTOMATION_AND_HUMAN_PASS",
+      "evidence": "29806_static_mapping_human_pass.json"
+    },
+    {
+      "phase": "B first fast physics",
+      "records": 450,
+      "result": "INVALID_FAST_VISUAL_AND_INACTIVE_DOF_DRIFT",
+      "joint_spans_rad": [
+        1.302175534889102,
+        1.0521098673343658,
+        1.0470099747180939
+      ],
+      "evidence": "29806_failed_e2e_120142_audit.json"
+    },
+    {
+      "phase": "C continuity guarded",
+      "manager_step": 2,
+      "result": "VISUAL_CONTINUITY_GATE_FAIL_AFTER_INITIALIZE_GT_C_1_MISSING",
+      "active_schedule_started": false,
+      "recorder_started": false,
+      "evidence": "29806_initialization_visual_failure_audit.json"
+    },
+    {
+      "phase": "D initialization only",
+      "manager_step_before": 0,
+      "manager_step_after_initialize": 2,
+      "result": "INITIALIZATION_DIAGNOSTIC_CONFIRMED_FAIL_AT_MANAGER_STEP_2",
+      "targets_sent": false,
+      "recorder_started": false,
+      "report": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/initialization_diagnostic_report.json"
+    }
+  ],
+  "initialize_api_boundary": {
+    "api": "SimulationManager.initialize_physics()",
+    "manager_step_before": 0,
+    "manager_step_after": 2,
+    "tensor_view_created_after_step_2": true
+  },
+  "usd_authored_transform_deltas": {
+    "/gt_29806/Geometry/world/l_0": {
+      "translation_m": 0.0,
+      "rotation_rad": 0.0
+    },
+    "/gt_29806/Geometry/world/l_0/abstract_1": {
+      "translation_m": 0.0,
+      "rotation_rad": 0.0
+    },
+    "/gt_29806/Geometry/world/l_0/abstract_2": {
+      "translation_m": 0.0,
+      "rotation_rad": 0.0
+    },
+    "/gt_29806/Geometry/world/l_0/abstract_3": {
+      "translation_m": 0.0,
+      "rotation_rad": 0.0
+    }
+  },
+  "tensor_after_initialize": {
+    "positions_rad": {
+      "gt_C_1": -0.0024875516537576914,
+      "gt_C_2": -0.0040285331197083,
+      "gt_C_3": -0.005303102545440197
+    },
+    "velocities_rad_s": {
+      "gt_C_1": -0.05113069340586662,
+      "gt_C_2": -0.09045516699552536,
+      "gt_C_3": -0.1323656290769577
+    },
+    "link_names": [
+      "l_0",
+      "l_4",
+      "abstract_1",
+      "abstract_2",
+      "abstract_3",
+      "l_5",
+      "l_1",
+      "l_2",
+      "l_3",
+      "l_6",
+      "l_7"
+    ],
+    "link_transforms_xyzw": [
+      [
+        -1.7508864402770996e-07,
+        2.682209014892578e-07,
+        -1.2740492820739746e-06,
+        -1.4703799706694554e-06,
+        -8.975487162388163e-07,
+        2.2283680678469864e-08,
+        1.0
+      ],
+      [
+        -1.9371509552001953e-07,
+        2.6135239750146866e-07,
+        -1.2814998626708984e-06,
+        -1.4703799706694554e-06,
+        -8.975487162388163e-07,
+        2.2283680678469864e-08,
+        1.0
+      ],
+      [
+        0.8148396015167236,
+        0.29875028133392334,
+        -0.22010856866836548,
+        -1.4705276498716557e-06,
+        -0.0012446787441149354,
+        1.6537718749987107e-08,
+        0.9999992251396179
+      ],
+      [
+        0.25272905826568604,
+        0.30850937962532043,
+        -0.22462888062000275,
+        -1.4706179172208067e-06,
+        -0.0020150572527199984,
+        1.7670448215767465e-08,
+        0.9999979138374329
+      ],
+      [
+        -0.27846619486808777,
+        -0.3179836571216583,
+        -0.22822780907154083,
+        -1.4706919273521635e-06,
+        -0.002652478637173772,
+        1.860767717687395e-08,
+        0.9999964237213135
+      ],
+      [
+        -1.7881393432617188e-07,
+        2.6170164346694946e-07,
+        -1.2777745723724365e-06,
+        -1.4703799706694554e-06,
+        -8.975487162388163e-07,
+        2.2283680678469864e-08,
+        1.0
+      ],
+      [
+        -0.000545203685760498,
+        2.905726432800293e-07,
+        -0.002028927206993103,
+        -1.4705276498716557e-06,
+        -0.0012446787441149354,
+        1.6537718749987107e-08,
+        0.9999992251396179
+      ],
+      [
+        -0.000903002917766571,
+        3.725290298461914e-07,
+        -0.0010211467742919922,
+        -1.4706179172208067e-06,
+        -0.0020150572527199984,
+        1.7670448215767465e-08,
+        0.9999979138374329
+      ],
+      [
+        -0.0012143254280090332,
+        4.6938657760620117e-07,
+        0.0014723092317581177,
+        -1.4706919273521635e-06,
+        -0.002652478637173772,
+        1.860767717687395e-08,
+        0.9999964237213135
+      ],
+      [
+        -2.384185791015625e-07,
+        2.60770320892334e-07,
+        -1.2814998626708984e-06,
+        -1.4703799706694554e-06,
+        -8.975487162388163e-07,
+        2.2283680678469864e-08,
+        1.0
+      ],
+      [
+        -2.3469328880310059e-07,
+        2.980232238769531e-07,
+        -1.2796372175216675e-06,
+        -1.4703799706694554e-06,
+        -8.975487162388163e-07,
+        2.2283680678469864e-08,
+        1.0
+      ]
+    ]
+  },
+  "pixel_after_initialize": {
+    "label": "after_initialize",
+    "status": "FAIL",
+    "relative_physics_step": 0,
+    "manager_step": 2,
+    "capture_path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/visual_continuity_after_initialize.png",
+    "capture_sha256": "3be6a9fcb26ccc48146462d5f8739ccc5c8389b2eca9d7eec9c94d87f66e3e4c",
+    "components": {
+      "BASE_GRAY": {
+        "pixel_count": 9264,
+        "bbox_xyxy": [
+          302,
+          233,
+          984,
+          494
+        ],
+        "center_xy": [
+          641.0034542314335,
+          391.2422279792746
+        ]
+      },
+      "gt_C_1_RED": {
+        "pixel_count": 0,
+        "bbox_xyxy": null,
+        "center_xy": null
+      },
+      "gt_C_2_GREEN": {
+        "pixel_count": 43842,
+        "bbox_xyxy": [
+          546,
+          250,
+          747,
+          475
+        ],
+        "center_xy": [
+          646.059144199626,
+          361.56548515122483
+        ]
+      },
+      "gt_C_3_BLUE": {
+        "pixel_count": 50067,
+        "bbox_xyxy": [
+          763,
+          237,
+          980,
+          481
+        ],
+        "center_xy": [
+          873.4667944953762,
+          360.5615674995506
+        ]
+      }
+    },
+    "missing": [
+      "gt_C_1_RED"
+    ],
+    "continuity": {
+      "BASE_GRAY": {
+        "pixel_ratio_to_prephysics": 0.9672165378993527,
+        "center_shift_px": 1.0213523068779116,
+        "pass": true
+      },
+      "gt_C_1_RED": {
+        "pixel_ratio_to_prephysics": 0.0,
+        "center_shift_px": Infinity,
+        "pass": false
+      },
+      "gt_C_2_GREEN": {
+        "pixel_ratio_to_prephysics": 0.7426693544288787,
+        "center_shift_px": 18.826530403690025,
+        "pass": true
+      },
+      "gt_C_3_BLUE": {
+        "pixel_ratio_to_prephysics": 1.0026032801329676,
+        "center_shift_px": 0.2725619123355798,
+        "pass": true
+      }
+    }
+  },
+  "closed_target": {
+    "value_rad": {
+      "gt_C_1": 0.0,
+      "gt_C_2": 0.0,
+      "gt_C_3": 0.0
+    },
+    "evidence": [
+      "URDF origin equals authored body transform",
+      "USD localPos0 equals authored body transform; localPos1=0",
+      "USD localRot0/localRot1 identity",
+      "axis Y in URDF/USD",
+      "limit [-pi,0] rad / [-180,0] deg",
+      "tensor convention is radians"
+    ],
+    "authored_drive_target": "not explicitly authored"
+  },
+  "collision_constraint_assessment": {
+    "confirmed_explosion": false,
+    "evidence": "finite tensor state, sub-0.006 rad joint positions, small finite velocities, root translation about 1.3e-6 m at manager step 2",
+    "contact_or_penetration_report": "not captured; collision/constraint correction remains unconfirmed"
+  },
+  "diagnostic_files": {
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/command.txt": {
+      "bytes": 780,
+      "sha256": "74f46b39c57cb2206b024522c83e54ed2ae678a7c96dd0cbc240ca44265a6b23"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/exit_code.txt": {
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/gpu.csv": {
+      "bytes": 235,
+      "sha256": "837ebbe378312b48c3ce7a789210764fcf48e6e620fcc3f671625b03da4eaa7f"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/preflight.json": {
+      "bytes": 137,
+      "sha256": "fca0621fe5c76437ba46552934773793785a3d129cb07b49edfcc768ba6fb914"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/processes.csv": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/stderr.log": {
+      "bytes": 358,
+      "sha256": "828ab16162fd222625d50e3527c326549ce52cdf9f35fa8ea450656fb467f459"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/stdout.log": {
+      "bytes": 16722,
+      "sha256": "36ccd6a6900c1e349dde94013f881d235144250fe094ac95805d6d2aecf7e69d"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/initialization_diagnostic_markers.jsonl": {
+      "bytes": 872,
+      "sha256": "c5b52e46c2c756a93a60f9f3903dcba3045077b1a6dd07fc655e36844b5c9eb4"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/initialization_diagnostic_report.json": {
+      "bytes": 77648,
+      "sha256": "9796c97e0cc88ca58949f326e4390e593f026b8a32fec074072ab88a937634fb"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/prephysics_pixel_gate.json": {
+      "bytes": 1783,
+      "sha256": "75d9d95be86d030f577401581bd5c40064a1219d7e0d525fbd4f4c80d8b584bf"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/runner_phase.txt": {
+      "bytes": 54,
+      "sha256": "3cc459998b0c5c0c36f49a3131f83c9de0e7078093ea05f689bf578f463b6521"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/static_mapping_gate.json": {
+      "bytes": 43879,
+      "sha256": "8d6533c82d64c8efe6cea81bca76c0131c4ee1c8460196b97f10d7b1fa6b6291"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/visual_continuity_after_initialize.png": {
+      "bytes": 261822,
+      "sha256": "3be6a9fcb26ccc48146462d5f8739ccc5c8389b2eca9d7eec9c94d87f66e3e4c"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/visual_continuity_gate.json": {
+      "bytes": 2173,
+      "sha256": "e3c8fe4ee7926aa01cec5d9a2afdff9753393e4717005f18c8d2041ddc88385d"
+    },
+    "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T162608Z-29806-gpu0-initialization-diagnostic-20d4b7ab-2951-4d9d-8e84-664c6b4fe23b/visual_continuity_prephysics.png": {
+      "bytes": 96929,
+      "sha256": "25ba666e0881d354ed9d21616c12e45672632fa4fd0bbd6dea1734fda5b12668"
+    }
+  },
+  "warnings": {
+    "ill_formed_sdfpath": {
+      "kit_log_line": 5613,
+      "cause": "UNRESOLVED; no empty Sdf.Path authoring call located in repository code"
+    },
+    "unexpected_reference_count": {
+      "kit_log_line": 6450,
+      "cause": "shutdown lifecycle warning; direct relation to visual transient unproven"
+    }
+  },
+  "new_runner": {
+    "path": "04_PhysX-3D/04_한계및후속작업/2026-10-03_29806_29354_GT_only_GUI_증거/run_gui_29806_gpu0_gated_recovery_end_to_end.sh",
+    "recovery_steps_max": 300,
+    "recovery_rate_hz": 60,
+    "recovery_wall_range_s": [
+      0.5,
+      5.0
+    ],
+    "post_recovery_closed_hold_s": 1.5,
+    "video_wall_range_s": [
+      31.5,
+      45.0
+    ],
+    "after_initialize_to_video_complete_range_s": [
+      33.5,
+      51.5
+    ],
+    "host_startup_not_included": true
+  },
+  "29354": "BLOCKED_UNTIL_29806_SAVED_VIDEO_HUMAN_REVIEW",
+  "joint_frames": {
+    "/gt_29806/Physics/gt_C_1": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_1",
+      "axis": "Y",
+      "local_pos0": [
+        0.8148394227027893,
+        0.2987506091594696,
+        -0.22010788321495056
+      ],
+      "local_pos1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_rot0": "(1, 0, 0, 0)",
+      "local_rot1": "(1, 0, 0, 0)",
+      "lower_limit_degrees": -180.0,
+      "upper_limit_degrees": 0.0
+    },
+    "/gt_29806/Physics/gt_C_2": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_2",
+      "axis": "Y",
+      "local_pos0": [
+        0.2527289092540741,
+        0.3085097372531891,
+        -0.22462722659111023
+      ],
+      "local_pos1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_rot0": "(1, 0, 0, 0)",
+      "local_rot1": "(1, 0, 0, 0)",
+      "lower_limit_degrees": -180.0,
+      "upper_limit_degrees": 0.0
+    },
+    "/gt_29806/Physics/gt_C_3": {
+      "body0": "/gt_29806/Geometry/world/l_0",
+      "body1": "/gt_29806/Geometry/world/l_0/abstract_3",
+      "axis": "Y",
+      "local_pos0": [
+        -0.2784666121006012,
+        -0.3179835081100464,
+        -0.22822706401348114
+      ],
+      "local_pos1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_rot0": "(1, 0, 0, 0)",
+      "local_rot1": "(1, 0, 0, 0)",
+      "lower_limit_degrees": -180.0,
+      "upper_limit_degrees": 0.0
+    }
+  },
+  "physics_properties": {
+    "rigid_body_count": 11,
+    "collider_count": 8,
+    "self_collision_enabled": false,
+    "authored_mass_kg": 1.0,
+    "authored_diagonal_inertia": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "drive": {
+      "stiffness": 1.7453293,
+      "damping": 0.17453292,
+      "max_force": 2000.0,
+      "velocity_limit_degrees_per_s": 114.59156,
+      "velocity_limit_rad_per_s": 2.0
+    },
+    "initial_overlap_or_contact": "NOT_RECORDED",
+    "manager_step_1_2_contact_impulses": "NOT_RECORDED"
+  }
+}

@@ -2,6 +2,12 @@
 
 이 폴더는 **GT-only reference — not AI prediction** 검증을 위한 실행 준비 기록이다. 기존 GPU 1 headless 결과와 새 GPU 0 GUI 실행은 서로 다른 실행으로 취급한다.
 
+## 2026-10-05 — initialization recovery 통합 runner
+
+Initialization-only 실행은 `SimulationManager.initialize_physics()`에서 manager step이 0→2가 된 직후 red door pixel이 사라진 것을 확인했다. authored USD의 root/body/linked-clone transform은 전후 동일했고 tensor 상태는 유한한 작은 각도·속도였다. 큰 body snap이나 collision 폭발은 확인되지 않았으며 runtime/Fabric presentation, occlusion, constraint/collision correction은 후보로 남는다. 상세 수치와 네 실행 비교는 [준비 감사](29806_gated_recovery_preparation.md) 및 [JSON](29806_gated_recovery_preparation_audit.json)에 기록했다.
+
+새 `run_gui_29806_gpu0_gated_recovery_end_to_end.sh`는 세 관절의 근거 있는 closed target 0 rad를 매 step 보내는 최대 300-step recovery를 먼저 수행한다. 수치·pixel·root·finite 조건이 모두 통과한 경우에만 1.5초 닫힘 유지 후 느린 세 문 구동과 녹화를 시작한다. Host 실행 전 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이며 29354는 계속 차단한다.
+
 ## 순차 gate
 
 1. `29806`을 먼저 실행한다. 실제 USD 관계를 따라 세 회전관절과 문 시각 mesh를 매핑하고, 세 DOF를 하나씩 구동한다.

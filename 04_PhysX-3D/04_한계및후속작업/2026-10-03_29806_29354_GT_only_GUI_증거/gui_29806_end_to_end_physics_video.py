@@ -34,6 +34,9 @@ POSITION_SETTLE_RAD = MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD
 VELOCITY_SETTLE_RAD_S = 0.05
 SETTLE_CONSECUTIVE_STEPS = 30
 SETTLE_TIMEOUT_STEPS = 300
+RECOVERY_TIMEOUT_STEPS = 300
+RECOVERY_PIXEL_RATIO = 0.20
+RECOVERY_CENTER_SHIFT_PX = 40.0
 
 
 def digest(path: Path) -> str:
@@ -123,6 +126,7 @@ def main() -> int:
     parser.add_argument("--capture-offset", default="0,0")
     parser.add_argument("--static-mapping-gate", action="store_true")
     parser.add_argument("--initialization-diagnostic", action="store_true")
+    parser.add_argument("--gated-recovery-end-to-end", action="store_true")
     args = parser.parse_args()
     args.run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -604,8 +608,12 @@ def main() -> int:
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
         def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True):
             path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path));started=time.monotonic()
+            last_capture_heartbeat=0.0
             while not task.done():
                 before=time.monotonic();app.update();after=time.monotonic()
+                if after-last_capture_heartbeat>=1.0:
+                    (args.run_dir/"gui_heartbeat.json").write_text(json.dumps({"phase":f"VIEWPORT_CAPTURE_{label}","wall_monotonic_s":after,"elapsed_s":after-started,"physics_step_count":SimulationManager.get_num_physics_steps()})+"\n")
+                    last_capture_heartbeat=after
                 if after-before>5.0 or after-started>15.0:task.cancel();raise RuntimeError(f"visual continuity capture watchdog failed: {label}")
                 time.sleep(0.01)
             if not task.result() or not path.is_file() or path.stat().st_size==0:raise RuntimeError(f"visual continuity capture missing: {label}")
@@ -653,7 +661,10 @@ def main() -> int:
         if articulation.count != 1 or articulation.max_dofs != 3:
             raise RuntimeError(f"articulation count/dof={articulation.count}/{articulation.max_dofs}")
         meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ENABLED",update_fabric_for_steps=True)
-        after_initialize=capture_pixel_gate("after_initialize",0,prephysics_gate["components"],raise_on_fail=not args.initialization_diagnostic)
+        after_initialize=capture_pixel_gate(
+            "after_initialize", 0, prephysics_gate["components"],
+            raise_on_fail=not (args.initialization_diagnostic or args.gated_recovery_end_to_end),
+        )
         continuity=[after_initialize]
         def tensor_state(label):
             positions=nested_values(articulation.get_dof_positions())[0];velocities=nested_values(articulation.get_dof_velocities())[0];links=nested_values(articulation.get_link_transforms())[0]
@@ -664,14 +675,17 @@ def main() -> int:
             (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"FAIL","captures":continuity},indent=2)+"\n")
             (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_DIAGNOSTIC_PIXEL_FAIL_AFTER_INITIALIZE\n")
             return 20
-        for relative_step in range(1,11):
+        # The gated runner deliberately does not issue these uncontrolled steps.
+        # Its first post-initialize steps all carry the full closed-target vector.
+        for relative_step in ([] if args.gated_recovery_end_to_end else range(1,11)):
             before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);app.update()
             if SimulationManager.get_num_physics_steps()<=before:raise RuntimeError("PhysicsScene did not advance")
             if relative_step in (1,2,5,10):
                 gate=capture_pixel_gate(f"step_{relative_step}",relative_step,prephysics_gate["components"],raise_on_fail=not args.initialization_diagnostic);continuity.append(gate);report["initialization_diagnostic"][f"step_{relative_step}"]={"usd":usd_snapshot(f"step_{relative_step}",gate),"tensor":tensor_state(f"step_{relative_step}")};diagnostic_marker(f"STEP_{relative_step}_CAPTURED",pixel_status=gate["status"])
                 if args.initialization_diagnostic and gate["status"]!="PASS":break
-        (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"PASS","captures":continuity},indent=2)+"\n")
-        report["visual_continuity_gate"]={"status":"PASS","captures":continuity}
+        continuity_status="PASS" if all(row["status"]=="PASS" for row in continuity) else "INITIALIZATION_TRANSIENT_REQUIRES_RECOVERY"
+        (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":continuity_status,"captures":continuity},indent=2)+"\n")
+        report["visual_continuity_gate"]={"status":continuity_status,"captures":continuity}
         if args.initialization_diagnostic:
             report["status"]="INITIALIZATION_DIAGNOSTIC_COMPLETE";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False;diagnostic_marker("INITIALIZATION_DIAGNOSTIC_COMPLETE")
             (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"initialization_diagnostic_complete.json").write_text(json.dumps({"status":report["status"],"manager_step":SimulationManager.get_num_physics_steps()},indent=2)+"\n")
@@ -700,7 +714,13 @@ def main() -> int:
             spec["link_index"] = link_indices[body_name]
             spec["door_joint"] = next((Path(path).name for path,rel in joint_bodies.items() if rel["body1"] == spec["rigid_body_parent"] or connected(fixed_graph, rel["body1"], spec["rigid_body_parent"])), None)
 
-        closed = {name: limits[name][1] - 0.08*(limits[name][1]-limits[name][0]) for name in dof_names}
+        # URDF origin, identity USD joint frames, upper limit 0, authored body
+        # transforms and the tensor radian convention all independently place
+        # the authored closed geometry at q=0.  Abort rather than guessing if
+        # this invariant changes in a future input.
+        if any(abs(limits[name][1]) > 1.0e-6 for name in dof_names):
+            raise RuntimeError(f"closed-target evidence no longer supports q=0: {limits}")
+        closed = {name: 0.0 for name in dof_names}
         opened = {name: limits[name][1] - 0.42*(limits[name][1]-limits[name][0]) for name in dof_names}
         joint_authored_properties={str(joint.GetPath()):{name:str(joint.GetAttribute(name).Get()) for name in joint.GetPropertyNames() if any(token in name.lower() for token in ("drive","stiffness","damping","effort","velocity","limit"))} for joint in revolute}
         report["preflight"] = {
@@ -711,8 +731,8 @@ def main() -> int:
             "rigid_body_count": len(rigid), "collider_count": len(colliders),
             "dof_names": dof_names, "dof_indices": dof_indices,
             "link_names":link_names,"root_link_name":root_link_name,"root_link_index":root_link_index,
-            "joint_limits_rad": limits, "closed_targets_rad":closed,"open_targets_rad":opened,"target_derivation":{"closed":"upper - 0.08*(upper-lower)","open":"upper - 0.42*(upper-lower)"},"authored_drive_and_limit_properties":joint_authored_properties,
-            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"maximum_inactive_excursion_from_settled_baseline_rad":MAX_INACTIVE_EXCURSION_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"root_threshold_scope":"conservative GUI smoke operating criteria; not an equivalence claim to previous headless values","previous_failed_run_root_observations":{"translation_max_m":3.9745080992257815e-05,"orientation_max_rad":0.0009765642395587193},"settle_position_error_rad":POSITION_SETTLE_RAD,"settle_velocity_rad_s":VELOCITY_SETTLE_RAD_S,"settle_consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"settle_timeout_steps":SETTLE_TIMEOUT_STEPS,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":0.20,"visual_continuity_max_center_shift_px":40.0,"minimum_wall_duration_fraction":0.90},
+            "joint_limits_rad": limits, "closed_targets_rad":closed,"open_targets_rad":opened,"target_derivation":{"closed":"0 rad: URDF origin + identity USD local rotations + authored body/localPos0 equality + upper limit 0 + tensor radians","open":"upper - 0.42*(upper-lower)"},"authored_drive_and_limit_properties":joint_authored_properties,
+            "thresholds_declared_before_drive":{"minimum_active_response_span_rad":MIN_ACTIVE_RESPONSE_SPAN_RAD,"maximum_closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"maximum_inactive_excursion_from_settled_baseline_rad":MAX_INACTIVE_EXCURSION_RAD,"maximum_root_translation_drift_m":MAX_ROOT_TRANSLATION_DRIFT_M,"maximum_root_orientation_drift_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"root_threshold_scope":"conservative GUI smoke operating criteria; not an equivalence claim to previous headless values","previous_failed_run_root_observations":{"translation_max_m":3.9745080992257815e-05,"orientation_max_rad":0.0009765642395587193},"settle_position_error_rad":POSITION_SETTLE_RAD,"settle_velocity_rad_s":VELOCITY_SETTLE_RAD_S,"settle_consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"settle_timeout_steps":SETTLE_TIMEOUT_STEPS,"recovery_timeout_steps":RECOVERY_TIMEOUT_STEPS,"visual_component_min_pixels":30,"visual_continuity_min_pixel_ratio":RECOVERY_PIXEL_RATIO,"visual_continuity_max_center_shift_px":RECOVERY_CENTER_SHIFT_PX,"minimum_wall_duration_fraction":0.90},
             "runtime_physics_scene": scene.path, "clone_meshes": clone_specs,
             "source_instance_proxies_modified": False,
             "clone_xforms_before_simulation": clone_xforms_before,
@@ -740,7 +760,7 @@ def main() -> int:
                 await omni.kit.app.get_app().next_update_async()
 
         SIM_HZ=60.0
-        schedule={"simulation_hz":SIM_HZ,"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_min_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"closed_settle_timeout_s":SETTLE_TIMEOUT_STEPS/SIM_HZ},"per_door_min_s":9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"per_door_max_s":9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ,"three_doors_min_s":3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),"three_doors_max_s":3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ),"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_range_s":[3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
+        schedule={"simulation_hz":SIM_HZ,"initialization_recovery":{"minimum_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"maximum_s":RECOVERY_TIMEOUT_STEPS/SIM_HZ,"post_recovery_closed_hold_s":1.5,"recorder_starts_after_recovery":True},"per_door":{"closed_hold_s":1.5,"open_ramp_s":3.0,"open_hold_s":1.5,"close_ramp_s":3.0,"closed_settle_min_s":SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"closed_settle_timeout_s":SETTLE_TIMEOUT_STEPS/SIM_HZ},"per_door_min_s":9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ,"per_door_max_s":9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ,"three_doors_min_s":3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),"three_doors_max_s":3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ),"capture_static_start_s":1.0,"capture_static_end_s":2.0,"expected_video_range_s":[3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"expected_after_initialize_to_video_complete_s":[SETTLE_CONSECUTIVE_STEPS/SIM_HZ+1.5+3.0+3*(9.0+SETTLE_CONSECUTIVE_STEPS/SIM_HZ),RECOVERY_TIMEOUT_STEPS/SIM_HZ+1.5+3.0+3*(9.0+SETTLE_TIMEOUT_STEPS/SIM_HZ)],"maximum_shortfall_fraction":0.10,"trajectory":"smoothstep u*u*(3-2*u)"}
         report["schedule"]=schedule
 
         def target_array(target_vector):
@@ -785,6 +805,65 @@ def main() -> int:
                     return {"status":"PASS","label":label,"closed_target_rad":dict(closed),"settle_completed_measured_rad":measured,"closed_target_absolute_error_rad":errors,"settled_baseline_rad":dict(measured),"maximum_velocity_during_settle_rad_s":maximum_velocity,"settle_steps":local_step+1,"settle_wall_s":time.monotonic()-settle_start,"consecutive_stable_steps":consecutive,"thresholds":{"absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"velocity_rad_s":VELOCITY_SETTLE_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"timeout_steps":SETTLE_TIMEOUT_STEPS}}
             raise RuntimeError(f"closed settle timeout {label}: errors={errors} velocities={velocity}")
 
+        async def initialization_recovery():
+            """Recover the authored closed pose before recorder/door schedule.
+
+            Every recovery step sends all three closed targets.  A failed
+            post-initialize image is evidence retained by the report, not an
+            instruction to hide the transient or to start the active schedule.
+            """
+            recovery_path=args.run_dir/"initialization_recovery_report.json"
+            checkpoint_steps={1,2,5,10,30,60,120,180,240,300}
+            start=time.monotonic();records=[];captures=[];consecutive=0
+            initial_links=nested_values(articulation.get_link_transforms())[0]
+            root_reference=initial_links[root_link_index]
+            status="INITIALIZATION_RECOVERY_FAIL"
+            stable_result=None
+            for local_step in range(1,RECOVERY_TIMEOUT_STEPS+1):
+                readback=target_array(closed)
+                before=SimulationManager.get_num_physics_steps()
+                SimulationManager.step(steps=1,update_fabric=True)
+                after=SimulationManager.get_num_physics_steps()
+                deadline=start+local_step/SIM_HZ
+                while time.monotonic()<deadline:
+                    await omni.kit.app.get_app().next_update_async()
+                positions=articulation.get_dof_positions();velocities=articulation.get_dof_velocities();links=articulation.get_link_transforms()
+                if after<=before or not all(finite_array(x) for x in (positions,velocities,links)):
+                    raise RuntimeError("INITIALIZATION_RECOVERY_FAIL nonfinite state or physics did not advance")
+                pos=nested_values(positions)[0];vel=nested_values(velocities)[0];link_values=nested_values(links)[0]
+                measured={name:float(pos[index]) for name,index in dof_indices.items()}
+                velocity={name:float(vel[index]) for name,index in dof_indices.items()}
+                errors={name:abs(measured[name]-closed[name]) for name in dof_names}
+                root_translation,root_orientation=pose_delta(root_reference,link_values[root_link_index])
+                max_link_distance=max(math.dist(link[:3],link_values[root_link_index][:3]) for link in link_values)
+                if max_link_distance>asset_scale*4.0:
+                    raise RuntimeError(f"INITIALIZATION_RECOVERY_FAIL body escaped asset bounds: {max_link_distance}")
+                if root_translation>MAX_ROOT_TRANSLATION_DRIFT_M or root_orientation>MAX_ROOT_ORIENTATION_DRIFT_RAD:
+                    raise RuntimeError(f"INITIALIZATION_RECOVERY_FAIL root drift: {root_translation}/{root_orientation}")
+                stable=all(errors[name]<=MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD and abs(velocity[name])<=VELOCITY_SETTLE_RAD_S for name in dof_names)
+                consecutive=consecutive+1 if stable else 0
+                row={"recovery_step":local_step,"manager_steps":[before,after],"wall_elapsed_s":time.monotonic()-start,"target_vector_rad":dict(closed),"target_readback_vector_rad":readback,"positions_rad":measured,"velocities_rad_s":velocity,"closed_target_absolute_error_rad":errors,"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"maximum_link_distance_from_root_m":max_link_distance,"finite":True,"consecutive_numeric_stable_steps":consecutive,"rigid_body_link_transforms_xyzw":link_values,"clone_world_transforms_from_physics_body":{spec["clone_mesh"]:transform7_matrix(link_values[spec["link_index"]],Gf) for spec in clone_specs}}
+                records.append(row)
+                gate=None
+                if local_step in checkpoint_steps:
+                    gate=capture_pixel_gate(f"recovery_step_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False)
+                    captures.append(gate)
+                if consecutive>=SETTLE_CONSECUTIVE_STEPS:
+                    gate=gate or capture_pixel_gate(f"recovery_stable_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False)
+                    if gate not in captures: captures.append(gate)
+                    pixels_ok=gate["status"]=="PASS"
+                    if pixels_ok:
+                        status="INITIALIZATION_RECOVERY_PASS"
+                        stable_result={"step":local_step,"manager_step":after,"measured_rad":measured,"velocity_rad_s":velocity,"closed_target_absolute_error_rad":errors,"settled_baseline_rad":dict(measured),"root_translation_drift_m":root_translation,"root_orientation_drift_rad":root_orientation,"pixel_gate":gate}
+                        break
+                    consecutive=0
+            result={"status":status,"closed_targets_rad":dict(closed),"closed_target_evidence":report["preflight"]["target_derivation"]["closed"],"records":records,"captures":captures,"stable_result":stable_result,"thresholds":{"timeout_steps":RECOVERY_TIMEOUT_STEPS,"closed_target_absolute_error_rad":MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD,"velocity_rad_s":VELOCITY_SETTLE_RAD_S,"consecutive_steps":SETTLE_CONSECUTIVE_STEPS,"pixel_ratio_to_static_baseline":RECOVERY_PIXEL_RATIO,"pixel_center_shift_px":RECOVERY_CENTER_SHIFT_PX,"root_translation_m":MAX_ROOT_TRANSLATION_DRIFT_M,"root_orientation_rad":MAX_ROOT_ORIENTATION_DRIFT_RAD,"body_escape_distance_m":asset_scale*4.0},"video_recorder_started":False,"active_door_schedule_started":False,"clone_xform_authored_after_start":authored_clone_xforms(clone_prims)!=clone_xforms_before,"clone_time_samples_added":clone_time_samples(clone_prims)-clone_time_samples_before}
+            recovery_path.write_text(json.dumps(result,indent=2)+"\n")
+            if status!="INITIALIZATION_RECOVERY_PASS":
+                (args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_RECOVERY_FAIL\n")
+                raise RuntimeError("INITIALIZATION_RECOVERY_FAIL: 300 closed-target steps did not satisfy numeric and rendered-pixel gates")
+            return result
+
         async def establish_closed():
             positions=nested_values(articulation.get_dof_positions())[0];initial={name:float(positions[index]) for name,index in dof_indices.items()};sink=[];start=time.monotonic()
             await paced_segment("ALL","initial_close_ramp",initial,closed,60,sink,start)
@@ -808,9 +887,20 @@ def main() -> int:
         (args.run_dir / "runner_phase.txt").write_text("STATIC_PREFLIGHT\n")
         run_responsive(idle_updates(3.0), "STATIC_PREFLIGHT", minimum_wall_s=3.0, pace_s=0.01)
         (args.run_dir / "marker_structure_mapping.json").write_text(json.dumps(report["preflight"],indent=2)+"\n")
-        (args.run_dir / "runner_phase.txt").write_text("CLOSED_SETTLE_PREFLIGHT\n")
-        report["pretest"]["closed_settle"]=run_responsive(establish_closed(),"CLOSED_SETTLE_PREFLIGHT",pace_s=0.0)
-        (args.run_dir / "marker_pretest_pass.json").write_text(json.dumps({"status":"PASS","scope":"visual continuity plus closed settle; no fast door sweep", "closed_settle":report["pretest"]["closed_settle"]},indent=2)+"\n")
+        if args.gated_recovery_end_to_end:
+            (args.run_dir / "runner_phase.txt").write_text("INITIALIZATION_RECOVERY_DIAGNOSTIC\n")
+            recovery=run_responsive(initialization_recovery(),"INITIALIZATION_RECOVERY_DIAGNOSTIC",pace_s=0.0)
+            report["initialization_recovery"]=recovery
+            report["pretest"]["closed_settle"]={"status":"PASS","label":"initialization_recovery","closed_target_rad":dict(closed),"settle_completed_measured_rad":recovery["stable_result"]["measured_rad"],"closed_target_absolute_error_rad":recovery["stable_result"]["closed_target_absolute_error_rad"],"settled_baseline_rad":recovery["stable_result"]["settled_baseline_rad"],"maximum_velocity_during_settle_rad_s":{name:max(abs(row["velocities_rad_s"][name]) for row in recovery["records"]) for name in dof_names},"settle_steps":recovery["stable_result"]["step"],"settle_wall_s":recovery["records"][-1]["wall_elapsed_s"],"consecutive_stable_steps":SETTLE_CONSECUTIVE_STEPS}
+            # Keep the recovered closed pose visible for 1.5 real seconds while
+            # continuing to send the complete closed vector. Recorder starts later.
+            hold_sink=[];hold_start=time.monotonic()
+            run_responsive(paced_segment("ALL","recovery_closed_hold",closed,closed,90,hold_sink,hold_start,recovery["stable_result"]["settled_baseline_rad"]),"RECOVERY_CLOSED_HOLD",pace_s=0.0)
+            report["initialization_recovery"]["post_recovery_closed_hold"]={"planned_s":1.5,"records":len(hold_sink)}
+        else:
+            (args.run_dir / "runner_phase.txt").write_text("CLOSED_SETTLE_PREFLIGHT\n")
+            report["pretest"]["closed_settle"]=run_responsive(establish_closed(),"CLOSED_SETTLE_PREFLIGHT",pace_s=0.0)
+        (args.run_dir / "marker_pretest_pass.json").write_text(json.dumps({"status":"PASS","scope":"recovery plus closed settle; active schedule and recorder not yet started", "closed_settle":report["pretest"]["closed_settle"]},indent=2)+"\n")
 
         display = os.environ.get("DISPLAY")
         if not display:
