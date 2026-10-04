@@ -146,6 +146,7 @@ def main() -> int:
     parser.add_argument("--capture-offset", default="0,0")
     parser.add_argument("--static-mapping-gate", action="store_true")
     parser.add_argument("--initialization-diagnostic", action="store_true")
+    parser.add_argument("--initialization-isolation-diagnostic", action="store_true")
     parser.add_argument("--gated-recovery-end-to-end", action="store_true")
     args = parser.parse_args()
     args.run_dir.mkdir(parents=True, exist_ok=True)
@@ -626,17 +627,20 @@ def main() -> int:
             handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
             return await asyncio.wait_for(handle.wait_for_result(completion_frames=1 if fast else 30),timeout=15.0)
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
-        def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False):
-            path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path,fast=fast));started=time.monotonic()
-            last_capture_heartbeat=0.0
-            while not task.done():
-                before=time.monotonic();app.update();after=time.monotonic()
-                if after-last_capture_heartbeat>=1.0:
-                    (args.run_dir/"gui_heartbeat.json").write_text(json.dumps({"phase":f"VIEWPORT_CAPTURE_{label}","wall_monotonic_s":after,"elapsed_s":after-started,"physics_step_count":SimulationManager.get_num_physics_steps()})+"\n")
-                    last_capture_heartbeat=after
-                if after-before>5.0 or after-started>15.0:task.cancel();raise RuntimeError(f"visual continuity capture watchdog failed: {label}")
-                time.sleep(0.01)
-            if not task.result() or not path.is_file() or path.stat().st_size==0:raise RuntimeError(f"visual continuity capture missing: {label}")
+        def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False,captured_path=None):
+            path=captured_path or args.run_dir/f"visual_continuity_{label}.png"
+            if captured_path is None:
+                task=asyncio.ensure_future(capture_viewport_png(path,fast=fast));started=time.monotonic()
+                last_capture_heartbeat=0.0
+                while not task.done():
+                    before=time.monotonic();app.update();after=time.monotonic()
+                    if after-last_capture_heartbeat>=1.0:
+                        (args.run_dir/"gui_heartbeat.json").write_text(json.dumps({"phase":f"VIEWPORT_CAPTURE_{label}","wall_monotonic_s":after,"elapsed_s":after-started,"physics_step_count":SimulationManager.get_num_physics_steps()})+"\n")
+                        last_capture_heartbeat=after
+                    if after-before>5.0 or after-started>15.0:task.cancel();raise RuntimeError(f"visual continuity capture watchdog failed: {label}")
+                    time.sleep(0.01)
+                if not task.result():raise RuntimeError(f"visual continuity capture API failed: {label}")
+            if not path.is_file() or path.stat().st_size==0:raise RuntimeError(f"visual continuity capture missing: {label}")
             image=Image.open(path).convert("RGB");hsv=np.asarray(image.convert("HSV"));masks=masks_factory(hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]);components={}
             for name,raw in masks.items():
                 labels,_=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
@@ -664,6 +668,12 @@ def main() -> int:
             result={"label":label,"status":status,"status_scope":"TRANSIENT_MONITOR_ONLY" if baseline else "STATIC_BASELINE","relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"components":components,"missing":missing,"continuity":continuity,"final_recovery_visual_gate":final_recovery}
             if status!="PASS" and raise_on_fail:raise RuntimeError(f"VISUAL_CONTINUITY_GATE_FAIL {result}")
             return result
+        async def capture_pixel_gate_async(label,relative_step,baseline=None,raise_on_fail=True,fast=False):
+            """Capture inside an existing Kit task without nested app.update()."""
+            path=args.run_dir/f"visual_continuity_{label}.png"
+            if not await capture_viewport_png(path,fast=fast):
+                raise RuntimeError(f"visual continuity capture API failed: {label}")
+            return capture_pixel_gate(label,relative_step,baseline,raise_on_fail,fast,captured_path=path)
         prephysics_gate=capture_pixel_gate("prephysics",None)
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
@@ -695,6 +705,13 @@ def main() -> int:
         if articulation.count != 1 or articulation.max_dofs != 3:
             raise RuntimeError(f"articulation count/dof={articulation.count}/{articulation.max_dofs}")
         meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ENABLED",update_fabric_for_steps=True)
+        runtime_dof_indices={name:int(meta.dof_indices[name]) for name in meta.dof_names}
+        runtime_link_indices={name:int(meta.link_indices[name]) for name in meta.link_names}
+        for spec in clone_specs:
+            body_name=Path(spec["rigid_body_parent"]).name
+            if body_name not in runtime_link_indices:raise RuntimeError(f"runtime body mapping missing {body_name}")
+            spec["link_name"]=body_name;spec["link_index"]=runtime_link_indices[body_name]
+        report["runtime_mapping"]={"dof_indices":runtime_dof_indices,"link_indices":runtime_link_indices,"clone_body_links":[{"source":s["source_mesh"],"clone":s["clone_mesh"],"component":s["component_label"],"body":s["rigid_body_parent"],"runtime_link":s["link_name"],"runtime_link_index":s["link_index"]} for s in clone_specs]}
         after_initialize=capture_pixel_gate(
             "after_initialize", 0, prephysics_gate["components"],
             raise_on_fail=not (args.initialization_diagnostic or args.gated_recovery_end_to_end),
@@ -711,7 +728,7 @@ def main() -> int:
             return 20
         # The gated runner deliberately does not issue these uncontrolled steps.
         # Its first post-initialize steps all carry the full closed-target vector.
-        for relative_step in ([] if args.gated_recovery_end_to_end else range(1,11)):
+        for relative_step in ([] if (args.gated_recovery_end_to_end or args.initialization_isolation_diagnostic) else range(1,11)):
             before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);app.update()
             if SimulationManager.get_num_physics_steps()<=before:raise RuntimeError("PhysicsScene did not advance")
             if relative_step in (1,2,5,10):
@@ -787,6 +804,85 @@ def main() -> int:
                     heartbeat_path.write_text(json.dumps({"phase": phase, "wall_monotonic_s": now, "elapsed_s": now-started, "update_callback_count": update_count, "physics_step_count": SimulationManager.get_num_physics_steps()}) + "\n")
                     last_heartbeat = now
             return task.result()
+
+        def atomic_json(path, value):
+            temporary=path.with_suffix(path.suffix+".tmp")
+            temporary.write_text(json.dumps(value,indent=2)+"\n")
+            os.replace(temporary,path)
+
+        def runtime_geometry_state(label):
+            positions=nested_values(articulation.get_dof_positions())[0]
+            velocities=nested_values(articulation.get_dof_velocities())[0]
+            links=nested_values(articulation.get_link_transforms())[0]
+            items=[]
+            for spec in clone_specs:
+                clone=UsdGeom.Mesh(stage.GetPrimAtPath(spec["clone_mesh"]))
+                points=list(clone.GetPointsAttr().Get() or [])
+                link=links[spec["link_index"]]
+                matrix=Gf.Matrix4d(1.0);matrix.SetRotate(Gf.Quatd(float(link[6]),Gf.Vec3d(*map(float,link[3:6]))));matrix.SetTranslateOnly(Gf.Vec3d(*map(float,link[:3])))
+                predicted=[matrix.Transform(Gf.Vec3d(float(p[0]),float(p[1]),float(p[2]))) for p in points]
+                source=stage.GetPrimAtPath(spec["source_mesh"]);source_imageable=UsdGeom.Imageable(source);clone_imageable=UsdGeom.Imageable(clone.GetPrim())
+                items.append({"component":spec["component_label"],"source":spec["source_mesh"],"clone":spec["clone_mesh"],"body":spec["rigid_body_parent"],"link_name":spec["link_name"],"link_index":spec["link_index"],"source_instance_proxy":source.IsInstanceProxy(),"source_active":source.IsActive(),"source_loaded":source.IsLoaded(),"source_visibility":str(source_imageable.ComputeVisibility()),"source_purpose":str(source_imageable.ComputePurpose()),"source_points":spec["points"],"source_triangles":spec["triangles"],"source_world_bounds":spec["source_world_bounds"],"clone_visibility":str(clone_imageable.ComputeVisibility()),"clone_purpose":str(clone_imageable.ComputePurpose()),"clone_parent":str(clone.GetPrim().GetParent().GetPath()),"clone_local_points_space":"authored-body-local-derived-from-USD-body-transform","authored_body_world_transform":spec["target_body_world_transform"],"tensor_body_pose_xyzw":link,"predicted_fabric_clone_world_bounds":{"min":[min(float(p[i]) for p in predicted) for i in range(3)],"max":[max(float(p[i]) for p in predicted) for i in range(3)]},"material":str(UsdShade.MaterialBindingAPI(clone.GetPrim()).ComputeBoundMaterial()[0].GetPath()),"opacity":str(clone.GetDisplayOpacityPrimvar().Get()),"finite":all(math.isfinite(float(v)) for v in link)})
+            return {"label":label,"manager_step":SimulationManager.get_num_physics_steps(),"positions_rad":{name:float(positions[index]) for name,index in runtime_dof_indices.items()},"velocities_rad_s":{name:float(velocities[index]) for name,index in runtime_dof_indices.items()},"links_xyzw":links,"meshes":items,"clone_xform_authoring":authored_clone_xforms(clone_prims),"clone_time_samples":clone_time_samples(clone_prims)}
+
+        async def initialization_isolation_diagnostic():
+            """Bounded diagnosis only: no active-door schedule and no recorder."""
+            result={"status":"RUNNING","scope":"29806 initialization source/clone isolation; GT-only; no active schedule; no video recorder","manager_step_start":SimulationManager.get_num_physics_steps(),"phases":[],"isolation":[],"limitations":["Instance-proxy source prims are not edited or de-instanced; clone-only capture cannot be guaranteed. Source-only and source-plus-selected-clone captures are used to test overlap."],"physics_commands":{"closed_target_vector_rad":{"gt_C_1":0.0,"gt_C_2":0.0,"gt_C_3":0.0},"maximum_recovery_steps":10,"active_door_targets_sent":False}}
+            out=args.run_dir/"initialization_isolation_diagnostic.json"
+            atomic_json(out,result)
+            async def capture(label,baseline=None):
+                gate=await capture_pixel_gate_async(label,SimulationManager.get_num_physics_steps()-2,baseline,raise_on_fail=False,fast=True)
+                result["phases"].append({"label":label,"pixel_gate":gate,"state":runtime_geometry_state(label)})
+                atomic_json(out,result);diagnostic_marker("ISOLATION_CAPTURED",label=label,pixel_status=gate["status"])
+                return gate
+            # Capture the initialized full scene before any diagnostic visibility edit.
+            await capture("isolation_after_initialize_full",prephysics_gate["components"])
+            original_visibility={str(p.GetPath()):p.GetAttribute("visibility").Get() for p in clone_prims}
+            modes=[("source_only",set()),("source_plus_red",{"gt_C_1"}),("source_plus_green",{"gt_C_2"}),("source_plus_blue",{"gt_C_3"}),("source_plus_base",{"BASE"}),("source_plus_all",{"BASE","gt_C_1","gt_C_2","gt_C_3"})]
+            for mode,visible_labels in modes:
+                with Sdf.ChangeBlock():
+                    for spec,prim in zip(clone_specs,clone_prims):
+                        UsdGeom.Imageable(prim).GetVisibilityAttr().Set(UsdGeom.Tokens.inherited if spec["component_label"] in visible_labels else UsdGeom.Tokens.invisible)
+                for _ in range(3):await omni.kit.app.get_app().next_update_async()
+                gate=await capture("isolation_"+mode,None)
+                result["isolation"].append({"mode":mode,"visible_clone_components":sorted(visible_labels),"source_instance_proxies_edited":False,"capture":gate})
+                atomic_json(out,result)
+            with Sdf.ChangeBlock():
+                for prim in clone_prims:
+                    value=original_visibility[str(prim.GetPath())]
+                    prim.GetAttribute("visibility").Set(value or UsdGeom.Tokens.inherited)
+            for _ in range(3):await omni.kit.app.get_app().next_update_async()
+            await capture("isolation_restored_full",prephysics_gate["components"])
+            # Limited closed-target recovery diagnosis. All three targets are sent
+            # each step; no active door target and no submission recording exists.
+            checkpoints={1,2,5,10}
+            for step in range(1,11):
+                current=articulation.get_dof_position_targets();values=nested_values(current)
+                for name,index in runtime_dof_indices.items():values[0][index]=0.0
+                targets=wp.array(values,dtype=wp.float32,device=current.device)
+                articulation.set_dof_position_targets(targets,wp.array([0],dtype=wp.uint32,device=targets.device))
+                before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);after=SimulationManager.get_num_physics_steps()
+                await omni.kit.app.get_app().next_update_async()
+                state=runtime_geometry_state(f"closed_recovery_{step}");state["manager_steps"]=[before,after]
+                result["phases"].append({"label":f"closed_recovery_{step}","state":state})
+                atomic_json(out,result)
+                if step in checkpoints:await capture(f"isolation_closed_recovery_{step}",prephysics_gate["components"])
+            result["status"]="INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE"
+            result["manager_step_end"]=SimulationManager.get_num_physics_steps();result["active_door_schedule_started"]=False;result["video_recorder_started"]=False
+            result["clone_xform_authored_after_start"]=authored_clone_xforms(clone_prims)!=clone_xforms_before
+            result["clone_time_samples_added"]=clone_time_samples(clone_prims)-clone_time_samples_before
+            atomic_json(out,result)
+            diagnostic_marker("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",manager_step_end=result["manager_step_end"])
+            return result
+
+        if args.initialization_isolation_diagnostic:
+            (args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_ISOLATION_DIAGNOSTIC\n")
+            isolation=run_responsive(initialization_isolation_diagnostic(),"INITIALIZATION_ISOLATION_DIAGNOSTIC",pace_s=0.0)
+            report["initialization_isolation_diagnostic"]=isolation;report["status"]=isolation["status"]
+            atomic_json(args.run_dir/"physics_gui_report.json",report)
+            atomic_json(args.run_dir/"initialization_isolation_diagnostic_complete.json",{"status":isolation["status"],"manager_step":SimulationManager.get_num_physics_steps(),"physics_video_created":False,"active_door_schedule_started":False,"case_29354_executed":False})
+            print("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",flush=True)
+            return 0
 
         async def idle_updates(seconds):
             deadline = time.monotonic() + seconds
@@ -877,7 +973,7 @@ def main() -> int:
                 # A real viewport sample is required for every candidate step;
                 # the final counter therefore represents 30 consecutive physics
                 # and rendered-image states, not 30 tensor-only states.
-                gate=capture_pixel_gate(f"recovery_monitor_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False,fast=True)
+                gate=await capture_pixel_gate_async(f"recovery_monitor_{local_step}",local_step,prephysics_gate["components"],raise_on_fail=False,fast=True)
                 if local_step in checkpoint_steps:
                     captures.append(gate)
                 final_visual=gate["final_recovery_visual_gate"] or {"pass":False}

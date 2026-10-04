@@ -1,0 +1,401 @@
+{
+  "status": "LATEST_GATED_RUN_AUDITED_RUNNER_EVENT_LOOP_FAILURE_CAUSE_CONFIRMED_VISUAL_CAUSE_UNRESOLVED",
+  "scope": "29806 GT-only only; 29354 not executed",
+  "run": {
+    "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3",
+    "staging_dir": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3",
+    "start_mtime_kst": "2026-10-05T02:11:41.450+09:00",
+    "end_mtime_kst": "2026-10-05T02:12:09.773+09:00",
+    "wall_time_s_approx": 28.323,
+    "internal_python_exit_code": 0,
+    "wrapper_exit_code": {
+      "value": 11,
+      "evidence": "inferred from shell success_marker branch; not persisted as a separate file"
+    },
+    "last_success_phase": "INITIALIZATION_RECOVERY_DIAGNOSTIC entered; recovery closed target step 1 advanced manager 2->3",
+    "first_failure_phase": "nested internal viewport capture recovery_monitor_1",
+    "manager_step_final": 3,
+    "physics_steps_after_initialize": 1,
+    "recovery_records_flushed": 0,
+    "recovery_counter": "not computed before capture exception",
+    "closed_target_vectors_sent": 1,
+    "active_door_targets_sent": 0,
+    "recorder_started": false,
+    "active_schedule_started": false,
+    "success_marker": false,
+    "case_29354_executed": false
+  },
+  "failure": {
+    "exception": "RuntimeError: visual continuity capture watchdog failed: recovery_monitor_1",
+    "first_async_error": "Cannot enter into task capture_viewport_png while task initialization_recovery is being executed",
+    "confirmed_cause": "capture_pixel_gate called app.update() synchronously from inside initialization_recovery task, causing nested asyncio task re-entry",
+    "not_a_strict_gate_result": true
+  },
+  "pixels": {
+    "prephysics": {
+      "BASE_GRAY": {
+        "pixel_count": 9552,
+        "bbox_xyxy": [
+          302,
+          233,
+          984,
+          494
+        ],
+        "center_xy": [
+          641.9554020100503,
+          390.8999162479062
+        ]
+      },
+      "gt_C_1_RED": {
+        "pixel_count": 48951,
+        "bbox_xyxy": [
+          302,
+          233,
+          507,
+          486
+        ],
+        "center_xy": [
+          407.0647177790035,
+          361.9107066249923
+        ]
+      },
+      "gt_C_2_GREEN": {
+        "pixel_count": 59023,
+        "bbox_xyxy": [
+          508,
+          237,
+          748,
+          484
+        ],
+        "center_xy": [
+          627.3999288412991,
+          359.5273876285516
+        ]
+      },
+      "gt_C_3_BLUE": {
+        "pixel_count": 49943,
+        "bbox_xyxy": [
+          763,
+          237,
+          980,
+          481
+        ],
+        "center_xy": [
+          873.2113008830066,
+          360.56298179925113
+        ]
+      }
+    },
+    "after_initialize": {
+      "BASE_GRAY": {
+        "pixel_count": 9272,
+        "bbox_xyxy": [
+          302,
+          233,
+          984,
+          494
+        ],
+        "center_xy": [
+          641.1372950819672,
+          391.18518119068165
+        ]
+      },
+      "gt_C_1_RED": {
+        "pixel_count": 0,
+        "bbox_xyxy": null,
+        "center_xy": null
+      },
+      "gt_C_2_GREEN": {
+        "pixel_count": 43829,
+        "bbox_xyxy": [
+          546,
+          250,
+          747,
+          475
+        ],
+        "center_xy": [
+          646.0680827762441,
+          361.5558876542928
+        ]
+      },
+      "gt_C_3_BLUE": {
+        "pixel_count": 50073,
+        "bbox_xyxy": [
+          763,
+          237,
+          980,
+          481
+        ],
+        "center_xy": [
+          873.4590098456254,
+          360.50843768098576
+        ]
+      }
+    },
+    "continuity": {
+      "BASE_GRAY": {
+        "pixel_ratio_to_prephysics": 0.9706867671691792,
+        "center_shift_px": 0.8664150468189455,
+        "bbox_iou_to_prephysics": 1.0,
+        "transient_monitor_pass": true
+      },
+      "gt_C_1_RED": {
+        "pixel_ratio_to_prephysics": 0.0,
+        "center_shift_px": Infinity,
+        "bbox_iou_to_prephysics": 0.0,
+        "transient_monitor_pass": false
+      },
+      "gt_C_2_GREEN": {
+        "pixel_ratio_to_prephysics": 0.7425749284177354,
+        "center_shift_px": 18.778039932145003,
+        "bbox_iou_to_prephysics": 0.7638201044036943,
+        "transient_monitor_pass": true
+      },
+      "gt_C_3_BLUE": {
+        "pixel_ratio_to_prephysics": 1.0026029673828165,
+        "center_shift_px": 0.25364303853840403,
+        "bbox_iou_to_prephysics": 1.0,
+        "transient_monitor_pass": true
+      }
+    }
+  },
+  "pose_evidence": {
+    "l_0": {
+      "path": "/gt_29806/Geometry/world/l_0",
+      "usd_translation_delta_m": 0.0,
+      "usd_rotation_delta_rad": 0.0,
+      "authored_translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tensor_translation": [
+        -1.7508864402770996e-07,
+        2.682209014892578e-07,
+        -1.2740492820739746e-06
+      ],
+      "authored_tensor_translation_delta_m": 1.3136970953824868e-06
+    },
+    "abstract_1": {
+      "path": "/gt_29806/Geometry/world/l_0/abstract_1",
+      "usd_translation_delta_m": 0.0,
+      "usd_rotation_delta_rad": 0.0,
+      "authored_translation": [
+        0.8148394417762757,
+        0.2987506091594696,
+        -0.22010788321495056
+      ],
+      "tensor_translation": [
+        0.8148396015167236,
+        0.29875028133392334,
+        -0.22010856866836548
+      ],
+      "authored_tensor_translation_delta_m": 7.764231987299343e-07
+    },
+    "abstract_2": {
+      "path": "/gt_29806/Geometry/world/l_0/abstract_2",
+      "usd_translation_delta_m": 0.0,
+      "usd_rotation_delta_rad": 0.0,
+      "authored_translation": [
+        0.25272891879081727,
+        0.3085097372531891,
+        -0.22462722659111023
+      ],
+      "tensor_translation": [
+        0.25272905826568604,
+        0.30850937962532043,
+        -0.22462888062000275
+      ],
+      "authored_tensor_translation_delta_m": 1.6979877822691456e-06
+    },
+    "abstract_3": {
+      "path": "/gt_29806/Geometry/world/l_0/abstract_3",
+      "usd_translation_delta_m": 0.0,
+      "usd_rotation_delta_rad": 0.0,
+      "authored_translation": [
+        -0.2784666121006012,
+        -0.3179835081100464,
+        -0.22822706401348114
+      ],
+      "tensor_translation": [
+        -0.27846619486808777,
+        -0.3179836571216583,
+        -0.22822780907154083
+      ],
+      "authored_tensor_translation_delta_m": 8.668327076583496e-07
+    }
+  },
+  "tensor_after_initialize": {
+    "positions_rad": {
+      "gt_C_1": -0.0024875516537576914,
+      "gt_C_2": -0.0040285331197083,
+      "gt_C_3": -0.005303102545440197
+    },
+    "velocities_rad_s": {
+      "gt_C_1": -0.05113069340586662,
+      "gt_C_2": -0.09045516699552536,
+      "gt_C_3": -0.1323656290769577
+    }
+  },
+  "hypotheses": {
+    "A_duplicate_geometry_z_fighting": {
+      "status": "UNRESOLVED_STRONG_CANDIDATE_FOR_GREEN_STRIPES",
+      "evidence": "source instance-proxy Mesh visibility and linked clone visibility are both inherited; no source-only/clone differential capture exists"
+    },
+    "B_double_transform": {
+      "status": "NOT_SUPPORTED_BY_MANAGER_STEP_2_NUMBERS",
+      "evidence": "authored USD transforms did not change; authored-to-tensor translations differ by only 0.78–1.70e-6 m for doors"
+    },
+    "C_runtime_mapping": {
+      "status": "STATIC_MAPPING_VERIFIED_RUNTIME_INDEX_RECORDED_BUT_LATEST_RUN_ENDED_BEFORE_DIFFERENTIAL_TEST",
+      "dof_names": [
+        "gt_C_1",
+        "gt_C_2",
+        "gt_C_3"
+      ],
+      "link_names": [
+        "l_0",
+        "l_4",
+        "abstract_1",
+        "abstract_2",
+        "abstract_3",
+        "l_5",
+        "l_1",
+        "l_2",
+        "l_3",
+        "l_6",
+        "l_7"
+      ]
+    },
+    "D_visibility_material_hydra_fabric": {
+      "status": "UNRESOLVED",
+      "evidence": "red RGB component vanished while authored visibility/material/transforms remained; prim-ID/depth not captured"
+    },
+    "E_collision_constraint": {
+      "status": "UNRESOLVED",
+      "evidence": "finite small initial joint values/velocities and no explosion; no contact impulse/penetration measurement"
+    },
+    "F_camera_occlusion_clipping": {
+      "status": "CAMERA_ONLY_CAUSE_DISFAVORED_NOT_FULLY_EXCLUDED",
+      "evidence": "same camera showed red before initialization; geometry/material/occlusion cannot be separated without isolation"
+    },
+    "G_clone_is_physics_linked": {
+      "status": "CODE_VERIFIED_PRE_STEP_RUNTIME_NOT_FULLY_RECORDED",
+      "evidence": "clones are children of mapped bodies and no per-frame xform/keyframe writer exists; latest failure preceded recovery record flush"
+    }
+  },
+  "artifact_inventory": {
+    "log": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/command.txt",
+        "bytes": 773,
+        "sha256": "719974398d3d962c12c31205649643146401eeae8be4453bc282fc6d27910aae"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/exit_code.txt",
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/gpu.csv",
+        "bytes": 235,
+        "sha256": "20470d6ec4872a1c6efa5da3e587a47e9dd6cf617d2499ca92608df8c80a3882"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/preflight.json",
+        "bytes": 137,
+        "sha256": "fca0621fe5c76437ba46552934773793785a3d129cb07b49edfcc768ba6fb914"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/processes.csv",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/stderr.log",
+        "bytes": 7358,
+        "sha256": "f8be1c96566e13de53203467378cce18cb693a3505fa11d529ad7d37b4617789"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/stdout.log",
+        "bytes": 16714,
+        "sha256": "9300b763b1ce626572a117d53f6db9f2bc771acda53aec21f144d9fd82885720"
+      }
+    ],
+    "staging": [
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/gui_heartbeat.json",
+        "bytes": 175,
+        "sha256": "f7b5e2111ea93b104c942d4865a5cc573b20a404c6b2b803ce0d919620b112c9"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/initialization_diagnostic_markers.jsonl",
+        "bytes": 869,
+        "sha256": "588d1997902928f53fa2e123585d320272b55a2b24eab3225c3eae95cc019212"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/marker_structure_mapping.json",
+        "bytes": 48308,
+        "sha256": "b1f9b5eaad0b36525c313f1c1814b7ba725b0b837fb1feb64114412fb6d4094e"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/physics_gui_report.json",
+        "bytes": 138025,
+        "sha256": "cea009dd174c24fd51e4f43ad04e3f5f4cbfb997d5a9a0c207b0fd6e40242ecb"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/prephysics_pixel_gate.json",
+        "bytes": 1852,
+        "sha256": "9cc8277e5fbf8b100ae45a792a39197e2d928fa1b56b042a598334394735c0af"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/runner_phase.txt",
+        "bytes": 35,
+        "sha256": "57b1604a3b38a1137fe7883ce7a3896bc8bce7a88ad6b6137d0661f26810a6c0"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/static_mapping_gate.json",
+        "bytes": 43879,
+        "sha256": "8d6533c82d64c8efe6cea81bca76c0131c4ee1c8460196b97f10d7b1fa6b6291"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/visual_continuity_after_initialize.png",
+        "bytes": 262128,
+        "sha256": "3a9fb83e784d6f29c0b4f420f8c2413371900389b19c1efdb469ceef6e10a4e8"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/visual_continuity_gate.json",
+        "bytes": 4157,
+        "sha256": "29ae5ffc53bddbd6d9c96299b161492b344c6d1f9ff97745dc1e638fdc09ef5e"
+      },
+      {
+        "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T171141Z-29806-gpu0-gated-recovery-e2e-4c313a0c-65cc-4997-a267-87d23246fea3/visual_continuity_prephysics.png",
+        "bytes": 96514,
+        "sha256": "e7e362e84703b21fef3765eca11edcd8017756dd173981ba57f911bf7cb4028f"
+      }
+    ],
+    "mp4_count": 0,
+    "png_count": 2,
+    "json_count": 6,
+    "jsonl_count": 1,
+    "success_marker_count": 0
+  },
+  "next_runner": {
+    "name": "run_gui_29806_gpu0_initialization_isolation_diagnostic.sh",
+    "no_active_schedule": true,
+    "no_submission_recorder": true,
+    "closed_target_steps_max": 10,
+    "captures": [
+      "initialized full",
+      "source-only (all clones hidden)",
+      "source+red clone",
+      "source+green clone",
+      "source+blue clone",
+      "source+base clones",
+      "source+all clones",
+      "restored full",
+      "closed recovery steps 1/2/5/10"
+    ],
+    "clone_only_limit": "source instance proxies are not modified/de-instanced, so pure clone-only capture is not claimed"
+  }
+}
