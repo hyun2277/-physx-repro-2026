@@ -87,6 +87,12 @@ def main():
         assert token in source, token
     for token in ('--initialization-diagnostic','BEFORE_INITIALIZE_STATE_CAPTURED','PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS','TENSOR_VIEW_CREATED','AFTER_INITIALIZE_CAPTURED','INITIALIZATION_DIAGNOSTIC_COMPLETE','physics_commands_sent'):
         assert token in source, token
+    for token in ('--initialization-isolation-diagnostic','capture_pixel_gate_async','isolation_source_only_repeat','after_initialize_tensor_state.json','active_door_targets_sent'):
+        assert token in source, token
+    assert 'args.initialization_diagnostic or args.initialization_isolation_diagnostic or args.gated_recovery_end_to_end' in source
+    wrapper=(HERE/'run_gui_29806_gpu0_initialization_isolation_diagnostic.sh').read_text()
+    for token in ('python_exit_code.txt','wrapper_exit_code.txt','wrapper_exit_stage.txt','repository_head.txt','runner_hashes.txt'):
+        assert token in wrapper,token
     assert '3 * (540 + 30)' in validator and '3 * (540 + 300)' in validator
     print('PASS video_wall_range_s=31.5..45.0 recovery_physics_step_range_s=0.5..5.0 estimated_total_after_initialize_at_30_render_fps_s=34.0..56.5 transient_not_final=true ratio_069_fail=true shift_45_fail=true iou_050_fail=true velocity_0049_fail=true consecutive_reset=true consecutive_30_pass=true recovery_timeout=true inactive_mask=true video_validator_mock=true')
 if __name__=='__main__':main()

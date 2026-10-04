@@ -11,7 +11,7 @@ UUID=GPU-ff124b39-8b48-7d2a-bf74-bf6a5c8f1716
 BUS=00000000:01:00.0
 HUMAN_GATE="$DIR/29806_static_mapping_human_pass.json"
 
-fail(){ printf 'FAILED stage=%s LOG_DIR=%s STAGING_DIR=%s\n' "$1" "${LOG_DIR:-not-created}" "${STAGING_DIR:-not-created}" >&2; exit "${2:-1}"; }
+fail(){ local code="${2:-1}"; if [[ -n "${LOG_DIR:-}" && -d "$LOG_DIR" ]]; then printf '%s\n' "$code" >"$LOG_DIR/wrapper_exit_code.txt"; printf '%s\n' "$1" >"$LOG_DIR/wrapper_exit_stage.txt"; fi; printf 'FAILED stage=%s wrapper_exit=%s LOG_DIR=%s STAGING_DIR=%s\n' "$1" "$code" "${LOG_DIR:-not-created}" "${STAGING_DIR:-not-created}" >&2; exit "$code"; }
 [[ -n "${DISPLAY:-}" ]] || fail display_preflight 3
 python3 - "$HUMAN_GATE" <<'PY_GATE' || fail static_human_gate 13
 import json,sys
@@ -41,6 +41,8 @@ geometry="$(xrandr --current|awk '/ connected primary /{for(i=1;i<=NF;i++)if($i~
 [[ "$geometry" =~ ^([0-9]+x[0-9]+)\+([0-9]+)\+([0-9]+)$ ]] || fail xrandr_geometry 10
 size=${BASH_REMATCH[1]}; offset=${BASH_REMATCH[2]},${BASH_REMATCH[3]}
 printf '{"status":"PASS","gpu_index":0,"uuid":"%s","pci":"%s","multi_gpu":false,"p2p":false}\n' "$actual_uuid" "$actual_bus" >"$LOG_DIR/preflight.json"
+git -C "$REPO" rev-parse HEAD >"$LOG_DIR/repository_head.txt"
+sha256sum "$DIR/gui_29806_end_to_end_physics_video.py" "$0" >"$LOG_DIR/runner_hashes.txt"
 
 unset CUDA_VISIBLE_DEVICES NVIDIA_VISIBLE_DEVICES
 cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --initialization-isolation-diagnostic)
@@ -75,8 +77,10 @@ wait "$child_pid"; rc=$?
 kill "$watchdog_pid" 2>/dev/null || true
 wait "$watchdog_pid" 2>/dev/null || true
 set -e
-printf '%s\n' "$rc" >"$LOG_DIR/exit_code.txt"
+printf '%s\n' "$rc" >"$LOG_DIR/python_exit_code.txt"
 ((rc==0)) || fail isaac_child "$rc"
 rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE' "$LOG_DIR/stdout.log" || fail completion_marker 11
 [[ -f "$STAGING_DIR/initialization_isolation_diagnostic_complete.json" ]] || fail completion_report 12
+printf '0\n' >"$LOG_DIR/wrapper_exit_code.txt"
+printf 'complete\n' >"$LOG_DIR/wrapper_exit_stage.txt"
 printf 'DIAGNOSTIC_COMPLETE_PHYSICS_VIDEO_NOT_STARTED LOG_DIR=%s STAGING_DIR=%s\n' "$LOG_DIR" "$STAGING_DIR"

@@ -1,0 +1,250 @@
+{
+  "status": "INITIALIZATION_ISOLATION_DIAGNOSTIC_ABORTED_BEFORE_DIFFERENTIAL_CAPTURES",
+  "scope": "29806 GT-only only; no active schedule, recorder, or 29354",
+  "identity": {
+    "log_dir": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T174307Z-29806-gpu0-initialization-isolation-diagnostic-62eee980-6a7c-4954-85f8-ad7a805b08c2",
+    "staging_dir": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T174307Z-29806-gpu0-initialization-isolation-diagnostic-62eee980-6a7c-4954-85f8-ad7a805b08c2",
+    "runner": "run_gui_29806_gpu0_initialization_isolation_diagnostic.sh",
+    "repository_head_at_run": "78e246e1e065caa5b64ab5d50f2579d09d44a1aa",
+    "python_script_sha256_at_run": "e86ba1d818180d27ca70152ef7d910c4ad7c0edd94321a1196ed1e639b3735df",
+    "input_usd_sha256": "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
+  },
+  "termination": {
+    "start_kst": "2026-10-05T02:43:07.434+09:00",
+    "end_kst": "2026-10-05T02:43:17.529+09:00",
+    "wall_s_approx": 10.095,
+    "python_exit_file": 0,
+    "wrapper_exit": {
+      "value": 11,
+      "kind": "code-path inference; not persisted",
+      "stage": "completion_marker because diagnostic completion marker absent"
+    },
+    "last_success": "FABRIC_ENABLED; manager step 2",
+    "first_failure": "synchronous after_initialize pixel gate raised before initialization_isolation_diagnostic() entry",
+    "exception": "VISUAL_CONTINUITY_GATE_FAIL: red missing after initialize",
+    "async_reentry_recurred": false,
+    "watchdog": false
+  },
+  "execution": {
+    "manager_step": 2,
+    "simulation_steps_after_initialize": 0,
+    "closed_target_steps": 0,
+    "active_target_steps": 0,
+    "differential_captures": 0,
+    "recorder_started": false,
+    "mp4_count": 0,
+    "completion_marker": false,
+    "active_schedule_started": false,
+    "case_29354_executed": false
+  },
+  "images": {
+    "prephysics": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T174307Z-29806-gpu0-initialization-isolation-diagnostic-62eee980-6a7c-4954-85f8-ad7a805b08c2/visual_continuity_prephysics.png",
+      "bytes": 96492,
+      "sha256": "e30917c6b39a3ec42686b8b70731e084cd21bf5425c4e3051a083120677e0f22",
+      "red_region": {
+        "nonblack_ratio": 0.986832046479627,
+        "mean_rgb": [
+          220.5581377570522,
+          146.07648497821268,
+          138.71783502790308
+        ],
+        "row_luminance_std_mean": 27.48484925549055,
+        "adjacent_row_absdiff_mean": 0.9713726543612565
+      },
+      "green_region": {
+        "nonblack_ratio": 1.0,
+        "mean_rgb": [
+          132.5645328603935,
+          219.8152857716504,
+          167.48010641145763
+        ],
+        "row_luminance_std_mean": 1.1045973581183408,
+        "adjacent_row_absdiff_mean": 0.23433623957755734
+      }
+    },
+    "after_initialize": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T174307Z-29806-gpu0-initialization-isolation-diagnostic-62eee980-6a7c-4954-85f8-ad7a805b08c2/visual_continuity_after_initialize.png",
+      "bytes": 261967,
+      "sha256": "7861442e6688ae6959caae509ae45ce1971c4a90106acd7560aba64141e69cea",
+      "red_region": {
+        "nonblack_ratio": 0.04470223988991667,
+        "mean_rgb": [
+          7.749044415564559,
+          7.759613179420533,
+          7.84622735264888
+        ],
+        "row_luminance_std_mean": 18.719360234583387,
+        "adjacent_row_absdiff_mean": 1.6641339524412557
+      },
+      "green_region": {
+        "nonblack_ratio": 0.8272821576763485,
+        "mean_rgb": [
+          53.162494980591624,
+          121.10639472627493,
+          73.89735309864811
+        ],
+        "row_luminance_std_mean": 40.86288889896834,
+        "adjacent_row_absdiff_mean": 6.808456666722665
+      }
+    },
+    "visual_observation": "after initialize red panel interior becomes nearly black; green panel becomes horizontal alternating bands; blue remains solid; white base outline remains"
+  },
+  "differential_validity": {
+    "source_only_created": false,
+    "source_plus_red_created": false,
+    "source_plus_green_created": false,
+    "source_plus_blue_created": false,
+    "source_plus_base_created": false,
+    "source_plus_all_created": false,
+    "pure_clone_only_supported": false,
+    "conclusion": "No source/clone differential conclusion can be drawn from this run."
+  },
+  "render_geometry_inventory": [
+    {
+      "component": "BASE",
+      "source": "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/l_7/tn__7_",
+      "clone": "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 2542,
+      "triangles": 4850,
+      "source_clone_bounds_error_m": 0.0,
+      "clone_parent": "/gt_29806/Geometry/world/l_0"
+    },
+    {
+      "component": "BASE",
+      "source": "/gt_29806/Geometry/world/l_0/l_4/l_5/l_6/tn__6_/tn__6_",
+      "clone": "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 848,
+      "triangles": 1580,
+      "source_clone_bounds_error_m": 0.0,
+      "clone_parent": "/gt_29806/Geometry/world/l_0"
+    },
+    {
+      "component": "BASE",
+      "source": "/gt_29806/Geometry/world/l_0/l_4/l_5/tn__5_/tn__5_",
+      "clone": "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 850,
+      "triangles": 1584,
+      "source_clone_bounds_error_m": 0.0,
+      "clone_parent": "/gt_29806/Geometry/world/l_0"
+    },
+    {
+      "component": "BASE",
+      "source": "/gt_29806/Geometry/world/l_0/l_4/tn__4_/tn__4_",
+      "clone": "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 3222,
+      "triangles": 6189,
+      "source_clone_bounds_error_m": 0.0,
+      "clone_parent": "/gt_29806/Geometry/world/l_0"
+    },
+    {
+      "component": "gt_C_1",
+      "source": "/gt_29806/Geometry/world/l_0/abstract_1/l_1/tn__1_",
+      "clone": "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 940,
+      "triangles": 1759,
+      "source_clone_bounds_error_m": 2.9761791975335683e-08,
+      "clone_parent": "/gt_29806/Geometry/world/l_0/abstract_1"
+    },
+    {
+      "component": "gt_C_2",
+      "source": "/gt_29806/Geometry/world/l_0/abstract_2/l_2/tn__2_",
+      "clone": "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 1122,
+      "triangles": 2112,
+      "source_clone_bounds_error_m": 2.975551149919653e-08,
+      "clone_parent": "/gt_29806/Geometry/world/l_0/abstract_2"
+    },
+    {
+      "component": "gt_C_3",
+      "source": "/gt_29806/Geometry/world/l_0/abstract_3/l_3/tn__3_",
+      "clone": "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 1122,
+      "triangles": 2112,
+      "source_clone_bounds_error_m": 2.9801721201927478e-08,
+      "clone_parent": "/gt_29806/Geometry/world/l_0/abstract_3"
+    },
+    {
+      "component": "BASE",
+      "source": "/gt_29806/Geometry/world/l_0/tn__0_/tn__0_",
+      "clone": "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7",
+      "source_instance_proxy": true,
+      "source_visibility": "inherited",
+      "clone_visibility": "inherited",
+      "points": 2327,
+      "triangles": 4422,
+      "source_clone_bounds_error_m": 0.0,
+      "clone_parent": "/gt_29806/Geometry/world/l_0"
+    }
+  ],
+  "hypotheses": {
+    "duplicate_source_clone": {
+      "status": "GEOMETRIC_COINCIDENCE_CONFIRMED_RENDER_SIMULTANEITY_UNCONFIRMED",
+      "evidence": "Each source and linked clone shares topology and source/clone bounds within recorded tolerance; both authored visibility inherited. No differential capture reached."
+    },
+    "pose_transform": {
+      "status": "LATEST_RUNTIME_STATE_NOT_SAVED_BEFORE_CAPTURE_EXCEPTION",
+      "prior_evidence_only": "Previous manager-step-2 run showed zero authored USD delta and micrometer translation agreement; latest orientation/tensor state was not flushed."
+    },
+    "mapping": {
+      "status": "STATIC_AND_CODE_MAPPING_CONFIRMED_RUNTIME_FOLLOWING_NOT_REMEASURED_IN_LATEST_RUN"
+    },
+    "visibility_material_hydra": {
+      "status": "UNRESOLVED"
+    },
+    "collision_constraint": {
+      "status": "UNRESOLVED_NO_POST_INITIALIZE_TENSOR_OR_CONTACT_RECORD_IN_LATEST_RUN"
+    },
+    "camera_occlusion": {
+      "status": "UNRESOLVED_BUT_CAMERA_CHANGE_NOT_PRESENT",
+      "evidence": "same Camera_physics captured pre and after images"
+    }
+  },
+  "past_fast_run_comparison": {
+    "run": "20261003T120142Z-29806-gpu0-e2e-c04d3580-636d-4eca-bd4b-049db25ffcf0",
+    "code_commit_by_time": "d62dedd7bebf4ead9b950a6958661ef76f7f2c28",
+    "code_sha256": "7a8bd1db8232310b6d6588f198c2d98a92e2d61431960d64dea68479d63f7329",
+    "difference": "old runner stepped once after initialize then entered target commands with no after-initialize visual/recovery gate and no wall-clock pacing; latest diagnostic intentionally has no active schedule and aborted at after-initialize gate",
+    "both_failed": true
+  },
+  "fix": {
+    "include_isolation_mode_in_nonthrowing_after_initialize_gate": true,
+    "flush_tensor_state_before_capture": true,
+    "repeat_source_only_after_additive_modes": true,
+    "persist_python_and_wrapper_exit_separately": true,
+    "persist_HEAD_and_runner_hashes": true
+  },
+  "next_execution": {
+    "kind": "BOUNDED_INITIALIZATION_ISOLATION_DIAGNOSTIC",
+    "not_slow_drive": true,
+    "distinguishes": [
+      "whether source-only already contains red loss/green stripes",
+      "whether adding green clone introduces stripes",
+      "whether adding red clone restores red geometry",
+      "whether source-only repeats identically after mode changes",
+      "runtime pose evolution for closed target steps 1/2/5/10"
+    ],
+    "max_wall_timeout_s": 300
+  }
+}

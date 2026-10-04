@@ -712,14 +712,20 @@ def main() -> int:
             if body_name not in runtime_link_indices:raise RuntimeError(f"runtime body mapping missing {body_name}")
             spec["link_name"]=body_name;spec["link_index"]=runtime_link_indices[body_name]
         report["runtime_mapping"]={"dof_indices":runtime_dof_indices,"link_indices":runtime_link_indices,"clone_body_links":[{"source":s["source_mesh"],"clone":s["clone_mesh"],"component":s["component_label"],"body":s["rigid_body_parent"],"runtime_link":s["link_name"],"runtime_link_index":s["link_index"]} for s in clone_specs]}
-        after_initialize=capture_pixel_gate(
-            "after_initialize", 0, prephysics_gate["components"],
-            raise_on_fail=not (args.initialization_diagnostic or args.gated_recovery_end_to_end),
-        )
-        continuity=[after_initialize]
         def tensor_state(label):
             positions=nested_values(articulation.get_dof_positions())[0];velocities=nested_values(articulation.get_dof_velocities())[0];links=nested_values(articulation.get_link_transforms())[0]
             return {"label":label,"dof_names":list(meta.dof_names),"positions_rad":{name:float(positions[index]) for name,index in meta.dof_indices.items()},"velocities_rad_s":{name:float(velocities[index]) for name,index in meta.dof_indices.items()},"link_names":list(meta.link_names),"link_transforms_xyzw":links}
+        # Flush the tensor state before renderer capture so a capture failure
+        # cannot erase the first post-initialize physics evidence.
+        post_initialize_tensor=tensor_state("after_initialize_before_capture")
+        temporary=args.run_dir/"after_initialize_tensor_state.json.tmp"
+        temporary.write_text(json.dumps(post_initialize_tensor,indent=2)+"\n")
+        os.replace(temporary,args.run_dir/"after_initialize_tensor_state.json")
+        after_initialize=capture_pixel_gate(
+            "after_initialize", 0, prephysics_gate["components"],
+            raise_on_fail=not (args.initialization_diagnostic or args.initialization_isolation_diagnostic or args.gated_recovery_end_to_end),
+        )
+        continuity=[after_initialize]
         report["initialization_diagnostic"]["after_initialize"]={"usd":usd_snapshot("after_initialize",after_initialize),"tensor":tensor_state("after_initialize")};diagnostic_marker("AFTER_INITIALIZE_CAPTURED",pixel_status=after_initialize["status"])
         if args.initialization_diagnostic and after_initialize["status"]!="PASS":
             report["status"]="INITIALIZATION_DIAGNOSTIC_STOPPED_AT_AFTER_INITIALIZE_PIXEL_FAIL";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False
@@ -847,6 +853,14 @@ def main() -> int:
                 gate=await capture("isolation_"+mode,None)
                 result["isolation"].append({"mode":mode,"visible_clone_components":sorted(visible_labels),"source_instance_proxies_edited":False,"capture":gate})
                 atomic_json(out,result)
+            # Repeat source-only after all additive modes. This distinguishes a
+            # stable differential from stale-frame or phase-order artifacts.
+            with Sdf.ChangeBlock():
+                for prim in clone_prims:UsdGeom.Imageable(prim).GetVisibilityAttr().Set(UsdGeom.Tokens.invisible)
+            for _ in range(3):await omni.kit.app.get_app().next_update_async()
+            repeated_source=await capture("isolation_source_only_repeat",None)
+            result["isolation"].append({"mode":"source_only_repeat","visible_clone_components":[],"source_instance_proxies_edited":False,"capture":repeated_source})
+            atomic_json(out,result)
             with Sdf.ChangeBlock():
                 for prim in clone_prims:
                     value=original_visibility[str(prim.GetPath())]
