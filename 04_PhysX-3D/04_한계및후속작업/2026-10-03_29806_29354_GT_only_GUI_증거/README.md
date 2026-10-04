@@ -142,3 +142,11 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 그럼에도 source와 clone이 모두 `inherited`, topology가 같고 source↔clone 오차가 약 `4.93e-11 m`인 반면 Fabric 전환 뒤 간섭무늬와 frame별 면 우세가 바뀌는 현상은 coplanar 중복을 강하게 지지한다. tensor body pose는 유한하고 step별로 매끄럽게 변하며 큰 body 폭발은 지지하지 않는다. contact/constraint 값을 직접 저장하지 않았으므로 collision은 완전히 배제하지 않는다. 빨간 문 material/occlusion/Fabric population 역시 유효한 source-only/clone-additive 결과 전에는 확정하지 않는다.
 
 수정 진단은 visibility author 동안 session layer를 명시하고 각 `Set()` 반환값, 요청값, composed visibility, edit-layer identifier를 저장한다. source instance proxy는 수정하지 않는다. 이 최소 재진단이 source-only에서 줄무늬 소멸, source+green에서 재발을 보일 때만 coplanar source/clone z-fighting으로 확정한다. 현재 판정은 `DIAGNOSTIC_COMPLETE_VISIBILITY_ISOLATION_INVALID`이며 느린 개폐 runner와 29354는 계속 차단한다.
+
+## 2026-10-05 유효한 source/clone isolation과 10163 비교
+
+`20261004T231747Z-...`는 session edit target에서 visibility authoring이 실제 적용됐다. source-only에서는 clone 8개가 모두 invisible이고 화면이 검정이었다. red clone만 inherited인 화면도 검정, green clone만 inherited인 화면은 수평 줄무늬, blue clone만 inherited인 화면은 정상 단색, base 5개만 inherited인 화면은 흰 윤곽이었다. source-only 반복은 첫 화면과 재현됐고 restore 뒤 이상 full 화면으로 돌아왔다. 따라서 원본 source와 clone의 겹침 및 z-fighting은 배제되며 red/green clone 자체의 material·geometry·Fabric presentation 중 하나가 남는다.
+
+10163 성공 commit `991286cf...`의 script SHA256은 `bf023671...`이며 현재 저장 runner와 동일하다. 10163과 29806 모두 relationship-derived body-local regular Mesh clone을 실제 rigid body 자식으로 만들고, identity local xform, tensor target, `update_fabric=True`, per-step UI update, xform/keyframe/timeSample 0을 사용한다. 즉 성공한 노트북의 핵심 연결 방식은 이미 수납장에도 적용돼 있다. 뚜렷한 차이는 10163의 단일 diffuse-only cyan material과 29806의 문별 diffuse+emissive material, 그리고 2 mesh/1 DOF와 8 mesh/3 DOF 구조다.
+
+다음 최소 진단은 각 door geometry와 parent를 고정한 채 10163의 diffuse-only cyan material을 red/green/blue에 각각 단독 적용한다. 이 단계도 active target과 recorder가 없는 initialization isolation이다. 결과에 따라 material 문제와 geometry/Fabric population을 분리하며, 그 전에는 느린 개폐 영상을 시작하지 않는다. 상세 비교는 `29806_vs_10163_visual_route_comparison.md`, 원시 판정은 `29806_initialization_isolation_231747_analysis.json`, 화면은 contact sheet에 있다.

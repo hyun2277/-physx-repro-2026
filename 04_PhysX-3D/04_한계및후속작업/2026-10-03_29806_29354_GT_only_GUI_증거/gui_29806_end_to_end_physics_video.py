@@ -299,6 +299,16 @@ def main() -> int:
             shader = UsdShade.Shader.Define(stage, f"/__PhysXGuiDiagnostic/Material_{token}/PreviewSurface")
             shader.CreateIdAttr("UsdPreviewSurface"); shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("emissiveColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color)); shader.CreateInput("opacity", Sdf.ValueTypeNames.Float).Set(1.0); shader.CreateOutput("surface", Sdf.ValueTypeNames.Token)
             material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface"); materials[label]=material
+        # Exact material pattern used by the successful 10163 route-B runner:
+        # diffuse + opacity, no emissive input.  Isolation phases bind this
+        # material temporarily to distinguish material from geometry/Fabric.
+        notebook_control_material=UsdShade.Material.Define(stage,"/__PhysXGuiDiagnostic/Material_10163StyleControl")
+        notebook_control_shader=UsdShade.Shader.Define(stage,"/__PhysXGuiDiagnostic/Material_10163StyleControl/PreviewSurface")
+        notebook_control_shader.CreateIdAttr("UsdPreviewSurface")
+        notebook_control_shader.CreateInput("diffuseColor",Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(0.12,0.68,0.92))
+        notebook_control_shader.CreateInput("opacity",Sdf.ValueTypeNames.Float).Set(1.0)
+        notebook_control_shader.CreateOutput("surface",Sdf.ValueTypeNames.Token)
+        notebook_control_material.CreateSurfaceOutput().ConnectToSource(notebook_control_shader.ConnectableAPI(),"surface")
 
         xforms = UsdGeom.XformCache(Usd.TimeCode.Default())
         clone_prims = []
@@ -910,6 +920,22 @@ def main() -> int:
                 composed={spec["clone_mesh"]:str(UsdGeom.Imageable(prim).ComputeVisibility()) for spec,prim in zip(clone_specs,clone_prims)}
                 result["isolation"].append({"mode":mode,"requested_visible_clone_components":sorted(visible_labels),"visibility_authoring":visibility_authoring,"composed_clone_visibility":composed,"visibility_edit_layer":session.identifier,"source_instance_proxies_edited":False,"capture":gate})
                 atomic_json(out,result)
+            # Reuse the proven 10163 diffuse-only material on each door geometry
+            # separately.  Geometry, body parent, points and physics stay fixed.
+            for component in ("gt_C_1","gt_C_2","gt_C_3"):
+                visibility_authoring=set_clone_visibility({component})
+                selected=[(spec,prim) for spec,prim in zip(clone_specs,clone_prims) if spec["component_label"]==component]
+                if len(selected)!=1:raise RuntimeError(f"material isolation requires one clone for {component}: {len(selected)}")
+                spec,prim=selected[0];binding=UsdShade.MaterialBindingAPI.Apply(prim)
+                binding.Bind(notebook_control_material)
+                UsdGeom.Mesh(prim).CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(0.12,0.68,0.92)])
+                for _ in range(3):await omni.kit.app.get_app().next_update_async()
+                computed,_=binding.ComputeBoundMaterial()
+                gate=await capture("isolation_10163_material_"+component,None)
+                result["isolation"].append({"mode":"10163_material_"+component,"requested_visible_clone_components":[component],"visibility_authoring":visibility_authoring,"control_material":str(notebook_control_material.GetPath()),"computed_material":str(computed.GetPath()) if computed else None,"emissive_authored":False,"geometry_and_parent_unchanged":True,"capture":gate})
+                native_joint=component
+                binding.Bind(materials[native_joint])
+                UsdGeom.Mesh(prim).CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*colors[native_joint])])
             # Repeat source-only after all additive modes. This distinguishes a
             # stable differential from stale-frame or phase-order artifacts.
             repeat_authoring=set_clone_visibility(set())

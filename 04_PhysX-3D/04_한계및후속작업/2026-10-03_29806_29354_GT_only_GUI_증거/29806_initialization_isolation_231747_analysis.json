@@ -1,0 +1,208 @@
+{
+  "status": "VALID_DIFFERENTIAL_VISUAL_FAIL",
+  "run": "isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7",
+  "input_commit": "d1b0454885ec6b1b616ace55b20bac679113e66d",
+  "completion": {
+    "manager_step_end": 12,
+    "capture_failures": 0,
+    "active_schedule_started": false,
+    "recorder_started": false
+  },
+  "isolation": [
+    {
+      "phase": "source_only",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_only.png",
+      "png_sha256": "6fee5fa7896bc609f03b447c3e4b2845133eaba5d848c916e7c85ecbdb2ade4c",
+      "requested_visible": [],
+      "set_success_count": 8,
+      "inherited_paths": [],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "black; no source surfaces"
+    },
+    {
+      "phase": "source_plus_red",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_plus_red.png",
+      "png_sha256": "58d0c8878d8c1785cdeba68637d38a38e5852b2b5852aee0a001dc334e3ed38d",
+      "requested_visible": [
+        "gt_C_1"
+      ],
+      "set_success_count": 8,
+      "inherited_paths": [
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4"
+      ],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "black; red clone surface absent"
+    },
+    {
+      "phase": "source_plus_green",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_plus_green.png",
+      "png_sha256": "cdb0e3a6ce0f233b86b1ed0ee4b3dff6fc5f350f3a1440b3df6bb94cd70715aa",
+      "requested_visible": [
+        "gt_C_2"
+      ],
+      "set_success_count": 8,
+      "inherited_paths": [
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5"
+      ],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "green surface with horizontal stripes"
+    },
+    {
+      "phase": "source_plus_blue",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_plus_blue.png",
+      "png_sha256": "67798d0f1c8943179781e6b66c6229128bfe9817b2daef2c635c212f9c39e4e8",
+      "requested_visible": [
+        "gt_C_3"
+      ],
+      "set_success_count": 8,
+      "inherited_paths": [
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6"
+      ],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "solid blue surface"
+    },
+    {
+      "phase": "source_plus_base",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_plus_base.png",
+      "png_sha256": "b565ac0075e0e9cb98bcc36cfcb0a3b958fe8189f522bfbcd5597f4843b03936",
+      "requested_visible": [
+        "BASE"
+      ],
+      "set_success_count": 8,
+      "inherited_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "white cabinet outline"
+    },
+    {
+      "phase": "source_plus_all",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_plus_all.png",
+      "png_sha256": "f42110564b1bace45e5433286dc434b55e2c7b96f0d1b3f1a1eb88d31be36f40",
+      "requested_visible": [
+        "BASE",
+        "gt_C_1",
+        "gt_C_2",
+        "gt_C_3"
+      ],
+      "set_success_count": 8,
+      "inherited_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "invisible_paths": [],
+      "source_visible_count": 8,
+      "render_observation": "white outline + absent red + striped green + solid blue"
+    },
+    {
+      "phase": "source_only_repeat",
+      "manager_step": 2,
+      "png": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T231747Z-29806-gpu0-initialization-isolation-diagnostic-033592d5-73f0-4716-ad63-3a44e04b30f7/visual_continuity_isolation_source_only_repeat.png",
+      "png_sha256": "e804401a6b8522f14a35d86b9382ff6a5e45c608aae305b6f18aa4572bad3d60",
+      "requested_visible": [],
+      "set_success_count": 8,
+      "inherited_paths": [],
+      "invisible_paths": [
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_0",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_1",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_2",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_3",
+        "/gt_29806/Geometry/world/l_0/abstract_1/__GuiDiagnosticMesh_4",
+        "/gt_29806/Geometry/world/l_0/abstract_2/__GuiDiagnosticMesh_5",
+        "/gt_29806/Geometry/world/l_0/abstract_3/__GuiDiagnosticMesh_6",
+        "/gt_29806/Geometry/world/l_0/__GuiDiagnosticMesh_7"
+      ],
+      "source_visible_count": 8,
+      "render_observation": "black, matches first source-only"
+    }
+  ],
+  "conclusions": {
+    "source_clone_z_fighting": "EXCLUDED_BY_VALID_DIFFERENTIAL: source-only black; green stripes occur with only green clone; source+red remains black; composed visibility matches requests.",
+    "original_source_rendering": "No source surface visible at manager step 2 when all clones hidden, despite source ComputeVisibility inherited.",
+    "red": "red linked clone presentation failure after Fabric; camera/common mapping excluded by blue at same camera; material versus clone geometry/Fabric remains unresolved.",
+    "green": "striping belongs to green linked clone presentation itself, not source+clone overlap; material versus geometry/Fabric remains unresolved.",
+    "blue": "blue linked clone renders as solid panel.",
+    "base": "base clones render as white outline rather than filled base.",
+    "step2": "single transient solid-color frame; not strict recovery, not 30 consecutive steps."
+  },
+  "comparison_10163": {
+    "success_runner_commit": "991286cf752abebf87b24e0b1da3a9b241b79568",
+    "script_sha256": "bf023671a36455557482b75af97b9535a39b21ea73a1b072b04c070f3b871700",
+    "shared": [
+      "body-local points from inverse(body authored world) * source world",
+      "regular UsdGeom.Mesh child of mapped real rigid body",
+      "identity clone local xform",
+      "doubleSided true",
+      "session-layer PhysicsScene and mass/inertia",
+      "Warp tensor targets",
+      "SimulationManager.step(update_fabric=True)",
+      "no per-frame clone xform/keyframes/timeSamples"
+    ],
+    "differences": [
+      "10163: 2 meshes, 1 revolute joint, one diffuse-only cyan PreviewSurface, no emissive input",
+      "29806: 8 meshes, 3 revolute joints plus fixed graph, four diffuse+emissive materials",
+      "10163 explicitly steps once with update_fabric=True before tensor view",
+      "29806 captures manager-step-2 state before closed-target steps",
+      "10163 has no strict initialization pixel gate; 29806 does"
+    ]
+  },
+  "next_minimum_diagnostic": "same bounded isolation plus each door individually rebound to exact 10163 diffuse-only cyan material; no active targets or recorder"
+}
