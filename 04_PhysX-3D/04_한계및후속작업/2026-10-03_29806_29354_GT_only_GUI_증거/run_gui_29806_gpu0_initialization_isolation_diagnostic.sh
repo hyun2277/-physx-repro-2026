@@ -30,6 +30,8 @@ STAGING_DIR="$ROOT/staging/isaac-gui-usd-visual-validation-$RUN_ID"
 mkdir -p "$LOG_DIR" "$STAGING_DIR"
 trap 'rc=$?; if ((rc)); then printf "FAILED stage=runner_exit_%s LOG_DIR=%s STAGING_DIR=%s\n" "$rc" "$LOG_DIR" "$STAGING_DIR" >&2; fi' EXIT
 echo "LOG_DIR=$LOG_DIR"; echo "STAGING_DIR=$STAGING_DIR"
+echo "DIAGNOSTIC_ONLY_ACTIVE_DOOR_MOTION_NOT_EXPECTED"
+echo "This bounded run collects initialization/source-clone evidence; it does not create a physics video."
 
 nvidia-smi --query-gpu=index,uuid,pci.bus_id,name,memory.total,memory.used,memory.free --format=csv,noheader >"$LOG_DIR/gpu.csv"
 nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader >"$LOG_DIR/processes.csv"

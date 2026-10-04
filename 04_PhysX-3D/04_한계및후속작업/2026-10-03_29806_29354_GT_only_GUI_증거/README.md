@@ -111,3 +111,22 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 과거 빠른 실행은 시각 continuity gate가 도입되기 전 커밋 `d62dedd7...` 코드였다. initialize 뒤 1 step을 진행하고 곧바로 target schedule에 들어갔으므로 문이 움직였고, wall pacing·closed recovery·엄격 drift 검사는 없었다. 최신 모드는 의도적으로 active schedule이 없으며 after-initialize 진단에서 중단됐다. 따라서 “과거에는 움직였고 이번에는 안 움직였다”는 차이는 joint 기능의 상반된 판정이 아니라 실행 모드와 gate 순서 차이다. 과거 실행도 빠른 속도와 drift로 실패였다.
 
 수정 runner는 isolation 모드를 after-initialize nonthrowing 진단 경로에 포함하고, renderer capture 전에 tensor state를 atomic 저장한다. source-only를 additive capture 전후 두 번 찍어 stale frame/순서 효과를 검사하며 Python과 wrapper 종료 코드, 종료 단계, HEAD와 runner hash를 각각 남긴다. 다음 실행도 active schedule과 recorder가 없는 bounded diagnostic이며, 결과가 source/clone 중복 또는 다른 표시 경로를 실제로 분리하기 전 느린 개폐 runner로 진행하지 않는다. 현재 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이고 29354는 차단 상태다.
+
+## 2026-10-05 initialization isolation 두 번째 실행과 capture completion 경합
+
+`20261004T223124Z-...` 실행은 manager step 2에서 tensor/Fabric 및 after-initialize 상태까지 기록했지만 차등 진단 첫 캡처에서 종료됐다. 요청 경로와 실제 생성 경로는 같았으며, runner가 파일 부재 예외를 기록한 뒤 약 36 ms 후 동일 PNG(262,683 bytes)가 나타났다. 따라서 직접 종료 원인은 pixel/관절 판정이 아니라 `wait_for_result()` 직후 encoder 파일이 이미 완성됐다고 가정한 제어 흐름 경합이다. active schedule, recorder, MP4/GIF, 29354는 실행되지 않았다.
+
+설치된 Kit 110 테스트는 `wait_for_result()` 뒤 `renderer_capture.wait_async_capture()`를 호출하고, bundled GUI menu도 파일 생성까지 update를 양보한다. 수정 진단은 renderer flush 뒤 고유 절대 경로의 파일을 비동기로 기다리며, 0보다 큰 크기가 연속 두 번 안정되고 PNG signature/decode/해상도가 확인돼야 `CAPTURE_OK`로 기록한다. 각 요청과 결과는 atomic marker로 남긴다. 파일 실패, pixel FAIL, 정상 pixel PASS를 각각 `CAPTURE_FAILED`, `CAPTURE_OK_PIXEL_FAIL`, `CAPTURE_OK_PIXEL_PASS`로 분리한다. 한 캡처가 실패해도 source-only/additive/source-only-repeat/full restore 및 closed target step 1·2·5·10의 tensor/body/clone 상태 수집을 계속한다. 캡처 실패가 하나라도 있으면 최종 상태는 `DIAGNOSTIC_COMPLETED_WITH_CAPTURE_FAILURE`이며 시각 PASS가 아니다.
+
+다음 실행은 `DIAGNOSTIC_ONLY_ACTIVE_DOOR_MOTION_NOT_EXPECTED` 범위다. prephysics 두 장, initialize 직후 두 장, source-only와 선택 clone 조합, 복원, closed target 최대 10 step만 수행한다. active door 개폐와 영상 recorder는 의도적으로 금지되어 있다. 현재 판정은 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이며 빨간 문 소실과 초록 줄무늬의 자산 원인은 아직 미확정이다.
+
+### 네 실행의 제어 흐름 비교
+
+| 실행 | 코드 기준 | initialize 이후 | capture 처리 | target/recorder | 종료 |
+|---|---|---|---|---|---|
+| `20261003T120142Z-...` | `d62dedd7`, script SHA `7a8bd1db...` | 곧바로 active target | strict continuity/recovery 없음 | active 진입, recorder 일부 실행 | 과속 및 inactive drift 실패 |
+| `20261004T171141Z-...` | gated recovery 계열 | manager 3까지 closed target 1회 | async task 안에서 동기 capture가 `app.update()` 재진입 | active/recorder 미진입 | asyncio 재진입·watchdog |
+| `20261004T174307Z-...` | `78e246e1` 이전 isolation | manager 2 | after-init red 0을 throw | active/recorder 미진입 | 차등 capture 전 종료 |
+| `20261004T223124Z-...` | `f9374cf`, script SHA `c1edf99e...` | manager 2, tensor/Fabric | nonthrowing pixel FAIL 후 첫 차등 capture에서 encoder 완료 전 파일 검사 | active/recorder 미진입 | wrapper 11, 약 10.24 s |
+
+과거 빠른 실행은 tensor 구동 반응의 존재만 보여 주며 승인 영상이 아니다. 최신 세 진단은 active schedule 전에 끝났으므로 “관절이 더 이상 작동하지 않는다”는 결론을 지지하지 않는다. 반복 조기 종료의 직접 원인은 서로 다른 runner 제어 흐름 결함이었고, 초기화 후 빨간 문 소실과 초록 줄무늬의 근본 원인은 차등 자료가 완성되지 않아 아직 미확정이다.

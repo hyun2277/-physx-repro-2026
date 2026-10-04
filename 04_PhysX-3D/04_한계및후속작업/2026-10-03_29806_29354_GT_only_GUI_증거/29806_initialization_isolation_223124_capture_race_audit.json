@@ -1,0 +1,62 @@
+{
+  "status": "CAPTURE_COMPLETION_RACE_CONFIRMED_DIAGNOSTIC_INCOMPLETE",
+  "scope": "GT-only 29806 initialization isolation; no active schedule, recorder, MP4, GIF, or 29354",
+  "repository_head_used": "f9374cf962500f9f0086bc551be2148371167aef",
+  "python_exit_code": "0",
+  "wrapper_exit_code": "11",
+  "wrapper_exit_stage": "completion_marker",
+  "direct_exception": "wait_for_result returned before encoded PNG became visible; immediate path.is_file check raised",
+  "requested_path_equals_eventual_path": true,
+  "timing_evidence": {
+    "report_mtime_ns": 1791153093781354554,
+    "eventual_png_mtime_ns": 1791153093817355370,
+    "delta_ms": 36.000816
+  },
+  "files": {
+    "visual_continuity_prephysics.png": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/visual_continuity_prephysics.png",
+      "exists": true,
+      "bytes": 96249,
+      "sha256": "b349f50715db1000692b469f564ad20ff6467c8070b32688fe33b7200c69dfe7"
+    },
+    "visual_continuity_after_initialize.png": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/visual_continuity_after_initialize.png",
+      "exists": true,
+      "bytes": 262001,
+      "sha256": "6677dba9e83fd5788d7080e5c7fd47b70b04919878bee5b3d988a3b1fd55534f"
+    },
+    "visual_continuity_isolation_after_initialize_full.png": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/visual_continuity_isolation_after_initialize_full.png",
+      "exists": true,
+      "bytes": 262683,
+      "sha256": "b17674f081de788b8d32195f82f2758bc1dbc2860db71af4f6b918870531db45"
+    },
+    "after_initialize_tensor_state.json": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/after_initialize_tensor_state.json",
+      "exists": true,
+      "bytes": 2883,
+      "sha256": "9335482a3ee787bd86ec3d54bcd7eb4638598c51bdd6c1086cba78671fc45152"
+    },
+    "initialization_isolation_diagnostic.json": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/initialization_isolation_diagnostic.json",
+      "exists": true,
+      "bytes": 607,
+      "sha256": "61716f01ef970ce70c162b74873b79cb9949b99a68bca4ae45684b94ea1047b5"
+    },
+    "initialization_isolation_diagnostic_complete.json": {
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T223124Z-29806-gpu0-initialization-isolation-diagnostic-a8c09212-2631-4cff-9ac6-ccef9191d042/initialization_isolation_diagnostic_complete.json",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    }
+  },
+  "manager_step_last_confirmed": 2,
+  "active_schedule_started": false,
+  "recorder_started": false,
+  "physics_video_created": false,
+  "case_29354_executed": false,
+  "capture_api_evidence": [
+    "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/extscache/omni.kit.viewport.utility-2.1.0+00c488ae/omni/kit/viewport/utility/tests/test_suite.py:379-384",
+    "/home/minsujo/Desktop/SH/PHYSx/tools/isaac-sim/exts/isaacsim.gui.menu/isaacsim/gui/menu/edit_menu/edit_menu.py"
+  ]
+}

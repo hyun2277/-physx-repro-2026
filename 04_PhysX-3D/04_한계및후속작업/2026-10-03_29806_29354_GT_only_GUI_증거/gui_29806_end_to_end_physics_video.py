@@ -622,10 +622,36 @@ def main() -> int:
         from PIL import Image
         import numpy as np
         from scipy import ndimage
+        from capture_file_stability import wait_for_stable_png
         async def capture_viewport_png(path, fast=False):
             for _ in range(1 if fast else 30): await next_viewport_frame_async(viewport)
             handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
             return await asyncio.wait_for(handle.wait_for_result(completion_frames=1 if fast else 30),timeout=15.0)
+
+        async def capture_viewport_png_stable(label, fast=True, timeout_s=15.0):
+            """Wait for renderer flush, stable size, PNG header, and decode."""
+            path=(args.run_dir/f"visual_continuity_{label}.png").resolve()
+            path.parent.mkdir(parents=True,exist_ok=True)
+            marker_dir=args.run_dir/"capture_markers";marker_dir.mkdir(parents=True,exist_ok=True)
+            request={"label":label,"status":"CAPTURE_REQUESTED","path":str(path),"wall_time":time.time()}
+            request_path=marker_dir/f"{label}.request.json";tmp=request_path.with_suffix(".json.tmp");tmp.write_text(json.dumps(request,indent=2)+"\n");os.replace(tmp,request_path)
+            result={**request,"status":"CAPTURE_FAILED","timeout_s":timeout_s}
+            try:
+                for _ in range(2 if fast else 30):await next_viewport_frame_async(viewport)
+                handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
+                result["capture_api_result"]=bool(await asyncio.wait_for(handle.wait_for_result(completion_frames=2 if fast else 30),timeout=timeout_s))
+                try:
+                    import omni.kit.renderer_capture
+                    omni.kit.renderer_capture.acquire_renderer_capture_interface().wait_async_capture()
+                    result["renderer_capture_flush"]="CALLED"
+                except BaseException as flush_error:
+                    result["renderer_capture_flush"]="UNAVAILABLE_OR_FAILED";result["renderer_capture_flush_error"]=repr(flush_error)
+                file_result=await wait_for_stable_png(path,omni.kit.app.get_app().next_update_async,timeout_s=timeout_s,stable_observations=2)
+                result.update(file_result)
+            except BaseException as error:result.update({"reason":"CAPTURE_API_EXCEPTION","exception":repr(error)})
+            result["completed_wall_time"]=time.time()
+            done=marker_dir/f"{label}.result.json";tmp=done.with_suffix(".json.tmp");tmp.write_text(json.dumps(result,indent=2)+"\n");os.replace(tmp,done)
+            return result
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
         def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False,captured_path=None):
             path=captured_path or args.run_dir/f"visual_continuity_{label}.png"
@@ -678,6 +704,17 @@ def main() -> int:
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
         report["prephysics_pixel_gate"]=prephysics_gate
+        prephysics_smokes=[]
+        if args.initialization_isolation_diagnostic:
+            print("DIAGNOSTIC_ONLY_ACTIVE_DOOR_MOTION_NOT_EXPECTED",flush=True)
+            for smoke_label in ("prephysics_smoke_1","prephysics_smoke_2"):
+                task=asyncio.ensure_future(capture_viewport_png_stable(smoke_label));started=time.monotonic()
+                while not task.done():
+                    app.update()
+                    if time.monotonic()-started>20.0:task.cancel();break
+                    time.sleep(0.005)
+                prephysics_smokes.append(task.result() if task.done() and not task.cancelled() else {"label":smoke_label,"status":"CAPTURE_FAILED","reason":"OUTER_PUMP_TIMEOUT"})
+            report["prephysics_capture_smokes"]=prephysics_smokes
         stage.SetEditTarget(original_target)
 
         diagnostic_marker_path=args.run_dir/"initialization_diagnostic_markers.jsonl"
@@ -836,13 +873,24 @@ def main() -> int:
             result={"status":"RUNNING","scope":"29806 initialization source/clone isolation; GT-only; no active schedule; no video recorder","manager_step_start":SimulationManager.get_num_physics_steps(),"phases":[],"isolation":[],"limitations":["Instance-proxy source prims are not edited or de-instanced; clone-only capture cannot be guaranteed. Source-only and source-plus-selected-clone captures are used to test overlap."],"physics_commands":{"closed_target_vector_rad":{"gt_C_1":0.0,"gt_C_2":0.0,"gt_C_3":0.0},"maximum_recovery_steps":10,"active_door_targets_sent":False}}
             out=args.run_dir/"initialization_isolation_diagnostic.json"
             atomic_json(out,result)
+            result["prephysics_capture_smokes"]=prephysics_smokes;result["capture_failures"]=[]
             async def capture(label,baseline=None):
-                gate=await capture_pixel_gate_async(label,SimulationManager.get_num_physics_steps()-2,baseline,raise_on_fail=False,fast=True)
-                result["phases"].append({"label":label,"pixel_gate":gate,"state":runtime_geometry_state(label)})
-                atomic_json(out,result);diagnostic_marker("ISOLATION_CAPTURED",label=label,pixel_status=gate["status"])
+                capture_result=await capture_viewport_png_stable(label);gate=None
+                if capture_result["status"]=="CAPTURE_OK":
+                    try:
+                        gate=capture_pixel_gate(label,SimulationManager.get_num_physics_steps()-2,baseline,raise_on_fail=False,fast=True,captured_path=Path(capture_result["path"]))
+                        capture_status="CAPTURE_OK_PIXEL_PASS" if gate["status"]=="PASS" else "CAPTURE_OK_PIXEL_FAIL"
+                    except BaseException as decode_error:
+                        capture_result.update({"reason":"PIXEL_ANALYSIS_EXCEPTION","exception":repr(decode_error)});capture_status="CAPTURE_FAILED"
+                else:capture_status="CAPTURE_FAILED"
+                if capture_status=="CAPTURE_FAILED":result["capture_failures"].append({"label":label,"capture":capture_result})
+                visible=[spec["clone_mesh"] for spec,prim in zip(clone_specs,clone_prims) if UsdGeom.Imageable(prim).ComputeVisibility()!=UsdGeom.Tokens.invisible]
+                visible_sources=[spec["source_mesh"] for spec in clone_specs if UsdGeom.Imageable(stage.GetPrimAtPath(spec["source_mesh"])).ComputeVisibility()!=UsdGeom.Tokens.invisible]
+                result["phases"].append({"label":label,"capture_status":capture_status,"capture":capture_result,"pixel_gate":gate,"visible_clone_prims":visible,"visible_source_prims":visible_sources,"state":runtime_geometry_state(label)})
+                atomic_json(out,result);diagnostic_marker("ISOLATION_CAPTURED",label=label,capture_status=capture_status,pixel_status=gate["status"] if gate else None)
                 return gate
-            # Capture the initialized full scene before any diagnostic visibility edit.
-            await capture("isolation_after_initialize_full",prephysics_gate["components"])
+            await capture("after_initialize_full_1",prephysics_gate["components"])
+            await capture("after_initialize_full_2",prephysics_gate["components"])
             original_visibility={str(p.GetPath()):p.GetAttribute("visibility").Get() for p in clone_prims}
             modes=[("source_only",set()),("source_plus_red",{"gt_C_1"}),("source_plus_green",{"gt_C_2"}),("source_plus_blue",{"gt_C_3"}),("source_plus_base",{"BASE"}),("source_plus_all",{"BASE","gt_C_1","gt_C_2","gt_C_3"})]
             for mode,visible_labels in modes:
@@ -881,12 +929,14 @@ def main() -> int:
                 result["phases"].append({"label":f"closed_recovery_{step}","state":state})
                 atomic_json(out,result)
                 if step in checkpoints:await capture(f"isolation_closed_recovery_{step}",prephysics_gate["components"])
-            result["status"]="INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE"
+            all_capture_failures=list(result["capture_failures"])+[x for x in prephysics_smokes if x.get("status")!="CAPTURE_OK"]
+            any_pixel_fail=any(p.get("pixel_gate") and p["pixel_gate"].get("status")!="PASS" for p in result["phases"])
+            result["status"]="DIAGNOSTIC_COMPLETED_WITH_CAPTURE_FAILURE" if all_capture_failures else ("DIAGNOSTIC_COMPLETED_VISUAL_FAIL" if any_pixel_fail else "DIAGNOSTIC_COMPLETED_CAPTURE_OK_ANALYSIS_REQUIRED")
             result["manager_step_end"]=SimulationManager.get_num_physics_steps();result["active_door_schedule_started"]=False;result["video_recorder_started"]=False
             result["clone_xform_authored_after_start"]=authored_clone_xforms(clone_prims)!=clone_xforms_before
             result["clone_time_samples_added"]=clone_time_samples(clone_prims)-clone_time_samples_before
             atomic_json(out,result)
-            diagnostic_marker("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",manager_step_end=result["manager_step_end"])
+            diagnostic_marker("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",manager_step_end=result["manager_step_end"],status=result["status"])
             return result
 
         if args.initialization_isolation_diagnostic:
@@ -896,6 +946,7 @@ def main() -> int:
             atomic_json(args.run_dir/"physics_gui_report.json",report)
             atomic_json(args.run_dir/"initialization_isolation_diagnostic_complete.json",{"status":isolation["status"],"manager_step":SimulationManager.get_num_physics_steps(),"physics_video_created":False,"active_door_schedule_started":False,"case_29354_executed":False})
             print("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",flush=True)
+            print(f"DIAGNOSTIC_COMPLETE_NOT_A_PHYSICS_VIDEO_PASS status={isolation['status']}",flush=True)
             return 0
 
         async def idle_updates(seconds):
