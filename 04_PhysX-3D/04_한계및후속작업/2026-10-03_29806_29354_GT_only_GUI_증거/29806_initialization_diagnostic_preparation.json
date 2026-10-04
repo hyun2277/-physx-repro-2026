@@ -1,0 +1,70 @@
+{
+  "status": "INITIALIZATION_DIAGNOSTIC_RUNNER_PREPARED_HOST_EXECUTION_REQUIRED",
+  "scope": "29806 initialization and first 10 manager steps only; no target schedule, recorder, or 29354",
+  "input_usd": {
+    "path": "/home/minsujo/Desktop/SH/PHYSx/staging/gt-only-isaac-control-20261002T072614Z-gt-only-control/29806/gt_29806/gt_29806.usda",
+    "sha256": "5da6eb5823de2a8da1d7896ad047c8a73b2f25c79b60bd606afe912dd1b0891a"
+  },
+  "failed_run_status": "VISUAL_CONTINUITY_GATE_FAIL_AFTER_INITIALIZE_GT_C_1_MISSING",
+  "diagnostic_stages": [
+    "STAGE_LOADED",
+    "LINKED_CLONES_CREATED",
+    "PREPHYSICS_PIXEL_GATE_PASS",
+    "BEFORE_INITIALIZE_STATE_CAPTURED",
+    "PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS",
+    "TENSOR_VIEW_CREATED",
+    "FABRIC_ENABLED",
+    "AFTER_INITIALIZE_CAPTURED",
+    "STEP_1_CAPTURED",
+    "STEP_2_CAPTURED",
+    "STEP_5_CAPTURED",
+    "STEP_10_CAPTURED",
+    "INITIALIZATION_DIAGNOSTIC_COMPLETE"
+  ],
+  "state_fields": [
+    "USD local/world transform",
+    "translation/quaternion",
+    "world bounds",
+    "visibility/purpose/active/loaded",
+    "material/display color/opacity",
+    "tensor joint positions/velocities",
+    "tensor link transforms",
+    "pixel masks and bboxes"
+  ],
+  "object_id_depth": {
+    "object_id": "No supported direct viewport prim-ID API identified in installed examples; not guessed",
+    "depth": "Installed capture_depth_data_async identified but intentionally not mixed because it creates a Replicator render-product path"
+  },
+  "initial_joint_state_modified": false,
+  "static_authored_coordinate_rad": {
+    "gt_C_1": 0.0,
+    "gt_C_2": 0.0,
+    "gt_C_3": 0.0
+  },
+  "checks": {
+    "python_py_compile": "PASS",
+    "bash_n": "PASS",
+    "logic_test": "PASS",
+    "input_sha_gate": "PRESENT",
+    "target_command_in_diagnostic": "NONE",
+    "video_recorder_in_diagnostic": "NONE"
+  },
+  "files": {
+    "gui_29806_end_to_end_physics_video.py": {
+      "bytes": 77298,
+      "sha256": "ad30e6254b142a3c30dd5db6602a42b94404c19b9c1f724f3bf381e3d17196d1"
+    },
+    "run_gui_29806_gpu0_initialization_diagnostic.sh": {
+      "bytes": 4927,
+      "sha256": "6a9a797508ce28ead0691820f45283b07173424301b0350a2933d108a25a8e12"
+    },
+    "test_29806_runner_logic.py": {
+      "bytes": 3669,
+      "sha256": "e1d20fe4b9f31535b770ed85c1b6fdc1cfbedba2444c70bd7666913b2dc347a2"
+    },
+    "29806_initialization_visual_failure_audit.json": {
+      "bytes": 7918,
+      "sha256": "73ecf7f865b296c4dfd22e068182eda680590ac8463b3dc2e9b15ebe62086be6"
+    }
+  }
+}

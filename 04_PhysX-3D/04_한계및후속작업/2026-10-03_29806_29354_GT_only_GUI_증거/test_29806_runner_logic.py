@@ -47,6 +47,8 @@ def main():
     source=(HERE/'gui_29806_end_to_end_physics_video.py').read_text();validator=(HERE/'validate_29806_gpu0_gui_video.py').read_text()
     for token in ('MAX_CLOSED_TARGET_ABSOLUTE_ERROR_RAD = 0.01','MAX_INACTIVE_EXCURSION_RAD = 0.002','metric_scope','settle_closed','SETTLE_TIMEOUT_STEPS = 300','target_array(closed)','update_fabric=True'):
         assert token in source, token
+    for token in ('--initialization-diagnostic','BEFORE_INITIALIZE_STATE_CAPTURED','PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS','TENSOR_VIEW_CREATED','AFTER_INITIALIZE_CAPTURED','INITIALIZATION_DIAGNOSTIC_COMPLETE','physics_commands_sent'):
+        assert token in source, token
     assert '3 * (540 + 30)' in validator and '3 * (540 + 300)' in validator
     print('PASS wall_range_s=31.5..45.0 records=1710..2520 absolute_error_fail=true inactive_mask=true excursion_pass_fail=true visual_validator_mock=true')
 if __name__=='__main__':main()

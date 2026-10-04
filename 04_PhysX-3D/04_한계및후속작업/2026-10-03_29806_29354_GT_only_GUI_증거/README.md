@@ -79,3 +79,11 @@ static runner는 joint `body0/body1`, fixed-joint graph, 모든 source Mesh의 �
 문별 고정 wall-clock 구간은 닫힘 1.5초, 열기 smoothstep 3초, 열린 hold 1.5초, 닫기 smoothstep 3초다. 이후 settle은 절대오차 `≤0.01 rad`와 속도 `≤0.05 rad/s`를 30 step 연속 만족해야 끝나며 최대 300 step(5초)에서 timeout된다. 따라서 시작/끝 정적 구간을 포함한 예상 영상 범위는 약 `31.5–45.0초`이고 결과 summary에는 실제 문별 settle step·시간·measured position·절대오차·baseline·최대 속도와 비구동 excursion 원값을 남긴다. root 기준은 translation `≤1e-4 m`, orientation `≤0.002 rad`인 보수적 GUI smoke 운영 기준이며, 이전 headless 결과와 동등 정확도를 뜻하지 않는다. 초기 linked clone pixel gate 뒤 Physics 초기화 직후와 relative step 1·2·5·10에서 같은 viewport를 다시 캡처하며, component pixel ratio 20% 미만 또는 중심 이동 40 px 초과 시 `VISUAL_CONTINUITY_GATE_FAIL`로 구동 전에 중단한다.
 
 현재 상태는 `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`이다. 29354는 계속 미실행이다.
+
+## 2026-10-04 초기화 직후 시각 연속성 차단
+
+실행 `20261004T160703Z-...`은 `VISUAL_CONTINUITY_GATE_FAIL_AFTER_INITIALIZE_GT_C_1_MISSING`이다. pre-physics PNG에서 빨간 문은 48,954 px와 bbox `[302,233,507,486]`였으나 `SimulationManager.initialize_physics()` 뒤 manager step 2에서 red mask가 0이 됐다. 같은 영역의 nonblack 비율은 `0.98765→0.04531`로 감소했고 red-like pixel도 `49,122→0`이었다. 초록 문은 18.728 px 이동하고 74.28% 면적으로 남았으며 파랑과 base는 거의 유지됐다. active target schedule, recorder, physics records는 시작되지 않았다.
+
+실패 실행에는 초기화 전후 body/clone transform, tensor joint position·velocity, depth/object ID가 없어 RGB만으로 body snap, occlusion, linked-clone/Fabric sync 중 하나를 확정할 수 없다. 별도 initialization-only 모드는 동일 linked clone·camera·material을 유지한 채 target 명령과 recorder 없이 초기화 및 최대 step 10까지만 검사한다. 각 단계에서 USD transform/bounds/material, tensor position/velocity/link pose, 내부 viewport PNG를 남기고 문이 사라진 첫 단계에서 중단한다. 설치 소스에서 확인된 depth API는 `isaacsim.test.utils.image_capture.capture_depth_data_async`지만 Replicator render product를 추가하는 경로이므로 이 최소 진단에는 섞지 않는다. 일반 viewport prim-ID API는 설치 예제에서 확인되지 않아 지원 여부를 추정하지 않는다. 초기 joint state는 아직 수정하지 않는다.
+
+정적 payload 대조에서 세 `abstract_*` body의 authored translation은 각 joint의 `localPos0`와 일치하고 `localPos1=(0,0,0)`, 양쪽 `localRot=identity`, axis=Y이다. 따라서 serialized authored geometry가 나타내는 joint coordinate는 세 joint 모두 `0 rad`이며 limit `[-π,0]` 안이다. `physics.usda`에는 명시적 drive target 값이 없고 실패 실행에는 tensor 초기 position이 남지 않았으므로, 이 정적 결과만으로 runtime mismatch나 snap 원인을 확정하지 않는다. 근거가 확보되기 전에는 초기 joint state를 설정하거나 수정하지 않는다.

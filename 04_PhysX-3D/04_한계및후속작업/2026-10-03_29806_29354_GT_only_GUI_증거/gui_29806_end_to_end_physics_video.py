@@ -122,6 +122,7 @@ def main() -> int:
     parser.add_argument("--capture-size", required=True)
     parser.add_argument("--capture-offset", default="0,0")
     parser.add_argument("--static-mapping-gate", action="store_true")
+    parser.add_argument("--initialization-diagnostic", action="store_true")
     args = parser.parse_args()
     args.run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -601,7 +602,7 @@ def main() -> int:
             handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
             return await asyncio.wait_for(handle.wait_for_result(completion_frames=30),timeout=15.0)
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
-        def capture_pixel_gate(label,relative_step,baseline=None):
+        def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True):
             path=args.run_dir/f"visual_continuity_{label}.png";task=asyncio.ensure_future(capture_viewport_png(path));started=time.monotonic()
             while not task.done():
                 before=time.monotonic();app.update();after=time.monotonic()
@@ -619,7 +620,7 @@ def main() -> int:
                     continuity[name]={"pixel_ratio_to_prephysics":ratio,"center_shift_px":shift,"pass":ratio>=0.20 and shift<=40.0}
             status="PASS" if not missing and all(x["pass"] for x in continuity.values()) else "FAIL"
             result={"label":label,"status":status,"relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"components":components,"missing":missing,"continuity":continuity}
-            if status!="PASS":raise RuntimeError(f"VISUAL_CONTINUITY_GATE_FAIL {result}")
+            if status!="PASS" and raise_on_fail:raise RuntimeError(f"VISUAL_CONTINUITY_GATE_FAIL {result}")
             return result
         prephysics_gate=capture_pixel_gate("prephysics",None)
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
@@ -627,20 +628,54 @@ def main() -> int:
         report["prephysics_pixel_gate"]=prephysics_gate
         stage.SetEditTarget(original_target)
 
+        diagnostic_marker_path=args.run_dir/"initialization_diagnostic_markers.jsonl"
+        def diagnostic_marker(name,**values):
+            try:manager_step=SimulationManager.get_num_physics_steps()
+            except BaseException:manager_step=None
+            row={"marker":name,"wall_time":time.time(),"manager_step":manager_step};row.update(values)
+            with diagnostic_marker_path.open("a") as stream:stream.write(json.dumps(row,sort_keys=True)+"\n")
+            print("INITIALIZATION_DIAGNOSTIC_MARKER_"+name+"="+json.dumps(row,sort_keys=True),flush=True)
+        def usd_prim_state(path):
+            prim=stage.GetPrimAtPath(path);cache=UsdGeom.XformCache(Usd.TimeCode.Default());matrix=cache.GetLocalToWorldTransform(prim);rotation=matrix.ExtractRotationQuat();bbox=UsdGeom.BBoxCache(Usd.TimeCode.Default(),[UsdGeom.Tokens.default_,UsdGeom.Tokens.render,UsdGeom.Tokens.proxy]).ComputeWorldBound(prim).ComputeAlignedRange()
+            imageable=UsdGeom.Imageable(prim);material=UsdShade.MaterialBindingAPI(prim).ComputeBoundMaterial()[0]
+            return {"path":path,"active":prim.IsActive(),"loaded":prim.IsLoaded(),"visibility":str(imageable.ComputeVisibility()) if imageable else None,"purpose":str(imageable.ComputePurpose()) if imageable else None,"parent":str(prim.GetParent().GetPath()),"world_matrix":matrix_values(matrix),"translation":[float(x) for x in matrix.ExtractTranslation()],"quaternion_real_imag":[float(rotation.GetReal()),*[float(x) for x in rotation.GetImaginary()]],"world_bounds":{"min":[float(x) for x in bbox.GetMin()],"max":[float(x) for x in bbox.GetMax()]},"material":str(material.GetPath()) if material else None,"display_color":str(prim.GetAttribute("primvars:displayColor").Get()),"display_opacity":str(prim.GetAttribute("primvars:displayOpacity").Get())}
+        tracked_paths=sorted({next(iter({value["body0"] for value in joint_bodies.values()})),*[value["body1"] for value in joint_bodies.values()],*[spec["source_mesh"] for spec in clone_specs],*[spec["clone_mesh"] for spec in clone_specs]})
+        def usd_snapshot(label,pixel_gate):
+            return {"label":label,"manager_step":SimulationManager.get_num_physics_steps(),"prims":{path:usd_prim_state(path) for path in tracked_paths},"joint_authored":joint_frames,"pixel_gate":pixel_gate,"object_id":{"status":"NOT_CAPTURED","reason":"No supported viewport prim-ID API was found in the installed Kit examples; semantic IDs would require a separate Replicator annotator path."},"depth":{"status":"AVAILABLE_INSTALLED_API_NOT_INVOKED","api":"isaacsim.test.utils.image_capture.capture_depth_data_async","reason":"Replicator render-product initialization is intentionally excluded from this minimal initialization diagnostic."}}
+        report["initialization_diagnostic"]={"before_initialize":usd_snapshot("before_initialize",prephysics_gate)}
+        diagnostic_marker("STAGE_LOADED");diagnostic_marker("LINKED_CLONES_CREATED",clone_count=len(clone_specs));diagnostic_marker("PREPHYSICS_PIXEL_GATE_PASS");diagnostic_marker("BEFORE_INITIALIZE_STATE_CAPTURED")
+
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
         SimulationManager.initialize_physics()
-        continuity=[capture_pixel_gate("after_initialize",0,prephysics_gate["components"])]
-        for relative_step in range(1,11):
-            before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);app.update()
-            if SimulationManager.get_num_physics_steps()<=before:raise RuntimeError("PhysicsScene did not advance")
-            if relative_step in (1,2,5,10):continuity.append(capture_pixel_gate(f"step_{relative_step}",relative_step,prephysics_gate["components"]))
-        (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"PASS","captures":continuity},indent=2)+"\n")
-        report["visual_continuity_gate"]={"status":"PASS","captures":continuity}
+        diagnostic_marker("PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS",manager_step_observed=SimulationManager.get_num_physics_steps())
         view = SimulationManager.get_physics_simulation_view()
         articulation = view.create_articulation_view([str(articulations[0].GetPath())])
         if articulation.count != 1 or articulation.max_dofs != 3:
             raise RuntimeError(f"articulation count/dof={articulation.count}/{articulation.max_dofs}")
-        meta = articulation.get_metatype(0)
+        meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ENABLED",update_fabric_for_steps=True)
+        after_initialize=capture_pixel_gate("after_initialize",0,prephysics_gate["components"],raise_on_fail=not args.initialization_diagnostic)
+        continuity=[after_initialize]
+        def tensor_state(label):
+            positions=nested_values(articulation.get_dof_positions())[0];velocities=nested_values(articulation.get_dof_velocities())[0];links=nested_values(articulation.get_link_transforms())[0]
+            return {"label":label,"dof_names":list(meta.dof_names),"positions_rad":{name:float(positions[index]) for name,index in meta.dof_indices.items()},"velocities_rad_s":{name:float(velocities[index]) for name,index in meta.dof_indices.items()},"link_names":list(meta.link_names),"link_transforms_xyzw":links}
+        report["initialization_diagnostic"]["after_initialize"]={"usd":usd_snapshot("after_initialize",after_initialize),"tensor":tensor_state("after_initialize")};diagnostic_marker("AFTER_INITIALIZE_CAPTURED",pixel_status=after_initialize["status"])
+        if args.initialization_diagnostic and after_initialize["status"]!="PASS":
+            report["status"]="INITIALIZATION_DIAGNOSTIC_STOPPED_AT_AFTER_INITIALIZE_PIXEL_FAIL";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False
+            (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"FAIL","captures":continuity},indent=2)+"\n")
+            (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_DIAGNOSTIC_PIXEL_FAIL_AFTER_INITIALIZE\n")
+            return 20
+        for relative_step in range(1,11):
+            before=SimulationManager.get_num_physics_steps();SimulationManager.step(steps=1,update_fabric=True);app.update()
+            if SimulationManager.get_num_physics_steps()<=before:raise RuntimeError("PhysicsScene did not advance")
+            if relative_step in (1,2,5,10):
+                gate=capture_pixel_gate(f"step_{relative_step}",relative_step,prephysics_gate["components"],raise_on_fail=not args.initialization_diagnostic);continuity.append(gate);report["initialization_diagnostic"][f"step_{relative_step}"]={"usd":usd_snapshot(f"step_{relative_step}",gate),"tensor":tensor_state(f"step_{relative_step}")};diagnostic_marker(f"STEP_{relative_step}_CAPTURED",pixel_status=gate["status"])
+                if args.initialization_diagnostic and gate["status"]!="PASS":break
+        (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"PASS","captures":continuity},indent=2)+"\n")
+        report["visual_continuity_gate"]={"status":"PASS","captures":continuity}
+        if args.initialization_diagnostic:
+            report["status"]="INITIALIZATION_DIAGNOSTIC_COMPLETE";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False;diagnostic_marker("INITIALIZATION_DIAGNOSTIC_COMPLETE")
+            (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"initialization_diagnostic_complete.json").write_text(json.dumps({"status":report["status"],"manager_step":SimulationManager.get_num_physics_steps()},indent=2)+"\n")
+            return 0
         dof_names = list(meta.dof_names)
         if sorted(dof_names) != ["gt_C_1", "gt_C_2", "gt_C_3"]:
             raise RuntimeError(f"unexpected DOFs {dof_names}")

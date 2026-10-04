@@ -1,0 +1,218 @@
+{
+  "status": "VISUAL_CONTINUITY_GATE_FAIL_AFTER_INITIALIZE_GT_C_1_MISSING",
+  "physics_schedule_started": false,
+  "video_recorder_started": false,
+  "manager_step_observed": 2,
+  "files": {
+    "prephysics_png": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/visual_continuity_prephysics.png",
+      "bytes": 96296,
+      "sha256": "407751b2303aa751f07a75951c813259142aeab15a54f6add3780593bbe2179d"
+    },
+    "after_initialize_png": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/visual_continuity_after_initialize.png",
+      "bytes": 262221,
+      "sha256": "87ed3093eac935ef1abb7f2c85b80f025a7edcc944cc862298dd52314cea8bc2"
+    },
+    "prephysics_gate_json": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/prephysics_pixel_gate.json",
+      "bytes": 1764,
+      "sha256": "0760ab4fb45581ccfb9be8be6280bd2a6c023d87b94f7a6205c9a8d37371b091"
+    },
+    "continuity_json": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/visual_continuity_gate.json"
+    },
+    "linked_clone_report": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/static_mapping_gate.json",
+      "bytes": 43879,
+      "sha256": "8d6533c82d64c8efe6cea81bca76c0131c4ee1c8460196b97f10d7b1fa6b6291"
+    },
+    "camera_report": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/camera_selection_report.json"
+    },
+    "progress_marker": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/runner_phase.txt"
+    },
+    "physics_records": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/physics_records.jsonl"
+    },
+    "video": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/29806_gt_only_gpu0_gui_physics.mp4"
+    },
+    "success_marker": {
+      "status": "MISSING",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/initialization_diagnostic_complete.json"
+    },
+    "physics_report": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/physics_gui_report.json",
+      "bytes": 4316,
+      "sha256": "d8ac90fd9d926d9baffb6eb054dfc785b86fd37319afc5cba35c60533b741c93"
+    },
+    "stdout": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/stdout.log",
+      "bytes": 15335,
+      "sha256": "ebf884246c2773ef27cafad51216d9c021aa461c8b9dcfa75cea4bc9ae6c0ff6"
+    },
+    "stderr": {
+      "status": "PRESENT",
+      "path": "/home/minsujo/Desktop/SH/PHYSx/logs/isaac-gui-usd-visual-validation/20261004T160703Z-29806-gpu0-e2e-c371c806-9399-462d-b155-7679f35df3c7/stderr.log",
+      "bytes": 2796,
+      "sha256": "85855bf745e807f3dbcb329a862ee4dad0577b1dc649bfce15c5ad69682811f8"
+    }
+  },
+  "red_pre_bbox_xyxy": [
+    302,
+    233,
+    507,
+    486
+  ],
+  "red_region_xyxy": [
+    302,
+    233,
+    508,
+    487
+  ],
+  "red_region_prephysics": {
+    "rgb_mean": [
+      220.55169711795733,
+      146.07205106643224,
+      138.7135540096323
+    ],
+    "rgb_std": [
+      34.80454372682218,
+      27.75687251027917,
+      27.534003255731946
+    ],
+    "rgb_min": [
+      0,
+      0,
+      0
+    ],
+    "rgb_max": [
+      228,
+      221,
+      223
+    ],
+    "nonblack_ratio": 0.9876538490941059,
+    "redlike_pixels": 49122,
+    "greenlike_pixels": 0,
+    "gray_pixels": 1934
+  },
+  "red_region_after_initialize": {
+    "rgb_mean": [
+      7.729053589175139,
+      7.739603241342405,
+      7.826293861325587
+    ],
+    "rgb_std": [
+      38.80773730320317,
+      38.82437071741168,
+      39.226883371527684
+    ],
+    "rgb_min": [
+      0,
+      0,
+      0
+    ],
+    "rgb_max": [
+      221,
+      221,
+      223
+    ],
+    "nonblack_ratio": 0.045313813928598734,
+    "redlike_pixels": 0,
+    "greenlike_pixels": 150,
+    "gray_pixels": 2038
+  },
+  "pixel_conclusion": "The former red-door region became 95.47% near-black and contains zero redlike pixels; RGB alone cannot distinguish body snap, occlusion, or clone/Fabric synchronization.",
+  "transform_and_joint_state": "MISSING_FROM_FAILED_RUN",
+  "object_id_depth": "MISSING_FROM_FAILED_RUN",
+  "green_center_shift_px": 18.728207101119462,
+  "known_candidates": [
+    "physics initial body/joint pose snap",
+    "linked-clone parent/local transform or Fabric synchronization",
+    "occlusion after initialization"
+  ],
+  "not_claimed": [
+    "physics drive success",
+    "video success",
+    "AI prediction success"
+  ],
+  "authored_joint_coordinate_audit": {
+    "basis": "payloads/base.usda body1 xform equals payloads/Physics/physics.usda localPos0; body0 root, localPos1=(0,0,0), localRot0=localRot1=identity, axis=Y",
+    "gt_C_1": {
+      "body1_translation": [
+        0.8148394417762757,
+        0.2987506091594696,
+        -0.22010788321495056
+      ],
+      "localPos0": [
+        0.8148394,
+        0.2987506,
+        -0.22010788
+      ],
+      "authored_coordinate_rad": 0.0,
+      "interpretation": "joint frames coincide at zero within serialized precision"
+    },
+    "gt_C_2": {
+      "body1_translation": [
+        0.25272891879081727,
+        0.3085097372531891,
+        -0.22462722659111023
+      ],
+      "localPos0": [
+        0.2527289,
+        0.30850974,
+        -0.22462723
+      ],
+      "authored_coordinate_rad": 0.0,
+      "interpretation": "joint frames coincide at zero within serialized precision"
+    },
+    "gt_C_3": {
+      "body1_translation": [
+        -0.2784666121006012,
+        -0.3179835081100464,
+        -0.22822706401348114
+      ],
+      "localPos0": [
+        -0.2784666,
+        -0.3179835,
+        -0.22822706
+      ],
+      "authored_coordinate_rad": 0.0,
+      "interpretation": "joint frames coincide at zero within serialized precision"
+    },
+    "drive_target_authored": "ABSENT_IN_physics.usda",
+    "joint_state_authored": "schema applied; explicit state value not observed",
+    "runtime_tensor_position": "MISSING_FROM_FAILED_RUN"
+  },
+  "initial_state_change": {
+    "applied": false,
+    "reason": "Authored geometry indicates q=0, but failed run lacks tensor position/pose evidence needed to prove a mismatch or justify runtime correction."
+  },
+  "warnings": {
+    "ill_formed_sdf_path": {
+      "kit_log_line": 5613,
+      "time_after_start_ms": 4951,
+      "repository_empty_sdf_path_call_found": false,
+      "status": "CALLER_UNRESOLVED_NOT_ASSIGNED_AS_CAUSE"
+    },
+    "unexpected_stage_reference_count": {
+      "kit_log_line": 6450,
+      "time_after_start_ms": 9259,
+      "context": "shutdown after diagnostic exception while Python stage references remained live",
+      "status": "CLEANUP_WARNING_NOT_ASSIGNED_AS_CAUSE"
+    }
+  }
+}
