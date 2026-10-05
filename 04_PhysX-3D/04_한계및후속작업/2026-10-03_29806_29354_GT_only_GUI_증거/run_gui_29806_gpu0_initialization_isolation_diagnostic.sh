@@ -50,10 +50,10 @@ unset CUDA_VISIBLE_DEVICES NVIDIA_VISIBLE_DEVICES
 cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --initialization-isolation-diagnostic --diffuse-only-material-diagnostic)
 printf '%q ' "${cmd[@]}" >"$LOG_DIR/command.txt"; printf '\n' >>"$LOG_DIR/command.txt"
 set +e
-timeout --signal=INT --kill-after=30s 300s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.log") 2> >(tee "$LOG_DIR/stderr.log" >&2) &
+timeout --signal=INT --kill-after=15s 120s "${cmd[@]}" > >(tee "$LOG_DIR/stdout.log") 2> >(tee "$LOG_DIR/stderr.log" >&2) &
 child_pid=$!
 (
-  startup_deadline=$(( $(date +%s) + 180 ))
+  startup_deadline=$(( $(date +%s) + 90 ))
   while kill -0 "$child_pid" 2>/dev/null; do
     heartbeat="$STAGING_DIR/gui_heartbeat.json"
     phase_file="$STAGING_DIR/runner_phase.txt"
@@ -67,7 +67,7 @@ child_pid=$!
         exit 70
       fi
     elif (( $(date +%s) > startup_deadline )); then
-      printf 'WATCHDOG_FAIL no_heartbeat_within_180s\n' >"$LOG_DIR/watchdog_failure.txt"
+      printf 'WATCHDOG_FAIL no_heartbeat_within_90s\n' >"$LOG_DIR/watchdog_failure.txt"
       kill -INT "$child_pid" 2>/dev/null || true
       exit 71
     fi
