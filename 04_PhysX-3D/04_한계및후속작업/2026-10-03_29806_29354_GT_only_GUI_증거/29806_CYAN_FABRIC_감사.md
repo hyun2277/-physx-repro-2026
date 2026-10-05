@@ -47,3 +47,11 @@ post-Fabric cyan 재bind loop는 이 모드에서 실행하지 않는다. 이 bo
 표시 경계가 안정되면 다음은 제출 영상이 아니라 C1 bounded motion probe다. open target은 임의 -0.3 rad가 아니라 실제 [-pi,0] 범위의 25%인 약 -0.7854 rad로 사전 고정한다. 1.5초 closed, 3초 opening, 1초 hold, 3초 closing, 1.5초 settle 동안 C2/C3에 매 step 0 rad를 보낸다. 이 probe는 표시 안정 gate 통과 뒤에만 준비·실행한다.
 
 현재 판정: `DISPLAY_BOUNDARY_DIAGNOSTIC_PREPARED_HOST_EXECUTION_REQUIRED`. Physics 개폐와 영상은 미실행이며 29354는 차단 상태다.
+
+## 2026-10-05 04:54 실행 정정
+
+이 실행의 코드에서는 `--diffuse-only-material-diagnostic`가 emissive 입력만 생략했고 색상은 기존 gray/red/green/blue를 그대로 유지했다. 따라서 “cyan prephysics”가 실제로 author됐다고 볼 수 없다. 캡처는 RGBA 1280×720로 decode됐지만 cyan 0 pixel, 밝기 10 초과 7 pixel뿐인 사실상 검정 화면이었다. 기본 RGB gate가 throw한 것은 모드 분기 결함이며, 검정 화면 자체는 별도의 실제 표시 실패다.
+
+수정 모드는 모든 clone에 처음부터 `(0.12, 0.68, 0.92)` diffuse-only 재질을 author하고 legacy RGB detector를 호출하지 않는다. direct/computed binding, shader inputs, prim/material spec layer, topology, extent, visibility와 world bounds를 캡처 전에 저장한다. cyan/nonblack 및 camera-projected BASE/C1/C2/C3 영역을 검사하며 invalid면 physics 초기화 전에 자료를 flush하고 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 종료한다.
+
+설치 runtime의 `SimulationManager.set_device(cuda:0)`가 `enable_fabric(True)`를 호출하므로 경계 캡처를 prephysics, setup/Fabric enable 직후·initialize 전, initialize 직후·tensor 전, tensor view 뒤, 첫 `update_fabric=True` closed step 뒤로 구분했다.

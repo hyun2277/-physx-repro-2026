@@ -41,3 +41,12 @@
 - 판정: indices 부재 자체는 10163 성공 clone에도 동일하므로 치명 원인으로 확정할 수 없다. post-Fabric primvar/material mutation과 renderer population이 섞여 cyan 재질 인과 시험은 불완전하다.
 - 수정: 10163과 같은 diffuse-only material을 초기 stage author 때 적용하는 bounded mode와 initialize 직후/tensor view 전 capture를 추가했다. 동적 cyan loop는 해당 mode에서 제외한다.
 - 상태: `DISPLAY_BOUNDARY_DIAGNOSTIC_PREPARED_HOST_EXECUTION_REQUIRED`; active motion/recorder/29354 미실행.
+
+## 2026-10-05 — diffuse-only boundary run stopped by wrong prephysics gate
+
+- 실행: `20261005T045405Z-29806-gpu0-initialization-isolation-diagnostic-1ce83d36-c784-494a-b838-eb9930ec4d6f`
+- 직접 실패: diffuse-only 플래그에서도 기본 gray/red/green/blue gate를 무조건 호출해 prephysics에서 `VISUAL_CONTINUITY_GATE_FAIL`을 throw했다.
+- 실제 PNG: RGBA 1280×720 decode PASS, cyan 0 pixel, 밝기 10 초과 7/921600 pixel로 사실상 검정이다. 따라서 검출기 오선택과 별개로 이 실행의 diffuse-only 표시는 유효하지 않았다.
+- 추가 코드 결함: 플래그는 emissive만 제거했으며 실제 material color는 cyan으로 바꾸지 않았다. 기록된 “cyan diagnostic”과 실제 authoring이 불일치했다.
+- 수정: 진단 모드에서는 처음부터 모든 clone에 10163-style cyan diffuse-only material을 author한다. legacy RGB 결과는 비결정적 참고값으로만 저장하고, cyan HSV·nonblack·camera-projected component region을 별도 검사한다. binding/layer/shader/topology audit를 prephysics 전에 atomic write하며 invalid면 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 physics 초기화 전에 종료한다.
+- 상태: host 재검증 전이며 원인 해결로 판정하지 않는다. active schedule/recorder/29354 미실행.

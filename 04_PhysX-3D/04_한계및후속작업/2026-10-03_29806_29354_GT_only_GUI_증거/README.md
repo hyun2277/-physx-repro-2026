@@ -154,3 +154,7 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 ### 2026-10-05 — 29806 cyan/Fabric 경계 재감사
 
 최신 isolation 진단의 cyan 세 화면은 cyan 전용 검사에서도 모두 검정이었다. 그러나 재질과 displayColor primvar를 Fabric 활성화 뒤 동적으로 다시 author한 시험이며 같은 경로에서 `primvars:displayColor:indices not found` 경고가 발생했으므로, cyan 재질 자체의 실패로 확정하지 않는다. 상세 근거는 [29806_CYAN_FABRIC_감사.md](./29806_CYAN_FABRIC_감사.md)에 기록했다. 다음 bounded 진단은 10163 성공 방식과 같은 diffuse-only 재질을 처음부터 사용하고 initialize 직후/tensor view 전 경계를 추가한다. active-door schedule, recorder, 29354는 계속 미실행이다.
+
+### 2026-10-05 04:54 diffuse-only prephysics 실패
+
+해당 실행은 Fabric 경계 결과가 아니다. prephysics PNG는 decode됐지만 사실상 검정이었고, 코드가 의도한 cyan 대신 기존 component 색을 유지한 채 legacy RGB gate를 호출하여 physics 초기화 전에 종료했다. 수정 runner는 초기 authoring부터 10163-style cyan diffuse-only material을 사용하고 material/binding/layer audit와 cyan·nonblack·projected-region gate를 분리한다. invalid면 자료를 저장한 뒤 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 종료하며 physics, active motion, recorder, 29354는 시작하지 않는다.

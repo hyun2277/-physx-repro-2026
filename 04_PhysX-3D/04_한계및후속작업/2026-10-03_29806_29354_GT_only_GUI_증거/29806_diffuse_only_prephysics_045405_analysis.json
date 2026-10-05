@@ -1,0 +1,123 @@
+{
+  "run_id": "isaac-gui-usd-visual-validation-20261005T045405Z-29806-gpu0-initialization-isolation-diagnostic-1ce83d36-c784-494a-b838-eb9930ec4d6f",
+  "capture": "/home/minsujo/Desktop/SH/PHYSx/staging/isaac-gui-usd-visual-validation-20261005T045405Z-29806-gpu0-initialization-isolation-diagnostic-1ce83d36-c784-494a-b838-eb9930ec4d6f/visual_continuity_prephysics.png",
+  "bytes": 37539,
+  "sha256": "0f4e7f9bd18620feced936e570cc8f72d3a744e9594fe72d93c9b4bcbc36702d",
+  "mode": "RGBA",
+  "resolution": [
+    1280,
+    720
+  ],
+  "decode": "PASS",
+  "alpha_extrema": [
+    255,
+    255
+  ],
+  "rgb_extrema": [
+    [
+      0,
+      166
+    ],
+    [
+      0,
+      166
+    ],
+    [
+      0,
+      166
+    ]
+  ],
+  "nonblack_gt10_count": 7,
+  "nonblack_gt10_ratio": 7.595486111111111e-06,
+  "cyan_pixel_count": 0,
+  "cyan_bbox_xyxy": null,
+  "top_rgb": [
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      920629
+    ],
+    [
+      [
+        1,
+        1,
+        1
+      ],
+      598
+    ],
+    [
+      [
+        2,
+        2,
+        2
+      ],
+      211
+    ],
+    [
+      [
+        3,
+        3,
+        3
+      ],
+      40
+    ],
+    [
+      [
+        0,
+        0,
+        1
+      ],
+      30
+    ],
+    [
+      [
+        1,
+        1,
+        2
+      ],
+      23
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      14
+    ],
+    [
+      [
+        0,
+        1,
+        1
+      ],
+      13
+    ],
+    [
+      [
+        4,
+        4,
+        4
+      ],
+      8
+    ],
+    [
+      [
+        5,
+        5,
+        5
+      ],
+      6
+    ]
+  ],
+  "physics_initialize_executed": false,
+  "tensor_view_created": false,
+  "fabric_enabled": false,
+  "active_motion_started": false,
+  "recorder_started": false,
+  "case_29354_executed": false,
+  "audit_conclusion": "DECODED_EFFECTIVELY_BLACK; LEGACY_RGB_GATE_WAS_WRONG FOR INTENDED CYAN MODE; ACTUAL CODE ALSO FAILED TO AUTHOR CYAN BEFORE THIS RUN"
+}

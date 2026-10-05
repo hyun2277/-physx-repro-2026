@@ -293,6 +293,8 @@ def main() -> int:
         deinstanced_rigid_bodies = []
 
         colors = {None:(0.72,0.72,0.76), "gt_C_1":(0.88,0.20,0.18), "gt_C_2":(0.16,0.70,0.26), "gt_C_3":(0.15,0.35,0.92)}
+        if args.diffuse_only_material_diagnostic:
+            colors = {label:(0.12,0.68,0.92) for label in colors}
         materials = {}
         for label,color in colors.items():
             token = label or "BASE"
@@ -667,6 +669,28 @@ def main() -> int:
             done=marker_dir/f"{label}.result.json";tmp=done.with_suffix(".json.tmp");tmp.write_text(json.dumps(result,indent=2)+"\n");os.replace(tmp,done)
             return result
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
+        def analyze_diffuse_only(path,label,relative_step):
+            image=Image.open(path).convert("RGB");rgb=np.asarray(image);hsv=np.asarray(image.convert("HSV"));h,sat,val=hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]
+            cyan=(h>=115)&(h<=155)&(sat>=70)&(val>=35);nonblack=rgb.max(axis=2)>10
+            labels,_=ndimage.label(cyan);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0
+            selected=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(cyan,dtype=bool);ys,xs=np.where(selected);cyan_count=int(selected.sum())
+            camera_world=UsdGeom.XformCache(Usd.TimeCode.Default()).GetLocalToWorldTransform(camera.GetPrim());world_to_camera=camera_world.GetInverse()
+            focal=float(camera.GetFocalLengthAttr().Get());hap=float(camera.GetHorizontalApertureAttr().Get());vap=float(camera.GetVerticalApertureAttr().Get());projected={}
+            for component in ("BASE","gt_C_1","gt_C_2","gt_C_3"):
+                points=[]
+                for spec in clone_specs:
+                    if spec["component_label"]!=component:continue
+                    for point in corners(spec["actual_authored_clone_world_bounds"]):
+                        pc=world_to_camera.Transform(Gf.Vec3d(*point));depth=-float(pc[2])
+                        if depth>0:
+                            nx=float(pc[0])/depth*focal/(hap*0.5);ny=float(pc[1])/depth*focal/(vap*0.5);points.append(((nx+1)*0.5*image.width,(1-ny)*0.5*image.height))
+                if not points:projected[component]={"in_front":False,"intersects_frame":False,"bbox_xyxy":None,"cyan_pixels":0,"nonblack_ratio":0.0};continue
+                x0=max(0,int(math.floor(min(x for x,_ in points))));x1=min(image.width-1,int(math.ceil(max(x for x,_ in points))));y0=max(0,int(math.floor(min(y for _,y in points))));y1=min(image.height-1,int(math.ceil(max(y for _,y in points))));inside=x1>=x0 and y1>=y0
+                region_cyan=cyan[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool);region_nonblack=nonblack[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool)
+                projected[component]={"in_front":True,"intersects_frame":inside,"bbox_xyxy":[x0,y0,x1,y1] if inside else None,"cyan_pixels":int(region_cyan.sum()),"nonblack_ratio":float(region_nonblack.mean()) if region_nonblack.size else 0.0}
+            regions_pass=all(row["intersects_frame"] and row["cyan_pixels"]>=5 and row["nonblack_ratio"]>=0.001 for row in projected.values())
+            status="PASS" if cyan_count>=30 and float(nonblack.mean())>=0.001 and regions_pass else "FAIL"
+            return {"label":label,"status":status,"status_scope":"DIFFUSE_ONLY_CYAN_BOUNDARY","relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"resolution":[image.width,image.height],"cyan_pixel_count":cyan_count,"cyan_bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if cyan_count else None,"nonblack_pixel_count":int(nonblack.sum()),"nonblack_pixel_ratio":float(nonblack.mean()),"components":projected,"missing":[name for name,row in projected.items() if not (row["intersects_frame"] and row["cyan_pixels"]>=5 and row["nonblack_ratio"]>=0.001)],"threshold_basis":"10163-style diffuseColor=(0.12,0.68,0.92); HSV 115..155, saturation>=70, value>=35; whole connected cyan>=30/nonblack>=0.001; each projected component cyan>=5/nonblack>=0.001"}
         def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False,captured_path=None):
             path=captured_path or args.run_dir/f"visual_continuity_{label}.png"
             if captured_path is None:
@@ -681,6 +705,10 @@ def main() -> int:
                     time.sleep(0.01)
                 if not task.result():raise RuntimeError(f"visual continuity capture API failed: {label}")
             if not path.is_file() or path.stat().st_size==0:raise RuntimeError(f"visual continuity capture missing: {label}")
+            if args.diffuse_only_material_diagnostic:
+                result=analyze_diffuse_only(path,label,relative_step)
+                if result["status"]!="PASS" and raise_on_fail:raise RuntimeError(f"DIFFUSE_ONLY_PIXEL_GATE_FAIL {result}")
+                return result
             image=Image.open(path).convert("RGB");hsv=np.asarray(image.convert("HSV"));masks=masks_factory(hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]);components={}
             for name,raw in masks.items():
                 labels,_=ndimage.label(raw);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0;chosen=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(raw,dtype=bool)
@@ -714,7 +742,48 @@ def main() -> int:
             if not await capture_viewport_png(path,fast=fast):
                 raise RuntimeError(f"visual continuity capture API failed: {label}")
             return capture_pixel_gate(label,relative_step,baseline,raise_on_fail,fast,captured_path=path)
-        prephysics_gate=capture_pixel_gate("prephysics",None)
+        def material_binding_audit():
+            rows=[]
+            for spec,prim in zip(clone_specs,clone_prims):
+                binding=UsdShade.MaterialBindingAPI(prim);material,_=binding.ComputeBoundMaterial()
+                shader=UsdShade.Shader(stage.GetPrimAtPath(str(material.GetPath())+"/PreviewSurface")) if material else None
+                def shader_input(name):
+                    value=shader.GetInput(name).Get() if shader and shader.GetInput(name) else None
+                    return [float(x) for x in value] if value is not None and hasattr(value,"__iter__") else value
+                rows.append({
+                    "clone":str(prim.GetPath()),"component":spec["component_label"],
+                    "visibility":str(UsdGeom.Imageable(prim).ComputeVisibility()),"purpose":str(UsdGeom.Imageable(prim).ComputePurpose()),
+                    "points":len(UsdGeom.Mesh(prim).GetPointsAttr().Get() or []),"face_counts":len(UsdGeom.Mesh(prim).GetFaceVertexCountsAttr().Get() or []),
+                    "face_indices":len(UsdGeom.Mesh(prim).GetFaceVertexIndicesAttr().Get() or []),"extent":str(UsdGeom.Mesh(prim).GetExtentAttr().Get()),
+                    "direct_material_targets":[str(x) for x in prim.GetRelationship("material:binding").GetTargets()],
+                    "computed_material":str(material.GetPath()) if material else None,"shader":str(shader.GetPath()) if shader else None,
+                    "diffuseColor":shader_input("diffuseColor"),"emissiveColor":shader_input("emissiveColor"),"opacity":shader_input("opacity"),
+                    "displayColor":str(prim.GetAttribute("primvars:displayColor").Get()),"displayColor_interpolation":str(UsdGeom.Mesh(prim).GetDisplayColorPrimvar().GetInterpolation()),
+                    "displayOpacity":str(prim.GetAttribute("primvars:displayOpacity").Get()),"displayOpacity_interpolation":str(UsdGeom.Mesh(prim).GetDisplayOpacityPrimvar().GetInterpolation()),
+                    "prim_spec_layers":[spec.layer.identifier for spec in prim.GetPrimStack()],
+                    "material_spec_layers":[spec.layer.identifier for spec in material.GetPrim().GetPrimStack()] if material else [],
+                    "world_bounds":spec["actual_authored_clone_world_bounds"],
+                })
+            return {"mode":"DIFFUSE_ONLY_CYAN" if args.diffuse_only_material_diagnostic else "DEFAULT_RGB","session_layer":session.identifier,"edit_target":stage.GetEditTarget().GetLayer().identifier,"renderer_warmup":{"synchronous_app_updates_before_camera_capture":30,"capture_completion_frames":30},"clones":rows}
+        material_audit=material_binding_audit()
+        material_audit["binding_pass"]=all(row["direct_material_targets"]==[row["computed_material"]] and row["shader"] and row["diffuseColor"] is not None and row["opacity"]==1.0 for row in material_audit["clones"])
+        atomic_json(args.run_dir/"prephysics_material_binding_audit.json",material_audit)
+        atomic_json(args.run_dir/"renderer_material_sync_marker.json",{"status":"MATERIAL_BINDINGS_RESOLVED_RENDER_FRAMES_REQUESTED" if material_audit["binding_pass"] else "MATERIAL_BINDING_INVALID","binding_pass":material_audit["binding_pass"],"app_updates_after_camera_activation":30,"capture_completion_frames":30,"physics_initialized":False})
+        if not material_audit["binding_pass"]:
+            report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID" if args.diffuse_only_material_diagnostic else "PREPHYSICS_MATERIAL_BINDING_INVALID"
+            report["material_audit"]=material_audit;atomic_json(args.run_dir/"physics_gui_report.json",report);(args.run_dir/"runner_phase.txt").write_text(report["status"]+"\n");return 21
+
+        prephysics_gate=capture_pixel_gate("prephysics",None,raise_on_fail=not args.diffuse_only_material_diagnostic)
+        if args.diffuse_only_material_diagnostic:
+            cyan_report={**prephysics_gate,"status":"PASS" if prephysics_gate["status"]=="PASS" else "DIFFUSE_ONLY_PREPHYSICS_INVALID","legacy_rgb_gate_status":"NOT_RUN","legacy_rgb_gate_is_decisive":False,"material_audit_path":str(args.run_dir/"prephysics_material_binding_audit.json"),"physics_initialized":False,"active_schedule_started":False,"recorder_started":False}
+            atomic_json(args.run_dir/"diffuse_only_prephysics_gate.json",cyan_report)
+            print("DIFFUSE_ONLY_PREPHYSICS_GATE="+cyan_report["status"],flush=True)
+            if cyan_report["status"]!="PASS":
+                report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID";report["diffuse_only_prephysics_gate"]=cyan_report
+                atomic_json(args.run_dir/"physics_gui_report.json",report)
+                (args.run_dir/"runner_phase.txt").write_text("DIFFUSE_ONLY_PREPHYSICS_INVALID\n")
+                return 21
+            prephysics_gate={**prephysics_gate,"mode":"DIFFUSE_ONLY_CYAN","cyan_gate":cyan_report}
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
         report["prephysics_pixel_gate"]=prephysics_gate
@@ -749,6 +818,10 @@ def main() -> int:
         diagnostic_marker("STAGE_LOADED");diagnostic_marker("LINKED_CLONES_CREATED",clone_count=len(clone_specs));diagnostic_marker("PREPHYSICS_PIXEL_GATE_PASS");diagnostic_marker("BEFORE_INITIALIZE_STATE_CAPTURED")
 
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
+        if args.diffuse_only_material_diagnostic:
+            fabric_setup_gate=capture_pixel_gate("after_setup_fabric_enabled_before_initialize",0,prephysics_gate["components"],raise_on_fail=False)
+            report["initialization_diagnostic"]["after_setup_fabric_enabled_before_initialize"]={"usd":usd_snapshot("after_setup_fabric_enabled_before_initialize",fabric_setup_gate),"tensor":"NOT_CREATED_YET"}
+            diagnostic_marker("FABRIC_ENABLED_BEFORE_INITIALIZE_CAPTURED",pixel_status=fabric_setup_gate["status"],api_evidence="SimulationManager.set_device(cuda:0) calls enable_fabric(True) in installed 6.1 runtime")
         SimulationManager.initialize_physics()
         diagnostic_marker("PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS",manager_step_observed=SimulationManager.get_num_physics_steps())
         if args.diffuse_only_material_diagnostic:
@@ -759,7 +832,7 @@ def main() -> int:
         articulation = view.create_articulation_view([str(articulations[0].GetPath())])
         if articulation.count != 1 or articulation.max_dofs != 3:
             raise RuntimeError(f"articulation count/dof={articulation.count}/{articulation.max_dofs}")
-        meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ENABLED",update_fabric_for_steps=True)
+        meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ALREADY_ENABLED",first_update_fabric_step_pending=True)
         runtime_dof_indices={name:int(meta.dof_indices[name]) for name in meta.dof_names}
         runtime_link_indices={name:int(meta.link_indices[name]) for name in meta.link_names}
         for spec in clone_specs:
