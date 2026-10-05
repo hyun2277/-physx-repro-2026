@@ -81,6 +81,16 @@ wait "$watchdog_pid" 2>/dev/null || true
 set -e
 printf '%s\n' "$rc" >"$LOG_DIR/python_exit_code.txt"
 ((rc==0)) || fail isaac_child "$rc"
+if [[ -f "$STAGING_DIR/runner_internal_exit.json" ]]; then
+  internal_rc="$(python3 - "$STAGING_DIR/runner_internal_exit.json" <<'PY_INTERNAL'
+import json,sys
+value=json.load(open(sys.argv[1]))["python_return_code"]
+assert isinstance(value,int) and 0 <= value <= 125
+print(value)
+PY_INTERNAL
+)" || fail internal_exit_decode 16
+  ((internal_rc==0)) || fail "python_internal_exit_$internal_rc" "$internal_rc"
+fi
 rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE' "$LOG_DIR/stdout.log" || fail completion_marker 11
 [[ -f "$STAGING_DIR/initialization_isolation_diagnostic_complete.json" ]] || fail completion_report 12
 [[ -f "$STAGING_DIR/runner_internal_exit.json" ]] || fail internal_exit_report 14

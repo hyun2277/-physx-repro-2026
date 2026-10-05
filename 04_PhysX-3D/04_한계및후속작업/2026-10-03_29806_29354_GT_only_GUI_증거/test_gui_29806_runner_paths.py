@@ -68,6 +68,8 @@ def test_runner_definition_lifetime_and_exit_path():
     assert invalid_branch < source.index("SimulationManager.setup_simulation"), "invalid prephysics must stop before physics setup"
     wrapper = WRAPPER.read_text()
     assert wrapper.index('((rc==0)) || fail isaac_child') < wrapper.index("rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE'")
+    assert wrapper.index('runner_internal_exit.json') < wrapper.index("rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE'")
+    assert 'fail "python_internal_exit_$internal_rc" "$internal_rc"' in wrapper
     assert wrapper.index("rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE'") < wrapper.index("printf '0\\n' >\"$LOG_DIR/wrapper_exit_code.txt\"")
 
 
@@ -155,6 +157,28 @@ def test_actual_main_entry_and_error_exit_for_every_mode():
             assert startup["status"] == "ISAAC_APP_STARTUP_ERROR"
             assert startup["primary_error"]["message"] == "synthetic startup failure"
             assert startup["unexecuted_phases"] == execution_plan("default_video")
+
+            # A cleanup failure must be recorded separately and must not replace
+            # the primary execution error or its non-zero return code.
+            class CleanupFailingApp(FakeApp):
+                def close(self):
+                    raise RuntimeError("synthetic cleanup failure")
+            runner.SimulationApp = CleanupFailingApp
+            cleanup_dir = Path(directory) / "cleanup_failure"
+            original_argv = sys.argv
+            sys.argv = [str(RUNNER), "--root", directory,
+                        "--input-usd", str(cleanup_dir / "missing.usda"),
+                        "--input-urdf", str(cleanup_dir / "missing.urdf"),
+                        "--run-dir", str(cleanup_dir), "--capture-size", "1280x720"]
+            try:
+                assert runner.main() == 1
+            finally:
+                sys.argv = original_argv
+            cleanup_exit = json.loads((cleanup_dir / "runner_internal_exit.json").read_text())
+            cleanup_error = json.loads((cleanup_dir / "cleanup_error.json").read_text())
+            assert cleanup_exit["primary_error"]["type"] == "FileNotFoundError"
+            assert cleanup_exit["python_return_code"] == 1
+            assert cleanup_error == {"type": "RuntimeError", "message": "synthetic cleanup failure"}
     finally:
         for name, previous in originals.items():
             if previous is None:

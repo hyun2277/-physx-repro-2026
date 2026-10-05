@@ -59,3 +59,13 @@
 - 추가 결함: `corners`도 static-only 분기에 지역 정의돼 diffuse projection 경로에서 선행 오류가 예정돼 있었다. 상충 모드 flag도 사전 거부되지 않았다.
 - 수정: 공통 helper를 모듈 수준으로 이동하고 실제 mode planner, flag validation, 내부 exit JSON, cleanup 오류 분리를 추가했다. diffuse/emissive control geometry도 asset projected region 밖에 추가했다.
 - 상태: `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`; active motion/영상/29354 미실행.
+
+## 2026-10-05 — material audit USD value serialization failure
+
+- 실행: `20261005T064820Z-29806-gpu0-initialization-isolation-diagnostic-88a493bd-8033-4468-9ea6-15b3b35e3512`
+- 직접 오류: `prephysics_material_binding_audit.json`의 첫 clone `$.clones[0].diffuseColor`가 실제 `pxr.Gf.Vec3f`인 채 `json.dumps`에 전달되어 `TypeError`가 발생했다. 실제 설치 USD 바인딩으로 같은 payload를 구성해 재현 경로를 검산했다.
+- 범위: `stage`, `linked_clones`까지만 완료. manager physics step 0이며 PNG/capture, setup/Fabric, initialize, tensor view, closed/active target, recorder, MP4/GIF는 모두 미실행이다.
+- 종료 기록: runner 내부 return은 1이었으나 Kit 프로세스 파일은 0, wrapper는 completion marker 부재로 11이었다. 기존 wrapper가 내부 실패보다 completion marker를 뒤늦게 본 계약 결함도 확인했다. 2차 JSON/cleanup 오류는 없었다.
+- 수정: 공통 serializer가 finite primitive, `Gf.Vec/Quat/Matrix`, `Sdf.Path`, `pathlib.Path`, NumPy scalar/array를 의미 보존형 JSON 값으로 변환한다. 지원하지 않는 타입은 정확한 key path/type으로 실패한다. wrapper는 `runner_internal_exit.json`의 내부 code를 completion marker보다 먼저 검사한다.
+- 검증: 설치된 USD `Gf.Vec3f`/`Sdf.Path`와 NumPy를 사용한 production `atomic_json` test, 실제 runner main의 모든 mode 입력 오류 분기, startup/cleanup 분리, capture 안정화 failure injection을 통과했다. Isaac GUI/Fabric host 경계는 아직 미실행이다.
+- 상태: `RUNNER_STATIC_AND_BRANCH_REGRESSION_PASS_HOST_VALIDATION_NOT_RUN`; 승인 영상 없음, 29354 미실행.

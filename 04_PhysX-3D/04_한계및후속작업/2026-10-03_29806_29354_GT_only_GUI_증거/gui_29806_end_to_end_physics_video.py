@@ -19,7 +19,7 @@ import time
 import traceback
 from collections import deque
 from pathlib import Path
-from gui_29806_common import atomic_json, corners, diffuse_pixel_decision, execution_plan, internal_exit_payload, validate_modes
+from gui_29806_common import atomic_json, corners, diffuse_pixel_decision, execution_plan, internal_exit_payload, json_compatible, validate_modes
 
 from isaacsim import SimulationApp
 
@@ -819,7 +819,7 @@ def main() -> int:
                 shader=UsdShade.Shader(stage.GetPrimAtPath(str(material.GetPath())+"/PreviewSurface")) if material else None
                 def shader_input(name):
                     value=shader.GetInput(name).Get() if shader and shader.GetInput(name) else None
-                    return [float(x) for x in value] if value is not None and hasattr(value,"__iter__") else value
+                    return json_compatible(value,f"$.clones[{len(rows)}].{name}")
                 rows.append({
                     "clone":str(prim.GetPath()),"component":spec["component_label"],
                     "visibility":str(UsdGeom.Imageable(prim).ComputeVisibility()),"purpose":str(UsdGeom.Imageable(prim).ComputePurpose()),
@@ -1395,8 +1395,18 @@ def main() -> int:
     except BaseException as exc:
         report["status"] = "FAIL"
         report["error"] = {"type": type(exc).__name__, "message": str(exc)}
-        atomic_json(args.run_dir / "physics_gui_report.json", report)
-        atomic_json(args.run_dir / "runner_internal_exit.json",internal_exit_payload(status="EXECUTION_OR_API_ERROR",code=1,mode=mode,plan=report["execution_plan"],completed=report["completed_phases"],asset_pass=False,error=report["error"],last_phase=(args.run_dir/"runner_phase.txt").read_text().strip() if (args.run_dir/"runner_phase.txt").exists() else "BEFORE_PHASE_MARKER"))
+        report_write_error = None
+        try:
+            atomic_json(args.run_dir / "physics_gui_report.json", report)
+        except BaseException as write_error:
+            report_write_error = {"type":type(write_error).__name__,"message":str(write_error)}
+        exit_error = dict(report["error"])
+        if report_write_error is not None:
+            exit_error["physics_gui_report_write_error"] = report_write_error
+        try:
+            atomic_json(args.run_dir / "runner_internal_exit.json",internal_exit_payload(status="EXECUTION_OR_API_ERROR",code=1,mode=mode,plan=report["execution_plan"],completed=report["completed_phases"],asset_pass=False,error=exit_error,last_phase=(args.run_dir/"runner_phase.txt").read_text().strip() if (args.run_dir/"runner_phase.txt").exists() else "BEFORE_PHASE_MARKER"))
+        except BaseException:
+            pass
         traceback.print_exc()
         return 1
     finally:
@@ -1408,12 +1418,18 @@ def main() -> int:
                 except subprocess.TimeoutExpired:
                     ffmpeg_process.kill()
         except BaseException as cleanup_error:
-            atomic_json(args.run_dir/"recorder_cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
+            try:
+                atomic_json(args.run_dir/"recorder_cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
+            except BaseException:
+                pass
         try:
             app.close()
         except BaseException as cleanup_error:
             # Cleanup must not replace the primary failure recorded above.
-            atomic_json(args.run_dir/"cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
+            try:
+                atomic_json(args.run_dir/"cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
+            except BaseException:
+                pass
 
 
 if __name__ == "__main__":

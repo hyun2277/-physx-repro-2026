@@ -1,13 +1,60 @@
 """Small, Isaac-independent helpers used by every 29806 GUI runner mode."""
 
 import json
+import math
 import os
+from pathlib import Path
+
+
+def json_compatible(value, path="$"):
+    """Convert supported USD/scientific values and name unsupported paths."""
+    if value is None or isinstance(value, (str, bool, int)):
+        return value
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            raise ValueError(f"non-finite JSON number at {path}: {value!r}")
+        return value
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, dict):
+        result = {}
+        for key, item in value.items():
+            if not isinstance(key, str):
+                kind = f"{type(key).__module__}.{type(key).__qualname__}"
+                raise TypeError(f"unsupported JSON key at {path}: {kind}")
+            result[key] = json_compatible(item, f"{path}.{key}")
+        return result
+    if isinstance(value, (list, tuple)):
+        return [json_compatible(item, f"{path}[{index}]") for index, item in enumerate(value)]
+
+    module = type(value).__module__
+    name = type(value).__qualname__
+    if module.startswith("numpy"):
+        if hasattr(value, "tolist"):
+            return json_compatible(value.tolist(), path)
+        if hasattr(value, "item"):
+            return json_compatible(value.item(), path)
+    if module.startswith("pxr.Sdf") and name == "Path":
+        return str(value)
+    if module.startswith("pxr.Gf"):
+        if name.startswith("Quat"):
+            imaginary = value.GetImaginary()
+            values = [value.GetReal(), *[imaginary[index] for index in range(len(imaginary))]]
+        else:
+            try:
+                values = [value[index] for index in range(len(value))]
+            except (TypeError, AttributeError):
+                values = None
+        if values is not None:
+            return [json_compatible(item, f"{path}[{index}]") for index, item in enumerate(values)]
+    raise TypeError(f"unsupported JSON value at {path}: {module}.{name}")
 
 
 def atomic_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, indent=2) + "\n")
+    normalized = json_compatible(value)
+    temporary.write_text(json.dumps(normalized, indent=2, allow_nan=False) + "\n")
     os.replace(temporary, path)
 
 
