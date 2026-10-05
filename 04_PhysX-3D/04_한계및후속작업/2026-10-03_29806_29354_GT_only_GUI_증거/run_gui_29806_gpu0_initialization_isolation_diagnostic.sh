@@ -44,7 +44,7 @@ geometry="$(xrandr --current|awk '/ connected primary /{for(i=1;i<=NF;i++)if($i~
 size=${BASH_REMATCH[1]}; offset=${BASH_REMATCH[2]},${BASH_REMATCH[3]}
 printf '{"status":"PASS","gpu_index":0,"uuid":"%s","pci":"%s","multi_gpu":false,"p2p":false}\n' "$actual_uuid" "$actual_bus" >"$LOG_DIR/preflight.json"
 git -C "$REPO" rev-parse HEAD >"$LOG_DIR/repository_head.txt"
-sha256sum "$DIR/gui_29806_end_to_end_physics_video.py" "$0" >"$LOG_DIR/runner_hashes.txt"
+sha256sum "$DIR/gui_29806_end_to_end_physics_video.py" "$DIR/gui_29806_common.py" "$0" >"$LOG_DIR/runner_hashes.txt"
 
 unset CUDA_VISIBLE_DEVICES NVIDIA_VISIBLE_DEVICES
 cmd=("$ISAAC/python.sh" --no-ros-env "$DIR/gui_29806_end_to_end_physics_video.py" --root "$ROOT" --input-usd "$USD" --input-urdf "$URDF" --run-dir "$STAGING_DIR" --capture-size "$size" --capture-offset "$offset" --initialization-isolation-diagnostic --diffuse-only-material-diagnostic)
@@ -83,6 +83,14 @@ printf '%s\n' "$rc" >"$LOG_DIR/python_exit_code.txt"
 ((rc==0)) || fail isaac_child "$rc"
 rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE' "$LOG_DIR/stdout.log" || fail completion_marker 11
 [[ -f "$STAGING_DIR/initialization_isolation_diagnostic_complete.json" ]] || fail completion_report 12
+[[ -f "$STAGING_DIR/runner_internal_exit.json" ]] || fail internal_exit_report 14
+python3 - "$STAGING_DIR/runner_internal_exit.json" <<'PY_EXIT' || fail internal_exit_mismatch 15
+import json,sys
+row=json.load(open(sys.argv[1]))
+assert row["python_return_code"]==0
+assert row["asset_pass"] is False
+assert row["status"]=="DIAGNOSTIC_COMPLETE_NOT_A_PHYSICS_VIDEO_PASS"
+PY_EXIT
 printf '0\n' >"$LOG_DIR/wrapper_exit_code.txt"
 printf 'complete\n' >"$LOG_DIR/wrapper_exit_stage.txt"
 printf 'DIAGNOSTIC_COMPLETE_PHYSICS_VIDEO_NOT_STARTED LOG_DIR=%s STAGING_DIR=%s\n' "$LOG_DIR" "$STAGING_DIR"

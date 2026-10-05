@@ -157,4 +157,8 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 
 ### 2026-10-05 04:54 diffuse-only prephysics 실패
 
-해당 실행은 Fabric 경계 결과가 아니다. prephysics PNG는 decode됐지만 사실상 검정이었고, 코드가 의도한 cyan 대신 기존 component 색을 유지한 채 legacy RGB gate를 호출하여 physics 초기화 전에 종료했다. 수정 runner는 초기 authoring부터 10163-style cyan diffuse-only material을 사용하고 material/binding/layer audit와 cyan·nonblack·projected-region gate를 분리한다. invalid면 자료를 저장한 뒤 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 종료하며 physics, active motion, recorder, 29354는 시작하지 않는다.
+해당 실행은 Fabric 경계 결과가 아니다. prephysics PNG는 decode됐지만 사실상 검정이었고, 코드가 의도한 cyan 대신 기존 component 색을 유지한 채 legacy RGB gate를 호출하여 physics 초기화 전에 종료했다. 수정 runner는 초기 authoring부터 10163-style cyan diffuse-only material을 사용하고 material/binding/layer audit와 cyan·nonblack·projected-region gate를 분리한다. invalid 화면은 `DIFFUSE_ONLY_PREPHYSICS_INVALID_OBSERVATION`으로 보존한다. binding·입력·articulation 전제가 유효한 bounded isolation에서만 최대 10 closed step까지 경계 자료를 계속 수집하며 active motion, recorder, 29354는 시작하지 않는다.
+
+### 2026-10-05 05:09 실행 기반 오류와 전체 경로 보완
+
+`8cff3c4` 실행은 material audit 저장 전에 지역 helper `atomic_json`이 아직 binding되지 않아 종료됐다. PNG, physics initialize, tensor, Fabric step, active target과 recorder는 모두 미실행이다. 공통 helper 수명, 상충 flag, 내부 exit/cleanup 기록, diffuse/emissive control과 Fabric 경계 순서를 함께 보완했다. 상세 비교는 [29806_RUNNER_전체경로_감사_20261005.md](./29806_RUNNER_전체경로_감사_20261005.md)에 있다. 다음 isolation 실행에도 active 개폐와 영상 생성은 없다.

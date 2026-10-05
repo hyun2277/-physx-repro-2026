@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """Offline decision tests for the diffuse-only prephysics gate."""
-from pathlib import Path
 import numpy as np
 from PIL import Image
+from gui_29806_common import diffuse_pixel_decision
 
 
 def decide(rgb, regions, binding=True):
     hsv=np.asarray(Image.fromarray(rgb.astype(np.uint8),'RGB').convert('HSV'))
     cyan=(hsv[:,:,0]>=115)&(hsv[:,:,0]<=155)&(hsv[:,:,1]>=70)&(hsv[:,:,2]>=35)
     nonblack=rgb.max(axis=2)>10
-    region_ok=all(r['intersects_frame'] and r['cyan_pixels']>=5 and r['nonblack_ratio']>=0.001 for r in regions.values())
-    return binding and int(cyan.sum())>=30 and float(nonblack.mean())>=0.001 and region_ok
+    return diffuse_pixel_decision(int(cyan.sum()),float(nonblack.mean()),regions,binding_pass=binding)
 
 
 def main():
@@ -21,11 +20,6 @@ def main():
     assert not decide(cyan,components,binding=False), 'missing binding must fail'
     off={**components,'gt_C_1':{'intersects_frame':False,'cyan_pixels':0,'nonblack_ratio':0.0}}
     assert not decide(cyan,off), 'offscreen projection must fail distinctly'
-    source=Path(__file__).with_name('gui_29806_end_to_end_physics_video.py').read_text()
-    assert 'raise_on_fail=not args.diffuse_only_material_diagnostic' in source
-    assert 'DIFFUSE_ONLY_PREPHYSICS_INVALID' in source
-    assert source.index('DIFFUSE_ONLY_PREPHYSICS_INVALID') < source.index('SimulationManager.initialize_physics()')
-    assert 'active_schedule_started":False' in source and 'recorder_started":False' in source
     print('DIFFUSE_ONLY_GATE_TESTS_PASS')
 
 if __name__=='__main__': main()

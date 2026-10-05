@@ -50,3 +50,12 @@
 - 추가 코드 결함: 플래그는 emissive만 제거했으며 실제 material color는 cyan으로 바꾸지 않았다. 기록된 “cyan diagnostic”과 실제 authoring이 불일치했다.
 - 수정: 진단 모드에서는 처음부터 모든 clone에 10163-style cyan diffuse-only material을 author한다. legacy RGB 결과는 비결정적 참고값으로만 저장하고, cyan HSV·nonblack·camera-projected component region을 별도 검사한다. binding/layer/shader/topology audit를 prephysics 전에 atomic write하며 invalid면 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 physics 초기화 전에 종료한다.
 - 상태: host 재검증 전이며 원인 해결로 판정하지 않는다. active schedule/recorder/29354 미실행.
+
+## 2026-10-05 — material audit helper lifetime failure
+
+- 실행: `20261005T050903Z-29806-gpu0-initialization-isolation-diagnostic-0ab9353f-a515-4c7f-8896-dba506610bf0`
+- 직접 오류: `atomic_json`이 `main()` 후반 지역 함수여서 앞선 material audit 호출에서 `UnboundLocalError` 발생. HEAD `8cff3c4…`, script SHA256 `92cb1f…369f`를 manifest로 확인했다.
+- 범위: stage/clone author 뒤, PNG·physics initialize·tensor·Fabric step·target·recorder 전. Fabric 또는 물리 실패로 분류하지 않는다.
+- 추가 결함: `corners`도 static-only 분기에 지역 정의돼 diffuse projection 경로에서 선행 오류가 예정돼 있었다. 상충 모드 flag도 사전 거부되지 않았다.
+- 수정: 공통 helper를 모듈 수준으로 이동하고 실제 mode planner, flag validation, 내부 exit JSON, cleanup 오류 분리를 추가했다. diffuse/emissive control geometry도 asset projected region 밖에 추가했다.
+- 상태: `RUNNER_PREPARED_HOST_EXECUTION_REQUIRED`; active motion/영상/29354 미실행.

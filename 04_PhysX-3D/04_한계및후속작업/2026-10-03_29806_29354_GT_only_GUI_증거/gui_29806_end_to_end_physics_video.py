@@ -19,6 +19,7 @@ import time
 import traceback
 from collections import deque
 from pathlib import Path
+from gui_29806_common import atomic_json, corners, diffuse_pixel_decision, execution_plan, internal_exit_payload, validate_modes
 
 from isaacsim import SimulationApp
 
@@ -150,6 +151,11 @@ def main() -> int:
     parser.add_argument("--diffuse-only-material-diagnostic", action="store_true")
     parser.add_argument("--gated-recovery-end-to-end", action="store_true")
     args = parser.parse_args()
+    mode = validate_modes(static_mapping_gate=args.static_mapping_gate,
+                          initialization_diagnostic=args.initialization_diagnostic,
+                          initialization_isolation_diagnostic=args.initialization_isolation_diagnostic,
+                          gated_recovery_end_to_end=args.gated_recovery_end_to_end,
+                          diffuse_only_material_diagnostic=args.diffuse_only_material_diagnostic)
     args.run_dir.mkdir(parents=True, exist_ok=True)
 
     experience = args.root / (
@@ -157,24 +163,34 @@ def main() -> int:
         "2026-10-03_29806_29354_GT_only_GUI_증거/"
         "isaac_gui_29806_gpu0_tensor_physics.kit"
     )
-    app = SimulationApp(
-        {
-            "headless": False,
-            "active_cuda_gpus": [0],
-            "physics_gpu": 0,
-            "multi_gpu": False,
-            "extra_args": [
-                "--/renderer/activeGpu=0",
-                "--/physics/cudaDevice=0",
-                "--/renderer/multiGpu/enabled=false",
-                "--/renderer/multiGpu/autoEnable=false",
-            ],
-        },
-        experience=str(experience),
-    )
+    plan = execution_plan(mode, diffuse_only=args.diffuse_only_material_diagnostic)
+    try:
+        app = SimulationApp(
+            {
+                "headless": False,
+                "active_cuda_gpus": [0],
+                "physics_gpu": 0,
+                "multi_gpu": False,
+                "extra_args": [
+                    "--/renderer/activeGpu=0",
+                    "--/physics/cudaDevice=0",
+                    "--/renderer/multiGpu/enabled=false",
+                    "--/renderer/multiGpu/autoEnable=false",
+                ],
+            },
+            experience=str(experience),
+        )
+    except BaseException as exc:
+        atomic_json(args.run_dir/"runner_internal_exit.json",internal_exit_payload(
+            status="ISAAC_APP_STARTUP_ERROR",code=1,mode=mode,plan=plan,completed=[],asset_pass=False,
+            error={"type":type(exc).__name__,"message":str(exc)},last_phase="ISAAC_APP_STARTUP"))
+        traceback.print_exc()
+        return 1
     report = {
         "scope": "29806 GT-only three-door GUI physics control; not AI prediction",
         "status": "RUNNING",
+        "mode": mode,
+        "execution_plan": plan,
         "input_usd": str(args.input_usd),
         "physics_gpu": 0,
         "renderer_gpu": 0,
@@ -184,9 +200,19 @@ def main() -> int:
         "transform_or_keyframe_animation_used": False,
         "pretest": {"records": []},
         "capture": {"records": []},
+        "completed_phases": [],
     }
+    def finish(code, status, *, asset_pass=False):
+        atomic_json(args.run_dir/"runner_internal_exit.json",internal_exit_payload(status=status,code=code,mode=mode,plan=report["execution_plan"],completed=report["completed_phases"],asset_pass=asset_pass))
+        return code
+    def set_phase(name, completed=None):
+        (args.run_dir/"runner_phase.txt").write_text(name+"\n")
+        if completed and completed not in report["completed_phases"]:
+            report["completed_phases"].append(completed)
+        atomic_json(args.run_dir/"runner_phase_state.json",{"phase":name,"wall_time":time.time(),"wall_monotonic":time.monotonic(),"completed_phases":report["completed_phases"],"mode":mode})
     ffmpeg_process = None
     try:
+        set_phase("APP_STARTED")
         import carb
         import omni.kit.app
         import omni.timeline
@@ -228,6 +254,7 @@ def main() -> int:
         for _ in range(3):
             app.update()
         stage = context.get_stage()
+        set_phase("STAGE_LOADED",completed="stage")
         root = stage.GetDefaultPrim()
         if args.static_mapping_gate: marker("STAGE_LOADED",stage=str(selected_usd),default_prim=str(root.GetPath()))
         variant = root.GetVariantSet("Physics")
@@ -448,6 +475,7 @@ def main() -> int:
         clone_xforms_before = authored_clone_xforms(clone_prims)
         clone_time_samples_before = clone_time_samples(clone_prims)
         report["selected_visual_route"] = "RELATIONSHIP_DERIVED_BODY_LOCAL_CLONES"
+        set_phase("LINKED_CLONES_CREATED",completed="linked_clones")
         stage.SetEditTarget(original_target)
         for _ in range(3):
             app.update()
@@ -487,9 +515,6 @@ def main() -> int:
                 progress_path.write_text(json.dumps(payload,indent=2)+"\n")
             save_progress("SOURCE_AND_CLONE_AUDIT_COMPLETE")
 
-            def corners(bounds):
-                lo,hi=bounds["min"],bounds["max"]
-                return [[x,y,z] for x in (lo[0],hi[0]) for y in (lo[1],hi[1]) for z in (lo[2],hi[2])]
             def norm(v):
                 n=math.sqrt(sum(x*x for x in v));return [x/n for x in v]
             def dot(a,b):return sum(x*y for x,y in zip(a,b))
@@ -617,7 +642,8 @@ def main() -> int:
                 time.sleep(0.01)
             save_progress("COMPLETE_HUMAN_CHECK_REQUIRED", report["static_camera"]["preferred"]["label"],update_count=update_count,heartbeat_count=heartbeat_count)
             print("STATIC_MAPPING_GATE=AUTOMATION_READY_HUMAN_CHECK_REQUIRED",flush=True)
-            return 0
+            report["completed_phases"].extend(["stage","linked_clones","static_pixel_gate","human_review_window"])
+            return finish(0,"DIAGNOSTIC_COMPLETE_HUMAN_CHECK_REQUIRED",asset_pass=False)
 
         # The physics camera is a slight 3/4 view derived from the verified
         # minus-Z mapping view.  It preserves all three door panels while
@@ -630,6 +656,30 @@ def main() -> int:
         camera.CreateFocalLengthAttr(35.0);camera.CreateClippingRangeAttr(Gf.Vec2f(max(0.01,distance-asset_scale*2),distance+asset_scale*2))
         viewport.set_active_camera(str(camera.GetPath()))
         context.get_selection().set_selected_prim_paths([],True)
+        diagnostic_controls=[]
+        if args.diffuse_only_material_diagnostic:
+            # Both controls use the same camera and light. Keep them outside
+            # the asset bounds so their pixels cannot satisfy a door region.
+            stage.SetEditTarget(Usd.EditTarget(session))
+            for name,color,emissive,y in (
+                ("DiffuseControl",(0.12,0.68,0.92),False,center[1]-asset_scale*0.10),
+                ("EmissiveControl",(0.92,0.12,0.72),True,center[1]+asset_scale*0.10),
+            ):
+                path=f"/__PhysXGuiDiagnostic/{name}"
+                cube=UsdGeom.Cube.Define(stage,path);cube.CreateSizeAttr(asset_scale*0.055)
+                cube.CreateDisplayColorPrimvar(UsdGeom.Tokens.constant).Set([Gf.Vec3f(*color)])
+                UsdGeom.Xformable(cube).AddTranslateOp().Set(Gf.Vec3d(maxs[0]+asset_scale*0.12,y,center[2]))
+                material=UsdShade.Material.Define(stage,path+"Material")
+                shader=UsdShade.Shader.Define(stage,path+"Material/PreviewSurface")
+                shader.CreateIdAttr("UsdPreviewSurface")
+                shader.CreateInput("diffuseColor",Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color))
+                if emissive:shader.CreateInput("emissiveColor",Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color))
+                shader.CreateInput("opacity",Sdf.ValueTypeNames.Float).Set(1.0)
+                shader.CreateOutput("surface",Sdf.ValueTypeNames.Token)
+                material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(),"surface")
+                UsdShade.MaterialBindingAPI.Apply(cube.GetPrim()).Bind(material)
+                diagnostic_controls.append({"name":name,"prim":path,"material":str(material.GetPath()),"position":[maxs[0]+asset_scale*0.12,y,center[2]],"size":asset_scale*0.055,"emissive":emissive})
+            stage.SetEditTarget(original_target)
         for _ in range(30): app.update()
 
         # Pre-physics rendered-pixel gate: this validates the body-local linked
@@ -642,7 +692,10 @@ def main() -> int:
         async def capture_viewport_png(path, fast=False):
             for _ in range(1 if fast else 30): await next_viewport_frame_async(viewport)
             handle=capture_viewport_to_file(viewport,file_path=str(path),is_hdr=False)
-            return await asyncio.wait_for(handle.wait_for_result(completion_frames=1 if fast else 30),timeout=15.0)
+            completed=await asyncio.wait_for(handle.wait_for_result(completion_frames=1 if fast else 30),timeout=15.0)
+            if not completed:return False
+            stable=await wait_for_stable_png(path,omni.kit.app.get_app().next_update_async,timeout_s=15.0,stable_observations=2)
+            return stable.get("status")=="CAPTURE_OK"
 
         async def capture_viewport_png_stable(label, fast=True, timeout_s=15.0):
             """Wait for renderer flush, stable size, PNG header, and decode."""
@@ -671,7 +724,7 @@ def main() -> int:
         masks_factory=lambda h,sat,val:{"BASE_GRAY":(sat<=65)&(val>=55)&(val<=245),"gt_C_1_RED":((h<=12)|(h>=247))&(sat>=85)&(val>=55),"gt_C_2_GREEN":(h>=60)&(h<=112)&(sat>=70)&(val>=50),"gt_C_3_BLUE":(h>=138)&(h<=190)&(sat>=70)&(val>=50)}
         def analyze_diffuse_only(path,label,relative_step):
             image=Image.open(path).convert("RGB");rgb=np.asarray(image);hsv=np.asarray(image.convert("HSV"));h,sat,val=hsv[:,:,0],hsv[:,:,1],hsv[:,:,2]
-            cyan=(h>=115)&(h<=155)&(sat>=70)&(val>=35);nonblack=rgb.max(axis=2)>10
+            cyan=(h>=115)&(h<=155)&(sat>=70)&(val>=35);magenta=(h>=195)&(h<=240)&(sat>=70)&(val>=35);nonblack=rgb.max(axis=2)>10
             labels,_=ndimage.label(cyan);sizes_cc=np.bincount(labels.ravel());sizes_cc[0]=0
             selected=labels==int(sizes_cc.argmax()) if sizes_cc.max()>0 else np.zeros_like(cyan,dtype=bool);ys,xs=np.where(selected);cyan_count=int(selected.sum())
             camera_world=UsdGeom.XformCache(Usd.TimeCode.Default()).GetLocalToWorldTransform(camera.GetPrim());world_to_camera=camera_world.GetInverse()
@@ -688,9 +741,26 @@ def main() -> int:
                 x0=max(0,int(math.floor(min(x for x,_ in points))));x1=min(image.width-1,int(math.ceil(max(x for x,_ in points))));y0=max(0,int(math.floor(min(y for _,y in points))));y1=min(image.height-1,int(math.ceil(max(y for _,y in points))));inside=x1>=x0 and y1>=y0
                 region_cyan=cyan[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool);region_nonblack=nonblack[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool)
                 projected[component]={"in_front":True,"intersects_frame":inside,"bbox_xyxy":[x0,y0,x1,y1] if inside else None,"cyan_pixels":int(region_cyan.sum()),"nonblack_ratio":float(region_nonblack.mean()) if region_nonblack.size else 0.0}
+            control_rows={}
+            for control in diagnostic_controls:
+                half=control["size"]*0.5;position=control["position"]
+                bounds={"min":[position[i]-half for i in range(3)],"max":[position[i]+half for i in range(3)]};points=[]
+                for point in corners(bounds):
+                    pc=world_to_camera.Transform(Gf.Vec3d(*point));depth=-float(pc[2])
+                    if depth>0:
+                        nx=float(pc[0])/depth*focal/(hap*0.5);ny=float(pc[1])/depth*focal/(vap*0.5);points.append(((nx+1)*0.5*image.width,(1-ny)*0.5*image.height))
+                if not points:control_rows[control["name"]]={"bbox_xyxy":None,"color_pixels":0,"nonblack_ratio":0.0};continue
+                x0=max(0,int(math.floor(min(x for x,_ in points))));x1=min(image.width-1,int(math.ceil(max(x for x,_ in points))));y0=max(0,int(math.floor(min(y for _,y in points))));y1=min(image.height-1,int(math.ceil(max(y for _,y in points))));inside=x1>=x0 and y1>=y0
+                color_mask=magenta if control["emissive"] else cyan;region=color_mask[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool);region_nonblack=nonblack[y0:y1+1,x0:x1+1] if inside else np.zeros((0,0),bool)
+                control_rows[control["name"]]={"bbox_xyxy":[x0,y0,x1,y1] if inside else None,"color_pixels":int(region.sum()),"nonblack_ratio":float(region_nonblack.mean()) if region_nonblack.size else 0.0,"emissive":control["emissive"]}
             regions_pass=all(row["intersects_frame"] and row["cyan_pixels"]>=5 and row["nonblack_ratio"]>=0.001 for row in projected.values())
-            status="PASS" if cyan_count>=30 and float(nonblack.mean())>=0.001 and regions_pass else "FAIL"
-            return {"label":label,"status":status,"status_scope":"DIFFUSE_ONLY_CYAN_BOUNDARY","relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"resolution":[image.width,image.height],"cyan_pixel_count":cyan_count,"cyan_bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if cyan_count else None,"nonblack_pixel_count":int(nonblack.sum()),"nonblack_pixel_ratio":float(nonblack.mean()),"components":projected,"missing":[name for name,row in projected.items() if not (row["intersects_frame"] and row["cyan_pixels"]>=5 and row["nonblack_ratio"]>=0.001)],"threshold_basis":"10163-style diffuseColor=(0.12,0.68,0.92); HSV 115..155, saturation>=70, value>=35; whole connected cyan>=30/nonblack>=0.001; each projected component cyan>=5/nonblack>=0.001"}
+            status="PASS" if diffuse_pixel_decision(cyan_count,float(nonblack.mean()),projected) else "FAIL"
+            diffuse_visible=control_rows.get("DiffuseControl",{}).get("color_pixels",0)>=5;emissive_visible=control_rows.get("EmissiveControl",{}).get("color_pixels",0)>=5
+            interpretation="ASSET_AND_CONTROLS_REQUIRE_HOST_RESULT"
+            if emissive_visible and not diffuse_visible:interpretation="DIFFUSE_LIGHTING_OR_MATERIAL_PATH_SUSPECT"
+            elif diffuse_visible and not regions_pass:interpretation="ASSET_GEOMETRY_NORMALS_OR_RENDER_POPULATION_SUSPECT"
+            elif not diffuse_visible and not emissive_visible:interpretation="CAMERA_RENDER_SYNC_OR_SHARED_PRESENTATION_SUSPECT"
+            return {"label":label,"status":status,"status_scope":"DIFFUSE_ONLY_CYAN_BOUNDARY","relative_physics_step":relative_step,"manager_step":SimulationManager.get_num_physics_steps() if relative_step is not None else None,"capture_path":str(path),"capture_sha256":digest(path),"resolution":[image.width,image.height],"cyan_pixel_count":cyan_count,"cyan_bbox_xyxy":[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())] if cyan_count else None,"nonblack_pixel_count":int(nonblack.sum()),"nonblack_pixel_ratio":float(nonblack.mean()),"components":projected,"controls":control_rows,"interpretation":interpretation,"missing":[name for name,row in projected.items() if not (row["intersects_frame"] and row["cyan_pixels"]>=5 and row["nonblack_ratio"]>=0.001)],"threshold_basis":"10163-style diffuseColor=(0.12,0.68,0.92); HSV 115..155, saturation>=70, value>=35; whole connected cyan>=30/nonblack>=0.001; each projected component cyan>=5/nonblack>=0.001; controls are outside asset regions"}
         def capture_pixel_gate(label,relative_step,baseline=None,raise_on_fail=True,fast=False,captured_path=None):
             path=captured_path or args.run_dir/f"visual_continuity_{label}.png"
             if captured_path is None:
@@ -755,6 +825,9 @@ def main() -> int:
                     "visibility":str(UsdGeom.Imageable(prim).ComputeVisibility()),"purpose":str(UsdGeom.Imageable(prim).ComputePurpose()),
                     "points":len(UsdGeom.Mesh(prim).GetPointsAttr().Get() or []),"face_counts":len(UsdGeom.Mesh(prim).GetFaceVertexCountsAttr().Get() or []),
                     "face_indices":len(UsdGeom.Mesh(prim).GetFaceVertexIndicesAttr().Get() or []),"extent":str(UsdGeom.Mesh(prim).GetExtentAttr().Get()),
+                    "normals":len(UsdGeom.Mesh(prim).GetNormalsAttr().Get() or []),"normals_interpolation":str(UsdGeom.Mesh(prim).GetNormalsInterpolation()),
+                    "orientation":str(UsdGeom.Mesh(prim).GetOrientationAttr().Get()),"subdivision_scheme":str(UsdGeom.Mesh(prim).GetSubdivisionSchemeAttr().Get()),"double_sided":bool(UsdGeom.Mesh(prim).GetDoubleSidedAttr().Get()),
+                    "xform_op_order":str(prim.GetAttribute("xformOpOrder").Get()),
                     "direct_material_targets":[str(x) for x in prim.GetRelationship("material:binding").GetTargets()],
                     "computed_material":str(material.GetPath()) if material else None,"shader":str(shader.GetPath()) if shader else None,
                     "diffuseColor":shader_input("diffuseColor"),"emissiveColor":shader_input("emissiveColor"),"opacity":shader_input("opacity"),
@@ -764,25 +837,29 @@ def main() -> int:
                     "material_spec_layers":[spec.layer.identifier for spec in material.GetPrim().GetPrimStack()] if material else [],
                     "world_bounds":spec["actual_authored_clone_world_bounds"],
                 })
-            return {"mode":"DIFFUSE_ONLY_CYAN" if args.diffuse_only_material_diagnostic else "DEFAULT_RGB","session_layer":session.identifier,"edit_target":stage.GetEditTarget().GetLayer().identifier,"renderer_warmup":{"synchronous_app_updates_before_camera_capture":30,"capture_completion_frames":30},"clones":rows}
+            return {"mode":"DIFFUSE_ONLY_CYAN" if args.diffuse_only_material_diagnostic else "DEFAULT_RGB","session_layer":session.identifier,"edit_target":stage.GetEditTarget().GetLayer().identifier,"renderer_warmup":{"synchronous_app_updates_before_camera_capture":30,"capture_completion_frames":30,"renderer_sync_verified_by_pixels":False},"controls":diagnostic_controls,"clones":rows}
         material_audit=material_binding_audit()
+        set_phase("PREPHYSICS_MATERIAL_AUDIT")
         material_audit["binding_pass"]=all(row["direct_material_targets"]==[row["computed_material"]] and row["shader"] and row["diffuseColor"] is not None and row["opacity"]==1.0 for row in material_audit["clones"])
         atomic_json(args.run_dir/"prephysics_material_binding_audit.json",material_audit)
-        atomic_json(args.run_dir/"renderer_material_sync_marker.json",{"status":"MATERIAL_BINDINGS_RESOLVED_RENDER_FRAMES_REQUESTED" if material_audit["binding_pass"] else "MATERIAL_BINDING_INVALID","binding_pass":material_audit["binding_pass"],"app_updates_after_camera_activation":30,"capture_completion_frames":30,"physics_initialized":False})
+        atomic_json(args.run_dir/"renderer_material_sync_marker.json",{"status":"MATERIAL_BINDINGS_RESOLVED_RENDER_SYNC_NOT_YET_VERIFIED" if material_audit["binding_pass"] else "MATERIAL_BINDING_INVALID","binding_pass":material_audit["binding_pass"],"app_updates_after_camera_activation":30,"capture_completion_frames":30,"physics_initialized":False})
         if not material_audit["binding_pass"]:
             report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID" if args.diffuse_only_material_diagnostic else "PREPHYSICS_MATERIAL_BINDING_INVALID"
-            report["material_audit"]=material_audit;atomic_json(args.run_dir/"physics_gui_report.json",report);(args.run_dir/"runner_phase.txt").write_text(report["status"]+"\n");return 21
+            report["material_audit"]=material_audit;atomic_json(args.run_dir/"physics_gui_report.json",report);(args.run_dir/"runner_phase.txt").write_text(report["status"]+"\n");return finish(21,report["status"],asset_pass=False)
 
         prephysics_gate=capture_pixel_gate("prephysics",None,raise_on_fail=not args.diffuse_only_material_diagnostic)
+        set_phase("PREPHYSICS_CAPTURED",completed="prephysics_gate")
         if args.diffuse_only_material_diagnostic:
             cyan_report={**prephysics_gate,"status":"PASS" if prephysics_gate["status"]=="PASS" else "DIFFUSE_ONLY_PREPHYSICS_INVALID","legacy_rgb_gate_status":"NOT_RUN","legacy_rgb_gate_is_decisive":False,"material_audit_path":str(args.run_dir/"prephysics_material_binding_audit.json"),"physics_initialized":False,"active_schedule_started":False,"recorder_started":False}
             atomic_json(args.run_dir/"diffuse_only_prephysics_gate.json",cyan_report)
             print("DIFFUSE_ONLY_PREPHYSICS_GATE="+cyan_report["status"],flush=True)
             if cyan_report["status"]!="PASS":
-                report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID";report["diffuse_only_prephysics_gate"]=cyan_report
+                report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID_OBSERVATION";report["diffuse_only_prephysics_gate"]=cyan_report
                 atomic_json(args.run_dir/"physics_gui_report.json",report)
                 (args.run_dir/"runner_phase.txt").write_text("DIFFUSE_ONLY_PREPHYSICS_INVALID\n")
-                return 21
+                # Isolation mode is bounded to closed targets and ten steps.
+                # Preserve the visual failure and continue collecting the safe
+                # API/Fabric boundary evidence. Active motion and recording stay disabled.
             prephysics_gate={**prephysics_gate,"mode":"DIFFUSE_ONLY_CYAN","cyan_gate":cyan_report}
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")
@@ -815,14 +892,18 @@ def main() -> int:
         def usd_snapshot(label,pixel_gate):
             return {"label":label,"manager_step":SimulationManager.get_num_physics_steps(),"prims":{path:usd_prim_state(path) for path in tracked_paths},"joint_authored":joint_frames,"pixel_gate":pixel_gate,"object_id":{"status":"NOT_CAPTURED","reason":"No supported viewport prim-ID API was found in the installed Kit examples; semantic IDs would require a separate Replicator annotator path."},"depth":{"status":"AVAILABLE_INSTALLED_API_NOT_INVOKED","api":"isaacsim.test.utils.image_capture.capture_depth_data_async","reason":"Replicator render-product initialization is intentionally excluded from this minimal initialization diagnostic."}}
         report["initialization_diagnostic"]={"before_initialize":usd_snapshot("before_initialize",prephysics_gate)}
-        diagnostic_marker("STAGE_LOADED");diagnostic_marker("LINKED_CLONES_CREATED",clone_count=len(clone_specs));diagnostic_marker("PREPHYSICS_PIXEL_GATE_PASS");diagnostic_marker("BEFORE_INITIALIZE_STATE_CAPTURED")
+        diagnostic_marker("STAGE_LOADED");diagnostic_marker("LINKED_CLONES_CREATED",clone_count=len(clone_specs))
+        diagnostic_marker("PREPHYSICS_PIXEL_GATE_PASS" if prephysics_gate["status"]=="PASS" else "PREPHYSICS_PIXEL_GATE_FAIL_OBSERVED",pixel_status=prephysics_gate["status"])
+        diagnostic_marker("BEFORE_INITIALIZE_STATE_CAPTURED")
 
         SimulationManager.setup_simulation(dt=1.0 / 60.0, device="cuda:0")
+        set_phase("FABRIC_SETUP_COMPLETE",completed="fabric_setup")
         if args.diffuse_only_material_diagnostic:
             fabric_setup_gate=capture_pixel_gate("after_setup_fabric_enabled_before_initialize",0,prephysics_gate["components"],raise_on_fail=False)
             report["initialization_diagnostic"]["after_setup_fabric_enabled_before_initialize"]={"usd":usd_snapshot("after_setup_fabric_enabled_before_initialize",fabric_setup_gate),"tensor":"NOT_CREATED_YET"}
             diagnostic_marker("FABRIC_ENABLED_BEFORE_INITIALIZE_CAPTURED",pixel_status=fabric_setup_gate["status"],api_evidence="SimulationManager.set_device(cuda:0) calls enable_fabric(True) in installed 6.1 runtime")
         SimulationManager.initialize_physics()
+        set_phase("PHYSICS_INITIALIZED",completed="physics_initialize")
         diagnostic_marker("PHYSICS_INITIALIZED_NO_STEP_IF_API_ALLOWS",manager_step_observed=SimulationManager.get_num_physics_steps())
         if args.diffuse_only_material_diagnostic:
             before_tensor_gate=capture_pixel_gate("after_initialize_before_tensor",0,prephysics_gate["components"],raise_on_fail=False)
@@ -833,6 +914,7 @@ def main() -> int:
         if articulation.count != 1 or articulation.max_dofs != 3:
             raise RuntimeError(f"articulation count/dof={articulation.count}/{articulation.max_dofs}")
         meta = articulation.get_metatype(0);diagnostic_marker("TENSOR_VIEW_CREATED",dof_names=list(meta.dof_names));diagnostic_marker("FABRIC_ALREADY_ENABLED",first_update_fabric_step_pending=True)
+        set_phase("TENSOR_VIEW_CREATED",completed="tensor_view")
         runtime_dof_indices={name:int(meta.dof_indices[name]) for name in meta.dof_names}
         runtime_link_indices={name:int(meta.link_indices[name]) for name in meta.link_names}
         for spec in clone_specs:
@@ -859,7 +941,7 @@ def main() -> int:
             report["status"]="INITIALIZATION_DIAGNOSTIC_STOPPED_AT_AFTER_INITIALIZE_PIXEL_FAIL";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False
             (args.run_dir/"visual_continuity_gate.json").write_text(json.dumps({"status":"FAIL","captures":continuity},indent=2)+"\n")
             (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"runner_phase.txt").write_text("INITIALIZATION_DIAGNOSTIC_PIXEL_FAIL_AFTER_INITIALIZE\n")
-            return 20
+            return finish(20,"INITIALIZATION_DIAGNOSTIC_PIXEL_FAIL",asset_pass=False)
         # The gated runner deliberately does not issue these uncontrolled steps.
         # Its first post-initialize steps all carry the full closed-target vector.
         for relative_step in ([] if (args.gated_recovery_end_to_end or args.initialization_isolation_diagnostic) else range(1,11)):
@@ -874,7 +956,7 @@ def main() -> int:
         if args.initialization_diagnostic:
             report["status"]="INITIALIZATION_DIAGNOSTIC_COMPLETE";report["initialization_diagnostic"]["physics_commands_sent"]=False;report["initialization_diagnostic"]["video_recorder_started"]=False;diagnostic_marker("INITIALIZATION_DIAGNOSTIC_COMPLETE")
             (args.run_dir/"initialization_diagnostic_report.json").write_text(json.dumps(report,indent=2)+"\n");(args.run_dir/"initialization_diagnostic_complete.json").write_text(json.dumps({"status":report["status"],"manager_step":SimulationManager.get_num_physics_steps()},indent=2)+"\n")
-            return 0
+            return finish(0,"INITIALIZATION_DIAGNOSTIC_COMPLETE_NOT_ASSET_PASS",asset_pass=False)
         dof_names = list(meta.dof_names)
         if sorted(dof_names) != ["gt_C_1", "gt_C_2", "gt_C_3"]:
             raise RuntimeError(f"unexpected DOFs {dof_names}")
@@ -932,17 +1014,15 @@ def main() -> int:
             task = asyncio.ensure_future(coroutine)
             started = time.monotonic(); last_heartbeat = 0.0
             while not task.done() or time.monotonic() - started < minimum_wall_s:
-                app.update(); update_count += 1
+                before_update=time.monotonic();app.update(); update_count += 1
                 now = time.monotonic()
+                if now-before_update>5.0:
+                    task.cancel()
+                    raise RuntimeError(f"GUI update watchdog exceeded 5 seconds in {phase}: {now-before_update:.3f}s")
                 if now - last_heartbeat >= 1.0:
                     heartbeat_path.write_text(json.dumps({"phase": phase, "wall_monotonic_s": now, "elapsed_s": now-started, "update_callback_count": update_count, "physics_step_count": SimulationManager.get_num_physics_steps()}) + "\n")
                     last_heartbeat = now
             return task.result()
-
-        def atomic_json(path, value):
-            temporary=path.with_suffix(path.suffix+".tmp")
-            temporary.write_text(json.dumps(value,indent=2)+"\n")
-            os.replace(temporary,path)
 
         def runtime_geometry_state(label):
             positions=nested_values(articulation.get_dof_positions())[0]
@@ -1063,7 +1143,8 @@ def main() -> int:
             atomic_json(args.run_dir/"initialization_isolation_diagnostic_complete.json",{"status":isolation["status"],"manager_step":SimulationManager.get_num_physics_steps(),"physics_video_created":False,"active_door_schedule_started":False,"case_29354_executed":False})
             print("INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE",flush=True)
             print(f"DIAGNOSTIC_COMPLETE_NOT_A_PHYSICS_VIDEO_PASS status={isolation['status']}",flush=True)
-            return 0
+            report["completed_phases"].extend(["stage","linked_clones","prephysics_gate","fabric_setup","physics_initialize","tensor_view","visibility_isolation","closed_steps_1_2_5_10"])
+            return finish(0,"DIAGNOSTIC_COMPLETE_NOT_A_PHYSICS_VIDEO_PASS",asset_pass=False)
 
         async def idle_updates(seconds):
             deadline = time.monotonic() + seconds
@@ -1311,21 +1392,30 @@ def main() -> int:
         (args.run_dir / "runner_phase.txt").write_text("COMPLETE\n")
         (args.run_dir / "physics_gui_report.json").write_text(json.dumps(report, indent=2) + "\n")
         print("GT_GUI_TENSOR_PHYSICS_CAPTURE=AUTOMATED_PASS_HUMAN_REVIEW_REQUIRED", flush=True)
-        return 0
+        report["completed_phases"].extend(["stage","linked_clones","prephysics_gate","physics_initialize","tensor_view","recorder","three_door_schedule"])
+        return finish(0,"AUTOMATION_PASS_HUMAN_VIDEO_REVIEW_REQUIRED",asset_pass=False)
     except BaseException as exc:
         report["status"] = "FAIL"
         report["error"] = {"type": type(exc).__name__, "message": str(exc)}
-        (args.run_dir / "physics_gui_report.json").write_text(json.dumps(report, indent=2) + "\n")
+        atomic_json(args.run_dir / "physics_gui_report.json", report)
+        atomic_json(args.run_dir / "runner_internal_exit.json",internal_exit_payload(status="EXECUTION_OR_API_ERROR",code=1,mode=mode,plan=report["execution_plan"],completed=report["completed_phases"],asset_pass=False,error=report["error"],last_phase=(args.run_dir/"runner_phase.txt").read_text().strip() if (args.run_dir/"runner_phase.txt").exists() else "BEFORE_PHASE_MARKER"))
         traceback.print_exc()
-        raise
+        return 1
     finally:
-        if ffmpeg_process is not None and ffmpeg_process.poll() is None:
-            ffmpeg_process.send_signal(signal.SIGINT)
-            try:
-                ffmpeg_process.wait(timeout=10)
-            except subprocess.TimeoutExpired:
-                ffmpeg_process.kill()
-        app.close()
+        try:
+            if ffmpeg_process is not None and ffmpeg_process.poll() is None:
+                ffmpeg_process.send_signal(signal.SIGINT)
+                try:
+                    ffmpeg_process.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    ffmpeg_process.kill()
+        except BaseException as cleanup_error:
+            atomic_json(args.run_dir/"recorder_cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
+        try:
+            app.close()
+        except BaseException as cleanup_error:
+            # Cleanup must not replace the primary failure recorded above.
+            atomic_json(args.run_dir/"cleanup_error.json",{"type":type(cleanup_error).__name__,"message":str(cleanup_error)})
 
 
 if __name__ == "__main__":
