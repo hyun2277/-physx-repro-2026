@@ -157,7 +157,7 @@ source instance-proxy와 linked clone은 모두 visibility `inherited`여서 Fab
 
 ### 2026-10-05 04:54 diffuse-only prephysics 실패
 
-해당 실행은 Fabric 경계 결과가 아니다. prephysics PNG는 decode됐지만 사실상 검정이었고, 코드가 의도한 cyan 대신 기존 component 색을 유지한 채 legacy RGB gate를 호출하여 physics 초기화 전에 종료했다. 수정 runner는 초기 authoring부터 10163-style cyan diffuse-only material을 사용하고 material/binding/layer audit와 cyan·nonblack·projected-region gate를 분리한다. invalid 화면은 `DIFFUSE_ONLY_PREPHYSICS_INVALID_OBSERVATION`으로 보존한다. binding·입력·articulation 전제가 유효한 bounded isolation에서만 최대 10 closed step까지 경계 자료를 계속 수집하며 active motion, recorder, 29354는 시작하지 않는다.
+해당 실행은 Fabric 경계 결과가 아니다. prephysics PNG는 decode됐지만 사실상 검정이었고, 코드가 의도한 cyan 대신 기존 component 색을 유지한 채 legacy RGB gate를 호출하여 physics 초기화 전에 종료했다. 수정 runner는 초기 authoring부터 10163-style cyan diffuse-only material을 사용하고 material/binding/layer audit와 cyan·nonblack·projected-region gate를 분리한다. prephysics가 유효하지 않으면 `DIFFUSE_ONLY_PREPHYSICS_INVALID`로 기록하고 physics setup 전에 종료한다. 유효할 때만 최대 10 closed step의 경계 자료를 수집하며 active motion, recorder, 29354는 시작하지 않는다.
 
 ### 2026-10-05 05:09 실행 기반 오류와 전체 경로 보완
 

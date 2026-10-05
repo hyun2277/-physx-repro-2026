@@ -854,12 +854,10 @@ def main() -> int:
             atomic_json(args.run_dir/"diffuse_only_prephysics_gate.json",cyan_report)
             print("DIFFUSE_ONLY_PREPHYSICS_GATE="+cyan_report["status"],flush=True)
             if cyan_report["status"]!="PASS":
-                report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID_OBSERVATION";report["diffuse_only_prephysics_gate"]=cyan_report
+                report["status"]="DIFFUSE_ONLY_PREPHYSICS_INVALID";report["diffuse_only_prephysics_gate"]=cyan_report
                 atomic_json(args.run_dir/"physics_gui_report.json",report)
                 (args.run_dir/"runner_phase.txt").write_text("DIFFUSE_ONLY_PREPHYSICS_INVALID\n")
-                # Isolation mode is bounded to closed targets and ten steps.
-                # Preserve the visual failure and continue collecting the safe
-                # API/Fabric boundary evidence. Active motion and recording stay disabled.
+                return finish(21,"DIFFUSE_ONLY_PREPHYSICS_INVALID",asset_pass=False)
             prephysics_gate={**prephysics_gate,"mode":"DIFFUSE_ONLY_CYAN","cyan_gate":cyan_report}
         prephysics_gate.update({"physics_steps":0,"camera":{"path":str(camera.GetPath()),"eye":eye,"target":center,"selection":"minus-Z derived 3/4; +X/+Y offset exposes Y-axis door depth"},"linked_clone_max_roundtrip_error_m":max(spec["actual_authored_clone_vertex_max_error_m"] for spec in clone_specs)})
         (args.run_dir/"prephysics_pixel_gate.json").write_text(json.dumps(prephysics_gate,indent=2)+"\n")

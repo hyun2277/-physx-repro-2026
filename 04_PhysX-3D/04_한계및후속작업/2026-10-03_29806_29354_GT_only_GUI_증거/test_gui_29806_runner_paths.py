@@ -14,6 +14,7 @@ from gui_29806_common import atomic_json, corners, execution_plan, internal_exit
 
 HERE = Path(__file__).resolve().parent
 RUNNER = HERE / "gui_29806_end_to_end_physics_video.py"
+WRAPPER = HERE / "run_gui_29806_gpu0_initialization_isolation_diagnostic.sh"
 
 
 def expect_error(function, text):
@@ -63,6 +64,11 @@ def test_runner_definition_lifetime_and_exit_path():
     assert "runner_internal_exit.json" in source
     assert 'return 1' in source and 'internal_exit_payload' in source
     assert 'DIAGNOSTIC_ONLY_ACTIVE_DOOR_MOTION_NOT_EXPECTED' in source
+    invalid_branch = source.index('return finish(21,"DIFFUSE_ONLY_PREPHYSICS_INVALID"')
+    assert invalid_branch < source.index("SimulationManager.setup_simulation"), "invalid prephysics must stop before physics setup"
+    wrapper = WRAPPER.read_text()
+    assert wrapper.index('((rc==0)) || fail isaac_child') < wrapper.index("rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE'")
+    assert wrapper.index("rg -qx 'INITIALIZATION_ISOLATION_DIAGNOSTIC_COMPLETE'") < wrapper.index("printf '0\\n' >\"$LOG_DIR/wrapper_exit_code.txt\"")
 
 
 def test_actual_main_entry_and_error_exit_for_every_mode():
